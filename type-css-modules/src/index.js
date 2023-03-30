@@ -1,3 +1,12 @@
+import {
+  cleanDeclarationFiles,
+  createDeclarationFiles,
+  createOptions,
+} from './steps/index.js';
+
 export function typeCssModules(codemodOptions) {
-  console.log(codemodOptions);
+  const options = createOptions(codemodOptions);
+
+  cleanDeclarationFiles(options);
+  createDeclarationFiles(options);
 }
