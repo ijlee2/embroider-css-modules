@@ -1,0 +1,52 @@
+{
+  "name": "type-css-modules",
+  "version": "0.0.0",
+  "description": "Generate declaration files for CSS modules",
+  "keywords": [
+    "css",
+    "css-modules",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ijlee2/embroider-css-modules.git"
+  },
+  "license": "MIT",
+  "author": "Isaac J. Lee",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": "./bin/type-css-modules.js",
+  "files": [
+    "bin/",
+    "src/"
+  ],
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --fix",
+    "test": "mt tests --quiet"
+  },
+  "dependencies": {
+    "css-tree": "^2.3.1",
+    "glob": "^9.3.4",
+    "yargs": "^17.7.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/eslint-parser": "^7.21.3",
+    "@sondr3/minitest": "^0.1.1",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "fixturify": "^3.0.0",
+    "prettier": "^2.8.7"
+  },
+  "engines": {
+    "node": "16.* || >= 18"
+  }
+}
