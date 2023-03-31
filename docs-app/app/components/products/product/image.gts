@@ -10,11 +10,24 @@ interface ProductsProductImageComponentSignature {
 }
 
 export default class ProductsProductImageComponent extends Component<ProductsProductImageComponentSignature> {
-  styles = styles;
-
   get isTestEnvironment() {
     return config.environment === 'test';
   }
+
+  <template>
+    {{#if this.isTestEnvironment}}
+      <div class={{styles.placeholder-image}}></div>
+
+    {{else}}
+      <img
+        alt=""
+        class={{styles.image}}
+        role="presentation"
+        src={{@src}}
+      />
+
+    {{/if}}
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

@@ -28,7 +28,7 @@ module.exports = {
   overrides: [
     // TypeScript files
     {
-      files: ['**/*.ts'],
+      files: ['**/*.{gts,ts}'],
       extends: [
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',

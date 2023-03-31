@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { localClass } from 'embroider-css-modules';
 
 import styles from './page.css';
 
@@ -12,7 +13,21 @@ interface UiPageComponentSignature {
 }
 
 export default class UiPageComponent extends Component<UiPageComponentSignature> {
-  styles = styles;
+  <template>
+    <div class={{localClass styles "container"}}>
+      <h1 class={{styles.header}}>
+        {{@title}}
+      </h1>
+
+      <div
+        class="{{styles.body}}"
+        id="main-content"
+        tabindex="-1"
+      >
+        {{yield}}
+      </div>
+    </div>
+  </template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {
