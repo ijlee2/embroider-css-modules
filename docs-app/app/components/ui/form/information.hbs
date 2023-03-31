@@ -1,0 +1,23 @@
+{{#if (or @title @instructions)}}
+  <div class={{this.styles.container}}>
+    {{#if @title}}
+      <div
+        class={{this.styles.title}}
+        data-test-title
+        id="{{@formId}}-title"
+      >
+        {{@title}}
+      </div>
+    {{/if}}
+
+    {{#if @instructions}}
+      <p
+        class={{this.styles.instructions}}
+        data-test-instructions
+        id="{{@formId}}-instructions"
+      >
+        {{@instructions}}
+      </p>
+    {{/if}}
+  </div>
+{{/if}}
