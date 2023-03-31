@@ -27,3 +27,9 @@ export default class UiFormFieldComponent extends Component<UiFormFieldComponent
   inputId = guidFor(this);
   styles = styles;
 }
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Ui::Form::Field': typeof UiFormFieldComponent;
+  }
+}

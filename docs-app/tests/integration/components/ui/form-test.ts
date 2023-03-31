@@ -8,7 +8,7 @@ module('Integration | Component | ui/form', function (hooks) {
   setupRenderingTest(hooks);
 
   test('The component renders a form', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form
         @data={{hash
           email=undefined

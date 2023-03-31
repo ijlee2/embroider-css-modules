@@ -31,12 +31,24 @@ importers:
       '@embroider/webpack':
         specifier: ^2.1.1
         version: 2.1.1(@embroider/core@2.1.1)(webpack@5.77.0)
+      '@gavant/glint-template-types':
+        specifier: ^0.3.3
+        version: 0.3.3
       '@glimmer/component':
         specifier: ^1.1.2
         version: 1.1.2(@babel/core@7.21.4)
       '@glimmer/tracking':
         specifier: ^1.1.2
         version: 1.1.2
+      '@glint/core':
+        specifier: ^v1.0.0-beta.4
+        version: 1.0.0-beta.4(typescript@5.0.3)
+      '@glint/environment-ember-loose':
+        specifier: ^v1.0.0-beta.4
+        version: 1.0.0-beta.4(@glimmer/component@1.1.2)(@glint/template@1.0.0-beta.4)(ember-cli-htmlbars@6.2.0)(ember-modifier@4.1.0)
+      '@glint/template':
+        specifier: ^v1.0.0-beta.4
+        version: 1.0.0-beta.4
       '@percy/cli':
         specifier: ^1.21.0
         version: 1.21.0
@@ -99,7 +111,7 @@ importers:
         version: 4.0.2
       ember-container-query:
         specifier: ^4.0.0-alpha.5
-        version: 4.0.0-alpha.5(ember-source@4.11.0)
+        version: 4.0.0-alpha.5(@glint/template@1.0.0-beta.4)(ember-source@4.11.0)
       ember-load-initializers:
         specifier: ^2.1.2
         version: 2.1.2(@babel/core@7.21.4)
@@ -310,7 +322,7 @@ importers:
         version: 1.0.0-beta.4(typescript@5.0.3)
       '@glint/environment-ember-loose':
         specifier: ^v1.0.0-beta.4
-        version: 1.0.0-beta.4(@glimmer/component@1.1.2)(@glint/template@1.0.0-beta.4)(ember-cli-htmlbars@6.2.0)
+        version: 1.0.0-beta.4(@glimmer/component@1.1.2)(@glint/template@1.0.0-beta.4)(ember-cli-htmlbars@6.2.0)(ember-modifier@4.1.0)
       '@glint/template':
         specifier: ^v1.0.0-beta.4
         version: 1.0.0-beta.4
@@ -2209,6 +2221,10 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
+  /@gavant/glint-template-types@0.3.3:
+    resolution: {integrity: sha512-MPRvYBeL0L5PVxSWl3JnEYtzHUjKHdZ5CmfdHEUvhO8ZNI5A+H5UHN1RxIEgTAqkrCU5XL3JjKOfjfDiHxhMpg==}
+    dev: true
+
   /@glimmer/component@1.1.2(@babel/core@7.21.4):
     resolution: {integrity: sha512-XyAsEEa4kWOPy+gIdMjJ8XlzA3qrGH55ZDv6nA16ibalCR17k74BI0CztxuRds+Rm6CtbUVgheCVlcCULuqD7A==}
     engines: {node: 6.* || 8.* || >= 10.*}
@@ -2382,7 +2398,7 @@ packages:
       '@types/ember__component': 4.0.12(@babel/core@7.21.4)
     dev: true
 
-  /@glint/environment-ember-loose@1.0.0-beta.4(@glimmer/component@1.1.2)(@glint/template@1.0.0-beta.4)(ember-cli-htmlbars@6.2.0):
+  /@glint/environment-ember-loose@1.0.0-beta.4(@glimmer/component@1.1.2)(@glint/template@1.0.0-beta.4)(ember-cli-htmlbars@6.2.0)(ember-modifier@4.1.0):
     resolution: {integrity: sha512-xLWdnrU9XpRr26YIZZ1eMMZwPoy3GMbVDb9VDcQgjqMrIAFL39p6n34reXxajjJrvJYNkTxGpcMZJXNgdBk1fg==}
     peerDependencies:
       '@glimmer/component': ^1.1.2
@@ -2413,6 +2429,7 @@ packages:
       '@glimmer/component': 1.1.2(@babel/core@7.21.4)
       '@glint/template': 1.0.0-beta.4
       ember-cli-htmlbars: 6.2.0
+      ember-modifier: 4.1.0(ember-source@4.11.0)
     dev: true
 
   /@glint/template@1.0.0-beta.4:
@@ -7196,12 +7213,12 @@ packages:
       - supports-color
     dev: true
 
-  /ember-container-query@4.0.0-alpha.5(ember-source@4.11.0):
+  /ember-container-query@4.0.0-alpha.5(@glint/template@1.0.0-beta.4)(ember-source@4.11.0):
     resolution: {integrity: sha512-D+r0Ws9neSMAmRmh/cjf+Tjs/qnq7h0Db5mo+IWY6HAk2Mq+PjeInV7me6emZCfwcw09JxhJbhqWp6en5E1OPg==}
     engines: {node: 14.* || 16.* || >= 18}
     dependencies:
       '@embroider/addon-shim': 1.8.4
-      ember-element-helper: 0.6.1(ember-source@4.11.0)
+      ember-element-helper: 0.6.1(@glint/template@1.0.0-beta.4)(ember-source@4.11.0)
       ember-modifier: 4.1.0(ember-source@4.11.0)
       ember-resize-observer-service: 1.1.0
     transitivePeerDependencies:
@@ -7222,7 +7239,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-element-helper@0.6.1(ember-source@4.11.0):
+  /ember-element-helper@0.6.1(@glint/template@1.0.0-beta.4)(ember-source@4.11.0):
     resolution: {integrity: sha512-YiOdAMlzYul4ulkIoNp8z7iHDfbT1fbut/9xGFRfxDwU/FmF8HtAUB2f1veu/w50HTeZNopa1OV2PCloZ76XlQ==}
     engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:

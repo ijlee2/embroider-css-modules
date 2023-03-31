@@ -10,7 +10,7 @@ module('Integration | Component | ui/form/field', function (hooks) {
   setupRenderingTest(hooks);
 
   test('The component handles the field layout', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Field>
         <:label as |l|>
           <label
@@ -58,7 +58,7 @@ module('Integration | Component | ui/form/field', function (hooks) {
   });
 
   test('We can pass @errorMessage to show an error message', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Field
         @errorMessage="Please provide a value."
       >

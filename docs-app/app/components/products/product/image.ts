@@ -16,3 +16,9 @@ export default class ProductsProductImageComponent extends Component<ProductsPro
     return config.environment === 'test';
   }
 }
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Products::Product::Image': typeof ProductsProductImageComponent;
+  }
+}

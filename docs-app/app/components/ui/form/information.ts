@@ -13,3 +13,9 @@ interface UiFormInformationComponentSignature {
 export default class UiFormInformationComponent extends Component<UiFormInformationComponentSignature> {
   styles = styles;
 }
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Ui::Form::Information': typeof UiFormInformationComponent;
+  }
+}

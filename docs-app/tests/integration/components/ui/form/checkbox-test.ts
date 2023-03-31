@@ -27,7 +27,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
   });
 
   test('The component renders a label and a checkbox', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Checkbox
         @changeset={{this.changeset}}
         @key="subscribe"
@@ -56,7 +56,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
   });
 
   test('We can pass @isDisabled to disable the input', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Checkbox
         @changeset={{this.changeset}}
         @isDisabled={{true}}
@@ -73,7 +73,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
   });
 
   test('We can pass @isReadOnly to display the value', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Checkbox
         @changeset={{this.changeset}}
         @isReadOnly={{true}}
@@ -91,7 +91,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
   });
 
   test('We can pass @isRequired to require a value', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Checkbox
         @changeset={{this.changeset}}
         @isRequired={{true}}
@@ -128,7 +128,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
       set(this.changeset, key, value);
     };
 
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Checkbox
         @changeset={{this.changeset}}
         @isRequired={{true}}
@@ -178,7 +178,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
       set(this.changeset, key, value);
     };
 
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Checkbox
         @changeset={{this.changeset}}
         @isRequired={{true}}

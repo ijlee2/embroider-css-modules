@@ -79,7 +79,7 @@ module.exports = function (defaults) {
     staticAddonTestSupportTrees: true,
     staticAddonTrees: true,
     staticComponents: true,
-    staticHelpers: false, // TODO: set to `true`
+    staticHelpers: true,
     staticModifiers: true,
   };
 

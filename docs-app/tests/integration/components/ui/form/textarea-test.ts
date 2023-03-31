@@ -27,7 +27,7 @@ module('Integration | Component | ui/form/textarea', function (hooks) {
   });
 
   test('The component renders a label and a textarea', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Textarea
         @changeset={{this.changeset}}
         @key="message"
@@ -54,7 +54,7 @@ module('Integration | Component | ui/form/textarea', function (hooks) {
   });
 
   test('We can pass @isDisabled to disable the text area', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Textarea
         @changeset={{this.changeset}}
         @isDisabled={{true}}
@@ -70,7 +70,7 @@ module('Integration | Component | ui/form/textarea', function (hooks) {
   });
 
   test('We can pass @isReadOnly to display the value', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Textarea
         @changeset={{this.changeset}}
         @isReadOnly={{true}}
@@ -87,7 +87,7 @@ module('Integration | Component | ui/form/textarea', function (hooks) {
   });
 
   test('We can pass @isRequired to require a value', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Textarea
         @changeset={{this.changeset}}
         @isRequired={{true}}
@@ -121,7 +121,7 @@ module('Integration | Component | ui/form/textarea', function (hooks) {
       set(this.changeset, key, value);
     };
 
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Textarea
         @changeset={{this.changeset}}
         @isRequired={{true}}

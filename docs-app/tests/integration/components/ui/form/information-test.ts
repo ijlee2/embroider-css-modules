@@ -8,7 +8,7 @@ module('Integration | Component | ui/form/information', function (hooks) {
   setupRenderingTest(hooks);
 
   test('The component renders nothing when we do not pass @title or @instructions', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Information
         @formId="ember123"
       />
@@ -24,7 +24,7 @@ module('Integration | Component | ui/form/information', function (hooks) {
   });
 
   test('We can pass @title to display the form title', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Information
         @formId="ember123"
         @title="Contact me"
@@ -42,7 +42,7 @@ module('Integration | Component | ui/form/information', function (hooks) {
   });
 
   test('We can pass @instructions to display the form instructions', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Form::Information
         @formId="ember123"
         @instructions="Still have questions about embroider-css-modules? Try sending me a message."

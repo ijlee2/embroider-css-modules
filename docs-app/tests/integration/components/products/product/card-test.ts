@@ -28,7 +28,7 @@ module('Integration | Component | products/product/card', function (hooks) {
   });
 
   test('The component renders a product', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Products::Product::Card
         @product={{this.product}}
         @redirectTo="products.product"

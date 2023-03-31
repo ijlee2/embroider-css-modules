@@ -8,7 +8,7 @@ module('Integration | Component | ui/page', function (hooks) {
   setupRenderingTest(hooks);
 
   test('The component handles the page layout', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <Ui::Page
         @title="Form"
       >

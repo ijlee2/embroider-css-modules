@@ -8,7 +8,7 @@ module('Integration | Component | navigation-menu', function (hooks) {
   setupRenderingTest(hooks);
 
   test('The component renders a navigation menu', async function (this: TestContext, assert) {
-    await render(hbs`
+    await render<TestContext>(hbs`
       <NavigationMenu
         @menuItems={{array
           (hash route="index" label="Home")
