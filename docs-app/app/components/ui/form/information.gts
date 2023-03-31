@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 import styles from './information.css';
 
@@ -14,33 +14,34 @@ function or(title?: string, instructions?: string) {
   return Boolean(title) || Boolean(instructions);
 }
 
-export default class UiFormInformationComponent extends Component<UiFormInformationComponentSignature> {
-  <template>
-    {{#if (or @title @instructions)}}
-      <div class={{styles.container}}>
-        {{#if @title}}
-          <div
-            class={{styles.title}}
-            data-test-title
-            id="{{@formId}}-title"
-          >
-            {{@title}}
-          </div>
-        {{/if}}
+const UiFormInformationComponent: TOC<UiFormInformationComponentSignature> =
+<template>
+  {{#if (or @title @instructions)}}
+    <div class={{styles.container}}>
+      {{#if @title}}
+        <div
+          class={{styles.title}}
+          data-test-title
+          id="{{@formId}}-title"
+        >
+          {{@title}}
+        </div>
+      {{/if}}
 
-        {{#if @instructions}}
-          <p
-            class={{styles.instructions}}
-            data-test-instructions
-            id="{{@formId}}-instructions"
-          >
-            {{@instructions}}
-          </p>
-        {{/if}}
-      </div>
-    {{/if}}
-  </template>
-}
+      {{#if @instructions}}
+        <p
+          class={{styles.instructions}}
+          data-test-instructions
+          id="{{@formId}}-instructions"
+        >
+          {{@instructions}}
+        </p>
+      {{/if}}
+    </div>
+  {{/if}}
+</template>
+
+export default UiFormInformationComponent;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

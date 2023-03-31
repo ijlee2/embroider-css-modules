@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 import { localClass } from 'embroider-css-modules';
 
 import styles from './page.css';
@@ -12,23 +12,24 @@ interface UiPageComponentSignature {
   };
 }
 
-export default class UiPageComponent extends Component<UiPageComponentSignature> {
-  <template>
-    <div class={{localClass styles "container"}}>
-      <h1 class={{styles.header}}>
-        {{@title}}
-      </h1>
+const UiPageComponent: TOC<UiPageComponentSignature> =
+<template>
+  <div class={{localClass styles "container"}}>
+    <h1 class={{styles.header}}>
+      {{@title}}
+    </h1>
 
-      <div
-        class="{{styles.body}}"
-        id="main-content"
-        tabindex="-1"
-      >
-        {{yield}}
-      </div>
+    <div
+      class="{{styles.body}}"
+      id="main-content"
+      tabindex="-1"
+    >
+      {{yield}}
     </div>
-  </template>
-}
+  </div>
+</template>
+
+export default UiPageComponent;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

@@ -1,7 +1,9 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 import config from 'docs-app/config/environment';
 
 import styles from './image.css';
+
+const isTestEnvironment = config.environment === 'test';
 
 interface ProductsProductImageComponentSignature {
   Args: {
@@ -9,26 +11,23 @@ interface ProductsProductImageComponentSignature {
   };
 }
 
-export default class ProductsProductImageComponent extends Component<ProductsProductImageComponentSignature> {
-  get isTestEnvironment() {
-    return config.environment === 'test';
-  }
+const ProductsProductImageComponent: TOC<ProductsProductImageComponentSignature> =
+<template>
+  {{#if isTestEnvironment}}
+    <div class={{styles.placeholder-image}}></div>
 
-  <template>
-    {{#if this.isTestEnvironment}}
-      <div class={{styles.placeholder-image}}></div>
+  {{else}}
+    <img
+      alt=""
+      class={{styles.image}}
+      role="presentation"
+      src={{@src}}
+    />
 
-    {{else}}
-      <img
-        alt=""
-        class={{styles.image}}
-        role="presentation"
-        src={{@src}}
-      />
+  {{/if}}
+</template>
 
-    {{/if}}
-  </template>
-}
+export default ProductsProductImageComponent;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
