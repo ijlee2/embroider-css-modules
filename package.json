@@ -11,8 +11,13 @@
   "author": "Isaac J. Lee",
   "type": "module",
   "scripts": {
+    "build": "concurrently 'npm:build:*'",
+    "build:embroider-css-modules": "pnpm --filter embroider-css-modules build",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
+    "prepare": "pnpm build:embroider-css-modules",
+    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:embroider-css-modules": "pnpm --filter embroider-css-modules start",
     "test": "pnpm --filter '*' test"
   },
   "devDependencies": {

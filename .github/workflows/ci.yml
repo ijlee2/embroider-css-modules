@@ -16,6 +16,7 @@ jobs:
     strategy:
       matrix:
         package-location:
+          - 'embroider-css-modules'
           - 'type-css-modules'
     timeout-minutes: 5
     steps:
@@ -47,6 +48,7 @@ jobs:
     strategy:
       matrix:
         package-location:
+          - 'embroider-css-modules'
           - 'type-css-modules'
     timeout-minutes: 5
     steps:
