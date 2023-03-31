@@ -91,7 +91,9 @@
     "edition": "octane"
   },
   "ember-addon": {
-    "app-js": {},
+    "app-js": {
+      "./helpers/local-class.js": "./dist/_app_/helpers/local-class.js"
+    },
     "main": "addon-main.cjs",
     "type": "addon",
     "version": 2
