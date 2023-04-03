@@ -1,0 +1,31 @@
+<div
+  class="{{this.styles.container}}
+    {{if @isInline this.styles.is-inline}}
+    {{if @isWide this.styles.is-wide}}
+    {{unless @errorMessage this.styles.no-feedback}}
+    "
+>
+  <div class="{{this.styles.label}}">
+    {{yield (hash inputId=this.inputId) to="label"}}
+  </div>
+
+  <div class="{{this.styles.field}}">
+    {{yield (hash inputId=this.inputId) to="field"}}
+  </div>
+
+  {{#if @errorMessage}}
+    <div
+      class="{{this.styles.feedback}} {{this.styles.is-error}}"
+    >
+      {{svg-jar "alert" aria-hidden="true"}}
+
+      <span
+        data-test-feedback
+        class="{{this.styles.message}}"
+        role="alert"
+      >
+        {{@errorMessage}}
+      </span>
+    </div>
+  {{/if}}
+</div>

@@ -1,0 +1,113 @@
+<ContainerQuery
+  @features={{hash large=(width min=320) tall=(height min=80)}}
+  as |CQ|
+>
+  <div
+    class="{{this.styles.container}}
+      {{unless CQ.features.tall this.styles.flat}}"
+  >
+    {{#if this.summary}}
+      <div
+        class="{{this.styles.summary}}
+          {{if
+            CQ.features.large
+            this.styles.horizontal-layout
+          }}"
+        tabindex="0"
+      >
+        <h3
+          data-test-field="Music Format"
+          class="{{this.styles.music-format}}
+            {{unless
+              CQ.features.large
+              this.styles.small-font-size
+            }}"
+        >
+          <span class="{{this.styles.marker}}">
+            {{svg-jar
+              "stop"
+              aria-hidden="true"
+              style=(concat
+                "color: " this.summary.markerColor ";"
+              )
+            }}
+          </span>
+
+          {{this.summary.musicFormat}}
+        </h3>
+
+        <div
+          data-test-field="Annual Revenue"
+          class="{{this.styles.annual-revenue}}"
+        >
+          {{#if (or CQ.features.tall CQ.features.large)}}
+            <span>Annual revenue:</span>
+          {{/if}}
+
+          <span class="{{this.styles.highlight}}">
+            {{this.summary.averageRevenue}}
+          </span>
+        </div>
+
+        <div
+          data-test-field="Relevant Years"
+          class="{{this.styles.relevant-years}}"
+        >
+          {{#if (or CQ.features.tall CQ.features.large)}}
+            <span>Relevant years:</span>
+          {{/if}}
+
+          <span class="{{this.styles.highlight}}">
+            {{this.summary.relevantYears.min}}
+            -
+            {{this.summary.relevantYears.max}}
+          </span>
+        </div>
+      </div>
+
+      {{#if this.canShowPreviousButton}}
+        <button
+          aria-label="Previous"
+          data-test-button="Previous"
+          class="{{this.styles.previous-button}}"
+          type="button"
+          {{on "click" (fn this.showNextSummary -1)}}
+        >
+          {{#if CQ.features.tall}}
+            Previous
+
+          {{else}}
+            {{svg-jar
+              "chevron-left"
+              aria-hidden="true"
+              class=this.styles.icon
+            }}
+
+          {{/if}}
+        </button>
+      {{/if}}
+
+      {{#if this.canShowNextButton}}
+        <button
+          aria-label="Next"
+          data-test-button="Next"
+          class="{{this.styles.next-button}}"
+          type="button"
+          {{on "click" (fn this.showNextSummary 1)}}
+        >
+          {{#if CQ.features.tall}}
+            Next
+
+          {{else}}
+            {{svg-jar
+              "chevron-right"
+              aria-hidden="true"
+              class=this.styles.icon
+            }}
+
+          {{/if}}
+        </button>
+      {{/if}}
+    {{/if}}
+  </div>
+</ContainerQuery>
