@@ -70,7 +70,7 @@ import styles from 'app/components/ui/page.css';
 // This should work but results in an error
 assert
   .dom('[data-test-container]')
-  .hasClass(styles['container']);
+  .hasClass(styles.container);
     // ↳ Argument of type 'string | undefined' is not assignable to parameter of type 'string | RegExp'.
     //   Type 'undefined' is not assignable to 'string | RegExp'.
 
@@ -343,7 +343,7 @@ import { container, header, body } from './page.css';
 
 <sup>1. With `css-loader`, for example, you can configure [`mode`](https://webpack.js.org/loaders/css-loader/#mode) to be a function that conditionally returns `'local'` or `'global'`. In CSS module files, you can use the `:global()` pseudo-class selector to refer to "things from outside."</sup>
 
-<sup>2. [CSS nesting is in spec](https://www.w3.org/TR/css-nesting-1/). Once it is official, `type-css-modules` will leave it up to [`css-tree`](https://github.com/csstree/csstree) to parse nested styles.
+<sup>2. [CSS nesting is in spec](https://www.w3.org/TR/css-nesting-1/). Once it is official, `type-css-modules` will leave it up to [`csstree`](https://github.com/csstree/csstree) to parse nested styles.
 
 
 ## Compatibility
