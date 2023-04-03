@@ -17,4 +17,5 @@
 /.pnpm-debug.log
 /.prettierignore
 /.prettierrc.cjs
+/create-test-fixture.sh
 /tests/
