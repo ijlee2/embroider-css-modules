@@ -1,0 +1,45 @@
+{{page-title "Form"}}
+
+<Ui::Page @title="Form">
+  <Ui::Form
+    @data={{hash
+      email=undefined
+      message="I 🧡 CSS modules!"
+      name=undefined
+      subscribe=true
+    }}
+    @instructions="Still have questions about embroider-css-modules? Try sending me a message."
+    @title="Contact me"
+    as |F|
+  >
+    <div class={{this.styles.field}}>
+      <F.Input
+        @isRequired={{true}}
+        @key="name"
+        @label="Name"
+        @placeholder="Zoey"
+      />
+    </div>
+
+    <div class={{this.styles.field}}>
+      <F.Input
+        @isRequired={{true}}
+        @key="email"
+        @label="Email"
+        @placeholder="zoey@emberjs.com"
+        @type="email"
+      />
+    </div>
+
+    <div class={{this.styles.field}}>
+      <F.Textarea @key="message" @label="Message" />
+    </div>
+
+    <div class={{this.styles.field}}>
+      <F.Checkbox
+        @key="subscribe"
+        @label="Subscribe to The Ember Times?"
+      />
+    </div>
+  </Ui::Form>
+</Ui::Page>

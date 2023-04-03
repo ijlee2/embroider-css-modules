@@ -1,0 +1,37 @@
+{{page-title "embroider-css-modules"}}
+
+<div class={{this.styles.application}}>
+  <header class={{this.styles.header}}>
+    <NavigationNarrator @skipTo="#main-content" />
+
+    <NavigationMenu
+      @menuItems={{array
+        (hash label="Home" route="index")
+        (hash label="Form" route="form")
+        (hash label="Products" route="products")
+      }}
+      @name="Main Navigation"
+    />
+  </header>
+
+  <main class={{this.styles.main}}>
+    <div class={{this.styles.center}}>
+      {{outlet}}
+    </div>
+  </main>
+
+  <footer class={{this.styles.footer}}>
+    <span class={{this.styles.copyright}}>
+      Created by
+      <a
+        class={{this.styles.link}}
+        href="https://www.linkedin.com/in/ijlee2/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Isaac J. Lee
+      </a>
+      © 2023
+    </span>
+  </footer>
+</div>

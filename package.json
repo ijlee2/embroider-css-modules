@@ -12,11 +12,13 @@
   "type": "module",
   "scripts": {
     "build": "concurrently 'npm:build:*'",
+    "build:docs-app": "pnpm --filter docs-app build",
     "build:embroider-css-modules": "pnpm --filter embroider-css-modules build",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
     "prepare": "pnpm build:embroider-css-modules",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:docs-app": "pnpm --filter docs-app start",
     "start:embroider-css-modules": "pnpm --filter embroider-css-modules start",
     "test": "pnpm --filter '*' test"
   },

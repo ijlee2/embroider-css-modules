@@ -1,4 +1,5 @@
 packages:
+  - docs-app
   - embroider-css-modules
   - test-app
   - type-css-modules
