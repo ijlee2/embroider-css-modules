@@ -29,12 +29,12 @@ ember install embroider-css-modules
     import styles from './page.css';
 
     <template>
-      <div class={{styles.container}}>
-        <h1>
+      <div class={{localClass styles "container"}}>
+        <h1 class={{styles.header}}>
           {{@title}}
         </h1>
 
-        <div class={{localClass styles "body"}}>
+        <div class={{styles.body}}>
           {{yield}}
         </div>
       </div>
@@ -66,25 +66,62 @@ The addon provides 1 helper:
 
 - `{{local-class}}`
 
-Expand the items below to learn more about the API.
-
-<details>
-<summary><code>{{local-class}}</code></summary>
-
-Suppose there is a `styles` object that maps local class names to global ones (presumed to be hashed).
+Expand the items below to learn more about the API. Throughout the section, you can assume that there is a `styles` object, which maps local class names to global ones.
 
 ```ts
-styles = {
-  container: 'container-hashed',
+// An example
+const styles = {
+  'container': 'container-hashed',
   'is-inline': 'is-inline-hashed',
   'is-wide': 'is-wide-hashed',
   'no-feedback': 'no-feedback-hashed',
 };
 ```
 
+<details>
+<summary><code>{{local-class}}</code></summary>
+
+### Why use it?
+
+The `{{local-class}}` helper is useful when there are multiple classes to consider.
+
+```hbs
+{{! Before: app/components/ui/form/field.hbs }}
+<div
+  class={{concat
+    this.styles.container
+    " "
+    (if @isInline this.styles.is-inline)
+    " "
+    (if @isWide this.styles.is-wide)
+    " "
+    (unless @errorMessage this.styles.no-feedback)
+  }}
+>
+  ...
+</div>
+```
+
+```hbs
+{{! After: app/components/ui/form/field.hbs }}
+<div
+  class={{local-class
+    this.styles
+    "container"
+    (if @isInline "is-inline")
+    (if @isWide "is-wide")
+    (unless @errorMessage "no-feedback")
+  }}
+>
+  ...
+</div>
+```
+
 ### Arguments
 
-The `{{local-class}}` helper uses positional arguments to accept the `styles` object (1st parameter) and local class names (rest parameters).
+The `{{local-class}}` helper uses positional arguments so that, when there is a type error, the message from TypeScript is easy to understand.
+
+Pass the `styles` object first, then the local class name(s).
 
 ```hbs
 {{! app/components/ui/form/field.hbs }}
@@ -103,7 +140,7 @@ The `{{local-class}}` helper uses positional arguments to accept the `styles` ob
 
 ### Outputs
 
-The `{{local-class}}` helper returns a string, which concatenates the corresponding global class names.
+The `{{local-class}}` helper returns a concatenated string. The string lists the global class names in the same order as the local ones.
 
 </details>
 
