@@ -7,7 +7,7 @@ const __dirname = dirname(__filename);
 function getBlueprintRoot() {
   const srcDirectory = join(__dirname, '../..');
 
-  return join(srcDirectory, 'blueprints/ember-app');
+  return join(srcDirectory, 'blueprints');
 }
 
 export const blueprintRoot = getBlueprintRoot();
