@@ -1,7 +1,10 @@
 .container {
+  height: 100%;
+}
+
+.container :global(.container-query) {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .items {
@@ -23,7 +26,7 @@
   grid-area: item-3;
 }
 
-.container[data-container-query-tall] .items {
+.container :global(.container-query)[data-container-query-tall] .items {
   grid-template-areas:
     "item-1"
     "item-2"
@@ -32,7 +35,7 @@
   grid-template-rows: repeat(3, 1fr);
 }
 
-.container[data-container-query-square] .items {
+.container :global(.container-query)[data-container-query-square] .items {
   grid-template-areas:
     "item-1 item-2"
     "item-3 item-3";
@@ -40,7 +43,7 @@
   grid-template-rows: repeat(2, 1fr);
 }
 
-.container[data-container-query-wide] .items {
+.container :global(.container-query)[data-container-query-wide] .items {
   grid-template-areas: "item-1 item-2 item-3";
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;

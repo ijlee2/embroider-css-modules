@@ -22,11 +22,16 @@
       aria-labelledby="{{f.inputId}}-label"
       aria-readonly={{if @isReadOnly "true" "false"}}
       aria-required={{if @isRequired "true" "false"}}
+      class={{local-class
+        (concat
+          "checkbox"
+          " "
+          (if this.isChecked "is-checked")
+          " "
+          (if (or @isDisabled @isReadOnly) "is-disabled")
+        )
+      }}
       data-test-field={{@label}}
-      local-class="checkbox
-        {{if this.isChecked 'is-checked'}}
-        {{if (or @isDisabled @isReadOnly) 'is-disabled'}}
-      "
       role="checkbox"
       tabindex={{unless @isDisabled "0"}}
       {{on "click" this.updateValue}}
