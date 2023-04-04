@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { analyzeApp, createOptions } from './steps/index.js';
+import { analyzeApp, createOptions, updatePackageJson } from './steps/index.js';
 
 export function migrateEmberApp(codemodOptions) {
   const options = createOptions(codemodOptions);
@@ -12,4 +12,7 @@ export function migrateEmberApp(codemodOptions) {
 
   // Prepare for migration
   const context = analyzeApp(options);
+
+  // Fine-tune individual files
+  updatePackageJson(options);
 }
