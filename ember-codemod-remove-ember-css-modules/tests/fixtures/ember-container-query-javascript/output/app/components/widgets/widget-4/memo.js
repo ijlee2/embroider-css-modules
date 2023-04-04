@@ -1,5 +1,7 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@ember/component';
 
-const WidgetsWidget4MemoComponent = templateOnlyComponent();
+export default class WidgetsWidget4MemoComponent extends Component {
 
-export default WidgetsWidget4MemoComponent;
+  // ...
+
+}

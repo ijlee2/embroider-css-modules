@@ -1,5 +1,3 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-const WidgetsWidget1ItemComponent = templateOnlyComponent();
-
-export default WidgetsWidget1ItemComponent;
+export default class WidgetsWidget1ItemComponent extends Component {}

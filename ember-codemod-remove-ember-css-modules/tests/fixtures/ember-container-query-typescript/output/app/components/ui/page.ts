@@ -1,4 +1,4 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
 interface UiPageComponentSignature {
   Args: {
@@ -9,6 +9,4 @@ interface UiPageComponentSignature {
   };
 }
 
-const UiPageComponent = templateOnlyComponent<UiPageComponentSignature>();
-
-export default UiPageComponent;
+export default class UiPageComponent extends Component<UiPageComponentSignature> {}

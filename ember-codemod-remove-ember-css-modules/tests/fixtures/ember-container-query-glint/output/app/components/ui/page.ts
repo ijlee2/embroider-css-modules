@@ -1,4 +1,4 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
 interface UiPageComponentSignature {
   Args: {
@@ -9,12 +9,4 @@ interface UiPageComponentSignature {
   };
 }
 
-const UiPageComponent = templateOnlyComponent<UiPageComponentSignature>();
-
-export default UiPageComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Ui::Page': typeof UiPageComponent;
-  }
-}
+export default class UiPageComponent extends Component<UiPageComponentSignature> {}

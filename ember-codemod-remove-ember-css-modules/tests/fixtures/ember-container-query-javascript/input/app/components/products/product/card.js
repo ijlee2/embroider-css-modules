@@ -1,5 +1,11 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@ember/component';
 
-const ProductsProductCardComponent = templateOnlyComponent();
+export default class ProductsProductCardComponent extends Component.extend({
 
-export default ProductsProductCardComponent;
+  // ...
+
+}) {
+
+  // ...
+
+}

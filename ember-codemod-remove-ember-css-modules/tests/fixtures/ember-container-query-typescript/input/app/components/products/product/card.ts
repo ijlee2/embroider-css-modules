@@ -1,4 +1,4 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
 import type { Product } from '../../../data/products';
 
@@ -9,7 +9,8 @@ interface ProductsProductCardComponentSignature {
   };
 }
 
-const ProductsProductCardComponent =
-  templateOnlyComponent<ProductsProductCardComponentSignature>();
+export default class ProductsProductCardComponent extends Component<ProductsProductCardComponentSignature> {
 
-export default ProductsProductCardComponent;
+  // ...
+
+}

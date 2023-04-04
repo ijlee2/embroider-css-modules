@@ -5,6 +5,7 @@ import '@glint/environment-ember-loose';
 import 'ember-source/types';
 import 'ember-source/types/preview';
 
+import type { TOC } from '@ember/component/template-only';
 import SvgJarHelper from '@gavant/glint-template-types/types/ember-svg-jar/helpers/svg-jar';
 import AndHelper from '@gavant/glint-template-types/types/ember-truth-helpers/helpers/and';
 import OrHelper from '@gavant/glint-template-types/types/ember-truth-helpers/helpers/or';
@@ -27,6 +28,10 @@ declare module '@glint/environment-ember-loose/registry' {
     // Add any registry entries from other addons here that your addon itself uses (in non-strict mode templates)
     // See https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons
     NavigationNarrator: NavigationNarratorComponent;
+    'Widgets::Widget-1': TOC;
+    'Widgets::Widget-4': TOC;
+    'Widgets::Widget-4::Memo': TOC;
+    'Widgets::Widget-5': TOC;
     and: typeof AndHelper;
     or: typeof OrHelper;
     'page-title': PageTitleHelper;
