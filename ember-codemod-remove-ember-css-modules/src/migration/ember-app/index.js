@@ -1,4 +1,5 @@
-import { createOptions } from './steps/index.js';
+/* eslint-disable no-unused-vars */
+import { analyzeApp, createOptions } from './steps/index.js';
 
 export function migrateEmberApp(codemodOptions) {
   const options = createOptions(codemodOptions);
@@ -8,4 +9,7 @@ export function migrateEmberApp(codemodOptions) {
   if (!hasEmberCssModules) {
     return;
   }
+
+  // Prepare for migration
+  const context = analyzeApp(options);
 }

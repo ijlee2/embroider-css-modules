@@ -3,6 +3,131 @@ const codemodOptions = {
   projectRoot: 'tmp/ember-container-query-nested',
 };
 
+const context = {
+  components: new Map([
+    [
+      'navigation-menu/index',
+      { hasClass: false, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'products/product/card/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'products/product/image/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'tracks/index',
+      { hasClass: true, hasStylesheet: false, hasTemplate: true },
+    ],
+    [
+      'tracks/list/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'tracks/table/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'ui/form/checkbox/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'ui/form/field/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'ui/form/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'ui/form/information/index',
+      { hasClass: false, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'ui/form/input/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'ui/form/textarea/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'ui/page/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-1/index',
+      { hasClass: false, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-1/item/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-2/captions/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-2/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-2/stacked-chart/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-3/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-3/tour-schedule/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-3/tour-schedule/responsive-image/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-4/index',
+      { hasClass: false, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-4/memo/actions/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-4/memo/body/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-4/memo/header/index',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-4/memo/index',
+      { hasClass: false, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-5/index',
+      { hasClass: false, hasStylesheet: true, hasTemplate: true },
+    ],
+  ]),
+  routes: new Map([
+    ['album', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    [
+      'application',
+      { hasClass: false, hasStylesheet: true, hasTemplate: true },
+    ],
+    ['dashboard', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    ['form', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    ['index', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    ['not-found', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    ['products', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+  ]),
+};
+
 const options = {
   __styles__: 'styles',
   componentStructure: 'nested',
@@ -86,4 +211,4 @@ const options = {
   projectRoot: 'tmp/ember-container-query-nested',
 };
 
-export { codemodOptions, options };
+export { codemodOptions, context, options };

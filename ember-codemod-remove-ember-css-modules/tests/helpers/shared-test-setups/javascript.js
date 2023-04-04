@@ -3,6 +3,119 @@ const codemodOptions = {
   projectRoot: 'tmp/ember-container-query-javascript',
 };
 
+const context = {
+  components: new Map([
+    [
+      'navigation-menu',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'products/product/card',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'products/product/image',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    ['tracks', { hasClass: true, hasStylesheet: false, hasTemplate: true }],
+    ['tracks/list', { hasClass: true, hasStylesheet: true, hasTemplate: true }],
+    [
+      'tracks/table',
+      { hasClass: false, hasStylesheet: true, hasTemplate: true },
+    ],
+    ['ui/form', { hasClass: true, hasStylesheet: true, hasTemplate: true }],
+    [
+      'ui/form/checkbox',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'ui/form/field',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'ui/form/information',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'ui/form/input',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'ui/form/textarea',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    ['ui/page', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    [
+      'widgets/widget-1',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-1/item',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-2',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-2/captions',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-2/stacked-chart',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-3',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-3/tour-schedule',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-3/tour-schedule/responsive-image',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-4',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-4/memo',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-4/memo/actions',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-4/memo/body',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-4/memo/header',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    [
+      'widgets/widget-5',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+  ]),
+  routes: new Map([
+    ['album', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    [
+      'application',
+      { hasClass: false, hasStylesheet: true, hasTemplate: true },
+    ],
+    ['dashboard', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    ['form', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    ['index', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    ['not-found', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    ['products', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+  ]),
+};
+
 const options = {
   __styles__: 'styles',
   componentStructure: 'flat',
@@ -78,4 +191,4 @@ const options = {
   projectRoot: 'tmp/ember-container-query-javascript',
 };
 
-export { codemodOptions, options };
+export { codemodOptions, context, options };
