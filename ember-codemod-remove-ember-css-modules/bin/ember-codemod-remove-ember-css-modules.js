@@ -10,12 +10,17 @@ import { removeEmberCssModules } from '../src/index.js';
 process.title = 'ember-codemod-remove-ember-css-modules';
 
 // Set codemod options
-const { argv } = yargs(hideBin(process.argv)).option('component-structure', {
-  choices: ['flat', 'nested'],
-  default: 'flat',
-  describe: 'Component structure (how your components are colocated)',
-  type: 'string',
-});
+const { argv } = yargs(hideBin(process.argv))
+  .option('component-structure', {
+    choices: ['flat', 'nested'],
+    default: 'flat',
+    describe: 'Component structure (how your components are colocated)',
+    type: 'string',
+  })
+  .option('root', {
+    describe: 'Location of your Ember project',
+    type: 'string',
+  });
 
 function castEmptyStringToUndefined(string) {
   return string === '' ? undefined : string;
@@ -23,7 +28,7 @@ function castEmptyStringToUndefined(string) {
 
 const codemodOptions = {
   componentStructure: castEmptyStringToUndefined(argv['component-structure']),
-  projectRoot: process.cwd(),
+  projectRoot: argv['root'] ?? process.cwd(),
 };
 
 removeEmberCssModules(codemodOptions);

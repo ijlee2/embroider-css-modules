@@ -1,3 +1,5 @@
+import { migrateEmberApp } from './migration/index.js';
+
 export function removeEmberCssModules(codemodOptions) {
-  console.log(codemodOptions);
+  migrateEmberApp(codemodOptions);
 }
