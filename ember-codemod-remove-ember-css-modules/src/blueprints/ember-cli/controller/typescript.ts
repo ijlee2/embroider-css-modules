@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 
-import styles from './<%= entity.fileName %>.css';
+import <%= options.__styles__ %> from './<%= entity.fileName %>.css';
 
 export default class <%= entity.classifiedName %>Controller extends Controller {
-  styles = styles;
+  <%= options.__styles__ %> = <%= options.__styles__ %>;
 }
