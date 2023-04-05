@@ -35,7 +35,9 @@ module('Integration | Helper | local-class', function (hooks) {
         </div>
       `);
 
-      assert.dom('[data-test-element]').hasAttribute('class', '');
+      assert
+        .dom('[data-test-element]')
+        .hasAttribute('class', '', 'We see the correct global class names.');
     });
 
     test('returns a concatenated string when there are local class names', async function (this: TestContext, assert) {
@@ -51,7 +53,8 @@ module('Integration | Helper | local-class', function (hooks) {
         .dom('[data-test-element]')
         .hasAttribute(
           'class',
-          'container-hashed is-wide-hashed is-inline-hashed'
+          'container-hashed is-wide-hashed is-inline-hashed',
+          'We see the correct global class names.'
         );
     });
   });

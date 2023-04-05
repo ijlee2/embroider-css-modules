@@ -1,35 +1,48 @@
+import { TestContext as BaseTestContext } from '@ember/test-helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'test-app/tests/helpers';
 
+interface TestContext extends BaseTestContext {
+  styles: Record<string, never>;
+}
+
 module('Integration | Helper | local-class', function (hooks) {
   setupRenderingTest(hooks);
 
-  module('When styles is an empty object', function () {
-    test('returns an empty string when there are no local class names', async function (assert) {
-      await render(hbs`
-        <div
-          class={{local-class (hash)}}
-          data-test-element
-        >
-        </div>
-      `);
-
-      assert.dom('[data-test-element]').hasAttribute('class', '');
+  module('When styles is an empty object', function (nestedHooks) {
+    nestedHooks.beforeEach(function (this: TestContext) {
+      this.styles = {};
     });
 
-    test('returns an empty string when there are local class names', async function (assert) {
-      await render(hbs`
+    test('returns an empty string when there are no local class names', async function (this: TestContext, assert) {
+      await render<TestContext>(hbs`
         <div
-          {{! @glint-expect-error: We are testing a special case (styles is an empty object) }}
-          class={{local-class (hash) "container" "is-wide" "is-inline"}}
+          class={{local-class this.styles}}
           data-test-element
         >
         </div>
       `);
 
-      assert.dom('[data-test-element]').hasAttribute('class', '');
+      assert
+        .dom('[data-test-element]')
+        .hasAttribute('class', '', 'We see the correct global class names.');
+    });
+
+    test('returns an empty string when there are local class names', async function (this: TestContext, assert) {
+      await render<TestContext>(hbs`
+        <div
+          {{! @glint-expect-error: We are testing a special case (styles is an empty object) }}
+          class={{local-class this.styles "container" "is-wide" "is-inline"}}
+          data-test-element
+        >
+        </div>
+      `);
+
+      assert
+        .dom('[data-test-element]')
+        .hasAttribute('class', '', 'We see the correct global class names.');
     });
   });
 });

@@ -1,4 +1,5 @@
 import Helper from '@ember/component/helper';
+import { assert } from '@ember/debug';
 
 type IndexSignatureParameter = string | number | symbol;
 
@@ -23,6 +24,8 @@ export default class LocalClassHelper<
 > extends Helper<LocalClassHelperSignature<T>> {
   compute(positional: LocalClassHelperSignature<T>['Args']['Positional']) {
     const [styles, ...localClassNames] = positional;
+
+    assert('The styles object is undefined.', styles);
 
     const classNames = localClassNames.reduce((accumulator, localClassName) => {
       if (localClassName === undefined || localClassName === null) {
