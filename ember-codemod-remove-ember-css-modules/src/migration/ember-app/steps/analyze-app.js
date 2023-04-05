@@ -53,29 +53,33 @@ function findAndRenameFiles(findOptions, replaceOptions) {
   });
 }
 
-function mergeData({ classFilePaths, stylesheetFilePaths, templateFilePaths }) {
+function analyzeEntities({
+  classFilePaths,
+  stylesheetFilePaths,
+  templateFilePaths,
+}) {
   const filePaths = [
     ...classFilePaths,
     ...stylesheetFilePaths,
     ...templateFilePaths,
   ].sort();
 
-  const data = new Map();
+  const entities = new Map();
 
   filePaths.forEach((filePath) => {
     const { dir, ext, name } = parse(filePath);
 
-    const key = join(dir, name);
-    const updatedAnalysis = analyzeExtension(ext, data.get(key));
+    const entityName = join(dir, name);
+    const analysis = analyzeExtension(ext, entities.get(entityName));
 
-    data.set(key, updatedAnalysis);
+    entities.set(entityName, analysis);
   });
 
-  return data;
+  return entities;
 }
 
 function analyzeComponents(options) {
-  const { projectRoot } = options;
+  const { componentStructure, projectRoot } = options;
 
   const classFilePaths = findAndRenameFiles(
     {
@@ -111,7 +115,23 @@ function analyzeComponents(options) {
     }
   );
 
-  return mergeData({
+  if (componentStructure === 'nested') {
+    const entities = analyzeEntities({
+      classFilePaths,
+      stylesheetFilePaths,
+      templateFilePaths,
+    });
+
+    return new Map(
+      [...entities.entries()].map(([entityName, analysis]) => {
+        const newEntityName = entityName.replace(/\/index$/, '');
+
+        return [newEntityName, analysis];
+      })
+    );
+  }
+
+  return analyzeEntities({
     classFilePaths,
     stylesheetFilePaths,
     templateFilePaths,
@@ -157,7 +177,7 @@ function analyzeRoutes(options) {
     }
   );
 
-  return mergeData({
+  return analyzeEntities({
     classFilePaths,
     stylesheetFilePaths,
     templateFilePaths,
