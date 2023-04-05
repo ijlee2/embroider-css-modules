@@ -57,8 +57,9 @@ function updateClass(entityName, options) {
 }
 
 function updateComponentClasses(context, options) {
-  for (const [entityName, analysis] of context.components) {
-    const { hasClass, hasStylesheet } = analysis;
+  for (const [entityName, extensions] of context.components) {
+    const hasClass = extensions.has('.js') || extensions.has('.ts');
+    const hasStylesheet = extensions.has('.css');
 
     if (!hasStylesheet) {
       continue;

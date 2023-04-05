@@ -53,8 +53,9 @@ function updateClass(entityName, options) {
 }
 
 function updateRouteClasses(context, options) {
-  for (const [entityName, analysis] of context.routes) {
-    const { hasClass, hasStylesheet } = analysis;
+  for (const [entityName, extensions] of context.routes) {
+    const hasClass = extensions.has('.js') || extensions.has('.ts');
+    const hasStylesheet = extensions.has('.css');
 
     if (!hasStylesheet) {
       continue;

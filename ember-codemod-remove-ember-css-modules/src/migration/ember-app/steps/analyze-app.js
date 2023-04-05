@@ -2,43 +2,6 @@ import { join, parse } from 'node:path';
 
 import { findFiles, renameDirectory } from '../../../utils/files.js';
 
-function analyzeExtension(
-  extension,
-  currentAnalysis = {
-    hasClass: false,
-    hasStylesheet: false,
-    hasTemplate: false,
-  }
-) {
-  switch (extension) {
-    case '.js':
-    case '.ts': {
-      return {
-        ...currentAnalysis,
-        hasClass: true,
-      };
-    }
-
-    case '.css': {
-      return {
-        ...currentAnalysis,
-        hasStylesheet: true,
-      };
-    }
-
-    case '.hbs': {
-      return {
-        ...currentAnalysis,
-        hasTemplate: true,
-      };
-    }
-
-    default: {
-      return currentAnalysis;
-    }
-  }
-}
-
 function findAndRenameFiles(findOptions, replaceOptions) {
   const { globPattern, ignoreList, projectRoot } = findOptions;
   const { from, to } = replaceOptions;
@@ -68,11 +31,15 @@ function analyzeEntities({
 
   filePaths.forEach((filePath) => {
     const { dir, ext, name } = parse(filePath);
-
     const entityName = join(dir, name);
-    const analysis = analyzeExtension(ext, entities.get(entityName));
 
-    entities.set(entityName, analysis);
+    if (entities.has(entityName)) {
+      entities.get(entityName).add(ext);
+
+      return;
+    }
+
+    entities.set(entityName, new Set([ext]));
   });
 
   return entities;
@@ -123,10 +90,10 @@ function analyzeComponents(options) {
     });
 
     return new Map(
-      [...entities.entries()].map(([entityName, analysis]) => {
+      [...entities.entries()].map(([entityName, extensions]) => {
         const newEntityName = entityName.replace(/\/index$/, '');
 
-        return [newEntityName, analysis];
+        return [newEntityName, extensions];
       })
     );
   }
