@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-interface UiPageComponentSignature {
+interface UiPageSignature {
   Args: {
     title: string;
   };
@@ -9,4 +9,4 @@ interface UiPageComponentSignature {
   };
 }
 
-export default class UiPageComponent extends Component<UiPageComponentSignature> {}
+export default class UiPageComponent extends Component<UiPageSignature> {}

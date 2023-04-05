@@ -8,7 +8,7 @@ import type UiFormCheckboxComponent from './checkbox';
 import type UiFormInputComponent from './input';
 import type UiFormTextareaComponent from './textarea';
 
-interface UiFormComponentSignature {
+interface UiFormSignature {
   Args: {
     data?: Record<string, any>;
     instructions?: string;
@@ -34,7 +34,7 @@ interface UiFormComponentSignature {
   };
 }
 
-export default class UiFormComponent extends Component<UiFormComponentSignature> {
+export default class UiFormComponent extends Component<UiFormSignature> {
   formId = guidFor(this);
 
   @tracked changeset = this.args.data ?? ({} as Record<string, any>);
