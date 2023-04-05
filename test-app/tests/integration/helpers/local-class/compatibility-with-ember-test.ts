@@ -47,7 +47,8 @@ module('Integration | Helper | local-class', function (hooks) {
         .dom('[data-test-element]')
         .hasAttribute(
           'class',
-          'container-hashed is-wide-hashed is-inline-hashed'
+          'container-hashed is-wide-hashed is-inline-hashed',
+          'We see the correct global class names.'
         );
     });
 
@@ -64,7 +65,8 @@ module('Integration | Helper | local-class', function (hooks) {
         .dom('[data-test-element]')
         .hasAttribute(
           'class',
-          'p-4 container-hashed is-wide-hashed is-inline-hashed my-2'
+          'p-4 container-hashed is-wide-hashed is-inline-hashed my-2',
+          'We see the correct global class names.'
         );
     });
 
@@ -93,7 +95,8 @@ module('Integration | Helper | local-class', function (hooks) {
         .dom('[data-test-element]')
         .hasAttribute(
           'class',
-          'container-hashed is-inline-hashed no-feedback-hashed'
+          'container-hashed is-inline-hashed no-feedback-hashed',
+          'We see the correct global class names.'
         );
     });
 
@@ -113,7 +116,8 @@ module('Integration | Helper | local-class', function (hooks) {
         .dom('[data-test-element]')
         .hasAttribute(
           'class',
-          'container-hashed is-wide-hashed is-inline-hashed'
+          'container-hashed is-wide-hashed is-inline-hashed',
+          'We see the correct global class names.'
         );
     });
   });

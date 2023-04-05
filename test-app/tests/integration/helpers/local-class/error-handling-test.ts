@@ -36,7 +36,13 @@ module('Integration | Helper | local-class', function (hooks) {
         </div>
       `);
 
-      assert.dom('[data-test-element]').hasAttribute('class', 'is-wide-hashed');
+      assert
+        .dom('[data-test-element]')
+        .hasAttribute(
+          'class',
+          'is-wide-hashed',
+          'We see the correct global class names.'
+        );
     });
 
     test('does not ignore duplicated local class names', async function (this: TestContext, assert) {
@@ -52,7 +58,8 @@ module('Integration | Helper | local-class', function (hooks) {
         .dom('[data-test-element]')
         .hasAttribute(
           'class',
-          'is-wide-hashed container-hashed is-wide-hashed is-inline-hashed'
+          'is-wide-hashed container-hashed is-wide-hashed is-inline-hashed',
+          'We see the correct global class names.'
         );
     });
   });
