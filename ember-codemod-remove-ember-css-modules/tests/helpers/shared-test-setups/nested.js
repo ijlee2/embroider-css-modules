@@ -6,111 +6,99 @@ const codemodOptions = {
 const context = {
   components: new Map([
     [
-      'navigation-menu/index',
+      'navigation-menu',
       { hasClass: false, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'products/product/card/index',
+      'products/product/card',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'products/product/image/index',
+      'products/product/image',
+      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+    ],
+    ['tracks', { hasClass: true, hasStylesheet: false, hasTemplate: true }],
+    ['tracks/list', { hasClass: true, hasStylesheet: true, hasTemplate: true }],
+    [
+      'tracks/table',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'tracks/index',
-      { hasClass: true, hasStylesheet: false, hasTemplate: true },
-    ],
-    [
-      'tracks/list/index',
+      'ui/form/checkbox',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'tracks/table/index',
+      'ui/form/field',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
+    ['ui/form', { hasClass: true, hasStylesheet: true, hasTemplate: true }],
     [
-      'ui/form/checkbox/index',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'ui/form/field/index',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'ui/form/index',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'ui/form/information/index',
+      'ui/form/information',
       { hasClass: false, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'ui/form/input/index',
+      'ui/form/input',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'ui/form/textarea/index',
+      'ui/form/textarea',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
+    ['ui/page', { hasClass: true, hasStylesheet: true, hasTemplate: true }],
     [
-      'ui/page/index',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-1/index',
+      'widgets/widget-1',
       { hasClass: false, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-1/item/index',
+      'widgets/widget-1/item',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-2/captions/index',
+      'widgets/widget-2/captions',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-2/index',
+      'widgets/widget-2',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-2/stacked-chart/index',
+      'widgets/widget-2/stacked-chart',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-3/index',
+      'widgets/widget-3',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-3/tour-schedule/index',
+      'widgets/widget-3/tour-schedule',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-3/tour-schedule/responsive-image/index',
+      'widgets/widget-3/tour-schedule/responsive-image',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-4/index',
+      'widgets/widget-4',
       { hasClass: false, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-4/memo/actions/index',
+      'widgets/widget-4/memo/actions',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-4/memo/body/index',
+      'widgets/widget-4/memo/body',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-4/memo/header/index',
+      'widgets/widget-4/memo/header',
       { hasClass: true, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-4/memo/index',
+      'widgets/widget-4/memo',
       { hasClass: false, hasStylesheet: true, hasTemplate: true },
     ],
     [
-      'widgets/widget-5/index',
+      'widgets/widget-5',
       { hasClass: false, hasStylesheet: true, hasTemplate: true },
     ],
   ]),

@@ -3,7 +3,7 @@ type MenuItem = {
   route: string;
 };
 
-export interface NavigationMenuComponentSignature {
+export interface NavigationMenuSignature {
   Args: {
     menuItems: MenuItem[];
     name?: string;

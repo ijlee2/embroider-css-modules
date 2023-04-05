@@ -1,4 +1,4 @@
-export interface UiFormInformationComponentSignature {
+export interface UiFormInformationSignature {
   Args: {
     formId: string;
     instructions?: string;
