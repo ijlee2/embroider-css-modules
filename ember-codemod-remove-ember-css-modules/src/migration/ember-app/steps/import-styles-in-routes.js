@@ -62,6 +62,8 @@ function updateRouteClasses(context, options) {
 
     if (!hasClass) {
       createClass(entityName, options);
+
+      continue;
     }
 
     updateClass(entityName, options);
