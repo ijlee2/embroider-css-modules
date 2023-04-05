@@ -9,4 +9,5 @@
 !.*
 .*/
 .eslintcache
+/src/blueprints/
 /tests/fixtures/
