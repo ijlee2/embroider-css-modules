@@ -1,5 +1,7 @@
 import templateOnlyComponent from '@ember/component/template-only';
 
+import styles from './item.css';
+
 interface WidgetsWidget1ItemSignature {
   Args: {
     title: string;
