@@ -103,7 +103,7 @@ const context = {
     ],
   ]),
   routes: new Map([
-    ['album', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    ['album', { hasClass: true, hasStylesheet: true, hasTemplate: true }],
     [
       'application',
       { hasClass: false, hasStylesheet: true, hasTemplate: true },
@@ -112,7 +112,7 @@ const context = {
     ['form', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
     ['index', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
     ['not-found', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
-    ['products', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    ['products', { hasClass: true, hasStylesheet: true, hasTemplate: true }],
   ]),
 };
 

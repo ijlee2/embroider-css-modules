@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 
-import styles from './album.css';
+import type { Model } from '../routes/album';
 
 export default class AlbumController extends Controller {
-  styles = styles;
+  declare model: Model;
 }

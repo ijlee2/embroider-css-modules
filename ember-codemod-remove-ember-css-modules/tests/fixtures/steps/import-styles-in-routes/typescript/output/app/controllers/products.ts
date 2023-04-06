@@ -1,7 +1,10 @@
 import Controller from '@ember/controller';
 
-import styles from './products.css';
+import type { Model } from '../routes/products';
 
 export default class ProductsController extends Controller {
-  styles = styles;
+
+  // ...
+
+  declare model: Model;
 }
