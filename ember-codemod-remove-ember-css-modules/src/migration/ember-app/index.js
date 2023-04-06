@@ -4,7 +4,9 @@ import {
   importStylesInComponents,
   importStylesInRoutes,
   moveStylesheets,
+  updateComponentTemplates,
   updatePackageJson,
+  updateRouteTemplates,
 } from './steps/index.js';
 
 export function migrateEmberApp(codemodOptions) {
@@ -23,6 +25,10 @@ export function migrateEmberApp(codemodOptions) {
   moveStylesheets(options);
   importStylesInComponents(context, options);
   importStylesInRoutes(context, options);
+
+  // Update templates
+  updateComponentTemplates(context, options);
+  updateRouteTemplates(context, options);
 
   // Fine-tune individual files
   updatePackageJson(options);
