@@ -97,9 +97,9 @@ function traverseTypeScript(file, visitMethods) {
 }
 
 const tools = {
-  builder: recast.types.builders,
+  builders: recast.types.builders,
 
-  convertToFile(ast) {
+  print(ast) {
     return recast.print(ast, formattingOptions).code;
   },
 
