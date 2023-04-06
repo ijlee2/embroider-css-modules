@@ -101,7 +101,7 @@ function updateClass(customizations, options) {
   const { entityName, getFilePath } = customizations;
   const { __styles__, projectRoot } = options;
 
-  const filePath = getFilePath(entityName, options);
+  const filePath = getFilePath(entityName);
   const { ext: fileExtension, name: fileName } = parse(filePath);
 
   let file = readFileSync(join(projectRoot, filePath), 'utf8');
