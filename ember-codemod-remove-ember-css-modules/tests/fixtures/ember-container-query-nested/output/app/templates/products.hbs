@@ -1,9 +1,33 @@
 {{page-title "Products"}}
 
 <Ui::Page @title="Products">
-  <div local-class="products-with-details">
+  <div
+    class={{local-class
+      (concat
+        (if
+          this.isPartOfNestProductDetailsExperiment
+          "shared-layout products-with-details"
+          "shared-layout products"
+        )
+        " "
+        "sticky-container"
+      )
+    }}
+  >
+    <div local-class="filters">
+      <div local-class="filter">
+        <Ui::Form::Input
+          @changeset={{hash name=this.name}}
+          @key="name"
+          @label="Filter by"
+          @onUpdate={{this.noOp}}
+          @placeholder="Cake, pasta, etc."
+        />
+      </div>
+    </div>
+
     <div local-class="list">
-      {{#each @model as |product|}}
+      {{#each this.filteredProducts as |product|}}
         <Products::Product::Card @product={{product}} />
       {{else}}
         <p>

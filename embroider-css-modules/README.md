@@ -117,26 +117,30 @@ The `{{local-class}}` helper is useful when there are multiple classes to consid
 </div>
 ```
 
-### Arguments
-
-The `{{local-class}}` helper uses positional arguments so that, when there is a type error, the message from TypeScript is easy to understand.
-
-Pass the `styles` object first, then the local class name(s).
+To apply multiple classes when a conditional statement holds, use the `{{array}}` helper:
 
 ```hbs
-{{! app/components/ui/form/field.hbs }}
+{{! app/templates/products.hbs }}
 <div
   class={{local-class
     this.styles
-    "container"
-    (if @isInline "is-inline")
-    (if @isWide "is-wide")
-    (unless @errorMessage "no-feedback")
+    (if
+      this.isInExperimentalGroup
+      (array "shared-layout" "products-with-details")
+      (array "shared-layout" "products")
+    )
+    "sticky-container"
   }}
 >
   ...
 </div>
 ```
+
+### Arguments
+
+The `{{local-class}}` helper uses positional arguments so that, when there is a type error, the message from TypeScript is easy to understand.
+
+Pass the `styles` object first, then the local class name(s).
 
 ### Outputs
 
