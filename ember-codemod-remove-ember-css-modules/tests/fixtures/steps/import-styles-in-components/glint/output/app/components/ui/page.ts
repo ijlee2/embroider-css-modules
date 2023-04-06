@@ -1,5 +1,7 @@
 import Component from '@glimmer/component';
 
+import styles from './page.css';
+
 interface UiPageSignature {
   Args: {
     title: string;
@@ -9,4 +11,7 @@ interface UiPageSignature {
   };
 }
 
-export default class UiPageComponent extends Component<UiPageSignature> {}
+export default class UiPageComponent extends Component<UiPageSignature> {
+  styles = styles;
+
+}

@@ -1,6 +1,10 @@
 import Component from '@glimmer/component';
 
+import styles from './list.css';
+
 export default class TracksListComponent extends Component {
+  styles = styles;
+
   get numColumns() {
     const { numColumns } = this.args;
 
