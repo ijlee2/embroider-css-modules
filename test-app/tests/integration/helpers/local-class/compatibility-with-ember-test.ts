@@ -31,6 +31,28 @@ module('Integration | Helper | local-class', function (hooks) {
       };
     });
 
+    test('{{array}} helper', async function (this: TestContext, assert) {
+      await render<TestContext>(hbs`
+        <div
+          class={{local-class
+            this.styles
+            "container"
+            (if true (array "is-wide" "is-inline") "no-feedback")
+          }}
+          data-test-element
+        >
+        </div>
+      `);
+
+      assert
+        .dom('[data-test-element]')
+        .hasAttribute(
+          'class',
+          'container-hashed is-wide-hashed is-inline-hashed',
+          'We see the correct global class names.'
+        );
+    });
+
     test('component arguments', async function (this: TestContext, assert) {
       await render<TestContext>(hbs`
         <SomeComponentWithArguments
