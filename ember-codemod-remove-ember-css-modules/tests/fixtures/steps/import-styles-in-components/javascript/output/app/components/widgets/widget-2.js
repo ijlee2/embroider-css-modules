@@ -7,7 +7,11 @@ import {
   createSummariesForCaptions,
 } from '../../utils/components/widgets/widget-2';
 
+import styles from './widget-2.css';
+
 export default class WidgetsWidget2Component extends Component {
+  styles = styles;
+
   @tracked data = [];
   @tracked summaries = [];
 

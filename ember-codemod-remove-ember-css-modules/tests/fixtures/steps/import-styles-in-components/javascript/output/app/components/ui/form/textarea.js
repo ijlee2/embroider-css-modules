@@ -1,7 +1,11 @@
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 
+import styles from './textarea.css';
+
 export default class UiFormTextareaComponent extends Component {
+  styles = styles;
+
   get errorMessage() {
     const { isRequired } = this.args;
 

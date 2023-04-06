@@ -2,6 +2,8 @@ import templateOnlyComponent from '@ember/component/template-only';
 
 import type { Data } from '../../../../utils/components/widgets/widget-2';
 
+import styles from './index.css';
+
 interface WidgetsWidget2StackedChartSignature {
   Args: {
     data: Data[];
