@@ -1,7 +1,8 @@
 import Component from '@ember/component';
 
-export default class WidgetsWidget4MemoComponent extends Component {
+import styles from './memo.css';
 
-  // ...
+export default class WidgetsWidget4MemoComponent extends Component {
+  styles = styles;
 
 }

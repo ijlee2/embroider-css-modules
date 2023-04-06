@@ -5,114 +5,45 @@ const codemodOptions = {
 
 const context = {
   components: new Map([
-    [
-      'navigation-menu',
-      { hasClass: false, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'products/product/card',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'products/product/image',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    ['tracks', { hasClass: true, hasStylesheet: false, hasTemplate: true }],
-    ['tracks/list', { hasClass: true, hasStylesheet: true, hasTemplate: true }],
-    [
-      'tracks/table',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'ui/form/checkbox',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'ui/form/field',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    ['ui/form', { hasClass: true, hasStylesheet: true, hasTemplate: true }],
-    [
-      'ui/form/information',
-      { hasClass: false, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'ui/form/input',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'ui/form/textarea',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    ['ui/page', { hasClass: true, hasStylesheet: true, hasTemplate: true }],
-    [
-      'widgets/widget-1',
-      { hasClass: false, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-1/item',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-2/captions',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-2',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-2/stacked-chart',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-3',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-3/tour-schedule',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
+    ['navigation-menu', new Set(['.css', '.hbs'])],
+    ['products/product/card', new Set(['.css', '.hbs', '.ts'])],
+    ['products/product/image', new Set(['.css', '.hbs', '.ts'])],
+    ['tracks', new Set(['.hbs', '.ts'])],
+    ['tracks/list', new Set(['.css', '.hbs', '.ts'])],
+    ['tracks/table', new Set(['.css', '.hbs', '.ts'])],
+    ['ui/form/checkbox', new Set(['.css', '.hbs', '.ts'])],
+    ['ui/form/field', new Set(['.css', '.hbs', '.ts'])],
+    ['ui/form', new Set(['.css', '.hbs', '.ts'])],
+    ['ui/form/information', new Set(['.css', '.hbs'])],
+    ['ui/form/input', new Set(['.css', '.hbs', '.ts'])],
+    ['ui/form/textarea', new Set(['.css', '.hbs', '.ts'])],
+    ['ui/page', new Set(['.css', '.hbs', '.ts'])],
+    ['widgets/widget-1', new Set(['.css', '.hbs'])],
+    ['widgets/widget-1/item', new Set(['.css', '.hbs', '.ts'])],
+    ['widgets/widget-2/captions', new Set(['.css', '.hbs', '.ts'])],
+    ['widgets/widget-2', new Set(['.css', '.hbs', '.ts'])],
+    ['widgets/widget-2/stacked-chart', new Set(['.css', '.hbs', '.ts'])],
+    ['widgets/widget-3', new Set(['.css', '.hbs', '.ts'])],
+    ['widgets/widget-3/tour-schedule', new Set(['.css', '.hbs', '.ts'])],
     [
       'widgets/widget-3/tour-schedule/responsive-image',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
+      new Set(['.css', '.hbs', '.ts']),
     ],
-    [
-      'widgets/widget-4',
-      { hasClass: false, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-4/memo/actions',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-4/memo/body',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-4/memo/header',
-      { hasClass: true, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-4/memo',
-      { hasClass: false, hasStylesheet: true, hasTemplate: true },
-    ],
-    [
-      'widgets/widget-5',
-      { hasClass: false, hasStylesheet: true, hasTemplate: true },
-    ],
+    ['widgets/widget-4', new Set(['.css', '.hbs'])],
+    ['widgets/widget-4/memo/actions', new Set(['.css', '.hbs', '.ts'])],
+    ['widgets/widget-4/memo/body', new Set(['.css', '.hbs', '.ts'])],
+    ['widgets/widget-4/memo/header', new Set(['.css', '.hbs', '.ts'])],
+    ['widgets/widget-4/memo', new Set(['.css', '.hbs'])],
+    ['widgets/widget-5', new Set(['.css', '.hbs'])],
   ]),
   routes: new Map([
-    ['album', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
-    [
-      'application',
-      { hasClass: false, hasStylesheet: true, hasTemplate: true },
-    ],
-    ['dashboard', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
-    ['form', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
-    ['index', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
-    ['not-found', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
-    ['products', { hasClass: false, hasStylesheet: true, hasTemplate: true }],
+    ['album', new Set(['.css', '.hbs', '.ts'])],
+    ['application', new Set(['.css', '.hbs'])],
+    ['dashboard', new Set(['.css', '.hbs'])],
+    ['form', new Set(['.css', '.hbs'])],
+    ['index', new Set(['.css', '.hbs'])],
+    ['not-found', new Set(['.css', '.hbs'])],
+    ['products', new Set(['.css', '.hbs', '.ts'])],
   ]),
 };
 
