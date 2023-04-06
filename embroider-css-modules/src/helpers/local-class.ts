@@ -8,6 +8,7 @@ type Styles<T extends IndexSignatureParameter> = Record<T, string>;
 type LocalClassName<T extends IndexSignatureParameter> = keyof Styles<T>;
 
 type MaybeLocalClassName<T extends IndexSignatureParameter> =
+  | LocalClassName<T>[]
   | LocalClassName<T>
   | undefined
   | null;
@@ -29,6 +30,18 @@ export default class LocalClassHelper<
 
     const classNames = localClassNames.reduce((accumulator, localClassName) => {
       if (localClassName === undefined || localClassName === null) {
+        return accumulator;
+      }
+
+      if (Array.isArray(localClassName)) {
+        localClassName.forEach((element) => {
+          const className = styles[element];
+
+          if (className) {
+            accumulator.push(className);
+          }
+        });
+
         return accumulator;
       }
 
