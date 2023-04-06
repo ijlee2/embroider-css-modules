@@ -1,7 +1,11 @@
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 
+import styles from './input.css';
+
 export default class UiFormInputComponent extends Component {
+  styles = styles;
+
   get errorMessage() {
     const { isRequired } = this.args;
 
