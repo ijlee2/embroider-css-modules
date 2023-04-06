@@ -34,26 +34,14 @@ export default class LocalClassHelper<
       }
 
       if (Array.isArray(localClassName)) {
-        localClassName.forEach((element) => {
-          const className = styles[element];
-
-          if (className) {
-            accumulator.push(className);
-          }
-        });
-
-        return accumulator;
-      }
-
-      const className = styles[localClassName];
-
-      if (className) {
-        accumulator.push(className);
+        accumulator.push(...localClassName.map((element) => styles[element]));
+      } else {
+        accumulator.push(styles[localClassName]);
       }
 
       return accumulator;
-    }, [] as string[]);
+    }, [] as (string | undefined)[]);
 
-    return classNames.join(' ');
+    return classNames.filter(Boolean).join(' ');
   }
 }
