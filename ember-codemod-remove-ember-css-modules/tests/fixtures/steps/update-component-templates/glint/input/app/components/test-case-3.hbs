@@ -1,0 +1,16 @@
+{{! Check idempotency. }}
+<article
+  id="MyBlogEntry"
+  class={{this.styles.container}}
+  data-test-article="MyBlogEntry"
+>
+  <header class="{{this.styles.header}}">
+    <h1>embroider-css-modules</h1>
+  </header>
+
+  <div>
+    <p class={{local-class this.styles "paragraph"}}>
+      Still have questions about embroider-css-modules? Try sending me a message.
+    </p>
+  </div>
+</article>
