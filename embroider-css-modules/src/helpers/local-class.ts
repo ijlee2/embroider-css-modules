@@ -3,9 +3,12 @@ import { assert } from '@ember/debug';
 
 type IndexSignatureParameter = string | number | symbol;
 
-type Styles<T extends IndexSignatureParameter> = Record<T, string>;
+type LocalClassName<T extends IndexSignatureParameter> = T;
 
-type LocalClassName<T extends IndexSignatureParameter> = keyof Styles<T>;
+type Styles<T extends IndexSignatureParameter> = Record<
+  LocalClassName<T>,
+  string
+>;
 
 type MaybeLocalClassName<T extends IndexSignatureParameter> =
   | LocalClassName<T>[]
