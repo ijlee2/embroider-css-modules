@@ -34,17 +34,17 @@ function importStylesInClass(file, data) {
   nodes.splice(
     index + 1,
     0,
-    AST.builder.importDeclaration(
+    AST.builders.importDeclaration(
       [
-        AST.builder.importDefaultSpecifier(
-          AST.builder.identifier(data.__styles__)
+        AST.builders.importDefaultSpecifier(
+          AST.builders.identifier(data.__styles__)
         ),
       ],
-      AST.builder.literal(`./${data.fileName}.css`)
+      AST.builders.literal(`./${data.fileName}.css`)
     )
   );
 
-  return AST.convertToFile(ast);
+  return AST.print(ast);
 }
 
 function addStylesAsClassProperty(file, data) {
@@ -55,9 +55,9 @@ function addStylesAsClassProperty(file, data) {
       const { body } = path.node.body;
 
       body.unshift(
-        AST.builder.classProperty(
-          AST.builder.identifier(data.__styles__),
-          AST.builder.identifier(data.__styles__)
+        AST.builders.classProperty(
+          AST.builders.identifier(data.__styles__),
+          AST.builders.identifier(data.__styles__)
         )
       );
 
@@ -65,7 +65,7 @@ function addStylesAsClassProperty(file, data) {
     },
   });
 
-  const newFile = AST.convertToFile(ast);
+  const newFile = AST.print(ast);
 
   return newFile.replace(
     new RegExp(`(${data.__styles__} = ${data.__styles__};)`),
@@ -101,7 +101,7 @@ function updateClass(customizations, options) {
   const { entityName, getFilePath } = customizations;
   const { __styles__, projectRoot } = options;
 
-  const filePath = getFilePath(entityName, options);
+  const filePath = getFilePath(entityName);
   const { ext: fileExtension, name: fileName } = parse(filePath);
 
   let file = readFileSync(join(projectRoot, filePath), 'utf8');

@@ -1,5 +1,5 @@
 import { parse as babelParser } from '@babel/parser';
-import recast from 'recast';
+import { parse, print, types, visit } from 'recast';
 
 /* https://github.com/benjamn/recast/blob/v1.4.0/lib/options.ts */
 const formattingOptions = {
@@ -81,28 +81,26 @@ function getParseOptions(hasTypeScript) {
 }
 
 function traverseJavaScript(file, visitMethods) {
-  const ast = recast.parse(file, getParseOptions(false));
+  const ast = parse(file, getParseOptions(false));
 
-  recast.visit(ast, visitMethods);
+  visit(ast, visitMethods);
 
   return ast;
 }
 
 function traverseTypeScript(file, visitMethods) {
-  const ast = recast.parse(file, getParseOptions(true));
+  const ast = parse(file, getParseOptions(true));
 
-  recast.visit(ast, visitMethods);
+  visit(ast, visitMethods);
 
   return ast;
 }
 
 const tools = {
-  builder: recast.types.builders,
-
-  convertToFile(ast) {
-    return recast.print(ast, formattingOptions).code;
+  builders: types.builders,
+  print(ast) {
+    return print(ast, formattingOptions).code;
   },
-
   traverse(hasTypeScript) {
     return hasTypeScript ? traverseTypeScript : traverseJavaScript;
   },

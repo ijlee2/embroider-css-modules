@@ -7,7 +7,7 @@ test('utils | abstract-syntax-tree | typescript > file is empty', function () {
   const traverse = AST.traverse(true);
   const ast = traverse(oldFile);
 
-  const newFile = AST.convertToFile(ast);
+  const newFile = AST.print(ast);
 
   assert.strictEqual(newFile, '');
 });
@@ -25,7 +25,7 @@ test('utils | abstract-syntax-tree | typescript > visit methods are undefined', 
   const traverse = AST.traverse(true);
   const ast = traverse(oldFile);
 
-  const newFile = AST.convertToFile(ast);
+  const newFile = AST.print(ast);
 
   assert.strictEqual(
     newFile,
@@ -56,9 +56,9 @@ test('utils | abstract-syntax-tree | typescript > visit methods are well-defined
       const { body } = path.node.body;
 
       body.unshift(
-        AST.builder.classProperty(
-          AST.builder.identifier('styles'),
-          AST.builder.identifier('styles')
+        AST.builders.classProperty(
+          AST.builders.identifier('styles'),
+          AST.builders.identifier('styles')
         )
       );
 
@@ -66,7 +66,7 @@ test('utils | abstract-syntax-tree | typescript > visit methods are well-defined
     },
   });
 
-  const newFile = AST.convertToFile(ast);
+  const newFile = AST.print(ast);
 
   assert.strictEqual(
     newFile,
