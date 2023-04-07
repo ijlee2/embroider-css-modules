@@ -28,19 +28,22 @@ export default class LocalClassHelper<
 
     assert('The styles object is undefined.', styles);
 
-    const classNames = localClassNames.reduce((accumulator, localClassName) => {
-      if (localClassName === undefined || localClassName === null) {
+    const classNames = localClassNames.reduce<string[]>(
+      (accumulator, localClassName) => {
+        if (localClassName === undefined || localClassName === null) {
+          return accumulator;
+        }
+
+        if (Array.isArray(localClassName)) {
+          accumulator.push(...localClassName.map((element) => styles[element]));
+        } else {
+          accumulator.push(styles[localClassName]);
+        }
+
         return accumulator;
-      }
-
-      if (Array.isArray(localClassName)) {
-        accumulator.push(...localClassName.map((element) => styles[element]));
-      } else {
-        accumulator.push(styles[localClassName]);
-      }
-
-      return accumulator;
-    }, [] as (string | undefined)[]);
+      },
+      []
+    );
 
     return classNames.filter(Boolean).join(' ');
   }
