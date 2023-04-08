@@ -108,6 +108,57 @@ function mergeClassAndLocalClassAttributes(file) {
   return AST.print(ast);
 }
 
+function removeLocalClassAttributes(file) {
+  const ast = AST.traverse(file, {
+    ElementNode(node) {
+      // Check if the local-class attribute (still) exists
+      const { attributes } = node;
+
+      const localClassAttributeIndex = attributes.findIndex(
+        (attribute) => attribute.name === 'local-class'
+      );
+
+      if (localClassAttributeIndex === -1) {
+        return;
+      }
+
+      // Change the local-class attribute to class
+      const localClassAttribute = attributes[localClassAttributeIndex];
+
+      switch (localClassAttribute.value.type) {
+        case 'TextNode': {
+          const localClassAttributeValue =
+            localClassAttribute.value.chars.trim();
+
+          const localClassNames = localClassAttributeValue.split(/\s+/);
+          let attributeValue;
+
+          if (localClassNames.length === 1) {
+            attributeValue = AST.builders.mustache(
+              AST.builders.path(`this.styles.${localClassNames[0]}`)
+            );
+          } else {
+            attributeValue = AST.builders.mustache(
+              AST.builders.path('local-class'),
+              [
+                AST.builders.path('this.styles'),
+                ...localClassNames.map(AST.builders.string),
+              ]
+            );
+          }
+
+          localClassAttribute.name = 'class';
+          localClassAttribute.value = attributeValue;
+
+          break;
+        }
+      }
+    },
+  });
+
+  return AST.print(ast);
+}
+
 function updateTemplate(customizations, options) {
   const { entityName, getFilePath } = customizations;
   const { projectRoot } = options;
@@ -119,6 +170,7 @@ function updateTemplate(customizations, options) {
   try {
     file = sanitizeClassAndLocalClassAttributes(file);
     file = mergeClassAndLocalClassAttributes(file);
+    file = removeLocalClassAttributes(file);
 
     const fileMapping = new Map([[filePath, file]]);
 
