@@ -1,0 +1,14 @@
+{{!--
+  We can use the {{concat}} helper to conditionally
+  list the local class names.
+--}}
+<div
+  data-test-container
+  local-class={{concat
+    "a1 a2"
+    (if this.someCondition1 " a3 a4")
+    (unless this.someCondition2 " a5")
+  }}
+>
+  {{! Some content }}
+</div>

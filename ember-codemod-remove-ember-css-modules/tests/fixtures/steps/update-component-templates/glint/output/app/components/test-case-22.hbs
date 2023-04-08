@@ -1,0 +1,9 @@
+{{!
+  We can conditionally list local class names.
+  Here, both if- and else-clauses are present.
+}}
+<div
+  class={{local-class this.styles (if (or this.someCondition1 this.someCondition2) (array "a1" "a2" "a3") "a4")}}
+>
+  {{! Some content }}
+</div>

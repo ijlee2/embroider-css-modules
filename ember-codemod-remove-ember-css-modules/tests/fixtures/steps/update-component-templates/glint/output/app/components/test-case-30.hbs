@@ -1,0 +1,11 @@
+{{!--
+  We assume that mustache statements, which are neither {{if}}
+  nor {{unless}}, return global class names already. In short,
+  these statements should remain the same.
+--}}
+<div
+  data-test-container
+  class={{get this.styles "container"}}
+>
+  {{! Some content }}
+</div>
