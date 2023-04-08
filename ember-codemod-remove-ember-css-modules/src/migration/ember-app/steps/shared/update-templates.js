@@ -126,6 +126,160 @@ function removeLocalClassAttributes(file) {
       const localClassAttribute = attributes[localClassAttributeIndex];
 
       switch (localClassAttribute.value.type) {
+        case 'MustacheStatement': {
+          switch (localClassAttribute.value.path.original) {
+            case 'concat': {
+              const params = localClassAttribute.value.params.map((param) => {
+                switch (param.type) {
+                  case 'StringLiteral': {
+                    const localClassNames = param.value.trim().split(/\s+/);
+
+                    if (localClassNames.length === 1) {
+                      param.value = localClassNames[0];
+                    } else {
+                      param = AST.builders.sexpr(
+                        'array',
+                        localClassNames.map(AST.builders.string)
+                      );
+                    }
+
+                    break;
+                  }
+
+                  case 'SubExpression': {
+                    switch (param.path.original) {
+                      case 'if':
+                      case 'unless': {
+                        const subparams = param.params.map((subparam) => {
+                          switch (subparam.type) {
+                            case 'StringLiteral': {
+                              const localClassNames = subparam.value
+                                .trim()
+                                .split(/\s+/);
+
+                              if (localClassNames.length === 1) {
+                                subparam.value = localClassNames[0];
+                              } else {
+                                subparam = AST.builders.sexpr(
+                                  'array',
+                                  localClassNames.map(AST.builders.string)
+                                );
+                              }
+                            }
+                          }
+
+                          return subparam;
+                        });
+
+                        param = AST.builders.sexpr(
+                          param.path.original,
+                          subparams
+                        );
+
+                        break;
+                      }
+                    }
+
+                    break;
+                  }
+                }
+
+                return param;
+              });
+
+              const attributeValue = AST.builders.mustache('local-class', [
+                AST.builders.path('this.styles'),
+                ...params,
+              ]);
+
+              localClassAttribute.name = 'class';
+              localClassAttribute.value = attributeValue;
+
+              break;
+            }
+
+            case 'if':
+            case 'unless': {
+              const params = localClassAttribute.value.params.map((param) => {
+                switch (param.type) {
+                  case 'StringLiteral': {
+                    const localClassNames = param.value.trim().split(/\s+/);
+
+                    if (localClassNames.length === 1) {
+                      param.value = localClassNames[0];
+                    } else {
+                      param = AST.builders.sexpr(
+                        'array',
+                        localClassNames.map(AST.builders.string)
+                      );
+                    }
+
+                    break;
+                  }
+
+                  case 'SubExpression': {
+                    switch (param.path.original) {
+                      case 'if':
+                      case 'unless': {
+                        const subparams = param.params.map((subparam) => {
+                          switch (subparam.type) {
+                            case 'StringLiteral': {
+                              const localClassNames = subparam.value
+                                .trim()
+                                .split(/\s+/);
+
+                              if (localClassNames.length === 1) {
+                                subparam.value = localClassNames[0];
+                              } else {
+                                subparam = AST.builders.sexpr(
+                                  'array',
+                                  localClassNames.map(AST.builders.string)
+                                );
+                              }
+                            }
+                          }
+
+                          return subparam;
+                        });
+
+                        param = AST.builders.sexpr(
+                          param.path.original,
+                          subparams
+                        );
+
+                        break;
+                      }
+                    }
+
+                    break;
+                  }
+                }
+
+                return param;
+              });
+
+              const attributeValue = AST.builders.mustache('local-class', [
+                AST.builders.path('this.styles'),
+                AST.builders.sexpr(
+                  localClassAttribute.value.path.original,
+                  params
+                ),
+              ]);
+
+              localClassAttribute.name = 'class';
+              localClassAttribute.value = attributeValue;
+
+              break;
+            }
+
+            default: {
+              localClassAttribute.name = 'class';
+            }
+          }
+
+          break;
+        }
+
         case 'TextNode': {
           const localClassAttributeValue =
             localClassAttribute.value.chars.trim();
