@@ -65,4 +65,4 @@ test('migration | ember-app | steps | update-component-templates > glint', funct
   } catch (e) {
     assert.fail(`${fileName} failed.\n` + e.message);
   }
-}).only();
+});

@@ -72,4 +72,4 @@ test('migration | ember-app | steps | update-component-templates > nested', func
   } catch (e) {
     assert.fail(`${folderName} failed.\n` + e.message);
   }
-}).only();
+});

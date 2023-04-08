@@ -66,4 +66,4 @@ test('migration | ember-app | steps | update-route-templates > glint', function 
   } catch (e) {
     assert.fail(`${fileName} failed.\n` + e.message);
   }
-}).only();
+});
