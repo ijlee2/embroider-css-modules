@@ -1,7 +1,49 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
+import { ASTHandlebars as AST } from '../../../../utils/abstract-syntax-tree.js';
 import { createFiles } from '../../../../utils/files.js';
+
+function sanitizeClassAndLocalClassAttributes(file) {
+  function removeAttributeWithoutValue(attributeName, attributes) {
+    const attributeIndex = attributes.findIndex(
+      (attribute) => attribute.name === attributeName
+    );
+
+    if (attributeIndex === -1) {
+      return;
+    }
+
+    const attribute = attributes[attributeIndex];
+
+    if (attribute.value.type !== 'TextNode') {
+      return;
+    }
+
+    if (attribute.isValueless) {
+      attributes.splice(attributeIndex, 1);
+      return;
+    }
+
+    const attributeValue = attribute.value.chars.trim();
+
+    if (attributeValue === '') {
+      attributes.splice(attributeIndex, 1);
+      return;
+    }
+  }
+
+  const ast = AST.traverse(file, {
+    ElementNode(node) {
+      const { attributes } = node;
+
+      removeAttributeWithoutValue('class', attributes);
+      removeAttributeWithoutValue('local-class', attributes);
+    },
+  });
+
+  return AST.print(ast);
+}
 
 function updateTemplate(customizations, options) {
   const { entityName, getFilePath } = customizations;
@@ -12,7 +54,7 @@ function updateTemplate(customizations, options) {
   let file = readFileSync(join(projectRoot, filePath), 'utf8');
 
   try {
-    // ...
+    file = sanitizeClassAndLocalClassAttributes(file);
 
     const fileMapping = new Map([[filePath, file]]);
 
