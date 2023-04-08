@@ -1,0 +1,10 @@
+{{!
+  Check that the local classes are merged with global ones.
+  The global classes should appear after the local ones.
+}}
+<div
+  class={{concat this.styles.a1 " b1"}}
+  data-test-container
+>
+  {{! Some content }}
+</div>  

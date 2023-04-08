@@ -1,0 +1,42 @@
+{{! Don't remove class and local class attributes that are not empty. }}
+<div data-test-container>
+  <div class=" b1 ">
+    {{! Some content }}
+  </div>
+
+  <div class={{this.styles.a1}}>
+    {{! Some content }}
+  </div>
+
+  <div class={{concat this.styles.a1 " b1"}}>
+    {{! Some content }}
+  </div>
+
+  <div class=" {{this.styles.a1}} ">
+    {{! Some content }}
+  </div>
+
+  {{!
+    INCORRECT OUTPUT:
+
+    When the implementation of updateTemplates is finished, we should
+    not see the local-class attribute. 
+  }}
+  <div local-class=" {{this.someProperty}} ">
+    {{! Some content }}
+  </div>
+
+  <div class=" {{if this.someCondition this.styles.a1}} ">
+    {{! Some content }}
+  </div>
+
+  {{!
+    INCORRECT OUTPUT:
+
+    When the implementation of updateTemplates is finished, we should
+    not see the local-class attribute. 
+  }}
+  <div local-class=" {{if this.someCondition "a1"}} ">
+    {{! Some content }}
+  </div>
+</div>

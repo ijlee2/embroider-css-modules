@@ -1,0 +1,10 @@
+{{!--
+  We can use the {{concat}} helper to conditionally
+  list the local class names.
+--}}
+<div
+  data-test-container
+  class={{local-class this.styles (array "a1" "a2") (if this.someCondition1 (array "a3" "a4")) (unless this.someCondition2 "a5")}}
+>
+  {{! Some content }}
+</div>

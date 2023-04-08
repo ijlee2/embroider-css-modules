@@ -5,11 +5,11 @@
     {{unless @errorMessage 'no-feedback'}}
   "
 >
-  <div local-class="label">
+  <div class={{this.styles.label}}>
     {{yield (hash inputId=this.inputId) to="label"}}
   </div>
 
-  <div local-class="field">
+  <div class={{this.styles.field}}>
     {{yield (hash inputId=this.inputId) to="field"}}
   </div>
 

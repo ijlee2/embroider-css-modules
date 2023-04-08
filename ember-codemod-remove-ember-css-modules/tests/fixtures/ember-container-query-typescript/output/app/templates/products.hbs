@@ -14,8 +14,8 @@
       )
     }}
   >
-    <div local-class="filters">
-      <div local-class="filter">
+    <div class={{this.styles.filters}}>
+      <div class={{this.styles.filter}}>
         <Ui::Form::Input
           @changeset={{hash name=this.name}}
           @key="name"
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div local-class="list">
+    <div class={{this.styles.list}}>
       {{#each this.filteredProducts as |product|}}
         <Products::Product::Card @product={{product}} />
       {{else}}
@@ -36,7 +36,7 @@
       {{/each}}
     </div>
 
-    <div local-class="product-details">
+    <div class={{this.styles.product-details}}>
       {{outlet}}
     </div>
   </div>

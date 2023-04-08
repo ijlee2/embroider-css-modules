@@ -1,0 +1,12 @@
+{{!--
+  When we pass the class attribute to the {{component}} helper,
+  the code should remain the same.
+--}}
+{{#let
+  (component "some-component" local-class=" a1 ")
+  as |SomeComponent|
+}}
+  <SomeComponent
+    @someArgument="someValue"
+  />
+{{/let}}

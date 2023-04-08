@@ -1,0 +1,13 @@
+{{!--
+  In ember-css-modules, we couldn't pass the local-class attribute
+  to the {{component}} helper. The code should probably remain the
+  same so that the end-developer can update it themselves.
+--}}
+{{#let
+  (component "some-component" local-class=" a1 ")
+  as |SomeComponent|
+}}
+  <SomeComponent
+    @someArgument="someValue"
+  />
+{{/let}}
