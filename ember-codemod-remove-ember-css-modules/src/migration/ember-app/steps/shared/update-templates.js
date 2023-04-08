@@ -144,6 +144,21 @@ function removeLocalClassAttributes(file) {
 
                 break;
               }
+
+              case 'SubExpression': {
+                switch (param.path.original) {
+                  case 'if':
+                  case 'unless': {
+                    const subparams = param.params.map(transformParam);
+
+                    param = AST.builders.sexpr(param.path.original, subparams);
+
+                    break;
+                  }
+                }
+
+                break;
+              }
             }
 
             return param;
@@ -151,44 +166,8 @@ function removeLocalClassAttributes(file) {
 
           switch (localClassAttribute.value.path.original) {
             case 'concat': {
-              const params = localClassAttribute.value.params.map((param) => {
-                switch (param.type) {
-                  case 'StringLiteral': {
-                    const localClassNames = param.value.trim().split(/\s+/);
-
-                    if (localClassNames.length === 1) {
-                      param.value = localClassNames[0];
-                    } else {
-                      param = AST.builders.sexpr(
-                        'array',
-                        localClassNames.map(AST.builders.string)
-                      );
-                    }
-
-                    break;
-                  }
-
-                  case 'SubExpression': {
-                    switch (param.path.original) {
-                      case 'if':
-                      case 'unless': {
-                        const subparams = param.params.map(transformParam);
-
-                        param = AST.builders.sexpr(
-                          param.path.original,
-                          subparams
-                        );
-
-                        break;
-                      }
-                    }
-
-                    break;
-                  }
-                }
-
-                return param;
-              });
+              const params =
+                localClassAttribute.value.params.map(transformParam);
 
               const attributeValue = AST.builders.mustache('local-class', [
                 AST.builders.path('this.styles'),
@@ -203,44 +182,8 @@ function removeLocalClassAttributes(file) {
 
             case 'if':
             case 'unless': {
-              const params = localClassAttribute.value.params.map((param) => {
-                switch (param.type) {
-                  case 'StringLiteral': {
-                    const localClassNames = param.value.trim().split(/\s+/);
-
-                    if (localClassNames.length === 1) {
-                      param.value = localClassNames[0];
-                    } else {
-                      param = AST.builders.sexpr(
-                        'array',
-                        localClassNames.map(AST.builders.string)
-                      );
-                    }
-
-                    break;
-                  }
-
-                  case 'SubExpression': {
-                    switch (param.path.original) {
-                      case 'if':
-                      case 'unless': {
-                        const subparams = param.params.map(transformParam);
-
-                        param = AST.builders.sexpr(
-                          param.path.original,
-                          subparams
-                        );
-
-                        break;
-                      }
-                    }
-
-                    break;
-                  }
-                }
-
-                return param;
-              });
+              const params =
+                localClassAttribute.value.params.map(transformParam);
 
               const attributeValue = AST.builders.mustache('local-class', [
                 AST.builders.path('this.styles'),
