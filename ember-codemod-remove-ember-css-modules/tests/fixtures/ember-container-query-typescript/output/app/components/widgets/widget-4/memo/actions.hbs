@@ -7,7 +7,7 @@
 >
   <button
     aria-label="Comment"
-    local-class="button"
+    class={{this.styles.button}}
     type="button"
   >
     {{svg-jar
@@ -19,7 +19,7 @@
 
   <button
     aria-label="Repost"
-    local-class="button"
+    class={{this.styles.button}}
     type="button"
   >
     {{svg-jar
@@ -29,7 +29,7 @@
     }}
   </button>
 
-  <button aria-label="Like" local-class="button" type="button">
+  <button aria-label="Like" class={{this.styles.button}} type="button">
     {{svg-jar
       "heart-outline"
       aria-hidden="true"
@@ -37,7 +37,7 @@
     }}
   </button>
 
-  <button aria-label="Share" local-class="button" type="button">
+  <button aria-label="Share" class={{this.styles.button}} type="button">
     {{svg-jar
       "share-variant-outline"
       aria-hidden="true"
