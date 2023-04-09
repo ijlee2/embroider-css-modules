@@ -1,0 +1,12 @@
+{{! We can pass the local-class attribute to helpers. }}
+<button
+  aria-label="Confirm"
+  class={{this.styles.button}}
+  type="button"
+>
+  {{svg-jar
+    "check"
+    aria-hidden="true"
+    class=(local-class this.styles "icon")
+  }}
+</button>
