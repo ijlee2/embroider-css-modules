@@ -115,6 +115,14 @@ function removeLocalClassHelpers(file) {
     string or `undefined`.
   */
   function canRemoveLocalClassHelper(path) {
+    const hasFromArgument = path.hash.pairs.some((pair) => pair.key === 'from');
+
+    if (hasFromArgument) {
+      throw new RangeError(
+        `Unable to handle the {{local-class}} helper's \`from\` key. See lines ${path.loc.start.line}-${path.loc.end.line}.`
+      );
+    }
+
     const param = path.params[0];
 
     if (param === undefined) {
@@ -398,7 +406,7 @@ function updateTemplate(customizations, options) {
     createFiles(fileMapping, options);
   } catch (e) {
     console.warn(
-      `WARNING: updateTemplate could not update \`${filePath}\`. Please manually update the file. (${e.message})\n`
+      `WARNING: updateTemplate could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`
     );
   }
 }
