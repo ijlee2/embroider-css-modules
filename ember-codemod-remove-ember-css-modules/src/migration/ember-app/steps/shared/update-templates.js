@@ -108,6 +108,72 @@ function mergeClassAndLocalClassAttributes(file) {
   return AST.print(ast);
 }
 
+function removeLocalClassHelpers(file) {
+  /*
+    The {{local-class}} helper from ember-css-modules allows
+    1 positional argument, whose value is a concatenated string
+    string or `undefined`.
+  */
+  function canRemoveLocalClassHelper(path) {
+    const param = path.params[0];
+
+    if (param === undefined) {
+      return true;
+    }
+
+    if (param.type !== 'StringLiteral') {
+      return false;
+    }
+
+    const value = param.value.trim();
+
+    return value === '';
+  }
+
+  const ast = AST.traverse(file, {
+    AttrNode(node) {
+      if (node.name !== 'class') {
+        return;
+      }
+
+      const hasLocalClassHelper =
+        node.value.type === 'MustacheStatement' &&
+        node.value.path.original === 'local-class';
+
+      if (!hasLocalClassHelper) {
+        return;
+      }
+
+      if (canRemoveLocalClassHelper(node.value)) {
+        return null;
+      }
+
+      const param = node.value.params[0];
+
+      if (param.type !== 'StringLiteral') {
+        return;
+      }
+
+      const localClassNames = param.value.trim().split(/\s+/);
+
+      if (localClassNames.length === 1) {
+        node.value = AST.builders.mustache(
+          AST.builders.path(`this.styles.${localClassNames[0]}`)
+        );
+
+        return;
+      }
+
+      node.value = AST.builders.mustache(AST.builders.path('local-class'), [
+        AST.builders.path('this.styles'),
+        ...localClassNames.map(AST.builders.string),
+      ]);
+    },
+  });
+
+  return AST.print(ast);
+}
+
 function removeLocalClassAttributes(file) {
   function transformParam(param) {
     switch (param.type) {
@@ -295,6 +361,7 @@ function updateTemplate(customizations, options) {
   try {
     file = sanitizeClassAndLocalClassAttributes(file);
     file = mergeClassAndLocalClassAttributes(file);
+    file = removeLocalClassHelpers(file);
     file = removeLocalClassAttributes(file);
 
     const fileMapping = new Map([[filePath, file]]);
