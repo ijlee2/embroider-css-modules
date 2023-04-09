@@ -150,6 +150,18 @@ function removeLocalClassAttributes(file) {
       case 'MustacheStatement': {
         switch (part.path.original) {
           case 'concat': {
+            // eslint-disable-next-line no-inner-declarations
+            function hasPathExpression(params) {
+              return params.some((param) => param.type === 'PathExpression');
+            }
+
+            if (hasPathExpression(part.params)) {
+              return AST.builders.mustache(AST.builders.path('get'), [
+                AST.builders.path('this.styles'),
+                AST.builders.sexpr(part.path.original, part.params),
+              ]);
+            }
+
             const params = part.params.map(transformParam);
 
             return AST.builders.mustache('local-class', [
@@ -178,7 +190,13 @@ function removeLocalClassAttributes(file) {
       }
 
       case 'TextNode': {
-        const localClassNames = part.chars.trim().split(/\s+/);
+        const value = part.chars.trim();
+
+        if (value === '') {
+          return part;
+        }
+
+        const localClassNames = value.split(/\s+/);
 
         if (localClassNames.length === 1) {
           return AST.builders.mustache(
@@ -192,6 +210,20 @@ function removeLocalClassAttributes(file) {
         ]);
       }
     }
+  }
+
+  function transformParts(parts) {
+    const numParts = parts.length;
+
+    return parts.reduce((accumulator, part, index) => {
+      accumulator.push(transformPart(part));
+
+      if (index < numParts - 1) {
+        accumulator.push(AST.builders.text(' '));
+      }
+
+      return accumulator;
+    }, []);
   }
 
   const ast = AST.traverse(file, {
@@ -211,6 +243,15 @@ function removeLocalClassAttributes(file) {
       const localClassAttribute = attributes[localClassAttributeIndex];
 
       switch (localClassAttribute.value.type) {
+        case 'ConcatStatement': {
+          localClassAttribute.name = 'class';
+          localClassAttribute.value.parts = transformParts(
+            localClassAttribute.value.parts
+          );
+
+          break;
+        }
+
         case 'MustacheStatement': {
           localClassAttribute.name = 'class';
           localClassAttribute.value = transformPart(localClassAttribute.value);
