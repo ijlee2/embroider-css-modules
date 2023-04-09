@@ -1,0 +1,15 @@
+{{!
+  Dynamic string concatenations have limited support.
+  The end-developer should refactor code.
+}}
+<div
+  data-test-container
+  local-class="
+    container
+    {{concat "prefix-" @countryCode "-suffix"}}
+    {{if this.isInExperimentalGroup "experimental-group" "control-group"}}
+    a2 a3 a4
+  "
+>
+  {{! Some content }}
+</div>
