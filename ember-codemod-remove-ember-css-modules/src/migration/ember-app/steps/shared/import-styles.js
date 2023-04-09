@@ -97,23 +97,24 @@ function addStylesAsClassProperty(file, data) {
     visitClassDeclaration(path) {
       const { body } = path.node.body;
 
-      body.unshift(
+      const nodesToAdd = [
         AST.builders.classProperty(
           AST.builders.identifier(data.__styles__),
           AST.builders.identifier(data.__styles__)
-        )
-      );
+        ),
+      ];
+
+      if (body.length > 0) {
+        nodesToAdd.push(AST.builders.noop());
+      }
+
+      body.unshift(...nodesToAdd);
 
       return false;
     },
   });
 
-  const newFile = AST.print(ast);
-
-  return newFile.replace(
-    new RegExp(`(${data.__styles__} = ${data.__styles__};)`),
-    '$1\n'
-  );
+  return AST.print(ast);
 }
 
 function createClass(customizations, options) {
