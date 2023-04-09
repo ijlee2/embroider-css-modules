@@ -13,11 +13,11 @@
   </div>
 
   {{#if @errorMessage}}
-    <div class={{local-class "feedback is-error"}}>
+    <div class={{local-class this.styles "feedback" "is-error"}}>
       {{svg-jar "alert" aria-hidden="true"}}
 
       <span
-        class={{local-class "message"}}
+        class={{this.styles.message}}
         data-test-feedback
         role="alert"
       >

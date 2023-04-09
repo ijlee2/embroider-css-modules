@@ -1,4 +1,4 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
 import styles from './index.css';
 
@@ -9,7 +9,7 @@ interface WidgetsWidget4MemoHeaderSignature {
 }
 
 const WidgetsWidget4MemoHeaderComponent =
-  templateOnlyComponent<WidgetsWidget4MemoHeaderSignature>();
+  class extends Component {};
 
 export default WidgetsWidget4MemoHeaderComponent;
 
