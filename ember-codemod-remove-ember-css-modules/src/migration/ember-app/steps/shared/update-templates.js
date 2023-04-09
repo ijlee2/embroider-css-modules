@@ -109,6 +109,91 @@ function mergeClassAndLocalClassAttributes(file) {
 }
 
 function removeLocalClassAttributes(file) {
+  function transformParam(param) {
+    switch (param.type) {
+      case 'StringLiteral': {
+        const localClassNames = param.value.trim().split(/\s+/);
+
+        if (localClassNames.length === 1) {
+          param.value = localClassNames[0];
+        } else {
+          param = AST.builders.sexpr(
+            'array',
+            localClassNames.map(AST.builders.string)
+          );
+        }
+
+        break;
+      }
+
+      case 'SubExpression': {
+        switch (param.path.original) {
+          case 'if':
+          case 'unless': {
+            const subparams = param.params.map(transformParam);
+
+            param = AST.builders.sexpr(param.path.original, subparams);
+
+            break;
+          }
+        }
+
+        break;
+      }
+    }
+
+    return param;
+  }
+
+  function transformPart(part) {
+    switch (part.type) {
+      case 'MustacheStatement': {
+        switch (part.path.original) {
+          case 'concat': {
+            const params = part.params.map(transformParam);
+
+            return AST.builders.mustache('local-class', [
+              AST.builders.path('this.styles'),
+              ...params,
+            ]);
+          }
+
+          case 'if':
+          case 'unless': {
+            const params = part.params.map(transformParam);
+
+            return AST.builders.mustache('local-class', [
+              AST.builders.path('this.styles'),
+              AST.builders.sexpr(part.path.original, params),
+            ]);
+          }
+
+          default: {
+            return AST.builders.mustache(AST.builders.path('get'), [
+              AST.builders.path('this.styles'),
+              part.path,
+            ]);
+          }
+        }
+      }
+
+      case 'TextNode': {
+        const localClassNames = part.chars.trim().split(/\s+/);
+
+        if (localClassNames.length === 1) {
+          return AST.builders.mustache(
+            AST.builders.path(`this.styles.${localClassNames[0]}`)
+          );
+        }
+
+        return AST.builders.mustache(AST.builders.path('local-class'), [
+          AST.builders.path('this.styles'),
+          ...localClassNames.map(AST.builders.string),
+        ]);
+      }
+    }
+  }
+
   const ast = AST.traverse(file, {
     ElementNode(node) {
       // Check if the local-class attribute (still) exists
@@ -127,118 +212,15 @@ function removeLocalClassAttributes(file) {
 
       switch (localClassAttribute.value.type) {
         case 'MustacheStatement': {
-          // eslint-disable-next-line no-inner-declarations
-          function transformParam(param) {
-            switch (param.type) {
-              case 'StringLiteral': {
-                const localClassNames = param.value.trim().split(/\s+/);
-
-                if (localClassNames.length === 1) {
-                  param.value = localClassNames[0];
-                } else {
-                  param = AST.builders.sexpr(
-                    'array',
-                    localClassNames.map(AST.builders.string)
-                  );
-                }
-
-                break;
-              }
-
-              case 'SubExpression': {
-                switch (param.path.original) {
-                  case 'if':
-                  case 'unless': {
-                    const subparams = param.params.map(transformParam);
-
-                    param = AST.builders.sexpr(param.path.original, subparams);
-
-                    break;
-                  }
-                }
-
-                break;
-              }
-            }
-
-            return param;
-          }
-
-          switch (localClassAttribute.value.path.original) {
-            case 'concat': {
-              const params =
-                localClassAttribute.value.params.map(transformParam);
-
-              const attributeValue = AST.builders.mustache('local-class', [
-                AST.builders.path('this.styles'),
-                ...params,
-              ]);
-
-              localClassAttribute.name = 'class';
-              localClassAttribute.value = attributeValue;
-
-              break;
-            }
-
-            case 'if':
-            case 'unless': {
-              const params =
-                localClassAttribute.value.params.map(transformParam);
-
-              const attributeValue = AST.builders.mustache('local-class', [
-                AST.builders.path('this.styles'),
-                AST.builders.sexpr(
-                  localClassAttribute.value.path.original,
-                  params
-                ),
-              ]);
-
-              localClassAttribute.name = 'class';
-              localClassAttribute.value = attributeValue;
-
-              break;
-            }
-
-            default: {
-              const attributeValue = AST.builders.mustache(
-                AST.builders.path('get'),
-                [
-                  AST.builders.path('this.styles'),
-                  localClassAttribute.value.path,
-                ]
-              );
-
-              localClassAttribute.name = 'class';
-              localClassAttribute.value = attributeValue;
-            }
-          }
+          localClassAttribute.name = 'class';
+          localClassAttribute.value = transformPart(localClassAttribute.value);
 
           break;
         }
 
         case 'TextNode': {
-          const localClassAttributeValue =
-            localClassAttribute.value.chars.trim();
-
-          const localClassNames = localClassAttributeValue.split(/\s+/);
-          let attributeValue;
-
-          if (localClassNames.length === 1) {
-            attributeValue = AST.builders.mustache(
-              AST.builders.path(`this.styles.${localClassNames[0]}`)
-            );
-          } else {
-            attributeValue = AST.builders.mustache(
-              AST.builders.path('local-class'),
-              [
-                AST.builders.path('this.styles'),
-                ...localClassNames.map(AST.builders.string),
-              ]
-            );
-          }
-
           localClassAttribute.name = 'class';
-          localClassAttribute.value = attributeValue;
+          localClassAttribute.value = transformPart(localClassAttribute.value);
 
           break;
         }
