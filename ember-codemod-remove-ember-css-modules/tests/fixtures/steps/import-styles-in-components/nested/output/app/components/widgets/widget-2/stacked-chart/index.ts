@@ -11,7 +11,9 @@ interface WidgetsWidget2StackedChartSignature {
 }
 
 const WidgetsWidget2StackedChartComponent =
-  class extends Component {};
+  class extends Component<WidgetsWidget2StackedChartSignature> {
+    styles = styles;
+  };
 
 export default WidgetsWidget2StackedChartComponent;
 

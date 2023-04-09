@@ -4,6 +4,7 @@ import {
   importStylesInComponents,
   importStylesInRoutes,
   moveStylesheets,
+  updateAppAppJs,
   updateComponentTemplates,
   updatePackageJson,
   updateRouteTemplates,
@@ -31,5 +32,6 @@ export function migrateEmberApp(codemodOptions) {
   updateRouteTemplates(context, options);
 
   // Fine-tune individual files
+  updateAppAppJs(options);
   updatePackageJson(options);
 }

@@ -9,7 +9,9 @@ interface WidgetsWidget4MemoHeaderSignature {
 }
 
 const WidgetsWidget4MemoHeaderComponent =
-  class extends Component {};
+  class extends Component<WidgetsWidget4MemoHeaderSignature> {
+    styles = styles;
+  };
 
 export default WidgetsWidget4MemoHeaderComponent;
 

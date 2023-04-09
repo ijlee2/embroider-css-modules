@@ -13,5 +13,4 @@ interface UiPageSignature {
 
 export default class UiPageComponent extends Component<UiPageSignature> {
   styles = styles;
-
 }

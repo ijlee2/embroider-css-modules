@@ -18,10 +18,21 @@ function removeTemplateOnlyComponentMethod(file, data) {
         return false;
       }
 
+      const superClass = AST.builders.identifier('Component');
+
+      if (data.fileExtension === '.ts') {
+        superClass.typeAnnotation = path.value.typeParameters;
+      }
+
       return AST.builders.classExpression(
         null,
-        AST.builders.classBody([]),
-        AST.builders.identifier('Component')
+        AST.builders.classBody([
+          AST.builders.classProperty(
+            AST.builders.identifier(data.__styles__),
+            AST.builders.identifier(data.__styles__)
+          ),
+        ]),
+        superClass
       );
     },
 
@@ -97,23 +108,24 @@ function addStylesAsClassProperty(file, data) {
     visitClassDeclaration(path) {
       const { body } = path.node.body;
 
-      body.unshift(
+      const nodesToAdd = [
         AST.builders.classProperty(
           AST.builders.identifier(data.__styles__),
           AST.builders.identifier(data.__styles__)
-        )
-      );
+        ),
+      ];
+
+      if (body.length > 0) {
+        nodesToAdd.push(AST.builders.noop());
+      }
+
+      body.unshift(...nodesToAdd);
 
       return false;
     },
   });
 
-  const newFile = AST.print(ast);
-
-  return newFile.replace(
-    new RegExp(`(${data.__styles__} = ${data.__styles__};)`),
-    '$1\n'
-  );
+  return AST.print(ast);
 }
 
 function createClass(customizations, options) {
@@ -149,24 +161,31 @@ function updateClass(customizations, options) {
 
   let file = readFileSync(join(projectRoot, filePath), 'utf8');
 
-  file = removeTemplateOnlyComponentMethod(file, {
-    fileExtension,
-  });
+  try {
+    file = removeTemplateOnlyComponentMethod(file, {
+      __styles__,
+      fileExtension,
+    });
 
-  file = importStylesInClass(file, {
-    __styles__,
-    fileExtension,
-    fileName,
-  });
+    file = importStylesInClass(file, {
+      __styles__,
+      fileExtension,
+      fileName,
+    });
 
-  file = addStylesAsClassProperty(file, {
-    __styles__,
-    fileExtension,
-  });
+    file = addStylesAsClassProperty(file, {
+      __styles__,
+      fileExtension,
+    });
 
-  const fileMapping = new Map([[filePath, file]]);
+    const fileMapping = new Map([[filePath, file]]);
 
-  createFiles(fileMapping, options);
+    createFiles(fileMapping, options);
+  } catch (e) {
+    console.warn(
+      `WARNING: updateClass could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`
+    );
+  }
 }
 
 export function importStyles(customizations, options) {
