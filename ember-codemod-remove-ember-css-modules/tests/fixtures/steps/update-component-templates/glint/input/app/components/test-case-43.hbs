@@ -1,0 +1,10 @@
+{{!--
+  We remove the class attribute when the {{local-class}}
+  helper from ember-css-modules receives undefined.
+--}}
+<div
+  data-test-container
+  class={{local-class}}
+>
+  {{! Some content }}
+</div>
