@@ -1,0 +1,35 @@
+{{!--
+  Dynamic expressions inside the {{local-class}} helper from
+  ember-css-modules have limited support. The end-developer
+  should refactor code.
+
+  INCORRECT OUTPUT:
+
+  Expected:
+    class={{if
+      this.someCondition1
+      (local-class
+        this.styles
+        (if
+          this.someCondition2
+          "a1"
+          (array "a2" "a3" "a4")
+        )
+      )
+    }}
+--}}
+<div
+  data-test-container
+  class={{if
+    this.someCondition1
+    (local-class
+      (if
+        this.someCondition2
+        " a1 "
+        " a2 a3 a4 "
+      )
+    )
+  }}
+>
+  {{! Some content }}
+</div>

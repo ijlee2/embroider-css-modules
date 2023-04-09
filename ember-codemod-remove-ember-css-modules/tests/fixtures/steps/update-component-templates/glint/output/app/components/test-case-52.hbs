@@ -1,0 +1,20 @@
+{{!--
+  We replace the {{local-class}} helper from ember-css-modules
+  with the {{local-class}} helper from embroider-css-modules.
+--}}
+<div
+  data-test-container
+  class="
+    container-global
+    {{concat
+      this.styles.a1
+      " "
+      (if
+        this.someConditon
+        (local-class this.styles "a2" "a3" "a4")
+      )
+    }}
+  "
+>
+  {{! Some content }}
+</div>

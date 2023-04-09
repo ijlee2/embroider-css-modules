@@ -1,0 +1,16 @@
+{{!--
+  Dynamic expressions inside the {{local-class}} helper from
+  ember-css-modules have limited support. The end-developer
+  should refactor code.
+
+  INCORRECT OUTPUT:
+
+  Expected:
+    class={{local-class this.styles (get this.someObjectProperty "someKey")}}
+--}}
+<div
+  data-test-container
+  class={{local-class (get this.someObjectProperty "someKey")}}
+>
+  {{! Some content }}
+</div>

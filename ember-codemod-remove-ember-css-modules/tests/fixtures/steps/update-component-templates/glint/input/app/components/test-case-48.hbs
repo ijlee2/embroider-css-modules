@@ -1,0 +1,15 @@
+{{!--
+  We replace the {{local-class}} helper from ember-css-modules
+  with the {{local-class}} helper from embroider-css-modules
+  when the argument is a non-empty string.
+--}}
+<div
+  data-test-container
+  class={{concat
+    (local-class " a1 ")
+    " "
+    (local-class " a2 a3 a4 ")
+  }}
+>
+  {{! Some content }}
+</div>
