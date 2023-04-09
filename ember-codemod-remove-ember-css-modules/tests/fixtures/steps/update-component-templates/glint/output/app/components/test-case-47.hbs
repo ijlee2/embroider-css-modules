@@ -1,0 +1,15 @@
+{{!--
+  We replace the {{local-class}} helper from ember-css-modules
+  with an empty string when the argument is undefined or an
+  empty string.
+--}}
+<div
+  data-test-container
+  class={{concat
+    ""
+    " "
+    ""
+  }}
+>
+  {{! Some content }}
+</div>

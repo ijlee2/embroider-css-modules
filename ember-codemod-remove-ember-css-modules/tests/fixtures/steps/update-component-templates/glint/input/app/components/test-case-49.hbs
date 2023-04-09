@@ -1,0 +1,18 @@
+{{!--
+  We replace the {{local-class}} helper from ember-css-modules
+  with an empty string when the argument is undefined or an
+  empty string.
+--}}
+<div
+  data-test-container
+  class={{if
+    this.someCondition1
+    (local-class)
+    (if
+      this.someCondition2
+      (local-class " ")
+    )
+  }}
+>
+  {{! Some content }}
+</div>
