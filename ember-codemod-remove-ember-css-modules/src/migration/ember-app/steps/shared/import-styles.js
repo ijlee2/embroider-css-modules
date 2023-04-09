@@ -9,10 +9,53 @@ import {
 import { createFiles } from '../../../../utils/files.js';
 import { parseEntityName } from '../../../../utils/string.js';
 
-function importStylesInClass(file, data) {
-  // Find the last import statement
+function removeTemplateOnlyComponentMethod(file, data) {
   const traverse = AST.traverse(data.fileExtension === '.ts');
 
+  const ast = traverse(file, {
+    visitCallExpression(path) {
+      if (path.value.callee.name !== 'templateOnlyComponent') {
+        return false;
+      }
+
+      return AST.builders.classExpression(
+        null,
+        AST.builders.classBody([]),
+        AST.builders.identifier('Component')
+      );
+    },
+
+    visitImportDeclaration(path) {
+      if (path.value.source.value !== '@ember/component/template-only') {
+        return false;
+      }
+
+      const defaultImport = path.value.specifiers.find(
+        (specifier) => specifier.type === 'ImportDefaultSpecifier'
+      );
+
+      if (defaultImport?.local?.name !== 'templateOnlyComponent') {
+        return false;
+      }
+
+      return AST.builders.importDeclaration(
+        [
+          AST.builders.importDefaultSpecifier(
+            AST.builders.identifier('Component')
+          ),
+        ],
+        AST.builders.literal('@glimmer/component')
+      );
+    },
+  });
+
+  return AST.print(ast);
+}
+
+function importStylesInClass(file, data) {
+  const traverse = AST.traverse(data.fileExtension === '.ts');
+
+  // Find the last import statement
   let lastImportDeclarationPath;
 
   const ast = traverse(file, {
@@ -105,6 +148,10 @@ function updateClass(customizations, options) {
   const { ext: fileExtension, name: fileName } = parse(filePath);
 
   let file = readFileSync(join(projectRoot, filePath), 'utf8');
+
+  file = removeTemplateOnlyComponentMethod(file, {
+    fileExtension,
+  });
 
   file = importStylesInClass(file, {
     __styles__,
