@@ -267,6 +267,18 @@ function removeLocalClassAttributes(file) {
         }
       }
     },
+
+    HashPair(node) {
+      if (node.key !== 'local-class') {
+        return;
+      }
+
+      node.key = 'class';
+      node.value = AST.builders.sexpr('local-class', [
+        AST.builders.path('this.styles'),
+        transformParam(node.value),
+      ]);
+    },
   });
 
   return AST.print(ast);
