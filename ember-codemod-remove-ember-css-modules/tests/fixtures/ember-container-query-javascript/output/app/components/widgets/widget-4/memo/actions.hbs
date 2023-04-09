@@ -1,9 +1,6 @@
 <div
   data-test-memo-actions
-  local-class="actions {{if
-    (or @cqFeatures.small @cqFeatures.short)
-    'minimal-layout'
-  }}"
+  class="{{this.styles.actions}} {{local-class this.styles (if (or @cqFeatures.small @cqFeatures.short) 'minimal-layout')}}"
 >
   <button
     aria-label="Comment"
@@ -13,7 +10,7 @@
     {{svg-jar
       "message-processing-outline"
       aria-hidden="true"
-      local-class="icon icon-comment"
+      class=(local-class this.styles (array "icon" "icon-comment"))
     }}
   </button>
 
@@ -25,7 +22,7 @@
     {{svg-jar
       "sync"
       aria-hidden="true"
-      local-class="icon icon-repost"
+      class=(local-class this.styles (array "icon" "icon-repost"))
     }}
   </button>
 
@@ -33,7 +30,7 @@
     {{svg-jar
       "heart-outline"
       aria-hidden="true"
-      local-class="icon"
+      class=(local-class this.styles "icon")
     }}
   </button>
 
@@ -41,7 +38,7 @@
     {{svg-jar
       "share-variant-outline"
       aria-hidden="true"
-      local-class="icon"
+      class=(local-class this.styles "icon")
     }}
   </button>
 </div>
