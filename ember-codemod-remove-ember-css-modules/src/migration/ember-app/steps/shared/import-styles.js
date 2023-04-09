@@ -20,7 +20,12 @@ function removeTemplateOnlyComponentMethod(file, data) {
 
       return AST.builders.classExpression(
         null,
-        AST.builders.classBody([]),
+        AST.builders.classBody([
+          AST.builders.classProperty(
+            AST.builders.identifier(data.__styles__),
+            AST.builders.identifier(data.__styles__)
+          ),
+        ]),
         AST.builders.identifier('Component')
       );
     },
@@ -152,6 +157,7 @@ function updateClass(customizations, options) {
 
   try {
     file = removeTemplateOnlyComponentMethod(file, {
+      __styles__,
       fileExtension,
     });
 
