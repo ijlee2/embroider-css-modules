@@ -149,24 +149,30 @@ function updateClass(customizations, options) {
 
   let file = readFileSync(join(projectRoot, filePath), 'utf8');
 
-  file = removeTemplateOnlyComponentMethod(file, {
-    fileExtension,
-  });
+  try {
+    file = removeTemplateOnlyComponentMethod(file, {
+      fileExtension,
+    });
 
-  file = importStylesInClass(file, {
-    __styles__,
-    fileExtension,
-    fileName,
-  });
+    file = importStylesInClass(file, {
+      __styles__,
+      fileExtension,
+      fileName,
+    });
 
-  file = addStylesAsClassProperty(file, {
-    __styles__,
-    fileExtension,
-  });
+    file = addStylesAsClassProperty(file, {
+      __styles__,
+      fileExtension,
+    });
 
-  const fileMapping = new Map([[filePath, file]]);
+    const fileMapping = new Map([[filePath, file]]);
 
-  createFiles(fileMapping, options);
+    createFiles(fileMapping, options);
+  } catch (e) {
+    console.warn(
+      `WARNING: updateClass could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`
+    );
+  }
 }
 
 export function importStyles(customizations, options) {
