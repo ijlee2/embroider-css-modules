@@ -10,6 +10,8 @@ interface TracksTableSignature {
   };
 }
 
-const TracksTableComponent = class extends Component {};
+const TracksTableComponent = class extends Component<TracksTableSignature> {
+  styles = styles;
+};
 
 export default TracksTableComponent;
