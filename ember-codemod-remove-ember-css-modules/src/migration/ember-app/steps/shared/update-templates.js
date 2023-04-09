@@ -169,6 +169,35 @@ function removeLocalClassHelpers(file) {
         ...localClassNames.map(AST.builders.string),
       ]);
     },
+
+    SubExpression(node) {
+      const hasLocalClassHelper = node.path.original === 'local-class';
+
+      if (!hasLocalClassHelper) {
+        return;
+      }
+
+      if (canRemoveLocalClassHelper(node)) {
+        return AST.builders.string('');
+      }
+
+      const param = node.params[0];
+
+      if (param.type !== 'StringLiteral') {
+        return node;
+      }
+
+      const localClassNames = param.value.trim().split(/\s+/);
+
+      if (localClassNames.length === 1) {
+        return AST.builders.path(`this.styles.${localClassNames[0]}`);
+      }
+
+      return AST.builders.sexpr(AST.builders.path('local-class'), [
+        AST.builders.path('this.styles'),
+        ...localClassNames.map(AST.builders.string),
+      ]);
+    },
   });
 
   return AST.print(ast);
