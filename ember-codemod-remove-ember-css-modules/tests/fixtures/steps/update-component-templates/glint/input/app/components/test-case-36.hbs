@@ -1,0 +1,18 @@
+{{!--
+  Dynamic string concatenations have limited support.
+  The end-developer should refactor code.
+
+  INCORRECT OUTPUT:
+
+  Expected:
+    class="
+      {{this.styles.container}}
+      {{get this.styles (concat "prefix-" @countryCode "-suffix")}}
+    "
+--}}
+<div
+  data-test-container
+  local-class="container prefix-{{@countryCode}}-suffix"
+>
+  {{! Some content }}
+</div>

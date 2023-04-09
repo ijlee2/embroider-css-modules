@@ -1,0 +1,15 @@
+{{!--
+  We assume that mustache statements, which do not correspond to
+  {{concat}}, {{if}}, or {{unless}} helper, return global class
+  names already.
+
+  Here, it is unclear whether maybePropertyOrHelper is a class
+  property or a helper, so we assume that it is a property. The
+  end-developer should refactor code.
+--}}
+<div
+  data-test-container
+  class={{get this.styles maybePropertyOrHelper}}
+>
+  {{! Some content }}
+</div>

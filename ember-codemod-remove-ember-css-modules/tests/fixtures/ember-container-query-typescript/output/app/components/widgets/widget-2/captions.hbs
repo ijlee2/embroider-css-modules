@@ -3,22 +3,16 @@
   as |CQ|
 >
   <div
-    local-class="container {{unless CQ.features.tall 'flat'}}"
+    class="{{this.styles.container}} {{local-class this.styles (unless CQ.features.tall 'flat')}}"
   >
     {{#if this.summary}}
       <div
-        local-class="summary {{if
-          CQ.features.large
-          'horizontal-layout'
-        }}"
+        class="{{this.styles.summary}} {{local-class this.styles (if CQ.features.large 'horizontal-layout')}}"
         tabindex="0"
       >
         <h3
           data-test-field="Music Format"
-          local-class="music-format {{unless
-            CQ.features.large
-            'small-font-size'
-          }}"
+          class="{{this.styles.music-format}} {{local-class this.styles (unless CQ.features.large 'small-font-size')}}"
         >
           <span class={{this.styles.marker}}>
             {{svg-jar
@@ -77,7 +71,7 @@
             {{svg-jar
               "chevron-left"
               aria-hidden="true"
-              local-class="icon"
+              class=(local-class this.styles "icon")
             }}
 
           {{/if}}
@@ -99,7 +93,7 @@
             {{svg-jar
               "chevron-right"
               aria-hidden="true"
-              local-class="icon"
+              class=(local-class this.styles "icon")
             }}
 
           {{/if}}

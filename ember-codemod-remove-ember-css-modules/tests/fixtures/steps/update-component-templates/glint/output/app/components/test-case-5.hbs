@@ -16,13 +16,7 @@
     {{! Some content }}
   </div>
 
-  {{!
-    INCORRECT OUTPUT:
-
-    When the implementation of updateTemplates is finished, we should
-    not see the local-class attribute. 
-  }}
-  <div local-class=" {{this.someProperty}} ">
+  <div class=" {{get this.styles this.someProperty}} ">
     {{! Some content }}
   </div>
 
@@ -30,13 +24,7 @@
     {{! Some content }}
   </div>
 
-  {{!
-    INCORRECT OUTPUT:
-
-    When the implementation of updateTemplates is finished, we should
-    not see the local-class attribute. 
-  }}
-  <div local-class=" {{if this.someCondition "a1"}} ">
+  <div class=" {{local-class this.styles (if this.someCondition "a1")}} ">
     {{! Some content }}
   </div>
 </div>

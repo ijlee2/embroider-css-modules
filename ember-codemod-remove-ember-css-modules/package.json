@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "@babel/parser": "^7.21.4",
-    "css-tree": "^2.3.1",
     "ember-template-recast": "^6.1.4",
     "glob": "^9.3.4",
     "lodash.template": "^4.5.0",

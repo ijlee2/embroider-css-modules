@@ -1,0 +1,9 @@
+{{!
+  We can pass the local-class attribute to components
+  that we invoke with the curly-brace syntax.
+}}
+{{textarea
+  disabled=isDisabled
+  local-class=(concat "textarea" (if isDisabled " is-disabled"))
+  value=value
+}}

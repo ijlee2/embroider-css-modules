@@ -1,0 +1,14 @@
+{{! We can combine text nodes with mustache statements. }}
+<div
+  data-test-container
+  local-class="
+    container
+    {{if
+      (eq this.someProperty 'someValue')
+      ' a1 '
+      ' a2 a3 a4 '
+    }}
+  "
+>
+  {{! Some content }}
+</div>

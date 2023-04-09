@@ -1,0 +1,7 @@
+{{! We can combine text nodes with mustache statements. }}
+<div
+  data-test-container
+  class="{{this.styles.a1}} {{get this.styles this.someProperty}} {{this.styles.a2}}"
+>
+  {{! Some content }}
+</div>

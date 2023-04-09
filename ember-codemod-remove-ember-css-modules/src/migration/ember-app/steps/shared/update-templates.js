@@ -109,6 +109,123 @@ function mergeClassAndLocalClassAttributes(file) {
 }
 
 function removeLocalClassAttributes(file) {
+  function transformParam(param) {
+    switch (param.type) {
+      case 'StringLiteral': {
+        const localClassNames = param.value.trim().split(/\s+/);
+
+        if (localClassNames.length === 1) {
+          param.value = localClassNames[0];
+        } else {
+          param = AST.builders.sexpr(
+            'array',
+            localClassNames.map(AST.builders.string)
+          );
+        }
+
+        break;
+      }
+
+      case 'SubExpression': {
+        switch (param.path.original) {
+          case 'if':
+          case 'unless': {
+            const subparams = param.params.map(transformParam);
+
+            param = AST.builders.sexpr(param.path.original, subparams);
+
+            break;
+          }
+        }
+
+        break;
+      }
+    }
+
+    return param;
+  }
+
+  function transformPart(part) {
+    switch (part.type) {
+      case 'MustacheStatement': {
+        switch (part.path.original) {
+          case 'concat': {
+            // eslint-disable-next-line no-inner-declarations
+            function hasPathExpression(params) {
+              return params.some((param) => param.type === 'PathExpression');
+            }
+
+            if (hasPathExpression(part.params)) {
+              return AST.builders.mustache(AST.builders.path('get'), [
+                AST.builders.path('this.styles'),
+                AST.builders.sexpr(part.path.original, part.params),
+              ]);
+            }
+
+            const params = part.params.map(transformParam);
+
+            return AST.builders.mustache('local-class', [
+              AST.builders.path('this.styles'),
+              ...params,
+            ]);
+          }
+
+          case 'if':
+          case 'unless': {
+            const params = part.params.map(transformParam);
+
+            return AST.builders.mustache('local-class', [
+              AST.builders.path('this.styles'),
+              AST.builders.sexpr(part.path.original, params),
+            ]);
+          }
+
+          default: {
+            return AST.builders.mustache(AST.builders.path('get'), [
+              AST.builders.path('this.styles'),
+              part.path,
+            ]);
+          }
+        }
+      }
+
+      case 'TextNode': {
+        const value = part.chars.trim();
+
+        if (value === '') {
+          return part;
+        }
+
+        const localClassNames = value.split(/\s+/);
+
+        if (localClassNames.length === 1) {
+          return AST.builders.mustache(
+            AST.builders.path(`this.styles.${localClassNames[0]}`)
+          );
+        }
+
+        return AST.builders.mustache(AST.builders.path('local-class'), [
+          AST.builders.path('this.styles'),
+          ...localClassNames.map(AST.builders.string),
+        ]);
+      }
+    }
+  }
+
+  function transformParts(parts) {
+    const numParts = parts.length;
+
+    return parts.reduce((accumulator, part, index) => {
+      accumulator.push(transformPart(part));
+
+      if (index < numParts - 1) {
+        accumulator.push(AST.builders.text(' '));
+      }
+
+      return accumulator;
+    }, []);
+  }
+
   const ast = AST.traverse(file, {
     ElementNode(node) {
       // Check if the local-class attribute (still) exists
@@ -126,114 +243,41 @@ function removeLocalClassAttributes(file) {
       const localClassAttribute = attributes[localClassAttributeIndex];
 
       switch (localClassAttribute.value.type) {
+        case 'ConcatStatement': {
+          localClassAttribute.name = 'class';
+          localClassAttribute.value.parts = transformParts(
+            localClassAttribute.value.parts
+          );
+
+          break;
+        }
+
         case 'MustacheStatement': {
-          // eslint-disable-next-line no-inner-declarations
-          function transformParam(param) {
-            switch (param.type) {
-              case 'StringLiteral': {
-                const localClassNames = param.value.trim().split(/\s+/);
-
-                if (localClassNames.length === 1) {
-                  param.value = localClassNames[0];
-                } else {
-                  param = AST.builders.sexpr(
-                    'array',
-                    localClassNames.map(AST.builders.string)
-                  );
-                }
-
-                break;
-              }
-
-              case 'SubExpression': {
-                switch (param.path.original) {
-                  case 'if':
-                  case 'unless': {
-                    const subparams = param.params.map(transformParam);
-
-                    param = AST.builders.sexpr(param.path.original, subparams);
-
-                    break;
-                  }
-                }
-
-                break;
-              }
-            }
-
-            return param;
-          }
-
-          switch (localClassAttribute.value.path.original) {
-            case 'concat': {
-              const params =
-                localClassAttribute.value.params.map(transformParam);
-
-              const attributeValue = AST.builders.mustache('local-class', [
-                AST.builders.path('this.styles'),
-                ...params,
-              ]);
-
-              localClassAttribute.name = 'class';
-              localClassAttribute.value = attributeValue;
-
-              break;
-            }
-
-            case 'if':
-            case 'unless': {
-              const params =
-                localClassAttribute.value.params.map(transformParam);
-
-              const attributeValue = AST.builders.mustache('local-class', [
-                AST.builders.path('this.styles'),
-                AST.builders.sexpr(
-                  localClassAttribute.value.path.original,
-                  params
-                ),
-              ]);
-
-              localClassAttribute.name = 'class';
-              localClassAttribute.value = attributeValue;
-
-              break;
-            }
-
-            default: {
-              localClassAttribute.name = 'class';
-            }
-          }
+          localClassAttribute.name = 'class';
+          localClassAttribute.value = transformPart(localClassAttribute.value);
 
           break;
         }
 
         case 'TextNode': {
-          const localClassAttributeValue =
-            localClassAttribute.value.chars.trim();
-
-          const localClassNames = localClassAttributeValue.split(/\s+/);
-          let attributeValue;
-
-          if (localClassNames.length === 1) {
-            attributeValue = AST.builders.mustache(
-              AST.builders.path(`this.styles.${localClassNames[0]}`)
-            );
-          } else {
-            attributeValue = AST.builders.mustache(
-              AST.builders.path('local-class'),
-              [
-                AST.builders.path('this.styles'),
-                ...localClassNames.map(AST.builders.string),
-              ]
-            );
-          }
-
           localClassAttribute.name = 'class';
-          localClassAttribute.value = attributeValue;
+          localClassAttribute.value = transformPart(localClassAttribute.value);
 
           break;
         }
       }
+    },
+
+    HashPair(node) {
+      if (node.key !== 'local-class') {
+        return;
+      }
+
+      node.key = 'class';
+      node.value = AST.builders.sexpr('local-class', [
+        AST.builders.path('this.styles'),
+        transformParam(node.value),
+      ]);
     },
   });
 

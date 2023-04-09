@@ -1,0 +1,10 @@
+{{!
+  Dynamic string concatenations have limited support.
+  The end-developer should refactor code.
+}}
+<div
+  data-test-container
+  local-class="container {{concat "prefix-" @countryCode "-suffix"}}"
+>
+  {{! Some content }}
+</div>

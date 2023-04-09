@@ -223,9 +223,6 @@ importers:
       '@babel/parser':
         specifier: ^7.21.4
         version: 7.21.4
-      css-tree:
-        specifier: ^2.3.1
-        version: 2.3.1
       ember-template-recast:
         specifier: ^6.1.4
         version: 6.1.4

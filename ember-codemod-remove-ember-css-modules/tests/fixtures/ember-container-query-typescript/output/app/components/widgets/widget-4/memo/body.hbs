@@ -1,9 +1,6 @@
 <div
   data-test-memo-body
-  local-class="body {{if
-    (or @cqFeatures.small @cqFeatures.short)
-    'minimal-layout'
-  }}"
+  class="{{this.styles.body}} {{local-class this.styles (if (or @cqFeatures.small @cqFeatures.short) 'minimal-layout')}}"
 >
   <div class={{this.styles.message}} tabindex="0">
     <p>
