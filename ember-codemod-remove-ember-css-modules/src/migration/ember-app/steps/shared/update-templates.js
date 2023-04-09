@@ -45,7 +45,7 @@ function sanitizeClassAndLocalClassAttributes(file) {
   return AST.print(ast);
 }
 
-function mergeClassAndLocalClassAttributes(file) {
+function mergeClassAndLocalClassAttributes(file, data) {
   const ast = AST.traverse(file, {
     ElementNode(node) {
       // Check if both class and local-class attributes exist
@@ -82,13 +82,13 @@ function mergeClassAndLocalClassAttributes(file) {
 
       if (localClassNames.length === 1) {
         params = [
-          AST.builders.path(`this.styles.${localClassNames[0]}`),
+          AST.builders.path(`this.${data.__styles__}.${localClassNames[0]}`),
           AST.builders.string(` ${classAttributeValue}`),
         ];
       } else {
         params = [
           AST.builders.sexpr('local-class', [
-            AST.builders.path('this.styles'),
+            AST.builders.path(`this.${data.__styles__}`),
             ...localClassNames.map(AST.builders.string),
           ]),
           AST.builders.string(` ${classAttributeValue}`),
@@ -108,7 +108,7 @@ function mergeClassAndLocalClassAttributes(file) {
   return AST.print(ast);
 }
 
-function removeLocalClassHelpers(file) {
+function removeLocalClassHelpers(file, data) {
   /*
     The {{local-class}} helper from ember-css-modules allows
     1 positional argument, whose value is a concatenated string
@@ -166,14 +166,14 @@ function removeLocalClassHelpers(file) {
 
       if (localClassNames.length === 1) {
         node.value = AST.builders.mustache(
-          AST.builders.path(`this.styles.${localClassNames[0]}`)
+          AST.builders.path(`this.${data.__styles__}.${localClassNames[0]}`)
         );
 
         return;
       }
 
       node.value = AST.builders.mustache(AST.builders.path('local-class'), [
-        AST.builders.path('this.styles'),
+        AST.builders.path(`this.${data.__styles__}`),
         ...localClassNames.map(AST.builders.string),
       ]);
     },
@@ -198,11 +198,13 @@ function removeLocalClassHelpers(file) {
       const localClassNames = param.value.trim().split(/\s+/);
 
       if (localClassNames.length === 1) {
-        return AST.builders.path(`this.styles.${localClassNames[0]}`);
+        return AST.builders.path(
+          `this.${data.__styles__}.${localClassNames[0]}`
+        );
       }
 
       return AST.builders.sexpr(AST.builders.path('local-class'), [
-        AST.builders.path('this.styles'),
+        AST.builders.path(`this.${data.__styles__}`),
         ...localClassNames.map(AST.builders.string),
       ]);
     },
@@ -211,7 +213,7 @@ function removeLocalClassHelpers(file) {
   return AST.print(ast);
 }
 
-function removeLocalClassAttributes(file) {
+function removeLocalClassAttributes(file, data) {
   function transformParam(param) {
     switch (param.type) {
       case 'StringLiteral': {
@@ -260,7 +262,7 @@ function removeLocalClassAttributes(file) {
 
             if (hasPathExpression(part.params)) {
               return AST.builders.mustache(AST.builders.path('get'), [
-                AST.builders.path('this.styles'),
+                AST.builders.path(`this.${data.__styles__}`),
                 AST.builders.sexpr(part.path.original, part.params),
               ]);
             }
@@ -268,7 +270,7 @@ function removeLocalClassAttributes(file) {
             const params = part.params.map(transformParam);
 
             return AST.builders.mustache('local-class', [
-              AST.builders.path('this.styles'),
+              AST.builders.path(`this.${data.__styles__}`),
               ...params,
             ]);
           }
@@ -278,14 +280,14 @@ function removeLocalClassAttributes(file) {
             const params = part.params.map(transformParam);
 
             return AST.builders.mustache('local-class', [
-              AST.builders.path('this.styles'),
+              AST.builders.path(`this.${data.__styles__}`),
               AST.builders.sexpr(part.path.original, params),
             ]);
           }
 
           default: {
             return AST.builders.mustache(AST.builders.path('get'), [
-              AST.builders.path('this.styles'),
+              AST.builders.path(`this.${data.__styles__}`),
               part.path,
             ]);
           }
@@ -303,12 +305,12 @@ function removeLocalClassAttributes(file) {
 
         if (localClassNames.length === 1) {
           return AST.builders.mustache(
-            AST.builders.path(`this.styles.${localClassNames[0]}`)
+            AST.builders.path(`this.${data.__styles__}.${localClassNames[0]}`)
           );
         }
 
         return AST.builders.mustache(AST.builders.path('local-class'), [
-          AST.builders.path('this.styles'),
+          AST.builders.path(`this.${data.__styles__}`),
           ...localClassNames.map(AST.builders.string),
         ]);
       }
@@ -378,7 +380,7 @@ function removeLocalClassAttributes(file) {
 
       node.key = 'class';
       node.value = AST.builders.sexpr('local-class', [
-        AST.builders.path('this.styles'),
+        AST.builders.path(`this.${data.__styles__}`),
         transformParam(node.value),
       ]);
     },
@@ -389,7 +391,7 @@ function removeLocalClassAttributes(file) {
 
 function updateTemplate(customizations, options) {
   const { entityName, getFilePath } = customizations;
-  const { projectRoot } = options;
+  const { __styles__, projectRoot } = options;
 
   const filePath = getFilePath(entityName);
 
@@ -397,9 +399,18 @@ function updateTemplate(customizations, options) {
 
   try {
     file = sanitizeClassAndLocalClassAttributes(file);
-    file = mergeClassAndLocalClassAttributes(file);
-    file = removeLocalClassHelpers(file);
-    file = removeLocalClassAttributes(file);
+
+    file = mergeClassAndLocalClassAttributes(file, {
+      __styles__,
+    });
+
+    file = removeLocalClassHelpers(file, {
+      __styles__,
+    });
+
+    file = removeLocalClassAttributes(file, {
+      __styles__,
+    });
 
     const fileMapping = new Map([[filePath, file]]);
 
