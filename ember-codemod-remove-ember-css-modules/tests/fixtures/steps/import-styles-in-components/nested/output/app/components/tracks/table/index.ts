@@ -1,4 +1,4 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
 import type { Track } from '../../../data/album';
 
@@ -10,7 +10,7 @@ interface TracksTableSignature {
   };
 }
 
-const TracksTableComponent = templateOnlyComponent<TracksTableSignature>();
+const TracksTableComponent = class extends Component {};
 
 export default TracksTableComponent;
 

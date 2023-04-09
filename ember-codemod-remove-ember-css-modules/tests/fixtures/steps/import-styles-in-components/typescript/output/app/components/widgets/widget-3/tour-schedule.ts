@@ -1,4 +1,4 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
 import type { Concert } from '../../../data/concert';
 
@@ -11,6 +11,6 @@ interface WidgetsWidget3TourScheduleSignature {
 }
 
 const WidgetsWidget3TourScheduleComponent =
-  templateOnlyComponent<WidgetsWidget3TourScheduleSignature>();
+  class extends Component {};
 
 export default WidgetsWidget3TourScheduleComponent;
