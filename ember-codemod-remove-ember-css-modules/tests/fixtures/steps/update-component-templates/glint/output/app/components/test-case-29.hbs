@@ -1,11 +1,11 @@
 {{!--
-  We assume that mustache statements, which are neither {{if}}
-  nor {{unless}}, return global class names already. In short,
-  these statements should remain the same.
+  We assume that mustache statements, which do not correspond to
+  {{concat}}, {{if}}, or {{unless}} helper, return global class
+  names already.
 --}}
 <div
   data-test-container
-  class={{this.someGetterOrHelper}}
+  class={{get this.styles this.someProperty}}
 >
   {{! Some content }}
 </div>

@@ -200,7 +200,16 @@ function removeLocalClassAttributes(file) {
             }
 
             default: {
+              const attributeValue = AST.builders.mustache(
+                AST.builders.path('get'),
+                [
+                  AST.builders.path('this.styles'),
+                  localClassAttribute.value.path,
+                ]
+              );
+
               localClassAttribute.name = 'class';
+              localClassAttribute.value = attributeValue;
             }
           }
 
