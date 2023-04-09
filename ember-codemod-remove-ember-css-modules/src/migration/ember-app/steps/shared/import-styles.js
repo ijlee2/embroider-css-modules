@@ -18,6 +18,12 @@ function removeTemplateOnlyComponentMethod(file, data) {
         return false;
       }
 
+      const superClass = AST.builders.identifier('Component');
+
+      if (data.fileExtension === '.ts') {
+        superClass.typeAnnotation = path.value.typeParameters;
+      }
+
       return AST.builders.classExpression(
         null,
         AST.builders.classBody([
@@ -26,7 +32,7 @@ function removeTemplateOnlyComponentMethod(file, data) {
             AST.builders.identifier(data.__styles__)
           ),
         ]),
-        AST.builders.identifier('Component')
+        superClass
       );
     },
 
