@@ -9,6 +9,8 @@ interface WidgetsWidget4MemoBodySignature {
 }
 
 const WidgetsWidget4MemoBodyComponent =
-  class extends Component {};
+  class extends Component<WidgetsWidget4MemoBodySignature> {
+    styles = styles;
+  };
 
 export default WidgetsWidget4MemoBodyComponent;

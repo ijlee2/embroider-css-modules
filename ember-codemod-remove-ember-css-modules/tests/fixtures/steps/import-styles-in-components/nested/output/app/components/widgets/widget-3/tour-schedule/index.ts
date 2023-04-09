@@ -11,7 +11,9 @@ interface WidgetsWidget3TourScheduleSignature {
 }
 
 const WidgetsWidget3TourScheduleComponent =
-  class extends Component {};
+  class extends Component<WidgetsWidget3TourScheduleSignature> {
+    styles = styles;
+  };
 
 export default WidgetsWidget3TourScheduleComponent;
 
