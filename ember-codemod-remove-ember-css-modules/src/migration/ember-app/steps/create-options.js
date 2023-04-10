@@ -1,25 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-function validatePackageJson({ name, version }) {
-  if (!name) {
-    throw new SyntaxError('Package name is missing.');
-  }
-
-  if (name.includes('/')) {
-    // eslint-disable-next-line no-unused-vars
-    const [_scope, packageName] = name.split('/');
-
-    if (!packageName) {
-      throw new SyntaxError('Package name is missing.');
-    }
-  }
-
-  if (!version) {
-    throw new SyntaxError('Package version is missing.');
-  }
-}
-
 function analyzePackageJson(codemodOptions) {
   const { projectRoot } = codemodOptions;
 
@@ -29,10 +10,7 @@ function analyzePackageJson(codemodOptions) {
       'utf8'
     );
 
-    const { dependencies, devDependencies, name, version } =
-      JSON.parse(packageJsonFile);
-
-    validatePackageJson({ name, version });
+    const { dependencies, devDependencies } = JSON.parse(packageJsonFile);
 
     const projectDependencies = new Map([
       ...Object.entries(dependencies ?? {}),
@@ -44,8 +22,6 @@ function analyzePackageJson(codemodOptions) {
       hasEmberCssModules: projectDependencies.has('ember-css-modules'),
       hasGlint: projectDependencies.has('@glint/core'),
       hasTypeScript: projectDependencies.has('typescript'),
-      name,
-      version,
     };
   } catch (e) {
     throw new SyntaxError(

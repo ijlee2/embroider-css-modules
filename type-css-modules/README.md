@@ -11,7 +11,7 @@ The type definition from [`@types/css-modules`](https://www.npmjs.com/package/@t
 
 ```ts
 declare module '*.css' {
-  const styles: Record<sring, string>;
+  const styles: Record<string, string>;
 
   export default styles;
 }
@@ -113,10 +113,13 @@ cd <your/project/path>
 npx type-css-modules <arguments>
 ```
 
-Option 2 (recommended). Install `type-css-modules` as a development dependency. Ensure that the declaration files exist before checking the types; for example, you can write a [pre-script](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts):
+Option 2 (recommended). Install `type-css-modules` as a development dependency. Ensure that the declaration files exist before checking the types; for example, you can write a [pre-script](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts).
 
-```json5
-/* package.json */
+<details>
+
+<summary><code>package.json</code></summary>
+
+```json
 {
   "scripts": {
     "lint:types": "tsc --noEmit",
@@ -128,6 +131,8 @@ Option 2 (recommended). Install `type-css-modules` as a development dependency. 
   }
 }
 ```
+
+</details>
 
 
 ### Arguments
@@ -142,6 +147,17 @@ type-css-modules --src app
 # Multiple source directories
 type-css-modules --src app/components app/controllers
 ```
+
+<details>
+<summary>Optional: Specify the project root</summary>
+
+Pass `--root` to run the codemod on a project somewhere else (i.e. not in the current directory).
+
+```sh
+npx type-css-modules --root=<your/project/path>
+```
+
+</details>
 
 
 ### Use Prettier?
@@ -341,7 +357,7 @@ import { container, header, body } from './page.css';
 
 </details>
 
-<sup>1. With `css-loader`, for example, you can configure [`mode`](https://webpack.js.org/loaders/css-loader/#mode) to be a function that conditionally returns `'local'` or `'global'`. In CSS module files, you can use the `:global()` pseudo-class selector to refer to "things from outside."</sup>
+<sup>1. With `webpack`, for example, you can configure [`mode`](https://webpack.js.org/loaders/css-loader/#mode) to be a function that returns `'local'` or `'global'`. In CSS module files, you can use the `:global()` pseudo-class selector to refer to "things from outside."</sup>
 
 <sup>2. [CSS nesting is in spec](https://www.w3.org/TR/css-nesting-1/). Once it is official, `type-css-modules` will leave it up to [`csstree`](https://github.com/csstree/csstree) to parse nested styles.
 

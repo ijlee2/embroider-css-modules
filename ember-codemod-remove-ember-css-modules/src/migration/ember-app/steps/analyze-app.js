@@ -82,13 +82,13 @@ function analyzeComponents(options) {
     }
   );
 
-  if (componentStructure === 'nested') {
-    const entities = analyzeEntities({
-      classFilePaths,
-      stylesheetFilePaths,
-      templateFilePaths,
-    });
+  const entities = analyzeEntities({
+    classFilePaths,
+    stylesheetFilePaths,
+    templateFilePaths,
+  });
 
+  if (componentStructure === 'nested') {
     return new Map(
       [...entities.entries()].map(([entityName, extensions]) => {
         const newEntityName = entityName.replace(/\/index$/, '');
@@ -98,11 +98,7 @@ function analyzeComponents(options) {
     );
   }
 
-  return analyzeEntities({
-    classFilePaths,
-    stylesheetFilePaths,
-    templateFilePaths,
-  });
+  return entities;
 }
 
 function analyzeRoutes(options) {

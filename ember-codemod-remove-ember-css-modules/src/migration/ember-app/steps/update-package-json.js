@@ -1,9 +1,12 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
+import { decideVersion } from '../../../utils/blueprints.js';
 import { convertToMap, convertToObject } from '../../../utils/json.js';
 
-function updateDevDependencies(packageJson) {
+function updateDevDependencies(packageJson, options) {
+  const { project } = options;
+
   const devDependencies = convertToMap(packageJson['devDependencies']);
 
   const packagesToDelete = ['ember-css-modules'];
@@ -12,7 +15,31 @@ function updateDevDependencies(packageJson) {
     devDependencies.delete(packageName);
   });
 
+  const packagesToInstall = new Set(['embroider-css-modules']);
+
+  if (project.hasTypeScript) {
+    packagesToInstall.add('type-css-modules');
+  }
+
+  [...packagesToInstall].sort().forEach((packageName) => {
+    const version = decideVersion(packageName, options);
+
+    devDependencies.set(packageName, version);
+  });
+
   packageJson['devDependencies'] = convertToObject(devDependencies);
+}
+
+function updateScripts(packageJson, options) {
+  const { project } = options;
+
+  const scripts = convertToMap(packageJson.scripts);
+
+  if (project.hasTypeScript) {
+    scripts.set('prelint:types', 'type-css-modules --src app');
+  }
+
+  packageJson['scripts'] = convertToObject(scripts);
 }
 
 export function updatePackageJson(options) {
@@ -22,7 +49,8 @@ export function updatePackageJson(options) {
   const oldFile = readFileSync(oldPath, 'utf8');
   const packageJson = JSON.parse(oldFile);
 
-  updateDevDependencies(packageJson);
+  updateDevDependencies(packageJson, options);
+  updateScripts(packageJson, options);
 
   const newFile = JSON.stringify(packageJson, null, 2) + '\n';
 

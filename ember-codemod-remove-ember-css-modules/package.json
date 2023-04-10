@@ -34,7 +34,7 @@
   "dependencies": {
     "@babel/parser": "^7.21.4",
     "ember-template-recast": "^6.1.4",
-    "glob": "^9.3.4",
+    "glob": "^10.0.0",
     "lodash.template": "^4.5.0",
     "recast": "^0.23.1",
     "yargs": "^17.7.1"
@@ -43,7 +43,7 @@
     "@babel/core": "^7.21.4",
     "@babel/eslint-parser": "^7.21.3",
     "@sondr3/minitest": "^0.1.1",
-    "eslint": "^8.37.0",
+    "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",

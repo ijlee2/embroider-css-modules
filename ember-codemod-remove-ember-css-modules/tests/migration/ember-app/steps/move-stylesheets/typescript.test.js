@@ -48,7 +48,8 @@ test('migration | ember-app | steps | move-stylesheets > typescript', function (
         'products.ts': 'some code for products.ts',
       },
       styles: {
-        'app.css': '',
+        'app.css':
+          '/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */\n',
       },
     },
   };

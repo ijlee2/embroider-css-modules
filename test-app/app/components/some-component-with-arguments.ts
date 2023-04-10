@@ -1,6 +1,6 @@
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface SomeComponentWithArgumentsComponentSignature {
+interface SomeComponentWithArgumentsSignature {
   Args: {
     Named: {
       classNames?: string;
@@ -10,7 +10,7 @@ interface SomeComponentWithArgumentsComponentSignature {
 }
 
 const SomeComponentWithArgumentsComponent =
-  templateOnlyComponent<SomeComponentWithArgumentsComponentSignature>();
+  templateOnlyComponent<SomeComponentWithArgumentsSignature>();
 
 export default SomeComponentWithArgumentsComponent;
 

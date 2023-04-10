@@ -1,11 +1,11 @@
 import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { extname, join } from 'node:path';
 
 import { ASTJavaScript as AST } from '../../../utils/abstract-syntax-tree.js';
 import { createFiles, findFiles } from '../../../utils/files.js';
 
 function addCssEntryPoint(file, data) {
-  const traverse = AST.traverse(data.fileExtension === '.ts');
+  const traverse = AST.traverse(data.hasTypeScript);
 
   const ast = traverse(file, {
     visitProgram(path) {
@@ -43,11 +43,14 @@ export function updateAppAppJs(options) {
 
   const filePath = filePaths[0];
 
+  const fileExtension = extname(filePath);
+  const hasTypeScript = fileExtension === '.ts';
+
   let file = readFileSync(join(projectRoot, filePath), 'utf8');
 
   try {
     file = addCssEntryPoint(file, {
-      fileExtension: filePath.endsWith('.ts') ? '.ts' : '.js',
+      hasTypeScript,
     });
 
     const fileMapping = new Map([[filePath, file]]);
