@@ -31,8 +31,6 @@ test('migration | ember-app | steps | create-options > typescript', function () 
       hasEmberCssModules: true,
       hasGlint: false,
       hasTypeScript: true,
-      name: 'docs-app',
-      version: '4.0.0-alpha.5',
     },
     projectRoot: 'tmp/ember-container-query-typescript',
   });

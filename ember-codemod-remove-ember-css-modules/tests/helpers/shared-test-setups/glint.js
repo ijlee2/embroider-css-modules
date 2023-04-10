@@ -124,8 +124,6 @@ const options = {
     hasEmberCssModules: true,
     hasGlint: true,
     hasTypeScript: true,
-    name: 'docs-app',
-    version: '4.0.0-alpha.5',
   },
   projectRoot: 'tmp/ember-container-query-glint',
 };

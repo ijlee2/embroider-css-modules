@@ -27,8 +27,6 @@ test('migration | ember-app | steps | create-options > javascript', function () 
       hasEmberCssModules: true,
       hasGlint: false,
       hasTypeScript: false,
-      name: 'docs-app',
-      version: '4.0.0-alpha.5',
     },
     projectRoot: 'tmp/ember-container-query-javascript',
   });
