@@ -13,4 +13,4 @@
 #---------
 
 ./codemod-test-fixture.sh -s "app" ember-app-flat
-./codemod-test-fixture.sh -s "app" ember-app-nested
+./codemod-test-fixture.sh -s "app/components app/controllers" ember-app-nested
