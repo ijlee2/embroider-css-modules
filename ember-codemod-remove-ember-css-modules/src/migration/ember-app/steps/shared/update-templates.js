@@ -16,12 +16,12 @@ function sanitizeClassAndLocalClassAttributes(file) {
 
     const attribute = attributes[attributeIndex];
 
-    if (attribute.value.type !== 'TextNode') {
+    if (attribute.isValueless) {
+      attributes.splice(attributeIndex, 1);
       return;
     }
 
-    if (attribute.isValueless) {
-      attributes.splice(attributeIndex, 1);
+    if (attribute.value.type !== 'TextNode') {
       return;
     }
 
@@ -48,7 +48,7 @@ function sanitizeClassAndLocalClassAttributes(file) {
 function mergeClassAndLocalClassAttributes(file, data) {
   const ast = AST.traverse(file, {
     ElementNode(node) {
-      // Check if both class and local-class attributes exist
+      // Check that both class and local-class attributes exist
       const { attributes } = node;
 
       const localClassAttributeIndex = attributes.findIndex(
@@ -62,7 +62,7 @@ function mergeClassAndLocalClassAttributes(file, data) {
         return;
       }
 
-      // For now, assume that both attributes have TextNode values
+      // Merge attributes only when both have TextNode values
       const localClassAttribute = attributes[localClassAttributeIndex];
       const classAttribute = attributes[classAttributeIndex];
 
@@ -111,8 +111,8 @@ function mergeClassAndLocalClassAttributes(file, data) {
 function removeLocalClassHelpers(file, data) {
   /*
     The {{local-class}} helper from ember-css-modules allows
-    1 positional argument, whose value is a concatenated string
-    string or `undefined`.
+    1 positional argument. The argument's value is presumed
+    to be a concatenated string or `undefined`.
   */
   function canRemoveLocalClassHelper(path) {
     const hasFromArgument = path.hash.pairs.some((pair) => pair.key === 'from');
@@ -390,10 +390,8 @@ function removeLocalClassAttributes(file, data) {
 }
 
 function updateTemplate(customizations, options) {
-  const { entityName, getFilePath } = customizations;
+  const { filePath } = customizations;
   const { __styles__, projectRoot } = options;
-
-  const filePath = getFilePath(entityName);
 
   let file = readFileSync(join(projectRoot, filePath), 'utf8');
 
@@ -432,6 +430,8 @@ export function updateTemplates(customizations, options) {
       continue;
     }
 
-    updateTemplate({ entityName, getFilePath }, options);
+    const filePath = getFilePath(entityName);
+
+    updateTemplate({ filePath }, options);
   }
 }
