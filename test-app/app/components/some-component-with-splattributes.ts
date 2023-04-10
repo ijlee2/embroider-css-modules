@@ -1,11 +1,11 @@
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface SomeComponentWithSplattributesComponentSignature {
+interface SomeComponentWithSplattributesSignature {
   Element: HTMLDivElement;
 }
 
 const SomeComponentWithSplattributesComponent =
-  templateOnlyComponent<SomeComponentWithSplattributesComponentSignature>();
+  templateOnlyComponent<SomeComponentWithSplattributesSignature>();
 
 export default SomeComponentWithSplattributesComponent;
 
