@@ -10,7 +10,7 @@ import { createFiles } from '../../../../utils/files.js';
 import { parseEntityName } from '../../../../utils/string.js';
 
 function removeTemplateOnlyComponentMethod(file, data) {
-  const traverse = AST.traverse(data.fileExtension === '.ts');
+  const traverse = AST.traverse(data.hasTypeScript);
 
   const ast = traverse(file, {
     visitCallExpression(path) {
@@ -20,7 +20,7 @@ function removeTemplateOnlyComponentMethod(file, data) {
 
       const superClass = AST.builders.identifier('Component');
 
-      if (data.fileExtension === '.ts') {
+      if (data.hasTypeScript) {
         superClass.typeAnnotation = path.value.typeParameters;
       }
 
@@ -64,7 +64,7 @@ function removeTemplateOnlyComponentMethod(file, data) {
 }
 
 function importStylesInClass(file, data) {
-  const traverse = AST.traverse(data.fileExtension === '.ts');
+  const traverse = AST.traverse(data.hasTypeScript);
 
   // Find the last import statement
   let lastImportDeclarationPath;
@@ -102,7 +102,7 @@ function importStylesInClass(file, data) {
 }
 
 function addStylesAsClassProperty(file, data) {
-  const traverse = AST.traverse(data.fileExtension === '.ts');
+  const traverse = AST.traverse(data.hasTypeScript);
 
   const ast = traverse(file, {
     visitClassDeclaration(path) {
@@ -129,19 +129,17 @@ function addStylesAsClassProperty(file, data) {
 }
 
 function createClass(customizations, options) {
-  const { blueprintFilePaths, entityName, getFilePath } = customizations;
+  const { blueprintFilePaths, entity, filePath } = customizations;
 
   const fileMapping = new Map(
     blueprintFilePaths.map((blueprintFilePath) => {
-      const filePath = getFilePath(entityName);
-
       const blueprintFile = readFileSync(
         join(blueprintRoot, blueprintFilePath),
         'utf8'
       );
 
       const file = processTemplate(blueprintFile, {
-        entity: parseEntityName(entityName),
+        entity,
         options,
       });
 
@@ -153,29 +151,29 @@ function createClass(customizations, options) {
 }
 
 function updateClass(customizations, options) {
-  const { entityName, getFilePath } = customizations;
+  const { filePath } = customizations;
   const { __styles__, projectRoot } = options;
 
-  const filePath = getFilePath(entityName);
   const { ext: fileExtension, name: fileName } = parse(filePath);
+  const hasTypeScript = fileExtension === '.ts';
 
   let file = readFileSync(join(projectRoot, filePath), 'utf8');
 
   try {
     file = removeTemplateOnlyComponentMethod(file, {
       __styles__,
-      fileExtension,
+      hasTypeScript,
     });
 
     file = importStylesInClass(file, {
       __styles__,
-      fileExtension,
       fileName,
+      hasTypeScript,
     });
 
     file = addStylesAsClassProperty(file, {
       __styles__,
-      fileExtension,
+      hasTypeScript,
     });
 
     const fileMapping = new Map([[filePath, file]]);
@@ -199,12 +197,15 @@ export function importStyles(customizations, options) {
       continue;
     }
 
+    const entity = parseEntityName(entityName);
+    const filePath = getFilePath(entityName);
+
     if (!hasClass) {
-      createClass({ blueprintFilePaths, entityName, getFilePath }, options);
+      createClass({ blueprintFilePaths, entity, filePath }, options);
 
       continue;
     }
 
-    updateClass({ entityName, getFilePath }, options);
+    updateClass({ filePath }, options);
   }
 }
