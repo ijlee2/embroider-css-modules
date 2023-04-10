@@ -10,14 +10,19 @@ import { typeCssModules } from '../src/index.js';
 process.title = 'type-css-modules';
 
 // Set codemod options
-const { argv } = yargs(hideBin(process.argv)).option('src', {
-  demandOption: true,
-  describe: 'Location(s) of the CSS files (your source code)',
-  type: 'array',
-});
+const { argv } = yargs(hideBin(process.argv))
+  .option('src', {
+    demandOption: true,
+    describe: 'Location(s) of the CSS files (your source code)',
+    type: 'array',
+  })
+  .option('root', {
+    describe: 'Location of your Ember project',
+    type: 'string',
+  });
 
 const codemodOptions = {
-  projectRoot: process.cwd(),
+  projectRoot: argv['root'] ?? process.cwd(),
   src: argv['src'],
 };
 
