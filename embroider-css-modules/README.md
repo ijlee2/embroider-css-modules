@@ -6,9 +6,13 @@
 _CSS modules for Embroider + TypeScript projects_
 
 
-## Features
+## What is it?
 
-`embroider-css-modules` provides tools to help you implement CSS modules. It supports [`Glint`](https://typed-ember.gitbook.io/glint/) and [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports).
+`embroider-css-modules` provides a set of **tools and conventions** to help you implement CSS modules. It is compatible with "bleeding-edge" Ember:
+
+- [Embroider on the strictest settings](https://github.com/embroider-build/embroider/#options) (including route splitting)
+- [Glint](https://typed-ember.gitbook.io/glint/)
+- [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports)
 
 
 ## Installation
