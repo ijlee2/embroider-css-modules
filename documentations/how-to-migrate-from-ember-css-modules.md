@@ -171,9 +171,9 @@ module.exports = function (defaults) {
       // ...
     },
     staticAddonTestSupportTrees: true,
-    staticAddonTrees: true,
+    staticAddonTrees: true, // <-- new
     staticComponents: true, // <-- new
-    staticHelpers: true, // <-- new
+    staticHelpers: true,
     staticModifiers: true,
   };
 

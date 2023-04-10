@@ -14,7 +14,19 @@ _CSS modules for Embroider + TypeScript projects_
 - [Glint](https://typed-ember.gitbook.io/glint/)
 - [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports)
 
-A key idea behind is, _how_ CSS modules is implemented is loosely tied to Ember and is allowed to change in the future.
+A key idea behind `embroider-css-modules`: There is _some_ mechanism called CSS modules, which maps local class names to global ones. The _how_ is loosely tied to Ember and allowed to change in the future.
+
+```ts
+// We can somehow map local class names to global ones
+const styles = {
+  'container': 'container-hashed',
+  'is-inline': 'is-inline-hashed',
+  'is-wide': 'is-wide-hashed',
+  'no-feedback': 'no-feedback-hashed',
+};
+```
+
+In short, `embroider-css-modules` depends very little on how CSS modules is implemented. It focuses on providing tools and conventions that improve your developer experience (DX).
 
 
 ### Package overview

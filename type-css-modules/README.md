@@ -334,12 +334,10 @@ Lastly, some counterexamples (what not to do):
 
 <details>
 
-<summary>Don't use named imports</summary>
+<summary>Don't use named imports to import styles</summary>
 
 ```ts
 /* app/components/ui/page.gts */
-import { localClass } from 'embroider-css-modules';
-
 import { container, header, body } from './page.css';
 
 <template>

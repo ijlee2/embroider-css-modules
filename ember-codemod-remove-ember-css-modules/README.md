@@ -41,7 +41,7 @@ Step 3. Celebrate.
 <details>
 <summary>Optional: Specify the component structure</summary>
 
-By default, an Octane projects has the flat component structure. Pass `--component-structure` to indicate otherwise.
+By default, an Octane project has the flat component structure. Pass `--component-structure` to indicate otherwise.
 
 ```sh
 npx ember-codemod-remove-ember-css-modules --component-structure="nested"

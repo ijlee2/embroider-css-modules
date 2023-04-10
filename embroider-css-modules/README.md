@@ -24,6 +24,22 @@ ember install embroider-css-modules
 <details>
 <summary>Use Glint or <code>&lt;template&gt;</code> tag? ✨</summary>
 
+- Update your template registry to extend this addon's. Check the [Glint documentation](https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons#using-glint-enabled-addons) for more information.
+
+    ```ts
+    /* types/global.d.ts */
+
+    import '@glint/environment-ember-loose';
+
+    import type EmbroiderCssModulesRegistry from 'embroider-css-modules/template-registry';
+
+    declare module '@glint/environment-ember-loose/registry' {
+      export default interface Registry extends EmbroiderCssModulesRegistry, /* other addon registries */ {
+        // local entries
+      }
+    }
+    ```
+
 - If you are using `<template>` tag, you are good to go! Use the named import to consume things.
 
     ```ts
@@ -43,22 +59,6 @@ ember install embroider-css-modules
         </div>
       </div>
     </template>
-    ```
-
-- Otherwise, update your template registry to extend this addon's. Check the [Glint documentation](https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons#using-glint-enabled-addons) for more information.
-
-    ```ts
-    /* types/global.d.ts */
-
-    import '@glint/environment-ember-loose';
-
-    import type EmbroiderCssModulesRegistry from 'embroider-css-modules/template-registry';
-
-    declare module '@glint/environment-ember-loose/registry' {
-      export default interface Registry extends EmbroiderCssModulesRegistry, /* other addon registries */ {
-        // local entries
-      }
-    }
     ```
 
 </details>

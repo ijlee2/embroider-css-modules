@@ -42,6 +42,8 @@ Instead, use `type-css-modules` to generate the declaration files.
 
 </details>
 
+[Learn more about the API](../type-css-modules/README.md).
+
 
 ## Give the local scope to the styles that you own
 
