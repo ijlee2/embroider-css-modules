@@ -42,6 +42,22 @@ ember install embroider-css-modules
 
 - If you are using `<template>` tag, you are good to go! Use the named import to consume things.
 
+    ```css
+    /* app/components/ui/page.css */
+    .container {
+      margin: 16px;
+      background-color: #FAFAFA;
+    }
+
+    .header {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  
+    .body {
+      font-size: 16px;
+    }
+    ```
     ```ts
     /* app/components/ui/page.gts */
     import { localClass } from 'embroider-css-modules';
