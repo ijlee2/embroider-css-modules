@@ -9,25 +9,19 @@ export function getClassNames(filePath, options) {
 
   const classNames = new Set();
 
-  const ast = AST.traverse(file, {
-    Rule(node) {
-      console.log(node.selectors);
+  AST.traverse(file, {
+    ClassSelector(node) {
+      classNames.add(node.name);
+    },
 
-      const selectors = node.selector.split(/\s+/);
-
-      selectors.forEach((selector) => {
-        if (!selector.startsWith('.')) {
-          return;
-        }
-
-        const classSelector = selector.replace(/^\./, '');
-
-        classNames.add(classSelector);
-      });
+    PseudoClassSelector(node) {
+      if (node.name === 'local') {
+        console.warn(
+          `WARNING: type-css-modules assumes that all user-defined classes are local. Consider removing the pseudo-class :local() in \`${filePath}\`.\n`
+        );
+      }
     },
   });
-
-  AST.print(ast);
 
   return [...classNames].sort();
 }
