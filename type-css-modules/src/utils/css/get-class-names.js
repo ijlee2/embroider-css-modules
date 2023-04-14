@@ -9,19 +9,25 @@ export function getClassNames(filePath, options) {
 
   const classNames = new Set();
 
-  AST.traverse(file, {
-    ClassSelector(node) {
-      classNames.add(node.name);
-    },
+  const ast = AST.traverse(file, {
+    Rule(node) {
+      console.log(node.selectors);
 
-    PseudoClassSelector(node) {
-      if (node.name === 'local') {
-        console.warn(
-          `WARNING: type-css-modules assumes that all user-defined classes are local. Consider removing the pseudo-class :local() in \`${filePath}\`.\n`
-        );
-      }
+      const selectors = node.selector.split(/\s+/);
+
+      selectors.forEach((selector) => {
+        if (!selector.startsWith('.')) {
+          return;
+        }
+
+        const classSelector = selector.replace(/^\./, '');
+
+        classNames.add(classSelector);
+      });
     },
   });
+
+  AST.print(ast);
 
   return [...classNames].sort();
 }

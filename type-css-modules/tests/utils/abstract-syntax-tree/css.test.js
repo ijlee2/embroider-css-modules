@@ -29,14 +29,14 @@ test('utils | abstract-syntax-tree | css > visit methods are undefined', functio
   assert.strictEqual(
     newFile,
     [
-      '.application{}',
-      '.header{}',
-      '.main{}',
-      '.footer{}',
-      '.copyright{}',
-      '.copyright .link{}',
+      '.application {}',
+      '.header {}',
+      '.main {}',
+      '.footer {}',
+      '.copyright {}',
+      '.copyright .link {}',
       '',
-    ].join('')
+    ].join('\n')
   );
 });
 
@@ -53,11 +53,36 @@ test('utils | abstract-syntax-tree | css > visit methods are well-defined', func
 
   const classNames = new Set();
 
-  AST.traverse(oldFile, {
-    ClassSelector(node) {
-      classNames.add(node.name);
+  const ast = AST.traverse(oldFile, {
+    Rule(node) {
+      const selectors = node.selector.split(/\s+/);
+
+      selectors.forEach((selector) => {
+        if (!selector.startsWith('.')) {
+          return;
+        }
+
+        const classSelector = selector.replace(/^\./, '');
+
+        classNames.add(classSelector);
+      });
     },
   });
+
+  const newFile = AST.print(ast);
+
+  assert.strictEqual(
+    newFile,
+    [
+      '.application {}',
+      '.header {}',
+      '.main {}',
+      '.footer {}',
+      '.copyright {}',
+      '.copyright .link {}',
+      '',
+    ].join('\n')
+  );
 
   assert.deepStrictEqual([...classNames].sort(), [
     'application',

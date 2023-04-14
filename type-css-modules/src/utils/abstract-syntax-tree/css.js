@@ -1,21 +1,26 @@
-import { generate, parse, walk } from 'css-tree';
+import postcss from 'postcss';
+
+function print(lazyResult) {
+  return lazyResult.css;
+}
 
 function traverse(file, visitMethods = {}) {
-  const ast = parse(file);
+  const plugins = [
+    {
+      postcssPlugin: 'Plugin',
+      ...visitMethods,
+    },
+  ];
 
-  for (const [nodeType, visitMethod] of Object.entries(visitMethods)) {
-    walk(ast, {
-      enter: visitMethod,
-      visit: nodeType,
-    });
-  }
+  const processor = postcss(plugins);
+  const lazyResult = processor.process(file);
 
-  return ast;
+  return lazyResult;
 }
 
 const tools = {
   builders: undefined,
-  print: generate,
+  print,
   traverse,
 };
 
