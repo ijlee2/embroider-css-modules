@@ -7,14 +7,14 @@ import type { Product } from '../../../data/products';
 import styles from './card.css';
 import ProductsProductImage from './image';
 
-interface ProductsProductCardComponentSignature {
+interface ProductsProductCardSignature {
   Args: {
     product: Product;
     redirectTo?: string;
   };
 }
 
-const ProductsProductCardComponent: TOC<ProductsProductCardComponentSignature> =
+const ProductsProductCardComponent: TOC<ProductsProductCardSignature> =
 <template>
   <ContainerQuery
     @features={{hash wide=(width min=320)}}

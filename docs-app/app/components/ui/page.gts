@@ -3,7 +3,7 @@ import { localClass } from 'embroider-css-modules';
 
 import styles from './page.css';
 
-interface UiPageComponentSignature {
+interface UiPageSignature {
   Args: {
     title: string;
   };
@@ -12,7 +12,7 @@ interface UiPageComponentSignature {
   };
 }
 
-const UiPageComponent: TOC<UiPageComponentSignature> =
+const UiPageComponent: TOC<UiPageSignature> =
 <template>
   <div class={{localClass styles "container"}}>
     <h1 class={{styles.header}}>
