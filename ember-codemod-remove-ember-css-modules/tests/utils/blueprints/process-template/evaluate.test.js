@@ -5,7 +5,7 @@ test('utils | blueprints | process-template > evaluate', function () {
   const blueprintFile = [
     `import Component from '@glimmer/component';`,
     ``,
-    `<% if (options.packages.app.hasTypeScript) { %>export default class NavigationMenuComponent extends Component<NavigationMenuComponentSignature> {}`,
+    `<% if (options.packages.app.hasTypeScript) { %>export default class NavigationMenuComponent extends Component<NavigationMenuSignature> {}`,
     `<% } else { %>export default class NavigationMenuComponent extends Component {}`,
     `<% } %>`,
   ].join('\n');
@@ -23,7 +23,7 @@ test('utils | blueprints | process-template > evaluate', function () {
   const expectedValue = [
     `import Component from '@glimmer/component';`,
     ``,
-    `export default class NavigationMenuComponent extends Component<NavigationMenuComponentSignature> {}`,
+    `export default class NavigationMenuComponent extends Component<NavigationMenuSignature> {}`,
     ``,
   ].join('\n');
 
