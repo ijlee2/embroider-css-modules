@@ -3,13 +3,13 @@ import Component from '@glimmer/component';
 import type { Data } from '../../../utils/components/widgets/widget-2';
 import styles from './stacked-chart.css';
 
-interface WidgetsWidget2StackedChartComponentSignature {
+interface WidgetsWidget2StackedChartSignature {
   Args: {
     data: Array<Data>;
   };
 }
 
-export default class WidgetsWidget2StackedChartComponent extends Component<WidgetsWidget2StackedChartComponentSignature> {
+export default class WidgetsWidget2StackedChartComponent extends Component<WidgetsWidget2StackedChartSignature> {
   styles = styles;
 }
 

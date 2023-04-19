@@ -2,13 +2,13 @@ import Component from '@glimmer/component';
 
 import styles from './index.css';
 
-interface WidgetsWidget4MemoBodyComponentSignature {
+interface WidgetsWidget4MemoBodySignature {
   Args: {
     cqFeatures?: Record<'small' | 'large' | 'short', boolean>;
   };
 }
 
-export default class WidgetsWidget4MemoBodyComponent extends Component<WidgetsWidget4MemoBodyComponentSignature> {
+export default class WidgetsWidget4MemoBodyComponent extends Component<WidgetsWidget4MemoBodySignature> {
   styles = styles;
 }
 

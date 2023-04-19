@@ -5,13 +5,13 @@ import { tracked } from '@glimmer/tracking';
 import type { Summary } from '../../../../utils/components/widgets/widget-2';
 import styles from './index.css';
 
-interface WidgetsWidget2CaptionsComponentSignature {
+interface WidgetsWidget2CaptionsSignature {
   Args: {
     summaries?: Array<Summary>;
   };
 }
 
-export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWidget2CaptionsComponentSignature> {
+export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWidget2CaptionsSignature> {
   styles = styles;
 
   @tracked currentIndex = 0;

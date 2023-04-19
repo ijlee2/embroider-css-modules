@@ -9,16 +9,16 @@ import {
 } from '../../../utils/components/widgets/widget-2';
 import styles from './index.css';
 
-interface WidgetsWidget2ComponentSignature {}
+interface WidgetsWidget2Signature {}
 
-export default class WidgetsWidget2Component extends Component<WidgetsWidget2ComponentSignature> {
+export default class WidgetsWidget2Component extends Component<WidgetsWidget2Signature> {
   styles = styles;
 
   @tracked data = [] as Array<Data>;
   @tracked summaries = [] as Array<Summary>;
 
-  /* @ts-expect-error Property 'Args' does not exist on type 'WidgetsWidget2ComponentSignature' */
-  constructor(owner: unknown, args: WidgetsWidget2ComponentSignature['Args']) {
+  /* @ts-expect-error Property 'Args' does not exist on type 'WidgetsWidget2Signature' */
+  constructor(owner: unknown, args: WidgetsWidget2Signature['Args']) {
     super(owner, args);
 
     this.loadData();

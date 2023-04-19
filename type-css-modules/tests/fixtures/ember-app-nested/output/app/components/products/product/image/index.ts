@@ -3,13 +3,13 @@ import config from 'docs-app/config/environment';
 
 import styles from './index.css';
 
-interface ProductsProductImageComponentSignature {
+interface ProductsProductImageSignature {
   Args: {
     src: string;
   };
 }
 
-export default class ProductsProductImageComponent extends Component<ProductsProductImageComponentSignature> {
+export default class ProductsProductImageComponent extends Component<ProductsProductImageSignature> {
   styles = styles;
 
   get isTestEnvironment() {

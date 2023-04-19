@@ -7,14 +7,14 @@ type MenuItem = {
   route: string;
 };
 
-interface NavigationMenuComponentSignature {
+interface NavigationMenuSignature {
   Args: {
     menuItems: Array<MenuItem>;
     name?: string;
   };
 }
 
-export default class NavigationMenuComponent extends Component<NavigationMenuComponentSignature> {
+export default class NavigationMenuComponent extends Component<NavigationMenuSignature> {
   styles = styles;
 }
 

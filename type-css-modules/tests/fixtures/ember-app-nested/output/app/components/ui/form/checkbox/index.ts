@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 
 import styles from './index.css';
 
-interface UiFormCheckboxComponentSignature {
+interface UiFormCheckboxSignature {
   Args: {
     changeset: Record<string, any>;
     isDisabled?: boolean;
@@ -17,7 +17,7 @@ interface UiFormCheckboxComponentSignature {
   };
 }
 
-export default class UiFormCheckboxComponent extends Component<UiFormCheckboxComponentSignature> {
+export default class UiFormCheckboxComponent extends Component<UiFormCheckboxSignature> {
   styles = styles;
 
   get errorMessage(): string | undefined {

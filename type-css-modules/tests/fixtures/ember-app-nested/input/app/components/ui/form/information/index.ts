@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 import styles from './index.css';
 
-interface UiFormInformationComponentSignature {
+interface UiFormInformationSignature {
   Args: {
     formId: string;
     instructions?: string;
@@ -10,7 +10,7 @@ interface UiFormInformationComponentSignature {
   };
 }
 
-export default class UiFormInformationComponent extends Component<UiFormInformationComponentSignature> {
+export default class UiFormInformationComponent extends Component<UiFormInformationSignature> {
   styles = styles;
 }
 
