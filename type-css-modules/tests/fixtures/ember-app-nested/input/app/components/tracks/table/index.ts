@@ -3,13 +3,13 @@ import Component from '@glimmer/component';
 import type { Track } from '../../../data/album';
 import styles from './index.css';
 
-interface TracksTableComponentSignature {
+interface TracksTableSignature {
   Args: {
     tracks?: Array<Track>;
   };
 }
 
-export default class TracksTableComponent extends Component<TracksTableComponentSignature> {
+export default class TracksTableComponent extends Component<TracksTableSignature> {
   styles = styles;
 }
 

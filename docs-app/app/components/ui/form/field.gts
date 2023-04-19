@@ -5,7 +5,7 @@ import { localClass } from 'embroider-css-modules';
 
 import styles from './field.css';
 
-interface UiFormFieldComponentSignature {
+interface UiFormFieldSignature {
   Args: {
     errorMessage?: string;
     isInline?: boolean;
@@ -25,7 +25,7 @@ interface UiFormFieldComponentSignature {
   };
 }
 
-export default class UiFormFieldComponent extends Component<UiFormFieldComponentSignature> {
+export default class UiFormFieldComponent extends Component<UiFormFieldSignature> {
   inputId = guidFor(this);
 
   <template>

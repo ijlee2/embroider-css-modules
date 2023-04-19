@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 
 import styles from './index.css';
 
-interface UiFormFieldComponentSignature {
+interface UiFormFieldSignature {
   Args: {
     errorMessage?: string;
     isInline?: boolean;
@@ -23,7 +23,7 @@ interface UiFormFieldComponentSignature {
   };
 }
 
-export default class UiFormFieldComponent extends Component<UiFormFieldComponentSignature> {
+export default class UiFormFieldComponent extends Component<UiFormFieldSignature> {
   inputId = guidFor(this);
   styles = styles;
 }

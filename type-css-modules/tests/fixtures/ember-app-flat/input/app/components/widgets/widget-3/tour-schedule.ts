@@ -3,13 +3,13 @@ import Component from '@glimmer/component';
 import type { Concert } from '../../../data/concert';
 import styles from './tour-schedule.css';
 
-interface WidgetsWidget3TourScheduleComponentSignature {
+interface WidgetsWidget3TourScheduleSignature {
   Args: {
     concert: Concert;
   };
 }
 
-export default class WidgetsWidget3TourScheduleComponent extends Component<WidgetsWidget3TourScheduleComponentSignature> {
+export default class WidgetsWidget3TourScheduleComponent extends Component<WidgetsWidget3TourScheduleSignature> {
   styles = styles;
 }
 

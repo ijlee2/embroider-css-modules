@@ -9,14 +9,14 @@ type MenuItem = {
   route: string;
 };
 
-interface NavigationMenuComponentSignature {
+interface NavigationMenuSignature {
   Args: {
     menuItems: Array<MenuItem>;
     name?: string;
   };
 }
 
-const NavigationMenuComponent: TOC<NavigationMenuComponentSignature> =
+const NavigationMenuComponent: TOC<NavigationMenuSignature> =
 <template>
   <nav aria-label={{@name}} data-test-nav={{@name}}>
     <ul class={{styles.list}}>

@@ -2,9 +2,9 @@ import Component from '@glimmer/component';
 
 import styles from './index.css';
 
-interface WidgetsWidget4MemoComponentSignature {}
+interface WidgetsWidget4MemoSignature {}
 
-export default class WidgetsWidget4MemoComponent extends Component<WidgetsWidget4MemoComponentSignature> {
+export default class WidgetsWidget4MemoComponent extends Component<WidgetsWidget4MemoSignature> {
   styles = styles;
 }
 

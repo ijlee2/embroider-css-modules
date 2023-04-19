@@ -3,14 +3,14 @@ import Component from '@glimmer/component';
 import type { Track } from '../../../data/album';
 import styles from './index.css';
 
-interface TracksListComponentSignature {
+interface TracksListSignature {
   Args: {
     numColumns?: number;
     tracks?: Array<Track>;
   };
 }
 
-export default class TracksListComponent extends Component<TracksListComponentSignature> {
+export default class TracksListComponent extends Component<TracksListSignature> {
   styles = styles;
 
   get numColumns(): number {

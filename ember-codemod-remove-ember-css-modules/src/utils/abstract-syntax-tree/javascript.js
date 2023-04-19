@@ -71,29 +71,25 @@ const tsOptions = {
 };
 
 function getParseOptions(hasTypeScript) {
+  const options = hasTypeScript ? tsOptions : jsOptions;
+
   return {
     parser: {
       parse(file) {
-        return babelParser(file, hasTypeScript ? tsOptions : jsOptions);
+        return babelParser(file, options);
       },
     },
   };
 }
 
-function traverseJavaScript(file, visitMethods) {
-  const ast = parse(file, getParseOptions(false));
+function traverse(hasTypeScript) {
+  return function (file, visitMethods) {
+    const ast = parse(file, getParseOptions(hasTypeScript));
 
-  visit(ast, visitMethods);
+    visit(ast, visitMethods);
 
-  return ast;
-}
-
-function traverseTypeScript(file, visitMethods) {
-  const ast = parse(file, getParseOptions(true));
-
-  visit(ast, visitMethods);
-
-  return ast;
+    return ast;
+  };
 }
 
 const tools = {
@@ -101,9 +97,7 @@ const tools = {
   print(ast) {
     return print(ast, formattingOptions).code;
   },
-  traverse(hasTypeScript) {
-    return hasTypeScript ? traverseTypeScript : traverseJavaScript;
-  },
+  traverse,
 };
 
 export default tools;

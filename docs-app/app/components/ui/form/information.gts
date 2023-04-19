@@ -2,7 +2,7 @@ import type { TOC } from '@ember/component/template-only';
 
 import styles from './information.css';
 
-interface UiFormInformationComponentSignature {
+interface UiFormInformationSignature {
   Args: {
     formId: string;
     instructions?: string;
@@ -14,7 +14,7 @@ function or(title?: string, instructions?: string) {
   return Boolean(title) || Boolean(instructions);
 }
 
-const UiFormInformationComponent: TOC<UiFormInformationComponentSignature> =
+const UiFormInformationComponent: TOC<UiFormInformationSignature> =
 <template>
   {{#if (or @title @instructions)}}
     <div class={{styles.container}}>

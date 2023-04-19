@@ -5,15 +5,15 @@ import type { Concert } from '../../../data/concert';
 import concertData from '../../../data/concert';
 import styles from './index.css';
 
-interface WidgetsWidget3ComponentSignature {}
+interface WidgetsWidget3Signature {}
 
-export default class WidgetsWidget3Component extends Component<WidgetsWidget3ComponentSignature> {
+export default class WidgetsWidget3Component extends Component<WidgetsWidget3Signature> {
   styles = styles;
 
   @tracked concertData = {} as Concert;
 
-  /* @ts-expect-error Property 'Args' does not exist on type 'WidgetsWidget3ComponentSignature' */
-  constructor(owner: unknown, args: WidgetsWidget3ComponentSignature['Args']) {
+  /* @ts-expect-error Property 'Args' does not exist on type 'WidgetsWidget3Signature' */
+  constructor(owner: unknown, args: WidgetsWidget3Signature['Args']) {
     super(owner, args);
 
     this.loadData();

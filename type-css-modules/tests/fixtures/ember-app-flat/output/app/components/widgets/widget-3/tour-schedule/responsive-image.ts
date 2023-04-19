@@ -7,13 +7,13 @@ import type { Image } from '../../../../data/concert';
 import { findBestFittingImage } from '../../../../utils/components/widgets/widget-3';
 import styles from './responsive-image.css';
 
-interface WidgetsWidget3TourScheduleResponsiveImageComponentSignature {
+interface WidgetsWidget3TourScheduleResponsiveImageSignature {
   Args: {
     images: Array<Image>;
   };
 }
 
-export default class WidgetsWidget3TourScheduleResponsiveImageComponent extends Component<WidgetsWidget3TourScheduleResponsiveImageComponentSignature> {
+export default class WidgetsWidget3TourScheduleResponsiveImageComponent extends Component<WidgetsWidget3TourScheduleResponsiveImageSignature> {
   styles = styles;
 
   @tracked imageSource?: string;

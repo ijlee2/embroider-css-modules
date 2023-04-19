@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 
 import styles from './textarea.css';
 
-interface UiFormTextareaComponentSignature {
+interface UiFormTextareaSignature {
   Args: {
     changeset: Record<string, any>;
     isDisabled?: boolean;
@@ -17,7 +17,7 @@ interface UiFormTextareaComponentSignature {
   };
 }
 
-export default class UiFormTextareaComponent extends Component<UiFormTextareaComponentSignature> {
+export default class UiFormTextareaComponent extends Component<UiFormTextareaSignature> {
   styles = styles;
 
   get errorMessage(): string | undefined {

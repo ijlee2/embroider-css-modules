@@ -5,13 +5,13 @@ import styles from './image.css';
 
 const isTestEnvironment = config.environment === 'test';
 
-interface ProductsProductImageComponentSignature {
+interface ProductsProductImageSignature {
   Args: {
     src: string;
   };
 }
 
-const ProductsProductImageComponent: TOC<ProductsProductImageComponentSignature> =
+const ProductsProductImageComponent: TOC<ProductsProductImageSignature> =
 <template>
   {{#if isTestEnvironment}}
     <div class={{styles.placeholder-image}}></div>

@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 
 import styles from './input.css';
 
-interface UiFormInputComponentSignature {
+interface UiFormInputSignature {
   Args: {
     changeset: Record<string, any>;
     isDisabled?: boolean;
@@ -18,7 +18,7 @@ interface UiFormInputComponentSignature {
   };
 }
 
-export default class UiFormInputComponent extends Component<UiFormInputComponentSignature> {
+export default class UiFormInputComponent extends Component<UiFormInputSignature> {
   styles = styles;
 
   get errorMessage(): string | undefined {

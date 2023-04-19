@@ -3,7 +3,7 @@ import { assert, test } from '../../../helpers/testing.js';
 
 test('utils | blueprints | process-template > interpolate', function () {
   const blueprintFile = [
-    `export default class <%= componentName %>Component extends Component<<%= componentName %>ComponentSignature> {}`,
+    `export default class <%= componentName %>Component extends Component<<%= componentName %>Signature> {}`,
   ].join('\n');
 
   const file = processTemplate(blueprintFile, {
@@ -11,7 +11,7 @@ test('utils | blueprints | process-template > interpolate', function () {
   });
 
   const expectedValue = [
-    `export default class NavigationMenuComponent extends Component<NavigationMenuComponentSignature> {}`,
+    `export default class NavigationMenuComponent extends Component<NavigationMenuSignature> {}`,
   ].join('\n');
 
   assert.strictEqual(file, expectedValue);
