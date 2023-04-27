@@ -15,7 +15,7 @@ test('migration | ember-app | steps | create-options > nested', function () {
         },
       },
       null,
-      2
+      2,
     ),
   };
 

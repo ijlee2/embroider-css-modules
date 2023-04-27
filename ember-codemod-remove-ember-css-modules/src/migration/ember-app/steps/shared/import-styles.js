@@ -29,10 +29,10 @@ function removeTemplateOnlyComponentMethod(file, data) {
         AST.builders.classBody([
           AST.builders.classProperty(
             AST.builders.identifier(data.__styles__),
-            AST.builders.identifier(data.__styles__)
+            AST.builders.identifier(data.__styles__),
           ),
         ]),
-        superClass
+        superClass,
       );
     },
 
@@ -42,7 +42,7 @@ function removeTemplateOnlyComponentMethod(file, data) {
       }
 
       const defaultImport = path.value.specifiers.find(
-        (specifier) => specifier.type === 'ImportDefaultSpecifier'
+        (specifier) => specifier.type === 'ImportDefaultSpecifier',
       );
 
       if (defaultImport?.local?.name !== 'templateOnlyComponent') {
@@ -52,10 +52,10 @@ function removeTemplateOnlyComponentMethod(file, data) {
       return AST.builders.importDeclaration(
         [
           AST.builders.importDefaultSpecifier(
-            AST.builders.identifier('Component')
+            AST.builders.identifier('Component'),
           ),
         ],
-        AST.builders.literal('@glimmer/component')
+        AST.builders.literal('@glimmer/component'),
       );
     },
   });
@@ -91,11 +91,11 @@ function importStylesInClass(file, data) {
     AST.builders.importDeclaration(
       [
         AST.builders.importDefaultSpecifier(
-          AST.builders.identifier(data.__styles__)
+          AST.builders.identifier(data.__styles__),
         ),
       ],
-      AST.builders.literal(`./${data.fileName}.css`)
-    )
+      AST.builders.literal(`./${data.fileName}.css`),
+    ),
   );
 
   return AST.print(ast);
@@ -111,7 +111,7 @@ function addStylesAsClassProperty(file, data) {
       const nodesToAdd = [
         AST.builders.classProperty(
           AST.builders.identifier(data.__styles__),
-          AST.builders.identifier(data.__styles__)
+          AST.builders.identifier(data.__styles__),
         ),
       ];
 
@@ -135,7 +135,7 @@ function createClass(customizations, options) {
     blueprintFilePaths.map((blueprintFilePath) => {
       const blueprintFile = readFileSync(
         join(blueprintRoot, blueprintFilePath),
-        'utf8'
+        'utf8',
       );
 
       const file = processTemplate(blueprintFile, {
@@ -144,7 +144,7 @@ function createClass(customizations, options) {
       });
 
       return [filePath, file];
-    })
+    }),
   );
 
   createFiles(fileMapping, options);
@@ -181,7 +181,7 @@ function updateClass(customizations, options) {
     createFiles(fileMapping, options);
   } catch (e) {
     console.warn(
-      `WARNING: updateClass could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`
+      `WARNING: updateClass could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`,
     );
   }
 }

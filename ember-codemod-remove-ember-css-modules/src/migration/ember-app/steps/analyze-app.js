@@ -57,7 +57,7 @@ function analyzeComponents(options) {
     {
       from: 'app/components',
       to: '',
-    }
+    },
   );
 
   const stylesheetFilePaths = findAndRenameFiles(
@@ -68,7 +68,7 @@ function analyzeComponents(options) {
     {
       from: 'app/components',
       to: '',
-    }
+    },
   );
 
   const templateFilePaths = findAndRenameFiles(
@@ -79,7 +79,7 @@ function analyzeComponents(options) {
     {
       from: 'app/components',
       to: '',
-    }
+    },
   );
 
   const entities = analyzeEntities({
@@ -94,7 +94,7 @@ function analyzeComponents(options) {
         const newEntityName = entityName.replace(/\/index$/, '');
 
         return [newEntityName, extensions];
-      })
+      }),
     );
   }
 
@@ -113,7 +113,7 @@ function analyzeRoutes(options) {
     {
       from: 'app/controllers',
       to: '',
-    }
+    },
   );
 
   const stylesheetFilePaths = findAndRenameFiles(
@@ -125,7 +125,7 @@ function analyzeRoutes(options) {
     {
       from: 'app/styles',
       to: '',
-    }
+    },
   );
 
   const templateFilePaths = findAndRenameFiles(
@@ -137,7 +137,7 @@ function analyzeRoutes(options) {
     {
       from: 'app/templates',
       to: '',
-    }
+    },
   );
 
   return analyzeEntities({

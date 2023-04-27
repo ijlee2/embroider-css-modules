@@ -13,11 +13,11 @@ import {
 
 test('migration | ember-app | steps | import-styles-in-routes > glint', function () {
   const inputProject = convertFixtureToJson(
-    'steps/import-styles-in-routes/glint/input'
+    'steps/import-styles-in-routes/glint/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/import-styles-in-routes/glint/output'
+    'steps/import-styles-in-routes/glint/output',
   );
 
   loadFixture(inputProject, codemodOptions);

@@ -36,11 +36,11 @@ module('Integration | Component | ui/form/field', function (hooks) {
       .hasClass(styles['container'], 'We see the container class.')
       .doesNotHaveClass(
         styles['is-inline'],
-        'We should not see the is-inline class.'
+        'We should not see the is-inline class.',
       )
       .doesNotHaveClass(
         styles['is-wide'],
-        'We should not see the is-wide class.'
+        'We should not see the is-wide class.',
       )
       .hasClass(styles['no-feedback'], 'We see the no-feedback class.');
 
@@ -87,15 +87,15 @@ module('Integration | Component | ui/form/field', function (hooks) {
       .hasClass(styles['container'], 'We see the container class.')
       .doesNotHaveClass(
         styles['is-inline'],
-        'We should not see the is-inline class.'
+        'We should not see the is-inline class.',
       )
       .doesNotHaveClass(
         styles['is-wide'],
-        'We should not see the is-wide class.'
+        'We should not see the is-wide class.',
       )
       .doesNotHaveClass(
         styles['no-feedback'],
-        'We should not see the no-feedback class.'
+        'We should not see the no-feedback class.',
       );
 
     assert

@@ -7,7 +7,7 @@ import { createFiles } from '../../../../utils/files.js';
 function sanitizeClassAndLocalClassAttributes(file) {
   function removeAttributeWithoutValue(attributeName, attributes) {
     const attributeIndex = attributes.findIndex(
-      (attribute) => attribute.name === attributeName
+      (attribute) => attribute.name === attributeName,
     );
 
     if (attributeIndex === -1) {
@@ -52,10 +52,10 @@ function mergeClassAndLocalClassAttributes(file, data) {
       const { attributes } = node;
 
       const localClassAttributeIndex = attributes.findIndex(
-        (attribute) => attribute.name === 'local-class'
+        (attribute) => attribute.name === 'local-class',
       );
       const classAttributeIndex = attributes.findIndex(
-        (attribute) => attribute.name === 'class'
+        (attribute) => attribute.name === 'class',
       );
 
       if (localClassAttributeIndex === -1 || classAttributeIndex === -1) {
@@ -97,7 +97,7 @@ function mergeClassAndLocalClassAttributes(file, data) {
 
       attributes[classAttributeIndex].value = AST.builders.mustache(
         AST.builders.path('concat'),
-        params
+        params,
       );
 
       // Remove the local-class attribute
@@ -119,7 +119,7 @@ function removeLocalClassHelpers(file, data) {
 
     if (hasFromArgument) {
       throw new RangeError(
-        `Unable to handle the {{local-class}} helper's \`from\` key. See lines ${path.loc.start.line}-${path.loc.end.line}.`
+        `Unable to handle the {{local-class}} helper's \`from\` key. See lines ${path.loc.start.line}-${path.loc.end.line}.`,
       );
     }
 
@@ -166,7 +166,7 @@ function removeLocalClassHelpers(file, data) {
 
       if (localClassNames.length === 1) {
         node.value = AST.builders.mustache(
-          AST.builders.path(`this.${data.__styles__}.${localClassNames[0]}`)
+          AST.builders.path(`this.${data.__styles__}.${localClassNames[0]}`),
         );
 
         return;
@@ -199,7 +199,7 @@ function removeLocalClassHelpers(file, data) {
 
       if (localClassNames.length === 1) {
         return AST.builders.path(
-          `this.${data.__styles__}.${localClassNames[0]}`
+          `this.${data.__styles__}.${localClassNames[0]}`,
         );
       }
 
@@ -224,7 +224,7 @@ function removeLocalClassAttributes(file, data) {
         } else {
           param = AST.builders.sexpr(
             'array',
-            localClassNames.map(AST.builders.string)
+            localClassNames.map(AST.builders.string),
           );
         }
 
@@ -305,7 +305,7 @@ function removeLocalClassAttributes(file, data) {
 
         if (localClassNames.length === 1) {
           return AST.builders.mustache(
-            AST.builders.path(`this.${data.__styles__}.${localClassNames[0]}`)
+            AST.builders.path(`this.${data.__styles__}.${localClassNames[0]}`),
           );
         }
 
@@ -337,7 +337,7 @@ function removeLocalClassAttributes(file, data) {
       const { attributes } = node;
 
       const localClassAttributeIndex = attributes.findIndex(
-        (attribute) => attribute.name === 'local-class'
+        (attribute) => attribute.name === 'local-class',
       );
 
       if (localClassAttributeIndex === -1) {
@@ -351,7 +351,7 @@ function removeLocalClassAttributes(file, data) {
         case 'ConcatStatement': {
           localClassAttribute.name = 'class';
           localClassAttribute.value.parts = transformParts(
-            localClassAttribute.value.parts
+            localClassAttribute.value.parts,
           );
 
           break;
@@ -415,7 +415,7 @@ function updateTemplate(customizations, options) {
     createFiles(fileMapping, options);
   } catch (e) {
     console.warn(
-      `WARNING: updateTemplate could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`
+      `WARNING: updateTemplate could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`,
     );
   }
 }

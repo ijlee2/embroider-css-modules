@@ -14,7 +14,7 @@ test('migration | ember-app | steps | create-options > typescript', function () 
         },
       },
       null,
-      2
+      2,
     ),
   };
 

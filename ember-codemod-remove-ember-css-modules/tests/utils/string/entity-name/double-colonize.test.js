@@ -8,13 +8,13 @@ test('utils | string | entity-name | double-doubleColonizeEntityName', function 
 
   assert.strictEqual(
     doubleColonizeEntityName('navigation-menu'),
-    'NavigationMenu'
+    'NavigationMenu',
   );
 
   assert.strictEqual(doubleColonizeEntityName('ui/page'), 'Ui::Page');
 
   assert.strictEqual(
     doubleColonizeEntityName('widgets/widget-3/tour-schedule/responsive-image'),
-    'Widgets::Widget3::TourSchedule::ResponsiveImage'
+    'Widgets::Widget3::TourSchedule::ResponsiveImage',
   );
 });

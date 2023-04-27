@@ -12,11 +12,11 @@ import {
 
 test('migration | ember-app | steps | update-package-json > nested', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-package-json/nested/input'
+    'steps/update-package-json/nested/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-package-json/nested/output'
+    'steps/update-package-json/nested/output',
   );
 
   loadFixture(inputProject, codemodOptions);

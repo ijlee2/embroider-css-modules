@@ -105,7 +105,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
       .dom('[data-test-label]')
       .hasText(
         'Subscribe to The Ember Times? *',
-        'The label shows that the field is required.'
+        'The label shows that the field is required.',
       );
 
     assert
@@ -122,7 +122,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
       assert.strictEqual(
         value,
         expectedValue,
-        'The changeset has the correct value.'
+        'The changeset has the correct value.',
       );
 
       set(this.changeset, key, value);
@@ -172,7 +172,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
       assert.strictEqual(
         value,
         expectedValue,
-        'The changeset has the correct value.'
+        'The changeset has the correct value.',
       );
 
       set(this.changeset, key, value);
@@ -192,7 +192,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
     await triggerKeyEvent(
       '[data-test-field="Subscribe to The Ember Times?"]',
       'keypress',
-      'Space'
+      'Space',
     );
 
     assert
@@ -209,7 +209,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
     await triggerKeyEvent(
       '[data-test-field="Subscribe to The Ember Times?"]',
       'keypress',
-      'Space'
+      'Space',
     );
 
     assert

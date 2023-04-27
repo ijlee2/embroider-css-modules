@@ -12,11 +12,11 @@ import {
 
 test('steps | clean-declaration-files > ember-app-nested', function () {
   const inputProject = convertFixtureToJson(
-    'steps/clean-declaration-files/ember-app-nested/input'
+    'steps/clean-declaration-files/ember-app-nested/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/clean-declaration-files/ember-app-nested/output'
+    'steps/clean-declaration-files/ember-app-nested/output',
   );
 
   loadFixture(inputProject, codemodOptions);

@@ -12,7 +12,7 @@ function addCssEntryPoint(file, data) {
       const nodesToAdd = [
         AST.builders.importDeclaration(
           [],
-          AST.builders.literal('./assets/app.css')
+          AST.builders.literal('./assets/app.css'),
         ),
         AST.builders.noop(),
       ];
@@ -35,7 +35,7 @@ export function updateAppAppJs(options) {
 
   if (filePaths.length !== 1) {
     console.warn(
-      'WARNING: updateAppAppJs could not find app.{js,ts} in the app folder. Will skip this step.\n'
+      'WARNING: updateAppAppJs could not find app.{js,ts} in the app folder. Will skip this step.\n',
     );
 
     return;
@@ -58,7 +58,7 @@ export function updateAppAppJs(options) {
     createFiles(fileMapping, options);
   } catch (e) {
     console.warn(
-      `WARNING: updateAppAppJs could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`
+      `WARNING: updateAppAppJs could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`,
     );
   }
 }

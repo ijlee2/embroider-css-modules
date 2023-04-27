@@ -26,11 +26,11 @@ function getContext(fileName) {
 
 test('migration | ember-app | steps | update-component-templates > glint', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-component-templates/glint/input'
+    'steps/update-component-templates/glint/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-component-templates/glint/output'
+    'steps/update-component-templates/glint/output',
   );
 
   const fileMapping = inputProject.app.components;

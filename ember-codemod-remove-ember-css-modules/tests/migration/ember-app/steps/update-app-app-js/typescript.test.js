@@ -12,11 +12,11 @@ import {
 
 test('migration | ember-app | steps | update-app-app-js > typescript', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-app-app-js/typescript/input'
+    'steps/update-app-app-js/typescript/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-app-app-js/typescript/output'
+    'steps/update-app-app-js/typescript/output',
   );
 
   loadFixture(inputProject, codemodOptions);

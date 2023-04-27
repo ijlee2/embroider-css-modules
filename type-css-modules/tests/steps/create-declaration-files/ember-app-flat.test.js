@@ -12,11 +12,11 @@ import {
 
 test('steps | create-declaration-files > ember-app-flat', function () {
   const inputProject = convertFixtureToJson(
-    'steps/create-declaration-files/ember-app-flat/input'
+    'steps/create-declaration-files/ember-app-flat/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/create-declaration-files/ember-app-flat/output'
+    'steps/create-declaration-files/ember-app-flat/output',
   );
 
   loadFixture(inputProject, codemodOptions);
