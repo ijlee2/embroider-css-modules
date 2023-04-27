@@ -13,11 +13,11 @@ import {
 
 test('migration | ember-app | steps | import-styles-in-components > typescript', function () {
   const inputProject = convertFixtureToJson(
-    'steps/import-styles-in-components/typescript/input'
+    'steps/import-styles-in-components/typescript/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/import-styles-in-components/typescript/output'
+    'steps/import-styles-in-components/typescript/output',
   );
 
   loadFixture(inputProject, codemodOptions);

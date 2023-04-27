@@ -17,7 +17,7 @@ export function decideVersion(packageName, options) {
 
   if (!latestVersion) {
     throw new RangeError(
-      `ERROR: The latest version of \`${packageName}\` is unknown.\n`
+      `ERROR: The latest version of \`${packageName}\` is unknown.\n`,
     );
   }
 

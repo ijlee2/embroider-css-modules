@@ -12,11 +12,11 @@ import {
 
 test('migration | ember-app | steps | update-package-json > glint', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-package-json/glint/input'
+    'steps/update-package-json/glint/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-package-json/glint/output'
+    'steps/update-package-json/glint/output',
   );
 
   loadFixture(inputProject, codemodOptions);

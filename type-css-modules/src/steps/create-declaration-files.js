@@ -22,7 +22,7 @@ export function createDeclarationFiles(options) {
       const tsFile = getDeclarationFile(classNames);
 
       return [tsFilePath, tsFile];
-    })
+    }),
   );
 
   createFiles(fileMapping, options);

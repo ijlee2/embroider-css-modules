@@ -15,7 +15,7 @@ test('migration | ember-app | steps | create-options > glint', function () {
         },
       },
       null,
-      2
+      2,
     ),
   };
 

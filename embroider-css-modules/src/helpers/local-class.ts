@@ -24,7 +24,7 @@ interface LocalClassHelperSignature<T extends IndexSignatureParameter> {
 }
 
 export default class LocalClassHelper<
-  T extends IndexSignatureParameter
+  T extends IndexSignatureParameter,
 > extends Helper<LocalClassHelperSignature<T>> {
   compute(positional: LocalClassHelperSignature<T>['Args']['Positional']) {
     const [styles, ...localClassNames] = positional;
@@ -45,7 +45,7 @@ export default class LocalClassHelper<
 
         return accumulator;
       },
-      []
+      [],
     );
 
     return classNames.filter(Boolean).join(' ');

@@ -32,7 +32,7 @@ test('utils | abstract-syntax-tree | handlebars > visit methods are undefined', 
       `  {{! Some content }}`,
       `</div>`,
       ``,
-    ].join('\n')
+    ].join('\n'),
   );
 });
 
@@ -65,6 +65,6 @@ test('utils | abstract-syntax-tree | handlebars > visit methods are well-defined
       `  {{! Some content }}`,
       `</div>`,
       ``,
-    ].join('\n')
+    ].join('\n'),
   );
 });

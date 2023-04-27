@@ -12,11 +12,11 @@ import {
 
 test('steps | clean-declaration-files > ember-app-flat', function () {
   const inputProject = convertFixtureToJson(
-    'steps/clean-declaration-files/ember-app-flat/input'
+    'steps/clean-declaration-files/ember-app-flat/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/clean-declaration-files/ember-app-flat/output'
+    'steps/clean-declaration-files/ember-app-flat/output',
   );
 
   loadFixture(inputProject, codemodOptions);

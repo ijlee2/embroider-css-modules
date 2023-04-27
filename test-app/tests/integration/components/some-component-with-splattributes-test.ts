@@ -15,5 +15,5 @@ module(
 
       assert.ok(true);
     });
-  }
+  },
 );

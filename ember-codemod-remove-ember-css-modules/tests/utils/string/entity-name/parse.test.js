@@ -37,6 +37,6 @@ test('utils | string | entity-name | parseEntityName', function () {
       doubleColonizedName: 'Widgets::Widget3::TourSchedule::ResponsiveImage',
       fileName: 'responsive-image',
       name: 'widgets/widget-3/tour-schedule/responsive-image',
-    }
+    },
   );
 });

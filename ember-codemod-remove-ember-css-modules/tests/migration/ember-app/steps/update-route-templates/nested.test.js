@@ -27,11 +27,11 @@ function getContext(fileName) {
 
 test('migration | ember-app | steps | update-route-templates > nested', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-route-templates/nested/input'
+    'steps/update-route-templates/nested/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-route-templates/nested/output'
+    'steps/update-route-templates/nested/output',
   );
 
   const fileMapping = inputProject.app.templates;

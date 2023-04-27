@@ -24,7 +24,7 @@ module('Integration | Component | navigation-menu', function (hooks) {
       .hasAria(
         'label',
         'Main Navigation',
-        'We can pass @name to specify the navigation.'
+        'We can pass @name to specify the navigation.',
       )
       .hasTagName('nav', 'We see the correct tag name.');
 
@@ -42,7 +42,7 @@ module('Integration | Component | navigation-menu', function (hooks) {
       .hasAttribute(
         'href',
         '/form',
-        'We see the correct href for the 1st link.'
+        'We see the correct href for the 1st link.',
       )
       .hasText('Form', 'We see the correct label for the 1st link.');
 
@@ -51,7 +51,7 @@ module('Integration | Component | navigation-menu', function (hooks) {
       .hasAttribute(
         'href',
         '/products',
-        'We see the correct href for the 2nd link.'
+        'We see the correct href for the 2nd link.',
       )
       .hasText('Products', 'We see the correct label for the 2nd link.');
   });

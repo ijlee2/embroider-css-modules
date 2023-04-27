@@ -36,7 +36,7 @@ test('utils | abstract-syntax-tree | typescript > visit methods are undefined', 
       ``,
       `export default class NavigationMenuComponent extends Component<NavigationMenuSignature> {}`,
       ``,
-    ].join('\n')
+    ].join('\n'),
   );
 });
 
@@ -58,8 +58,8 @@ test('utils | abstract-syntax-tree | typescript > visit methods are well-defined
       body.unshift(
         AST.builders.classProperty(
           AST.builders.identifier('styles'),
-          AST.builders.identifier('styles')
-        )
+          AST.builders.identifier('styles'),
+        ),
       );
 
       return false;
@@ -79,6 +79,6 @@ test('utils | abstract-syntax-tree | typescript > visit methods are well-defined
       `  styles = styles;`,
       `}`,
       ``,
-    ].join('\n')
+    ].join('\n'),
   );
 });

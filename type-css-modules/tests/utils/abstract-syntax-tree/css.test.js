@@ -36,7 +36,7 @@ test('utils | abstract-syntax-tree | css > visit methods are undefined', functio
       '.copyright{}',
       '.copyright .link{}',
       '',
-    ].join('')
+    ].join(''),
   );
 });
 

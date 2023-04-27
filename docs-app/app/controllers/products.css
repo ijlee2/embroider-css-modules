@@ -1,9 +1,9 @@
 .shared-layout {
   display: grid;
   grid-template-areas:
-    'filters'
-    'product-details'
-    'list';
+    "filters"
+    "product-details"
+    "list";
   grid-template-columns: 1fr;
 }
 
@@ -55,8 +55,8 @@
 @media screen and (width >= 40rem) {
   .products-with-details {
     grid-template-areas:
-      'filters filters'
-      'list product-details';
+      "filters filters"
+      "list product-details";
     grid-template-columns: 1fr auto;
     grid-template-rows: auto 1fr;
   }

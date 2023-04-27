@@ -28,11 +28,11 @@ function getContext(folderName) {
 
 test('migration | ember-app | steps | update-component-templates > nested', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-component-templates/nested/input'
+    'steps/update-component-templates/nested/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-component-templates/nested/output'
+    'steps/update-component-templates/nested/output',
   );
 
   const fileMapping = inputProject.app.components;

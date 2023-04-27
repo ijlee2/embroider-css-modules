@@ -12,6 +12,6 @@ test('utils | string | entity-name | classifyEntityName', function () {
 
   assert.strictEqual(
     classifyEntityName('widgets/widget-3/tour-schedule/responsive-image'),
-    'WidgetsWidget3TourScheduleResponsiveImage'
+    'WidgetsWidget3TourScheduleResponsiveImage',
   );
 });

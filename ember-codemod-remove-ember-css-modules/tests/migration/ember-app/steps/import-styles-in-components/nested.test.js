@@ -13,11 +13,11 @@ import {
 
 test('migration | ember-app | steps | import-styles-in-components > nested', function () {
   const inputProject = convertFixtureToJson(
-    'steps/import-styles-in-components/nested/input'
+    'steps/import-styles-in-components/nested/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/import-styles-in-components/nested/output'
+    'steps/import-styles-in-components/nested/output',
   );
 
   loadFixture(inputProject, codemodOptions);
