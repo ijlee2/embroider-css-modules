@@ -4,4 +4,4 @@
 
 ### Minor Changes
 
-- 1d4b4c2: Initial release
+- Initial release ([729eafa](https://github.com/ijlee2/embroider-css-modules/commit/729eafa464a60466a62146bc8f86f05e4cb1a668))
