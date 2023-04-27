@@ -4,6 +4,9 @@ importers:
 
   .:
     devDependencies:
+      '@changesets/changelog-git':
+        specifier: ^0.1.14
+        version: 0.1.14
       '@changesets/cli':
         specifier: ^2.26.1
         version: 2.26.1

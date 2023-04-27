@@ -180,6 +180,11 @@ The `{{local-class}}` helper returns a concatenated string. The string lists the
 <sup>2. Older versions may work but won't be supported.</sup>
 
 
+## Contributing
+
+See the [Contributing](../CONTRIBUTING.md) guide for details.
+
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md).

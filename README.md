@@ -49,7 +49,7 @@ In short, `embroider-css-modules` depends very little on how CSS modules is impl
 
 ## Contributing
 
-TBA
+See the [Contributing](CONTRIBUTING.md) guide for details.
 
 
 ## Credits

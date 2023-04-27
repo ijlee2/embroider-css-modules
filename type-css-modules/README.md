@@ -365,6 +365,11 @@ import { container, header, body } from './page.css';
 * Node.js v16 or above
 
 
+## Contributing
+
+See the [Contributing](../CONTRIBUTING.md) guide for details.
+
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md).

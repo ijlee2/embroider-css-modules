@@ -27,3 +27,8 @@ pnpm test
 ## Compatibility
 
 * Node.js v16 or above
+
+
+## Contributing
+
+See the [Contributing](../CONTRIBUTING.md) guide for details.
