@@ -23,7 +23,11 @@
     "test": "pnpm --filter '*' test"
   },
   "devDependencies": {
+    "@changesets/changelog-git": "^0.1.14",
     "@changesets/cli": "^2.26.1",
     "concurrently": "^8.0.1"
+  },
+  "engines": {
+    "node": "16.* || >= 18"
   }
 }
