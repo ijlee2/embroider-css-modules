@@ -1,6 +1,9 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
-  "changelog": "@changesets/changelog-git",
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "ijlee2/embroider-css-modules" }
+  ],
   "commit": false,
   "fixed": [],
   "linked": [],
