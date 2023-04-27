@@ -30,21 +30,21 @@
   },
   "dependencies": {
     "css-tree": "^2.3.1",
-    "glob": "^10.2.1",
+    "glob": "^10.2.2",
     "yargs": "^17.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/eslint-parser": "^7.21.3",
     "@sondr3/minitest": "^0.1.1",
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "fixturify": "^3.0.0",
-    "prettier": "^2.8.7"
+    "prettier": "^2.8.8"
   },
   "engines": {
     "node": "16.* || >= 18"
