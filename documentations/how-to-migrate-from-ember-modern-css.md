@@ -187,4 +187,4 @@ Replace the `{{styles}}` helper with the `{{local-class}}` helper.
 
 </details>
 
-[Learn more about the API](../embroider-css-modules/README.md).
+[Learn more about the API](../packages/embroider-css-modules/README.md).

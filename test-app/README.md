@@ -14,11 +14,11 @@ Before starting the application, build the `embroider-css-modules` package so th
 
 ```sh
 # From the workspace root
-cd embroider-css-modules
+cd packages/embroider-css-modules
 pnpm build
 
 # Change directory
-cd ../test-app
+cd ../../test-app
 pnpm start
 pnpm test
 ```

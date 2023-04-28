@@ -182,7 +182,7 @@ The `{{local-class}}` helper returns a concatenated string. The string lists the
 
 ## Contributing
 
-See the [Contributing](../CONTRIBUTING.md) guide for details.
+See the [Contributing](../../CONTRIBUTING.md) guide for details.
 
 
 ## License

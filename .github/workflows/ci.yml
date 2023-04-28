@@ -20,7 +20,7 @@ jobs:
         package-location:
           - 'docs-app'
           - 'packages/ember-codemod-remove-ember-css-modules'
-          - 'embroider-css-modules'
+          - 'packages/embroider-css-modules'
           - 'test-app'
           - 'type-css-modules'
     timeout-minutes: 5
@@ -55,7 +55,7 @@ jobs:
         package-location:
           - 'docs-app'
           - 'packages/ember-codemod-remove-ember-css-modules'
-          - 'embroider-css-modules'
+          - 'packages/embroider-css-modules'
           - 'test-app'
           - 'type-css-modules'
     timeout-minutes: 5

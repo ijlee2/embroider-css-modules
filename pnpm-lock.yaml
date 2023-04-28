@@ -171,7 +171,7 @@ importers:
         version: 6.0.0
       embroider-css-modules:
         specifier: workspace:*
-        version: link:../embroider-css-modules
+        version: link:../packages/embroider-css-modules
       eslint:
         specifier: ^8.39.0
         version: 8.39.0
@@ -239,7 +239,62 @@ importers:
         specifier: ^5.81.0
         version: 5.81.0
 
-  embroider-css-modules:
+  packages/ember-codemod-remove-ember-css-modules:
+    dependencies:
+      '@babel/parser':
+        specifier: ^7.21.4
+        version: 7.21.4
+      ember-template-recast:
+        specifier: ^6.1.4
+        version: 6.1.4
+      glob:
+        specifier: ^10.2.2
+        version: 10.2.2
+      lodash.template:
+        specifier: ^4.5.0
+        version: 4.5.0
+      recast:
+        specifier: ^0.23.1
+        version: 0.23.1
+      yargs:
+        specifier: ^17.7.1
+        version: 17.7.1
+    devDependencies:
+      '@babel/core':
+        specifier: ^7.21.4
+        version: 7.21.4(supports-color@8.1.1)
+      '@babel/eslint-parser':
+        specifier: ^7.21.3
+        version: 7.21.3(@babel/core@7.21.4)(eslint@8.39.0)
+      '@sondr3/minitest':
+        specifier: ^0.1.1
+        version: 0.1.1
+      eslint:
+        specifier: ^8.39.0
+        version: 8.39.0
+      eslint-config-prettier:
+        specifier: ^8.8.0
+        version: 8.8.0(eslint@8.39.0)
+      eslint-plugin-import:
+        specifier: ^2.27.5
+        version: 2.27.5(eslint@8.39.0)
+      eslint-plugin-n:
+        specifier: ^15.7.0
+        version: 15.7.0(eslint@8.39.0)
+      eslint-plugin-prettier:
+        specifier: ^4.2.1
+        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@2.8.8)
+      eslint-plugin-simple-import-sort:
+        specifier: ^10.0.0
+        version: 10.0.0(eslint@8.39.0)
+      fixturify:
+        specifier: ^3.0.0
+        version: 3.0.0
+      prettier:
+        specifier: ^2.8.8
+        version: 2.8.8
+
+  packages/embroider-css-modules:
     dependencies:
       '@embroider/addon-shim':
         specifier: ^1.8.4
@@ -326,61 +381,6 @@ importers:
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
-
-  packages/ember-codemod-remove-ember-css-modules:
-    dependencies:
-      '@babel/parser':
-        specifier: ^7.21.4
-        version: 7.21.4
-      ember-template-recast:
-        specifier: ^6.1.4
-        version: 6.1.4
-      glob:
-        specifier: ^10.2.2
-        version: 10.2.2
-      lodash.template:
-        specifier: ^4.5.0
-        version: 4.5.0
-      recast:
-        specifier: ^0.23.1
-        version: 0.23.1
-      yargs:
-        specifier: ^17.7.1
-        version: 17.7.1
-    devDependencies:
-      '@babel/core':
-        specifier: ^7.21.4
-        version: 7.21.4(supports-color@8.1.1)
-      '@babel/eslint-parser':
-        specifier: ^7.21.3
-        version: 7.21.3(@babel/core@7.21.4)(eslint@8.39.0)
-      '@sondr3/minitest':
-        specifier: ^0.1.1
-        version: 0.1.1
-      eslint:
-        specifier: ^8.39.0
-        version: 8.39.0
-      eslint-config-prettier:
-        specifier: ^8.8.0
-        version: 8.8.0(eslint@8.39.0)
-      eslint-plugin-import:
-        specifier: ^2.27.5
-        version: 2.27.5(eslint@8.39.0)
-      eslint-plugin-n:
-        specifier: ^15.7.0
-        version: 15.7.0(eslint@8.39.0)
-      eslint-plugin-prettier:
-        specifier: ^4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@2.8.8)
-      eslint-plugin-simple-import-sort:
-        specifier: ^10.0.0
-        version: 10.0.0(eslint@8.39.0)
-      fixturify:
-        specifier: ^3.0.0
-        version: 3.0.0
-      prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
 
   test-app:
     devDependencies:
@@ -488,7 +488,7 @@ importers:
         version: 2.0.0
       embroider-css-modules:
         specifier: workspace:*
-        version: link:../embroider-css-modules
+        version: link:../packages/embroider-css-modules
       eslint:
         specifier: ^8.39.0
         version: 8.39.0
@@ -2232,7 +2232,7 @@ packages:
     dependencies:
       '@embroider/shared-internals': 2.0.0
       broccoli-funnel: 3.0.8
-      semver: 7.3.8
+      semver: 7.5.0
     transitivePeerDependencies:
       - supports-color
 
@@ -2604,7 +2604,7 @@ packages:
     dependencies:
       '@glimmer/syntax': 0.84.3
       escape-string-regexp: 4.0.0
-      semver: 7.3.8
+      semver: 7.5.0
       silent-error: 1.1.1
       typescript: 5.0.4
       uuid: 8.3.2
@@ -7874,7 +7874,7 @@ packages:
       is-glob: 4.0.3
       language-tags: 1.0.8
       micromatch: 4.0.5
-      resolve: 1.22.1
+      resolve: 1.22.2
       v8-compile-cache: 2.3.0
       yargs: 17.7.1
     transitivePeerDependencies:
@@ -8304,8 +8304,8 @@ packages:
       ignore: 5.2.4
       is-core-module: 2.11.0
       minimatch: 3.1.2
-      resolve: 1.22.1
-      semver: 7.3.8
+      resolve: 1.22.2
+      semver: 7.5.0
     dev: true
 
   /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@2.8.8):
@@ -11016,7 +11016,7 @@ packages:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.14
+      '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
   /magic-string@0.30.0:
@@ -13091,6 +13091,7 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
 
   /semver@7.5.0:
     resolution: {integrity: sha512-+XC0AD/R7Q2mPSRuy2Id0+CGTZ98+8f+KvwirxOKIEyid+XSx6HbC63p+O4IndTHuX5Z+JxQ0TghCkO5Cg/2HA==}
