@@ -1,0 +1,30 @@
+{
+  "extends": "@tsconfig/ember/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "test-app-for-embroider-css-modules/tests/*": [
+        "tests/*"
+      ],
+      "test-app-for-embroider-css-modules/*": [
+        "app/*"
+      ],
+      "*": [
+        "types/*"
+      ]
+    },
+    "moduleResolution": "node16",
+    "skipLibCheck": true
+  },
+  "include": [
+    "app/**/*",
+    "tests/**/*",
+    "types/**/*"
+  ],
+  "glint": {
+    "environment": [
+      "ember-loose",
+      "ember-template-imports"
+    ]
+  }
+}

@@ -1,8 +1,9 @@
 import { array, hash } from '@ember/helper';
 import { findAll, render } from '@ember/test-helpers';
 import NavigationMenu from 'docs-app/components/navigation-menu';
-import { setupRenderingTest } from 'docs-app/tests/helpers';
 import { module, test } from 'qunit';
+
+import { setupRenderingTest } from '../../helpers';
 
 module('Integration | Component | navigation-menu', function (hooks) {
   setupRenderingTest(hooks);

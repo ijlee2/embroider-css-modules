@@ -1,8 +1,9 @@
 import type { TestContext } from '@ember/test-helpers';
 import { render } from '@ember/test-helpers';
-import { setupRenderingTest } from 'docs-app/tests/helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
+
+import { setupRenderingTest } from '../../../../helpers';
 
 module('Integration | Component | ui/form/information', function (hooks) {
   setupRenderingTest(hooks);

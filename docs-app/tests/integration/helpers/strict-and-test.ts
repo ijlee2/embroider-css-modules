@@ -1,7 +1,8 @@
 import { render } from '@ember/test-helpers';
-import { setupRenderingTest } from 'docs-app/tests/helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
+
+import { setupRenderingTest } from '../../helpers';
 
 module('Integration | Helper | strict-and', function (hooks) {
   setupRenderingTest(hooks);

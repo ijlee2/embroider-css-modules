@@ -19,10 +19,10 @@ jobs:
       matrix:
         package-location:
           - 'docs-app'
-          - 'ember-codemod-remove-ember-css-modules'
-          - 'embroider-css-modules'
-          - 'test-app'
-          - 'type-css-modules'
+          - 'packages/ember-codemod-remove-ember-css-modules'
+          - 'packages/embroider-css-modules'
+          - 'packages/type-css-modules'
+          - 'test-apps/embroider-css-modules'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -54,10 +54,10 @@ jobs:
       matrix:
         package-location:
           - 'docs-app'
-          - 'ember-codemod-remove-ember-css-modules'
-          - 'embroider-css-modules'
-          - 'test-app'
-          - 'type-css-modules'
+          - 'packages/ember-codemod-remove-ember-css-modules'
+          - 'packages/embroider-css-modules'
+          - 'packages/type-css-modules'
+          - 'test-apps/embroider-css-modules'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -98,6 +98,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        package-location:
+          - 'test-apps/embroider-css-modules'
         scenario:
           - 'ember-lts-4.4'
           - 'ember-lts-4.8'
@@ -127,4 +129,4 @@ jobs:
 
       - name: Test
         run: pnpm test:ember-compatibility ${{ matrix.scenario }} --- pnpm test
-        working-directory: test-app
+        working-directory: ${{ matrix.package-location }}
