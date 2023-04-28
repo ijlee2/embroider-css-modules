@@ -19,7 +19,7 @@ jobs:
       matrix:
         package-location:
           - 'docs-app'
-          - 'ember-codemod-remove-ember-css-modules'
+          - 'packages/ember-codemod-remove-ember-css-modules'
           - 'embroider-css-modules'
           - 'test-app'
           - 'type-css-modules'
@@ -54,7 +54,7 @@ jobs:
       matrix:
         package-location:
           - 'docs-app'
-          - 'ember-codemod-remove-ember-css-modules'
+          - 'packages/ember-codemod-remove-ember-css-modules'
           - 'embroider-css-modules'
           - 'test-app'
           - 'type-css-modules'

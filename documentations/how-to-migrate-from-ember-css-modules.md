@@ -15,7 +15,7 @@ Run the codemod to update syntax and project dependencies. Afterwards, review an
 npx ember-codemod-remove-ember-css-modules <arguments>
 ```
 
-For more information, please see [the codemod's `README`](../ember-codemod-remove-ember-css-modules/README.md).
+For more information, please see [the codemod's `README`](../packages/ember-codemod-remove-ember-css-modules/README.md).
 
 
 ## Implement CSS modules with webpack

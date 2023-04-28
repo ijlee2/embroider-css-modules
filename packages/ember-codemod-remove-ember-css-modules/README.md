@@ -219,7 +219,7 @@ The codemod is not responsible for fixing complex expressions. Refactor template
 
 ## Contributing
 
-See the [Contributing](../CONTRIBUTING.md) guide for details.
+See the [Contributing](../../CONTRIBUTING.md) guide for details.
 
 
 ## License

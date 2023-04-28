@@ -239,61 +239,6 @@ importers:
         specifier: ^5.81.0
         version: 5.81.0
 
-  ember-codemod-remove-ember-css-modules:
-    dependencies:
-      '@babel/parser':
-        specifier: ^7.21.4
-        version: 7.21.4
-      ember-template-recast:
-        specifier: ^6.1.4
-        version: 6.1.4
-      glob:
-        specifier: ^10.2.2
-        version: 10.2.2
-      lodash.template:
-        specifier: ^4.5.0
-        version: 4.5.0
-      recast:
-        specifier: ^0.23.1
-        version: 0.23.1
-      yargs:
-        specifier: ^17.7.1
-        version: 17.7.1
-    devDependencies:
-      '@babel/core':
-        specifier: ^7.21.4
-        version: 7.21.4(supports-color@8.1.1)
-      '@babel/eslint-parser':
-        specifier: ^7.21.3
-        version: 7.21.3(@babel/core@7.21.4)(eslint@8.39.0)
-      '@sondr3/minitest':
-        specifier: ^0.1.1
-        version: 0.1.1
-      eslint:
-        specifier: ^8.39.0
-        version: 8.39.0
-      eslint-config-prettier:
-        specifier: ^8.8.0
-        version: 8.8.0(eslint@8.39.0)
-      eslint-plugin-import:
-        specifier: ^2.27.5
-        version: 2.27.5(eslint@8.39.0)
-      eslint-plugin-n:
-        specifier: ^15.7.0
-        version: 15.7.0(eslint@8.39.0)
-      eslint-plugin-prettier:
-        specifier: ^4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@2.8.8)
-      eslint-plugin-simple-import-sort:
-        specifier: ^10.0.0
-        version: 10.0.0(eslint@8.39.0)
-      fixturify:
-        specifier: ^3.0.0
-        version: 3.0.0
-      prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
-
   embroider-css-modules:
     dependencies:
       '@embroider/addon-shim':
@@ -381,6 +326,61 @@ importers:
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
+
+  packages/ember-codemod-remove-ember-css-modules:
+    dependencies:
+      '@babel/parser':
+        specifier: ^7.21.4
+        version: 7.21.4
+      ember-template-recast:
+        specifier: ^6.1.4
+        version: 6.1.4
+      glob:
+        specifier: ^10.2.2
+        version: 10.2.2
+      lodash.template:
+        specifier: ^4.5.0
+        version: 4.5.0
+      recast:
+        specifier: ^0.23.1
+        version: 0.23.1
+      yargs:
+        specifier: ^17.7.1
+        version: 17.7.1
+    devDependencies:
+      '@babel/core':
+        specifier: ^7.21.4
+        version: 7.21.4(supports-color@8.1.1)
+      '@babel/eslint-parser':
+        specifier: ^7.21.3
+        version: 7.21.3(@babel/core@7.21.4)(eslint@8.39.0)
+      '@sondr3/minitest':
+        specifier: ^0.1.1
+        version: 0.1.1
+      eslint:
+        specifier: ^8.39.0
+        version: 8.39.0
+      eslint-config-prettier:
+        specifier: ^8.8.0
+        version: 8.8.0(eslint@8.39.0)
+      eslint-plugin-import:
+        specifier: ^2.27.5
+        version: 2.27.5(eslint@8.39.0)
+      eslint-plugin-n:
+        specifier: ^15.7.0
+        version: 15.7.0(eslint@8.39.0)
+      eslint-plugin-prettier:
+        specifier: ^4.2.1
+        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@2.8.8)
+      eslint-plugin-simple-import-sort:
+        specifier: ^10.0.0
+        version: 10.0.0(eslint@8.39.0)
+      fixturify:
+        specifier: ^3.0.0
+        version: 3.0.0
+      prettier:
+        specifier: ^2.8.8
+        version: 2.8.8
 
   test-app:
     devDependencies:
@@ -2362,7 +2362,7 @@ packages:
       ember-cli-babel: 7.26.11
       find-up: 5.0.0
       lodash: 4.17.21
-      resolve: 1.22.1
+      resolve: 1.22.2
       semver: 7.5.0
     transitivePeerDependencies:
       - supports-color
@@ -3401,7 +3401,7 @@ packages:
     resolution: {integrity: sha512-IO+MJPVhoqz+28h1qLAcBEH2+xHMK6MTyHJc7MTnnYb6wsoLR29POVGJ7LycmVXIqyy/4/2ShP5sUwTXuOwb/w==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 18.15.11
+      '@types/node': 18.16.1
     dev: true
 
   /@types/htmlbars-inline-precompile@3.0.0:
@@ -5645,8 +5645,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001473
-      electron-to-chromium: 1.4.348
+      caniuse-lite: 1.0.30001474
+      electron-to-chromium: 1.4.355
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10(browserslist@4.21.5)
     dev: true
@@ -7068,10 +7068,6 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /electron-to-chromium@1.4.348:
-    resolution: {integrity: sha512-gM7TdwuG3amns/1rlgxMbeeyNoBFPa+4Uu0c7FeROWh4qWmvSOnvcslKmWy51ggLKZ2n/F/4i2HJ+PVNxH9uCQ==}
-    dev: true
-
   /electron-to-chromium@1.4.355:
     resolution: {integrity: sha512-056hxzEE4l667YeOccgjhRr5fTiwZ6EIJ4FpzGps4k3YcS8iAhiaBYUBrv5E2LDQJsussscv9EEUwAYKnv+ZKg==}
     dev: true
@@ -7366,7 +7362,7 @@ packages:
       ember-cli-babel-plugin-helpers: 1.1.1
       execa: 1.0.0
       fs-extra: 7.0.1
-      resolve: 1.22.1
+      resolve: 1.22.2
       rsvp: 4.8.5
       semver: 6.3.0
       stagehand: 1.0.1
@@ -7386,7 +7382,7 @@ packages:
       ember-cli-babel-plugin-helpers: 1.1.1
       execa: 2.1.0
       fs-extra: 8.1.0
-      resolve: 1.22.1
+      resolve: 1.22.2
       rsvp: 4.8.5
       semver: 6.3.0
       stagehand: 1.0.1
@@ -7405,7 +7401,7 @@ packages:
       debug: 4.3.4(supports-color@8.1.1)
       execa: 4.1.0
       fs-extra: 9.1.0
-      resolve: 1.22.1
+      resolve: 1.22.2
       rsvp: 4.8.5
       semver: 7.5.0
       stagehand: 1.0.1
@@ -10444,7 +10440,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 18.15.11
+      '@types/node': 18.16.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
