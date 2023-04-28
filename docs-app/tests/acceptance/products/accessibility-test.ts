@@ -1,7 +1,8 @@
 import { visit } from '@ember/test-helpers';
-import { setupApplicationTest } from 'docs-app/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { module, test } from 'qunit';
+
+import { setupApplicationTest } from '../../helpers';
 
 module('Acceptance | products', function (hooks) {
   setupApplicationTest(hooks);

@@ -1,8 +1,9 @@
 /* eslint-disable qunit/require-expect */
 import { visit } from '@ember/test-helpers';
 import percySnapshot from '@percy/ember';
-import { setupApplicationTest } from 'docs-app/tests/helpers';
 import { module, test } from 'qunit';
+
+import { setupApplicationTest } from '../../helpers';
 
 module('Acceptance | products', function (hooks) {
   setupApplicationTest(hooks);

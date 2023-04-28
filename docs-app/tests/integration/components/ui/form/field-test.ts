@@ -1,10 +1,11 @@
 import type { TestContext } from '@ember/test-helpers';
 import { render } from '@ember/test-helpers';
 import styles from 'docs-app/components/ui/form/field.css';
-import { setupRenderingTest } from 'docs-app/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
+
+import { setupRenderingTest } from '../../../../helpers';
 
 module('Integration | Component | ui/form/field', function (hooks) {
   setupRenderingTest(hooks);

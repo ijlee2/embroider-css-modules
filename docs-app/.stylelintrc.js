@@ -11,7 +11,7 @@ module.exports = {
     */
     'order/properties-order': [
       [
-        // Defined by ember-css-modules
+        // Defined by CSS modules
         'composes',
       ],
       {
@@ -54,7 +54,7 @@ module.exports = {
       true,
       {
         ignoreProperties: [
-          // Defined by ember-css-modules
+          // Defined by CSS modules
           'composes',
         ],
       },
@@ -64,7 +64,7 @@ module.exports = {
       true,
       {
         ignorePseudoClasses: [
-          // Defined by ember-css-modules
+          // Defined by CSS modules
           'global',
         ],
       },
