@@ -4,12 +4,12 @@ importers:
 
   .:
     devDependencies:
-      '@changesets/changelog-git':
-        specifier: ^0.1.14
-        version: 0.1.14
       '@changesets/cli':
         specifier: ^2.26.1
         version: 2.26.1
+      '@changesets/get-github-info':
+        specifier: ^0.5.2
+        version: 0.5.2
       concurrently:
         specifier: ^8.0.1
         version: 8.0.1
@@ -1975,6 +1975,15 @@ packages:
       chalk: 2.4.2
       fs-extra: 7.0.1
       semver: 5.7.1
+    dev: true
+
+  /@changesets/get-github-info@0.5.2:
+    resolution: {integrity: sha512-JppheLu7S114aEs157fOZDjFqUDpm7eHdq5E8SSR0gUBTEK0cNSHsrSR5a66xs0z3RWuo46QvA3vawp8BxDHvg==}
+    dependencies:
+      dataloader: 1.4.0
+      node-fetch: 2.6.9
+    transitivePeerDependencies:
+      - encoding
     dev: true
 
   /@changesets/get-release-plan@3.0.16:
@@ -6633,6 +6642,10 @@ packages:
       abab: 2.0.6
       whatwg-mimetype: 2.3.0
       whatwg-url: 8.7.0
+    dev: true
+
+  /dataloader@1.4.0:
+    resolution: {integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==}
     dev: true
 
   /date-fns@2.29.3:
