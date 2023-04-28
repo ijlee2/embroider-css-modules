@@ -454,6 +454,9 @@ importers:
       '@glint/environment-ember-loose':
         specifier: ^1.0.1
         version: 1.0.1(@glimmer/component@1.1.2)(@glint/template@1.0.1)(ember-cli-htmlbars@6.2.0)(ember-modifier@4.1.0)
+      '@glint/environment-ember-template-imports':
+        specifier: ^1.0.1
+        version: 1.0.1(@glint/environment-ember-loose@1.0.1)(@glint/template@1.0.1)(ember-template-imports@3.4.2)
       '@glint/template':
         specifier: ^1.0.1
         version: 1.0.1

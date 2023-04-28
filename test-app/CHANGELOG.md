@@ -1,4 +1,4 @@
-# test-app
+# test-app-for-embroider-css-modules
 
 ## 0.1.0
 

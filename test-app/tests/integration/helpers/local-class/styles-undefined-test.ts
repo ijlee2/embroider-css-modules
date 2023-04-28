@@ -2,7 +2,8 @@ import { TestContext as BaseTestContext } from '@ember/test-helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'test-app/tests/helpers';
+
+import { setupRenderingTest } from '../../../helpers';
 
 interface TestContext extends BaseTestContext {
   styles: undefined;
