@@ -1,7 +1,8 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { containerQuery, type Dimensions } from 'ember-container-query';
+import { containerQuery } from 'ember-container-query';
+import type { Dimensions } from 'ember-container-query/modifiers/container-query';
 
 import type { Image } from '../../../../data/concert';
 import { findBestFittingImage } from '../../../../utils/components/widgets/widget-3';

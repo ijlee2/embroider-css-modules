@@ -1,5 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
-import type { QueryResults } from 'ember-container-query';
+import type { QueryResults } from 'ember-container-query/modifiers/container-query';
 import { localClass } from 'embroider-css-modules';
 
 import strictOr from '../../../../helpers/strict-or';
