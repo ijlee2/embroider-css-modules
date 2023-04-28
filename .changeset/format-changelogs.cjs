@@ -19,37 +19,22 @@ async function extractInformation(changeset) {
   };
 }
 
-async function getDependencyReleaseLine(
-  changesets,
-  dependenciesUpdated,
-  options,
-) {
+async function getDependencyReleaseLine(changesets, dependenciesUpdated) {
   if (dependenciesUpdated.length === 0) {
     return '';
   }
 
-  const changesetLink = `- Updated dependencies [${(
-    await Promise.all(
-      changesets.map(async (cs) => {
-        if (cs.commit) {
-          const { links } = await getInfo({
-            repo: 'ijlee2/embroider-css-modules',
-            commit: cs.commit,
-          });
-
-          return links.commit;
-        }
-      }),
-    )
-  )
-    .filter((_) => _)
-    .join(', ')}]:`;
-
-  const updatedDepenenciesList = dependenciesUpdated.map((dependency) => {
-    return `  - ${dependency.name}@${dependency.newVersion}`;
+  const commits = changesets.map((changeset) => {
+    return `[${changeset.commit}](https://github.com/${repo}/commit/${changeset.commit})`;
   });
 
-  return [changesetLink, ...updatedDepenenciesList].join('\n');
+  let line = `- Updated dependencies (${commits.join(', ')})`;
+
+  dependenciesUpdated.forEach((dependency) => {
+    line += `  - ${dependency.name}@${dependency.newVersion}`;
+  });
+
+  return line;
 }
 
 async function getReleaseLine(changeset) {
