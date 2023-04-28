@@ -51,8 +51,12 @@ export default class UiFormFieldComponent extends Component<UiFormFieldSignature
         <div
           class={{localClass styles "feedback" "is-error"}}
         >
-          {{! @glint-ignore: ember-svg-jar doesn't support template tag }}
-          {{svg-jar "alert" aria-hidden="true"}}
+          {{!-- @glint-expect-error: Unable to import the {{svg-jar}} helper --}}
+          {{svg-jar
+            "alert"
+            desc="A warning to indicate that the input field has an error"
+            role="img"
+          }}
 
           <span
             class={{styles.message}}
