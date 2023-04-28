@@ -11,7 +11,7 @@ type MenuItem = {
 
 interface NavigationMenuSignature {
   Args: {
-    menuItems: Array<MenuItem>;
+    menuItems: MenuItem[];
     name?: string;
   };
 }
