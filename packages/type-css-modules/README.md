@@ -367,7 +367,7 @@ import { container, header, body } from './page.css';
 
 ## Contributing
 
-See the [Contributing](../CONTRIBUTING.md) guide for details.
+See the [Contributing](../../CONTRIBUTING.md) guide for details.
 
 
 ## License

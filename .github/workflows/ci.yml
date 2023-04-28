@@ -21,8 +21,8 @@ jobs:
           - 'docs-app'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
+          - 'packages/type-css-modules'
           - 'test-app'
-          - 'type-css-modules'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -56,8 +56,8 @@ jobs:
           - 'docs-app'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
+          - 'packages/type-css-modules'
           - 'test-app'
-          - 'type-css-modules'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
