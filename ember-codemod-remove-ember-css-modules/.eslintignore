@@ -8,6 +8,5 @@
 # misc
 !.*
 .*/
-.eslintcache
 /src/blueprints/
 /tests/fixtures/

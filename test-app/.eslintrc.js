@@ -36,6 +36,7 @@ module.exports = {
         'plugin:typescript-sort-keys/recommended',
       ],
       rules: {
+        '@typescript-eslint/array-type': 'error',
         '@typescript-eslint/no-empty-interface': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
@@ -49,7 +50,6 @@ module.exports = {
         './.stylelintrc.js',
         './.template-lintrc.js',
         './ember-cli-build.js',
-        './postcss.config.js',
         './testem.js',
         './blueprints/*/index.js',
         './config/**/*.js',
@@ -64,7 +64,7 @@ module.exports = {
     },
     // Test files
     {
-      files: ['tests/**/*-test.{js,ts}'],
+      files: ['tests/**/*-test.{gjs,gts,js,ts}'],
       extends: ['plugin:qunit/recommended'],
     },
   ],

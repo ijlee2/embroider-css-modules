@@ -13,21 +13,21 @@ interface UiPageSignature {
 }
 
 const UiPageComponent: TOC<UiPageSignature> =
-<template>
-  <div class={{localClass styles "container"}}>
-    <h1 class={{styles.header}}>
-      {{@title}}
-    </h1>
+  <template>
+    <div class={{localClass styles "container"}}>
+      <h1 class={{styles.header}}>
+        {{@title}}
+      </h1>
 
-    <div
-      class="{{styles.body}}"
-      id="main-content"
-      tabindex="-1"
-    >
-      {{yield}}
+      <div
+        class="{{styles.body}}"
+        id="main-content"
+        tabindex="-1"
+      >
+        {{yield}}
+      </div>
     </div>
-  </div>
-</template>
+  </template>
 
 export default UiPageComponent;
 

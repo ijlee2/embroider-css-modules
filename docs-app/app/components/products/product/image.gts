@@ -12,20 +12,20 @@ interface ProductsProductImageSignature {
 }
 
 const ProductsProductImageComponent: TOC<ProductsProductImageSignature> =
-<template>
-  {{#if isTestEnvironment}}
-    <div class={{styles.placeholder-image}}></div>
+  <template>
+    {{#if isTestEnvironment}}
+      <div class={{styles.placeholder-image}}></div>
 
-  {{else}}
-    <img
-      alt=""
-      class={{styles.image}}
-      role="presentation"
-      src={{@src}}
-    />
+    {{else}}
+      <img
+        alt=""
+        class={{styles.image}}
+        role="presentation"
+        src={{@src}}
+      />
 
-  {{/if}}
-</template>
+    {{/if}}
+  </template>
 
 export default ProductsProductImageComponent;
 
