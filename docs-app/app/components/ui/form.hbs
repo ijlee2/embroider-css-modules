@@ -5,7 +5,7 @@
   }}
   aria-labelledby={{if @title (concat this.formId "-title")}}
   class={{this.styles.form}}
-  data-test-form={{or @title ""}}
+  data-test-form={{if @title @title ""}}
   {{on "submit" this.submitForm}}
 >
   <Ui::Form::Information
