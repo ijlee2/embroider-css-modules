@@ -214,6 +214,9 @@ importers:
       qunit-dom:
         specifier: ^2.0.0
         version: 2.0.0
+      sample-v2-addon:
+        specifier: workspace:*
+        version: link:../sample-v2-addon
       stylelint:
         specifier: ^15.6.0
         version: 15.6.0
