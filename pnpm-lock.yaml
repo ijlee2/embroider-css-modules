@@ -239,6 +239,115 @@ importers:
         specifier: ^5.81.0
         version: 5.81.0
 
+  docs/sample-v2-addon:
+    dependencies:
+      '@embroider/addon-shim':
+        specifier: ^1.8.4
+        version: 1.8.4
+      embroider-css-modules:
+        specifier: workspace:*
+        version: link:../../packages/embroider-css-modules
+    devDependencies:
+      '@babel/core':
+        specifier: ^7.21.4
+        version: 7.21.4(supports-color@8.1.1)
+      '@babel/plugin-proposal-class-properties':
+        specifier: ^7.18.6
+        version: 7.18.6(@babel/core@7.21.4)
+      '@babel/plugin-proposal-decorators':
+        specifier: ^7.21.0
+        version: 7.21.0(@babel/core@7.21.4)
+      '@babel/preset-typescript':
+        specifier: ^7.21.4
+        version: 7.21.4(@babel/core@7.21.4)
+      '@embroider/addon-dev':
+        specifier: ^3.0.0
+        version: 3.0.0(rollup@3.21.0)
+      '@glimmer/component':
+        specifier: ^1.1.2
+        version: 1.1.2(@babel/core@7.21.4)
+      '@glint/core':
+        specifier: ^1.0.1
+        version: 1.0.1(typescript@5.0.4)
+      '@glint/environment-ember-loose':
+        specifier: ^1.0.1
+        version: 1.0.1(@glimmer/component@1.1.2)(@glint/template@1.0.1)(ember-cli-htmlbars@6.2.0)(ember-modifier@4.1.0)
+      '@glint/environment-ember-template-imports':
+        specifier: ^1.0.1
+        version: 1.0.1(@glint/environment-ember-loose@1.0.1)(@glint/template@1.0.1)(ember-template-imports@3.4.2)
+      '@glint/template':
+        specifier: ^1.0.1
+        version: 1.0.1
+      '@tsconfig/ember':
+        specifier: ^2.0.0
+        version: 2.0.0
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^5.59.1
+        version: 5.59.1(@typescript-eslint/parser@5.59.1)(eslint@8.39.0)(typescript@5.0.4)
+      '@typescript-eslint/parser':
+        specifier: ^5.59.1
+        version: 5.59.1(eslint@8.39.0)(typescript@5.0.4)
+      concurrently:
+        specifier: ^8.0.1
+        version: 8.0.1
+      ember-template-lint:
+        specifier: ^5.7.2
+        version: 5.7.2
+      ember-template-lint-plugin-prettier:
+        specifier: ^4.1.0
+        version: 4.1.0(ember-template-lint@5.7.2)(prettier@2.8.8)
+      eslint:
+        specifier: ^8.39.0
+        version: 8.39.0
+      eslint-config-prettier:
+        specifier: ^8.8.0
+        version: 8.8.0(eslint@8.39.0)
+      eslint-plugin-ember:
+        specifier: ^11.5.2
+        version: 11.5.2(eslint@8.39.0)
+      eslint-plugin-n:
+        specifier: ^15.7.0
+        version: 15.7.0(eslint@8.39.0)
+      eslint-plugin-prettier:
+        specifier: ^4.2.1
+        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@2.8.8)
+      eslint-plugin-simple-import-sort:
+        specifier: ^10.0.0
+        version: 10.0.0(eslint@8.39.0)
+      eslint-plugin-typescript-sort-keys:
+        specifier: ^2.3.0
+        version: 2.3.0(@typescript-eslint/parser@5.59.1)(eslint@8.39.0)(typescript@5.0.4)
+      prettier:
+        specifier: ^2.8.8
+        version: 2.8.8
+      rollup:
+        specifier: ^3.21.0
+        version: 3.21.0
+      rollup-plugin-ts:
+        specifier: ^3.2.0
+        version: 3.2.0(@babel/core@7.21.4)(@babel/preset-typescript@7.21.4)(rollup@3.21.0)(typescript@5.0.4)
+      stylelint:
+        specifier: ^15.6.0
+        version: 15.6.0
+      stylelint-config-standard:
+        specifier: ^33.0.0
+        version: 33.0.0(stylelint@15.6.0)
+      stylelint-no-unsupported-browser-features:
+        specifier: ^6.1.0
+        version: 6.1.0(stylelint@15.6.0)
+      stylelint-order:
+        specifier: ^6.0.3
+        version: 6.0.3(stylelint@15.6.0)
+      stylelint-prettier:
+        specifier: ^3.0.0
+        version: 3.0.0(prettier@2.8.8)(stylelint@15.6.0)
+      type-css-modules:
+        specifier: workspace:*
+        version: link:../../packages/type-css-modules
+      typescript:
+        specifier: ^5.0.4
+        version: 5.0.4
+
   packages/ember-codemod-remove-ember-css-modules:
     dependencies:
       '@babel/parser':

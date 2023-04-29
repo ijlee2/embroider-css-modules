@@ -1,0 +1,10 @@
+.container {
+  border: 1px solid steelblue;
+  margin-bottom: 1rem;
+}
+
+.new-approach {
+  border: 1px solid goldenrod;
+  color: goldenrod;
+  font-size: 2rem;
+}
