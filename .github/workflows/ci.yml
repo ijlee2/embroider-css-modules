@@ -18,11 +18,11 @@ jobs:
     strategy:
       matrix:
         package-location:
-          - 'docs-app'
+          - 'docs/embroider-css-modules'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
           - 'packages/type-css-modules'
-          - 'test-apps/embroider-css-modules'
+          - 'tests/embroider-css-modules'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -53,11 +53,11 @@ jobs:
     strategy:
       matrix:
         package-location:
-          - 'docs-app'
+          - 'docs/embroider-css-modules'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
           - 'packages/type-css-modules'
-          - 'test-apps/embroider-css-modules'
+          - 'tests/embroider-css-modules'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -79,12 +79,12 @@ jobs:
 
       - name: Test
         run: pnpm test
-        if: ${{ matrix.package-location != 'docs-app' }}
+        if: ${{ matrix.package-location != 'docs/embroider-css-modules' }}
         working-directory: ${{ matrix.package-location }}
 
       - name: Test (w/ visual regression)
         run: npx percy exec -- pnpm test
-        if: ${{ matrix.package-location == 'docs-app' }}
+        if: ${{ matrix.package-location == 'docs/embroider-css-modules' }}
         working-directory: ${{ matrix.package-location }}
         env:
           PERCY_PARALLEL_NONCE: ${{ env.PERCY_PARALLEL_NONCE }}
@@ -99,7 +99,7 @@ jobs:
       fail-fast: false
       matrix:
         package-location:
-          - 'test-apps/embroider-css-modules'
+          - 'tests/embroider-css-modules'
         scenario:
           - 'ember-lts-4.4'
           - 'ember-lts-4.8'

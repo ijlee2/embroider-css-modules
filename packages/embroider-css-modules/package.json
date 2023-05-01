@@ -51,7 +51,7 @@
     "lint:types": "glint",
     "prepack": "rollup --config",
     "start": "rollup --config --watch",
-    "test": "echo 'A v2 addon does not have tests, run tests in test-apps/embroider-css-modules'"
+    "test": "echo 'A v2 addon does not have tests, run tests in tests/embroider-css-modules'"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.4"
