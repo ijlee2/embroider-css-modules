@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         package-location:
-          - 'docs-app'
+          - 'docs/embroider-css-modules'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
           - 'packages/type-css-modules'
@@ -53,7 +53,7 @@ jobs:
     strategy:
       matrix:
         package-location:
-          - 'docs-app'
+          - 'docs/embroider-css-modules'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
           - 'packages/type-css-modules'
@@ -79,12 +79,12 @@ jobs:
 
       - name: Test
         run: pnpm test
-        if: ${{ matrix.package-location != 'docs-app' }}
+        if: ${{ matrix.package-location != 'docs/embroider-css-modules' }}
         working-directory: ${{ matrix.package-location }}
 
       - name: Test (w/ visual regression)
         run: npx percy exec -- pnpm test
-        if: ${{ matrix.package-location == 'docs-app' }}
+        if: ${{ matrix.package-location == 'docs/embroider-css-modules' }}
         working-directory: ${{ matrix.package-location }}
         env:
           PERCY_PARALLEL_NONCE: ${{ env.PERCY_PARALLEL_NONCE }}

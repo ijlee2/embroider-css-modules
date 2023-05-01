@@ -1,5 +1,5 @@
 packages:
-  - docs-app
+  - docs/embroider-css-modules
   - packages/ember-codemod-remove-ember-css-modules
   - packages/embroider-css-modules
   - packages/type-css-modules

@@ -24,7 +24,7 @@ cd packages/embroider-css-modules
 pnpm build
 
 # Change directory
-cd ../../docs-app-for-embroider-css-modules
+cd ../../docs/embroider-css-modules
 pnpm start
 pnpm test
 ```
@@ -44,4 +44,4 @@ pnpm start
 
 ## Contributing
 
-See the [Contributing](../CONTRIBUTING.md) guide for details.
+See the [Contributing](../../CONTRIBUTING.md) guide for details.
