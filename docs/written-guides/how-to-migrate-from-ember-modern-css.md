@@ -64,10 +64,9 @@ module.exports = function (defaults) {
       cssLoaderOptions: {
         modules: {
           mode: (resourcePath) => {
-            const hostAppWorkspaceDir = options.workspaceDir;
-            const isHostAppPath = resourcePath.includes(hostAppWorkspaceDir);
+            const hostAppLocation = `${options.workspaceDir}/<your/project/location>`;
 
-            return isHostAppPath ? 'local' : 'global';
+            return resourcePath.includes(hostAppLocation) ? 'local' : 'global';
           },
         },
       },
