@@ -106,7 +106,9 @@
     "edition": "octane"
   },
   "ember-addon": {
-    "app-js": {},
+    "app-js": {
+      "./components/ui/page.js": "./dist/_app_/components/ui/page.js"
+    },
     "main": "addon-main.cjs",
     "type": "addon",
     "version": 2
