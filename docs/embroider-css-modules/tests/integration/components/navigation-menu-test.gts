@@ -1,7 +1,7 @@
 import { array, hash } from '@ember/helper';
 import { findAll, render } from '@ember/test-helpers';
-import NavigationMenu from 'docs-app-for-embroider-css-modules/components/navigation-menu';
 import { module, test } from 'qunit';
+import { NavigationMenu } from 'sample-v2-addon';
 
 import { setupRenderingTest } from '../../helpers';
 
