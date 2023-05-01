@@ -107,7 +107,7 @@
   },
   "ember-addon": {
     "app-js": {
-      "./components/ui/page.js": "./dist/_app_/components/ui/page.js"
+      "./components/ui/page-new.js": "./dist/_app_/components/ui/page-new.js"
     },
     "main": "addon-main.cjs",
     "type": "addon",

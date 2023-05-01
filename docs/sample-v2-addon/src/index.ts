@@ -1,1 +1,1 @@
-export { default as UiPage } from './components/ui/page';
+export { default as UiPageNew } from './components/ui/page-new';

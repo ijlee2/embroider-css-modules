@@ -1,5 +1,5 @@
-import type UiPageComponent from './components/ui/page';
+import type UiPageNewComponent from './components/ui/page-new';
 
 export default interface SampleV2AddonRegistry {
-  'Ui::Page': typeof UiPageComponent;
+  'Ui::PageNew': typeof UiPageNewComponent;
 }
