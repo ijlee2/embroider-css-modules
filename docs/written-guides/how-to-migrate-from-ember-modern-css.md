@@ -42,7 +42,7 @@ Instead, use `type-css-modules` to generate the declaration files.
 
 </details>
 
-[Learn more about the API](../packages/type-css-modules/README.md).
+[Learn more about the API](../../packages/type-css-modules/README.md).
 
 
 ## Give the local scope to the styles that you own
@@ -187,4 +187,4 @@ Replace the `{{styles}}` helper with the `{{local-class}}` helper.
 
 </details>
 
-[Learn more about the API](../packages/embroider-css-modules/README.md).
+[Learn more about the API](../../packages/embroider-css-modules/README.md).
