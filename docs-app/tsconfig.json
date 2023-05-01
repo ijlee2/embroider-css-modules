@@ -3,10 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "docs-app/tests/*": [
+      "docs-app-for-embroider-css-modules/tests/*": [
         "tests/*"
       ],
-      "docs-app/*": [
+      "docs-app-for-embroider-css-modules/*": [
         "app/*"
       ],
       "*": [

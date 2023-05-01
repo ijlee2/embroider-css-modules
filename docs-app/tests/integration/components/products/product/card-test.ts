@@ -1,6 +1,6 @@
 import type { TestContext as BaseTestContext } from '@ember/test-helpers';
 import { render } from '@ember/test-helpers';
-import type { Product } from 'docs-app/data/products';
+import type { Product } from 'docs-app-for-embroider-css-modules/data/products';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
