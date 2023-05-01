@@ -2,18 +2,17 @@
 
 module.exports = {
   root: true,
-  parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    requireConfigFile: false,
-    babelOptions: {
-      plugins: [
-        ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
-      ],
-    },
   },
-  plugins: ['ember', 'simple-import-sort'],
+  plugins: [
+    'ember',
+    '@typescript-eslint',
+    'simple-import-sort',
+    'typescript-sort-keys',
+  ],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -28,6 +27,21 @@ module.exports = {
     'simple-import-sort/imports': 'error',
   },
   overrides: [
+    // TypeScript files
+    {
+      files: ['**/*.ts'],
+      extends: [
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:typescript-sort-keys/recommended',
+      ],
+      rules: {
+        '@typescript-eslint/array-type': 'error',
+        '@typescript-eslint/no-empty-interface': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+      },
+    },
     // Node files
     {
       files: [

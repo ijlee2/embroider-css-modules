@@ -1,5 +1,5 @@
 import { Addon } from '@embroider/addon-dev/rollup';
-import { babel } from '@rollup/plugin-babel';
+import typescript from 'rollup-plugin-ts';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -30,14 +30,11 @@ export default {
     // package names.
     addon.dependencies(),
 
-    // This babel config should *not* apply presets or compile away ES modules.
-    // It exists only to provide development niceties for you, like automatic
-    // template colocation.
-    //
-    // By default, this will load the actual babel config from the file
-    // babel.config.json.
-    babel({
-      babelHelpers: 'bundled',
+    // compile TypeScript to latest JavaScript, including Babel transpilation
+    typescript({
+      transpiler: 'babel',
+      browserslist: false,
+      transpileOnly: false,
     }),
 
     // Ensure that standalone .hbs files are properly integrated as Javascript.
