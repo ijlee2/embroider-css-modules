@@ -73,7 +73,7 @@ module.exports = function (defaults) {
             ? '[sha512:hash:base64:5]'
             : '[path][name]__[local]',
           mode: (resourcePath) => {
-            const hostAppWorkspaceDir = `${options.workspaceDir}/${app.name}`;
+            const hostAppWorkspaceDir = options.workspaceDir;
             const isHostAppPath = resourcePath.includes(hostAppWorkspaceDir);
 
             return isHostAppPath ? 'local' : 'global';
