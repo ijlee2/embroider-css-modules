@@ -1,4 +1,5 @@
 import { Addon } from '@embroider/addon-dev/rollup';
+import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-ts';
 
 const addon = new Addon({
@@ -30,6 +31,15 @@ export default {
     // package names.
     addon.dependencies(),
 
+    // Implement CSS modules
+    postcss({
+      autoModules: false,
+      modules: {
+        generateScopedName: 'sample-v2-addon__[sha512:hash:base64:5]',
+        // generateScopedName: 'sample-v2-addon__[path][name]__[local]',
+      },
+    }),
+
     // compile TypeScript to latest JavaScript, including Babel transpilation
     typescript({
       transpiler: 'babel',
@@ -42,7 +52,7 @@ export default {
 
     // addons are allowed to contain imports of .css files, which we want rollup
     // to leave alone and keep in the published output.
-    addon.keepAssets(['**/*.css']),
+    addon.keepAssets([]),
 
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),

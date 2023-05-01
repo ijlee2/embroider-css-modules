@@ -1,5 +1,3 @@
-import './hello-world.css';
-
 import Component from '@glimmer/component';
 
 import styles from './hello-world.css';
