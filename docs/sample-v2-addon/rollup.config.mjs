@@ -16,7 +16,7 @@ export default {
     // These are the modules that users should be able to import from your
     // addon. Anything not listed here may get optimized away.
     addon.publicEntrypoints([
-      'components/navigation-menu.js',
+      'components/navigation-menu-new.js',
       'components/ui/page-new.js',
       'index.js',
       'template-registry.js',
@@ -26,7 +26,7 @@ export default {
     // "app" tree. Things in here should also be in publicEntrypoints above, but
     // not everything in publicEntrypoints necessarily needs to go here.
     addon.appReexports([
-      'components/navigation-menu.js',
+      'components/navigation-menu-new.js',
       'components/ui/page-new.js',
     ]),
 

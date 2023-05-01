@@ -107,7 +107,7 @@
   },
   "ember-addon": {
     "app-js": {
-      "./components/navigation-menu.js": "./dist/_app_/components/navigation-menu.js",
+      "./components/navigation-menu-new.js": "./dist/_app_/components/navigation-menu-new.js",
       "./components/ui/page-new.js": "./dist/_app_/components/ui/page-new.js"
     },
     "main": "addon-main.cjs",

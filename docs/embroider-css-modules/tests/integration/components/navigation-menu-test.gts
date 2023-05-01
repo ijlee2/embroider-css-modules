@@ -1,7 +1,7 @@
 import { array, hash } from '@ember/helper';
 import { findAll, render } from '@ember/test-helpers';
 import { module, test } from 'qunit';
-import { NavigationMenu } from 'sample-v2-addon';
+import { NavigationMenuNew } from 'sample-v2-addon';
 
 import { setupRenderingTest } from '../../helpers';
 
@@ -11,7 +11,7 @@ module('Integration | Component | navigation-menu', function (hooks) {
   test('The component renders a navigation menu', async function (assert) {
     await render(
       <template>
-        <NavigationMenu
+        <NavigationMenuNew
           @menuItems={{array
             (hash label="Home" route="index")
             (hash label="Dashboard" route="dashboard")
