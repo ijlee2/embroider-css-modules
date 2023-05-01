@@ -22,7 +22,7 @@ jobs:
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
           - 'packages/type-css-modules'
-          - 'test-apps/embroider-css-modules'
+          - 'tests/embroider-css-modules'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -57,7 +57,7 @@ jobs:
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
           - 'packages/type-css-modules'
-          - 'test-apps/embroider-css-modules'
+          - 'tests/embroider-css-modules'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -99,7 +99,7 @@ jobs:
       fail-fast: false
       matrix:
         package-location:
-          - 'test-apps/embroider-css-modules'
+          - 'tests/embroider-css-modules'
         scenario:
           - 'ember-lts-4.4'
           - 'ember-lts-4.8'

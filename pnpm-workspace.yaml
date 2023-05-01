@@ -3,4 +3,4 @@ packages:
   - packages/ember-codemod-remove-ember-css-modules
   - packages/embroider-css-modules
   - packages/type-css-modules
-  - test-apps/embroider-css-modules
+  - tests/embroider-css-modules

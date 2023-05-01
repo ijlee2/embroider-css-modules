@@ -18,7 +18,7 @@ cd packages/embroider-css-modules
 pnpm build
 
 # Change directory
-cd ../../test-apps/embroider-css-modules
+cd ../../tests/embroider-css-modules
 pnpm start
 pnpm test
 ```
