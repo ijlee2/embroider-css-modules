@@ -106,9 +106,7 @@
     "edition": "octane"
   },
   "ember-addon": {
-    "app-js": {
-      "./components/hello-world.js": "./dist/_app_/components/hello-world.js"
-    },
+    "app-js": {},
     "main": "addon-main.cjs",
     "type": "addon",
     "version": 2
