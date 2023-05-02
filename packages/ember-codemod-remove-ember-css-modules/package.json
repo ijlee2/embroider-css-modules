@@ -32,15 +32,15 @@
     "test": "mt tests --quiet"
   },
   "dependencies": {
-    "@babel/parser": "^7.21.4",
+    "@babel/parser": "^7.21.5",
     "ember-template-recast": "^6.1.4",
     "glob": "^10.2.2",
     "lodash.template": "^4.5.0",
     "recast": "^0.23.1",
-    "yargs": "^17.7.1"
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.4",
+    "@babel/core": "^7.21.5",
     "@babel/eslint-parser": "^7.21.3",
     "@sondr3/minitest": "^0.1.1",
     "eslint": "^8.39.0",
