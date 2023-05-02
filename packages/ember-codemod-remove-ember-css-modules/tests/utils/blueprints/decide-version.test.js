@@ -11,7 +11,7 @@ test('utils | blueprints | decide-version > package is already installed', funct
 test('utils | blueprints | decide-version > package is not installed and we provide the latest version', function () {
   const version = decideVersion('embroider-css-modules', options);
 
-  assert.strictEqual(version, '^0.1.0');
+  assert.strictEqual(version, '^0.1.1');
 });
 
 test('utils | blueprints | decide-version > package is not installed and we forgot to provide the latest version', function () {
