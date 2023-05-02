@@ -5,3 +5,4 @@ packages:
   - packages/embroider-css-modules
   - packages/type-css-modules
   - tests/embroider-css-modules
+  - tests/sample-v2-addon

@@ -24,6 +24,7 @@ jobs:
           - 'packages/embroider-css-modules'
           - 'packages/type-css-modules'
           - 'tests/embroider-css-modules'
+          - 'tests/sample-v2-addon'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -60,6 +61,7 @@ jobs:
           - 'packages/embroider-css-modules'
           - 'packages/type-css-modules'
           - 'tests/embroider-css-modules'
+          - 'tests/sample-v2-addon'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -102,6 +104,7 @@ jobs:
       matrix:
         package-location:
           - 'tests/embroider-css-modules'
+          - 'tests/sample-v2-addon'
         scenario:
           - 'ember-lts-4.4'
           - 'ember-lts-4.8'
