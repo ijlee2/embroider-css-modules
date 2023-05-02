@@ -4,11 +4,14 @@
 
 ### Patch Changes
 
-- [#25](https://github.com/ijlee2/embroider-css-modules/pull/25) Updated development dependencies (formatting changed due to trailing commas) ([@ijlee2](https://github.com/ijlee2))
-- [#32](https://github.com/ijlee2/embroider-css-modules/pull/32) Updated packages to the latest version ([@ijlee2](https://github.com/ijlee2))
-- [#27](https://github.com/ijlee2/embroider-css-modules/pull/27) Added a dashboard example to docs-app ([@ijlee2](https://github.com/ijlee2))
+- [#32](https://github.com/ijlee2/embroider-css-modules/pull/32) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#31](https://github.com/ijlee2/embroider-css-modules/pull/31) Generalized how webpack checks if a stylesheet comes from us (host app) or them (some package) ([@ijlee2](https://github.com/ijlee2))
+- [#30](https://github.com/ijlee2/embroider-css-modules/pull/30) Grouped related packages (Part 2) ([@ijlee2](https://github.com/ijlee2))
 - [#28](https://github.com/ijlee2/embroider-css-modules/pull/28) Grouped related packages ([@ijlee2](https://github.com/ijlee2))
-- [#24](https://github.com/ijlee2/embroider-css-modules/pull/24) Added CONTRIBUTING.md ([@ijlee2](https://github.com/ijlee2))
+- [#27](https://github.com/ijlee2/embroider-css-modules/pull/27) Added a dashboard example to docs-app ([@ijlee2](https://github.com/ijlee2))
+- [#25](https://github.com/ijlee2/embroider-css-modules/pull/25) Updated development dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#23](https://github.com/ijlee2/embroider-css-modules/pull/23) Update dependencies to the latest version ([@ijlee2](https://github.com/ijlee2))
+- [#22](https://github.com/ijlee2/embroider-css-modules/pull/22) Refactor code (abstract syntax tree) ([@ijlee2](https://github.com/ijlee2))
 
 ## 0.1.0
 
