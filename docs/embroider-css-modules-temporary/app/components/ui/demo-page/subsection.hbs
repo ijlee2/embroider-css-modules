@@ -1,0 +1,18 @@
+{{#let (unique-id) as |subsectionId|}}
+  <section
+    aria-labelledby={{subsectionId}}
+    class={{this.styles.subsection}}
+  >
+    <h3
+      class={{this.styles.title}}
+      data-test-subsection-title
+      id={{subsectionId}}
+    >
+      {{yield to="title"}}
+    </h3>
+
+    <div data-test-subsection-content>
+      {{yield to="content"}}
+    </div>
+  </section>
+{{/let}}

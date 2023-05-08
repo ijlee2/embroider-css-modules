@@ -1,0 +1,81 @@
+<Ui::DemoPage
+  @title={{"embroider-css-modules-temporary"}}
+  as |Page|
+>
+  <Page.Section>
+    <:title>
+      Package:
+      <code>ember-css-modules</code>
+    </:title>
+
+    <:content>
+      <Page.Subsection>
+        <:title>
+          Attribute:
+          <code>local-class</code>
+        </:title>
+
+        <:content>
+          <Page.Demo>
+            <div
+              data-test-local-class-attribute
+              local-class="demo-container"
+            >
+              Hello world!
+            </div>
+          </Page.Demo>
+        </:content>
+      </Page.Subsection>
+
+      <Page.Subsection>
+        <:title>
+          Helper:
+          <code>&#123;&#123;local-class&#125;&#125;</code>
+        </:title>
+
+        <:content>
+          <Page.Demo>
+            <div
+              class={{local-class "demo-container"}}
+              data-test-local-class-helper
+            >
+              Hello world!
+            </div>
+          </Page.Demo>
+        </:content>
+      </Page.Subsection>
+    </:content>
+  </Page.Section>
+
+  <Page.Section>
+    <:title>
+      Package:
+      <code>embroider-css-modules-temporary</code>
+    </:title>
+
+    <:content>
+      <Page.Subsection>
+        <:title>
+          Helper:
+          <code>&#123;&#123;local-class-new&#125;&#125;</code>
+        </:title>
+
+        <:content>
+          <Page.Demo>
+            <div
+              class={{local-class-new
+                (hash
+                  demo-container-new="demo-container-new-hashed"
+                )
+                "demo-container-new"
+              }}
+              data-test-local-class-new-helper
+            >
+              Hello world!
+            </div>
+          </Page.Demo>
+        </:content>
+      </Page.Subsection>
+    </:content>
+  </Page.Section>
+</Ui::DemoPage>
