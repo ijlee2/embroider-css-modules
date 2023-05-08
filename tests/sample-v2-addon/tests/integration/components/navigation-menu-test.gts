@@ -1,5 +1,6 @@
 import { array, hash } from '@ember/helper';
 import { findAll, render } from '@ember/test-helpers';
+import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { module, test } from 'qunit';
 import { NavigationMenu } from 'sample-v2-addon';
 
@@ -8,7 +9,7 @@ import { setupRenderingTest } from '../../helpers';
 module('Integration | Component | navigation-menu', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('The component renders a navigation menu', async function (assert) {
+  test('it renders', async function (assert) {
     await render(
       <template>
         <NavigationMenu
@@ -37,6 +38,10 @@ module('Integration | Component | navigation-menu', function (hooks) {
       .dom(links[0])
       .hasAttribute('href', '/', 'We see the correct href for the 1st link.')
       .hasText('Home', 'We see the correct label for the 1st link.');
+
+    await a11yAudit();
+
+    assert.ok(true, 'We passed Axe tests.');
   });
 
   test('CSS modules', async function (assert) {
@@ -51,6 +56,14 @@ module('Integration | Component | navigation-menu', function (hooks) {
       </template>
     );
 
-    assert.dom('[data-test-link="Home"]').hasClass(/^sample-v2-addon/, 'We see the local style.');
+    assert
+      .dom('[data-test-link="Home"]')
+      .hasClass(/^sample-v2-addon/, 'We see the local class name.')
+      .hasStyle(
+        {
+          textDecorationLine: 'none',
+        },
+        'We see the applied style.',
+      );
   });
 });
