@@ -3,6 +3,7 @@ packages:
   - docs/sample-v2-addon
   - packages/ember-codemod-remove-ember-css-modules
   - packages/embroider-css-modules
+  - packages/embroider-css-modules-temporary
   - packages/type-css-modules
   - tests/embroider-css-modules
   - tests/sample-v2-addon
