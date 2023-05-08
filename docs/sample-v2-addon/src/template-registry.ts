@@ -1,7 +1,7 @@
-import type NavigationMenuNewComponent from './components/navigation-menu-new';
-import type UiPageNewComponent from './components/ui/page-new';
+import type NavigationMenuComponent from './components/navigation-menu';
+import type UiPageComponent from './components/ui/page';
 
 export default interface SampleV2AddonRegistry {
-  NavigationMenuNew: typeof NavigationMenuNewComponent;
-  'Ui::PageNew': typeof UiPageNewComponent;
+  NavigationMenu: typeof NavigationMenuComponent;
+  'Ui::Page': typeof UiPageComponent;
 }

@@ -9,12 +9,12 @@ module('Integration | Component | ui/page', function (hooks) {
 
   test('The component handles the page layout', async function (assert) {
     await render(hbs`
-      <Ui::PageNew
+      <Ui::Page
         @title="Form"
       >
         <div data-test-body>
         </div>
-      </Ui::PageNew>
+      </Ui::Page>
     `);
 
     assert.dom('h1').hasText('Form', 'We see the title.');
@@ -24,12 +24,12 @@ module('Integration | Component | ui/page', function (hooks) {
 
   test('CSS modules', async function (assert) {
     await render(hbs`
-      <Ui::PageNew
+      <Ui::Page
         @title="Form"
       >
         <div data-test-body>
         </div>
-      </Ui::PageNew>
+      </Ui::Page>
     `);
 
     assert.dom('h1').hasClass(/^sample-v2-addon/, 'We see the local style.');

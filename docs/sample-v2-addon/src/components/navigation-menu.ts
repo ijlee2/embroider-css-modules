@@ -1,19 +1,19 @@
 import Component from '@glimmer/component';
 
-import styles from './navigation-menu-new.css';
+import styles from './navigation-menu.css';
 
 type MenuItem = {
   label: string;
   route: string;
 };
 
-interface NavigationMenuNewSignature {
+interface NavigationMenuSignature {
   Args: {
     menuItems: MenuItem[];
     name?: string;
   };
 }
 
-export default class NavigationMenuNewComponent extends Component<NavigationMenuNewSignature> {
+export default class NavigationMenuComponent extends Component<NavigationMenuSignature> {
   styles = styles;
 }
