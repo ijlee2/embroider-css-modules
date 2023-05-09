@@ -54,8 +54,7 @@
     "test": "echo 'A v2 addon does not have tests, run tests in tests/embroider-css-modules-temporary'"
   },
   "dependencies": {
-    "@embroider/addon-shim": "1.8.5-unstable.f004d11",
-    "embroider-css-modules": "workspace:*"
+    "@embroider/addon-shim": "1.8.5-unstable.f004d11"
   },
   "devDependencies": {
     "@babel/core": "^7.21.5",

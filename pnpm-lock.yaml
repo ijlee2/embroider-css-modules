@@ -676,9 +676,6 @@ importers:
       '@embroider/addon-shim':
         specifier: 1.8.5-unstable.f004d11
         version: 1.8.5-unstable.f004d11
-      embroider-css-modules:
-        specifier: workspace:*
-        version: link:../embroider-css-modules
     devDependencies:
       '@babel/core':
         specifier: ^7.21.5
