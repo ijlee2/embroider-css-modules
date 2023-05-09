@@ -1,5 +1,11 @@
 # embroider-css-modules-temporary
 
+## 0.1.3
+
+### Patch Changes
+
+- [#36](https://github.com/ijlee2/embroider-css-modules/pull/36) Installed @embroider/addon-shim@1.8.5-unstable.f004d11 to allow nesting v2 addons ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.2
 
 ### Patch Changes
