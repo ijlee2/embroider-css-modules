@@ -38,11 +38,17 @@ async function getDependencyReleaseLine(changesets, dependenciesUpdated) {
 }
 
 async function getReleaseLine(changeset) {
-  const { contributor, link, summary } = await extractInformation(changeset);
+  try {
+    const { contributor, link, summary } = await extractInformation(changeset);
 
-  const line = [link, summary, contributor].filter(Boolean).join(' ');
+    const line = [link, summary, contributor].filter(Boolean).join(' ');
 
-  return `- ${line}`;
+    return `- ${line}`;
+  } catch (error) {
+    console.error(`ERROR: getReleaseLine (${error.message})`);
+
+    return '';
+  }
 }
 
 module.exports = {
