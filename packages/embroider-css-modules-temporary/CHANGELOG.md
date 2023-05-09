@@ -1,5 +1,11 @@
 # embroider-css-modules-temporary
 
+## 0.1.4
+
+### Patch Changes
+
+- [#37](https://github.com/ijlee2/embroider-css-modules/pull/37) Removed dependency on embroider-css-modules ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.3
 
 ### Patch Changes
