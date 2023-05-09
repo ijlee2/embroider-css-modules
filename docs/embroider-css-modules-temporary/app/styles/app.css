@@ -1,0 +1,19 @@
+/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:global(.demo-container-new-hashed) {
+  color: magenta;
+}

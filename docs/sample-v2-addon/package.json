@@ -107,8 +107,11 @@
   },
   "ember-addon": {
     "app-js": {
-      "./components/navigation-menu-new.js": "./dist/_app_/components/navigation-menu-new.js",
-      "./components/ui/page-new.js": "./dist/_app_/components/ui/page-new.js"
+      "./components/navigation-menu.js": "./dist/_app_/components/navigation-menu.js",
+      "./components/ui/page.js": "./dist/_app_/components/ui/page.js",
+      "./components/ui/page/demo.js": "./dist/_app_/components/ui/page/demo.js",
+      "./components/ui/page/section.js": "./dist/_app_/components/ui/page/section.js",
+      "./components/ui/page/subsection.js": "./dist/_app_/components/ui/page/subsection.js"
     },
     "main": "addon-main.cjs",
     "type": "addon",
