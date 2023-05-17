@@ -1,5 +1,6 @@
+import { assert, test } from '@codemod-utils/tests';
+
 import { ASTCSS as AST } from '../../../src/utils/abstract-syntax-tree.js';
-import { assert, test } from '../../helpers/testing.js';
 
 test('utils | abstract-syntax-tree | css > file is empty', function () {
   const oldFile = '';

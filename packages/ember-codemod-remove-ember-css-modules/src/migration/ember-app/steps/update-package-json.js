@@ -1,8 +1,9 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { decideVersion } from '../../../utils/blueprints.js';
-import { convertToMap, convertToObject } from '../../../utils/json.js';
+import { convertToMap, convertToObject } from '@codemod-utils/json';
+
+import { getVersion } from '../../../utils/blueprints.js';
 
 function updateDevDependencies(packageJson, options) {
   const { project } = options;
@@ -22,7 +23,7 @@ function updateDevDependencies(packageJson, options) {
   }
 
   [...packagesToInstall].sort().forEach((packageName) => {
-    const version = decideVersion(packageName, options);
+    const version = getVersion(packageName, options);
 
     devDependencies.set(packageName, version);
   });

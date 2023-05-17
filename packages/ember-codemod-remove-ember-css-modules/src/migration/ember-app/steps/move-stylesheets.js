@@ -3,7 +3,7 @@ import {
   findFiles,
   mapFilePaths,
   moveFiles,
-} from '../../../utils/files.js';
+} from '@codemod-utils/files';
 
 function moveRouteStylesheets(options) {
   const { projectRoot } = options;

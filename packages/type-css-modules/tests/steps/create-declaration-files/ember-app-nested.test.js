@@ -1,14 +1,15 @@
-import { createDeclarationFiles } from '../../../src/steps/index.js';
-import {
-  codemodOptions,
-  options,
-} from '../../helpers/shared-test-setups/ember-app-nested.js';
 import {
   assertFixture,
   convertFixtureToJson,
   loadFixture,
   test,
-} from '../../helpers/testing.js';
+} from '@codemod-utils/tests';
+
+import { createDeclarationFiles } from '../../../src/steps/index.js';
+import {
+  codemodOptions,
+  options,
+} from '../../helpers/shared-test-setups/ember-app-nested.js';
 
 test('steps | create-declaration-files > ember-app-nested', function () {
   const inputProject = convertFixtureToJson(

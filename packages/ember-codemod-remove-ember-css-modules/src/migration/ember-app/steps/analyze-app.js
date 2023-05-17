@@ -1,6 +1,6 @@
 import { join, parse } from 'node:path';
 
-import { findFiles, renameDirectory } from '../../../utils/files.js';
+import { findFiles, renameDirectory } from '@codemod-utils/files';
 
 function findAndRenameFiles(findOptions, replaceOptions) {
   const { globPattern, ignoreList, projectRoot } = findOptions;

@@ -3,18 +3,19 @@
   component templates. For the nested component structure, it is
   sufficient to check that the template files can be read.
 */
-import { updateComponentTemplates } from '../../../../../src/migration/ember-app/steps/index.js';
-import {
-  codemodOptions,
-  options,
-} from '../../../../helpers/shared-test-setups/nested.js';
 import {
   assert,
   assertFixture,
   convertFixtureToJson,
   loadFixture,
   test,
-} from '../../../../helpers/testing.js';
+} from '@codemod-utils/tests';
+
+import { updateComponentTemplates } from '../../../../../src/migration/ember-app/steps/index.js';
+import {
+  codemodOptions,
+  options,
+} from '../../../../helpers/shared-test-setups/nested.js';
 
 function getContext(folderName) {
   const entityName = folderName.replace(new RegExp(/\.hbs$/), '');

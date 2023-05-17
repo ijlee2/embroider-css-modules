@@ -1,5 +1,6 @@
+import { assert, test } from '@codemod-utils/tests';
+
 import { getDeclarationFile } from '../../../src/utils/css.js';
-import { assert, test } from '../../helpers/testing.js';
 
 test('utils | css | get-declaration-file > base case', function () {
   const classNames = ['copyright', 'has-error', 'link', 'list'];

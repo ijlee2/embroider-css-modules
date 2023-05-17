@@ -1,14 +1,15 @@
-import { updateAppAppJs } from '../../../../../src/migration/ember-app/steps/index.js';
-import {
-  codemodOptions,
-  options,
-} from '../../../../helpers/shared-test-setups/javascript.js';
 import {
   assertFixture,
   convertFixtureToJson,
   loadFixture,
   test,
-} from '../../../../helpers/testing.js';
+} from '@codemod-utils/tests';
+
+import { updateAppAppJs } from '../../../../../src/migration/ember-app/steps/index.js';
+import {
+  codemodOptions,
+  options,
+} from '../../../../helpers/shared-test-setups/javascript.js';
 
 test('migration | ember-app | steps | update-app-app-js > javascript', function () {
   const inputProject = convertFixtureToJson(

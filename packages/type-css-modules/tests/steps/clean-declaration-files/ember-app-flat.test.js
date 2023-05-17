@@ -1,14 +1,15 @@
-import { cleanDeclarationFiles } from '../../../src/steps/index.js';
-import {
-  codemodOptions,
-  options,
-} from '../../helpers/shared-test-setups/ember-app-flat.js';
 import {
   assertFixture,
   convertFixtureToJson,
   loadFixture,
   test,
-} from '../../helpers/testing.js';
+} from '@codemod-utils/tests';
+
+import { cleanDeclarationFiles } from '../../../src/steps/index.js';
+import {
+  codemodOptions,
+  options,
+} from '../../helpers/shared-test-setups/ember-app-flat.js';
 
 test('steps | clean-declaration-files > ember-app-flat', function () {
   const inputProject = convertFixtureToJson(

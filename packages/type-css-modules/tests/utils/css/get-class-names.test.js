@@ -1,9 +1,10 @@
+import { assert, loadFixture, test } from '@codemod-utils/tests';
+
 import { getClassNames } from '../../../src/utils/css.js';
 import {
   codemodOptions,
   options,
 } from '../../helpers/shared-test-setups/ember-app-flat.js';
-import { assert, loadFixture, test } from '../../helpers/testing.js';
 
 test('utils | css | get-class-names > base case (1)', function () {
   const cssFile = [

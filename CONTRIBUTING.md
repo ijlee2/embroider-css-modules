@@ -108,7 +108,14 @@ Here are some guidelines to help you and everyone else.
     GITHUB_TOKEN=<YOUR_PERSONAL_ACCESS_TOKEN> pnpm publish:changelogs
     ```
 
-1. Create a tag such as `1.0.0` (the name satisfies the regular expression `^\d+\.\d+\.\d+`).
+1. [Create a tag](https://github.com/ijlee2/embroider-css-modules/releases/new) such as `1.0.0` (the name satisfies the regular expression `^\d+\.\d+\.\d+`).
+
+1. Publish the package.
+
+    ```sh
+    # From the workspace root
+    pnpm publish:packages
+    ```
 
 </details>
 
@@ -170,7 +177,7 @@ Here are some suggestions to help you start:
     - Report bug
     - Report outdated dependency
 
-1. When reporting a bug, please provide details to help me understand what's going on. If possible, please use the latest version of `embroider-css-modules` and set up a public demo that I and (other people) can check the code.
+1. When reporting a bug, please provide details to help me understand what's going on. If possible, please use the latest version of `embroider-css-modules` and set up a public demo that I (and others) can check the code.
 
 </details>
 

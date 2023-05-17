@@ -1,18 +1,19 @@
 /*
   Place the test components directly under `app/components`.
 */
-import { updateComponentTemplates } from '../../../../../src/migration/ember-app/steps/index.js';
-import {
-  codemodOptions,
-  options,
-} from '../../../../helpers/shared-test-setups/glint.js';
 import {
   assert,
   assertFixture,
   convertFixtureToJson,
   loadFixture,
   test,
-} from '../../../../helpers/testing.js';
+} from '@codemod-utils/tests';
+
+import { updateComponentTemplates } from '../../../../../src/migration/ember-app/steps/index.js';
+import {
+  codemodOptions,
+  options,
+} from '../../../../helpers/shared-test-setups/glint.js';
 
 function getContext(fileName) {
   const entityName = fileName.replace(new RegExp(/\.hbs$/), '');

@@ -1,5 +1,6 @@
+import { assert, test } from '@codemod-utils/tests';
+
 import { classifyEntityName } from '../../../../src/utils/string.js';
-import { assert, test } from '../../../helpers/testing.js';
 
 test('utils | string | entity-name | classifyEntityName', function () {
   assert.strictEqual(classifyEntityName(''), '');

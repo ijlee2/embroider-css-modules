@@ -1,6 +1,7 @@
 /* https://github.com/ember-cli/ember-cli-string-utils/blob/v1.1.0/test.js */
+import { assert, test } from '@codemod-utils/tests';
+
 import { classify } from '../../../../src/utils/string.js';
-import { assert, test } from '../../../helpers/testing.js';
 
 test('utils | string | ember-cli-string-utils | classify', function () {
   assert.strictEqual(classify(''), '');

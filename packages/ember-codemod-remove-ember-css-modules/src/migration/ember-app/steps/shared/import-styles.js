@@ -1,12 +1,11 @@
 import { readFileSync } from 'node:fs';
 import { join, parse } from 'node:path';
 
+import { processTemplate } from '@codemod-utils/blueprints';
+import { createFiles } from '@codemod-utils/files';
+
 import { ASTJavaScript as AST } from '../../../../utils/abstract-syntax-tree.js';
-import {
-  blueprintRoot,
-  processTemplate,
-} from '../../../../utils/blueprints.js';
-import { createFiles } from '../../../../utils/files.js';
+import { blueprintsRoot } from '../../../../utils/blueprints.js';
 import { parseEntityName } from '../../../../utils/string.js';
 
 function removeTemplateOnlyComponentMethod(file, data) {
@@ -134,7 +133,7 @@ function createClass(customizations, options) {
   const fileMapping = new Map(
     blueprintFilePaths.map((blueprintFilePath) => {
       const blueprintFile = readFileSync(
-        join(blueprintRoot, blueprintFilePath),
+        join(blueprintsRoot, blueprintFilePath),
         'utf8',
       );
 

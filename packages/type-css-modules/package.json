@@ -29,13 +29,14 @@
     "test": "mt tests --quiet"
   },
   "dependencies": {
+    "@codemod-utils/files": "^0.1.0",
     "css-tree": "^2.3.1",
-    "glob": "^10.2.2",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.21.5",
     "@babel/eslint-parser": "^7.21.3",
+    "@codemod-utils/tests": "^0.1.0",
     "@sondr3/minitest": "^0.1.1",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
@@ -43,7 +44,6 @@
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "fixturify": "^3.0.0",
     "prettier": "^2.8.8"
   },
   "engines": {
