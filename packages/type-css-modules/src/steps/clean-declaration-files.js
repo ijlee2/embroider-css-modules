@@ -1,5 +1,6 @@
+import { findFiles, removeFiles, unionize } from '@codemod-utils/files';
+
 import { getCssDeclarationFilePaths } from '../utils/css.js';
-import { findFiles, removeFiles, unionize } from '../utils/files.js';
 
 export function cleanDeclarationFiles(options) {
   const { projectRoot } = options;
