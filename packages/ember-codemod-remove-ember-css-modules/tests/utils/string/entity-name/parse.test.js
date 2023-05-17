@@ -1,5 +1,6 @@
+import { assert, test } from '@codemod-utils/tests';
+
 import { parseEntityName } from '../../../../src/utils/string.js';
-import { assert, test } from '../../../helpers/testing.js';
 
 test('utils | string | entity-name | parseEntityName', function () {
   assert.deepStrictEqual(parseEntityName(''), {

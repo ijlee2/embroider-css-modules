@@ -1,5 +1,6 @@
+import { assert, test } from '@codemod-utils/tests';
+
 import { doubleColonizeEntityName } from '../../../../src/utils/string.js';
-import { assert, test } from '../../../helpers/testing.js';
 
 test('utils | string | entity-name | double-doubleColonizeEntityName', function () {
   assert.strictEqual(doubleColonizeEntityName(''), '');

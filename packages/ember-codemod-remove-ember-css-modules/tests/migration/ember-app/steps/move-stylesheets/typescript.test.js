@@ -1,13 +1,10 @@
+import { assertFixture, loadFixture, test } from '@codemod-utils/tests';
+
 import { moveStylesheets } from '../../../../../src/migration/ember-app/steps/index.js';
 import {
   codemodOptions,
   options,
 } from '../../../../helpers/shared-test-setups/typescript.js';
-import {
-  assertFixture,
-  loadFixture,
-  test,
-} from '../../../../helpers/testing.js';
 
 test('migration | ember-app | steps | move-stylesheets > typescript', function () {
   const inputProject = {

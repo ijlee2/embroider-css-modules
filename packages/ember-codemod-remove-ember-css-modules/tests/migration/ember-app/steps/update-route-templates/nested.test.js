@@ -2,18 +2,19 @@
   At the moment, we update component and route templates in the same way.
   Please check the input and output for `update-component-templates`.
 */
-import { updateRouteTemplates } from '../../../../../src/migration/ember-app/steps/index.js';
-import {
-  codemodOptions,
-  options,
-} from '../../../../helpers/shared-test-setups/nested.js';
 import {
   assert,
   assertFixture,
   convertFixtureToJson,
   loadFixture,
   test,
-} from '../../../../helpers/testing.js';
+} from '@codemod-utils/tests';
+
+import { updateRouteTemplates } from '../../../../../src/migration/ember-app/steps/index.js';
+import {
+  codemodOptions,
+  options,
+} from '../../../../helpers/shared-test-setups/nested.js';
 
 function getContext(fileName) {
   const entityName = fileName.replace(new RegExp(/\.hbs$/), '');

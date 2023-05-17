@@ -1,6 +1,7 @@
+import { assert, loadFixture, test } from '@codemod-utils/tests';
+
 import { createOptions } from '../../../../../src/migration/ember-app/steps/index.js';
 import { codemodOptions } from '../../../../helpers/shared-test-setups/nested.js';
-import { assert, loadFixture, test } from '../../../../helpers/testing.js';
 
 test('migration | ember-app | steps | create-options > nested', function () {
   const inputProject = {
