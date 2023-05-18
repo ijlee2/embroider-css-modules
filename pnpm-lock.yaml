@@ -73,6 +73,9 @@ importers:
       '@percy/ember':
         specifier: ^4.2.0
         version: 4.2.0
+      '@shared-configs/prettier':
+        specifier: workspace:*
+        version: link:../../configs/prettier
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
@@ -295,6 +298,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/prettier':
+        specifier: workspace:*
+        version: link:../../configs/prettier
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
@@ -458,6 +464,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/prettier':
+        specifier: workspace:*
+        version: link:../../configs/prettier
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
@@ -567,6 +576,9 @@ importers:
       '@codemod-utils/tests':
         specifier: ^0.1.0
         version: 0.1.0(@sondr3/minitest@0.1.1)
+      '@shared-configs/prettier':
+        specifier: workspace:*
+        version: link:../../configs/prettier
       '@sondr3/minitest':
         specifier: ^0.1.1
         version: 0.1.1
@@ -625,6 +637,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/prettier':
+        specifier: workspace:*
+        version: link:../../configs/prettier
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
@@ -716,6 +731,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/prettier':
+        specifier: workspace:*
+        version: link:../../configs/prettier
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
@@ -795,6 +813,9 @@ importers:
       '@codemod-utils/tests':
         specifier: ^0.1.0
         version: 0.1.0(@sondr3/minitest@0.1.1)
+      '@shared-configs/prettier':
+        specifier: workspace:*
+        version: link:../../configs/prettier
       '@sondr3/minitest':
         specifier: ^0.1.1
         version: 0.1.1
@@ -852,6 +873,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/prettier':
+        specifier: workspace:*
+        version: link:../../configs/prettier
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
@@ -1020,6 +1044,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/prettier':
+        specifier: workspace:*
+        version: link:../../configs/prettier
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
