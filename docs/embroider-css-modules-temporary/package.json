@@ -54,6 +54,7 @@
     "@glint/template": "^1.0.2",
     "@shared-configs/ember-template-lint": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
+    "@shared-configs/stylelint": "workspace:*",
     "@tsconfig/ember": "^2.0.0",
     "@types/qunit": "^2.19.5",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
@@ -87,10 +88,7 @@
     "qunit-dom": "^2.0.0",
     "sample-v2-addon": "workspace:*",
     "stylelint": "^15.6.0",
-    "stylelint-config-standard": "^33.0.0",
     "stylelint-no-unsupported-browser-features": "^6.1.0",
-    "stylelint-order": "^6.0.3",
-    "stylelint-prettier": "^3.0.0",
     "type-css-modules": "workspace:*",
     "typescript": "^5.0.4",
     "webpack": "^5.81.0"

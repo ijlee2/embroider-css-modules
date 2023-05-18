@@ -123,6 +123,9 @@ importers:
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
+      '@shared-configs/stylelint':
+        specifier: workspace:*
+        version: link:../../configs/stylelint
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
@@ -276,18 +279,9 @@ importers:
       stylelint:
         specifier: ^15.6.0
         version: 15.6.0
-      stylelint-config-standard:
-        specifier: ^33.0.0
-        version: 33.0.0(stylelint@15.6.0)
       stylelint-no-unsupported-browser-features:
         specifier: ^6.1.0
         version: 6.1.0(stylelint@15.6.0)
-      stylelint-order:
-        specifier: ^6.0.3
-        version: 6.0.3(stylelint@15.6.0)
-      stylelint-prettier:
-        specifier: ^3.0.0
-        version: 3.0.0(prettier@2.8.8)(stylelint@15.6.0)
       type-css-modules:
         specifier: workspace:*
         version: link:../../packages/type-css-modules
@@ -348,6 +342,9 @@ importers:
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
+      '@shared-configs/stylelint':
+        specifier: workspace:*
+        version: link:../../configs/stylelint
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
@@ -447,18 +444,9 @@ importers:
       stylelint:
         specifier: ^15.6.0
         version: 15.6.0
-      stylelint-config-standard:
-        specifier: ^33.0.0
-        version: 33.0.0(stylelint@15.6.0)
       stylelint-no-unsupported-browser-features:
         specifier: ^6.1.0
         version: 6.1.0(stylelint@15.6.0)
-      stylelint-order:
-        specifier: ^6.0.3
-        version: 6.0.3(stylelint@15.6.0)
-      stylelint-prettier:
-        specifier: ^3.0.0
-        version: 3.0.0(prettier@2.8.8)(stylelint@15.6.0)
       type-css-modules:
         specifier: workspace:*
         version: link:../../packages/type-css-modules
@@ -517,6 +505,9 @@ importers:
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
+      '@shared-configs/stylelint':
+        specifier: workspace:*
+        version: link:../../configs/stylelint
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
@@ -571,18 +562,6 @@ importers:
       stylelint:
         specifier: ^15.6.0
         version: 15.6.0
-      stylelint-config-standard:
-        specifier: ^33.0.0
-        version: 33.0.0(stylelint@15.6.0)
-      stylelint-no-unsupported-browser-features:
-        specifier: ^6.1.0
-        version: 6.1.0(stylelint@15.6.0)
-      stylelint-order:
-        specifier: ^6.0.3
-        version: 6.0.3(stylelint@15.6.0)
-      stylelint-prettier:
-        specifier: ^3.0.0
-        version: 3.0.0(prettier@2.8.8)(stylelint@15.6.0)
       type-css-modules:
         specifier: workspace:*
         version: link:../../packages/type-css-modules
@@ -926,6 +905,9 @@ importers:
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
+      '@shared-configs/stylelint':
+        specifier: workspace:*
+        version: link:../../configs/stylelint
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
@@ -1040,18 +1022,9 @@ importers:
       stylelint:
         specifier: ^15.6.0
         version: 15.6.0
-      stylelint-config-standard:
-        specifier: ^33.0.0
-        version: 33.0.0(stylelint@15.6.0)
       stylelint-no-unsupported-browser-features:
         specifier: ^6.1.0
         version: 6.1.0(stylelint@15.6.0)
-      stylelint-order:
-        specifier: ^6.0.3
-        version: 6.0.3(stylelint@15.6.0)
-      stylelint-prettier:
-        specifier: ^3.0.0
-        version: 3.0.0(prettier@2.8.8)(stylelint@15.6.0)
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
@@ -1097,6 +1070,9 @@ importers:
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
+      '@shared-configs/stylelint':
+        specifier: workspace:*
+        version: link:../../configs/stylelint
       '@tsconfig/ember':
         specifier: ^2.0.0
         version: 2.0.0
@@ -1214,18 +1190,9 @@ importers:
       stylelint:
         specifier: ^15.6.0
         version: 15.6.0
-      stylelint-config-standard:
-        specifier: ^33.0.0
-        version: 33.0.0(stylelint@15.6.0)
       stylelint-no-unsupported-browser-features:
         specifier: ^6.1.0
         version: 6.1.0(stylelint@15.6.0)
-      stylelint-order:
-        specifier: ^6.0.3
-        version: 6.0.3(stylelint@15.6.0)
-      stylelint-prettier:
-        specifier: ^3.0.0
-        version: 3.0.0(prettier@2.8.8)(stylelint@15.6.0)
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
@@ -13232,6 +13199,7 @@ packages:
       postcss: ^8.4.20
     dependencies:
       postcss: 8.4.23
+    dev: false
 
   /postcss-svgo@5.1.0(postcss@8.4.23):
     resolution: {integrity: sha512-D75KsH1zm5ZrHyxPakAxJWtkyXew5qwS70v56exwvw542d9CRtTo78K0WeFxZB4G7JXKKMbEZtZayTGdIky/eA==}
@@ -14710,6 +14678,7 @@ packages:
       stylelint: ^15.5.0
     dependencies:
       stylelint: 15.6.0
+    dev: false
 
   /stylelint-config-standard@33.0.0(stylelint@15.6.0):
     resolution: {integrity: sha512-eyxnLWoXImUn77+ODIuW9qXBDNM+ALN68L3wT1lN2oNspZ7D9NVGlNHb2QCUn4xDug6VZLsh0tF8NyoYzkgTzg==}
@@ -14718,6 +14687,7 @@ packages:
     dependencies:
       stylelint: 15.6.0
       stylelint-config-recommended: 12.0.0(stylelint@15.6.0)
+    dev: false
 
   /stylelint-no-unsupported-browser-features@6.1.0(stylelint@15.6.0):
     resolution: {integrity: sha512-3Taj+z9PjIiY6cz4hg3eN8Khue3kMm9lPXYuEvdjAFXDK20uQo2NocJaWN6anIKclYlwrpkBAS9W/KV3qPTWsw==}
@@ -14739,6 +14709,7 @@ packages:
       postcss: 8.4.23
       postcss-sorting: 8.0.2(postcss@8.4.23)
       stylelint: 15.6.0
+    dev: false
 
   /stylelint-prettier@3.0.0(prettier@2.8.8)(stylelint@15.6.0):
     resolution: {integrity: sha512-kIks1xw6np0zElokMT2kP6ar3S4MBoj6vUtPJuND1pFELMpZxVS/0uHPR4HDAVn0WAD3I5oF0IA3qBFxBpMkLg==}
@@ -14750,6 +14721,7 @@ packages:
       prettier: 2.8.8
       prettier-linter-helpers: 1.0.0
       stylelint: 15.6.0
+    dev: false
 
   /stylelint@15.6.0:
     resolution: {integrity: sha512-Cqzpc8tvJm77KaM8qUbhpJ/UYK55Ia0whQXj4b9IId9dlPICO7J8Lyo15SZWiHxKjlvy3p5FQor/3n6i8ignXg==}
