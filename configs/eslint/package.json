@@ -1,0 +1,55 @@
+{
+  "name": "@shared-configs/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Configuration for eslint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ijlee2/embroider-css-modules.git"
+  },
+  "author": "Isaac J. Lee",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint:js": "prettier --check \"**/*.js\"",
+    "lint:js:fix": "prettier --write \"**/*.js\""
+  },
+  "dependencies": {
+    "@babel/core": "^7.21.5",
+    "@babel/eslint-parser": "7.21.3",
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-ember": "^11.5.2",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-qunit": "^7.3.4",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-typescript-sort-keys": "^2.3.0"
+  },
+  "devDependencies": {
+    "@shared-configs/prettier": "workspace:*",
+    "concurrently": "^8.0.1",
+    "eslint": "^8.39.0",
+    "prettier": "^2.8.8"
+  },
+  "peerDependencies": {
+    "eslint": "^8.39.0",
+    "prettier": "^2.8.0"
+  },
+  "peerDependenciesMeta": {
+    "eslint": {
+      "optional": false
+    },
+    "prettier": {
+      "optional": false
+    }
+  },
+  "engines": {
+    "node": "16.* || >= 18"
+  }
+}

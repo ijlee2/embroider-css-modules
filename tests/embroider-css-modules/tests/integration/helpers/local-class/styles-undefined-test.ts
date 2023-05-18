@@ -1,5 +1,9 @@
-import { TestContext as BaseTestContext } from '@ember/test-helpers';
-import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  resetOnerror,
+  setupOnerror,
+  type TestContext as BaseTestContext,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 

@@ -1,10 +1,8 @@
 packages:
-  - docs/embroider-css-modules
-  - docs/embroider-css-modules-temporary
-  - docs/sample-v2-addon
+  - configs/**
+  - docs/**
   - packages/ember-codemod-remove-ember-css-modules
   - packages/embroider-css-modules
   - packages/embroider-css-modules-temporary
   - packages/type-css-modules
-  - tests/embroider-css-modules
-  - tests/sample-v2-addon
+  - tests/**

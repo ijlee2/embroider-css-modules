@@ -3,22 +3,9 @@
 const { browsers } = require('./config/targets');
 
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-prettier/recommended'],
-  plugins: ['stylelint-no-unsupported-browser-features', 'stylelint-order'],
+  extends: ['@shared-configs/stylelint'],
+  plugins: ['stylelint-no-unsupported-browser-features'],
   rules: {
-    /*
-      Customize plugins
-    */
-    'order/properties-order': [
-      [
-        // Defined by CSS modules
-        'composes',
-      ],
-      {
-        unspecified: 'bottomAlphabetical',
-      },
-    ],
-
     'plugin/no-unsupported-browser-features': [
       true,
       {
@@ -26,46 +13,6 @@ module.exports = {
         ignore: [
           // grid-template-columns falsely identified as multicolumn
           'multicolumn',
-        ],
-      },
-    ],
-
-    /*
-      Customize rules
-    */
-    'declaration-block-no-duplicate-properties': [
-      true,
-      {
-        ignoreProperties: [
-          // Defined by CSS modules
-          'composes',
-        ],
-      },
-    ],
-
-    'declaration-block-no-redundant-longhand-properties': [
-      true,
-      {
-        ignoreShorthands: ['grid-gap', 'grid-template'],
-      },
-    ],
-
-    'property-no-unknown': [
-      true,
-      {
-        ignoreProperties: [
-          // Defined by CSS modules
-          'composes',
-        ],
-      },
-    ],
-
-    'selector-pseudo-class-no-unknown': [
-      true,
-      {
-        ignorePseudoClasses: [
-          // Defined by CSS modules
-          'global',
         ],
       },
     ],

@@ -24,8 +24,10 @@
     "test": "tests"
   },
   "scripts": {
-    "lint": "eslint . --cache",
-    "lint:fix": "eslint . --fix",
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
     "test": "mt tests --quiet"
   },
   "dependencies": {
@@ -34,16 +36,12 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.5",
-    "@babel/eslint-parser": "^7.21.3",
     "@codemod-utils/tests": "^0.1.0",
+    "@shared-configs/eslint-config": "workspace:*",
+    "@shared-configs/prettier": "workspace:*",
     "@sondr3/minitest": "^0.1.1",
+    "concurrently": "^8.0.1",
     "eslint": "^8.39.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^15.7.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
     "prettier": "^2.8.8"
   },
   "engines": {
