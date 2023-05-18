@@ -92,6 +92,9 @@ importers:
       '@percy/ember':
         specifier: ^4.2.0
         version: 4.2.0
+      '@shared-configs/ember-template-lint':
+        specifier: workspace:*
+        version: link:../../configs/ember-template-lint
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
@@ -194,9 +197,6 @@ importers:
       ember-template-lint:
         specifier: ^5.7.3
         version: 5.7.3
-      ember-template-lint-plugin-prettier:
-        specifier: ^4.1.0
-        version: 4.1.0(ember-template-lint@5.7.3)(prettier@2.8.8)
       ember-test-selectors:
         specifier: ^6.0.0
         version: 6.0.0
@@ -317,6 +317,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/ember-template-lint':
+        specifier: workspace:*
+        version: link:../../configs/ember-template-lint
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
@@ -483,6 +486,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/ember-template-lint':
+        specifier: workspace:*
+        version: link:../../configs/ember-template-lint
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
@@ -501,9 +507,6 @@ importers:
       ember-template-lint:
         specifier: ^5.7.3
         version: 5.7.3
-      ember-template-lint-plugin-prettier:
-        specifier: ^4.1.0
-        version: 4.1.0(ember-template-lint@5.7.3)(prettier@2.8.8)
       eslint:
         specifier: ^8.39.0
         version: 8.39.0
@@ -656,6 +659,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/ember-template-lint':
+        specifier: workspace:*
+        version: link:../../configs/ember-template-lint
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
@@ -680,9 +686,6 @@ importers:
       ember-template-lint:
         specifier: ^5.7.3
         version: 5.7.3
-      ember-template-lint-plugin-prettier:
-        specifier: ^4.1.0
-        version: 4.1.0(ember-template-lint@5.7.3)(prettier@2.8.8)
       eslint:
         specifier: ^8.39.0
         version: 8.39.0
@@ -750,6 +753,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/ember-template-lint':
+        specifier: workspace:*
+        version: link:../../configs/ember-template-lint
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
@@ -774,9 +780,6 @@ importers:
       ember-template-lint:
         specifier: ^5.7.3
         version: 5.7.3
-      ember-template-lint-plugin-prettier:
-        specifier: ^4.1.0
-        version: 4.1.0(ember-template-lint@5.7.3)(prettier@2.8.8)
       eslint:
         specifier: ^8.39.0
         version: 8.39.0
@@ -892,6 +895,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/ember-template-lint':
+        specifier: workspace:*
+        version: link:../../configs/ember-template-lint
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
@@ -958,9 +964,6 @@ importers:
       ember-template-lint:
         specifier: ^5.7.3
         version: 5.7.3
-      ember-template-lint-plugin-prettier:
-        specifier: ^4.1.0
-        version: 4.1.0(ember-template-lint@5.7.3)(prettier@2.8.8)
       ember-test-selectors:
         specifier: ^6.0.0
         version: 6.0.0
@@ -1063,6 +1066,9 @@ importers:
       '@glint/template':
         specifier: ^1.0.2
         version: 1.0.2
+      '@shared-configs/ember-template-lint':
+        specifier: workspace:*
+        version: link:../../configs/ember-template-lint
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
@@ -1132,9 +1138,6 @@ importers:
       ember-template-lint:
         specifier: ^5.7.3
         version: 5.7.3
-      ember-template-lint-plugin-prettier:
-        specifier: ^4.1.0
-        version: 4.1.0(ember-template-lint@5.7.3)(prettier@2.8.8)
       ember-test-selectors:
         specifier: ^6.0.0
         version: 6.0.0
@@ -8609,6 +8612,7 @@ packages:
       ember-template-lint: 5.7.3
       prettier: 2.8.8
       prettier-linter-helpers: 1.0.0
+    dev: false
 
   /ember-template-lint@5.7.3:
     resolution: {integrity: sha512-7ev+5pSXe2qv5TFDkt7G90pfuaiGGWPCQDaNs1/9QqGW++3JiNdMdKxq1lpBcny7zRYSOWBRIN+YiVgREAxvUg==}
