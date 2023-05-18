@@ -59,7 +59,7 @@
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/stylelint": "workspace:*",
     "@shared-configs/testem": "workspace:*",
-    "@tsconfig/ember": "^2.0.0",
+    "@shared-configs/typescript": "workspace:*",
     "@types/qunit": "^2.19.5",
     "autoprefixer": "^10.4.14",
     "broccoli-asset-rev": "^3.0.0",

@@ -221,9 +221,9 @@ importers:
       '@shared-configs/testem':
         specifier: workspace:*
         version: link:../../configs/testem
-      '@tsconfig/ember':
-        specifier: ^2.0.0
-        version: 2.0.0
+      '@shared-configs/typescript':
+        specifier: workspace:*
+        version: link:../../configs/typescript
       '@types/qunit':
         specifier: ^2.19.5
         version: 2.19.5
@@ -419,9 +419,9 @@ importers:
       '@shared-configs/testem':
         specifier: workspace:*
         version: link:../../configs/testem
-      '@tsconfig/ember':
-        specifier: ^2.0.0
-        version: 2.0.0
+      '@shared-configs/typescript':
+        specifier: workspace:*
+        version: link:../../configs/typescript
       '@types/qunit':
         specifier: ^2.19.5
         version: 2.19.5
@@ -579,9 +579,9 @@ importers:
       '@shared-configs/stylelint':
         specifier: workspace:*
         version: link:../../configs/stylelint
-      '@tsconfig/ember':
-        specifier: ^2.0.0
-        version: 2.0.0
+      '@shared-configs/typescript':
+        specifier: workspace:*
+        version: link:../../configs/typescript
       concurrently:
         specifier: ^8.0.1
         version: 8.0.1
@@ -704,9 +704,9 @@ importers:
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
-      '@tsconfig/ember':
-        specifier: ^2.0.0
-        version: 2.0.0
+      '@shared-configs/typescript':
+        specifier: workspace:*
+        version: link:../../configs/typescript
       '@types/ember__component':
         specifier: ^4.0.13
         version: 4.0.13(@babel/core@7.21.5)
@@ -777,9 +777,9 @@ importers:
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
-      '@tsconfig/ember':
-        specifier: ^2.0.0
-        version: 2.0.0
+      '@shared-configs/typescript':
+        specifier: workspace:*
+        version: link:../../configs/typescript
       '@types/ember__component':
         specifier: ^4.0.13
         version: 4.0.13(@babel/core@7.21.5)
@@ -889,9 +889,9 @@ importers:
       '@shared-configs/testem':
         specifier: workspace:*
         version: link:../../configs/testem
-      '@tsconfig/ember':
-        specifier: ^2.0.0
-        version: 2.0.0
+      '@shared-configs/typescript':
+        specifier: workspace:*
+        version: link:../../configs/typescript
       '@types/qunit':
         specifier: ^2.19.5
         version: 2.19.5
@@ -1033,9 +1033,9 @@ importers:
       '@shared-configs/testem':
         specifier: workspace:*
         version: link:../../configs/testem
-      '@tsconfig/ember':
-        specifier: ^2.0.0
-        version: 2.0.0
+      '@shared-configs/typescript':
+        specifier: workspace:*
+        version: link:../../configs/typescript
       '@types/qunit':
         specifier: ^2.19.5
         version: 2.19.5
@@ -3681,6 +3681,7 @@ packages:
 
   /@tsconfig/ember@2.0.0:
     resolution: {integrity: sha512-RzbDYYcjxVdG8Ki0xe99HN3+nHTZe6EBgw6N7B3yup7QogVFQQxA9nY7X80j1XzF15xqetwWiYfAjv5lkkp0/A==}
+    dev: false
 
   /@types/babel__code-frame@7.0.3:
     resolution: {integrity: sha512-2TN6oiwtNjOezilFVl77zwdNPwQWaDBBCCWWxyo1ctiO3vAtd7H/aB/CBJdw9+kqq3+latD0SXoedIuHySSZWw==}

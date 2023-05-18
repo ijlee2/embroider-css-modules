@@ -69,7 +69,7 @@
     "@shared-configs/ember-template-lint": "workspace:*",
     "@shared-configs/eslint-config": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
-    "@tsconfig/ember": "^2.0.0",
+    "@shared-configs/typescript": "workspace:*",
     "@types/ember__component": "^4.0.13",
     "@types/ember__debug": "^4.0.3",
     "concurrently": "^8.0.1",

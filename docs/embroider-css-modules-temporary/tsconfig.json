@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/ember/tsconfig.json",
+  "extends": "@shared-configs/typescript/ember",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -13,7 +13,6 @@
         "types/*"
       ]
     },
-    "moduleResolution": "node16",
     "skipLibCheck": true
   },
   "include": [
