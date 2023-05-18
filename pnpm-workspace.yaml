@@ -1,4 +1,5 @@
 packages:
+  - configs/**
   - docs/embroider-css-modules
   - docs/embroider-css-modules-temporary
   - docs/sample-v2-addon
