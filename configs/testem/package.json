@@ -1,0 +1,29 @@
+{
+  "name": "@shared-configs/testem",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Configuration for testem",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ijlee2/embroider-css-modules.git"
+  },
+  "author": "Isaac J. Lee",
+  "main": "testem.js",
+  "scripts": {
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint:js": "prettier --check \"**/*.js\"",
+    "lint:js:fix": "prettier --write \"**/*.js\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@shared-configs/prettier": "workspace:*",
+    "concurrently": "^8.0.1",
+    "prettier": "^2.8.8"
+  },
+  "peerDependencies": {},
+  "peerDependenciesMeta": {},
+  "engines": {
+    "node": "16.* || >= 18"
+  }
+}
