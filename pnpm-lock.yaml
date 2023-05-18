@@ -633,39 +633,24 @@ importers:
         specifier: ^17.7.2
         version: 17.7.2
     devDependencies:
-      '@babel/core':
-        specifier: ^7.21.5
-        version: 7.21.5(supports-color@8.1.1)
-      '@babel/eslint-parser':
-        specifier: ^7.21.3
-        version: 7.21.3(@babel/core@7.21.5)(eslint@8.39.0)
       '@codemod-utils/tests':
         specifier: ^0.1.0
         version: 0.1.0(@sondr3/minitest@0.1.1)
+      '@shared-configs/eslint-config':
+        specifier: workspace:*
+        version: link:../../configs/eslint
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
       '@sondr3/minitest':
         specifier: ^0.1.1
         version: 0.1.1
+      concurrently:
+        specifier: ^8.0.1
+        version: 8.0.1
       eslint:
         specifier: ^8.39.0
         version: 8.39.0
-      eslint-config-prettier:
-        specifier: ^8.8.0
-        version: 8.8.0(eslint@8.39.0)
-      eslint-plugin-import:
-        specifier: ^2.27.5
-        version: 2.27.5(eslint@8.39.0)
-      eslint-plugin-n:
-        specifier: ^15.7.0
-        version: 15.7.0(eslint@8.39.0)
-      eslint-plugin-prettier:
-        specifier: ^4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@2.8.8)
-      eslint-plugin-simple-import-sort:
-        specifier: ^10.0.0
-        version: 10.0.0(eslint@8.39.0)
       prettier:
         specifier: ^2.8.8
         version: 2.8.8
@@ -870,39 +855,24 @@ importers:
         specifier: ^17.7.2
         version: 17.7.2
     devDependencies:
-      '@babel/core':
-        specifier: ^7.21.5
-        version: 7.21.5(supports-color@8.1.1)
-      '@babel/eslint-parser':
-        specifier: ^7.21.3
-        version: 7.21.3(@babel/core@7.21.5)(eslint@8.39.0)
       '@codemod-utils/tests':
         specifier: ^0.1.0
         version: 0.1.0(@sondr3/minitest@0.1.1)
+      '@shared-configs/eslint-config':
+        specifier: workspace:*
+        version: link:../../configs/eslint
       '@shared-configs/prettier':
         specifier: workspace:*
         version: link:../../configs/prettier
       '@sondr3/minitest':
         specifier: ^0.1.1
         version: 0.1.1
+      concurrently:
+        specifier: ^8.0.1
+        version: 8.0.1
       eslint:
         specifier: ^8.39.0
         version: 8.39.0
-      eslint-config-prettier:
-        specifier: ^8.8.0
-        version: 8.8.0(eslint@8.39.0)
-      eslint-plugin-import:
-        specifier: ^2.27.5
-        version: 2.27.5(eslint@8.39.0)
-      eslint-plugin-n:
-        specifier: ^15.7.0
-        version: 15.7.0(eslint@8.39.0)
-      eslint-plugin-prettier:
-        specifier: ^4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@2.8.8)
-      eslint-plugin-simple-import-sort:
-        specifier: ^10.0.0
-        version: 10.0.0(eslint@8.39.0)
       prettier:
         specifier: ^2.8.8
         version: 2.8.8
@@ -1293,6 +1263,7 @@ packages:
       eslint: 8.39.0
       eslint-visitor-keys: 2.1.0
       semver: 6.3.0
+    dev: false
 
   /@babel/generator@7.21.5:
     resolution: {integrity: sha512-SrKK/sRv8GesIW1bDagf9cCG38IOMYZusoe1dfg0D8aiUe3Amvoj1QtjTPAWcfrZFvIwlleLb0gxzQidL9w14w==}
@@ -3497,6 +3468,7 @@ packages:
     resolution: {integrity: sha512-54/JRvkLIzzDWshCWfuhadfrfZVPiElY8Fcgmg1HroEly/EDSszzhBAsarCux+D/kOslTRquNzuyGSmUSTTHGg==}
     dependencies:
       eslint-scope: 5.1.1
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -4068,6 +4040,7 @@ packages:
 
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+    dev: false
 
   /@types/keyv@3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
@@ -4820,6 +4793,7 @@ packages:
       es-abstract: 1.21.2
       get-intrinsic: 1.2.0
       is-string: 1.0.7
+    dev: false
 
   /array-to-error@1.1.1:
     resolution: {integrity: sha512-kqcQ8s7uQfg3UViYON3kCMcck3A9exxgq+riVuKy08Mx00VN4EJhK30L2VpjE58LQHKhcE/GRpvbVUhqTvqzGQ==}
@@ -4857,6 +4831,7 @@ packages:
       define-properties: 1.2.0
       es-abstract: 1.21.2
       es-shim-unscopables: 1.0.0
+    dev: false
 
   /array.prototype.reduce@1.0.5:
     resolution: {integrity: sha512-kDdugMl7id9COE8R7MHF5jWk7Dqt/fs4Pv+JXoICnYwqpjjjbUurz6w5fT5IG6brLdJhv6/VoHB0H7oyIBXd+Q==}
@@ -7636,6 +7611,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       esutils: 2.0.3
+    dev: false
 
   /doctrine@3.0.0:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
@@ -8909,6 +8885,7 @@ packages:
       resolve: 1.22.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
 
   /eslint-module-utils@2.7.4(eslint-import-resolver-node@0.3.7)(eslint@8.39.0):
     resolution: {integrity: sha512-j4GT+rqzCoRKHwURX7pddtIPGySnX9Si/cgMI5ztrcqOPtk5dDEeZ34CQVPphnqkJytlc97Vuk05Um2mJ3gEQA==}
@@ -8936,6 +8913,7 @@ packages:
       eslint-import-resolver-node: 0.3.7
     transitivePeerDependencies:
       - supports-color
+    dev: false
 
   /eslint-plugin-ember@11.5.2(eslint@8.39.0):
     resolution: {integrity: sha512-OFlBkV0VSemGtq3cZDWOm/kwOipiswvPIVL6VDJjpEv85BDtbGdqoyvaF9d6/MY7u5aDCh62oOgKQFw9JQGadA==}
@@ -9000,6 +8978,7 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
+    dev: false
 
   /eslint-plugin-n@15.7.0(eslint@8.39.0):
     resolution: {integrity: sha512-jDex9s7D/Qial8AGVIHq4W7NswpUD5DPDL2RH8Lzd9EloWUuvUkHfv4FRLMipH5q2UtyurorBkPeNi1wVWNh3Q==}
@@ -11229,6 +11208,7 @@ packages:
     hasBin: true
     dependencies:
       minimist: 1.2.8
+    dev: false
 
   /json5@2.2.3:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
@@ -15196,6 +15176,7 @@ packages:
       json5: 1.0.2
       minimist: 1.2.8
       strip-bom: 3.0.0
+    dev: false
 
   /tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
