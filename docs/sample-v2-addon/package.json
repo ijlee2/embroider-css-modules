@@ -83,7 +83,7 @@
     "eslint": "^8.41.0",
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
-    "rollup": "^3.23.0",
+    "rollup": "3.21.8",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-ts": "^3.2.0",
     "stylelint": "^15.6.2",
