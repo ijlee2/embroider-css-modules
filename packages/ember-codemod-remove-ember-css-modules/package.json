@@ -34,12 +34,12 @@
     "test": "mt tests --quiet"
   },
   "dependencies": {
-    "@babel/parser": "^7.21.5",
+    "@babel/parser": "^7.21.9",
     "@codemod-utils/blueprints": "^0.1.1",
     "@codemod-utils/files": "^0.1.0",
     "@codemod-utils/json": "^0.1.1",
     "ember-template-recast": "^6.1.4",
-    "recast": "^0.23.1",
+    "recast": "^0.23.2",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
@@ -48,7 +48,7 @@
     "@shared-configs/prettier": "workspace:*",
     "@sondr3/minitest": "^0.1.1",
     "concurrently": "^8.0.1",
-    "eslint": "^8.39.0",
+    "eslint": "^8.41.0",
     "prettier": "^2.8.8"
   },
   "engines": {
