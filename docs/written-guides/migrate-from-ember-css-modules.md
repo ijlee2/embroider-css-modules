@@ -1,15 +1,15 @@
-# How to migrate from ember-css-modules
+# Migrate from ember-css-modules
 
 You can reach `embroider-css-modules` in a few steps. (See [`ember-container-query`](https://github.com/ijlee2/ember-container-query/pull/167) for reference.)
 
-1. [Remove `ember-css-modules`](#remove-ember-css-modules)
-1. [Implement CSS modules with `webpack`](#implement-css-modules-with-webpack)
+1. [Remove ember-css-modules](#remove-ember-css-modules)
+1. [Implement CSS modules with webpack](#implement-css-modules-with-webpack)
 1. [Enable stricter Embroider settings (optional)](#enable-stricter-embroider-settings-optional)
 
 
 ## Remove ember-css-modules
 
-Run the codemod to update syntax and project dependencies. Afterwards, review and update code as needed.
+Run `ember-codemod-remove-ember-css-modules` to update syntax and project dependencies.
 
 ```sh
 npx ember-codemod-remove-ember-css-modules <arguments>
@@ -26,11 +26,12 @@ Configure `css-loader` and `postcss-loader`. Here is a minimal set of required c
 
 <summary><code>.eslintrc.js</code></summary>
 
+Find the override for Node files. Add `postcss.config.js` to the list of files.
+
 ```js
 'use strict';
 
 module.exports = {
-  // ...
   overrides: [
     // Node files
     {
@@ -38,6 +39,7 @@ module.exports = {
         './postcss.config.js',
         // ...
       ],
+      extends: ['plugin:n/recommended'],
     },
   ],
 };
@@ -48,6 +50,8 @@ module.exports = {
 <details>
 
 <summary><code>ember-cli-build.js</code></summary>
+
+Provide the [Webpack options](https://github.com/embroider-build/embroider/blob/main/packages/webpack/src/options.ts) `cssLoaderOptions`, `publicAssetURL`, and `webpackConfig` to Embroider.
 
 ```js
 'use strict';
@@ -65,7 +69,6 @@ module.exports = function (defaults) {
   });
 
   const options = {
-    // ...
     packagerOptions: {
       cssLoaderOptions: {
         modules: {
@@ -73,16 +76,14 @@ module.exports = function (defaults) {
             ? '[sha512:hash:base64:5]'
             : '[path][name]__[local]',
           mode: (resourcePath) => {
-            const hostAppLocation = `${options.workspaceDir}/<your/project/location>`;
+            const hostAppLocation = `${options.workspaceDir}/<path/to/your/project>`;
 
             return resourcePath.includes(hostAppLocation) ? 'local' : 'global';
           },
         },
         sourceMap: !isProduction(),
       },
-
       publicAssetURL: '/',
-
       webpackConfig: {
         module: {
           rules: [
@@ -117,6 +118,8 @@ module.exports = function (defaults) {
 
 <summary><code>package.json</code></summary>
 
+Install `autoprefixer`, `postcss`, and `postcss-loader` as development dependencies.
+
 ```json
 {
   "devDependencies": {
@@ -132,6 +135,8 @@ module.exports = function (defaults) {
 <details>
 
 <summary><code>postcss.config.js</code></summary>
+
+List the `autoprefixer` plugin.
 
 ```js
   const env = process.env.EMBER_ENV ?? 'development';
