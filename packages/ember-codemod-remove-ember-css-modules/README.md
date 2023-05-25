@@ -19,7 +19,7 @@ You can check [`ember-container-query`](https://github.com/ijlee2/ember-containe
 Step 1. Quickly migrate to [`embroider-css-modules`](https://github.com/ijlee2/embroider-css-modules).<sup>1</sup>
 
 ```sh
-cd <your/project/path>
+cd <path/to/your/project>
 npx ember-codemod-remove-ember-css-modules <arguments>
 ```
 
@@ -29,9 +29,7 @@ Step 2. Review the project.
 - [x] Remove the remaining instances of `local-class` attributes and `{{local-class}}` helpers from `ember-css-modules`.
 - [x] Confirm that you can run all scripts in `package.json`.
 
-Step 3. Celebrate.
-
-<sup>1. Some prerequisites for running `ember-codemod-remove-ember-css-modules`: First, migrate to the Octane layout (flat or nested). You can leverage codemods for [classic](https://github.com/ember-codemods/ember-component-template-colocation-migrator) and [pod](https://github.com/ijlee2/ember-codemod-pod-to-octane) layouts. Second, [refactor code](#how-to-refactor-code) to help the codemod update templates correctly.</sup>
+<sup>1. Some prerequisites for running the codemod: First, migrate to the Octane layout (flat or nested). You can leverage codemods for [classic](https://github.com/ember-codemods/ember-component-template-colocation-migrator) and [pod](https://github.com/ijlee2/ember-codemod-pod-to-octane) layouts. Second, [refactor code](#how-to-refactor-code) to help the codemod update templates correctly.</sup>
 
 <sup>2. Files such as `.eslintrc.js`, `.prettierrc.js`, `.stylelintrc.js`, `.template-lintrc.js`, `ember-cli-build.js`, `package.json`, `postcss.config.js`, `tsconfig.json`, etc.</sup>
 
@@ -55,7 +53,7 @@ npx ember-codemod-remove-ember-css-modules --component-structure="nested"
 Pass `--root` to run the codemod on a project somewhere else (i.e. not in the current directory).
 
 ```sh
-npx ember-codemod-remove-ember-css-modules --root=<your/project/path>
+npx ember-codemod-remove-ember-css-modules --root=<path/to/your/project>
 ```
 
 </details>
@@ -68,8 +66,8 @@ The codemod is designed to cover typical uses of `ember-css-modules`. It is not 
 To better meet your needs, consider cloning the repo and running the codemod locally.
 
 ```sh
-cd <your/cloned/repo>
-./bin/ember-codemod-remove-ember-css-modules.js --root=<your/project/path>
+cd <path/to/cloned/repo>
+./bin/ember-codemod-remove-ember-css-modules.js --root=<path/to/your/project>
 ```
 
 
@@ -181,7 +179,7 @@ In `ember-css-modules`, a string can represent multiple local class names via co
 
 </details>
 
-The codemod is not responsible for fixing complex expressions. Refactor templates to provide hints. For example, remove nested conditionals (apply them outside the HTML element) and use the `{{concat}}` helper to group substrings.
+The codemod may fail to update complex expressions. Refactor templates to provide hints. For example, remove nested conditionals (apply them outside the HTML element) and use the `{{concat}}` helper to group substrings.
 
 <details>
 

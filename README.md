@@ -8,43 +8,48 @@ _CSS modules for Embroider + TypeScript projects_
 
 ## What is it?
 
-`embroider-css-modules` provides a set of **tools and conventions** to help you implement CSS modules. It is compatible with "bleeding-edge" Ember:
+`embroider-css-modules` provides a set of **tools and conventions** to help you implement [CSS modules](https://github.com/css-modules/css-modules). It is compatible with "bleeding-edge" Ember:
 
 - [Embroider on the strictest settings](https://github.com/embroider-build/embroider/#options) (including route splitting)
 - [Glint](https://typed-ember.gitbook.io/glint/)
 - [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports)
 
-A key idea behind `embroider-css-modules`: There is _some_ mechanism called CSS modules, which maps local class names to global ones. The _how_ is loosely tied to Ember and allowed to change in the future.
+A key idea behind `embroider-css-modules`: There is _some way_ to map local class names to global ones. The _how_ is loosely tied to Ember and allowed to change in the future.
 
 ```ts
 // We can somehow map local class names to global ones
 const styles = {
-  'container': 'container-hashed',
-  'is-inline': 'is-inline-hashed',
-  'is-wide': 'is-wide-hashed',
-  'no-feedback': 'no-feedback-hashed',
+  'container': 'lzeQ4',
+  'is-inline': 'mJGCE',
+  'is-wide': '_2lPSR',
+  'no-feedback': 'YpQbt',
 };
 ```
 
-In short, `embroider-css-modules` depends very little on how CSS modules is implemented. It focuses on providing tools and conventions that improve your developer experience (DX).
+In short, `embroider-css-modules` depends little on how CSS modules is implemented. It focuses on providing tools and conventions that improve your developer experience (DX).
 
 
-### Package overview
+## Package overview
 
-- [`ember-codemod-remove-ember-css-modules`](/packages/ember-codemod-remove-ember-css-modules/README.md)
-- [`embroider-css-modules`](/packages/embroider-css-modules/README.md)
-- [`type-css-modules`](/packages/type-css-modules/README.md)
-
-
-### Limitations
-
-`embroider-css-modules` has been developed with Ember apps in mind. What `embroider-css-modules` looks like for addons and engines is currently unknown.
+- [ember-codemod-remove-ember-css-modules](/packages/ember-codemod-remove-ember-css-modules/README.md)
+- [embroider-css-modules](/packages/embroider-css-modules/README.md)
+- [type-css-modules](/packages/type-css-modules/README.md)
 
 
-## Migration guides
+## Guides
 
-- [How to migrate from `ember-css-modules`](./docs/written-guides/how-to-migrate-from-ember-css-modules.md)
-- [How to migrate from `ember-modern-css`](./docs/written-guides/how-to-migrate-from-ember-modern-css.md)
+- [How to migrate from ember-css-modules](./docs/written-guides/how-to-migrate-from-ember-css-modules.md)
+- [How to migrate from ember-modern-css](./docs/written-guides/how-to-migrate-from-ember-modern-css.md)
+
+
+## Limitations
+
+What `embroider-css-modules` looks like is:
+
+- Quite stable for apps
+- In development for v2 addons
+- Unknown for v1 addons
+- Unknown for engines
 
 
 ## Contributing

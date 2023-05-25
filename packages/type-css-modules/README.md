@@ -17,7 +17,7 @@ declare module '*.css' {
 }
 ```
 
-First, you will run into poor developer experience (DX) when the TypeScript option [`noPropertyAccessFromIndexSignature`](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature) is enabled.
+First, you will run into poor developer experience (DX) when [`noPropertyAccessFromIndexSignature`](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature) is enabled.
 
 <details>
 
@@ -57,7 +57,7 @@ import styles from './page.css';
 
 </details>
 
-Second, the loose definition can be incompatible with libraries that provide types (e.g. [`qunit-dom`](https://github.com/mainmatter/qunit-dom)). You will end up overusing the non-null assertion operator `!`.
+Second, the loose definition may be incompatible with libraries that provide types (e.g. [`qunit-dom`](https://github.com/mainmatter/qunit-dom)). You will end up overusing the non-null assertion operator `!`.
 
 <details>
 
@@ -109,17 +109,14 @@ When you provide accurate types, libraries (e.g. [`Glint`](https://typed-ember.g
 Option 1 (one-time use). Use `npx` to run `type-css-modules`.
 
 ```sh
-cd <your/project/path>
+cd <path/to/your/project>
 npx type-css-modules <arguments>
 ```
 
-Option 2 (recommended). Install `type-css-modules` as a development dependency. Ensure that the declaration files exist before checking the types; for example, you can write a [pre-script](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts).
+Option 2 (recommended). Install `type-css-modules` as a development dependency. Ensure that the CSS declaration files exist before checking the types; for example, you can write a [pre-script](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts).
 
-<details>
-
-<summary><code>package.json</code></summary>
-
-```json
+```json5
+/* package.json */
 {
   "scripts": {
     "lint:types": "tsc --noEmit",
@@ -131,8 +128,6 @@ Option 2 (recommended). Install `type-css-modules` as a development dependency. 
   }
 }
 ```
-
-</details>
 
 
 ### Arguments
@@ -154,7 +149,7 @@ type-css-modules --src app/components app/controllers
 Pass `--root` to run the codemod on a project somewhere else (i.e. not in the current directory).
 
 ```sh
-npx type-css-modules --root=<your/project/path>
+npx type-css-modules --root=<path/to/your/project>
 ```
 
 </details>
@@ -162,9 +157,9 @@ npx type-css-modules --root=<your/project/path>
 
 ### Use Prettier?
 
-In the declaration files, `type-css-modules` adds quotation marks to ensure that the names of CSS class selectors can always be used as object keys.
+`type-css-modules` adds quotation marks in declaration files. This way, the names of CSS class selectors can always be used as object keys.
 
-To separate formatting concerns, please configure Prettier (or a similar tool) to handle `*.css.d.ts` files differently.
+To separate formatting concerns, configure Prettier to handle `*.css.d.ts` files differently.
 
 ```js
 /* .prettierrc.js */
@@ -183,7 +178,7 @@ module.exports = {
 
 ## Limitations
 
-To reduce complexity, `type-css-modules` assumes that you will follow the conventions for CSS modules:
+To reduce complexity, `type-css-modules` assumes that you will follow the conventions of `embroider-css-modules`:
 
 - Give the local scope to the styles that you own<sup>1</sup>
 - Avoid nesting styles<sup>2</sup>

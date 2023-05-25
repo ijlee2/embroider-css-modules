@@ -8,7 +8,7 @@ _CSS modules for Embroider + TypeScript projects_
 
 ## What is it?
 
-`embroider-css-modules` provides a set of **tools and conventions** to help you implement CSS modules. It is compatible with "bleeding-edge" Ember:
+`embroider-css-modules` provides a set of **tools and conventions** to help you implement [CSS modules](https://github.com/css-modules/css-modules). It is compatible with "bleeding-edge" Ember:
 
 - [Embroider on the strictest settings](https://github.com/embroider-build/embroider/#options) (including route splitting)
 - [Glint](https://typed-ember.gitbook.io/glint/)
@@ -27,7 +27,7 @@ ember install embroider-css-modules
 - Update your template registry to extend this addon's. Check the [Glint documentation](https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons#using-glint-enabled-addons) for more information.
 
     ```ts
-    /* types/index.d.ts */
+    /* types/global.d.ts */
 
     import '@glint/environment-ember-loose';
 
@@ -43,36 +43,21 @@ ember install embroider-css-modules
 - If you are using `<template>` tag, you are good to go! Use the named import to consume things.
 
     ```css
-    /* app/components/ui/page.css */
+    /* app/components/hello-world.css */
     .container {
-      margin: 16px;
-      background-color: #FAFAFA;
-    }
-
-    .header {
-      font-size: 24px;
-      font-weight: bold;
-    }
-  
-    .body {
-      font-size: 16px;
+      padding: 1rem;
     }
     ```
+
     ```ts
-    /* app/components/ui/page.gts */
+    /* app/components/hello-world.gts */
     import { localClass } from 'embroider-css-modules';
 
-    import styles from './page.css';
+    import styles from './hello-world.css';
 
     <template>
       <div class={{localClass styles "container"}}>
-        <h1 class={{styles.header}}>
-          {{@title}}
-        </h1>
-
-        <div class={{styles.body}}>
-          {{yield}}
-        </div>
+        Hello world!
       </div>
     </template>
     ```
@@ -91,10 +76,10 @@ Expand the items below to learn more about the API. Throughout the section, you 
 ```ts
 // An example
 const styles = {
-  'container': 'container-hashed',
-  'is-inline': 'is-inline-hashed',
-  'is-wide': 'is-wide-hashed',
-  'no-feedback': 'no-feedback-hashed',
+  'container': 'lzeQ4',
+  'is-inline': 'mJGCE',
+  'is-wide': '_2lPSR',
+  'no-feedback': 'YpQbt',
 };
 ```
 
@@ -103,7 +88,7 @@ const styles = {
 
 ### Why use it?
 
-The `{{local-class}}` helper is useful when there are multiple classes to consider.
+The `{{local-class}}` helper is useful when you want to apply multiple styles.
 
 ```hbs
 {{! Before: app/components/ui/form/field.hbs }}
@@ -137,7 +122,7 @@ The `{{local-class}}` helper is useful when there are multiple classes to consid
 </div>
 ```
 
-To apply multiple classes when a conditional statement holds, use the `{{array}}` helper:
+To apply multiple styles when a conditional statement holds, use the `{{array}}` helper.
 
 ```hbs
 {{! app/templates/products.hbs }}
@@ -158,7 +143,7 @@ To apply multiple classes when a conditional statement holds, use the `{{array}}
 
 ### Arguments
 
-The `{{local-class}}` helper uses positional arguments so that, when there is a type error, the message from TypeScript is easy to understand.
+The `{{local-class}}` helper uses positional arguments so that styles are applied in sequence.
 
 Pass the `styles` object first, then the local class name(s).
 
@@ -175,7 +160,7 @@ The `{{local-class}}` helper returns a concatenated string. The string lists the
 * Ember.js v4.4 or above<sup>2</sup>
 * Node.js v16 or above
 
-<sup>1. Until you can adopt `ember-auto-import@v2`, I recommend using [`ember-css-modules`](https://github.com/salsify/ember-css-modules) to do CSS modules.</sup>
+<sup>1. `embroider-css-modules` is a v2 addon. This means, your project must have `ember-auto-import@v2`. If you are momentarily stuck with `ember-auto-import@v1`, you can use [`ember-css-modules`](https://github.com/salsify/ember-css-modules) to implement CSS modules.</sup>
 
 <sup>2. Older versions may work but won't be supported.</sup>
 

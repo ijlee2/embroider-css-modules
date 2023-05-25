@@ -10,17 +10,32 @@
 
 Both [`ember-css-modules`](https://github.com/salsify/ember-css-modules) and [`embroider-css-modules`](../embroider-css-modules) provide a helper named `{{local-class}}` (with different signatures).
 
-When you have a monorepo with many packages that depend on `ember-css-modules`, you will likely want to migrate code in increments. `embroider-css-modules-temporary` provides `{{local-class-new}}` so that you don't run into a name collision.
+When you have a monorepo with many packages that depend on `ember-css-modules`, you will want to migrate code in increments. This addon provides `{{local-class-new}}` so that you don't run into a name collision.
 
-In short, when `ember-css-modules` is present,
+In any template, you can mix code from `ember-css-modules` and `embroider-css-modules-temporary`.
 
-- Write `{{local-class}}` to refer to the helper from `ember-css-modules`
-- Write `{{local-class-new}}` to refer to the helper from `embroider-css-modules-temporary`
+
+```hbs
+{{! app/templates/application.hbs }}
+<div local-class="container">
+  Hello world!
+</div>
+
+<div class={{local-class "container"}}>
+  Hello world!
+</div>
+
+<div class={{local-class-new this.styles "container-new"}}>
+  Hello world!
+</div>
+```
 
 Once the migration is complete:
 
 - Replace `embroider-css-modules-temporary` with `embroider-css-modules`
 - Rename `{{local-class-new}}` to `{{local-class}}`
+
+More information about API and compatible versions can be found in [`embroider-css-modules`](../embroider-css-modules).
 
 
 ## Installation
@@ -28,8 +43,6 @@ Once the migration is complete:
 ```sh
 ember install embroider-css-modules-temporary
 ```
-
-Information about API and compatible versions can be found in [`embroider-css-modules`](../embroider-css-modules).
 
 
 ## Contributing
