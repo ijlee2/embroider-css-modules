@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+patchedDependencies:
+  '@embroider/addon-dev@3.1.0':
+    hash: svjmjm6w24waxddrduxwvxpupi
+    path: patches/@embroider__addon-dev@3.1.0.patch
+
 importers:
 
   .:
@@ -554,7 +559,7 @@ importers:
         version: 7.21.5
       '@embroider/addon-dev':
         specifier: ^3.1.0
-        version: 3.1.0(@glint/template@1.0.2)(rollup@3.23.0)
+        version: 3.1.0(patch_hash=svjmjm6w24waxddrduxwvxpupi)(@glint/template@1.0.2)(rollup@3.23.0)
       '@glimmer/component':
         specifier: ^1.1.2
         version: 1.1.2(@babel/core@7.21.8)
@@ -688,7 +693,7 @@ importers:
         version: 7.21.5
       '@embroider/addon-dev':
         specifier: ^3.1.0
-        version: 3.1.0(@glint/template@1.0.2)(rollup@3.23.0)
+        version: 3.1.0(patch_hash=svjmjm6w24waxddrduxwvxpupi)(@glint/template@1.0.2)(rollup@3.23.0)
       '@glint/core':
         specifier: ^1.0.2
         version: 1.0.2(typescript@5.0.4)
@@ -761,7 +766,7 @@ importers:
         version: 7.21.5
       '@embroider/addon-dev':
         specifier: ^3.1.0
-        version: 3.1.0(@glint/template@1.0.2)(rollup@3.23.0)
+        version: 3.1.0(patch_hash=svjmjm6w24waxddrduxwvxpupi)(@glint/template@1.0.2)(rollup@3.23.0)
       '@glint/core':
         specifier: ^1.0.2
         version: 1.0.2(typescript@5.0.4)
@@ -2783,7 +2788,7 @@ packages:
       - supports-color
     dev: true
 
-  /@embroider/addon-dev@3.1.0(@glint/template@1.0.2)(rollup@3.23.0):
+  /@embroider/addon-dev@3.1.0(patch_hash=svjmjm6w24waxddrduxwvxpupi)(@glint/template@1.0.2)(rollup@3.23.0):
     resolution: {integrity: sha512-8HP17Q0n3DK94fUzr1Yv0S1Ux2PHGdoLQ+TyUtHBSbGFodmZ1QcYyTaDZ4aIsHIz2WhOJJzaE05wvcTpGWWZ+w==}
     engines: {node: 12.* || 14.* || >= 16}
     hasBin: true
@@ -2805,6 +2810,7 @@ packages:
       - supports-color
       - utf-8-validate
     dev: true
+    patched: true
 
   /@embroider/addon-shim@1.8.4:
     resolution: {integrity: sha512-sFhfWC0vI18KxVenmswQ/ShIvBg4juL8ubI+Q3NTSdkCTeaPQ/DIOUF6oR5DCQ8eO/TkIaw+kdG3FkTY6yNJqA==}

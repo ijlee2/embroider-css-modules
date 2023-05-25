@@ -1,0 +1,13 @@
+diff --git a/src/rollup-public-entrypoints.js b/src/rollup-public-entrypoints.js
+index cfc188120ffe0fb06371a95fd2e8e695400523d9..a379f00ae170060754442ffc8419ece4a2299b20 100644
+--- a/src/rollup-public-entrypoints.js
++++ b/src/rollup-public-entrypoints.js
+@@ -7,7 +7,7 @@ const walk_sync_1 = __importDefault(require("walk-sync"));
+ const path_1 = __importDefault(require("path"));
+ const minimatch_1 = __importDefault(require("minimatch"));
+ function normalizeFileExt(fileName) {
+-    return fileName.replace(/\.ts|\.hbs|\.gts|\.gjs$/, '.js');
++    return fileName.replace(/(?<!\.d)\.ts|\.hbs|\.gts|\.gjs$/, '.js');
+ }
+ function publicEntrypoints(args) {
+     return {

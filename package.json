@@ -34,5 +34,10 @@
   },
   "engines": {
     "node": "16.* || >= 18"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@embroider/addon-dev@3.1.0": "patches/@embroider__addon-dev@3.1.0.patch"
+    }
   }
 }
