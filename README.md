@@ -38,7 +38,7 @@ In short, `embroider-css-modules` depends little on how CSS modules is implement
 
 ## Guides
 
-- [How to migrate from ember-css-modules](./docs/written-guides/how-to-migrate-from-ember-css-modules.md)
+- [Migrate from ember-css-modules](./docs/written-guides/migrate-from-ember-css-modules.md)
 - [How to migrate from ember-modern-css](./docs/written-guides/how-to-migrate-from-ember-modern-css.md)
 
 
