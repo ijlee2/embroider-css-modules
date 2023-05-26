@@ -2,116 +2,46 @@
 
 Already implemented [Ember + Modern CSS](https://github.com/evoactivity/ember-modern-css) in your project? You can reach `embroider-css-modules` in a few steps.
 
-1. [Install embroider-css-modules](#install-embroider-css-modules)
-1. [Install type-css-modules](#install-type-css-modules)
-1. [Give the local scope to the styles that you own](#give-the-local-scope-to-the-styles-that-you-own)
+1. [Install dependencies](#install-dependencies)
+1. [Configure type-css-modules](#configure-type-css-modules)
+1. [Own your styles](#own-your-styles)
 1. [Use the {{local-class}} helper](#use-the-local-class-helper)
 
 
-## Install embroider-css-modules
+## Install dependencies
+
+For PostCSS, here is what you likely need at minimum. (`cssnano` is not needed.)
+
+- `autoprefixer`
+- `postcss`
+- `postcss-loader`
+
+Finally, some packages to improve your developer experience (DX).
+
+- [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)
+- [`type-css-modules`](../../packages/type-css-modules/README.md) (only needed if your project supports TypeScript)
+
+All in all, here's a one-line command for installation:
 
 ```sh
-ember install embroider-css-modules
+pnpm install --dev \
+  autoprefixer postcss postcss-loader \
+  embroider-css-modules type-css-modules
 ```
 
-[Learn more about the package](../../packages/embroider-css-modules/README.md).
 
-
-## Install type-css-modules
+## Configure type-css-modules
 
 ⚠️ You may skip this step if your project doesn't support TypeScript.
 
 If you have typed `*.css` files, either by installing [`@types/css-modules`](https://www.npmjs.com/package/@types/css-modules) or defining the type to be `Record<string, string>` in `types/global.d.ts`, please undo the change.
 
-Instead, install `type-css-modules` to generate the declaration files.
-
-```json5
-/* package.json */
-{
-  "scripts": {
-    "lint:types": "tsc --noEmit",
-    "prelint:types": "type-css-modules --src app"
-  },
-  "devDependencies": {
-    "type-css-modules": "...",
-    "typescript": "..."
-  }
-}
-```
-
-[Learn more about the package](../../packages/type-css-modules/README.md).
+Instead, write a pre-script as shown in [Set up CSS modules (apps) - CSS declaration files](./set-up-css-modules-apps.md#css-declaration-files).
 
 
-## Give the local scope to the styles that you own
+## Own your styles
 
-Update [`mode`](https://webpack.js.org/loaders/css-loader/#mode) (a configuration option for Webpack) to be a function that returns `'local'` or `'global'`.
-
-<details>
-
-<summary><code>ember-cli-build.js</code></summary>
-
-For completeness, the code below shows all [Webpack options](https://github.com/embroider-build/embroider/blob/main/packages/webpack/src/options.ts) that are needed to implement CSS modules. The most important change is `cssLoaderOptions.modules.mode`.
-
-```js
-'use strict';
-
-const { Webpack } = require('@embroider/webpack');
-const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-
-function isProduction() {
-  return EmberApp.env() === 'production';
-}
-
-module.exports = function (defaults) {
-  const app = new EmberApp(defaults, {
-    // ...
-  });
-
-  const options = {
-    packagerOptions: {
-      cssLoaderOptions: {
-        modules: {
-          localIdentName: isProduction()
-            ? '[sha512:hash:base64:5]'
-            : '[path][name]__[local]',
-          mode: (resourcePath) => {
-            const hostAppLocation = `${options.workspaceDir}/<path/to/your/project>`;
-
-            return resourcePath.includes(hostAppLocation) ? 'local' : 'global';
-          },
-        },
-        sourceMap: !isProduction(),
-      },
-      publicAssetURL: '/',
-      webpackConfig: {
-        module: {
-          rules: [
-            {
-              exclude: /node_modules/,
-              test: /\.css$/i,
-              use: [
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    sourceMap: !isProduction(),
-                    postcssOptions: {
-                      config: './postcss.config.js',
-                    },
-                  },
-                },
-              ],
-            },
-          ],
-        },
-      },
-    },
-  };
-
-  return require('@embroider/compat').compatBuild(app, Webpack, options);
-};
-```
-
-</details>
+First, reconfigure [`cssLoaderOptions.modules.mode`](https://webpack.js.org/loaders/css-loader/#mode) as shown in [Set up CSS modules (apps) - Configure Webpack](./set-up-css-modules-apps.md#configure-webpack).
 
 Next, remove all `:local()` pseudo-class selectors. Instead, use the `:global()` pseudo-class selector to refer to "things from outside."
 
@@ -176,9 +106,9 @@ Next, remove all `:local()` pseudo-class selectors. Instead, use the `:global()`
 
 ## Use the {{local-class}} helper
 
-⚠️ You may skip this step if you didn't create the `{{styles}}` helper (as suggested by [ember-modern-css](https://github.com/evoactivity/ember-modern-css)).
+⚠️ You may skip this step if you didn't create the `{{styles}}` helper.
 
-To apply multiple styles, use the `{{local-class}}` helper (from `embroider-css-modules`) instead.
+Remove the `{{styles}}` helper. To apply multiple styles, use the `{{local-class}}` helper instead.
 
 <details>
 
@@ -221,5 +151,3 @@ To apply multiple styles, use the `{{local-class}}` helper (from `embroider-css-
 ```
 
 </details>
-
-[Learn more about the API](../../packages/embroider-css-modules/README.md#api).
