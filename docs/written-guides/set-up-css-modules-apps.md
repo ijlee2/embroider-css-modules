@@ -36,7 +36,7 @@ For PostCSS, here is what you likely need at minimum.
 Finally, some packages to improve your developer experience (DX).
 
 - [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)
-- [`type-css-modules`](../../packages/type-css-modules/README.md) (only needed if your project supports TypeScript)
+- [`type-css-modules`](../../packages/type-css-modules/README.md)<sup>1</sup>
 
 All in all, here's a one-line command for installation:
 
@@ -46,6 +46,8 @@ pnpm install --dev \
   autoprefixer postcss postcss-loader \
   embroider-css-modules type-css-modules
 ```
+
+<sup>1. Needed only if you have a TypeScript project</sup>
 
 
 ## Configure Webpack
@@ -287,7 +289,7 @@ By importing the file in `app/app.ts`, we can ensure the load order in productio
 You can start styling your app! Let's create a Glimmer component to test CSS modules.
 
 ```sh
-ember g component hello-world --gc
+ember g component hello-world -gc
 ```
 
 While `ember-cli` can take care of the template and the backing class, you will need to manually create the stylesheet (for now).
@@ -355,7 +357,7 @@ Finally, render the component somewhere. Et voilà! ✨
 
 <details>
 
-<summary><code>app/templates/application.hbs</code></summary>
+<summary><code>app/templates/index.hbs</code></summary>
 
 ```hbs
 <HelloWorld />

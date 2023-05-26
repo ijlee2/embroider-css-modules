@@ -19,7 +19,7 @@ For PostCSS, here is what you likely need at minimum. (`cssnano` is not needed.)
 Finally, some packages to improve your developer experience (DX).
 
 - [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)
-- [`type-css-modules`](../../packages/type-css-modules/README.md) (only needed if your project supports TypeScript)
+- [`type-css-modules`](../../packages/type-css-modules/README.md)<sup>1</sup>
 
 All in all, here's a one-line command for installation:
 
@@ -28,6 +28,8 @@ pnpm install --dev \
   autoprefixer postcss postcss-loader \
   embroider-css-modules type-css-modules
 ```
+
+<sup>1. Needed only if you have a TypeScript project</sup>
 
 
 ## Configure type-css-modules
