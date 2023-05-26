@@ -3,8 +3,9 @@
 You can reach `embroider-css-modules` in a few steps. (See [`ember-container-query`](https://github.com/ijlee2/ember-container-query/pull/167) for reference.)
 
 1. [Remove ember-css-modules](#remove-ember-css-modules)
-1. [Implement CSS modules with webpack](#implement-css-modules-with-webpack)
-1. [Enable stricter Embroider settings (optional)](#enable-stricter-embroider-settings-optional)
+1. [Install dependencies](#install-dependencies)
+1. [Configure Webpack](#configure-webpack)
+1. [Enable stricter Embroider settings](#enable-stricter-embroider-settings)
 
 
 ## Remove ember-css-modules
@@ -18,145 +19,38 @@ npx ember-codemod-remove-ember-css-modules <arguments>
 For more information, please see [the codemod's `README`](../../packages/ember-codemod-remove-ember-css-modules/README.md).
 
 
-## Implement CSS modules with webpack
+## Install dependencies
 
-Configure `css-loader` and `postcss-loader`. Here is a minimal set of required changes.
+You need these dependencies to build the app with Embroider.
 
-<details>
+- `@embroider/compat`
+- `@embroider/core`
+- `@embroider/webpack`
+- `webpack`
 
-<summary><code>.eslintrc.js</code></summary>
+For PostCSS, here is what you likely need at minimum.
 
-Find the override for Node files. Add `postcss.config.js` to the list of files.
+- `autoprefixer`
+- `postcss`
+- `postcss-loader`
 
-```js
-'use strict';
+All in all, here's a one-line command for installation:
 
-module.exports = {
-  overrides: [
-    // Node files
-    {
-      files: [
-        './postcss.config.js',
-        // ...
-      ],
-      extends: ['plugin:n/recommended'],
-    },
-  ],
-};
+```sh
+pnpm install --dev \
+  @embroider/compat @embroider/core @embroider/webpack webpack \
+  autoprefixer postcss postcss-loader
 ```
 
-</details>
-
-<details>
-
-<summary><code>ember-cli-build.js</code></summary>
-
-Provide the [Webpack options](https://github.com/embroider-build/embroider/blob/main/packages/webpack/src/options.ts) `cssLoaderOptions`, `publicAssetURL`, and `webpackConfig` to Embroider.
-
-```js
-'use strict';
-
-const { Webpack } = require('@embroider/webpack');
-const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-
-function isProduction() {
-  return EmberApp.env() === 'production';
-}
-
-module.exports = function (defaults) {
-  const app = new EmberApp(defaults, {
-    // ...
-  });
-
-  const options = {
-    packagerOptions: {
-      cssLoaderOptions: {
-        modules: {
-          localIdentName: isProduction()
-            ? '[sha512:hash:base64:5]'
-            : '[path][name]__[local]',
-          mode: (resourcePath) => {
-            const hostAppLocation = `${options.workspaceDir}/<path/to/your/project>`;
-
-            return resourcePath.includes(hostAppLocation) ? 'local' : 'global';
-          },
-        },
-        sourceMap: !isProduction(),
-      },
-      publicAssetURL: '/',
-      webpackConfig: {
-        module: {
-          rules: [
-            {
-              exclude: /node_modules/,
-              test: /\.css$/i,
-              use: [
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    sourceMap: !isProduction(),
-                    postcssOptions: {
-                      config: './postcss.config.js',
-                    },
-                  },
-                },
-              ],
-            },
-          ],
-        },
-      },
-    },
-  };
-
-  return require('@embroider/compat').compatBuild(app, Webpack, options);
-};
-```
-
-</details>
-
-<details>
-
-<summary><code>package.json</code></summary>
-
-Install `autoprefixer`, `postcss`, and `postcss-loader` as development dependencies.
-
-```json
-{
-  "devDependencies": {
-    "autoprefixer": "...",
-    "postcss": "...",
-    "postcss-loader": "..."
-  }
-}
-```
-
-</details>
-
-<details>
-
-<summary><code>postcss.config.js</code></summary>
-
-List the `autoprefixer` plugin.
-
-```js
-  const env = process.env.EMBER_ENV ?? 'development';
-  const plugins = [require('autoprefixer')];
-
-  if (env === 'production') {
-    // plugins.push(...);
-  }
-
-  module.exports = {
-    plugins,
-  };
-```
-
-</details>
-
-For more information, please see the [`css-loader` documentation](https://webpack.js.org/loaders/css-loader/).
+(Note, the codemod already added `embroider-css-modules` and `type-css-modules` to `devDependencies`.)
 
 
-## Enable stricter Embroider settings (optional)
+## Configure Webpack
+
+Please see the corresponding section, [Set up CSS modules (apps) - Configure Webpack](./set-up-css-modules-apps.md#configure-webpack).
+
+
+## Enable stricter Embroider settings
 
 With `ember-css-modules` gone, you may be able to apply stricter settings for Embroider.
 
@@ -164,27 +58,20 @@ With `ember-css-modules` gone, you may be able to apply stricter settings for Em
 
 <summary><code>ember-cli-build.js</code></summary>
 
+For simplicity, only `options` is shown. (The rest of the code remains the same.)
+
 ```js
-module.exports = function (defaults) {
-  const app = new EmberApp(defaults, {
-    // ...
-  });
-
-  const options = {
-    packagerOptions: {
-      // ...
-    },
-    staticAddonTestSupportTrees: true,
-    staticAddonTrees: true, // <-- new
-    staticComponents: true, // <-- new
-    staticHelpers: true,
-    staticModifiers: true,
-  };
-
-  return require('@embroider/compat').compatBuild(app, Webpack, options);
+const options = {
+  packagerOptions: { /* ... */ },
+  skipBabel: { /* ... */ },
+  staticAddonTestSupportTrees: true,
+  staticAddonTrees: true, // <-- new
+  staticComponents: true, // <-- new
+  staticHelpers: true,
+  staticModifiers: true,
 };
 ```
 
 </details>
 
-For more information, please refer to [Embroider's `README`](https://github.com/embroider-build/embroider/#options).
+Learn more about the [options for Embroider](https://github.com/embroider-build/embroider/#options).
