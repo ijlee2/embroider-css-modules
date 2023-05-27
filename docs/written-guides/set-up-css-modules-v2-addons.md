@@ -11,6 +11,7 @@ We will use Rollup and PostCSS to implement CSS modules. (If you get lost, you c
     - [&lt;template&gt;-tag components](#template-tag-components)
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter)
     - [CSS declaration files](#css-declaration-files)
+    - [Write tests](#write-tests)
 
 
 ## Install dependencies
@@ -495,3 +496,44 @@ If the `lint` script takes long to run, you can run just `prelint:types` to crea
 ```sh
 pnpm prelint:types
 ```
+
+
+### Write tests
+
+⚠️ This section shows an approach that is experimental and not suited for production. Further iterations are needed.
+
+In general, I don't recommend writing an [`hasClass()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasclass) assertion to test styles.
+
+Checking if a class is present doesn't guarantee, what your user sees is correct and will be in the future. An [`hasStyle()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasstyle) assertion is somewhat better (a stronger assertion than `hasClass`) but may fail due to rounding errors. In general, prefer writing [visual regression tests](https://docs.percy.io/docs/ember). This helps you hide any implementation details.
+
+That said, if you _must_ write an `hasClass` assertion (in your test app), you can use a regular expression to weakly assert the global class name.<sup>1,2</sup>
+
+<details>
+
+<summary><code>tests/integration/components/navigation-menu-test.ts</code></summary>
+
+For simplicity, other import statements have been hidden.
+
+```ts
+module('Integration | Component | navigation-menu', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it renders', async function (assert) {
+    await render(`
+      <NavigationMenu
+        @menuItems={{array
+          (hash label="Home" route="index")
+        }}
+      />
+    `);
+
+    assert.dom('ul').hasClass(/__list$/);
+  });
+});
+```
+
+</details>
+
+<sup>1. [`modules.generateScopedName`](#update-rollupconfigmjs) is assumed to be `<package-name>__[path][name]__[local]'`.</sup>
+
+<sup>2. We can write `assert.dom('ul').hasClass(styles.list)` if we can [find a way to import a v2 addon's stylesheet](#update-packagejson).</sup>
