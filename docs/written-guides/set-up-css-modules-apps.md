@@ -14,6 +14,7 @@ We will use Webpack and PostCSS to implement CSS modules. (If you get lost, you 
     - [&lt;template&gt;-tag components](#template-tag-components)
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter)
     - [CSS declaration files](#css-declaration-files)
+    - [Write tests](#write-tests)
 1. [Style your first route](#style-your-first-route)
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter-1)
 
@@ -36,7 +37,7 @@ For PostCSS, here is what you likely need at minimum.
 Finally, some packages to improve your developer experience (DX).
 
 - [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)
-- [`type-css-modules`](../../packages/type-css-modules/README.md) (only needed if your project supports TypeScript)
+- [`type-css-modules`](../../packages/type-css-modules/README.md)<sup>1</sup>
 
 All in all, here's a one-line command for installation:
 
@@ -46,6 +47,8 @@ pnpm install --dev \
   autoprefixer postcss postcss-loader \
   embroider-css-modules type-css-modules
 ```
+
+<sup>1. Needed only if you have a TypeScript project</sup>
 
 
 ## Configure Webpack
@@ -287,7 +290,7 @@ By importing the file in `app/app.ts`, we can ensure the load order in productio
 You can start styling your app! Let's create a Glimmer component to test CSS modules.
 
 ```sh
-ember g component hello-world --gc
+ember g component hello-world -gc
 ```
 
 While `ember-cli` can take care of the template and the backing class, you will need to manually create the stylesheet (for now).
@@ -355,7 +358,7 @@ Finally, render the component somewhere. Et voilà! ✨
 
 <details>
 
-<summary><code>app/templates/application.hbs</code></summary>
+<summary><code>app/templates/index.hbs</code></summary>
 
 ```hbs
 <HelloWorld />
@@ -460,6 +463,39 @@ If the `lint` script takes long to run, you can run just `prelint:types` to crea
 ```sh
 pnpm prelint:types
 ```
+
+
+### Write tests
+
+In general, I don't recommend writing an [`hasClass()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasclass) assertion to test styles.
+
+Checking if a class is present doesn't guarantee, what your user sees is correct and will be in the future. An [`hasStyle()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasstyle) assertion is somewhat better (a stronger assertion than `hasClass`) but may fail due to rounding errors. In general, prefer writing [visual regression tests](https://docs.percy.io/docs/ember). This helps you hide any implementation details.
+
+That said, if you _must_ write an `hasClass` assertion, you can get the global class name by importing the stylesheet.
+
+<details>
+
+<summary><code>tests/integration/components/hello-world-test.ts</code></summary>
+
+For simplicity, other import statements have been hidden.
+
+```ts
+import styles from 'your-ember-app/components/hello-world.css';
+
+module('Integration | Component | hello-world', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it renders', async function (assert) {
+    await render(`
+      <HelloWorld />
+    `);
+
+    assert.dom('div').hasClass(styles.container);
+  });
+});
+```
+
+</details>
 
 
 ## Style your first route
