@@ -207,7 +207,7 @@ const styles = {
 };
 ```
 
-Lastly, if you want the simplest option that "just works,"
+Lastly, if you want the simplest option:
 
 ```js
 postcss({
@@ -437,7 +437,7 @@ export default NavigationMenuComponent;
 
 </details>
 
-<sup>1. Currently, you need to install [`rollup-plugin-glimmer-template-tag`](https://github.com/NullVoxPopuli/rollup-plugin-glimmer-template-tag) to write `*.{gjs,gts}` files in a v2 addon.</sup>
+<sup>1. You need [`rollup-plugin-glimmer-template-tag`](https://github.com/NullVoxPopuli/rollup-plugin-glimmer-template-tag) to write `*.{gjs,gts}` files in a v2 addon.</sup>
 
 
 ### Do the file location and name matter?
@@ -527,13 +527,15 @@ module('Integration | Component | navigation-menu', function (hooks) {
       />
     `);
 
-    assert.dom('ul').hasClass(/__list$/);
+    assert.dom('ul').hasClass(/_list/);
+
+    assert.dom('a').hasClass(/_link/);
   });
 });
 ```
 
 </details>
 
-<sup>1. [`modules.generateScopedName`](#update-rollupconfigmjs) is assumed to be `<package-name>__[path][name]__[local]'`.</sup>
+<sup>1. It's assumed that [`rollup-plugin-postcss` creates "predictable" hashes](#update-rollupconfigmjs) (either `modules.generateScopedName: <package-name>__[path][name]__[local]'` or `modules: true`).</sup>
 
-<sup>2. We can write `assert.dom('ul').hasClass(styles.list)` if we can [find a way to import a v2 addon's stylesheet](#update-packagejson).</sup>
+<sup>2. We can write `assert.dom('ul').hasClass(styles.list)` and `assert.dom('a').hasClass(styles.link)`, if we can [find a way to import a v2 addon's stylesheet](#update-packagejson).</sup>
