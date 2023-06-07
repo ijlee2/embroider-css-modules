@@ -19,22 +19,8 @@ async function extractInformation(changeset) {
   };
 }
 
-async function getDependencyReleaseLine(changesets, dependenciesUpdated) {
-  if (dependenciesUpdated.length === 0) {
-    return '';
-  }
-
-  const commits = changesets.map((changeset) => {
-    return `[${changeset.commit}](https://github.com/${repo}/commit/${changeset.commit})`;
-  });
-
-  let line = `- Updated dependencies (${commits.join(', ')})`;
-
-  dependenciesUpdated.forEach((dependency) => {
-    line += `  - ${dependency.name}@${dependency.newVersion}`;
-  });
-
-  return line;
+function getDependencyReleaseLine() {
+  return '';
 }
 
 async function getReleaseLine(changeset) {
