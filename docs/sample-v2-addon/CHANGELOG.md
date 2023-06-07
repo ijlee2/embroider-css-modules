@@ -1,5 +1,12 @@
 # sample-v2-addon
 
+## 0.1.5
+
+### Patch Changes
+
+- [#50](https://github.com/ijlee2/embroider-css-modules/pull/50) Patched rollup-plugin-ts and updated Babel configuration ([@ijlee2](https://github.com/ijlee2))
+- [#52](https://github.com/ijlee2/embroider-css-modules/pull/52) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.4
 
 ### Patch Changes
