@@ -54,7 +54,7 @@
     "test": "echo 'A v2 addon does not have tests, run tests in tests/embroider-css-modules-temporary'"
   },
   "dependencies": {
-    "@embroider/addon-shim": "1.8.5"
+    "@embroider/addon-shim": "^1.8.5"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
@@ -62,7 +62,7 @@
     "@babel/plugin-proposal-decorators": "^7.22.3",
     "@babel/preset-typescript": "^7.21.5",
     "@babel/runtime": "^7.22.3",
-    "@embroider/addon-dev": "^3.1.0",
+    "@embroider/addon-dev": "^3.1.1",
     "@glint/core": "^1.0.2",
     "@glint/environment-ember-loose": "^1.0.2",
     "@glint/template": "^1.0.2",
