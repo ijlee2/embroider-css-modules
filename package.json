@@ -1,6 +1,6 @@
 {
   "name": "workspace-root",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": true,
   "description": "Workspace root for embroider-css-modules",
   "repository": {
