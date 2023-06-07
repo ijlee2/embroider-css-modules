@@ -1,0 +1,38 @@
+diff --git a/dist/esm/index.js b/dist/esm/index.js
+index 5a415c123b26ac92639cbff17e549b385b8b3566..0ec402a5a4014e74a6a7cef21b562ee551b6bfe6 100644
+--- a/dist/esm/index.js
++++ b/dist/esm/index.js
+@@ -8612,8 +8612,18 @@ function getForcedBabelOptions({ cwd }) {
+  * will take precedence
+  */
+ function getDefaultBabelOptions({ browserslist, transpilerOptions }) {
++    console.log('-- getDefaultBabelOptions --');
++    console.log('\nbrowserslist');
++    console.log(browserslist);
++    console.log('\ntranspilerOptions');
++    console.log(transpilerOptions);
++
+     const includePresetEnv = browserslist != null;
+     const includePresetTypescript = transpilerOptions.typescriptSyntax === "babel";
++
++    console.log('\nincludePresetEnv');
++    console.log(includePresetEnv);
++
+     return {
+         presets: [
+             // Use @babel/preset-typescript when Babel is responsible for transforming TypeScript specific syntax
+@@ -9228,6 +9238,14 @@ function typescriptRollupPlugin(pluginInputOptions = {}) {
+                 // Prepare a Babel config if Babel should be the transpiler for some or all emit
+                 // A browserslist may already be provided, but if that is not the case, one can be computed based on the "target" from the tsconfig
+                 const computedBrowserslist = takeBrowserslistOrComputeBasedOnCompilerOptions(normalizedBrowserslist, parsedCommandLineResult.originalCompilerOptions, typescript);
++
++                console.log('-- takeBrowserslistOrComputeBasedOnCompilerOptions --');
++                console.log('\nnormalizedBrowserslist');
++                console.log(normalizedBrowserslist);
++                console.log('\nparsedCommandLineResult.originalCompilerOptions');
++                console.log(parsedCommandLineResult.originalCompilerOptions);
++                console.log('\n');
++
+                 const sharedBabelConfigFactoryOptions = {
+                     babel: await loadBabel(),
+                     cwd,

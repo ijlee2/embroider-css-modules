@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+patchedDependencies:
+  rollup-plugin-ts@3.2.0:
+    hash: eiirjl37p76ifudgscuxrrr55a
+    path: patches/rollup-plugin-ts@3.2.0.patch
+
 importers:
 
   .:
@@ -608,7 +613,7 @@ importers:
         version: 4.0.2(postcss@8.4.23)
       rollup-plugin-ts:
         specifier: ^3.2.0
-        version: 3.2.0(@babel/core@7.21.8)(@babel/preset-typescript@7.21.5)(@babel/runtime@7.21.5)(rollup@3.23.0)(typescript@5.0.4)
+        version: 3.2.0(patch_hash=eiirjl37p76ifudgscuxrrr55a)(@babel/core@7.21.8)(@babel/preset-typescript@7.21.5)(@babel/runtime@7.21.5)(rollup@3.23.0)(typescript@5.0.4)
       stylelint:
         specifier: ^15.6.2
         version: 15.6.2
@@ -733,7 +738,7 @@ importers:
         version: 3.23.0
       rollup-plugin-ts:
         specifier: ^3.2.0
-        version: 3.2.0(@babel/core@7.21.8)(@babel/preset-typescript@7.21.5)(@babel/runtime@7.21.5)(rollup@3.23.0)(typescript@5.0.4)
+        version: 3.2.0(patch_hash=eiirjl37p76ifudgscuxrrr55a)(@babel/core@7.21.8)(@babel/preset-typescript@7.21.5)(@babel/runtime@7.21.5)(rollup@3.23.0)(typescript@5.0.4)
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
@@ -806,7 +811,7 @@ importers:
         version: 3.23.0
       rollup-plugin-ts:
         specifier: ^3.2.0
-        version: 3.2.0(@babel/core@7.21.8)(@babel/preset-typescript@7.21.5)(@babel/runtime@7.21.5)(rollup@3.23.0)(typescript@5.0.4)
+        version: 3.2.0(patch_hash=eiirjl37p76ifudgscuxrrr55a)(@babel/core@7.21.8)(@babel/preset-typescript@7.21.5)(@babel/runtime@7.21.5)(rollup@3.23.0)(typescript@5.0.4)
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
@@ -13971,7 +13976,7 @@ packages:
       - ts-node
     dev: true
 
-  /rollup-plugin-ts@3.2.0(@babel/core@7.21.8)(@babel/preset-typescript@7.21.5)(@babel/runtime@7.21.5)(rollup@3.23.0)(typescript@5.0.4):
+  /rollup-plugin-ts@3.2.0(patch_hash=eiirjl37p76ifudgscuxrrr55a)(@babel/core@7.21.8)(@babel/preset-typescript@7.21.5)(@babel/runtime@7.21.5)(rollup@3.23.0)(typescript@5.0.4):
     resolution: {integrity: sha512-KkTLVifkUexEiAXS9VtSjDrjKr0TyusmNJpb2ZTAzI9VuPumSu4AktIaVNnwv70iUEitHwZtET7OAM+5n1u1tg==}
     engines: {node: '>=14.9.0', npm: '>=7.0.0', pnpm: '>=3.2.0', yarn: '>=1.13'}
     peerDependencies:
@@ -14016,6 +14021,7 @@ packages:
       tslib: 2.5.0
       typescript: 5.0.4
     dev: true
+    patched: true
 
   /rollup-pluginutils@2.8.2:
     resolution: {integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==}
