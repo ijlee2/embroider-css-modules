@@ -34,7 +34,7 @@
     "test": "mt tests --quiet"
   },
   "dependencies": {
-    "@babel/parser": "^7.21.9",
+    "@babel/parser": "^7.22.4",
     "@codemod-utils/blueprints": "^0.1.1",
     "@codemod-utils/files": "^0.1.0",
     "@codemod-utils/json": "^0.1.1",
@@ -47,7 +47,7 @@
     "@shared-configs/eslint-config": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@sondr3/minitest": "^0.1.1",
-    "concurrently": "^8.0.1",
+    "concurrently": "^8.1.0",
     "eslint": "^8.42.0",
     "prettier": "^2.8.8"
   },

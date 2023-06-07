@@ -15,13 +15,11 @@
     "lint:js": "prettier --check \"**/*.js\"",
     "lint:js:fix": "prettier --write \"**/*.js\""
   },
-  "dependencies": {},
   "devDependencies": {
     "@shared-configs/prettier": "workspace:*",
-    "concurrently": "^8.0.1",
+    "concurrently": "^8.1.0",
     "prettier": "^2.8.8"
   },
-  "peerDependencies": {},
   "peerDependenciesMeta": {},
   "engines": {
     "node": "16.* || >= 18"
