@@ -1,10 +1,10 @@
 import { readFileSync } from 'node:fs';
 import { join, parse } from 'node:path';
 
+import { ASTJavaScript as AST } from '@codemod-utils/ast';
 import { processTemplate } from '@codemod-utils/blueprints';
 import { createFiles } from '@codemod-utils/files';
 
-import { ASTJavaScript as AST } from '../../../../utils/abstract-syntax-tree.js';
 import { blueprintsRoot } from '../../../../utils/blueprints.js';
 import { parseEntityName } from '../../../../utils/string.js';
 

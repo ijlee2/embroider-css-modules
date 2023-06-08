@@ -1,9 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { extname, join } from 'node:path';
 
+import { ASTJavaScript as AST } from '@codemod-utils/ast';
 import { createFiles, findFiles } from '@codemod-utils/files';
-
-import { ASTJavaScript as AST } from '../../../utils/abstract-syntax-tree.js';
 
 function addCssEntryPoint(file, data) {
   const traverse = AST.traverse(data.hasTypeScript);
