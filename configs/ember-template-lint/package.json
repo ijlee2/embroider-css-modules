@@ -16,7 +16,7 @@
     "lint:js:fix": "prettier --write \"**/*.js\""
   },
   "dependencies": {
-    "ember-template-lint-plugin-prettier": "^4.1.0"
+    "ember-template-lint-plugin-prettier": "^4.1.1"
   },
   "devDependencies": {
     "@shared-configs/prettier": "workspace:*",
