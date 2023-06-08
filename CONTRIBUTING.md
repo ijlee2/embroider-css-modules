@@ -110,7 +110,7 @@ Here are some guidelines to help you and everyone else.
 
 1. [Create a tag](https://github.com/ijlee2/embroider-css-modules/releases/new) such as `1.0.0` (the name satisfies the regular expression `^\d+\.\d+\.\d+`).
 
-1. Publish the package.
+1. Publish the packages.
 
     ```sh
     # From the workspace root
