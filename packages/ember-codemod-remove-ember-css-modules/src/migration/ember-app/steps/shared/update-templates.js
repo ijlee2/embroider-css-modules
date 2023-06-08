@@ -1,9 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
+import { ASTHandlebars as AST } from '@codemod-utils/ast';
 import { createFiles } from '@codemod-utils/files';
-
-import { ASTHandlebars as AST } from '../../../../utils/abstract-syntax-tree.js';
 
 function sanitizeClassAndLocalClassAttributes(file) {
   function removeAttributeWithoutValue(attributeName, attributes) {

@@ -1,15 +1,15 @@
 import { readFileSync } from 'node:fs';
 import { join, parse } from 'node:path';
 
+import { ASTJavaScript as AST } from '@codemod-utils/ast';
 import { processTemplate } from '@codemod-utils/blueprints';
 import { createFiles } from '@codemod-utils/files';
 
-import { ASTJavaScript as AST } from '../../../../utils/abstract-syntax-tree.js';
 import { blueprintsRoot } from '../../../../utils/blueprints.js';
 import { parseEntityName } from '../../../../utils/string.js';
 
 function removeTemplateOnlyComponentMethod(file, data) {
-  const traverse = AST.traverse(data.hasTypeScript);
+  const traverse = AST.traverse(data.isTypeScript);
 
   const ast = traverse(file, {
     visitCallExpression(path) {
@@ -19,7 +19,7 @@ function removeTemplateOnlyComponentMethod(file, data) {
 
       const superClass = AST.builders.identifier('Component');
 
-      if (data.hasTypeScript) {
+      if (data.isTypeScript) {
         superClass.typeAnnotation = path.value.typeParameters;
       }
 
@@ -63,7 +63,7 @@ function removeTemplateOnlyComponentMethod(file, data) {
 }
 
 function importStylesInClass(file, data) {
-  const traverse = AST.traverse(data.hasTypeScript);
+  const traverse = AST.traverse(data.isTypeScript);
 
   // Find the last import statement
   let lastImportDeclarationPath;
@@ -101,7 +101,7 @@ function importStylesInClass(file, data) {
 }
 
 function addStylesAsClassProperty(file, data) {
-  const traverse = AST.traverse(data.hasTypeScript);
+  const traverse = AST.traverse(data.isTypeScript);
 
   const ast = traverse(file, {
     visitClassDeclaration(path) {
@@ -154,25 +154,25 @@ function updateClass(customizations, options) {
   const { __styles__, projectRoot } = options;
 
   const { ext: fileExtension, name: fileName } = parse(filePath);
-  const hasTypeScript = fileExtension === '.ts';
+  const isTypeScript = fileExtension === '.ts';
 
   let file = readFileSync(join(projectRoot, filePath), 'utf8');
 
   try {
     file = removeTemplateOnlyComponentMethod(file, {
       __styles__,
-      hasTypeScript,
+      isTypeScript,
     });
 
     file = importStylesInClass(file, {
       __styles__,
       fileName,
-      hasTypeScript,
+      isTypeScript,
     });
 
     file = addStylesAsClassProperty(file, {
       __styles__,
-      hasTypeScript,
+      isTypeScript,
     });
 
     const fileMapping = new Map([[filePath, file]]);

@@ -1,12 +1,11 @@
 import { readFileSync } from 'node:fs';
 import { extname, join } from 'node:path';
 
+import { ASTJavaScript as AST } from '@codemod-utils/ast';
 import { createFiles, findFiles } from '@codemod-utils/files';
 
-import { ASTJavaScript as AST } from '../../../utils/abstract-syntax-tree.js';
-
 function addCssEntryPoint(file, data) {
-  const traverse = AST.traverse(data.hasTypeScript);
+  const traverse = AST.traverse(data.isTypeScript);
 
   const ast = traverse(file, {
     visitProgram(path) {
@@ -45,13 +44,13 @@ export function updateAppAppJs(options) {
   const filePath = filePaths[0];
 
   const fileExtension = extname(filePath);
-  const hasTypeScript = fileExtension === '.ts';
+  const isTypeScript = fileExtension === '.ts';
 
   let file = readFileSync(join(projectRoot, filePath), 'utf8');
 
   try {
     file = addCssEntryPoint(file, {
-      hasTypeScript,
+      isTypeScript,
     });
 
     const fileMapping = new Map([[filePath, file]]);
