@@ -34,12 +34,10 @@
     "test": "mt tests --quiet"
   },
   "dependencies": {
-    "@babel/parser": "^7.22.4",
+    "@codemod-utils/ast": "^0.1.0",
     "@codemod-utils/blueprints": "^0.1.1",
     "@codemod-utils/files": "^0.2.0",
     "@codemod-utils/json": "^0.1.1",
-    "ember-template-recast": "^6.1.4",
-    "recast": "^0.23.2",
     "yargs": "^17.7.2"
   },
   "devDependencies": {

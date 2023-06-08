@@ -626,9 +626,9 @@ importers:
 
   packages/ember-codemod-remove-ember-css-modules:
     dependencies:
-      '@babel/parser':
-        specifier: ^7.22.4
-        version: 7.22.4
+      '@codemod-utils/ast':
+        specifier: ^0.1.0
+        version: 0.1.0
       '@codemod-utils/blueprints':
         specifier: ^0.1.1
         version: 0.1.1
@@ -638,12 +638,6 @@ importers:
       '@codemod-utils/json':
         specifier: ^0.1.1
         version: 0.1.1
-      ember-template-recast:
-        specifier: ^6.1.4
-        version: 6.1.4
-      recast:
-        specifier: ^0.23.2
-        version: 0.23.2
       yargs:
         specifier: ^17.7.2
         version: 17.7.2
@@ -3213,6 +3207,17 @@ packages:
       exec-sh: 0.3.6
       minimist: 1.2.8
     dev: true
+
+  /@codemod-utils/ast@0.1.0:
+    resolution: {integrity: sha512-XygFdgEA9uw4nYgbJ0kASOblVipzYtHDdCkVsOVynHfEjQ6ysZ70r2oZxNyGGB0XQz+5uDfwBrV6SaOz/b1rCQ==}
+    engines: {node: 16.* || >= 18}
+    dependencies:
+      '@babel/parser': 7.22.4
+      ember-template-recast: 6.1.4
+      recast: 0.23.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /@codemod-utils/blueprints@0.1.1:
     resolution: {integrity: sha512-JGtAarSCTR4/6MGegfaOglRCaY2JYO8A+o6Wz83vMUyp6teVEtVoxDkB88jD4gtheuZLkRKI8LH5VD+grWasjQ==}
