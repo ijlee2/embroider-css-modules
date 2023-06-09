@@ -11,5 +11,5 @@ import {
 test('migration | ember-app | steps | analyze-app > nested', function () {
   loadFixture(inputProject, codemodOptions);
 
-  assert.deepEqual(analyzeApp(options), context);
+  assert.deepStrictEqual(analyzeApp(options), context);
 });

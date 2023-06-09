@@ -21,7 +21,7 @@ test('migration | ember-app | steps | create-options > idempotency', function ()
 
   loadFixture(inputProject, codemodOptions);
 
-  assert.deepEqual(createOptions(codemodOptions), {
+  assert.deepStrictEqual(createOptions(codemodOptions), {
     __styles__: 'styles',
     componentStructure: 'flat',
     project: {
