@@ -22,7 +22,7 @@ test('migration | ember-app | steps | create-options > nested', function () {
 
   loadFixture(inputProject, codemodOptions);
 
-  assert.deepEqual(createOptions(codemodOptions), {
+  assert.deepStrictEqual(createOptions(codemodOptions), {
     __styles__: 'styles',
     componentStructure: 'nested',
     project: {
