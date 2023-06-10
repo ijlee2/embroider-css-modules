@@ -1,9 +1,9 @@
 import { decideVersion } from '@codemod-utils/blueprints';
 
 const latestVersions = new Map([
-  ['embroider-css-modules', '0.1.1'],
-  ['type-css-modules', '0.1.1'],
-  ['webpack', '5.81.0'],
+  ['embroider-css-modules', '0.1.6'],
+  ['type-css-modules', '0.1.4'],
+  ['webpack', '5.86.0'],
 ]);
 
 export function getVersion(packageName, options) {

@@ -12,7 +12,7 @@ export function createDeclarationFiles(options) {
   const files = getCssFilePaths(options);
 
   const filePaths = findFiles(unionize(files), {
-    cwd: projectRoot,
+    projectRoot,
   });
 
   const fileMapping = new Map(

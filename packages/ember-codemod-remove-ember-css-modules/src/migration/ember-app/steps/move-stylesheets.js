@@ -9,8 +9,8 @@ function moveRouteStylesheets(options) {
   const { projectRoot } = options;
 
   const filePaths = findFiles('app/styles/**/*.css', {
-    cwd: projectRoot,
     ignoreList: ['app/styles/app.css'],
+    projectRoot,
   });
 
   const pathMapping = mapFilePaths(filePaths, {
@@ -25,7 +25,7 @@ function moveAppCssToAssets(options) {
   const { projectRoot } = options;
 
   const filePaths = findFiles('app/styles/app.css', {
-    cwd: projectRoot,
+    projectRoot,
   });
 
   const pathMapping = mapFilePaths(filePaths, {

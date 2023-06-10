@@ -33,7 +33,9 @@ function sanitizeClassAndLocalClassAttributes(file) {
     }
   }
 
-  const ast = AST.traverse(file, {
+  const traverse = AST.traverse();
+
+  const ast = traverse(file, {
     ElementNode(node) {
       const { attributes } = node;
 
@@ -46,7 +48,9 @@ function sanitizeClassAndLocalClassAttributes(file) {
 }
 
 function mergeClassAndLocalClassAttributes(file, data) {
-  const ast = AST.traverse(file, {
+  const traverse = AST.traverse();
+
+  const ast = traverse(file, {
     ElementNode(node) {
       // Check that both class and local-class attributes exist
       const { attributes } = node;
@@ -138,7 +142,9 @@ function removeLocalClassHelpers(file, data) {
     return value === '';
   }
 
-  const ast = AST.traverse(file, {
+  const traverse = AST.traverse();
+
+  const ast = traverse(file, {
     AttrNode(node) {
       if (node.name !== 'class') {
         return;
@@ -331,7 +337,9 @@ function removeLocalClassAttributes(file, data) {
     }, []);
   }
 
-  const ast = AST.traverse(file, {
+  const traverse = AST.traverse();
+
+  const ast = traverse(file, {
     ElementNode(node) {
       // Check if the local-class attribute (still) exists
       const { attributes } = node;

@@ -34,18 +34,18 @@
     "test": "mt tests --quiet"
   },
   "dependencies": {
-    "@codemod-utils/ast": "^0.1.0",
-    "@codemod-utils/blueprints": "^0.1.1",
-    "@codemod-utils/files": "^0.2.0",
-    "@codemod-utils/json": "^0.1.1",
+    "@codemod-utils/ast": "^0.1.1",
+    "@codemod-utils/blueprints": "^0.1.2",
+    "@codemod-utils/files": "^0.3.1",
+    "@codemod-utils/json": "^0.1.2",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@codemod-utils/tests": "^0.1.1",
+    "@codemod-utils/tests": "^0.1.2",
     "@shared-configs/eslint-config": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@sondr3/minitest": "^0.1.1",
-    "concurrently": "^8.1.0",
+    "concurrently": "^8.2.0",
     "eslint": "^8.42.0",
     "prettier": "^2.8.8"
   },
