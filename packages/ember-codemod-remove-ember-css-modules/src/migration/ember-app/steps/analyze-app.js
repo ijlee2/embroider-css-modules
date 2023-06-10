@@ -7,8 +7,8 @@ function findAndRenameFiles(findOptions, replaceOptions) {
   const { from, to } = replaceOptions;
 
   const filePaths = findFiles(globPattern, {
-    cwd: projectRoot,
     ignoreList,
+    projectRoot,
   });
 
   return filePaths.map((filePath) => {

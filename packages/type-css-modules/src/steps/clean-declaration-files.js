@@ -8,7 +8,7 @@ export function cleanDeclarationFiles(options) {
   const files = getCssDeclarationFilePaths(options);
 
   const filePaths = findFiles(unionize(files), {
-    cwd: projectRoot,
+    projectRoot,
   });
 
   removeFiles(filePaths, options);

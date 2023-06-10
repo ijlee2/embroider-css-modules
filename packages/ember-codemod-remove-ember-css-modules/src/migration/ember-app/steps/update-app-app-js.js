@@ -30,7 +30,7 @@ export function updateAppAppJs(options) {
   const { projectRoot } = options;
 
   const filePaths = findFiles('app/app.{js,ts}', {
-    cwd: projectRoot,
+    projectRoot,
   });
 
   if (filePaths.length !== 1) {
