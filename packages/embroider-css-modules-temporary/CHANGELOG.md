@@ -1,5 +1,11 @@
 # embroider-css-modules-temporary
 
+## 0.1.7
+
+### Patch Changes
+
+- [#57](https://github.com/ijlee2/embroider-css-modules/pull/57) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.6
 
 ### Patch Changes
