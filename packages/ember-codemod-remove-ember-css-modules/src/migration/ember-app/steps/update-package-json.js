@@ -1,7 +1,11 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { convertToMap, convertToObject } from '@codemod-utils/json';
+import {
+  convertToMap,
+  convertToObject,
+  readPackageJson,
+} from '@codemod-utils/json';
 
 import { getVersion } from '../../../utils/blueprints.js';
 
@@ -46,14 +50,12 @@ function updateScripts(packageJson, options) {
 export function updatePackageJson(options) {
   const { projectRoot } = options;
 
-  const oldPath = join(projectRoot, 'package.json');
-  const oldFile = readFileSync(oldPath, 'utf8');
-  const packageJson = JSON.parse(oldFile);
-
+  const packageJson = readPackageJson(options);
   updateDevDependencies(packageJson, options);
   updateScripts(packageJson, options);
 
-  const newFile = JSON.stringify(packageJson, null, 2) + '\n';
+  const destination = join(projectRoot, 'package.json');
+  const file = JSON.stringify(packageJson, null, 2) + '\n';
 
-  writeFileSync(oldPath, newFile, 'utf8');
+  writeFileSync(destination, file, 'utf8');
 }
