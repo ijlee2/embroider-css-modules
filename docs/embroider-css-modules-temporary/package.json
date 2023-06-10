@@ -60,7 +60,7 @@
     "@shared-configs/typescript": "workspace:*",
     "@types/qunit": "^2.19.5",
     "broccoli-asset-rev": "^3.0.0",
-    "concurrently": "^8.1.0",
+    "concurrently": "^8.2.0",
     "ember-a11y-testing": "^5.2.1",
     "ember-auto-import": "^2.6.3",
     "ember-cli": "~4.12.1",
