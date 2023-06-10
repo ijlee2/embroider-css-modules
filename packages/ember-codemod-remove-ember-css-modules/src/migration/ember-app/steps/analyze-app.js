@@ -1,6 +1,6 @@
 import { join, parse } from 'node:path';
 
-import { findFiles, renameDirectory } from '@codemod-utils/files';
+import { findFiles, renamePathByDirectory } from '@codemod-utils/files';
 
 function findAndRenameFiles(findOptions, replaceOptions) {
   const { globPattern, ignoreList, projectRoot } = findOptions;
@@ -12,7 +12,7 @@ function findAndRenameFiles(findOptions, replaceOptions) {
   });
 
   return filePaths.map((filePath) => {
-    return renameDirectory(filePath, { from, to });
+    return renamePathByDirectory(filePath, { from, to });
   });
 }
 
