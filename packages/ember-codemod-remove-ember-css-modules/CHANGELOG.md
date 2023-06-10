@@ -1,5 +1,15 @@
 # ember-codemod-remove-ember-css-modules
 
+## 0.1.5
+
+### Patch Changes
+
+- [#57](https://github.com/ijlee2/embroider-css-modules/pull/57) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#55](https://github.com/ijlee2/embroider-css-modules/pull/55) Consumed @codemod-utils/ast ([@ijlee2](https://github.com/ijlee2))
+- [#54](https://github.com/ijlee2/embroider-css-modules/pull/54) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#58](https://github.com/ijlee2/embroider-css-modules/pull/58) Separated validation concerns ([@ijlee2](https://github.com/ijlee2))
+- [#56](https://github.com/ijlee2/embroider-css-modules/pull/56) Replace assert.deepEqual with assert.deepStrictEqual ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.4
 
 ### Patch Changes
