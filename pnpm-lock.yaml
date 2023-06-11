@@ -627,24 +627,24 @@ importers:
   packages/ember-codemod-remove-ember-css-modules:
     dependencies:
       '@codemod-utils/ast':
-        specifier: ^0.1.1
-        version: 0.1.1
-      '@codemod-utils/blueprints':
-        specifier: ^0.1.2
-        version: 0.1.2
-      '@codemod-utils/files':
-        specifier: ^0.3.1
-        version: 0.3.1
-      '@codemod-utils/json':
         specifier: ^0.2.0
         version: 0.2.0
+      '@codemod-utils/blueprints':
+        specifier: ^0.2.0
+        version: 0.2.0
+      '@codemod-utils/files':
+        specifier: ^0.4.0
+        version: 0.4.0
+      '@codemod-utils/json':
+        specifier: ^0.3.0
+        version: 0.3.0
       yargs:
         specifier: ^17.7.2
         version: 17.7.2
     devDependencies:
       '@codemod-utils/tests':
-        specifier: ^0.1.2
-        version: 0.1.2(@sondr3/minitest@0.1.1)
+        specifier: ^0.2.1
+        version: 0.2.1(@sondr3/minitest@0.1.1)
       '@shared-configs/eslint-config':
         specifier: workspace:*
         version: link:../../configs/eslint
@@ -813,8 +813,8 @@ importers:
   packages/type-css-modules:
     dependencies:
       '@codemod-utils/files':
-        specifier: ^0.3.1
-        version: 0.3.1
+        specifier: ^0.4.0
+        version: 0.4.0
       css-tree:
         specifier: ^2.3.1
         version: 2.3.1
@@ -823,8 +823,8 @@ importers:
         version: 17.7.2
     devDependencies:
       '@codemod-utils/tests':
-        specifier: ^0.1.2
-        version: 0.1.2(@sondr3/minitest@0.1.1)
+        specifier: ^0.2.1
+        version: 0.2.1(@sondr3/minitest@0.1.1)
       '@shared-configs/eslint-config':
         specifier: workspace:*
         version: link:../../configs/eslint
@@ -3178,8 +3178,8 @@ packages:
       minimist: 1.2.8
     dev: true
 
-  /@codemod-utils/ast@0.1.1:
-    resolution: {integrity: sha512-pkJftcpokGnufrAfqV+rbxjGsqjnOyfkky6NrbH3C2BZm6C285/OvI17Xj976hFDnvyATDGpvAc6Fv3XkLF59A==}
+  /@codemod-utils/ast@0.2.0:
+    resolution: {integrity: sha512-lypRb8zK8dOqnS5AChggFgyxGWWB1VNiLaz0Qhcz4WCqADf0gHWMAL3cPQNrC4tds2/PBYPkiDuNZggamRejJg==}
     engines: {node: 16.* || >= 18}
     dependencies:
       '@babel/parser': 7.22.5
@@ -3189,27 +3189,29 @@ packages:
       - supports-color
     dev: false
 
-  /@codemod-utils/blueprints@0.1.2:
-    resolution: {integrity: sha512-vTCNUooDjPSkQRek5AKeJIkYPPW+cnze7TxaCBqBaoiv0nHYx9wpZSiXq5Z82kf5xHejYoewDUzRkOnlGE8FHw==}
+  /@codemod-utils/blueprints@0.2.0:
+    resolution: {integrity: sha512-u64Ooxb9T8TOvWdrvuXlqRA2rZMA/FPtOwEvrfZvHCGYQ/LUp0vbATD2TauyAvGJ8N+sFd9Jxv5b9/WJZGTWjg==}
     engines: {node: 16.* || >= 18}
     dependencies:
       lodash.template: 4.5.0
     dev: false
 
-  /@codemod-utils/files@0.3.1:
-    resolution: {integrity: sha512-otrfnJBdk4U2RU2C4pjE51c9UTdcgorRpUVlx10iZ1FffYuiES1MYQAZ9jSZDZIjK08GqX4ifZlPVrhGAvoAeg==}
+  /@codemod-utils/files@0.4.0:
+    resolution: {integrity: sha512-chGn+42QqzMP+OrH5fS9SdzUXOPCJhRUkzVd9rzcCCDjhqqK44YvqfhZxE+sAO173BrbmXqjLYqDRdWBUviKGA==}
     engines: {node: 16.* || >= 18}
     dependencies:
       glob: 10.2.7
     dev: false
 
-  /@codemod-utils/json@0.2.0:
-    resolution: {integrity: sha512-ysdsEs6X9TjHHjM36znyj2njmsccil94bMJ90whTn3HH2KCJnMt0SpjFDZk+dJOQP0SFpc9lG5JLA+UwVCit8A==}
+  /@codemod-utils/json@0.3.0:
+    resolution: {integrity: sha512-mwua6fsKxhemCMoSLhJuRVGdD6bIYiryietw4P6nE/GY88TxOy2oBckjY9wJysUGIpqp+dSkLnyEe/CVzvBynQ==}
     engines: {node: 16.* || >= 18}
+    dependencies:
+      type-fest: 3.11.1
     dev: false
 
-  /@codemod-utils/tests@0.1.2(@sondr3/minitest@0.1.1):
-    resolution: {integrity: sha512-h4xs7ybs7N5CvxRWjIAUzLfnOscen7vHe9fCjpRh5X4QuV+L9oQdncqgpLtVlcG6+6K/h+aMQQZy16HXu0KTeA==}
+  /@codemod-utils/tests@0.2.1(@sondr3/minitest@0.1.1):
+    resolution: {integrity: sha512-nW5RrzkWTipx6H+q3P1NOSm919jP8vyIvoONzFAifdapwdKIuphmUKEVDFmRz6ztrlRH/vUYGK1P8OOA47/Saw==}
     engines: {node: 16.* || >= 18}
     peerDependencies:
       '@sondr3/minitest': ^0.1.1
@@ -4581,7 +4583,7 @@ packages:
   /@types/fs-extra@9.0.13:
     resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
     dependencies:
-      '@types/node': 20.2.6
+      '@types/node': 20.3.0
     dev: true
 
   /@types/glob@7.2.0:
@@ -4595,7 +4597,7 @@ packages:
     resolution: {integrity: sha512-IO+MJPVhoqz+28h1qLAcBEH2+xHMK6MTyHJc7MTnnYb6wsoLR29POVGJ7LycmVXIqyy/4/2ShP5sUwTXuOwb/w==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 20.2.6
+      '@types/node': 20.3.0
     dev: true
 
   /@types/htmlbars-inline-precompile@3.0.0:
@@ -4647,8 +4649,8 @@ packages:
     resolution: {integrity: sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==}
     dev: true
 
-  /@types/node@20.2.6:
-    resolution: {integrity: sha512-GQBWUtGoefMEOx/vu+emHEHU5aw6JdDoEtZhoBrHFPZbA/YNRFfN996XbBASEWdvmLSLyv9FKYppYGyZjCaq/g==}
+  /@types/node@20.3.0:
+    resolution: {integrity: sha512-cumHmIAf6On83X7yP+LrsEyUOf/YlociZelmpRYaGFydoaPdxdt80MAbu6vWerQT2COCp2nPvHdsbD7tHn/YlQ==}
     dev: true
 
   /@types/normalize-package-data@2.4.1:
@@ -4691,7 +4693,7 @@ packages:
     resolution: {integrity: sha512-F3OznnSLAUxFrCEu/L5PY8+ny8DtcFRjx7fZZ9bycvXRi3KPTRS9HOitGZwvPg0juRhXFWIeKX58cnX5YqLohQ==}
     dependencies:
       '@types/glob': 8.1.0
-      '@types/node': 20.2.6
+      '@types/node': 20.3.0
     dev: true
 
   /@types/rsvp@4.0.4:
@@ -16234,6 +16236,11 @@ packages:
   /type-fest@0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
+
+  /type-fest@3.11.1:
+    resolution: {integrity: sha512-aCuRNRERRVh33lgQaJRlUxZqzfhzwTrsE98Mc3o3VXqmiaQdHacgUtJ0esp+7MvZ92qhtzKPeusaX6vIEcoreA==}
+    engines: {node: '>=14.16'}
+    dev: false
 
   /type-is@1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
