@@ -67,7 +67,12 @@ To better meet your needs, consider cloning the repo and running the codemod loc
 
 ```sh
 cd <path/to/cloned/repo>
-./bin/ember-codemod-remove-ember-css-modules.js --root=<path/to/your/project>
+
+# Compile TypeScript
+pnpm build
+
+# Run codemod
+./dist/bin/ember-codemod-remove-ember-css-modules.js --root=<path/to/your/project>
 ```
 
 
