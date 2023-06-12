@@ -4,7 +4,13 @@ import { extname, join } from 'node:path';
 import { ASTJavaScript as AST } from '@codemod-utils/ast';
 import { createFiles, findFiles } from '@codemod-utils/files';
 
-function addCssEntryPoint(file, data) {
+import type { Options } from '../../../types/index.js';
+
+type Data = {
+  isTypeScript: boolean;
+};
+
+function addCssEntryPoint(file: string, data: Data): string {
   const traverse = AST.traverse(data.isTypeScript);
 
   const ast = traverse(file, {
@@ -26,7 +32,7 @@ function addCssEntryPoint(file, data) {
   return AST.print(ast);
 }
 
-export function updateAppAppJs(options) {
+export function updateAppAppJs(options: Options): void {
   const { projectRoot } = options;
 
   const filePaths = findFiles('app/app.{js,ts}', {
@@ -41,24 +47,27 @@ export function updateAppAppJs(options) {
     return;
   }
 
-  const filePath = filePaths[0];
-
+  const filePath = filePaths[0]!;
   const fileExtension = extname(filePath);
-  const isTypeScript = fileExtension === '.ts';
 
-  let file = readFileSync(join(projectRoot, filePath), 'utf8');
+  const data = {
+    isTypeScript: fileExtension === '.ts',
+  };
 
   try {
-    file = addCssEntryPoint(file, {
-      isTypeScript,
-    });
+    let file = readFileSync(join(projectRoot, filePath), 'utf8');
+    file = addCssEntryPoint(file, data);
 
     const fileMap = new Map([[filePath, file]]);
 
     createFiles(fileMap, options);
-  } catch (e) {
-    console.warn(
-      `WARNING: updateAppAppJs could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`,
-    );
+  } catch (error) {
+    let message = `WARNING: updateAppAppJs could not update \`${filePath}\`. Please update the file manually.`;
+
+    if (error instanceof Error) {
+      message += ` (${error.message})`;
+    }
+
+    console.warn(`${message}\n`);
   }
 }

@@ -1,3 +1,4 @@
+import type { CodemodOptions } from '../../types/index.js';
 import {
   analyzeApp,
   createOptions,
@@ -10,7 +11,7 @@ import {
   updateRouteTemplates,
 } from './steps/index.js';
 
-export function migrateEmberApp(codemodOptions) {
+export function migrateEmberApp(codemodOptions: CodemodOptions): void {
   const options = createOptions(codemodOptions);
   const { hasEmberCssModules } = options.project;
 

@@ -1,12 +1,26 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-non-null-assertion */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { ASTHandlebars as AST } from '@codemod-utils/ast';
 import { createFiles } from '@codemod-utils/files';
 
-function sanitizeClassAndLocalClassAttributes(file) {
-  function removeAttributeWithoutValue(attributeName, attributes) {
+import type {
+  Entities,
+  OptionsForUpdateTemplates,
+} from '../../../../types/index.js';
+
+type Data = {
+  __styles__: string;
+};
+
+function sanitizeClassAndLocalClassAttributes(file: string): string {
+  function removeAttributeWithoutValue(
+    attributeName: string,
+    attributes: unknown[],
+  ): void {
     const attributeIndex = attributes.findIndex(
+      // @ts-ignore: Assume that types from external packages are correct
       (attribute) => attribute.name === attributeName,
     );
 
@@ -14,17 +28,20 @@ function sanitizeClassAndLocalClassAttributes(file) {
       return;
     }
 
-    const attribute = attributes[attributeIndex];
+    const attribute = attributes[attributeIndex]!;
 
+    // @ts-ignore: Assume that types from external packages are correct
     if (attribute.isValueless) {
       attributes.splice(attributeIndex, 1);
       return;
     }
 
+    // @ts-ignore: Assume that types from external packages are correct
     if (attribute.value.type !== 'TextNode') {
       return;
     }
 
+    // @ts-ignore: Assume that types from external packages are correct
     const attributeValue = attribute.value.chars.trim();
 
     if (attributeValue === '') {
@@ -47,7 +64,7 @@ function sanitizeClassAndLocalClassAttributes(file) {
   return AST.print(ast);
 }
 
-function mergeClassAndLocalClassAttributes(file, data) {
+function mergeClassAndLocalClassAttributes(file: string, data: Data): string {
   const traverse = AST.traverse();
 
   const ast = traverse(file, {
@@ -67,8 +84,8 @@ function mergeClassAndLocalClassAttributes(file, data) {
       }
 
       // Merge attributes only when both have TextNode values
-      const localClassAttribute = attributes[localClassAttributeIndex];
-      const classAttribute = attributes[classAttributeIndex];
+      const localClassAttribute = attributes[localClassAttributeIndex]!;
+      const classAttribute = attributes[classAttributeIndex]!;
 
       if (
         localClassAttribute.value.type !== 'TextNode' ||
@@ -86,7 +103,7 @@ function mergeClassAndLocalClassAttributes(file, data) {
 
       if (localClassNames.length === 1) {
         params = [
-          AST.builders.path(`this.${data.__styles__}.${localClassNames[0]}`),
+          AST.builders.path(`this.${data.__styles__}.${localClassNames[0]!}`),
           AST.builders.string(` ${classAttributeValue}`),
         ];
       } else {
@@ -99,7 +116,7 @@ function mergeClassAndLocalClassAttributes(file, data) {
         ];
       }
 
-      attributes[classAttributeIndex].value = AST.builders.mustache(
+      attributes[classAttributeIndex]!.value = AST.builders.mustache(
         AST.builders.path('concat'),
         params,
       );
@@ -112,22 +129,25 @@ function mergeClassAndLocalClassAttributes(file, data) {
   return AST.print(ast);
 }
 
-function removeLocalClassHelpers(file, data) {
+function removeLocalClassHelpers(file: string, data: Data): string {
   /*
     The {{local-class}} helper from ember-css-modules allows
     1 positional argument. The argument's value is presumed
     to be a concatenated string or `undefined`.
   */
-  function canRemoveLocalClassHelper(path) {
+  function canRemoveLocalClassHelper(path: unknown) {
+    // @ts-ignore: Assume that types from external packages are correct
     const hasFromArgument = path.hash.pairs.some((pair) => pair.key === 'from');
 
     if (hasFromArgument) {
       throw new RangeError(
+        // @ts-ignore: Assume that types from external packages are correct
         `Unable to handle the {{local-class}} helper's \`from\` key. See lines ${path.loc.start.line}-${path.loc.end.line}.`,
       );
     }
 
-    const param = path.params[0];
+    // @ts-ignore: Assume that types from external packages are correct
+    const param = path.params[0]!;
 
     if (param === undefined) {
       return true;
@@ -145,6 +165,7 @@ function removeLocalClassHelpers(file, data) {
   const traverse = AST.traverse();
 
   const ast = traverse(file, {
+    // @ts-ignore: Assume that types from external packages are correct
     AttrNode(node) {
       if (node.name !== 'class') {
         return;
@@ -152,6 +173,7 @@ function removeLocalClassHelpers(file, data) {
 
       const hasLocalClassHelper =
         node.value.type === 'MustacheStatement' &&
+        // @ts-ignore: Assume that types from external packages are correct
         node.value.path.original === 'local-class';
 
       if (!hasLocalClassHelper) {
@@ -162,7 +184,8 @@ function removeLocalClassHelpers(file, data) {
         return null;
       }
 
-      const param = node.value.params[0];
+      // @ts-ignore: Assume that types from external packages are correct
+      const param = node.value.params[0]!;
 
       if (param.type !== 'StringLiteral') {
         return;
@@ -172,7 +195,7 @@ function removeLocalClassHelpers(file, data) {
 
       if (localClassNames.length === 1) {
         node.value = AST.builders.mustache(
-          AST.builders.path(`this.${data.__styles__}.${localClassNames[0]}`),
+          AST.builders.path(`this.${data.__styles__}.${localClassNames[0]!}`),
         );
 
         return;
@@ -185,6 +208,7 @@ function removeLocalClassHelpers(file, data) {
     },
 
     SubExpression(node) {
+      // @ts-ignore: Assume that types from external packages are correct
       const hasLocalClassHelper = node.path.original === 'local-class';
 
       if (!hasLocalClassHelper) {
@@ -195,7 +219,7 @@ function removeLocalClassHelpers(file, data) {
         return AST.builders.string('');
       }
 
-      const param = node.params[0];
+      const param = node.params[0]!;
 
       if (param.type !== 'StringLiteral') {
         return node;
@@ -205,7 +229,7 @@ function removeLocalClassHelpers(file, data) {
 
       if (localClassNames.length === 1) {
         return AST.builders.path(
-          `this.${data.__styles__}.${localClassNames[0]}`,
+          `this.${data.__styles__}.${localClassNames[0]!}`,
         );
       }
 
@@ -219,14 +243,17 @@ function removeLocalClassHelpers(file, data) {
   return AST.print(ast);
 }
 
-function removeLocalClassAttributes(file, data) {
-  function transformParam(param) {
+function removeLocalClassAttributes(file: string, data: Data): string {
+  function transformParam(param: unknown) {
+    // @ts-ignore: Assume that types from external packages are correct
     switch (param.type) {
       case 'StringLiteral': {
+        // @ts-ignore: Assume that types from external packages are correct
         const localClassNames = param.value.trim().split(/\s+/);
 
         if (localClassNames.length === 1) {
-          param.value = localClassNames[0];
+          // @ts-ignore: Assume that types from external packages are correct
+          param.value = localClassNames[0]!;
         } else {
           param = AST.builders.sexpr(
             'array',
@@ -238,11 +265,14 @@ function removeLocalClassAttributes(file, data) {
       }
 
       case 'SubExpression': {
+        // @ts-ignore: Assume that types from external packages are correct
         switch (param.path.original) {
           case 'if':
           case 'unless': {
+            // @ts-ignore: Assume that types from external packages are correct
             const subparams = param.params.map(transformParam);
 
+            // @ts-ignore: Assume that types from external packages are correct
             param = AST.builders.sexpr(param.path.original, subparams);
 
             break;
@@ -256,23 +286,30 @@ function removeLocalClassAttributes(file, data) {
     return param;
   }
 
-  function transformPart(part) {
+  // @ts-ignore: Assume that types from external packages are correct
+  function transformPart(part: unknown) {
+    // @ts-ignore: Assume that types from external packages are correct
     switch (part.type) {
       case 'MustacheStatement': {
+        // @ts-ignore: Assume that types from external packages are correct
         switch (part.path.original) {
           case 'concat': {
             // eslint-disable-next-line no-inner-declarations
-            function hasPathExpression(params) {
+            function hasPathExpression(params: unknown[]) {
+              // @ts-ignore: Assume that types from external packages are correct
               return params.some((param) => param.type === 'PathExpression');
             }
 
+            // @ts-ignore: Assume that types from external packages are correct
             if (hasPathExpression(part.params)) {
               return AST.builders.mustache(AST.builders.path('get'), [
                 AST.builders.path(`this.${data.__styles__}`),
+                // @ts-ignore: Assume that types from external packages are correct
                 AST.builders.sexpr(part.path.original, part.params),
               ]);
             }
 
+            // @ts-ignore: Assume that types from external packages are correct
             const params = part.params.map(transformParam);
 
             return AST.builders.mustache('local-class', [
@@ -283,10 +320,12 @@ function removeLocalClassAttributes(file, data) {
 
           case 'if':
           case 'unless': {
+            // @ts-ignore: Assume that types from external packages are correct
             const params = part.params.map(transformParam);
 
             return AST.builders.mustache('local-class', [
               AST.builders.path(`this.${data.__styles__}`),
+              // @ts-ignore: Assume that types from external packages are correct
               AST.builders.sexpr(part.path.original, params),
             ]);
           }
@@ -294,6 +333,7 @@ function removeLocalClassAttributes(file, data) {
           default: {
             return AST.builders.mustache(AST.builders.path('get'), [
               AST.builders.path(`this.${data.__styles__}`),
+              // @ts-ignore: Assume that types from external packages are correct
               part.path,
             ]);
           }
@@ -301,6 +341,7 @@ function removeLocalClassAttributes(file, data) {
       }
 
       case 'TextNode': {
+        // @ts-ignore: Assume that types from external packages are correct
         const value = part.chars.trim();
 
         if (value === '') {
@@ -311,7 +352,7 @@ function removeLocalClassAttributes(file, data) {
 
         if (localClassNames.length === 1) {
           return AST.builders.mustache(
-            AST.builders.path(`this.${data.__styles__}.${localClassNames[0]}`),
+            AST.builders.path(`this.${data.__styles__}.${localClassNames[0]!}`),
           );
         }
 
@@ -323,18 +364,20 @@ function removeLocalClassAttributes(file, data) {
     }
   }
 
-  function transformParts(parts) {
+  function transformParts(parts: unknown[]) {
     const numParts = parts.length;
 
     return parts.reduce((accumulator, part, index) => {
+      // @ts-ignore: Assume that types from external packages are correct
       accumulator.push(transformPart(part));
 
       if (index < numParts - 1) {
+        // @ts-ignore: Assume that types from external packages are correct
         accumulator.push(AST.builders.text(' '));
       }
 
       return accumulator;
-    }, []);
+    }, [] as unknown[]);
   }
 
   const traverse = AST.traverse();
@@ -353,11 +396,12 @@ function removeLocalClassAttributes(file, data) {
       }
 
       // Change the local-class attribute to class
-      const localClassAttribute = attributes[localClassAttributeIndex];
+      const localClassAttribute = attributes[localClassAttributeIndex]!;
 
       switch (localClassAttribute.value.type) {
         case 'ConcatStatement': {
           localClassAttribute.name = 'class';
+          // @ts-ignore: Assume that types from external packages are correct
           localClassAttribute.value.parts = transformParts(
             localClassAttribute.value.parts,
           );
@@ -367,6 +411,7 @@ function removeLocalClassAttributes(file, data) {
 
         case 'MustacheStatement': {
           localClassAttribute.name = 'class';
+          // @ts-ignore: Assume that types from external packages are correct
           localClassAttribute.value = transformPart(localClassAttribute.value);
 
           break;
@@ -374,6 +419,7 @@ function removeLocalClassAttributes(file, data) {
 
         case 'TextNode': {
           localClassAttribute.name = 'class';
+          // @ts-ignore: Assume that types from external packages are correct
           localClassAttribute.value = transformPart(localClassAttribute.value);
 
           break;
@@ -389,6 +435,7 @@ function removeLocalClassAttributes(file, data) {
       node.key = 'class';
       node.value = AST.builders.sexpr('local-class', [
         AST.builders.path(`this.${data.__styles__}`),
+        // @ts-ignore: Assume that types from external packages are correct
         transformParam(node.value),
       ]);
     },
@@ -397,7 +444,10 @@ function removeLocalClassAttributes(file, data) {
   return AST.print(ast);
 }
 
-function updateTemplate(entityName, { customizations, options }) {
+function updateTemplate(
+  entityName: string,
+  { customizations, options }: OptionsForUpdateTemplates,
+): void {
   const { getFilePath } = customizations;
   const { __styles__, projectRoot } = options;
 
@@ -418,13 +468,20 @@ function updateTemplate(entityName, { customizations, options }) {
 
     createFiles(fileMap, options);
   } catch (error) {
-    console.warn(
-      `WARNING: updateTemplate could not update \`${filePath}\`. Please update the file manually. (${error.message})\n`,
-    );
+    let message = `WARNING: updateTemplate could not update \`${filePath}\`. Please update the file manually.`;
+
+    if (error instanceof Error) {
+      message += ` (${error.message})`;
+    }
+
+    console.warn(`${message}\n`);
   }
 }
 
-export function updateTemplates(entities, { customizations, options }) {
+export function updateTemplates(
+  entities: Entities,
+  options: OptionsForUpdateTemplates,
+): void {
   for (const [entityName, extensions] of entities) {
     const hasTemplate = extensions.has('.hbs');
 
@@ -432,6 +489,6 @@ export function updateTemplates(entities, { customizations, options }) {
       continue;
     }
 
-    updateTemplate(entityName, { customizations, options });
+    updateTemplate(entityName, options);
   }
 }

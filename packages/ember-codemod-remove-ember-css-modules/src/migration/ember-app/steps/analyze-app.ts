@@ -2,15 +2,17 @@ import { join, parse } from 'node:path';
 
 import { findFiles, renamePathByDirectory } from '@codemod-utils/files';
 
-function analyzeFilePaths(filePaths) {
-  const entities = new Map();
+import type { Context, Entities, Options } from '../../../types/index.js';
+
+function analyzeFilePaths(filePaths: string[]): Entities {
+  const entities = new Map<string, Set<string>>();
 
   filePaths.forEach((filePath) => {
     const { dir, ext, name } = parse(filePath);
     const entityName = join(dir, name);
 
     if (entities.has(entityName)) {
-      entities.get(entityName).add(ext);
+      entities.get(entityName)!.add(ext);
 
       return;
     }
@@ -21,7 +23,7 @@ function analyzeFilePaths(filePaths) {
   return entities;
 }
 
-function analyzeComponents(options) {
+function analyzeComponents(options: Options): Entities {
   const { componentStructure, projectRoot } = options;
 
   const classFilePaths = findFiles('app/components/**/*.{js,ts}', {
@@ -62,7 +64,7 @@ function analyzeComponents(options) {
 
   if (componentStructure === 'nested') {
     return new Map(
-      [...entities.entries()].map(([entityName, extensions]) => {
+      Array.from(entities.entries()).map(([entityName, extensions]) => {
         const newEntityName = entityName.replace(/\/index$/, '');
 
         return [newEntityName, extensions];
@@ -73,7 +75,7 @@ function analyzeComponents(options) {
   return entities;
 }
 
-function analyzeRoutes(options) {
+function analyzeRoutes(options: Options): Entities {
   const { projectRoot } = options;
 
   const classFilePaths = findFiles('app/controllers/**/*.{js,ts}', {
@@ -115,7 +117,7 @@ function analyzeRoutes(options) {
   return analyzeFilePaths(filePaths);
 }
 
-export function analyzeApp(options) {
+export function analyzeApp(options: Options): Context {
   return {
     components: analyzeComponents(options),
     routes: analyzeRoutes(options),

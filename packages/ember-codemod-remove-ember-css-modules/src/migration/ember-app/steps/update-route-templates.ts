@@ -1,9 +1,16 @@
 import { join } from 'node:path';
 
-import { updateTemplates } from './shared/index.js';
+import type {
+  Context,
+  Options,
+  OptionsForUpdateTemplates,
+} from '../../../types/index.js';
+import { updateTemplates } from './shared/update-templates.js';
 
-function getFilePath() {
-  return function (entityName) {
+type Customizations = OptionsForUpdateTemplates['customizations'];
+
+function getFilePath(): Customizations['getFilePath'] {
+  return function (entityName: string) {
     let filePath = join('app/templates', entityName);
 
     filePath += '.hbs';
@@ -12,7 +19,7 @@ function getFilePath() {
   };
 }
 
-export function updateRouteTemplates(context, options) {
+export function updateRouteTemplates(context: Context, options: Options): void {
   const customizations = {
     getFilePath: getFilePath(),
   };

@@ -1,11 +1,18 @@
 import { join } from 'node:path';
 
-import { updateTemplates } from './shared/index.js';
+import type {
+  Context,
+  Options,
+  OptionsForUpdateTemplates,
+} from '../../../types/index.js';
+import { updateTemplates } from './shared/update-templates.js';
 
-function getFilePath(options) {
+type Customizations = OptionsForUpdateTemplates['customizations'];
+
+function getFilePath(options: Options): Customizations['getFilePath'] {
   const { componentStructure } = options;
 
-  return function (entityName) {
+  return function (entityName: string) {
     let filePath = join('app/components', entityName);
 
     if (componentStructure === 'nested') {
@@ -18,7 +25,10 @@ function getFilePath(options) {
   };
 }
 
-export function updateComponentTemplates(context, options) {
+export function updateComponentTemplates(
+  context: Context,
+  options: Options,
+): void {
   const customizations = {
     getFilePath: getFilePath(options),
   };

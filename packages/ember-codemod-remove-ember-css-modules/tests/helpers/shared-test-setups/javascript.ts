@@ -1,9 +1,15 @@
-const codemodOptions = {
+import type {
+  CodemodOptions,
+  Context,
+  Options,
+} from '../../../src/types/index.js';
+
+const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   projectRoot: 'tmp/ember-container-query-javascript',
 };
 
-const context = {
+const context: Context = {
   components: new Map([
     ['navigation-menu', new Set(['.css', '.hbs', '.js'])],
     ['products/product/card', new Set(['.css', '.hbs', '.js'])],
@@ -47,7 +53,7 @@ const context = {
   ]),
 };
 
-const options = {
+const options: Options = {
   __styles__: 'styles',
   componentStructure: 'flat',
   project: {

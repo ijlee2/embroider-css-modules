@@ -7,9 +7,13 @@ import {
   readPackageJson,
 } from '@codemod-utils/json';
 
+import type { Options, PackageJson } from '../../../types/index.js';
 import { getVersion } from '../../../utils/blueprints.js';
 
-function updateDevDependencies(packageJson, options) {
+function updateDevDependencies(
+  packageJson: PackageJson,
+  options: Options,
+): void {
   const { project } = options;
 
   const devDependencies = convertToMap(packageJson['devDependencies']);
@@ -35,7 +39,7 @@ function updateDevDependencies(packageJson, options) {
   packageJson['devDependencies'] = convertToObject(devDependencies);
 }
 
-function updateScripts(packageJson, options) {
+function updateScripts(packageJson: PackageJson, options: Options): void {
   const { project } = options;
 
   const scripts = convertToMap(packageJson.scripts);
@@ -47,7 +51,7 @@ function updateScripts(packageJson, options) {
   packageJson['scripts'] = convertToObject(scripts);
 }
 
-export function updatePackageJson(options) {
+export function updatePackageJson(options: Options): void {
   const { projectRoot } = options;
 
   const packageJson = readPackageJson(options);

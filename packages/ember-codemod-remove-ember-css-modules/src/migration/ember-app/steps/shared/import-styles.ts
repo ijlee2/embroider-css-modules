@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { readFileSync } from 'node:fs';
 import { join, parse } from 'node:path';
 
@@ -5,10 +6,20 @@ import { ASTJavaScript as AST } from '@codemod-utils/ast';
 import { processTemplate } from '@codemod-utils/blueprints';
 import { createFiles } from '@codemod-utils/files';
 
+import type {
+  Entities,
+  OptionsForImportStyles,
+} from '../../../../types/index.js';
 import { blueprintsRoot } from '../../../../utils/blueprints.js';
 import { parseEntityName } from '../../../../utils/string.js';
 
-function removeTemplateOnlyComponentMethod(file, data) {
+type Data = {
+  __styles__: string;
+  fileName: string;
+  isTypeScript: boolean;
+};
+
+function removeTemplateOnlyComponentMethod(file: string, data: Data): string {
   const traverse = AST.traverse(data.isTypeScript);
 
   const ast = traverse(file, {
@@ -41,7 +52,8 @@ function removeTemplateOnlyComponentMethod(file, data) {
       }
 
       const defaultImport = path.value.specifiers.find(
-        (specifier) => specifier.type === 'ImportDefaultSpecifier',
+        (specifier: { type: string }) =>
+          specifier.type === 'ImportDefaultSpecifier',
       );
 
       if (defaultImport?.local?.name !== 'templateOnlyComponent') {
@@ -62,16 +74,17 @@ function removeTemplateOnlyComponentMethod(file, data) {
   return AST.print(ast);
 }
 
-function importStylesInClass(file, data) {
+function importStylesInClass(file: string, data: Data): string {
   const traverse = AST.traverse(data.isTypeScript);
 
   // Find the last import statement
-  let lastImportDeclarationPath;
+  let lastImportDeclarationPath: unknown;
 
   const ast = traverse(file, {
     visitImportDeclaration(path) {
       if (!lastImportDeclarationPath) {
         lastImportDeclarationPath = path;
+        // @ts-ignore: Assume that types from external packages are correct
       } else if (path.node.start > lastImportDeclarationPath.node.start) {
         lastImportDeclarationPath = path;
       }
@@ -81,7 +94,9 @@ function importStylesInClass(file, data) {
   });
 
   // Append the styles import
+  // @ts-ignore: Assume that types from external packages are correct
   const nodes = ast.program.body;
+  // @ts-ignore: Assume that types from external packages are correct
   const index = lastImportDeclarationPath?.name ?? -1;
 
   nodes.splice(
@@ -100,7 +115,7 @@ function importStylesInClass(file, data) {
   return AST.print(ast);
 }
 
-function addStylesAsClassProperty(file, data) {
+function addStylesAsClassProperty(file: string, data: Data): string {
   const traverse = AST.traverse(data.isTypeScript);
 
   const ast = traverse(file, {
@@ -115,6 +130,7 @@ function addStylesAsClassProperty(file, data) {
       ];
 
       if (body.length > 0) {
+        // @ts-ignore: Assume that types from external packages are correct
         nodesToAdd.push(AST.builders.noop());
       }
 
@@ -127,7 +143,10 @@ function addStylesAsClassProperty(file, data) {
   return AST.print(ast);
 }
 
-function createClass(entityName, { customizations, options }) {
+function createClass(
+  entityName: string,
+  { customizations, options }: OptionsForImportStyles,
+): void {
   const { blueprintFilePaths, getFilePath } = customizations;
 
   const entity = parseEntityName(entityName);
@@ -152,7 +171,10 @@ function createClass(entityName, { customizations, options }) {
   createFiles(fileMap, options);
 }
 
-function updateClass(entityName, { customizations, options }) {
+function updateClass(
+  entityName: string,
+  { customizations, options }: OptionsForImportStyles,
+): void {
   const { getFilePath } = customizations;
   const { __styles__, projectRoot } = options;
 
@@ -175,13 +197,20 @@ function updateClass(entityName, { customizations, options }) {
 
     createFiles(fileMap, options);
   } catch (error) {
-    console.warn(
-      `WARNING: updateClass could not update \`${filePath}\`. Please update the file manually. (${error.message})\n`,
-    );
+    let message = `WARNING: updateClass could not update \`${filePath}\`. Please update the file manually.`;
+
+    if (error instanceof Error) {
+      message += ` (${error.message})`;
+    }
+
+    console.warn(`${message}\n`);
   }
 }
 
-export function importStyles(entities, { customizations, options }) {
+export function importStyles(
+  entities: Entities,
+  options: OptionsForImportStyles,
+): void {
   for (const [entityName, extensions] of entities) {
     const hasClass = extensions.has('.js') || extensions.has('.ts');
     const hasStylesheet = extensions.has('.css');
@@ -191,11 +220,11 @@ export function importStyles(entities, { customizations, options }) {
     }
 
     if (!hasClass) {
-      createClass(entityName, { customizations, options });
+      createClass(entityName, options);
 
       continue;
     }
 
-    updateClass(entityName, { customizations, options });
+    updateClass(entityName, options);
   }
 }

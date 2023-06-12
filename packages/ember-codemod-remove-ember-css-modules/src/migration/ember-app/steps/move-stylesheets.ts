@@ -5,7 +5,9 @@ import {
   moveFiles,
 } from '@codemod-utils/files';
 
-function moveRouteStylesheets(options) {
+import type { Options } from '../../../types/index.js';
+
+function moveRouteStylesheets(options: Options): void {
   const { projectRoot } = options;
 
   const filePaths = findFiles('app/styles/**/*.css', {
@@ -21,7 +23,7 @@ function moveRouteStylesheets(options) {
   moveFiles(pathMapping, options);
 }
 
-function moveAppCssToAssets(options) {
+function moveAppCssToAssets(options: Options): void {
   const { projectRoot } = options;
 
   const filePaths = findFiles('app/styles/app.css', {
@@ -45,7 +47,7 @@ function moveAppCssToAssets(options) {
   createFiles(fileMap, options);
 }
 
-export function moveStylesheets(options) {
+export function moveStylesheets(options: Options): void {
   moveRouteStylesheets(options);
   moveAppCssToAssets(options);
 }

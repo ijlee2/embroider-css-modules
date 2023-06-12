@@ -1,9 +1,15 @@
-const codemodOptions = {
+import type {
+  CodemodOptions,
+  Context,
+  Options,
+} from '../../../src/types/index.js';
+
+const codemodOptions: CodemodOptions = {
   componentStructure: 'nested',
   projectRoot: 'tmp/ember-container-query-nested',
 };
 
-const context = {
+const context: Context = {
   components: new Map([
     ['navigation-menu', new Set(['.css', '.hbs'])],
     ['products/product/card', new Set(['.css', '.hbs', '.ts'])],
@@ -47,7 +53,7 @@ const context = {
   ]),
 };
 
-const options = {
+const options: Options = {
   __styles__: 'styles',
   componentStructure: 'nested',
   project: {

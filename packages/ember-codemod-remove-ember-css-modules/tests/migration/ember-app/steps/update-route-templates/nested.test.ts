@@ -6,6 +6,7 @@ import {
   assert,
   assertFixture,
   convertFixtureToJson,
+  type DirJSON,
   loadFixture,
   test,
 } from '@codemod-utils/tests';
@@ -16,13 +17,13 @@ import {
   options,
 } from '../../../../helpers/shared-test-setups/nested.js';
 
-function getContext(fileName) {
+function getContext(fileName: string) {
   const entityName = fileName.replace(new RegExp(/\.hbs$/), '');
   const extensions = new Set(['.hbs']);
 
   return {
-    components: new Map([]),
-    routes: new Map([[entityName, extensions]]),
+    components: new Map<string, Set<string>>(),
+    routes: new Map<string, Set<string>>([[entityName, extensions]]),
   };
 }
 
@@ -35,7 +36,7 @@ test('migration | ember-app | steps | update-route-templates > nested', function
     'steps/update-route-templates/nested/output',
   );
 
-  const fileMap = inputProject.app.templates;
+  const fileMap = (inputProject['app'] as DirJSON)['templates'] as DirJSON;
   let fileName, file;
 
   try {
@@ -46,15 +47,17 @@ test('migration | ember-app | steps | update-route-templates > nested', function
             [fileName]: file,
           },
         },
-      };
+      } as unknown as DirJSON;
 
       const outputProjectLocalized = {
         app: {
           templates: {
-            [fileName]: outputProject.app.templates[fileName],
+            [fileName]: (
+              (outputProject['app'] as DirJSON)['templates'] as DirJSON
+            )[fileName],
           },
         },
-      };
+      } as unknown as DirJSON;
 
       const contextLocalized = getContext(fileName);
 
@@ -64,7 +67,13 @@ test('migration | ember-app | steps | update-route-templates > nested', function
 
       assertFixture(outputProjectLocalized, codemodOptions);
     }
-  } catch (e) {
-    assert.fail(`${fileName} failed.\n` + e.message);
+  } catch (error) {
+    let message = `${fileName} failed.`;
+
+    if (error instanceof Error) {
+      message = error.message;
+    }
+
+    assert.fail(`${message}\n`);
   }
 });

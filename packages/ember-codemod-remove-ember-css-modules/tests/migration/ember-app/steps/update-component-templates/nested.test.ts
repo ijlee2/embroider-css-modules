@@ -7,6 +7,7 @@ import {
   assert,
   assertFixture,
   convertFixtureToJson,
+  type DirJSON,
   loadFixture,
   test,
 } from '@codemod-utils/tests';
@@ -17,13 +18,13 @@ import {
   options,
 } from '../../../../helpers/shared-test-setups/nested.js';
 
-function getContext(folderName) {
+function getContext(folderName: string) {
   const entityName = folderName.replace(new RegExp(/\.hbs$/), '');
   const extensions = new Set(['.hbs']);
 
   return {
-    components: new Map([[entityName, extensions]]),
-    routes: new Map([]),
+    components: new Map<string, Set<string>>([[entityName, extensions]]),
+    routes: new Map<string, Set<string>>(),
   };
 }
 
@@ -36,7 +37,7 @@ test('migration | ember-app | steps | update-component-templates > nested', func
     'steps/update-component-templates/nested/output',
   );
 
-  const fileMap = inputProject.app.components;
+  const fileMap = (inputProject['app'] as DirJSON)['components'] as DirJSON;
   let folderName, folder;
 
   try {
@@ -45,22 +46,25 @@ test('migration | ember-app | steps | update-component-templates > nested', func
         app: {
           components: {
             [folderName]: {
-              'index.hbs': folder['index.hbs'],
+              'index.hbs': (folder as DirJSON)['index.hbs'],
             },
           },
         },
-      };
+      } as unknown as DirJSON;
 
       const outputProjectLocalized = {
         app: {
           components: {
             [folderName]: {
-              'index.hbs':
-                outputProject.app.components[folderName]['index.hbs'],
+              'index.hbs': (
+                ((outputProject['app'] as DirJSON)['components'] as DirJSON)[
+                  folderName
+                ] as DirJSON
+              )['index.hbs'],
             },
           },
         },
-      };
+      } as unknown as DirJSON;
 
       const contextLocalized = getContext(folderName);
 
@@ -70,7 +74,13 @@ test('migration | ember-app | steps | update-component-templates > nested', func
 
       assertFixture(outputProjectLocalized, codemodOptions);
     }
-  } catch (e) {
-    assert.fail(`${folderName} failed.\n` + e.message);
+  } catch (error) {
+    let message = `${folderName} failed.`;
+
+    if (error instanceof Error) {
+      message = error.message;
+    }
+
+    assert.fail(`${message}\n`);
   }
 });

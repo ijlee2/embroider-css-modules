@@ -1,8 +1,17 @@
 import { join } from 'node:path';
 
-import { importStyles } from './shared/index.js';
+import type {
+  Context,
+  Options,
+  OptionsForImportStyles,
+} from '../../../types/index.js';
+import { importStyles } from './shared/import-styles.js';
 
-function getBlueprintFilePaths(options) {
+type Customizations = OptionsForImportStyles['customizations'];
+
+function getBlueprintFilePaths(
+  options: Options,
+): Customizations['blueprintFilePaths'] {
   const { project } = options;
 
   if (project.hasTypeScript) {
@@ -12,10 +21,10 @@ function getBlueprintFilePaths(options) {
   return ['ember-cli/component/javascript.js'];
 }
 
-function getFilePath(options) {
+function getFilePath(options: Options): Customizations['getFilePath'] {
   const { componentStructure, project } = options;
 
-  return function (entityName) {
+  return function (entityName: string) {
     let filePath = join('app/components', entityName);
 
     if (componentStructure === 'nested') {
@@ -32,7 +41,10 @@ function getFilePath(options) {
   };
 }
 
-export function importStylesInComponents(context, options) {
+export function importStylesInComponents(
+  context: Context,
+  options: Options,
+): void {
   const customizations = {
     blueprintFilePaths: getBlueprintFilePaths(options),
     getFilePath: getFilePath(options),
