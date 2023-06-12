@@ -15,7 +15,7 @@ export function createDeclarationFiles(options) {
     projectRoot,
   });
 
-  const fileMapping = new Map(
+  const fileMap = new Map(
     filePaths.map((filePath) => {
       const tsFilePath = filePath.replace(/\.css$/, '.css.d.ts');
 
@@ -26,5 +26,5 @@ export function createDeclarationFiles(options) {
     }),
   );
 
-  createFiles(fileMapping, options);
+  createFiles(fileMap, options);
 }

@@ -14,9 +14,11 @@ function getFilePath() {
 
 export function updateRouteTemplates(context, options) {
   const customizations = {
-    entities: context.routes,
     getFilePath: getFilePath(),
   };
 
-  updateTemplates(customizations, options);
+  updateTemplates(context.routes, {
+    customizations,
+    options,
+  });
 }

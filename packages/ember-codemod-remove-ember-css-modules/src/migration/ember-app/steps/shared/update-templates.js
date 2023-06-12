@@ -397,40 +397,34 @@ function removeLocalClassAttributes(file, data) {
   return AST.print(ast);
 }
 
-function updateTemplate(customizations, options) {
-  const { filePath } = customizations;
+function updateTemplate(entityName, { customizations, options }) {
+  const { getFilePath } = customizations;
   const { __styles__, projectRoot } = options;
 
-  let file = readFileSync(join(projectRoot, filePath), 'utf8');
+  const filePath = getFilePath(entityName);
+
+  const data = {
+    __styles__,
+  };
 
   try {
+    let file = readFileSync(join(projectRoot, filePath), 'utf8');
     file = sanitizeClassAndLocalClassAttributes(file);
+    file = mergeClassAndLocalClassAttributes(file, data);
+    file = removeLocalClassHelpers(file, data);
+    file = removeLocalClassAttributes(file, data);
 
-    file = mergeClassAndLocalClassAttributes(file, {
-      __styles__,
-    });
+    const fileMap = new Map([[filePath, file]]);
 
-    file = removeLocalClassHelpers(file, {
-      __styles__,
-    });
-
-    file = removeLocalClassAttributes(file, {
-      __styles__,
-    });
-
-    const fileMapping = new Map([[filePath, file]]);
-
-    createFiles(fileMapping, options);
-  } catch (e) {
+    createFiles(fileMap, options);
+  } catch (error) {
     console.warn(
-      `WARNING: updateTemplate could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`,
+      `WARNING: updateTemplate could not update \`${filePath}\`. Please update the file manually. (${error.message})\n`,
     );
   }
 }
 
-export function updateTemplates(customizations, options) {
-  const { entities, getFilePath } = customizations;
-
+export function updateTemplates(entities, { customizations, options }) {
   for (const [entityName, extensions] of entities) {
     const hasTemplate = extensions.has('.hbs');
 
@@ -438,8 +432,6 @@ export function updateTemplates(customizations, options) {
       continue;
     }
 
-    const filePath = getFilePath(entityName);
-
-    updateTemplate({ filePath }, options);
+    updateTemplate(entityName, { customizations, options });
   }
 }

@@ -34,11 +34,11 @@ test('migration | ember-app | steps | update-component-templates > glint', funct
     'steps/update-component-templates/glint/output',
   );
 
-  const fileMapping = inputProject.app.components;
+  const fileMap = inputProject.app.components;
   let fileName, file;
 
   try {
-    for ([fileName, file] of Object.entries(fileMapping)) {
+    for ([fileName, file] of Object.entries(fileMap)) {
       const inputProjectLocalized = {
         app: {
           components: {

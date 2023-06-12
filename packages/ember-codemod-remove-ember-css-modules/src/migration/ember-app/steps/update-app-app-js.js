@@ -53,9 +53,9 @@ export function updateAppAppJs(options) {
       isTypeScript,
     });
 
-    const fileMapping = new Map([[filePath, file]]);
+    const fileMap = new Map([[filePath, file]]);
 
-    createFiles(fileMapping, options);
+    createFiles(fileMap, options);
   } catch (e) {
     console.warn(
       `WARNING: updateAppAppJs could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`,

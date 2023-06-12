@@ -127,10 +127,13 @@ function addStylesAsClassProperty(file, data) {
   return AST.print(ast);
 }
 
-function createClass(customizations, options) {
-  const { blueprintFilePaths, entity, filePath } = customizations;
+function createClass(entityName, { customizations, options }) {
+  const { blueprintFilePaths, getFilePath } = customizations;
 
-  const fileMapping = new Map(
+  const entity = parseEntityName(entityName);
+  const filePath = getFilePath(entityName);
+
+  const fileMap = new Map(
     blueprintFilePaths.map((blueprintFilePath) => {
       const blueprintFile = readFileSync(
         join(blueprintsRoot, blueprintFilePath),
@@ -146,48 +149,39 @@ function createClass(customizations, options) {
     }),
   );
 
-  createFiles(fileMapping, options);
+  createFiles(fileMap, options);
 }
 
-function updateClass(customizations, options) {
-  const { filePath } = customizations;
+function updateClass(entityName, { customizations, options }) {
+  const { getFilePath } = customizations;
   const { __styles__, projectRoot } = options;
 
+  const filePath = getFilePath(entityName);
   const { ext: fileExtension, name: fileName } = parse(filePath);
-  const isTypeScript = fileExtension === '.ts';
 
-  let file = readFileSync(join(projectRoot, filePath), 'utf8');
+  const data = {
+    __styles__,
+    fileName,
+    isTypeScript: fileExtension === '.ts',
+  };
 
   try {
-    file = removeTemplateOnlyComponentMethod(file, {
-      __styles__,
-      isTypeScript,
-    });
+    let file = readFileSync(join(projectRoot, filePath), 'utf8');
+    file = removeTemplateOnlyComponentMethod(file, data);
+    file = importStylesInClass(file, data);
+    file = addStylesAsClassProperty(file, data);
 
-    file = importStylesInClass(file, {
-      __styles__,
-      fileName,
-      isTypeScript,
-    });
+    const fileMap = new Map([[filePath, file]]);
 
-    file = addStylesAsClassProperty(file, {
-      __styles__,
-      isTypeScript,
-    });
-
-    const fileMapping = new Map([[filePath, file]]);
-
-    createFiles(fileMapping, options);
-  } catch (e) {
+    createFiles(fileMap, options);
+  } catch (error) {
     console.warn(
-      `WARNING: updateClass could not update \`${filePath}\`. Please update the file manually. (${e.message})\n`,
+      `WARNING: updateClass could not update \`${filePath}\`. Please update the file manually. (${error.message})\n`,
     );
   }
 }
 
-export function importStyles(customizations, options) {
-  const { blueprintFilePaths, entities, getFilePath } = customizations;
-
+export function importStyles(entities, { customizations, options }) {
   for (const [entityName, extensions] of entities) {
     const hasClass = extensions.has('.js') || extensions.has('.ts');
     const hasStylesheet = extensions.has('.css');
@@ -196,15 +190,12 @@ export function importStyles(customizations, options) {
       continue;
     }
 
-    const entity = parseEntityName(entityName);
-    const filePath = getFilePath(entityName);
-
     if (!hasClass) {
-      createClass({ blueprintFilePaths, entity, filePath }, options);
+      createClass(entityName, { customizations, options });
 
       continue;
     }
 
-    updateClass({ filePath }, options);
+    updateClass(entityName, { customizations, options });
   }
 }
