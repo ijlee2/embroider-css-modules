@@ -20,9 +20,11 @@ function getFilePath(options) {
 
 export function updateComponentTemplates(context, options) {
   const customizations = {
-    entities: context.components,
     getFilePath: getFilePath(options),
   };
 
-  updateTemplates(customizations, options);
+  updateTemplates(context.components, {
+    customizations,
+    options,
+  });
 }
