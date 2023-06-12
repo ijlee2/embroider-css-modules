@@ -2,17 +2,7 @@ import { join, parse } from 'node:path';
 
 import { findFiles, renamePathByDirectory } from '@codemod-utils/files';
 
-function analyzeEntities({
-  classFilePaths,
-  stylesheetFilePaths,
-  templateFilePaths,
-}) {
-  const filePaths = [
-    ...classFilePaths,
-    ...stylesheetFilePaths,
-    ...templateFilePaths,
-  ].sort();
-
+function analyzeFilePaths(filePaths) {
   const entities = new Map();
 
   filePaths.forEach((filePath) => {
@@ -62,11 +52,13 @@ function analyzeComponents(options) {
     });
   });
 
-  const entities = analyzeEntities({
-    classFilePaths,
-    stylesheetFilePaths,
-    templateFilePaths,
-  });
+  const filePaths = [
+    ...classFilePaths,
+    ...stylesheetFilePaths,
+    ...templateFilePaths,
+  ].sort();
+
+  const entities = analyzeFilePaths(filePaths);
 
   if (componentStructure === 'nested') {
     return new Map(
@@ -114,11 +106,13 @@ function analyzeRoutes(options) {
     });
   });
 
-  return analyzeEntities({
-    classFilePaths,
-    stylesheetFilePaths,
-    templateFilePaths,
-  });
+  const filePaths = [
+    ...classFilePaths,
+    ...stylesheetFilePaths,
+    ...templateFilePaths,
+  ].sort();
+
+  return analyzeFilePaths(filePaths);
 }
 
 export function analyzeApp(options) {
