@@ -20,8 +20,9 @@
   "type": "module",
   "bin": "./bin/ember-codemod-remove-ember-css-modules.js",
   "files": [
-    "bin/",
-    "src/"
+    "bin",
+    "blueprints",
+    "src"
   ],
   "directories": {
     "test": "tests"
