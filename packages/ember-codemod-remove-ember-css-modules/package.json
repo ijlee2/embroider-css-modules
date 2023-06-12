@@ -36,12 +36,12 @@
   "dependencies": {
     "@codemod-utils/ast": "^0.2.0",
     "@codemod-utils/blueprints": "^0.2.0",
-    "@codemod-utils/files": "^0.4.0",
-    "@codemod-utils/json": "^0.3.0",
+    "@codemod-utils/files": "^0.4.1",
+    "@codemod-utils/json": "^0.3.1",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@codemod-utils/tests": "^0.2.1",
+    "@codemod-utils/tests": "^0.2.2",
     "@shared-configs/eslint-config": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@sondr3/minitest": "^0.1.1",

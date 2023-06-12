@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "@tsconfig/node16/tsconfig",
+    "@tsconfig/strictest/tsconfig",
+    "@tsconfig/esm/tsconfig"
+  ],
+  "compilerOptions": {
+    "moduleResolution": "NodeNext"
+  }
+}
