@@ -35,11 +35,11 @@ test('migration | ember-app | steps | update-route-templates > nested', function
     'steps/update-route-templates/nested/output',
   );
 
-  const fileMapping = inputProject.app.templates;
+  const fileMap = inputProject.app.templates;
   let fileName, file;
 
   try {
-    for ([fileName, file] of Object.entries(fileMapping)) {
+    for ([fileName, file] of Object.entries(fileMap)) {
       const inputProjectLocalized = {
         app: {
           templates: {

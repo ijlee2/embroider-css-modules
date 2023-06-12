@@ -36,11 +36,11 @@ test('migration | ember-app | steps | update-component-templates > nested', func
     'steps/update-component-templates/nested/output',
   );
 
-  const fileMapping = inputProject.app.components;
+  const fileMap = inputProject.app.components;
   let folderName, folder;
 
   try {
-    for ([folderName, folder] of Object.entries(fileMapping)) {
+    for ([folderName, folder] of Object.entries(fileMap)) {
       const inputProjectLocalized = {
         app: {
           components: {

@@ -35,14 +35,14 @@ function moveAppCssToAssets(options) {
 
   moveFiles(pathMapping, options);
 
-  const fileMapping = new Map([
+  const fileMap = new Map([
     [
       'app/styles/app.css',
       '/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */\n',
     ],
   ]);
 
-  createFiles(fileMapping, options);
+  createFiles(fileMap, options);
 }
 
 export function moveStylesheets(options) {
