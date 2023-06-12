@@ -35,9 +35,11 @@ function getFilePath(options) {
 export function importStylesInComponents(context, options) {
   const customizations = {
     blueprintFilePaths: getBlueprintFilePaths(options),
-    entities: context.components,
     getFilePath: getFilePath(options),
   };
 
-  importStyles(customizations, options);
+  importStyles(context.components, {
+    customizations,
+    options,
+  });
 }
