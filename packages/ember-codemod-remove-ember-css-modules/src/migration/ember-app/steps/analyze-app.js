@@ -2,20 +2,6 @@ import { join, parse } from 'node:path';
 
 import { findFiles, renamePathByDirectory } from '@codemod-utils/files';
 
-function findAndRenameFiles(findOptions, replaceOptions) {
-  const { globPattern, ignoreList, projectRoot } = findOptions;
-  const { from, to } = replaceOptions;
-
-  const filePaths = findFiles(globPattern, {
-    ignoreList,
-    projectRoot,
-  });
-
-  return filePaths.map((filePath) => {
-    return renamePathByDirectory(filePath, { from, to });
-  });
-}
-
 function analyzeEntities({
   classFilePaths,
   stylesheetFilePaths,
@@ -48,39 +34,33 @@ function analyzeEntities({
 function analyzeComponents(options) {
   const { componentStructure, projectRoot } = options;
 
-  const classFilePaths = findAndRenameFiles(
-    {
-      globPattern: 'app/components/**/*.{js,ts}',
-      ignoreList: ['app/components/**/*.d.ts'],
-      projectRoot,
-    },
-    {
+  const classFilePaths = findFiles('app/components/**/*.{js,ts}', {
+    ignoreList: ['app/components/**/*.d.ts'],
+    projectRoot,
+  }).map((filePath) => {
+    return renamePathByDirectory(filePath, {
       from: 'app/components',
       to: '',
-    },
-  );
+    });
+  });
 
-  const stylesheetFilePaths = findAndRenameFiles(
-    {
-      globPattern: 'app/components/**/*.css',
-      projectRoot,
-    },
-    {
+  const stylesheetFilePaths = findFiles('app/components/**/*.css', {
+    projectRoot,
+  }).map((filePath) => {
+    return renamePathByDirectory(filePath, {
       from: 'app/components',
       to: '',
-    },
-  );
+    });
+  });
 
-  const templateFilePaths = findAndRenameFiles(
-    {
-      globPattern: 'app/components/**/*.hbs',
-      projectRoot,
-    },
-    {
+  const templateFilePaths = findFiles('app/components/**/*.hbs', {
+    projectRoot,
+  }).map((filePath) => {
+    return renamePathByDirectory(filePath, {
       from: 'app/components',
       to: '',
-    },
-  );
+    });
+  });
 
   const entities = analyzeEntities({
     classFilePaths,
@@ -104,41 +84,35 @@ function analyzeComponents(options) {
 function analyzeRoutes(options) {
   const { projectRoot } = options;
 
-  const classFilePaths = findAndRenameFiles(
-    {
-      globPattern: 'app/controllers/**/*.{js,ts}',
-      ignoreList: ['app/controllers/**/*.d.ts'],
-      projectRoot,
-    },
-    {
+  const classFilePaths = findFiles('app/controllers/**/*.{js,ts}', {
+    ignoreList: ['app/controllers/**/*.d.ts'],
+    projectRoot,
+  }).map((filePath) => {
+    return renamePathByDirectory(filePath, {
       from: 'app/controllers',
       to: '',
-    },
-  );
+    });
+  });
 
-  const stylesheetFilePaths = findAndRenameFiles(
-    {
-      globPattern: 'app/styles/**/*.css',
-      ignoreList: ['app/styles/app.css'],
-      projectRoot,
-    },
-    {
+  const stylesheetFilePaths = findFiles('app/styles/**/*.css', {
+    ignoreList: ['app/styles/app.css'],
+    projectRoot,
+  }).map((filePath) => {
+    return renamePathByDirectory(filePath, {
       from: 'app/styles',
       to: '',
-    },
-  );
+    });
+  });
 
-  const templateFilePaths = findAndRenameFiles(
-    {
-      globPattern: 'app/templates/**/*.hbs',
-      ignoreList: ['app/templates/components/**/*'],
-      projectRoot,
-    },
-    {
+  const templateFilePaths = findFiles('app/templates/**/*.hbs', {
+    ignoreList: ['app/templates/components/**/*'],
+    projectRoot,
+  }).map((filePath) => {
+    return renamePathByDirectory(filePath, {
       from: 'app/templates',
       to: '',
-    },
-  );
+    });
+  });
 
   return analyzeEntities({
     classFilePaths,
