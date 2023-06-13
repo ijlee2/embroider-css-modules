@@ -14,8 +14,8 @@
   "license": "MIT",
   "author": "Isaac J. Lee",
   "type": "module",
-  "main": "dist/src/index.js",
-  "bin": "dist/bin/type-css-modules.js",
+  "main": "./dist/src/index.js",
+  "bin": "./dist/bin/type-css-modules.js",
   "directories": {
     "test": "tests"
   },
