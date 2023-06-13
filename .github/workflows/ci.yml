@@ -12,8 +12,41 @@ env:
   PERCY_PARALLEL_TOTAL: 1
 
 jobs:
+  build:
+    name: Build (type-css-modules)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out a copy of the repo
+        uses: actions/checkout@v3
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+        working-directory: 'packages/type-css-modules'
+
+      - name: Upload dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: packages/type-css-modules/dist
+
   lint:
     name: Lint
+    needs: [build]
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -45,6 +78,12 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Download dist
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: packages/type-css-modules/dist
 
       - name: Lint
         run: pnpm lint
