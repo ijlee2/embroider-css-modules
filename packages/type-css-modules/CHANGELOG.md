@@ -1,5 +1,14 @@
 # type-css-modules
 
+## 0.1.5
+
+### Patch Changes
+
+- [#62](https://github.com/ijlee2/embroider-css-modules/pull/62) Refactored code ([@ijlee2](https://github.com/ijlee2))
+- [#61](https://github.com/ijlee2/embroider-css-modules/pull/61) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#60](https://github.com/ijlee2/embroider-css-modules/pull/60) Updated @codemod-utils packages ([@ijlee2](https://github.com/ijlee2))
+- [#65](https://github.com/ijlee2/embroider-css-modules/pull/65) Refactored code ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.4
 
 ### Patch Changes
