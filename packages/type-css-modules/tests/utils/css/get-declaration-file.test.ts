@@ -34,7 +34,7 @@ test('utils | css | get-declaration-file > class names missing', function () {
 });
 
 test('utils | css | get-declaration-file > class names empty', function () {
-  const classNames = [];
+  const classNames: string[] = [];
 
   const expectedValue = [
     'declare const styles: Record<string, never>;',

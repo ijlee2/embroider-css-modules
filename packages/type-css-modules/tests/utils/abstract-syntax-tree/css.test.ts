@@ -55,7 +55,7 @@ test('utils | abstract-syntax-tree | css > visit methods are well-defined', func
   const classNames = new Set();
 
   AST.traverse(oldFile, {
-    ClassSelector(node) {
+    ClassSelector(node: { name: string }) {
       classNames.add(node.name);
     },
   });

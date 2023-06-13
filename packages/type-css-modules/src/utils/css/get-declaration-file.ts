@@ -1,4 +1,4 @@
-export function getDeclarationFile(classNames = []) {
+export function getDeclarationFile(classNames: string[] = []): string {
   if (classNames.length === 0) {
     return [
       'declare const styles: Record<string, never>;',
