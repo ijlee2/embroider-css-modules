@@ -1,15 +1,16 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { ASTCSS as AST } from '../abstract-syntax-tree.js';
+import { ASTCSS as AST } from '../ast.js';
 
 export function getClassNames(filePath, options) {
   const { projectRoot } = options;
   const file = readFileSync(join(projectRoot, filePath), 'utf8');
 
+  const traverse = AST.traverse();
   const classNames = new Set();
 
-  AST.traverse(file, {
+  traverse(file, {
     ClassSelector(node) {
       classNames.add(node.name);
     },
@@ -23,5 +24,5 @@ export function getClassNames(filePath, options) {
     },
   });
 
-  return [...classNames].sort();
+  return Array.from(classNames).sort();
 }
