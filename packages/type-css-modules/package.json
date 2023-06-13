@@ -13,16 +13,16 @@
   },
   "license": "MIT",
   "author": "Isaac J. Lee",
-  "main": "src/index.js",
   "type": "module",
+  "main": "src/index.js",
   "bin": "./bin/type-css-modules.js",
-  "files": [
-    "bin/",
-    "src/"
-  ],
   "directories": {
     "test": "tests"
   },
+  "files": [
+    "bin",
+    "src"
+  ],
   "scripts": {
     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
     "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",

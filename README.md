@@ -33,6 +33,7 @@ In short, `embroider-css-modules` depends little on how CSS modules is implement
 
 - [ember-codemod-remove-ember-css-modules](/packages/ember-codemod-remove-ember-css-modules/README.md)
 - [embroider-css-modules](/packages/embroider-css-modules/README.md)
+- [embroider-css-modules-temporary](/packages/embroider-css-modules-temporary/README.md)
 - [type-css-modules](/packages/type-css-modules/README.md)
 
 

@@ -17,4 +17,6 @@
 /.pnpm-debug.log
 /.prettierignore
 /.prettierrc.cjs
+/codemod-test-fixture.sh
+/codemod-test-fixtures.sh
 /tests/
