@@ -1,5 +1,11 @@
 # test-app-for-embroider-css-modules
 
+## 0.1.5
+
+### Patch Changes
+
+- [#69](https://github.com/ijlee2/embroider-css-modules/pull/69) Updated @ember/test-helpers to v3 ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.4
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # docs-app-for-embroider-css-modules
 
+## 0.1.7
+
+### Patch Changes
+
+- [#71](https://github.com/ijlee2/embroider-css-modules/pull/71) Updated @embroider packages ([@ijlee2](https://github.com/ijlee2))
+- [#69](https://github.com/ijlee2/embroider-css-modules/pull/69) Updated @ember/test-helpers to v3 ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.6
 
 ### Patch Changes
