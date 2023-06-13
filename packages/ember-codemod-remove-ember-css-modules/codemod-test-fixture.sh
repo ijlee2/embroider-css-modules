@@ -48,7 +48,7 @@ fi
 rm -r "tests/fixtures/$FIXTURE/output"
 cp -r "tests/fixtures/$FIXTURE/input" "tests/fixtures/$FIXTURE/output"
 
-./bin/ember-codemod-remove-ember-css-modules.js \
+./dist/bin/ember-codemod-remove-ember-css-modules.js \
   --component-structure=$COMPONENT_STRUCTURE \
   --root="tests/fixtures/$FIXTURE/output"
 
