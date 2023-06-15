@@ -67,13 +67,7 @@ test('migration | ember-app | steps | update-route-templates > glint', function 
 
       assertFixture(outputProjectLocalized, codemodOptions);
     }
-  } catch (error) {
-    let message = `${fileName} failed.`;
-
-    if (error instanceof Error) {
-      message = error.message;
-    }
-
-    assert.fail(`${message}\n`);
+  } catch {
+    assert.fail(`${fileName} failed.\n`);
   }
 });
