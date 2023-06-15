@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@codemod-utils/tests": "^0.2.2",
-    "@shared-configs/eslint-config": "workspace:*",
+    "@shared-configs/eslint-config-node": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@sondr3/minitest": "^0.1.1",
     "concurrently": "^8.2.0",
