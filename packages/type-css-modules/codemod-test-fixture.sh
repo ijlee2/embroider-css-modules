@@ -48,7 +48,7 @@ fi
 rm -r "tests/fixtures/$FIXTURE/output"
 cp -r "tests/fixtures/$FIXTURE/input" "tests/fixtures/$FIXTURE/output"
 
-./bin/type-css-modules.js \
+./dist/bin/type-css-modules.js \
   --root="tests/fixtures/$FIXTURE/output" \
   --src=$SRC
 
