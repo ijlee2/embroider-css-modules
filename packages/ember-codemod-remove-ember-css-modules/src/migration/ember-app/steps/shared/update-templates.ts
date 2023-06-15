@@ -433,10 +433,23 @@ function removeLocalClassAttributes(file: string, data: Data): string {
       }
 
       node.key = 'class';
+
+      const newValue = transformParam(node.value);
+
+      // @ts-ignore: Assume that types from external packages are correct
+      if (newValue.type === 'StringLiteral') {
+        node.value = AST.builders.path(
+          // @ts-ignore: Assume that types from external packages are correct
+          `this.${data.__styles__}.${newValue.value}`,
+        );
+
+        return;
+      }
+
       node.value = AST.builders.sexpr('local-class', [
         AST.builders.path(`this.${data.__styles__}`),
         // @ts-ignore: Assume that types from external packages are correct
-        transformParam(node.value),
+        newValue,
       ]);
     },
   });
