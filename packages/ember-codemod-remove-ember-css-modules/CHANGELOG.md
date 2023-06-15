@@ -1,5 +1,11 @@
 # ember-codemod-remove-ember-css-modules
 
+## 0.3.0
+
+### Minor Changes
+
+- [#74](https://github.com/ijlee2/embroider-css-modules/pull/74) Optimized output code (removed unnecessary {{local-class}} helper) ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.2.1
 
 ### Patch Changes
