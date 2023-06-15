@@ -47,6 +47,7 @@ export function updateAppAppJs(options: Options): void {
     return;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const filePath = filePaths[0]!;
   const fileExtension = extname(filePath);
 

@@ -56,7 +56,7 @@
     "@percy/cli": "^1.26.0",
     "@percy/ember": "^4.2.0",
     "@shared-configs/ember-template-lint": "workspace:*",
-    "@shared-configs/eslint-config": "workspace:*",
+    "@shared-configs/eslint-config-ember": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/stylelint": "workspace:*",
     "@shared-configs/testem": "workspace:*",
