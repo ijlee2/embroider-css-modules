@@ -74,13 +74,7 @@ test('migration | ember-app | steps | update-component-templates > nested', func
 
       assertFixture(outputProjectLocalized, codemodOptions);
     }
-  } catch (error) {
-    let message = `${folderName} failed.`;
-
-    if (error instanceof Error) {
-      message = error.message;
-    }
-
-    assert.fail(`${message}\n`);
+  } catch {
+    assert.fail(`${folderName} failed.\n`);
   }
 });
