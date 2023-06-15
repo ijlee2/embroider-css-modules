@@ -1,10 +1,12 @@
 #!/usr/bin/env node
+// eslint-disable-next-line n/shebang
 'use strict';
 
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
 import { typeCssModules } from '../src/index.js';
+import type { CodemodOptions } from '../src/types/index.js';
 
 // Provide a title to the process in `ps`
 process.title = 'type-css-modules';
@@ -23,7 +25,7 @@ const argv = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const codemodOptions = {
+const codemodOptions: CodemodOptions = {
   projectRoot: argv['root'] ?? process.cwd(),
   src: argv['src'],
 };

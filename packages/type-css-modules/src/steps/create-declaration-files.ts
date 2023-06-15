@@ -1,12 +1,13 @@
 import { createFiles, findFiles, unionize } from '@codemod-utils/files';
 
+import type { Options } from '../types/index.js';
 import {
   getClassNames,
   getCssFilePaths,
   getDeclarationFile,
 } from '../utils/css.js';
 
-export function createDeclarationFiles(options) {
+export function createDeclarationFiles(options: Options): void {
   const { projectRoot } = options;
 
   const files = getCssFilePaths(options);
