@@ -1,5 +1,11 @@
 # type-css-modules
 
+## 0.2.0
+
+### Minor Changes
+
+- [#73](https://github.com/ijlee2/embroider-css-modules/pull/73) Introduced TypeScript ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.5
 
 ### Patch Changes
