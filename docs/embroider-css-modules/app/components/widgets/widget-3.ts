@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 
 import type { Concert } from '../../data/concert';
 import concertData from '../../data/concert';
-import styles from './widget-3.css';
+import styles from './widget-3.module.css';
 
 interface WidgetsWidget3Signature {
   // eslint-disable-next-line @typescript-eslint/ban-types

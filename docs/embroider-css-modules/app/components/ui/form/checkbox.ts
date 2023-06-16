@@ -1,7 +1,7 @@
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 
-import styles from './checkbox.css';
+import styles from './checkbox.module.css';
 
 interface UiFormCheckboxSignature {
   Args: {

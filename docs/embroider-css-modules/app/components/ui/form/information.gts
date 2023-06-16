@@ -2,7 +2,7 @@ import type { TOC } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
 
 import strictOr from '../../../helpers/strict-or';
-import styles from './information.css';
+import styles from './information.module.css';
 
 interface UiFormInformationSignature {
   Args: {

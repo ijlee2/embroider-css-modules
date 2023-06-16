@@ -3,7 +3,7 @@ import type { QueryResults } from 'ember-container-query';
 import { localClass } from 'embroider-css-modules';
 
 import strictOr from '../../../../helpers/strict-or';
-import styles from './body.css';
+import styles from './body.module.css';
 
 interface WidgetsWidget4MemoBodySignature {
   Args: {

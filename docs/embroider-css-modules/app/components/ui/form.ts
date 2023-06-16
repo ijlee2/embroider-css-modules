@@ -4,7 +4,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { WithBoundArgs } from '@glint/template';
 
-import styles from './form.css';
+import styles from './form.module.css';
 import type UiFormCheckboxComponent from './form/checkbox';
 import type UiFormInputComponent from './form/input';
 import type UiFormTextareaComponent from './form/textarea';

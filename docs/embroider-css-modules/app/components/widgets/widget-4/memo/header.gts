@@ -4,7 +4,7 @@ import { localClass } from 'embroider-css-modules';
 
 import strictAnd from '../../../../helpers/strict-and';
 import strictOr from '../../../../helpers/strict-or';
-import styles from './header.css';
+import styles from './header.module.css';
 
 interface WidgetsWidget4MemoHeaderSignature {
   Args: {

@@ -7,7 +7,7 @@ import {
   createDataForVisualization,
   createSummariesForCaptions,
 } from '../../utils/components/widgets/widget-2';
-import styles from './widget-2.css';
+import styles from './widget-2.module.css';
 
 interface WidgetsWidget2Signature {
   // eslint-disable-next-line @typescript-eslint/ban-types

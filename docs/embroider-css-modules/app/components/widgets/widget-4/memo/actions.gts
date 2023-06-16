@@ -4,7 +4,7 @@ import { localClass } from 'embroider-css-modules';
 
 import strictOr from '../../../../helpers/strict-or';
 import { svgJar } from '../../../../utils/ember-svg-jar';
-import styles from './actions.css';
+import styles from './actions.module.css';
 
 interface WidgetsWidget4MemoActionsSignature {
   Args: {

@@ -1,7 +1,7 @@
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 
-import styles from './textarea.css';
+import styles from './textarea.module.css';
 
 interface UiFormTextareaSignature {
   Args: {

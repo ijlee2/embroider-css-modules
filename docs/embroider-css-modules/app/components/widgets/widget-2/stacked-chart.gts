@@ -2,7 +2,7 @@ import type { TOC } from '@ember/component/template-only';
 
 import drawStackedChart from '../../../modifiers/draw-stacked-chart';
 import type { Data } from '../../../utils/components/widgets/widget-2';
-import styles from './stacked-chart.css';
+import styles from './stacked-chart.module.css';
 
 interface WidgetsWidget2StackedChartSignature {
   Args: {

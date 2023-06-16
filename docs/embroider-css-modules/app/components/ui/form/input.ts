@@ -1,7 +1,7 @@
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 
-import styles from './input.css';
+import styles from './input.module.css';
 
 interface UiFormInputSignature {
   Args: {

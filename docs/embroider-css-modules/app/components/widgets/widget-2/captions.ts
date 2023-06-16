@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 
 import type { Summary } from '../../../utils/components/widgets/widget-2';
-import styles from './captions.css';
+import styles from './captions.module.css';
 
 const colorSvg = modifier((container: Element, [color]: [string]) => {
   const svgElement = container.querySelector('svg');
