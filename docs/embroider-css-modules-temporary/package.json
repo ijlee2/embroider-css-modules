@@ -22,7 +22,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build --environment=production",
+    "_build": "ember build --environment=production",
     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
     "lint:css": "stylelint \"app/**/*.css\" --cache",
     "lint:css:fix": "stylelint \"app/**/*.css\" --fix",
@@ -32,8 +32,8 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "lint:types": "glint",
     "prelint:types": "type-css-modules --src app",
+    "lint:types": "glint",
     "start": "ember serve",
     "test": "ember test --test-port=0"
   },
