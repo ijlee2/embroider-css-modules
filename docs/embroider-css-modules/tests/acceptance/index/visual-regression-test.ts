@@ -13,7 +13,7 @@ module('Acceptance | index', function (hooks) {
 
     assert
       .dom('[data-test-link="embroider-css-modules"]')
-      .hasClass('controllers-index__code');
+      .hasClass('controllers-index-module__code');
 
     await percySnapshot(assert);
   });
