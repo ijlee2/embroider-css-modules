@@ -1,5 +1,5 @@
 # compiled output
-/dist/
+/dist-for-testing/
 /tmp/
 
 # dependencies
@@ -17,6 +17,7 @@
 /.pnpm-debug.log
 /.prettierignore
 /.prettierrc.cjs
+/build.sh
 /codemod-test-fixture.sh
 /codemod-test-fixtures.sh
 /tests/
