@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-import styles from './navigation-menu.css';
+import styles from './navigation-menu.module.css';
 
 type MenuItem = {
   label: string;

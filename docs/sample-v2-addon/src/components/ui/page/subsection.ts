@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-import styles from './subsection.css';
+import styles from './subsection.module.css';
 
 interface UiPageSubsectionSignature {
   Blocks: {
