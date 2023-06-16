@@ -1,4 +1,4 @@
-import './assets/app.module.css';
+import './assets/app.css';
 
 import Application from '@ember/application';
 import loadInitializers from 'ember-load-initializers';
