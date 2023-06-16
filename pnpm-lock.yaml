@@ -420,7 +420,7 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0(stylelint@15.7.0)
       type-css-modules:
-        specifier: workspace:../../packages/type-css-modules
+        specifier: workspace:*
         version: link:../../packages/type-css-modules
       typescript:
         specifier: ^5.1.3
@@ -585,7 +585,7 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0(stylelint@15.7.0)
       type-css-modules:
-        specifier: workspace:../../packages/type-css-modules
+        specifier: workspace:*
         version: link:../../packages/type-css-modules
       typescript:
         specifier: ^5.1.3
@@ -679,7 +679,7 @@ importers:
         specifier: ^15.7.0
         version: 15.7.0
       type-css-modules:
-        specifier: workspace:../../packages/type-css-modules
+        specifier: workspace:*
         version: link:../../packages/type-css-modules
       typescript:
         specifier: ^5.1.3
