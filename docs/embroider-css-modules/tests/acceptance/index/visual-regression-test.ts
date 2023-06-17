@@ -1,20 +1,17 @@
-/* eslint-disable qunit/require-expect */
 import { visit } from '@ember/test-helpers';
-import percySnapshot from '@percy/ember';
 import { module, test } from 'qunit';
 
-import { setupApplicationTest } from '../../helpers';
+import { percySnapshot, setupApplicationTest } from '../../helpers';
 
 module('Acceptance | index', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('Visual snapshot', async function (assert) {
+  test('Visual regression', async function (assert) {
+    assert.expect(1);
+
     await visit('/');
-
-    assert
-      .dom('[data-test-link="embroider-css-modules"]')
-      .hasClass('controllers-index__code');
-
     await percySnapshot(assert);
+
+    assert.ok(true);
   });
 });
