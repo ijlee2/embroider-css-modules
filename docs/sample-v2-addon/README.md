@@ -1,30 +1,49 @@
 [![This project uses GitHub Actions for continuous integration.](https://github.com/ijlee2/embroider-css-modules/actions/workflows/ci.yml/badge.svg)](https://github.com/ijlee2/embroider-css-modules/actions/workflows/ci.yml)
+[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Isaac/embroider-css-modules)
 
 # sample-v2-addon
+
+1. [What is it?](#what-is-it)
+1. [Local development](#local-development)
+1. [Compatibility](#compatibility)
+1. [Contributing](#contributing)
+
+
+## What is it?
 
 `sample-v2-addon` is an Ember addon. We use it to check that `embroider-css-modules` is compatible with v2 addons.
 
 
 ## Local development
 
-Before starting the application, build the `embroider-css-modules` package so that the addon can test the latest code.
+After making a code change, build the addon so that consuming apps can test the latest code.
 
 ```sh
-# From the workspace root
-cd packages/embroider-css-modules
 pnpm build
+```
 
-# Change directory
-cd ../../docs/sample-v2-addon
-pnpm build
+Some useful commands:
+
+```sh
+# Keep the addon running (live reload)
+pnpm start
+
+# Lint files
+pnpm lint
+pnpm lint:fix
 ```
 
 
 ## Compatibility
 
-* Node.js v16 or above
+- Node.js v16 or above
 
 
 ## Contributing
 
 See the [Contributing](../../CONTRIBUTING.md) guide for details.
+
+
+## License
+
+This project is licensed under the [MIT License](../../LICENSE.md).

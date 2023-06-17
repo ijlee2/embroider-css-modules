@@ -5,6 +5,12 @@
 
 `embroider-css-modules` with renamed `{{local-class}}` helper
 
+1. [Why use this package?](#why-use-this-package)
+1. [API](#api)
+1. [Installation](#installation)
+1. [Contributing](#contributing)
+1. [License](#license)
+
 
 ## Why use this package?
 
@@ -35,7 +41,10 @@ Once the migration is complete:
 - Replace `embroider-css-modules-temporary` with `embroider-css-modules`
 - Rename `{{local-class-new}}` to `{{local-class}}`
 
-More information about API and compatible versions can be found in [`embroider-css-modules`](../embroider-css-modules).
+
+## API
+
+Information about API and compatible versions can be found in [`embroider-css-modules`](../embroider-css-modules).
 
 
 ## Installation

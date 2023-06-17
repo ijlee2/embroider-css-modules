@@ -3,33 +3,57 @@
 
 # docs-app-for-embroider-css-modules
 
+1. [What is it?](#what-is-it)
+1. [Local development](#local-development)
+    - [One-line `start` command](#one-line-start-command)
+1. [Compatibility](#compatibility)
+1. [Contributing](#contributing)
+1. [License](#license)
+
+
+## What is it?
+
 `docs-app-for-embroider-css-modules` is an Ember app. We use it to check that `embroider-css-modules` is compatible with "bleeding-edge" Ember:
 
 - [Embroider on the strictest settings](https://github.com/embroider-build/embroider/#options) (including route splitting)
 - [Glint](https://typed-ember.gitbook.io/glint/)
 - [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports)
 
-In addition, the component and route templates, the application tests (visual regression tests), and the rendering tests serve as a living documentation for `embroider-css-modules`.
+In addition, the component and route templates, the application tests (visual regression tests), and the rendering tests serve as a living documentation.
 
 Lastly, end-developers can check the [deployed app](https://embroider-css-modules.netlify.app/) (do a "test drive") before they decide to introduce CSS modules to their projects.
 
 
 ## Local development
 
-Before starting the application, build the `embroider-css-modules` package so that the app can test the latest code.
+Before starting the application, build its dependencies so that you can test the latest code.
 
 ```sh
 # From the workspace root
-cd packages/embroider-css-modules
 pnpm build
 
 # Change directory
-cd ../../docs/embroider-css-modules
+cd docs/embroider-css-modules
+```
+
+Some useful commands:
+
+```sh
+# Run the app
 pnpm start
+
+# Lint files
+pnpm lint
+pnpm lint:fix
+
+# Run tests
 pnpm test
 ```
 
-Alternatively, you can run the application with 1 command:
+
+### One-line start command
+
+With 1 command, you can build the dependencies and start the app:
 
 ```sh
 # From the workspace root
@@ -39,9 +63,14 @@ pnpm start
 
 ## Compatibility
 
-* Node.js v16 or above
+- Node.js v16 or above
 
 
 ## Contributing
 
 See the [Contributing](../../CONTRIBUTING.md) guide for details.
+
+
+## License
+
+This project is licensed under the [MIT License](../../LICENSE.md).

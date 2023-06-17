@@ -5,6 +5,14 @@
 
 _CSS modules for Embroider + TypeScript projects_
 
+1. [What is it?](#what-is-it)
+1. [Installation](#installation)
+1. [API](#api)
+    - [Helper: `{{local-class}}`](#helper-local-class)
+1. [Compatibility](#compatibility)
+1. [Contributing](#contributing)
+1. [License](#license)
+
 
 ## What is it?
 
@@ -71,7 +79,7 @@ The addon provides 1 helper:
 
 - `{{local-class}}`
 
-Expand the items below to learn more about the API. Throughout the section, you can assume that there is a `styles` object, which maps local class names to global ones.
+Throughout the section, you can assume that there is a `styles` object, which maps local class names to global ones.
 
 ```ts
 // An example
@@ -83,15 +91,19 @@ const styles = {
 };
 ```
 
-<details>
-<summary><code>{{local-class}}</code></summary>
 
-### Why use it?
+### Helper: {{local-class}}
+
+#### Why use it?
 
 The `{{local-class}}` helper is useful when you want to apply multiple styles.
 
+<details>
+
+<summary>Before: With the <code>{{concat}}</code> helper</summary>
+
 ```hbs
-{{! Before: app/components/ui/form/field.hbs }}
+{{! app/components/ui/form/field.hbs }}
 <div
   class={{concat
     this.styles.container
@@ -107,8 +119,14 @@ The `{{local-class}}` helper is useful when you want to apply multiple styles.
 </div>
 ```
 
+</details>
+
+<details>
+
+<summary>After: With the <code>{{local-class}}</code> helper</summary>
+
 ```hbs
-{{! After: app/components/ui/form/field.hbs }}
+{{! app/components/ui/form/field.hbs }}
 <div
   class={{local-class
     this.styles
@@ -122,7 +140,13 @@ The `{{local-class}}` helper is useful when you want to apply multiple styles.
 </div>
 ```
 
+</details>
+
 To apply multiple styles when a conditional statement holds, use the `{{array}}` helper.
+
+<details>
+
+<summary>Example</summary>
 
 ```hbs
 {{! app/templates/products.hbs }}
@@ -141,24 +165,24 @@ To apply multiple styles when a conditional statement holds, use the `{{array}}`
 </div>
 ```
 
-### Arguments
+</details>
 
-The `{{local-class}}` helper uses positional arguments so that styles are applied in sequence.
 
-Pass the `styles` object first, then the local class name(s).
+#### Arguments
 
-### Outputs
+The `{{local-class}}` helper uses positional arguments so that styles are applied in sequence. Pass the `styles` object first, then the local class name(s).
+
+
+#### Outputs
 
 The `{{local-class}}` helper returns a concatenated string. The string lists the global class names in the same order as the local ones.
-
-</details>
 
 
 ## Compatibility
 
-* `ember-auto-import@v2`<sup>1</sup>
-* Ember.js v4.4 or above<sup>2</sup>
-* Node.js v16 or above
+- `ember-auto-import@v2`<sup>1</sup>
+- Ember.js v4.4 or above<sup>2</sup>
+- Node.js v16 or above
 
 <sup>1. `embroider-css-modules` is a v2 addon. This means, your project must have `ember-auto-import@v2`. If you are momentarily stuck with `ember-auto-import@v1`, you can use [`ember-css-modules`](https://github.com/salsify/ember-css-modules) to implement CSS modules.</sup>
 
