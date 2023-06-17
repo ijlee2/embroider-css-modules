@@ -1,0 +1,34 @@
+{{#let
+  (and @cqFeatures.large @cqFeatures.short)
+  (or @cqFeatures.small @cqFeatures.short)
+  as |showHorizontalLayout showMinimalLayout|
+}}
+  <div
+    data-test-memo-header
+    class="{{this.styles.header}}
+      {{if showMinimalLayout this.styles.minimal-layout}}
+      {{if showHorizontalLayout this.styles.horizontal-layout}}
+      "
+  >
+    {{#unless showMinimalLayout}}
+      <div class="{{this.styles.avatar-container}}">
+        <img
+          alt=""
+          data-test-image="Avatar"
+          class="{{this.styles.avatar}}"
+          role="presentation"
+          src="/images/widgets/widget-4/avatar.jpg"
+        />
+      </div>
+    {{/unless}}
+
+    <p class="{{this.styles.name}}">
+      Isaac Lee
+    </p>
+
+    <div class="{{this.styles.metadata}}">
+      <a href="#" class="{{this.styles.handle}}">@ijlee2</a>
+      · 38m
+    </div>
+  </div>
+{{/let}}
