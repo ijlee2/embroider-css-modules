@@ -8,7 +8,7 @@ _Generate declaration files for CSS modules_ (independent of JavaScript framewor
 1. [How to use this package?](#how-to-use-this-package)
     - [Arguments](#arguments)
     - [Use Prettier?](#use-prettier)
-    - [Can I use the file extension `*.module.css`?](#can-i-use-the-file-extension-modulecss)
+    - [Can I use the file extension \*.module.css?](#can-i-use-the-file-extension-modulecss)
 1. [Limitations](#limitations)
 1. [Compatibility](#compatibility)
 1. [Contributing](#contributing)
@@ -49,7 +49,7 @@ First, you will run into poor developer experience (DX) when [`noPropertyAccessF
 
 <details>
 
-<summary>Ember: <code>template</code>-tag component</summary>
+<summary>Ember: <code>&lt;template&gt;</code>-tag component</summary>
 
 ```ts
 /* app/components/ui/page.gts */
@@ -190,9 +190,9 @@ module.exports = {
 
 ### Can I use the file extension \*.module.css?
 
-Good news! You can continue to use `*.module.css` to indicate the stylesheets that are for CSS modules.
+Yes! You may use `*.module.css` to indicate the stylesheets that are for CSS modules. `type-css-modules` will create declaration files with the extension `*.module.css.d.ts`.
 
-`type-css-modules` will create declaration files with the extension `*.module.css.d.ts`. The [Prettier configuration](#use-prettier) shown above can remain as is.
+The [Prettier configuration](#use-prettier) (shown above) can remain as is.
 
 
 ## Limitations

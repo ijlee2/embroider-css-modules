@@ -11,7 +11,7 @@ We will use Rollup and PostCSS to implement CSS modules. (If you get lost, you c
     - [&lt;template&gt;-tag components](#template-tag-components)
     - [CSS declaration files](#css-declaration-files)
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter)
-    - [Can I use the file extension `*.module.css`?](#can-i-use-the-file-extension-modulecss)
+    - [Can I use the file extension \*.module.css?](#can-i-use-the-file-extension-modulecss)
     - [Write tests](#write-tests)
 
 
@@ -387,7 +387,7 @@ Finally, style the links. ✨
 
 </details>
 
-You can also [apply multiple styles with the `{{local-class}}` helper](../../packages/embroider-css-modules/README.md#api).
+You can also [apply multiple styles with the `{{local-class}}` helper](../../packages/embroider-css-modules/README.md#helper-local-class).
 
 
 ### &lt;template&gt;-tag components
