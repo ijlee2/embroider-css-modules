@@ -12,8 +12,9 @@ We will use Webpack and PostCSS to implement CSS modules. (If you get lost, you 
 1. [Style your first component](#style-your-first-component)
     - [Glimmer components](#glimmer-components)
     - [&lt;template&gt;-tag components](#template-tag-components)
-    - [Do the file location and name matter?](#do-the-file-location-and-name-matter)
     - [CSS declaration files](#css-declaration-files)
+    - [Do the file location and name matter?](#do-the-file-location-and-name-matter)
+    - [Can I use the file extension `*.module.css`?](#can-i-use-the-file-extension-modulecss)
     - [Write tests](#write-tests)
 1. [Style your first route](#style-your-first-route)
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter-1)
@@ -373,7 +374,7 @@ You can also [apply multiple styles with the `{{local-class}}` helper](../../pac
 
 You may have noticed a downside of `embroider-css-modules`. Since we pass `styles` to the template as a class property, it's not possible to style template-only components.
 
-We can easily address this issue by writing [`<template>`-tag components](https://github.com/ember-template-imports/ember-template-imports). Replace `hello-world.{hbs,ts}` with `hello-world.gts`:
+We can address this issue by writing [`<template>`-tag components](https://github.com/ember-template-imports/ember-template-imports). Replace `hello-world.{hbs,ts}` with `hello-world.gts`:
 
 <details>
 
@@ -390,6 +391,42 @@ import styles from './hello-world.css';
 ```
 
 </details>
+
+
+### CSS declaration files
+
+To help TypeScript understand what it means to import a CSS file,
+
+```ts
+import styles from './hello-world.css';
+```
+
+and what `styles` looks like, you will need to provide the declaration file `hello-world.css.d.ts`.
+
+Lucky for you, [`type-css-modules`](../../packages/type-css-modules) can create this file. Write a pre-script as shown below:
+
+```json5
+/* package.json */
+{
+  "scripts": {
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:types": "tsc --noEmit", // or "glint"
+    "prelint:types": "type-css-modules --src app"
+  }
+}
+```
+
+Now, when you run `lint`, the `prelint:types` script will create the CSS declaration file(s), then `lint:types` will type-check the files in your project.
+
+```sh
+pnpm lint
+```
+
+If the `lint` script takes too long to run, you can run just `prelint:types` to create the declaration files.
+
+```sh
+pnpm prelint:types
+```
 
 
 ### Do the file location and name matter?
@@ -429,40 +466,16 @@ your-ember-app
 ```
 
 
-### CSS declaration files
+### Can I use the file extension \*.module.css?
 
-To help TypeScript understand what it means to import a CSS file,
+Yes! You may use `*.module.css` to indicate the stylesheets that are for CSS modules. `type-css-modules` will create declaration files with the extension `*.module.css.d.ts`.
 
-```ts
-import styles from './hello-world.css';
+```diff
+- import styles from './hello-world.css';
++ import styles from './hello-world.module.css';
 ```
 
-and what `styles` looks like, you will need to provide the declaration file `hello-world.css.d.ts`.
-
-Lucky for you, [`type-css-modules`](../../packages/type-css-modules) can create this file. Write a pre-script as shown below:
-
-```json5
-/* package.json */
-{
-  "scripts": {
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
-    "lint:types": "tsc --noEmit", // or "glint"
-    "prelint:types": "type-css-modules --src app"
-  }
-}
-```
-
-Now, when you run the `lint` script, the `prelint:types` script will create the CSS declaration file(s), then `lint:types` will type-check the files in your project.
-
-```sh
-pnpm lint
-```
-
-If the `lint` script takes long to run, you can run just `prelint:types` to create the declaration files.
-
-```sh
-pnpm prelint:types
-```
+⚠️ The files `app/assets/app.css` and `app/styles/app.css` keep the extension `*.css`.
 
 
 ### Write tests
