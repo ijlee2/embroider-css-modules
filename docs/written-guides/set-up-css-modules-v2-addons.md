@@ -9,8 +9,9 @@ We will use Rollup and PostCSS to implement CSS modules. (If you get lost, you c
 1. [Style your first component](#style-your-first-component)
     - [Glimmer components](#glimmer-components)
     - [&lt;template&gt;-tag components](#template-tag-components)
-    - [Do the file location and name matter?](#do-the-file-location-and-name-matter)
     - [CSS declaration files](#css-declaration-files)
+    - [Do the file location and name matter?](#do-the-file-location-and-name-matter)
+    - [Can I use the file extension `*.module.css`?](#can-i-use-the-file-extension-modulecss)
     - [Write tests](#write-tests)
 
 
@@ -393,7 +394,7 @@ You can also [apply multiple styles with the `{{local-class}}` helper](../../pac
 
 You may have noticed a downside of `embroider-css-modules`. Since we pass `styles` to the template as a class property, it's not possible to style template-only components.
 
-We can easily address this issue by writing [`<template>`-tag components](https://github.com/ember-template-imports/ember-template-imports).<sup>1</sup> Replace `navigation-menu.{hbs,ts}` with `navigation-menu.gts`:
+We can address this issue by writing [`<template>`-tag components](https://github.com/ember-template-imports/ember-template-imports).<sup>1</sup> Replace `navigation-menu.{hbs,ts}` with `navigation-menu.gts`:
 
 <details>
 
@@ -440,28 +441,6 @@ export default NavigationMenuComponent;
 <sup>1. You need [`rollup-plugin-glimmer-template-tag`](https://github.com/NullVoxPopuli/rollup-plugin-glimmer-template-tag) to write `*.{gjs,gts}` files in a v2 addon.</sup>
 
 
-### Do the file location and name matter?
-
-In Ember v4.12, a component's template and backing class must have the same name (the related technical terms are [resolve and resolution](https://github.com/ember-cli/ember-resolver)):
-
-- `navigation-menu.{hbs,ts}`
-
-In contrast, the component's stylesheet can have a different name and even live in a different folder. This is because we explicitly import the CSS file in the backing class.
-
-Still, for everyone's sanity, I recommend colocating the stylesheet and providing the same name.
-
-```sh
-your-v2-addon
-├── src
-│   └── components
-│       ├── navigation-menu.css
-│       ├── navigation-menu.css.d.ts
-│       ├── navigation-menu.hbs
-│       └── navigation-menu.ts
-...
-```
-
-
 ### CSS declaration files
 
 To help TypeScript understand what it means to import a CSS file,
@@ -485,16 +464,48 @@ Lucky for you, [`type-css-modules`](../../packages/type-css-modules) can create 
 }
 ```
 
-Now, when you run the `lint` script, the `prelint:types` script will create the CSS declaration file(s), then `lint:types` will type-check the files in your project.
+Now, when you run `lint`, the `prelint:types` script will create the CSS declaration file(s), then `lint:types` will type-check the files in your project.
 
 ```sh
 pnpm lint
 ```
 
-If the `lint` script takes long to run, you can run just `prelint:types` to create the declaration files.
+If the `lint` script takes too long to run, you can run just `prelint:types` to create the declaration files.
 
 ```sh
 pnpm prelint:types
+```
+
+
+### Do the file location and name matter?
+
+In Ember v4.12, a component's template and backing class must have the same name (the related technical terms are [resolve and resolution](https://github.com/ember-cli/ember-resolver)):
+
+- `navigation-menu.{hbs,ts}`
+
+In contrast, the component's stylesheet can have a different name and even live in a different folder. This is because we explicitly import the CSS file in the backing class.
+
+Still, for everyone's sanity, I recommend colocating the stylesheet and providing the same name.
+
+```sh
+your-v2-addon
+├── src
+│   └── components
+│       ├── navigation-menu.css
+│       ├── navigation-menu.css.d.ts
+│       ├── navigation-menu.hbs
+│       └── navigation-menu.ts
+...
+```
+
+
+### Can I use the file extension \*.module.css?
+
+Yes! You may use `*.module.css` to indicate the stylesheets that are for CSS modules. `type-css-modules` will create declaration files with the extension `*.module.css.d.ts`.
+
+```diff
+- import styles from './navigation-menu.css';
++ import styles from './navigation-menu.module.css';
 ```
 
 
@@ -536,6 +547,6 @@ module('Integration | Component | navigation-menu', function (hooks) {
 
 </details>
 
-<sup>1. It's assumed that [`rollup-plugin-postcss` creates "predictable" hashes](#update-rollupconfigmjs) (either `modules.generateScopedName: <package-name>__[path][name]__[local]'` or `modules: true`).</sup>
+<sup>1. To make weak assertions, `rollup-plugin-postcss` must create ["predictable" hashes](#update-rollupconfigmjs).</sup>
 
 <sup>2. We can write `assert.dom('ul').hasClass(styles.list)` and `assert.dom('a').hasClass(styles.link)`, if we can [find a way to import a v2 addon's stylesheet](#update-packagejson).</sup>
