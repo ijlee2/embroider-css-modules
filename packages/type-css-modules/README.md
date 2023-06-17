@@ -376,7 +376,7 @@ import { container, header, body } from './page.css';
 
 ## Compatibility
 
-* Node.js v16 or above
+- Node.js v16 or above
 
 
 ## Contributing

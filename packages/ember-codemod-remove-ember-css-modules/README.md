@@ -4,6 +4,17 @@
 
 _Codemod to replace `ember-css-modules` with `embroider-css-modules`_
 
+1. [Features](#features)
+1. [Usage](#usage)
+    - [Arguments](#arguments)
+    - [Limitations](#limitations)
+1. [How to refactor code](#how-to-refactor-code)
+    - [Remove code inheritance](#remove-code-inheritance)
+    - [Remove complex string concatenations](#remove-complex-string-concatenations)
+1. [Compatibility](#compatibility)
+1. [Contributing](#contributing)
+1. [License](#license)
+
 
 ## Features
 
@@ -217,7 +228,7 @@ The codemod may fail to update complex expressions. Refactor templates to provid
 
 ## Compatibility
 
-* Node.js v16 or above
+- Node.js v16 or above
 
 
 ## Contributing
