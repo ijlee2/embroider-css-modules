@@ -1,6 +1,6 @@
 {
   "name": "embroider-css-modules",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "CSS modules for Ember + TypeScript projects",
   "keywords": [
     "css",

@@ -1,5 +1,12 @@
 # sample-v2-addon
 
+## 0.1.8
+
+### Patch Changes
+
+- [#80](https://github.com/ijlee2/embroider-css-modules/pull/80) Updated development dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#79](https://github.com/ijlee2/embroider-css-modules/pull/79) Improved documentation ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.7
 
 ### Patch Changes
