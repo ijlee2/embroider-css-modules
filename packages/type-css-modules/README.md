@@ -4,6 +4,16 @@
 
 _Generate declaration files for CSS modules_ (independent of JavaScript framework)
 
+1. [Why use this package?](#why-use-this-package)
+1. [How to use this package?](#how-to-use-this-package)
+    - [Arguments](#arguments)
+    - [Use Prettier?](#use-prettier)
+    - [Can I use the file extension `*.module.css`?](#can-i-use-the-file-extension-modulecss)
+1. [Limitations](#limitations)
+1. [Compatibility](#compatibility)
+1. [Contributing](#contributing)
+1. [License](#license)
+
 
 ## Why use this package?
 
@@ -21,13 +31,11 @@ First, you will run into poor developer experience (DX) when [`noPropertyAccessF
 
 <details>
 
-<summary>Examples</summary>
-
-Component in Ember:
+<summary>Ember: Glimmer component</summary>
 
 ```hbs
 {{! app/components/ui/page.hbs }}
-{{! This should work but results in an error }}
+{{! This should work, but results in an error. }}
 <div class={{this.styles.container}}>
   {{!-- ↳ Property 'container' comes from an index signature, so it must be accessed with {{get ... 'container'}}. --}}
 </div>
@@ -37,14 +45,18 @@ Component in Ember:
 </div>
 ```
 
-Component in Ember, with `<template>` tag:
+</details>
+
+<details>
+
+<summary>Ember: <code>template</code>-tag component</summary>
 
 ```ts
 /* app/components/ui/page.gts */
 import styles from './page.css';
 
 <template>
-  // This should work but results in an error
+  // This should work, but results in an error.
   <div class={{styles.container}}>
     // ↳ Property 'container' comes from an index signature, so it must be accessed with ['container'].
   </div>
@@ -61,13 +73,13 @@ Second, the loose definition may be incompatible with libraries that provide typ
 
 <details>
 
-<summary>Example</summary>
+<summary>Ember: Rendering test</summary>
 
 ```ts
 /* tests/integration/components/ui/page-test.ts */
 import styles from 'app/components/ui/page.css';
 
-// This should work but results in an error
+// This should work, but results in an error.
 assert
   .dom('[data-test-container]')
   .hasClass(styles.container);
@@ -86,7 +98,7 @@ When you provide accurate types, libraries (e.g. [`Glint`](https://typed-ember.g
 
 <details>
 
-<summary>Example</summary>
+<summary>Ember: Glimmer component</summary>
 
 ```hbs
 {{! app/components/ui/page.hbs }}
@@ -106,14 +118,7 @@ When you provide accurate types, libraries (e.g. [`Glint`](https://typed-ember.g
 
 ## How to use this package?
 
-Option 1 (one-time use). Use `npx` to run `type-css-modules`.
-
-```sh
-cd <path/to/your/project>
-npx type-css-modules <arguments>
-```
-
-Option 2 (recommended). Install `type-css-modules` as a development dependency. Ensure that the CSS declaration files exist before checking the types; for example, you can write a [pre-script](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts).
+Option 1 (recommended). Install `type-css-modules` as a development dependency. Ensure that the CSS declaration files exist before checking the types; for example, you can write a [pre-script](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts).
 
 ```json5
 /* package.json */
@@ -127,6 +132,13 @@ Option 2 (recommended). Install `type-css-modules` as a development dependency. 
     "typescript": "..."
   }
 }
+```
+
+Option 2 (one-time use). Use `npx` to run `type-css-modules`.
+
+```sh
+cd <path/to/your/project>
+npx type-css-modules <arguments>
 ```
 
 
@@ -173,7 +185,14 @@ module.exports = {
     },
   ],
 };
-````
+```
+
+
+### Can I use the file extension \*.module.css?
+
+Good news! You can continue to use `*.module.css` to indicate the stylesheets that are for CSS modules.
+
+`type-css-modules` will create declaration files with the extension `*.module.css.d.ts`. The [Prettier configuration](#use-prettier) shown above can remain as is.
 
 
 ## Limitations
@@ -188,7 +207,7 @@ Here are some examples that meet the syntax requirements.
 
 <details>
 
-<summary>Ember + TypeScript</summary>
+<summary>Ember: Glimmer component</summary>
 
 ```css
 /* app/components/ui/page.css */
@@ -242,7 +261,7 @@ export default class UiPageComponent extends Component {
 
 <details>
 
-<summary>Ember + TypeScript + <code>&lt;template&gt;</code> tag</summary>
+<summary>Ember: <code>&lt;template&gt;</code>-tag component</summary>
 
 ```ts
 /* app/components/ui/page.gts */
@@ -350,9 +369,9 @@ import { container, header, body } from './page.css';
 
 </details>
 
-<sup>1. With `webpack`, for example, you can configure [`mode`](https://webpack.js.org/loaders/css-loader/#mode) to be a function that returns `'local'` or `'global'`. In CSS module files, you can use the `:global()` pseudo-class selector to refer to "things from outside."</sup>
+<sup>1. With `webpack`, for example, you can configure [`mode`](https://webpack.js.org/loaders/css-loader/#mode) to be a function that returns `'local'` or `'global'`. In CSS module stylesheets, you can use the `:global()` pseudo-class selector to refer to "things from outside."</sup>
 
-<sup>2. [CSS nesting is in spec](https://www.w3.org/TR/css-nesting-1/). Once it is official, `type-css-modules` will leave it up to [`csstree`](https://github.com/csstree/csstree) to parse nested styles.
+<sup>2. [CSS nesting is in spec](https://www.w3.org/TR/css-nesting-1/). Once it is official, `type-css-modules` will leave it up to [`CSSTree`](https://github.com/csstree/csstree) to parse nested styles.
 
 
 ## Compatibility
