@@ -110,7 +110,7 @@ Next, remove all `:local()` pseudo-class selectors. Instead, use the `:global()`
 
 ⚠️ You may skip this step if you didn't create the `{{styles}}` helper.
 
-Remove the `{{styles}}` helper. To apply multiple styles, use the `{{local-class}}` helper instead.
+Remove the `{{styles}}` helper. To apply multiple styles, use the [`{{local-class}}` helper](../../packages/embroider-css-modules/README.md#helper-local-class) instead.
 
 <details>
 

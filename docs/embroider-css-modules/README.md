@@ -16,7 +16,7 @@
 `docs-app-for-embroider-css-modules` is an Ember app. We use it to check that `embroider-css-modules` is compatible with "bleeding-edge" Ember:
 
 - [Embroider on the strictest settings](https://github.com/embroider-build/embroider/#options) (including route splitting)
-- [Glint](https://typed-ember.gitbook.io/glint/)
+- [TypeScript](https://www.typescriptlang.org/docs/) + [Glint](https://typed-ember.gitbook.io/glint/)
 - [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports)
 
 In addition, the component and route templates, the application tests (visual regression tests), and the rendering tests serve as a living documentation.

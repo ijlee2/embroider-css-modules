@@ -3,7 +3,7 @@
 
 # embroider-css-modules
 
-_CSS modules for Embroider + TypeScript projects_
+_CSS modules for Embroider projects_
 
 
 ## What is it?
@@ -11,7 +11,7 @@ _CSS modules for Embroider + TypeScript projects_
 `embroider-css-modules` provides a set of **tools and conventions** to help you implement [CSS modules](https://github.com/css-modules/css-modules). It is compatible with "bleeding-edge" Ember:
 
 - [Embroider on the strictest settings](https://github.com/embroider-build/embroider/#options) (including route splitting)
-- [Glint](https://typed-ember.gitbook.io/glint/)
+- [TypeScript](https://www.typescriptlang.org/docs/) + [Glint](https://typed-ember.gitbook.io/glint/)
 - [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports)
 
 A key idea behind `embroider-css-modules`: There is _some way_ to map local class names to global ones. The _how_ is loosely tied to Ember and allowed to change in the future.
