@@ -1,5 +1,12 @@
 # docs-app-for-embroider-css-modules
 
+## 0.1.9
+
+### Patch Changes
+
+- [#85](https://github.com/ijlee2/embroider-css-modules/pull/85) Provided snapshots a unique name ([@ijlee2](https://github.com/ijlee2))
+- [#82](https://github.com/ijlee2/embroider-css-modules/pull/82) Refactored tests ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.8
 
 ### Patch Changes
