@@ -2,12 +2,9 @@ import { render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
+import styles from 'sample-v2-addon/components/ui/page.css';
 
 import { setupRenderingTest } from '../../../helpers';
-
-const styles = {
-  title: 'sample-v2-addon__R6j2S',
-} as const;
 
 module('Integration | Component | ui/page', function (hooks) {
   setupRenderingTest(hooks);

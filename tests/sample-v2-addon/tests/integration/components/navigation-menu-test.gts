@@ -4,11 +4,8 @@ import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { module, test } from 'qunit';
 import { NavigationMenu } from 'sample-v2-addon';
 
+import styles from 'sample-v2-addon/components/navigation-menu.css';
 import { setupRenderingTest } from '../../helpers';
-
-const styles = {
-  link: 'sample-v2-addon__ugjOS',
-} as const;
 
 module('Integration | Component | navigation-menu', function (hooks) {
   setupRenderingTest(hooks);
