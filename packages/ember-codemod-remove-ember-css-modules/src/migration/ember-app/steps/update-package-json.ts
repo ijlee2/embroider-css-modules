@@ -24,7 +24,16 @@ function updateDevDependencies(
     devDependencies.delete(packageName);
   });
 
-  const packagesToInstall = new Set(['embroider-css-modules']);
+  const packagesToInstall = new Set([
+    '@embroider/compat',
+    '@embroider/core',
+    '@embroider/webpack',
+    'autoprefixer',
+    'embroider-css-modules',
+    'postcss',
+    'postcss-loader',
+    'webpack',
+  ]);
 
   if (project.hasTypeScript) {
     packagesToInstall.add('type-css-modules');
