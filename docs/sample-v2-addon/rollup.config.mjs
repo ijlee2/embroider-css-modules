@@ -1,5 +1,6 @@
 import { Addon } from '@embroider/addon-dev/rollup';
-import postcss from 'rollup-plugin-postcss';
+import embroiderCssModules from 'rollup-plugin-embroider-css-modules';
+// import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-ts';
 
 const addon = new Addon({
@@ -32,13 +33,15 @@ export default {
     addon.dependencies(),
 
     // Implement CSS modules
-    postcss({
-      autoModules: false,
-      modules: {
-        generateScopedName: 'sample-v2-addon__[sha512:hash:base64:5]',
-        // generateScopedName: 'sample-v2-addon__[path][name]__[local]',
-      },
-    }),
+    embroiderCssModules(),
+
+    // postcss({
+    //   autoModules: false,
+    //   modules: {
+    //     generateScopedName: 'sample-v2-addon__[sha512:hash:base64:5]',
+    //     // generateScopedName: 'sample-v2-addon__[path][name]__[local]',
+    //   },
+    // }),
 
     // compile TypeScript to latest JavaScript, including Babel transpilation
     typescript({

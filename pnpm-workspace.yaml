@@ -1,8 +1,5 @@
 packages:
   - configs/**
   - docs/**
-  - packages/ember-codemod-remove-ember-css-modules
-  - packages/embroider-css-modules
-  - packages/embroider-css-modules-temporary
-  - packages/type-css-modules
+  - packages/*
   - tests/**

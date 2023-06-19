@@ -84,6 +84,7 @@
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "rollup": "^3.25.1",
+    "rollup-plugin-embroider-css-modules": "workspace:*",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-ts": "^3.2.0",
     "stylelint": "^15.7.0",

@@ -1,0 +1,58 @@
+{
+  "name": "rollup-plugin-embroider-css-modules",
+  "version": "0.0.0",
+  "description": "Rollup plugin for embroider-css-modules",
+  "keywords": [
+    "css-modules",
+    "embroider-css-modules",
+    "postcss",
+    "rollup",
+    "rollup-plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ijlee2/embroider-css-modules.git"
+  },
+  "license": "MIT",
+  "author": "Isaac J. Lee",
+  "type": "module",
+  "main": "src/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "postcss-modules": "^6.0.0"
+  },
+  "devDependencies": {
+    "@shared-configs/eslint-config-node": "workspace:*",
+    "@shared-configs/prettier": "workspace:*",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.43.0",
+    "postcss": "^8.4.24",
+    "prettier": "^2.8.8"
+  },
+  "peerDependencies": {
+    "postcss": "^8.0.0",
+    "rollup": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "postcss": {
+      "optional": false
+    },
+    "rollup": {
+      "optional": false
+    }
+  },
+  "engines": {
+    "node": "16.* || >= 18"
+  }
+}
