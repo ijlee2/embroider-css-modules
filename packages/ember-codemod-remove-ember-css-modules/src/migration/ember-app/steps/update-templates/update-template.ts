@@ -5,10 +5,7 @@ import { join } from 'node:path';
 import { ASTHandlebars as AST } from '@codemod-utils/ast';
 import { createFiles } from '@codemod-utils/files';
 
-import type {
-  Entities,
-  OptionsForUpdateTemplates,
-} from '../../../../types/index.js';
+import type { OptionsForUpdateTemplates } from '../../../../types/index.js';
 
 type Data = {
   __styles__: string;
@@ -457,7 +454,7 @@ function removeLocalClassAttributes(file: string, data: Data): string {
   return AST.print(ast);
 }
 
-function updateTemplate(
+export function updateTemplate(
   entityName: string,
   { customizations, options }: OptionsForUpdateTemplates,
 ): void {
@@ -488,20 +485,5 @@ function updateTemplate(
     }
 
     console.warn(`${message}\n`);
-  }
-}
-
-export function updateTemplates(
-  entities: Entities,
-  options: OptionsForUpdateTemplates,
-): void {
-  for (const [entityName, extensions] of entities) {
-    const hasTemplate = extensions.has('.hbs');
-
-    if (!hasTemplate) {
-      continue;
-    }
-
-    updateTemplate(entityName, options);
   }
 }

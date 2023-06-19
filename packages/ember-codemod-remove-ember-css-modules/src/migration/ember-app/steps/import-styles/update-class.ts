@@ -3,15 +3,9 @@ import { readFileSync } from 'node:fs';
 import { join, parse } from 'node:path';
 
 import { ASTJavaScript as AST } from '@codemod-utils/ast';
-import { processTemplate } from '@codemod-utils/blueprints';
 import { createFiles } from '@codemod-utils/files';
 
-import type {
-  Entities,
-  OptionsForImportStyles,
-} from '../../../../types/index.js';
-import { blueprintsRoot } from '../../../../utils/blueprints.js';
-import { parseEntityName } from '../../../../utils/string.js';
+import type { OptionsForImportStyles } from '../../../../types/index.js';
 
 type Data = {
   __styles__: string;
@@ -143,35 +137,7 @@ function addStylesAsClassProperty(file: string, data: Data): string {
   return AST.print(ast);
 }
 
-function createClass(
-  entityName: string,
-  { customizations, options }: OptionsForImportStyles,
-): void {
-  const { blueprintFilePaths, getFilePath } = customizations;
-
-  const entity = parseEntityName(entityName);
-  const filePath = getFilePath(entityName);
-
-  const fileMap = new Map(
-    blueprintFilePaths.map((blueprintFilePath) => {
-      const blueprintFile = readFileSync(
-        join(blueprintsRoot, blueprintFilePath),
-        'utf8',
-      );
-
-      const file = processTemplate(blueprintFile, {
-        entity,
-        options,
-      });
-
-      return [filePath, file];
-    }),
-  );
-
-  createFiles(fileMap, options);
-}
-
-function updateClass(
+export function updateClass(
   entityName: string,
   { customizations, options }: OptionsForImportStyles,
 ): void {
@@ -204,27 +170,5 @@ function updateClass(
     }
 
     console.warn(`${message}\n`);
-  }
-}
-
-export function importStyles(
-  entities: Entities,
-  options: OptionsForImportStyles,
-): void {
-  for (const [entityName, extensions] of entities) {
-    const hasClass = extensions.has('.js') || extensions.has('.ts');
-    const hasStylesheet = extensions.has('.css');
-
-    if (!hasStylesheet) {
-      continue;
-    }
-
-    if (!hasClass) {
-      createClass(entityName, options);
-
-      continue;
-    }
-
-    updateClass(entityName, options);
   }
 }

@@ -5,7 +5,7 @@ import type {
   Options,
   OptionsForUpdateTemplates,
 } from '../../../types/index.js';
-import { updateTemplates } from './shared/update-templates.js';
+import { updateTemplates } from './update-templates/index.js';
 
 type Customizations = OptionsForUpdateTemplates['customizations'];
 
