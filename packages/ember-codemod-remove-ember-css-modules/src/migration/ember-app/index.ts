@@ -1,7 +1,6 @@
 import type { CodemodOptions } from '../../types/index.js';
 import {
   analyzeApp,
-  createFilesFromBlueprints,
   createOptions,
   importStylesInComponents,
   importStylesInRoutes,
@@ -32,9 +31,6 @@ export function migrateEmberApp(codemodOptions: CodemodOptions): void {
   // Update templates
   updateComponentTemplates(context, options);
   updateRouteTemplates(context, options);
-
-  // Get the latest code from blueprints
-  createFilesFromBlueprints(options);
 
   // Fine-tune individual files
   updateAppAppJs(options);
