@@ -1,4 +1,5 @@
 export * from './analyze-app.js';
+export * from './create-files-from-blueprints.js';
 export * from './create-options.js';
 export * from './import-styles-in-components.js';
 export * from './import-styles-in-routes.js';

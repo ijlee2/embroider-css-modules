@@ -3,18 +3,57 @@
 const { Webpack } = require('@embroider/webpack');
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+function isProduction() {
+  return EmberApp.env() === 'production';
+}
+
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     // Add options here
-    autoImport: {
-      watchDependencies: ['ember-container-query'],
-    },
   });
 
-  return require('@embroider/compat').compatBuild(app, Webpack, {
+  const options = {
     packagerOptions: {
+      cssLoaderOptions: {
+        modules: {
+          localIdentName: isProduction()
+            ? '[sha512:hash:base64:5]'
+            : '[path][name]__[local]',
+          mode: (resourcePath) => {
+            // The host app and active child addons are moved into a shared
+            // temporary directory (`options.workspaceDir`) before css-loader
+            // processes them.
+            //
+            // We want to enable the local mode only for our own host app.
+            // All other addons should be loaded in the global mode.
+            const hostAppLocation = `${options.workspaceDir}/`;
+
+            return resourcePath.includes(hostAppLocation) ? 'local' : 'global';
+          },
+        },
+        sourceMap: !isProduction(),
+      },
+      publicAssetURL: '/',
       webpackConfig: {
-        // ...
+        module: {
+          rules: [
+            {
+              exclude: /node_modules/,
+              test: /\.css$/i,
+              use: [
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    sourceMap: !isProduction(),
+                    postcssOptions: {
+                      config: './postcss.config.js',
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
       },
     },
     skipBabel: [
@@ -22,11 +61,13 @@ module.exports = function (defaults) {
         package: 'qunit',
       },
     ],
-    splitAtRoutes: ['album', 'dashboard', 'form', 'products'],
-    staticAddonTestSupportTrees: true,
-    staticAddonTrees: false, // due to ember-css-modules
-    staticComponents: false, // due to ember-css-modules
-    staticHelpers: true,
-    staticModifiers: true,
-  });
+    splitAtRoutes: [],
+    staticAddonTestSupportTrees: false,
+    staticAddonTrees: false,
+    staticComponents: false,
+    staticHelpers: false,
+    staticModifiers: false,
+  };
+
+  return require('@embroider/compat').compatBuild(app, Webpack, options);
 };
