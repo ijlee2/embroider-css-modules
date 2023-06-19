@@ -5,6 +5,10 @@ import { module, test } from 'qunit';
 
 import { setupRenderingTest } from '../../../helpers';
 
+const styles = {
+  title: 'sample-v2-addon__R6j2S',
+} as const;
+
 module('Integration | Component | ui/page', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -38,7 +42,7 @@ module('Integration | Component | ui/page', function (hooks) {
 
     assert
       .dom('[data-test-page-title]')
-      .hasClass(/^sample-v2-addon/, 'We see the local class name.')
+      .hasClass(styles.title, 'We see the local class name.')
       .hasStyle(
         {
           fontWeight: '700',

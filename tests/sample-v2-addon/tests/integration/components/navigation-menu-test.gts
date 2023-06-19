@@ -6,6 +6,10 @@ import { NavigationMenu } from 'sample-v2-addon';
 
 import { setupRenderingTest } from '../../helpers';
 
+const styles = {
+  link: 'sample-v2-addon__ugjOS',
+} as const;
+
 module('Integration | Component | navigation-menu', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -58,7 +62,7 @@ module('Integration | Component | navigation-menu', function (hooks) {
 
     assert
       .dom('[data-test-link="Home"]')
-      .hasClass(/^sample-v2-addon/, 'We see the local class name.')
+      .hasClass(styles.link, 'We see the local class name.')
       .hasStyle(
         {
           textDecorationLine: 'none',
