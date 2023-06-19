@@ -530,7 +530,7 @@ module('Integration | Component | navigation-menu', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(`
+    await render(hbs`
       <NavigationMenu
         @menuItems={{array
           (hash label="Home" route="index")

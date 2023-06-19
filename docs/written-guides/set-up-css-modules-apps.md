@@ -499,7 +499,7 @@ module('Integration | Component | hello-world', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(`
+    await render(hbs`
       <HelloWorld />
     `);
 

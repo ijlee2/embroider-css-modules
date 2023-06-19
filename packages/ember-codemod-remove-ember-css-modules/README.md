@@ -109,7 +109,7 @@ Case 1:
 ```hbs
 {{! app/components/ui/form/textarea.hbs }}
 <textarea
-  class={{local-class "input" from "app/components/ui/form/input.css"}}
+  class={{local-class "input" from="app/components/ui/form/input.css"}}
 />
 ```
 
