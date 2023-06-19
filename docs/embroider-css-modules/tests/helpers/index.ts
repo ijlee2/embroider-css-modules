@@ -1,4 +1,3 @@
-import percySnapshot from '@percy/ember';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import {
   setupApplicationTest as upstreamSetupApplicationTest,
@@ -6,6 +5,8 @@ import {
   setupTest as upstreamSetupTest,
 } from 'ember-qunit';
 import type Resolver from 'ember-resolver';
+
+import { takeSnapshot } from './percy';
 
 interface SetupTestOptions {
   resolver?: Resolver | undefined;
@@ -48,8 +49,8 @@ function setupTest(hooks: NestedHooks, options?: SetupTestOptions) {
 
 export {
   a11yAudit,
-  percySnapshot,
   setupApplicationTest,
   setupRenderingTest,
   setupTest,
+  takeSnapshot,
 };

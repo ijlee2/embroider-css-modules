@@ -1,7 +1,7 @@
 import { visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 
-import { percySnapshot, setupApplicationTest } from '../../helpers';
+import { setupApplicationTest, takeSnapshot } from '../../helpers';
 
 module('Acceptance | index', function (hooks) {
   setupApplicationTest(hooks);
@@ -10,7 +10,7 @@ module('Acceptance | index', function (hooks) {
     assert.expect(1);
 
     await visit('/');
-    await percySnapshot(assert);
+    await takeSnapshot(assert);
 
     assert.ok(true);
   });
