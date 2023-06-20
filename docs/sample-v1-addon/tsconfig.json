@@ -20,5 +20,11 @@
     "types/**/*",
     "test-support/**/*",
     "addon-test-support/**/*"
-  ]
+  ],
+  "glint": {
+    "environment": [
+      "ember-loose",
+      "ember-template-imports"
+    ]
+  }
 }
