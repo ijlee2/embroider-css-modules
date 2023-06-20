@@ -1,0 +1,93 @@
+{
+  "name": "sample-v1-addon",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Sample v1 addon for docs-app",
+  "keywords": [
+    "css",
+    "css-modules",
+    "ember-addon",
+    "emberjs",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ijlee2/embroider-css-modules.git"
+  },
+  "license": "MIT",
+  "author": "Isaac J. Lee",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "_build": "ember build --environment=production",
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:css": "stylelint \"**/*.css\" --cache",
+    "lint:css:fix": "stylelint \"**/*.css\" --fix",
+    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint:hbs": "ember-template-lint .",
+    "lint:hbs:fix": "ember-template-lint . --fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "tsc --noEmit",
+    "start": "ember serve",
+    "test": "ember test",
+    "test:ember-compatibility": "ember try:one"
+  },
+  "dependencies": {
+    "ember-auto-import": "^2.6.3",
+    "ember-cli-babel": "^7.26.11",
+    "ember-cli-htmlbars": "^6.2.0"
+  },
+  "devDependencies": {
+    "@ember/optional-features": "^2.0.0",
+    "@ember/string": "^3.1.1",
+    "@ember/test-helpers": "^3.1.0",
+    "@embroider/test-setup": "^3.0.1",
+    "@glimmer/component": "^1.1.2",
+    "@glimmer/tracking": "^1.1.2",
+    "@shared-configs/ember-template-lint": "workspace:*",
+    "@shared-configs/eslint-config-ember": "workspace:*",
+    "@shared-configs/prettier": "workspace:*",
+    "@shared-configs/stylelint": "workspace:*",
+    "@shared-configs/testem": "workspace:*",
+    "@shared-configs/typescript": "workspace:*",
+    "@types/qunit": "^2.19.6",
+    "broccoli-asset-rev": "^3.0.0",
+    "concurrently": "^8.2.0",
+    "ember-cli": "~4.12.1",
+    "ember-cli-dependency-checker": "^3.3.2",
+    "ember-cli-inject-live-reload": "^2.1.0",
+    "ember-cli-sri": "^2.1.1",
+    "ember-cli-terser": "^4.0.2",
+    "ember-load-initializers": "^2.1.2",
+    "ember-page-title": "^7.0.0",
+    "ember-qunit": "^7.0.0",
+    "ember-resolver": "^10.1.1",
+    "ember-source": "~4.12.0",
+    "ember-source-channel-url": "^3.0.0",
+    "ember-template-lint": "^5.10.3",
+    "ember-try": "^2.0.0",
+    "eslint": "^8.43.0",
+    "loader.js": "^4.7.0",
+    "prettier": "^2.8.8",
+    "qunit": "^2.19.4",
+    "qunit-dom": "^2.0.0",
+    "stylelint": "^15.8.0",
+    "typescript": "^5.1.3",
+    "webpack": "^5.87.0"
+  },
+  "peerDependencies": {
+    "ember-source": "^4.0.0"
+  },
+  "engines": {
+    "node": "16.* || >= 18"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "configPath": "tests/dummy/config"
+  }
+}
