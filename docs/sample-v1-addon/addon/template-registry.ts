@@ -1,1 +1,7 @@
-export default interface SampleV1AddonRegistry {}
+import type ProductsProductCardComponent from './components/products/product/card';
+import type ProductsProductImageComponent from './components/products/product/image';
+
+export default interface SampleV1AddonRegistry {
+  'Products::Product::Card': typeof ProductsProductCardComponent;
+  'Products::Product::Image': typeof ProductsProductImageComponent;
+}

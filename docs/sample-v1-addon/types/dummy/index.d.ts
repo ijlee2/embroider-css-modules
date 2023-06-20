@@ -4,6 +4,7 @@ import 'ember-source/types';
 import 'ember-source/types/preview';
 
 import { HelperLike } from '@glint/template';
+import type EmberContainerQueryRegistry from 'ember-container-query/template-registry';
 import type SampleV1AddonRegistry from 'sample-v1-addon/template-registry';
 
 type PageTitleHelper = HelperLike<{
@@ -12,7 +13,9 @@ type PageTitleHelper = HelperLike<{
 }>;
 
 declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry extends SampleV1AddonRegistry {
+  export default interface Registry
+    extends EmberContainerQueryRegistry,
+      SampleV1AddonRegistry {
     // Add any registry entries from other addons here that your addon itself uses (in non-strict mode templates)
     // See https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons
     'page-title': PageTitleHelper;

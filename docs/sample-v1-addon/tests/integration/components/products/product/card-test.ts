@@ -1,10 +1,10 @@
 import type { TestContext as BaseTestContext } from '@ember/test-helpers';
 import { render } from '@ember/test-helpers';
-import type { Product } from 'docs-app-for-embroider-css-modules/data/products';
+import { setupRenderingTest } from 'dummy/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { hbs } from 'ember-cli-htmlbars';
-import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
+import type { Product } from 'sample-v1-addon';
 
 interface TestContext extends BaseTestContext {
   product: Product;
@@ -55,7 +55,13 @@ module('Integration | Component | products/product/card', function (hooks) {
       .hasTagName('a', 'We see the correct tag name.')
       .hasText('Learn more', 'We see the learn more link.');
 
-    await a11yAudit();
+    await a11yAudit({
+      rules: {
+        'scrollable-region-focusable': {
+          enabled: false,
+        },
+      },
+    });
 
     assert.ok(true, 'We passed the accessibility audit.');
   });

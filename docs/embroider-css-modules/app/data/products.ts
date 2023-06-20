@@ -1,13 +1,15 @@
-export type Product = {
-  description: string;
-  id: string;
-  imageUrl: string;
-  name: string;
-  price: number;
-  rating: number;
-  seller: string;
-  shortDescription: string;
-};
+import type { Product } from 'sample-v1-addon';
+
+// export type Product = {
+//   description: string;
+//   id: string;
+//   imageUrl: string;
+//   name: string;
+//   price: number;
+//   rating: number;
+//   seller: string;
+//   shortDescription: string;
+// };
 
 const products: Product[] = [
   {

@@ -1,0 +1,9 @@
+{{#if this.isTestEnvironment}}
+  <div class="placeholder-image"></div>
+
+{{else}}
+  {{! template-lint-disable no-redundant-role }}
+  <img alt="" class="image" role="presentation" src={{@src}} />
+  {{! template-lint-enable no-redundant-role }}
+
+{{/if}}
