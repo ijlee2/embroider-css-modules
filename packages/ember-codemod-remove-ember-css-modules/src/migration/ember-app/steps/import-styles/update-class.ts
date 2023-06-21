@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { readFileSync } from 'node:fs';
-import { join, parse } from 'node:path';
+import { join } from 'node:path';
 
-import { ASTJavaScript as AST } from '@codemod-utils/ast';
-import { createFiles } from '@codemod-utils/files';
+import { AST } from '@codemod-utils/ast-javascript';
+import { createFiles, parseFilePath } from '@codemod-utils/files';
 
 import type { OptionsForImportStyles } from '../../../../types/index.js';
 
@@ -145,12 +145,12 @@ export function updateClass(
   const { __styles__, projectRoot } = options;
 
   const filePath = getFilePath(entityName);
-  const { ext: fileExtension, name: fileName } = parse(filePath);
+  const { ext, name } = parseFilePath(filePath);
 
   const data = {
     __styles__,
-    fileName,
-    isTypeScript: fileExtension === '.ts',
+    fileName: name,
+    isTypeScript: ext === '.ts',
   };
 
   try {

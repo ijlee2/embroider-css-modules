@@ -2,11 +2,11 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { processTemplate } from '@codemod-utils/blueprints';
-import { createFiles } from '@codemod-utils/files';
+import { classify, doubleColonize } from '@codemod-utils/ember-cli-string';
+import { createFiles, parseFilePath } from '@codemod-utils/files';
 
 import type { OptionsForImportStyles } from '../../../../types/index.js';
 import { blueprintsRoot } from '../../../../utils/blueprints.js';
-import { parseEntityName } from '../../../../utils/string.js';
 
 export function createClass(
   entityName: string,
@@ -14,7 +14,13 @@ export function createClass(
 ): void {
   const { blueprintFilePaths, getFilePath } = customizations;
 
-  const entity = parseEntityName(entityName);
+  const entity = {
+    classifiedName: classify(entityName),
+    doubleColonizedName: doubleColonize(entityName),
+    fileName: parseFilePath(entityName).name,
+    name: entityName,
+  };
+
   const filePath = getFilePath(entityName);
 
   const fileMap = new Map(
