@@ -15,6 +15,14 @@
 # Compile TypeScript
 pnpm build
 
-./codemod-test-fixture.sh -s "app" ember-app-flat
-./codemod-test-fixture.sh -s "app" ember-app-module-css-extension
-./codemod-test-fixture.sh -s "app/components app/controllers" ember-app-nested
+./codemod-test-fixture.sh \
+  -a "--src app" \
+  ember-app-flat
+
+./codemod-test-fixture.sh \
+  -a "--src app" \
+  ember-app-module-css-extension
+
+./codemod-test-fixture.sh \
+  -a "--src app/components app/controllers" \
+  ember-app-nested
