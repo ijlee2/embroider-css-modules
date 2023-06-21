@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { ASTHandlebars as AST } from '@codemod-utils/ast';
+import { AST } from '@codemod-utils/ast-template';
 import { createFiles } from '@codemod-utils/files';
 
 import type { OptionsForUpdateTemplates } from '../../../../types/index.js';

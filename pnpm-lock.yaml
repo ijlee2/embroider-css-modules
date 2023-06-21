@@ -693,9 +693,12 @@ importers:
 
   packages/ember-codemod-remove-ember-css-modules:
     dependencies:
-      '@codemod-utils/ast':
-        specifier: ^0.2.0
-        version: 0.2.0
+      '@codemod-utils/ast-javascript':
+        specifier: ^0.3.0
+        version: 0.3.0
+      '@codemod-utils/ast-template':
+        specifier: ^0.3.0
+        version: 0.3.0
       '@codemod-utils/blueprints':
         specifier: ^0.2.0
         version: 0.2.0
@@ -3541,13 +3544,19 @@ packages:
       minimist: 1.2.8
     dev: true
 
-  /@codemod-utils/ast@0.2.0:
-    resolution: {integrity: sha512-lypRb8zK8dOqnS5AChggFgyxGWWB1VNiLaz0Qhcz4WCqADf0gHWMAL3cPQNrC4tds2/PBYPkiDuNZggamRejJg==}
+  /@codemod-utils/ast-javascript@0.3.0:
+    resolution: {integrity: sha512-s2Ai9ipG2z4AX+kr+THt6E78PC0kZjUDe0LLTTV/Pz39pMLomq2/M1KcF6Gkdj63kPRXpLP1E3ul8u3K7QmaaQ==}
     engines: {node: 16.* || >= 18}
     dependencies:
       '@babel/parser': 7.22.5
-      ember-template-recast: 6.1.4
       recast: 0.23.2
+    dev: false
+
+  /@codemod-utils/ast-template@0.3.0:
+    resolution: {integrity: sha512-q0CNtKbllay+mq+n263rG+6WzwB3ZFHfqhtN/uSkTrkMcDS+Y4Fn7+ekeUR5deLk2ixCMXMbwwQGd3Gi/H0WoQ==}
+    engines: {node: 16.* || >= 18}
+    dependencies:
+      ember-template-recast: 6.1.4
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -9990,7 +9999,7 @@ packages:
     resolution: {integrity: sha512-g3OMbtlwY3QewlqAiMLI47KywjWZoEytKr8pf6iTC8uJq5bIAH52Z9pnQ8pVL6whrCto53JZDuUIsifGeLorTg==}
     engines: {node: '>= 0.4'}
     dependencies:
-      get-intrinsic: 1.2.0
+      get-intrinsic: 1.2.1
       has: 1.0.3
       has-tostringtag: 1.0.0
 
@@ -11164,13 +11173,6 @@ packages:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
 
-  /get-intrinsic@1.2.0:
-    resolution: {integrity: sha512-L049y6nFOuom5wGyRc3/gdTLO94dySVKRACj1RmJZBQXlbTMhtNIgkWkUHq+jYmZvKf14EW1EoJnnjbmoHij0Q==}
-    dependencies:
-      function-bind: 1.1.1
-      has: 1.0.3
-      has-symbols: 1.0.3
-
   /get-intrinsic@1.2.1:
     resolution: {integrity: sha512-2DcsyfABl+gVHEfCOaTrWgyt+tb6MSEGmKq+kI5HwLbIYgjgmMcV8KQ41uaKz1xxUcn9tJtgFbQUEVcEbd0FYw==}
     dependencies:
@@ -11211,7 +11213,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
-      get-intrinsic: 1.2.0
+      get-intrinsic: 1.2.1
 
   /get-tsconfig@4.5.0:
     resolution: {integrity: sha512-MjhiaIWCJ1sAU4pIQ5i5OfOuHHxVo1oYeNsWTON7jxYkod8pHocXeh+SSbmu5OZZZK73B6cbJ2XADzXehLyovQ==}
@@ -11418,7 +11420,7 @@ packages:
   /gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
     dependencies:
-      get-intrinsic: 1.2.0
+      get-intrinsic: 1.2.1
 
   /got@9.6.0:
     resolution: {integrity: sha512-R7eWptXuGYxwijs0eV+v3o6+XH1IqVK8dJOEecQfTmkncw9AV4dcw/Dhxi8MdlqPthxxpZyizMzyg8RTmEsG+Q==}
@@ -11954,7 +11956,7 @@ packages:
     resolution: {integrity: sha512-y+FyyR/w8vfIRq4eQcM1EYgSTnmHXPqaF+IgzgraytCFq5Xh8lllDVmAZolPJiZttZLeFSINPYMaEJ7/vWUa1w==}
     dependencies:
       call-bind: 1.0.2
-      get-intrinsic: 1.2.0
+      get-intrinsic: 1.2.1
       is-typed-array: 1.1.10
 
   /is-arrayish@0.2.1:
@@ -15214,7 +15216,7 @@ packages:
     resolution: {integrity: sha512-JBUUzyOgEwXQY1NuPtvcj/qcBDbDmEvWufhlnXZIm75DEHp+afM1r1ujJpJsV/gSM4t59tpDyPi1sd6ZaPFfsA==}
     dependencies:
       call-bind: 1.0.2
-      get-intrinsic: 1.2.0
+      get-intrinsic: 1.2.1
       is-regex: 1.1.4
 
   /safe-regex@1.1.0:
@@ -15440,7 +15442,7 @@ packages:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
     dependencies:
       call-bind: 1.0.2
-      get-intrinsic: 1.2.0
+      get-intrinsic: 1.2.1
       object-inspect: 1.12.3
 
   /signal-exit@3.0.7:

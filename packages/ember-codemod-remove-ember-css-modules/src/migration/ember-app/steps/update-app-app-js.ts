@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { extname, join } from 'node:path';
 
-import { ASTJavaScript as AST } from '@codemod-utils/ast';
+import { AST } from '@codemod-utils/ast-javascript';
 import { createFiles, findFiles } from '@codemod-utils/files';
 
 import type { Options } from '../../../types/index.js';

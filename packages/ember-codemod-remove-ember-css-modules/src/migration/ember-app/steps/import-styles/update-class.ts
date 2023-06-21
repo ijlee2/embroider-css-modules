@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs';
 import { join, parse } from 'node:path';
 
-import { ASTJavaScript as AST } from '@codemod-utils/ast';
+import { AST } from '@codemod-utils/ast-javascript';
 import { createFiles } from '@codemod-utils/files';
 
 import type { OptionsForImportStyles } from '../../../../types/index.js';
