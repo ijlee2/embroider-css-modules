@@ -700,21 +700,21 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0
       '@codemod-utils/blueprints':
-        specifier: ^0.2.0
-        version: 0.2.0
+        specifier: ^0.2.1
+        version: 0.2.1
       '@codemod-utils/files':
-        specifier: ^0.4.1
-        version: 0.4.1
+        specifier: ^0.5.0
+        version: 0.5.0
       '@codemod-utils/json':
-        specifier: ^0.3.1
-        version: 0.3.1
+        specifier: ^0.3.2
+        version: 0.3.2
       yargs:
         specifier: ^17.7.2
         version: 17.7.2
     devDependencies:
       '@codemod-utils/tests':
-        specifier: ^0.2.2
-        version: 0.2.2(@sondr3/minitest@0.1.1)
+        specifier: ^0.2.3
+        version: 0.2.3(@sondr3/minitest@0.1.1)
       '@shared-configs/eslint-config-node':
         specifier: workspace:*
         version: link:../../configs/eslint/node
@@ -895,8 +895,8 @@ importers:
   packages/type-css-modules:
     dependencies:
       '@codemod-utils/files':
-        specifier: ^0.4.1
-        version: 0.4.1
+        specifier: ^0.5.0
+        version: 0.5.0
       css-tree:
         specifier: ^2.3.1
         version: 2.3.1
@@ -905,8 +905,8 @@ importers:
         version: 17.7.2
     devDependencies:
       '@codemod-utils/tests':
-        specifier: ^0.2.2
-        version: 0.2.2(@sondr3/minitest@0.1.1)
+        specifier: ^0.2.3
+        version: 0.2.3(@sondr3/minitest@0.1.1)
       '@shared-configs/eslint-config-node':
         specifier: workspace:*
         version: link:../../configs/eslint/node
@@ -3561,29 +3561,29 @@ packages:
       - supports-color
     dev: false
 
-  /@codemod-utils/blueprints@0.2.0:
-    resolution: {integrity: sha512-u64Ooxb9T8TOvWdrvuXlqRA2rZMA/FPtOwEvrfZvHCGYQ/LUp0vbATD2TauyAvGJ8N+sFd9Jxv5b9/WJZGTWjg==}
+  /@codemod-utils/blueprints@0.2.1:
+    resolution: {integrity: sha512-M9MS0dj/Zeg3gHlOiGGmhh/J7dnlv/Eo1u5vpU0YK6qc4Zfyew+LegeHr+vXuPVX5/5pH3Bpi/QUBmKHz8NHHQ==}
     engines: {node: 16.* || >= 18}
     dependencies:
       lodash.template: 4.5.0
     dev: false
 
-  /@codemod-utils/files@0.4.1:
-    resolution: {integrity: sha512-uMfkkerctw9VfoRxh/LBsbeKiFYJ/eg4xsSocfgqNfuOnPkAQybcdzx9G8QWzMMLSV4GqCQ7yTLfmiOrTwS6kQ==}
+  /@codemod-utils/files@0.5.0:
+    resolution: {integrity: sha512-OfpqDF1OyuYSnuxj/jKXhA0INhpeP7YjOo0VJZQMB1qsMUy+bE75DmxjCLQD93NHM/iiakt/moO2sUDNvv5Gvg==}
     engines: {node: 16.* || >= 18}
     dependencies:
       glob: 10.2.7
     dev: false
 
-  /@codemod-utils/json@0.3.1:
-    resolution: {integrity: sha512-e/aYyQxisAguz9GUS4tShS0drLuDK+D9LuB9tTD6jU/KC8AciSl86C5ulwViVnfX/q3n7C/zY+N7G8ra9X8shQ==}
+  /@codemod-utils/json@0.3.2:
+    resolution: {integrity: sha512-/M4wcYIHqNBND4xydZnSaqk0ZfQ1sTr5GoJwbTZwlk29xXOKVox0eA71XKCGk5zvvQtX5O1ZmfwCwShhDXjhmg==}
     engines: {node: 16.* || >= 18}
     dependencies:
-      type-fest: 3.11.1
+      type-fest: 3.12.0
     dev: false
 
-  /@codemod-utils/tests@0.2.2(@sondr3/minitest@0.1.1):
-    resolution: {integrity: sha512-a6j3RPqyVsNdgHNgcHDkVbjlXFIc58Cie3o3gobtJPeOONVkBfK4XLDpqJ2jJBQOg8paTmyrfdz/1JCoV891xQ==}
+  /@codemod-utils/tests@0.2.3(@sondr3/minitest@0.1.1):
+    resolution: {integrity: sha512-/nidrP0iX1DenCdOmEcqO7dyMbhC3Tmrq/IZTJwn5FNES6dMFNvfCYkGSQWb2mmxYAVRnIkPg1lmzuZhWwliBA==}
     engines: {node: 16.* || >= 18}
     peerDependencies:
       '@sondr3/minitest': ^0.1.1
@@ -4109,7 +4109,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       espree: 9.5.2
       globals: 13.20.0
       ignore: 5.2.4
@@ -4345,7 +4345,7 @@ packages:
     engines: {node: '>=10.10.0'}
     dependencies:
       '@humanwhocodes/object-schema': 1.2.1
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -5929,7 +5929,7 @@ packages:
     resolution: {integrity: sha512-xi0aQ1rrjPWYmqbwr18rrSKbSaXIeIwSd1J4KAgVfkq8utNbdZoht7GfvfY6swFUAMJ9obkc4WPJmtGwl+B8dw==}
     dependencies:
       async: 2.6.4
-      debug: 2.6.9(supports-color@8.1.1)
+      debug: 2.6.9
     transitivePeerDependencies:
       - supports-color
 
@@ -8515,6 +8515,16 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.5
 
+  /debug@2.6.9:
+    resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.0.0
+
   /debug@2.6.9(supports-color@8.1.1):
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     peerDependencies:
@@ -8535,6 +8545,17 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.3
+
+  /debug@4.3.4:
+    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.2
 
   /debug@4.3.4(supports-color@8.1.1):
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
@@ -10310,7 +10331,7 @@ packages:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.3
-      debug: 4.3.4(supports-color@8.1.1)
+      debug: 4.3.4
       doctrine: 3.0.0
       escape-string-regexp: 4.0.0
       eslint-scope: 7.2.0
@@ -16681,8 +16702,8 @@ packages:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
 
-  /type-fest@3.11.1:
-    resolution: {integrity: sha512-aCuRNRERRVh33lgQaJRlUxZqzfhzwTrsE98Mc3o3VXqmiaQdHacgUtJ0esp+7MvZ92qhtzKPeusaX6vIEcoreA==}
+  /type-fest@3.12.0:
+    resolution: {integrity: sha512-qj9wWsnFvVEMUDbESiilKeXeHL7FwwiFcogfhfyjmvT968RXSvnl23f1JOClTHYItsi7o501C/7qVllscUP3oA==}
     engines: {node: '>=14.16'}
     dev: false
 
