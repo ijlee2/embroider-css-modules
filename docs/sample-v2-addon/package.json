@@ -86,7 +86,7 @@
     "rollup": "^3.25.1",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-ts": "^3.2.0",
-    "stylelint": "^15.8.0",
+    "stylelint": "^15.9.0",
     "type-css-modules": "workspace:*",
     "typescript": "^5.1.3"
   },
