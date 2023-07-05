@@ -1,4 +1,4 @@
-import { s as styleInject, _ as _defineProperty } from '../../../style-inject.es-b06dca24.js';
+import { s as styleInject, _ as _defineProperty } from '../../../style-inject.es-15b45093.js';
 import { setComponentTemplate } from '@ember/component';
 import { precompileTemplate } from '@ember/template-compilation';
 import Component from '@glimmer/component';
@@ -6,9 +6,7 @@ import Component from '@glimmer/component';
 var TEMPLATE = precompileTemplate("<div class={{this.styles.demo}}>\n  {{yield}}\n</div>");
 
 var css_248z = ".sample-v2-addon__elaWL {\n  border: 1px dashed lightsteelblue;\n}\n";
-var styles = setComponentTemplate(TEMPLATE, {
-  "demo": "sample-v2-addon__elaWL"
-});
+var styles = {"demo":"sample-v2-addon__elaWL"};
 styleInject(css_248z);
 
 class UiPageDemoComponent extends Component {

@@ -1,0 +1,1 @@
+{"version":3,"file":"subsection.d.ts","sourceRoot":"","sources":["../../../../src/components/ui/page/subsection.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,oBAAoB,CAAC;AAI3C,UAAU,yBAAyB;IACjC,MAAM,EAAE;QACN,OAAO,EAAE,EAAE,CAAC;QACZ,KAAK,EAAE,EAAE,CAAC;KACX,CAAC;CACH;AAED,MAAM,CAAC,OAAO,OAAO,yBAA0B,SAAQ,SAAS,CAAC,yBAAyB,CAAC;IACzF,MAAM;;;MAAU;CAmCjB"}

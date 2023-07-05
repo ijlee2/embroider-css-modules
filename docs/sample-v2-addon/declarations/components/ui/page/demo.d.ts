@@ -4,9 +4,10 @@ interface UiPageDemoSignature {
         default: [];
     };
 }
-declare class UiPageDemoComponent extends Component<UiPageDemoSignature> {
+export default class UiPageDemoComponent extends Component<UiPageDemoSignature> {
     styles: {
         readonly demo: string;
     };
 }
-export { UiPageDemoComponent as default };
+export {};
+//# sourceMappingURL=demo.d.ts.map

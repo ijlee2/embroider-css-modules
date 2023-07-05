@@ -5,10 +5,11 @@ interface UiPageSectionSignature {
         title: [];
     };
 }
-declare class UiPageSectionComponent extends Component<UiPageSectionSignature> {
+export default class UiPageSectionComponent extends Component<UiPageSectionSignature> {
     styles: {
         readonly section: string;
         readonly title: string;
     };
 }
-export { UiPageSectionComponent as default };
+export {};
+//# sourceMappingURL=section.d.ts.map

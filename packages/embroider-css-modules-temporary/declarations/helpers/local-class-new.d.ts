@@ -1,4 +1,3 @@
-/// <reference types="ents" />
 import Helper from '@ember/component/helper';
 type IndexSignatureParameter = string | number | symbol;
 type LocalClassName<T extends IndexSignatureParameter> = T;
@@ -10,8 +9,8 @@ interface LocalClassNewHelperSignature<T extends IndexSignatureParameter> {
     };
     Return: string;
 }
-declare class LocalClassNewHelper<T extends IndexSignatureParameter> extends Helper<LocalClassNewHelperSignature<T>> {
+export default class LocalClassNewHelper<T extends IndexSignatureParameter> extends Helper<LocalClassNewHelperSignature<T>> {
     compute(positional: LocalClassNewHelperSignature<T>['Args']['Positional']): string;
 }
-export { LocalClassNewHelper as default };
-//# sourceMappingURL=helpers/local-class-new.d.ts.map
+export {};
+//# sourceMappingURL=local-class-new.d.ts.map

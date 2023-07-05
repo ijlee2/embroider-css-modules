@@ -5,10 +5,11 @@ interface UiPageSubsectionSignature {
         title: [];
     };
 }
-declare class UiPageSubsectionComponent extends Component<UiPageSubsectionSignature> {
+export default class UiPageSubsectionComponent extends Component<UiPageSubsectionSignature> {
     styles: {
         readonly subsection: string;
         readonly title: string;
     };
 }
-export { UiPageSubsectionComponent as default };
+export {};
+//# sourceMappingURL=subsection.d.ts.map

@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 import { WithBoundArgs } from '@glint/template';
-import UiPageDemoComponent from "./page/demo.js";
-import UiPageSectionComponent from "./page/section.js";
-import UiPageSubsectionComponent from "./page/subsection.js";
+import type UiPageDemoComponent from './page/demo';
+import type UiPageSectionComponent from './page/section';
+import type UiPageSubsectionComponent from './page/subsection';
 interface UiPageSignature {
     Args: {
         title: string;
@@ -17,11 +17,12 @@ interface UiPageSignature {
         ];
     };
 }
-declare class UiPageComponent extends Component<UiPageSignature> {
+export default class UiPageComponent extends Component<UiPageSignature> {
     styles: {
         readonly container: string;
         readonly content: string;
         readonly title: string;
     };
 }
-export { UiPageComponent as default };
+export {};
+//# sourceMappingURL=page.d.ts.map

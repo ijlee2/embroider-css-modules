@@ -9,11 +9,11 @@ interface NavigationMenuSignature {
         name?: string;
     };
 }
-declare class NavigationMenuComponent extends Component<NavigationMenuSignature> {
+export default class NavigationMenuComponent extends Component<NavigationMenuSignature> {
     styles: {
         readonly link: string;
         readonly list: string;
     };
 }
-export { NavigationMenuComponent as default };
-//# sourceMappingURL=components/navigation-menu.d.ts.map
+export {};
+//# sourceMappingURL=navigation-menu.d.ts.map
