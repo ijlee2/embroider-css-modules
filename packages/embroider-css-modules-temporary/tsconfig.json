@@ -2,8 +2,6 @@
   "extends": "@shared-configs/typescript/ember",
   "compilerOptions": {
     "declarationDir": "declarations",
-    "emitDeclarationOnly": true,
-    "noEmit": false,
     "skipLibCheck": true
   },
   "include": [

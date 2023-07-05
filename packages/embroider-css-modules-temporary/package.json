@@ -45,9 +45,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "concurrently \"npm:build:*\"",
+    "build": "concurrently \"npm:build:*\" --names \"build:\"",
     "build:js": "rollup --config",
-    "build:types": "glint --build",
+    "build:types": "glint --declaration",
     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
     "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
     "lint:hbs": "ember-template-lint .",
@@ -56,9 +56,9 @@
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
     "prepack": "rollup --config",
-    "start": "concurrently \"npm:start:*\"",
-    "start:js": "rollup --config --watch",
-    "start:types": "glint --build --watch",
+    "start": "concurrently \"npm:start:*\" --names \"start:\"",
+    "start:js": "rollup --config --watch --no-watch.clearScreen",
+    "start:types": "glint --declaration --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in tests/embroider-css-modules-temporary'"
   },
   "dependencies": {
