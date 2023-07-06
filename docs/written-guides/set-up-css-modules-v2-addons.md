@@ -20,7 +20,8 @@ We will use Rollup and PostCSS to implement CSS modules. (If you get lost, you c
 A "standard" v2 addon, created with [`@embroider/addon-blueprint`](https://github.com/embroider-build/addon-blueprint) or migrated to with [`ember-codemod-v1-to-v2`](https://github.com/ijlee2/ember-codemod-v1-to-v2/), will have these dependencies already.
 
 - `rollup`
-- `rollup-plugin-ts`<sup>1</sup>
+- `@rollup/plugin-babel`
+- `@rollup/plugin-node-resolve`
 
 For PostCSS, here is what you likely need at minimum.
 
@@ -29,7 +30,7 @@ For PostCSS, here is what you likely need at minimum.
 
 Finally, some packages to improve your developer experience (DX).
 
-- [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)<sup>2, 3</sup>
+- [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)<sup>1, 2</sup>
 - [`type-css-modules`](../../packages/type-css-modules/README.md)<sup>1</sup>
 
 All in all, here are the commands for installation:
@@ -39,11 +40,9 @@ pnpm install --dev postcss rollup-plugin-postcss type-css-modules
 pnpm install embroider-css-modules
 ```
 
-<sup>1. Needed only if you have a TypeScript project.</sup>
+<sup>1. Needed only if you use the `{{local-class}}` helper. Add to `dependencies`, not `devDependencies`.</sup>
 
-<sup>2. Needed only if you use the `{{local-class}}` helper. Add to `dependencies`, not `devDependencies`.</sup>
-
-<sup>3. Install [`embroider-css-modules-temporary`](../../packages/embroider-css-modules-temporary/README.md) instead, if your addon will be consumed by an Ember project that depends on `ember-css-modules`.</sup>
+<sup>2. Install [`embroider-css-modules-temporary`](../../packages/embroider-css-modules-temporary/README.md) instead, if your addon will be consumed by an Ember project that depends on `ember-css-modules`.</sup>
 
 
 ## Configure Rollup
@@ -58,13 +57,16 @@ For simplicity, the comments have been hidden.
 
 ```js
 import { Addon } from '@embroider/addon-dev/rollup';
+import { babel } from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy';
-import typescript from 'rollup-plugin-ts';
 
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist',
 });
+
+const extensions = ['.js', '.ts'];
 
 export default {
   output: addon.output(),
@@ -80,11 +82,13 @@ export default {
 
     addon.dependencies(),
 
-    // Alternatively, babel(), if you have a JavaScript project
-    typescript({
-      transpiler: 'babel',
-      browserslist: false,
-      transpileOnly: false,
+    babel({
+      babelHelpers: 'bundled',
+      extensions,
+    }),
+
+    nodeResolve({
+      extensions,
     }),
 
     addon.hbs(),
@@ -108,22 +112,25 @@ export default {
 
 ### Update rollup.config.mjs
 
-Add `rollup-plugin-postcss` before `rollup-plugin-ts` (order matters). Then, remove the glob pattern `**/*.css` from `addon.keepAssets()`.
+Add `rollup-plugin-postcss` before `babel()` (order matters). Then, remove the glob pattern `**/*.css` from `addon.keepAssets()`.
 
 <details>
 
 <summary><code>rollup.config.mjs</code></summary>
 
-```js
+```diff
 import { Addon } from '@embroider/addon-dev/rollup';
+import { babel } from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy';
-import postcss from 'rollup-plugin-postcss';
-import typescript from 'rollup-plugin-ts';
++ import postcss from 'rollup-plugin-postcss';
 
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist',
 });
+
+const extensions = ['.js', '.ts'];
 
 export default {
   output: addon.output(),
@@ -139,17 +146,20 @@ export default {
 
     addon.dependencies(),
 
-    postcss({
-      autoModules: false,
-      modules: {
-        generateScopedName: 'your-v2-addon__[sha512:hash:base64:5]',
-      },
++    postcss({
++      autoModules: false,
++      modules: {
++        generateScopedName: 'your-v2-addon__[sha512:hash:base64:5]',
++      },
++    }),
++
+    babel({
+      babelHelpers: 'bundled',
+      extensions,
     }),
 
-    typescript({
-      transpiler: 'babel',
-      browserslist: false,
-      transpileOnly: false,
+    nodeResolve({
+      extensions,
     }),
 
     addon.hbs(),
@@ -237,17 +247,20 @@ import navigationMenuStyles from 'your-v2-addon/components/navigation-menu.css';
 
 Now, the addon must help resolve the import path. We can do so by updating the `exports` field in `package.json`:
 
-```json5
+```diff
 /* package.json */
 {
   "exports": {
-    ".": "./dist/index.js",
-    "./*.css": {
-      "types": "./src/*.css.d.ts",
-      "default": "./src/*.css"
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
     },
++    "./*.css": {
++      "types": "./src/*.css.d.ts",
++      "default": "./src/*.css"
++    },
     "./*": {
-      "types": "./dist/*.d.ts",
+      "types": "./declarations/*.d.ts",
       "default": "./dist/*.js"
     },
     "./addon-main.js": "./addon-main.cjs"

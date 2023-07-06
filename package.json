@@ -38,9 +38,6 @@
   "pnpm": {
     "overrides": {
       "eslint-plugin-import@2.27.5>tsconfig-paths": "^4.2.0"
-    },
-    "patchedDependencies": {
-      "rollup-plugin-ts@3.2.0": "patches/rollup-plugin-ts@3.2.0.patch"
     }
   }
 }
