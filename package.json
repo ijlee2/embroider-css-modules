@@ -38,6 +38,9 @@
   "pnpm": {
     "overrides": {
       "eslint-plugin-import@2.27.5>tsconfig-paths": "^4.2.0"
+    },
+    "patchedDependencies": {
+      "ember-container-query@4.0.4": "patches/ember-container-query@4.0.4.patch"
     }
   }
 }

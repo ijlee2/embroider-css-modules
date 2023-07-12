@@ -3,6 +3,11 @@ lockfileVersion: '6.0'
 overrides:
   eslint-plugin-import@2.27.5>tsconfig-paths: ^4.2.0
 
+patchedDependencies:
+  ember-container-query@4.0.4:
+    hash: oxldxvno4ucchy3d5ro7uzrqi4
+    path: patches/ember-container-query@4.0.4.patch
+
 importers:
 
   .:
@@ -353,7 +358,7 @@ importers:
         version: 0.4.1
       ember-container-query:
         specifier: ^4.0.4
-        version: 4.0.4(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)(ember-source@5.0.0)
+        version: 4.0.4(patch_hash=oxldxvno4ucchy3d5ro7uzrqi4)(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)(ember-source@5.0.0)
       ember-load-initializers:
         specifier: ^2.1.2
         version: 2.1.2(@babel/core@7.22.8)
@@ -9427,7 +9432,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-container-query@4.0.4(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)(ember-source@5.0.0):
+  /ember-container-query@4.0.4(patch_hash=oxldxvno4ucchy3d5ro7uzrqi4)(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)(ember-source@5.0.0):
     resolution: {integrity: sha512-vgS1wD30c1QzDQH9OVeRmpEhZGpL6TKMTJ2d0WVuh2HG8J1wYEQafSL65muB9LX6w+ubo/bAu3CW9whI/kpCcw==}
     engines: {node: 16.* || >= 18}
     dependencies:
@@ -9441,6 +9446,7 @@ packages:
       - ember-source
       - supports-color
     dev: true
+    patched: true
 
   /ember-css-modules@2.0.1:
     resolution: {integrity: sha512-SsWrVqmzymljS/yzpbJHAMPZaoh6xMyy2N26GWA3vnwgPE6S+jbErv+9RaSeqPlUZR1YE1LkhHleFcTSM9FOUA==}
