@@ -65,11 +65,11 @@
     "@embroider/addon-shim": "^1.8.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.5",
+    "@babel/core": "^7.22.8",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-decorators": "^7.22.5",
+    "@babel/plugin-proposal-decorators": "^7.22.7",
     "@babel/preset-typescript": "^7.22.5",
-    "@babel/runtime": "^7.22.5",
+    "@babel/runtime": "^7.22.6",
     "@embroider/addon-dev": "^3.1.1",
     "@glint/core": "^1.0.2",
     "@glint/environment-ember-loose": "^1.0.2",
@@ -83,11 +83,11 @@
     "@types/ember__component": "^4.0.14",
     "@types/ember__debug": "^4.0.4",
     "concurrently": "^8.2.0",
-    "ember-template-lint": "^5.10.3",
-    "eslint": "^8.43.0",
+    "ember-template-lint": "^5.11.0",
+    "eslint": "^8.44.0",
     "prettier": "^2.8.8",
-    "rollup": "^3.25.1",
-    "typescript": "^5.1.3"
+    "rollup": "^3.26.2",
+    "typescript": "^5.1.6"
   },
   "engines": {
     "node": "16.* || >= 18"
