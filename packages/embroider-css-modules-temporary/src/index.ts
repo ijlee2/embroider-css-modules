@@ -1,1 +1,1 @@
-export { default as localClassNew } from './helpers/local-class-new';
+export { default as localClassNew } from './helpers/local-class-new.ts';

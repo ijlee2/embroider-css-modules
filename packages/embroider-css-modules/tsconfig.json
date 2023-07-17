@@ -1,6 +1,7 @@
 {
   "extends": "@shared-configs/typescript/ember",
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "declarationDir": "declarations",
     "skipLibCheck": true
   },
