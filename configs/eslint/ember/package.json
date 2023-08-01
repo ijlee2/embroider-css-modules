@@ -21,11 +21,11 @@
     "@typescript-eslint/parser": "^5.60.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.5",
-    "eslint-plugin-ember": "^11.8.0",
+    "eslint-plugin-ember": "^11.10.0",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-n": "^16.0.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-qunit": "^7.3.4",
+    "eslint-plugin-qunit": "^8.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-typescript-sort-keys": "^2.3.0"
   },
@@ -33,7 +33,7 @@
     "@shared-configs/eslint-config-node": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "concurrently": "^8.2.0",
-    "eslint": "^8.43.0",
+    "eslint": "^8.45.0",
     "prettier": "^2.8.8"
   },
   "peerDependencies": {
