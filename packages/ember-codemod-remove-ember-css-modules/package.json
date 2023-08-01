@@ -41,7 +41,7 @@
     "@codemod-utils/blueprints": "^0.2.1",
     "@codemod-utils/ember-cli-string": "^0.1.1",
     "@codemod-utils/files": "^0.5.2",
-    "@codemod-utils/json": "^0.3.4",
+    "@codemod-utils/json": "^0.4.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
