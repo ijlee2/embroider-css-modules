@@ -45,6 +45,7 @@ function updateDevDependencies(
     devDependencies.set(packageName, version);
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   packageJson['devDependencies'] = convertToObject(devDependencies);
 }
 
@@ -57,6 +58,7 @@ function updateScripts(packageJson: PackageJson, options: Options): void {
     scripts.set('prelint:types', 'type-css-modules --src app');
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   packageJson['scripts'] = convertToObject(scripts);
 }
 

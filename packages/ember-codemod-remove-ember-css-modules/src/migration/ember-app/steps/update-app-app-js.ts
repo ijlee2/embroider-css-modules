@@ -23,6 +23,7 @@ function addCssEntryPoint(file: string, data: Data): string {
         AST.builders.noop(),
       ];
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       path.value.body.unshift(...nodesToAdd);
 
       return false;
