@@ -68,7 +68,7 @@
     "ember-load-initializers": "^2.1.2",
     "ember-page-title": "^7.0.0",
     "ember-qunit": "^7.0.0",
-    "ember-resolver": "^10.1.1",
+    "ember-resolver": "^11.0.0",
     "ember-source": "~5.0.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-imports": "^3.4.2",
@@ -85,7 +85,7 @@
     "stylelint": "^15.10.2",
     "stylelint-no-unsupported-browser-features": "^7.0.0",
     "typescript": "^5.1.6",
-    "webpack": "^5.88.1"
+    "webpack": "^5.88.2"
   },
   "engines": {
     "node": "16.* || >= 18"
