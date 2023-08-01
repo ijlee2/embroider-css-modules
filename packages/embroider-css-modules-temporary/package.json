@@ -82,9 +82,9 @@
     "@types/ember__component": "^4.0.14",
     "@types/ember__debug": "^4.0.4",
     "concurrently": "^8.2.0",
-    "ember-template-lint": "^5.11.0",
-    "eslint": "^8.45.0",
-    "prettier": "^2.8.8",
+    "ember-template-lint": "^5.11.1",
+    "eslint": "^8.46.0",
+    "prettier": "^3.0.0",
     "rollup": "^3.26.3",
     "typescript": "^5.1.6"
   },
