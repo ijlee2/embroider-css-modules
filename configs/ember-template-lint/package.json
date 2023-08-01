@@ -16,12 +16,12 @@
     "lint:js:fix": "prettier --write \"**/*.js\""
   },
   "dependencies": {
-    "ember-template-lint-plugin-prettier": "^4.2.0"
+    "ember-template-lint-plugin-prettier": "^5.0.0"
   },
   "devDependencies": {
     "@shared-configs/prettier": "workspace:*",
     "concurrently": "^8.2.0",
-    "prettier": "^2.8.8"
+    "prettier": "^3.0.0"
   },
   "peerDependencies": {
     "ember-template-lint": "^5.7.0"
