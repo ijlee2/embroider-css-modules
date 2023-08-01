@@ -1,5 +1,15 @@
 # sample-v2-addon
 
+## 0.1.10
+
+### Patch Changes
+
+- [#94](https://github.com/ijlee2/embroider-css-modules/pull/94) Updated dependencies (Part 3) ([@ijlee2](https://github.com/ijlee2))
+- [#93](https://github.com/ijlee2/embroider-css-modules/pull/93) Update2 dependencies (Part 2) ([@ijlee2](https://github.com/ijlee2))
+- [#92](https://github.com/ijlee2/embroider-css-modules/pull/92) Updated dependencies (Part 1) ([@ijlee2](https://github.com/ijlee2))
+- [#91](https://github.com/ijlee2/embroider-css-modules/pull/91) Downstreamed bug fix from @embroider/addon-blueprint#155 ([@ijlee2](https://github.com/ijlee2))
+- [#89](https://github.com/ijlee2/embroider-css-modules/pull/89) Removed rollup-plugin-ts ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.9
 
 ### Patch Changes
