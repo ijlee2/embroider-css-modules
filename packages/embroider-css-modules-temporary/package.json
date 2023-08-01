@@ -75,7 +75,6 @@
     "@glint/environment-ember-loose": "^1.0.2",
     "@glint/template": "^1.0.2",
     "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-node-resolve": "^15.1.0",
     "@shared-configs/ember-template-lint": "workspace:*",
     "@shared-configs/eslint-config-ember": "workspace:*",
     "@shared-configs/prettier": "workspace:*",

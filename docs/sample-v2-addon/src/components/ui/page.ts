@@ -2,9 +2,9 @@ import Component from '@glimmer/component';
 import { WithBoundArgs } from '@glint/template';
 
 import styles from './page.css';
-import type UiPageDemoComponent from './page/demo';
-import type UiPageSectionComponent from './page/section';
-import type UiPageSubsectionComponent from './page/subsection';
+import type UiPageDemoComponent from './page/demo.ts';
+import type UiPageSectionComponent from './page/section.ts';
+import type UiPageSubsectionComponent from './page/subsection.ts';
 
 interface UiPageSignature {
   Args: {

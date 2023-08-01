@@ -6,7 +6,7 @@ import '@glint/environment-ember-template-imports';
 
 import type EmbroiderCssModulesRegistry from 'embroider-css-modules/template-registry';
 
-import SampleV2AddonRegistry from '../src/template-registry';
+import type SampleV2AddonRegistry from '../src/template-registry.ts';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry

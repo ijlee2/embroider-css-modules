@@ -1,6 +1,5 @@
 import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -42,11 +41,6 @@ export default {
     // babel.config.json.
     babel({
       babelHelpers: 'bundled',
-      extensions,
-    }),
-
-    // Allows rollup to resolve imports of files with the specified extensions
-    nodeResolve({
       extensions,
     }),
 

@@ -21,7 +21,6 @@ A "standard" v2 addon, created with [`@embroider/addon-blueprint`](https://githu
 
 - `rollup`
 - `@rollup/plugin-babel`
-- `@rollup/plugin-node-resolve`
 
 For PostCSS, here is what you likely need at minimum.
 
@@ -58,7 +57,6 @@ For simplicity, the comments have been hidden.
 ```js
 import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy';
 
 const addon = new Addon({
@@ -84,10 +82,6 @@ export default {
 
     babel({
       babelHelpers: 'bundled',
-      extensions,
-    }),
-
-    nodeResolve({
       extensions,
     }),
 
@@ -121,7 +115,6 @@ Add `rollup-plugin-postcss` before `babel()` (order matters). Then, remove the g
 ```diff
 import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy';
 + import postcss from 'rollup-plugin-postcss';
 
@@ -155,10 +148,6 @@ export default {
 +
     babel({
       babelHelpers: 'bundled',
-      extensions,
-    }),
-
-    nodeResolve({
       extensions,
     }),
 

@@ -3,7 +3,7 @@
 
 import '@glint/environment-ember-loose';
 
-import EmbroiderCssModulesRegistry from '../src/template-registry';
+import type EmbroiderCssModulesRegistry from '../src/template-registry.ts';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry extends EmbroiderCssModulesRegistry {
