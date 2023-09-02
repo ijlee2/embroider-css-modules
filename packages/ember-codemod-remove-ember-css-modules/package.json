@@ -36,16 +36,16 @@
     "test": "./build.sh --test && mt dist-for-testing --quiet"
   },
   "dependencies": {
-    "@codemod-utils/ast-javascript": "^0.3.2",
+    "@codemod-utils/ast-javascript": "^0.3.4",
     "@codemod-utils/ast-template": "^0.3.1",
     "@codemod-utils/blueprints": "^0.2.1",
     "@codemod-utils/ember-cli-string": "^0.1.1",
-    "@codemod-utils/files": "^0.5.2",
-    "@codemod-utils/json": "^0.4.0",
+    "@codemod-utils/files": "^0.5.3",
+    "@codemod-utils/json": "^0.4.2",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@codemod-utils/tests": "^0.2.5",
+    "@codemod-utils/tests": "^0.3.1",
     "@shared-configs/eslint-config-node": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",
