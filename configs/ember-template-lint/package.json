@@ -20,11 +20,11 @@
   },
   "devDependencies": {
     "@shared-configs/prettier": "workspace:*",
-    "concurrently": "^8.2.0",
-    "prettier": "^3.0.0"
+    "concurrently": "^8.2.1",
+    "prettier": "^3.0.3"
   },
   "peerDependencies": {
-    "ember-template-lint": "^5.7.0"
+    "ember-template-lint": "^5.11.2"
   },
   "peerDependenciesMeta": {
     "ember-template-lint": {
