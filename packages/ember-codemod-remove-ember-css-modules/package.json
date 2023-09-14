@@ -36,21 +36,21 @@
     "test": "./build.sh --test && mt dist-for-testing --quiet"
   },
   "dependencies": {
-    "@codemod-utils/ast-javascript": "^0.3.4",
-    "@codemod-utils/ast-template": "^0.3.1",
-    "@codemod-utils/blueprints": "^0.2.1",
-    "@codemod-utils/ember-cli-string": "^0.1.1",
-    "@codemod-utils/files": "^0.5.3",
-    "@codemod-utils/json": "^0.4.2",
+    "@codemod-utils/ast-javascript": "^1.0.0",
+    "@codemod-utils/ast-template": "^1.0.0",
+    "@codemod-utils/blueprints": "^1.0.0",
+    "@codemod-utils/ember-cli-string": "^1.0.0",
+    "@codemod-utils/files": "^1.0.0",
+    "@codemod-utils/json": "^1.0.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@codemod-utils/tests": "^0.3.1",
+    "@codemod-utils/tests": "^1.0.0",
     "@shared-configs/eslint-config-node": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",
-    "@sondr3/minitest": "^0.1.1",
-    "@types/node": "^16.18.47",
+    "@sondr3/minitest": "^0.1.2",
+    "@types/node": "^18.17.15",
     "@types/yargs": "^17.0.24",
     "concurrently": "^8.2.1",
     "eslint": "^8.49.0",
@@ -58,6 +58,6 @@
     "typescript": "^5.2.2"
   },
   "engines": {
-    "node": "16.* || >= 18"
+    "node": "18.* || >= 20"
   }
 }
