@@ -64,8 +64,6 @@ const addon = new Addon({
   destDir: 'dist',
 });
 
-const extensions = ['.js', '.ts'];
-
 export default {
   output: addon.output(),
 
@@ -82,7 +80,7 @@ export default {
 
     babel({
       babelHelpers: 'bundled',
-      extensions,
+      extensions: ['.js', '.ts'],
     }),
 
     addon.hbs(),
@@ -123,8 +121,6 @@ const addon = new Addon({
   destDir: 'dist',
 });
 
-const extensions = ['.js', '.ts'];
-
 export default {
   output: addon.output(),
 
@@ -148,7 +144,7 @@ export default {
 +
     babel({
       babelHelpers: 'bundled',
-      extensions,
+      extensions: ['.js', '.ts'],
     }),
 
     addon.hbs(),
