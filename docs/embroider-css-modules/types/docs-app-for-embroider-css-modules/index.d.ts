@@ -5,7 +5,7 @@ import 'ember-source/types/preview';
 
 import { ComponentLike, HelperLike } from '@glint/template';
 import type EmberContainerQueryRegistry from 'ember-container-query/template-registry';
-import type EmberSvgJarRegistry from 'ember-svg-jar/glint';
+import type EmberSvgJarRegistry from 'ember-svg-jar/template-registry';
 import type EmbroiderCssModulesRegistry from 'embroider-css-modules/template-registry';
 import type SampleV2AddonRegistry from 'sample-v2-addon/template-registry';
 
