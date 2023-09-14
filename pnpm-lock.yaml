@@ -198,9 +198,6 @@ importers:
       '@tsconfig/ember':
         specifier: ^3.0.0
         version: 3.0.0
-      '@tsconfig/node16':
-        specifier: ^16.1.1
-        version: 16.1.1
       '@tsconfig/node18':
         specifier: ^18.2.2
         version: 18.2.2
@@ -5406,10 +5403,6 @@ packages:
 
   /@tsconfig/ember@3.0.0:
     resolution: {integrity: sha512-KF9F9f4i+8LE31OKS014n5uEDt1mB/6ZvyQz/Mam28nAKDTSMBlOWHgTOj0TY8l4BfbEE+BgUuWCSoUHhb2BMw==}
-    dev: false
-
-  /@tsconfig/node16@16.1.1:
-    resolution: {integrity: sha512-+pio93ejHN4nINX4pXqfnR/fPLRtJBaT4ORaa5RH0Oc1zoYmo2B2koG+M328CQhHKn1Wj6FcOxCDFXAot9NhvA==}
     dev: false
 
   /@tsconfig/node18@18.2.2:
