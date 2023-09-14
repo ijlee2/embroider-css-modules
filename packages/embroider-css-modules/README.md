@@ -182,7 +182,7 @@ The `{{local-class}}` helper returns a concatenated string. The string lists the
 
 - `ember-auto-import@v2`<sup>1</sup>
 - Ember.js v4.4 or above<sup>2</sup>
-- Node.js v16 or above
+- Node.js v18 or above
 
 <sup>1. `embroider-css-modules` is a v2 addon. This means, your project must have `ember-auto-import@v2`. If you are momentarily stuck with `ember-auto-import@v1`, you can use [`ember-css-modules`](https://github.com/salsify/ember-css-modules) to implement CSS modules.</sup>
 
