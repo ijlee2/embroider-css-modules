@@ -228,7 +228,7 @@ The codemod may fail to update complex expressions. Refactor templates to provid
 
 ## Compatibility
 
-- Node.js v16 or above
+- Node.js v18 or above
 
 
 ## Contributing
