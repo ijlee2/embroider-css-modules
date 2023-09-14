@@ -116,7 +116,7 @@ const options = {
           ? '[sha512:hash:base64:5]'
           : '[path][name]__[local]',
         mode: (resourcePath) => {
-          const hostAppLocation = `${options.workspaceDir}/`;
+          const hostAppLocation = 'node_modules/.embroider/rewritten-app';
 
           return resourcePath.includes(hostAppLocation) ? 'local' : 'global';
         },
@@ -160,7 +160,7 @@ The most important part is [`cssLoaderOptions.modules.mode`](https://webpack.js.
 
 ```js
 function mode(resourcePath) {
-  const hostAppLocation = `${options.workspaceDir}/`;
+  const hostAppLocation = 'node_modules/.embroider/rewritten-app';
 
   return resourcePath.includes(hostAppLocation) ? 'local' : 'global';
 }
@@ -171,7 +171,7 @@ function mode(resourcePath) {
 ```js
 function mode(resourcePath) {
   // If your app is located in `apps/your-ember-app`
-  const hostAppLocation = `${options.workspaceDir}/apps/your-ember-app`;
+  const hostAppLocation = `apps/your-ember-app/node_modules/.embroider/rewritten-app`;
 
   return resourcePath.includes(hostAppLocation) ? 'local' : 'global';
 }
