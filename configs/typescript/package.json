@@ -18,6 +18,7 @@
   "dependencies": {
     "@tsconfig/ember": "^3.0.0",
     "@tsconfig/node16": "^16.1.1",
+    "@tsconfig/node18": "^18.2.2",
     "@tsconfig/strictest": "^2.0.2"
   },
   "devDependencies": {
@@ -34,6 +35,6 @@
     }
   },
   "engines": {
-    "node": "16.* || >= 18"
+    "node": "16.* || 18.* || >= 20"
   }
 }
