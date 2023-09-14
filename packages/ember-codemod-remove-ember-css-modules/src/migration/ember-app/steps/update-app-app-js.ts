@@ -23,7 +23,6 @@ function addCssEntryPoint(file: string, data: Data): string {
         AST.builders.noop(),
       ];
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       path.value.body.unshift(...nodesToAdd);
 
       return false;
@@ -48,7 +47,6 @@ export function updateAppAppJs(options: Options): void {
     return;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const filePath = filePaths[0]!;
   const fileExtension = extname(filePath);
 
