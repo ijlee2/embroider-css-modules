@@ -84,7 +84,7 @@
     "ember-template-lint": "^5.11.2",
     "ember-test-selectors": "^6.0.0",
     "embroider-css-modules-temporary": "workspace:*",
-    "eslint": "^8.48.0",
+    "eslint": "^8.49.0",
     "loader.js": "^4.7.0",
     "prettier": "^3.0.3",
     "qunit": "^2.19.4",

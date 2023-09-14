@@ -89,7 +89,7 @@
     "@shared-configs/typescript": "workspace:*",
     "concurrently": "^8.2.1",
     "ember-template-lint": "^5.11.2",
-    "eslint": "^8.48.0",
+    "eslint": "^8.49.0",
     "postcss": "^8.4.27",
     "prettier": "^3.0.3",
     "rollup": "^3.27.0",
