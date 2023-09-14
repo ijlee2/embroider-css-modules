@@ -185,7 +185,7 @@ const styles = {
 };
 ```
 
-If you want to debug the addon code, or you _must_ test the addon's styles using the [`hasClass()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasclass) assertion (rather than writing a visual regression test), then you may prefer having predictable names:
+If you want to debug the addon code, then you may prefer having predictable names:
 
 ```js
 postcss({
@@ -466,21 +466,49 @@ Yes! You may use `*.module.css` to indicate the stylesheets that are for CSS mod
 
 ### Write tests
 
-⚠️ This section shows an approach that is experimental and not suited for production. Further iterations are needed.
-
 In general, I don't recommend writing an [`hasClass()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasclass) assertion to test styles.
 
 Checking if a class is present doesn't guarantee, what your user sees is correct and will be in the future. An [`hasStyle()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasstyle) assertion is somewhat better (a stronger assertion than `hasClass`) but may fail due to rounding errors. In general, prefer writing [visual regression tests](https://docs.percy.io/docs/ember). This helps you hide any implementation details.
 
-That said, if you _must_ write an `hasClass` assertion (in your test app), you can use a regular expression to weakly assert the global class name.<sup>1,2</sup>
+That said, if you _must_ write an `hasClass` assertion, then the addon should provide a test helper.
 
 <details>
 
-<summary><code>tests/integration/components/navigation-menu-test.ts</code></summary>
+<summary>Addon: <code>src/test-support/components/navigation-menu.ts</code></summary>
+
+```ts
+import styles from '../../components/navigation-menu.css';
+
+type LocalClass = keyof typeof styles;
+
+export function getClassForNavigationMenu(localClass: LocalClass): string {
+  return styles[localClass];
+}
+```
+
+</details>
+
+<details>
+
+<summary>Addon: <code>src/test-support.ts</code></summary>
+
+For convenience, re-export the test helper(s). In `rollup.config.mjs`, don't forget to add `test-support.js` to `addon.publicEntrypoints()`.
+
+```ts
+export * from './test-support/components/navigation-menu.ts';
+```
+
+</details>
+
+<details>
+
+<summary>Test app: <code>tests/integration/components/navigation-menu-test.ts</code></summary>
 
 For simplicity, other import statements have been hidden.
 
 ```ts
+import { getClassForNavigationMenu } from 'your-v2-addon/test-support';
+
 module('Integration | Component | navigation-menu', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -493,15 +521,11 @@ module('Integration | Component | navigation-menu', function (hooks) {
       />
     `);
 
-    assert.dom('ul').hasClass(/_list/);
+    assert.dom('ul').hasClass(getClassForNavigationMenu('list'));
 
-    assert.dom('a').hasClass(/_link/);
+    assert.dom('a').hasClass(getClassForNavigationMenu('link'));
   });
 });
 ```
 
 </details>
-
-<sup>1. To make weak assertions, `rollup-plugin-postcss` must create ["predictable" hashes](#update-rollupconfigmjs).</sup>
-
-<sup>2. We can write `assert.dom('ul').hasClass(styles.list)` and `assert.dom('a').hasClass(styles.link)`, if we can [find a way to import a v2 addon's stylesheet](#update-packagejson).</sup>
