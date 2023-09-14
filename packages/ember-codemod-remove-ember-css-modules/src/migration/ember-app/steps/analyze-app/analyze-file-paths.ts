@@ -12,7 +12,6 @@ export function analyzeFilePaths(filePaths: string[]): Entities {
     const entityName = join(dir, name);
 
     if (entities.has(entityName)) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       entities.get(entityName)!.add(ext);
 
       return;
