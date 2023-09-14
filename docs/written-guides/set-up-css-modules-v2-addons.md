@@ -5,7 +5,6 @@ We will use Rollup and PostCSS to implement CSS modules. (If you get lost, you c
 1. [Install dependencies](#install-dependencies)
 1. [Configure Rollup](#configure-rollup)
     - [Update rollup.config.mjs](#update-rollupconfigmjs)
-    - [Update package.json?](#update-packagejson)
 1. [Style your first component](#style-your-first-component)
     - [Glimmer components](#glimmer-components)
     - [&lt;template&gt;-tag components](#template-tag-components)
@@ -218,48 +217,6 @@ const styles = {
 ```
 
 I recommend the first option, where `generateScopedName` is `<package-name>__[sha512:hash:base64:5]`.
-
-
-### Update package.json?
-
-⚠️ This section shows an approach that is experimental and not suited for production. Further iterations are needed.
-
-The goal is to allow consuming projects to import an addon's stylesheet. For example, they may want to compose styles or use the `hasClass()` assertion to test styles.
-
-```ts
-import navigationMenuStyles from 'your-v2-addon/components/navigation-menu.css';
-```
-
-Now, the addon must help resolve the import path. We can do so by updating the `exports` field in `package.json`:
-
-```diff
-/* package.json */
-{
-  "exports": {
-    ".": {
-      "types": "./declarations/index.d.ts",
-      "default": "./dist/index.js"
-    },
-+    "./*.css": {
-+      "types": "./src/*.css.d.ts",
-+      "default": "./src/*.css"
-+    },
-    "./*": {
-      "types": "./declarations/*.d.ts",
-      "default": "./dist/*.js"
-    },
-    "./addon-main.js": "./addon-main.cjs"
-  },
-}
-```
-
-Note that `./*.css` appears before `./*`.
-
-❓ What's strange (and possibly incorrect) is, `types` and `default` point to `src` for `./*.css`. Recall that we removed `**/*.css` from `addon.keepAssets()` (otherwise, the configuration for `postcss()` wouldn't work), so `dist` doesn't have `*.css` files.
-
-❓ Even when we define `./*.css` in `exports`, `navigationMenuStyles` ends up with the value of an empty object `{}`.
-
-(Ideas and contributions are welcome!)
 
 
 ## Style your first component
