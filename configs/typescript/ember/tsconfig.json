@@ -1,7 +1,3 @@
 {
-  "extends": "@tsconfig/ember/tsconfig.json",
-  "compilerOptions": {
-    "module": "node16",
-    "moduleResolution": "node16"
-  }
+  "extends": "@tsconfig/ember/tsconfig.json"
 }
