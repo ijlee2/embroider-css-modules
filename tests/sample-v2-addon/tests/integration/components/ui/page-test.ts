@@ -2,6 +2,7 @@ import { render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
+import { getClassForUiPage } from 'sample-v2-addon/test-support';
 
 import { setupRenderingTest } from '../../../helpers';
 
@@ -38,7 +39,7 @@ module('Integration | Component | ui/page', function (hooks) {
 
     assert
       .dom('[data-test-page-title]')
-      .hasClass(/^sample-v2-addon/, 'We see the local class name.')
+      .hasClass(getClassForUiPage('title'), 'We see the local class name.')
       .hasStyle(
         {
           fontWeight: '700',

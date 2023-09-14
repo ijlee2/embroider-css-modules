@@ -3,6 +3,7 @@ import { findAll, render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { module, test } from 'qunit';
 import { NavigationMenu } from 'sample-v2-addon';
+import { getClassForNavigationMenu } from 'sample-v2-addon/test-support';
 
 import { setupRenderingTest } from '../../helpers';
 
@@ -58,7 +59,10 @@ module('Integration | Component | navigation-menu', function (hooks) {
 
     assert
       .dom('[data-test-link="Home"]')
-      .hasClass(/^sample-v2-addon/, 'We see the local class name.')
+      .hasClass(
+        getClassForNavigationMenu('link'),
+        'We see the local class name.',
+      )
       .hasStyle(
         {
           textDecorationLine: 'none',
