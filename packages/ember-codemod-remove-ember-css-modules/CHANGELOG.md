@@ -1,5 +1,20 @@
 # ember-codemod-remove-ember-css-modules
 
+## 1.0.0
+
+### Major Changes
+
+- [#103](https://github.com/ijlee2/embroider-css-modules/pull/103) Dropped Node 16 support and marked stable ([@ijlee2](https://github.com/ijlee2))
+
+### Minor Changes
+
+- [#101](https://github.com/ijlee2/embroider-css-modules/pull/101) Dropped Node 16 support ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#100](https://github.com/ijlee2/embroider-css-modules/pull/100) Updated eslint configuration ([@ijlee2](https://github.com/ijlee2))
+- [#105](https://github.com/ijlee2/embroider-css-modules/pull/105) Updated latestVersions ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.4.3
 
 ### Patch Changes

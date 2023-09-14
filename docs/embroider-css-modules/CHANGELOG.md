@@ -1,5 +1,15 @@
 # docs-app-for-embroider-css-modules
 
+## 1.0.0
+
+### Major Changes
+
+- [#103](https://github.com/ijlee2/embroider-css-modules/pull/103) Dropped Node 16 support and marked stable ([@ijlee2](https://github.com/ijlee2))
+
+### Minor Changes
+
+- [#102](https://github.com/ijlee2/embroider-css-modules/pull/102) Dropped Node 16 support ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.11
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # embroider-css-modules
 
+## 1.0.0
+
+### Major Changes
+
+- [#103](https://github.com/ijlee2/embroider-css-modules/pull/103) Dropped Node 16 support and marked stable ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.10
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "workspace-root",
-  "version": "0.4.3",
+  "version": "1.0.0",
   "private": true,
   "description": "Workspace root for embroider-css-modules",
   "repository": {
@@ -33,7 +33,7 @@
     "concurrently": "^8.2.1"
   },
   "engines": {
-    "node": "16.* || >= 18"
+    "node": "18.* || >= 20"
   },
   "pnpm": {
     "overrides": {
