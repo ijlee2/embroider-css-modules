@@ -39,7 +39,7 @@ export default class UiFormTextareaComponent extends Component<UiFormTextareaSig
 
   @action updateValue(event: Event): void {
     const { key, onUpdate } = this.args;
-    const { value } = event.target as HTMLInputElement;
+    const { value } = event.target as HTMLTextAreaElement;
 
     onUpdate({ key, value });
   }

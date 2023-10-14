@@ -44,6 +44,7 @@ module('Integration | Component | ui/form/textarea', function (hooks) {
     assert
       .dom('[data-test-field="Message"]')
       .doesNotHaveAttribute('readonly', 'The input should not be readonly.')
+      .hasStyle({ padding: '2px 4px' }, 'We see the correct style.')
       .hasTagName('textarea', 'We see the correct tag name.')
       .hasValue('I 🧡 CSS modules!', 'We see the correct value.')
       .isEnabled('The textarea should be enabled.')
@@ -67,6 +68,7 @@ module('Integration | Component | ui/form/textarea', function (hooks) {
 
     assert
       .dom('[data-test-field="Message"]')
+      .hasStyle({ cursor: 'not-allowed' }, 'We see the correct style.')
       .isDisabled('The textarea is disabled.');
   });
 
