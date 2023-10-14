@@ -1,0 +1,19 @@
+{{!--
+  The codemod skips the file when the end-developer uses
+  the {{local-class}} helper from ember-css-modules with
+  the `from` key. The end-developer should refactor code.
+
+  INCORRECT OUTPUT:
+
+  Expected:
+    unknown
+--}}
+<div
+  data-test-container
+  class={{local-class
+    "secondary-header"
+    from="my-app-name/styles/headers"
+  }}
+>
+  {{! Some content }}
+</div>
