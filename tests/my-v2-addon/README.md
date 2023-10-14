@@ -1,6 +1,6 @@
 [![This project uses GitHub Actions for continuous integration.](https://github.com/ijlee2/embroider-css-modules/actions/workflows/ci.yml/badge.svg)](https://github.com/ijlee2/embroider-css-modules/actions/workflows/ci.yml)
 
-# test-app-for-sample-v2-addon
+# test-app-for-my-v2-addon
 
 1. [What is it?](#what-is-it)
 1. [Local development](#local-development)
@@ -11,7 +11,7 @@
 
 ## What is it?
 
-`test-app-for-sample-v2-addon` is an Ember app. We use it to check that `my-v2-addon` is compatible with various versions of these projects:
+`test-app-for-my-v2-addon` is an Ember app. We use it to check that `my-v2-addon` is compatible with various versions of these projects:
 
 - [Ember](https://emberjs.com/releases/) (long-term support, release, beta, canary)
 - [Embroider](https://github.com/embroider-build/embroider/) (safe, optimized)
@@ -26,7 +26,7 @@ Before starting the application, build its dependencies so that you can test the
 pnpm build
 
 # Change directory
-cd tests/sample-v2-addon
+cd tests/my-v2-addon
 ```
 
 Some useful commands:

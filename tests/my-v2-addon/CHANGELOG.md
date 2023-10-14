@@ -1,4 +1,4 @@
-# test-app-for-sample-v2-addon
+# test-app-for-my-v2-addon
 
 ## 1.0.0
 

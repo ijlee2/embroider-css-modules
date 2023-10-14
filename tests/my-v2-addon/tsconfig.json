@@ -3,10 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "test-app-for-sample-v2-addon/tests/*": [
+      "test-app-for-my-v2-addon/tests/*": [
         "tests/*"
       ],
-      "test-app-for-sample-v2-addon/*": [
+      "test-app-for-my-v2-addon/*": [
         "app/*"
       ],
       "*": [

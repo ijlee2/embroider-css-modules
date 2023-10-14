@@ -26,7 +26,7 @@ jobs:
           - 'packages/embroider-css-modules-temporary'
           - 'packages/type-css-modules'
           - 'tests/embroider-css-modules'
-          - 'tests/sample-v2-addon'
+          - 'tests/my-v2-addon'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -65,7 +65,7 @@ jobs:
           - 'packages/embroider-css-modules-temporary'
           - 'packages/type-css-modules'
           - 'tests/embroider-css-modules'
-          - 'tests/sample-v2-addon'
+          - 'tests/my-v2-addon'
     timeout-minutes: 5
     env:
       RUN_PERCY: ${{ matrix.package-location == 'docs/my-app' || matrix.package-location == 'docs/my-app-with-ember-css-modules' }}
@@ -141,8 +141,8 @@ jobs:
         working-directory: 'tests/embroider-css-modules'
 
 
-  test-compatibility-sample-v2-addon:
-    name: Test compatibility (tests/sample-v2-addon)
+  test-compatibility-my-v2-addon:
+    name: Test compatibility (tests/my-v2-addon)
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -177,4 +177,4 @@ jobs:
 
       - name: Test
         run: pnpm test:ember-compatibility ${{ matrix.scenario }} --- pnpm test
-        working-directory: 'tests/sample-v2-addon'
+        working-directory: 'tests/my-v2-addon'

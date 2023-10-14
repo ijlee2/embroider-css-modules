@@ -5,7 +5,7 @@
 "my-app-with-ember-css-modules": patch
 "test-app-for-embroider-css-modules": patch
 "my-app": patch
-"test-app-for-sample-v2-addon": patch
+"test-app-for-my-v2-addon": patch
 "my-v2-addon": patch
 ---
 
