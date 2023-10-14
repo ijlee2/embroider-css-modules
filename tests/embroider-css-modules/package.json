@@ -2,7 +2,7 @@
   "name": "test-app-for-embroider-css-modules",
   "version": "1.0.0",
   "private": true,
-  "description": "test-app for embroider-css-modules",
+  "description": "Test app for embroider-css-modules",
   "keywords": [
     "css",
     "css-modules",
