@@ -13,7 +13,7 @@ module('Integration | Component | ui/page/subsection', function (hooks) {
       <Ui::Page::Subsection>
         <:title>
           Helper:
-          <code>&#123;&#123;local-class-new&#125;&#125;</code>
+          <code>&#123;&#123;local&#125;&#125;</code>
         </:title>
 
         <:content>
@@ -25,7 +25,7 @@ module('Integration | Component | ui/page/subsection', function (hooks) {
     assert
       .dom('[data-test-subsection-title]')
       .hasTagName('h3', 'The header level is correct.')
-      .hasText('Helper: {{local-class-new}}', 'We see the subsection title.');
+      .hasText('Helper: {{local}}', 'We see the subsection title.');
 
     assert
       .dom('[data-test-subsection-content]')
