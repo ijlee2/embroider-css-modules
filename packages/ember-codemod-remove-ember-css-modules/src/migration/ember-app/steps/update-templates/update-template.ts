@@ -101,7 +101,7 @@ function mergeClassAndLocalClassAttributes(file: string): string {
         ];
       } else {
         params = [
-          AST.builders.sexpr('local-class', [
+          AST.builders.sexpr('local', [
             AST.builders.path('this.styles'),
             ...localClassNames.map(AST.builders.string),
           ]),
@@ -194,7 +194,7 @@ function removeLocalClassHelpers(file: string): string {
         return;
       }
 
-      node.value = AST.builders.mustache(AST.builders.path('local-class'), [
+      node.value = AST.builders.mustache(AST.builders.path('local'), [
         AST.builders.path('this.styles'),
         ...localClassNames.map(AST.builders.string),
       ]);
@@ -224,7 +224,7 @@ function removeLocalClassHelpers(file: string): string {
         return AST.builders.path(`this.styles.${localClassNames[0]!}`);
       }
 
-      return AST.builders.sexpr(AST.builders.path('local-class'), [
+      return AST.builders.sexpr(AST.builders.path('local'), [
         AST.builders.path('this.styles'),
         ...localClassNames.map(AST.builders.string),
       ]);
@@ -303,7 +303,7 @@ function removeLocalClassAttributes(file: string): string {
             // @ts-ignore: Assume that types from external packages are correct
             const params = part.params.map(transformParam);
 
-            return AST.builders.mustache('local-class', [
+            return AST.builders.mustache('local', [
               AST.builders.path('this.styles'),
               ...params,
             ]);
@@ -314,7 +314,7 @@ function removeLocalClassAttributes(file: string): string {
             // @ts-ignore: Assume that types from external packages are correct
             const params = part.params.map(transformParam);
 
-            return AST.builders.mustache('local-class', [
+            return AST.builders.mustache('local', [
               AST.builders.path('this.styles'),
               // @ts-ignore: Assume that types from external packages are correct
               AST.builders.sexpr(part.path.original, params),
@@ -347,7 +347,7 @@ function removeLocalClassAttributes(file: string): string {
           );
         }
 
-        return AST.builders.mustache(AST.builders.path('local-class'), [
+        return AST.builders.mustache(AST.builders.path('local'), [
           AST.builders.path('this.styles'),
           ...localClassNames.map(AST.builders.string),
         ]);
@@ -437,7 +437,7 @@ function removeLocalClassAttributes(file: string): string {
         return;
       }
 
-      node.value = AST.builders.sexpr('local-class', [
+      node.value = AST.builders.sexpr('local', [
         AST.builders.path('this.styles'),
         // @ts-ignore: Assume that types from external packages are correct
         newValue,
