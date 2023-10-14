@@ -1,19 +1,23 @@
 {{!--
-  The codemod skips the file when the end-developer uses
-  the {{local-class}} helper from ember-css-modules with
-  the `from` key. The end-developer should refactor code.
+  Dynamic expressions inside the {{local-class}} helper from
+  ember-css-modules have limited support. The end-developer
+  should refactor code.
 
   INCORRECT OUTPUT:
 
   Expected:
-    unknown
+    class={{local this.styles "checkbox" (if this.isChecked "is-checked") (if (or @isDisabled @isReadOnly) "is-disabled")}}
 --}}
-<div
-  data-test-container
+<span
   class={{local-class
-    "secondary-header"
-    from="my-app-name/styles/headers"
+    (concat
+      "checkbox"
+      " "
+      (if this.isChecked "is-checked")
+      " "
+      (if (or @isDisabled @isReadOnly) "is-disabled")
+    )
   }}
 >
-  {{! Some content }}
-</div>
+  {{! Conditionally render a checkmark icon }}
+</span>

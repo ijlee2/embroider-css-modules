@@ -8,7 +8,7 @@ _CSS modules for Embroider projects_
 1. [What is it?](#what-is-it)
 1. [Installation](#installation)
 1. [API](#api)
-    - [Helper: `{{local-class}}`](#helper-local-class)
+    - [Helper: `{{local}}`](#helper-local)
 1. [Compatibility](#compatibility)
 1. [Contributing](#contributing)
 1. [License](#license)
@@ -77,7 +77,7 @@ ember install embroider-css-modules
 
 The addon provides 1 helper:
 
-- `{{local-class}}`
+- `{{local}}`
 
 Throughout the section, you can assume that there is a `styles` object, which maps local class names to global ones.
 
@@ -92,11 +92,11 @@ const styles = {
 ```
 
 
-### Helper: {{local-class}}
+### Helper: {{local}}
 
 #### Why use it?
 
-The `{{local-class}}` helper is useful when you want to apply multiple styles.
+The `{{local}}` helper is useful when you want to apply multiple styles.
 
 <details>
 
@@ -123,12 +123,12 @@ The `{{local-class}}` helper is useful when you want to apply multiple styles.
 
 <details>
 
-<summary>After: With the <code>{{local-class}}</code> helper</summary>
+<summary>After: With the <code>{{local}}</code> helper</summary>
 
 ```hbs
 {{! app/components/ui/form/field.hbs }}
 <div
-  class={{local-class
+  class={{local
     this.styles
     "container"
     (if @isInline "is-inline")
@@ -151,7 +151,7 @@ To apply multiple styles when a conditional statement holds, use the `{{array}}`
 ```hbs
 {{! app/templates/products.hbs }}
 <div
-  class={{local-class
+  class={{local
     this.styles
     (if
       this.isInExperimentalGroup
@@ -170,12 +170,12 @@ To apply multiple styles when a conditional statement holds, use the `{{array}}`
 
 #### Arguments
 
-The `{{local-class}}` helper uses positional arguments so that styles are applied in sequence. Pass the `styles` object first, then the local class name(s).
+The `{{local}}` helper uses positional arguments so that styles are applied in sequence. Pass the `styles` object first, then the local class name(s).
 
 
 #### Outputs
 
-The `{{local-class}}` helper returns a concatenated string. The string lists the global class names in the same order as the local ones.
+The `{{local}}` helper returns a concatenated string. The string lists the global class names in the same order as the local ones.
 
 
 ## Compatibility

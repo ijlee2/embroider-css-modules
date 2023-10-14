@@ -367,7 +367,7 @@ Finally, render the component somewhere. Et voilà! ✨
 
 </details>
 
-You can also [apply multiple styles with the `{{local-class}}` helper](../../packages/embroider-css-modules/README.md#helper-local-class).
+You can also [apply multiple styles with the `{{local}}` helper](../../packages/embroider-css-modules/README.md#helper-local).
 
 
 ### &lt;template&gt;-tag components

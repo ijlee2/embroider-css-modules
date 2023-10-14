@@ -21,7 +21,7 @@ interface TestContext extends BaseTestContext {
   };
 }
 
-module('Integration | Helper | local-class', function (hooks) {
+module('Integration | Helper | local', function (hooks) {
   setupRenderingTest(hooks);
 
   module('Compatibility with Ember', function (nestedHooks) {
@@ -37,7 +37,7 @@ module('Integration | Helper | local-class', function (hooks) {
     test('{{array}} helper', async function (this: TestContext, assert) {
       await render<TestContext>(hbs`
         <div
-          class={{local-class
+          class={{local
             this.styles
             "container"
             (if true (array "is-wide" "is-inline") "no-feedback")
@@ -59,7 +59,7 @@ module('Integration | Helper | local-class', function (hooks) {
     test('component arguments', async function (this: TestContext, assert) {
       await render<TestContext>(hbs`
         <SomeComponentWithArguments
-          @classNames={{local-class
+          @classNames={{local
             this.styles
             "container"
             "is-wide"
@@ -80,7 +80,7 @@ module('Integration | Helper | local-class', function (hooks) {
     test('globally scoped classes', async function (this: TestContext, assert) {
       await render<TestContext>(hbs`
         <div
-          class="p-4 {{local-class this.styles 'container' 'is-wide' 'is-inline'}} my-2"
+          class="p-4 {{local this.styles 'container' 'is-wide' 'is-inline'}} my-2"
           data-test-element
         >
         </div>
@@ -104,7 +104,7 @@ module('Integration | Helper | local-class', function (hooks) {
 
       await render<TestContext>(hbs`
         <div
-          class={{local-class
+          class={{local
             this.styles
             "container"
             (if this.arguments.isWide "is-wide")
@@ -128,7 +128,7 @@ module('Integration | Helper | local-class', function (hooks) {
     test('splattributes', async function (this: TestContext, assert) {
       await render<TestContext>(hbs`
         <SomeComponentWithSplattributes
-          class={{local-class
+          class={{local
             this.styles
             'container'
             'is-wide'

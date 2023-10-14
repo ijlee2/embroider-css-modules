@@ -1,4 +1,4 @@
-{{! Don't remove class and local class attributes that are not empty. }}
+{{! Don't remove class and local-class attributes that are not empty. }}
 <div data-test-container>
   <div class=" b1 ">
     {{! Some content }}
@@ -24,7 +24,7 @@
     {{! Some content }}
   </div>
 
-  <div class=" {{local-class this.styles (if this.someCondition "a1")}} ">
+  <div class=" {{local this.styles (if this.someCondition "a1")}} ">
     {{! Some content }}
   </div>
 </div>

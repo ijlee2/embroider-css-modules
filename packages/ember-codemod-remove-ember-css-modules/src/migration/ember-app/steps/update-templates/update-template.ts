@@ -7,10 +7,6 @@ import { createFiles } from '@codemod-utils/files';
 
 import type { OptionsForUpdateTemplates } from '../../../../types/index.js';
 
-type Data = {
-  __styles__: string;
-};
-
 function sanitizeClassAndLocalClassAttributes(file: string): string {
   function removeAttributeWithoutValue(
     attributeName: string,
@@ -61,7 +57,7 @@ function sanitizeClassAndLocalClassAttributes(file: string): string {
   return AST.print(ast);
 }
 
-function mergeClassAndLocalClassAttributes(file: string, data: Data): string {
+function mergeClassAndLocalClassAttributes(file: string): string {
   const traverse = AST.traverse();
 
   const ast = traverse(file, {
@@ -100,13 +96,13 @@ function mergeClassAndLocalClassAttributes(file: string, data: Data): string {
 
       if (localClassNames.length === 1) {
         params = [
-          AST.builders.path(`this.${data.__styles__}.${localClassNames[0]!}`),
+          AST.builders.path(`this.styles.${localClassNames[0]!}`),
           AST.builders.string(` ${classAttributeValue}`),
         ];
       } else {
         params = [
-          AST.builders.sexpr('local-class', [
-            AST.builders.path(`this.${data.__styles__}`),
+          AST.builders.sexpr('local', [
+            AST.builders.path('this.styles'),
             ...localClassNames.map(AST.builders.string),
           ]),
           AST.builders.string(` ${classAttributeValue}`),
@@ -126,7 +122,7 @@ function mergeClassAndLocalClassAttributes(file: string, data: Data): string {
   return AST.print(ast);
 }
 
-function removeLocalClassHelpers(file: string, data: Data): string {
+function removeLocalClassHelpers(file: string): string {
   /*
     The {{local-class}} helper from ember-css-modules allows
     1 positional argument. The argument's value is presumed
@@ -192,14 +188,42 @@ function removeLocalClassHelpers(file: string, data: Data): string {
 
       if (localClassNames.length === 1) {
         node.value = AST.builders.mustache(
-          AST.builders.path(`this.${data.__styles__}.${localClassNames[0]!}`),
+          AST.builders.path(`this.styles.${localClassNames[0]!}`),
         );
 
         return;
       }
 
-      node.value = AST.builders.mustache(AST.builders.path('local-class'), [
-        AST.builders.path(`this.${data.__styles__}`),
+      node.value = AST.builders.mustache(AST.builders.path('local'), [
+        AST.builders.path('this.styles'),
+        ...localClassNames.map(AST.builders.string),
+      ]);
+    },
+
+    MustacheStatement(node) {
+      if (
+        node.path.type !== 'PathExpression' ||
+        node.path.original !== 'local-class'
+      ) {
+        return;
+      }
+
+      const param = node.params[0]!;
+
+      if (param.type !== 'StringLiteral') {
+        return;
+      }
+
+      const localClassNames = param.value.trim().split(/\s+/);
+
+      if (localClassNames.length === 1) {
+        return AST.builders.mustache(
+          AST.builders.path(`this.styles.${localClassNames[0]!}`),
+        );
+      }
+
+      return AST.builders.mustache(AST.builders.path('local'), [
+        AST.builders.path('this.styles'),
         ...localClassNames.map(AST.builders.string),
       ]);
     },
@@ -225,13 +249,11 @@ function removeLocalClassHelpers(file: string, data: Data): string {
       const localClassNames = param.value.trim().split(/\s+/);
 
       if (localClassNames.length === 1) {
-        return AST.builders.path(
-          `this.${data.__styles__}.${localClassNames[0]!}`,
-        );
+        return AST.builders.path(`this.styles.${localClassNames[0]!}`);
       }
 
-      return AST.builders.sexpr(AST.builders.path('local-class'), [
-        AST.builders.path(`this.${data.__styles__}`),
+      return AST.builders.sexpr(AST.builders.path('local'), [
+        AST.builders.path('this.styles'),
         ...localClassNames.map(AST.builders.string),
       ]);
     },
@@ -240,7 +262,7 @@ function removeLocalClassHelpers(file: string, data: Data): string {
   return AST.print(ast);
 }
 
-function removeLocalClassAttributes(file: string, data: Data): string {
+function removeLocalClassAttributes(file: string): string {
   function transformParam(param: unknown) {
     // @ts-ignore: Assume that types from external packages are correct
     switch (param.type) {
@@ -300,7 +322,7 @@ function removeLocalClassAttributes(file: string, data: Data): string {
             // @ts-ignore: Assume that types from external packages are correct
             if (hasPathExpression(part.params)) {
               return AST.builders.mustache(AST.builders.path('get'), [
-                AST.builders.path(`this.${data.__styles__}`),
+                AST.builders.path('this.styles'),
                 // @ts-ignore: Assume that types from external packages are correct
                 AST.builders.sexpr(part.path.original, part.params),
               ]);
@@ -309,8 +331,8 @@ function removeLocalClassAttributes(file: string, data: Data): string {
             // @ts-ignore: Assume that types from external packages are correct
             const params = part.params.map(transformParam);
 
-            return AST.builders.mustache('local-class', [
-              AST.builders.path(`this.${data.__styles__}`),
+            return AST.builders.mustache('local', [
+              AST.builders.path('this.styles'),
               ...params,
             ]);
           }
@@ -320,8 +342,8 @@ function removeLocalClassAttributes(file: string, data: Data): string {
             // @ts-ignore: Assume that types from external packages are correct
             const params = part.params.map(transformParam);
 
-            return AST.builders.mustache('local-class', [
-              AST.builders.path(`this.${data.__styles__}`),
+            return AST.builders.mustache('local', [
+              AST.builders.path('this.styles'),
               // @ts-ignore: Assume that types from external packages are correct
               AST.builders.sexpr(part.path.original, params),
             ]);
@@ -329,7 +351,7 @@ function removeLocalClassAttributes(file: string, data: Data): string {
 
           default: {
             return AST.builders.mustache(AST.builders.path('get'), [
-              AST.builders.path(`this.${data.__styles__}`),
+              AST.builders.path('this.styles'),
               // @ts-ignore: Assume that types from external packages are correct
               part.path,
             ]);
@@ -349,12 +371,12 @@ function removeLocalClassAttributes(file: string, data: Data): string {
 
         if (localClassNames.length === 1) {
           return AST.builders.mustache(
-            AST.builders.path(`this.${data.__styles__}.${localClassNames[0]!}`),
+            AST.builders.path(`this.styles.${localClassNames[0]!}`),
           );
         }
 
-        return AST.builders.mustache(AST.builders.path('local-class'), [
-          AST.builders.path(`this.${data.__styles__}`),
+        return AST.builders.mustache(AST.builders.path('local'), [
+          AST.builders.path('this.styles'),
           ...localClassNames.map(AST.builders.string),
         ]);
       }
@@ -437,14 +459,14 @@ function removeLocalClassAttributes(file: string, data: Data): string {
       if (newValue.type === 'StringLiteral') {
         node.value = AST.builders.path(
           // @ts-ignore: Assume that types from external packages are correct
-          `this.${data.__styles__}.${newValue.value}`,
+          `this.styles.${newValue.value}`,
         );
 
         return;
       }
 
-      node.value = AST.builders.sexpr('local-class', [
-        AST.builders.path(`this.${data.__styles__}`),
+      node.value = AST.builders.sexpr('local', [
+        AST.builders.path('this.styles'),
         // @ts-ignore: Assume that types from external packages are correct
         newValue,
       ]);
@@ -459,20 +481,16 @@ export function updateTemplate(
   { customizations, options }: OptionsForUpdateTemplates,
 ): void {
   const { getFilePath } = customizations;
-  const { __styles__, projectRoot } = options;
+  const { projectRoot } = options;
 
   const filePath = getFilePath(entityName);
-
-  const data = {
-    __styles__,
-  };
 
   try {
     let file = readFileSync(join(projectRoot, filePath), 'utf8');
     file = sanitizeClassAndLocalClassAttributes(file);
-    file = mergeClassAndLocalClassAttributes(file, data);
-    file = removeLocalClassHelpers(file, data);
-    file = removeLocalClassAttributes(file, data);
+    file = mergeClassAndLocalClassAttributes(file);
+    file = removeLocalClassHelpers(file);
+    file = removeLocalClassAttributes(file);
 
     const fileMap = new Map([[filePath, file]]);
 

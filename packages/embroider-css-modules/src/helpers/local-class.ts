@@ -1,53 +1,20 @@
-import Helper from '@ember/component/helper';
-import { assert } from '@ember/debug';
+import { deprecate } from '@ember/debug';
 
-type IndexSignatureParameter = string | number | symbol;
+import LocalHelper from './local.ts';
 
-type LocalClassName<T extends IndexSignatureParameter> = T;
+deprecate(
+  'The {{local-class}} helper has been renamed to {{local}}. Please update the helper name in your template.',
+  false,
+  {
+    for: 'embroider-css-modules',
+    id: 'embroider-css-modules.rename-local-class-helper',
+    since: {
+      available: '1.1.0',
+      enabled: '2.0.0',
+    },
+    until: '2.0.0',
+    url: 'https://github.com/ijlee2/embroider-css-modules/tree/1.1.0/packages/embroider-css-modules#api',
+  },
+);
 
-type Styles<T extends IndexSignatureParameter> = Record<
-  LocalClassName<T>,
-  string
->;
-
-type MaybeLocalClassName<T extends IndexSignatureParameter> =
-  | LocalClassName<T>[]
-  | LocalClassName<T>
-  | undefined
-  | null;
-
-interface LocalClassHelperSignature<T extends IndexSignatureParameter> {
-  Args: {
-    Positional: [Styles<T>, ...MaybeLocalClassName<T>[]];
-  };
-  Return: string;
-}
-
-export default class LocalClassHelper<
-  T extends IndexSignatureParameter,
-> extends Helper<LocalClassHelperSignature<T>> {
-  compute(positional: LocalClassHelperSignature<T>['Args']['Positional']) {
-    const [styles, ...localClassNames] = positional;
-
-    assert('The styles object is undefined.', styles);
-
-    const classNames = localClassNames.reduce<string[]>(
-      (accumulator, localClassName) => {
-        if (localClassName === undefined || localClassName === null) {
-          return accumulator;
-        }
-
-        if (Array.isArray(localClassName)) {
-          accumulator.push(...localClassName.map((element) => styles[element]));
-        } else {
-          accumulator.push(styles[localClassName]);
-        }
-
-        return accumulator;
-      },
-      [],
-    );
-
-    return classNames.filter(Boolean).join(' ');
-  }
-}
+export default LocalHelper;

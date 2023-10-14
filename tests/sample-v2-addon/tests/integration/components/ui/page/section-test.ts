@@ -12,8 +12,8 @@ module('Integration | Component | ui/page/section', function (hooks) {
     await render(hbs`
       <Ui::Page::Section>
         <:title>
-            Package:
-            <code>embroider-css-modules-temporary</code>
+          Package:
+          <code>embroider-css-modules-temporary</code>
         </:title>
 
         <:content>

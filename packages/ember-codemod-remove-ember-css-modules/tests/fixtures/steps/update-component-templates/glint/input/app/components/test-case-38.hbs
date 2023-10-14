@@ -8,8 +8,8 @@
     class="
       {{this.styles.container}}
       {{get this.styles (concat "prefix-" @countryCode "-suffix")}} 
-      {{local-class this.styles (if this.isInExperimentalGroup "experimental-group" "control-group")}}
-      {{local-class this.styles "a2" "a3" "a4"}}
+      {{local this.styles (if this.isInExperimentalGroup "experimental-group" "control-group")}}
+      {{local this.styles "a2" "a3" "a4"}}
     "
 --}}
 <div

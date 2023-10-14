@@ -1,6 +1,6 @@
 {{!--
   We replace the {{local-class}} helper from ember-css-modules
-  with the {{local-class}} helper from embroider-css-modules
+  with the {{local}} helper from embroider-css-modules
   when the argument is a non-empty string.
 --}}
 <div
@@ -8,7 +8,7 @@
   class={{concat
     this.styles.a1
     " "
-    (local-class this.styles "a2" "a3" "a4")
+    (local this.styles "a2" "a3" "a4")
   }}
 >
   {{! Some content }}

@@ -38,7 +38,7 @@ pnpm install --dev postcss rollup-plugin-postcss type-css-modules
 pnpm install embroider-css-modules
 ```
 
-<sup>1. Needed only if you use the `{{local-class}}` helper. Add to `dependencies`, not `devDependencies`.</sup>
+<sup>1. Needed only if you use the `{{local}}` helper. Add to `dependencies`, not `devDependencies`.</sup>
 
 <sup>2. Install [`embroider-css-modules-temporary`](../../packages/embroider-css-modules-temporary/README.md) instead, if your addon will be consumed by an Ember project that depends on `ember-css-modules`.</sup>
 
@@ -342,7 +342,7 @@ Finally, style the links. ✨
 
 </details>
 
-You can also [apply multiple styles with the `{{local-class}}` helper](../../packages/embroider-css-modules/README.md#helper-local-class).
+You can also [apply multiple styles with the `{{local}}` helper](../../packages/embroider-css-modules/README.md#helper-local).
 
 
 ### &lt;template&gt;-tag components
@@ -470,7 +470,7 @@ In general, I don't recommend writing an [`hasClass()`](https://github.com/mainm
 
 Checking if a class is present doesn't guarantee, what your user sees is correct and will be in the future. An [`hasStyle()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasstyle) assertion is somewhat better (a stronger assertion than `hasClass`) but may fail due to rounding errors. In general, prefer writing [visual regression tests](https://docs.percy.io/docs/ember). This helps you hide any implementation details.
 
-That said, if you _must_ write an `hasClass` assertion, then the addon should provide a test helper.
+That said, if you _must_ write an `hasClass` assertion, then provide a test helper to hide implementation details.
 
 <details>
 
@@ -479,10 +479,12 @@ That said, if you _must_ write an `hasClass` assertion, then the addon should pr
 ```ts
 import styles from '../../components/navigation-menu.css';
 
-type LocalClass = keyof typeof styles;
+type LocalClassName = keyof typeof styles;
 
-export function getClassForNavigationMenu(localClass: LocalClass): string {
-  return styles[localClass];
+export function getClassForNavigationMenu(
+  localClassName: LocalClassName,
+): string {
+  return styles[localClassName];
 }
 ```
 

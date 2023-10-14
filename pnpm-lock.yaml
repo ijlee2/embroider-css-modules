@@ -1062,6 +1062,9 @@ importers:
       ember-source-channel-url:
         specifier: ^3.0.0
         version: 3.0.0
+      ember-template-imports:
+        specifier: ^3.4.2
+        version: 3.4.2
       ember-template-lint:
         specifier: ^5.11.2
         version: 5.11.2
@@ -3849,7 +3852,7 @@ packages:
     resolution: {integrity: sha512-pFE05ebenWMC9XAPRjadYCXXb6VmqjkhYN5uqkhPo+VUmMHnx7sZYYxqGjxfVuhC/ghS/BNlOffOCXDOoE7k7g==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
-      babel-import-util: 2.0.0
+      babel-import-util: 2.0.1
       debug: 4.3.4(supports-color@8.1.1)
       ember-rfc176-data: 0.3.18
       fs-extra: 9.1.0
@@ -6040,7 +6043,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
-      define-properties: 1.2.0
+      define-properties: 1.2.1
       es-abstract: 1.22.1
       es-array-method-boxes-properly: 1.0.0
       is-string: 1.0.7
@@ -6052,7 +6055,7 @@ packages:
     dependencies:
       array-buffer-byte-length: 1.0.0
       call-bind: 1.0.2
-      define-properties: 1.2.0
+      define-properties: 1.2.1
       get-intrinsic: 1.2.1
       is-array-buffer: 3.0.2
       is-shared-array-buffer: 1.0.2
@@ -6313,11 +6316,11 @@ packages:
   /babel-import-util@2.0.0:
     resolution: {integrity: sha512-pkWynbLwru0RZmA9iKeQL63+CkkW0RCP3kL5njCtudd6YPUKb5Pa0kL4fb3bmuKn2QDBFwY5mvvhEK/+jv2Ynw==}
     engines: {node: '>= 12.*'}
+    dev: true
 
   /babel-import-util@2.0.1:
     resolution: {integrity: sha512-N1ZfNprtf/37x0R05J0QCW/9pCAcuI+bjZIK9tlu0JEkwEST7ssdD++gxHRbD58AiG5QE5OuNYhRoEFsc1wESw==}
     engines: {node: '>= 12.*'}
-    dev: true
 
   /babel-loader@8.3.0(@babel/core@7.23.2)(webpack@5.89.0):
     resolution: {integrity: sha512-H8SvsMF+m9t15HNLMipppzkC+Y2Yq+v3SonZyU70RBL/h1gxPkH08Ot8pEE9Z4Kd+czyWJClmFS8qzIP9OZ04Q==}
@@ -8794,7 +8797,6 @@ packages:
       get-intrinsic: 1.2.1
       gopd: 1.0.1
       has-property-descriptors: 1.0.0
-    dev: false
 
   /define-lazy-prop@3.0.0:
     resolution: {integrity: sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==}
@@ -8815,7 +8817,6 @@ packages:
       define-data-property: 1.1.1
       has-property-descriptors: 1.0.0
       object-keys: 1.1.1
-    dev: false
 
   /define-property@0.2.5:
     resolution: {integrity: sha512-Rr7ADjQZenceVOAKop6ALkkRAmH1A4Gx9hV/7ZujPUN2rkATqFO0JZLZInbAjpZYoJ1gUx8MRMQVkYemcbMSTA==}
@@ -11338,7 +11339,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
-      define-properties: 1.2.0
+      define-properties: 1.2.1
       es-abstract: 1.22.1
       functions-have-names: 1.2.3
 
@@ -11381,7 +11382,7 @@ packages:
     resolution: {integrity: sha512-2DcsyfABl+gVHEfCOaTrWgyt+tb6MSEGmKq+kI5HwLbIYgjgmMcV8KQ41uaKz1xxUcn9tJtgFbQUEVcEbd0FYw==}
     dependencies:
       function-bind: 1.1.1
-      has: 1.0.3
+      has: 1.0.4
       has-proto: 1.0.1
       has-symbols: 1.0.3
 
@@ -11544,7 +11545,7 @@ packages:
     resolution: {integrity: sha512-sFdI5LyBiNTHjRd7cGPWapiHWMOXKyuBNX/cWJ3NfzrZQVa8GI/8cofCl74AOVqq9W5kNmguTIzJ/1s2gyI9wA==}
     engines: {node: '>= 0.4'}
     dependencies:
-      define-properties: 1.2.0
+      define-properties: 1.2.1
 
   /globalyzer@0.1.0:
     resolution: {integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==}
@@ -13698,7 +13699,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
-      define-properties: 1.2.0
+      define-properties: 1.2.1
       has-symbols: 1.0.3
       object-keys: 1.1.1
 
@@ -13717,7 +13718,7 @@ packages:
     dependencies:
       array.prototype.reduce: 1.0.5
       call-bind: 1.0.2
-      define-properties: 1.2.0
+      define-properties: 1.2.1
       es-abstract: 1.22.1
       safe-array-concat: 1.0.0
     dev: true
@@ -14979,7 +14980,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
-      define-properties: 1.2.0
+      define-properties: 1.2.1
       functions-have-names: 1.2.3
 
   /regexpu-core@2.0.0:
@@ -15955,7 +15956,7 @@ packages:
     resolution: {integrity: sha512-6zOCOcJ+RJAQshcTvXPHoxoQGONa3e/Lqx90wUA+wEzX78sg5Bo+1tQo4N0pohS0erG9qtCqJDjNCQBjeWVxyg==}
     dependencies:
       call-bind: 1.0.2
-      define-properties: 1.2.0
+      define-properties: 1.2.1
       es-abstract: 1.22.1
       get-intrinsic: 1.2.1
       has-symbols: 1.0.3
@@ -15968,21 +15969,21 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
-      define-properties: 1.2.0
+      define-properties: 1.2.1
       es-abstract: 1.22.1
 
   /string.prototype.trimend@1.0.6:
     resolution: {integrity: sha512-JySq+4mrPf9EsDBEDYMOb/lM7XQLulwg5R/m1r0PXEFqrV0qHvl58sdTilSXtKOflCsK2E8jxf+GKC0T07RWwQ==}
     dependencies:
       call-bind: 1.0.2
-      define-properties: 1.2.0
+      define-properties: 1.2.1
       es-abstract: 1.22.1
 
   /string.prototype.trimstart@1.0.6:
     resolution: {integrity: sha512-omqjMDaY92pbn5HOX7f9IccLA+U1tA9GvtU4JrodiXFfYB7jPzzHpRzpglLAjtUV6bB557zwClJezTqnAiYnQA==}
     dependencies:
       call-bind: 1.0.2
-      define-properties: 1.2.0
+      define-properties: 1.2.1
       es-abstract: 1.22.1
 
   /string_decoder@0.10.31:
@@ -17007,7 +17008,7 @@ packages:
   /util.promisify@1.0.1:
     resolution: {integrity: sha512-g9JpC/3He3bm38zsLupWryXHoEcS22YHthuPQSJdMy6KNrzIRzWqcsHzD/WUnqe45whVou4VIsPew37DoXWNrA==}
     dependencies:
-      define-properties: 1.2.0
+      define-properties: 1.2.1
       es-abstract: 1.22.1
       has-symbols: 1.0.3
       object.getownpropertydescriptors: 2.1.6
