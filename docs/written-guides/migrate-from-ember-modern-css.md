@@ -5,7 +5,7 @@ Already implemented [Ember + Modern CSS](https://github.com/evoactivity/ember-mo
 1. [Install dependencies](#install-dependencies)
 1. [Configure type-css-modules](#configure-type-css-modules)
 1. [Own your styles](#own-your-styles)
-1. [Use the {{local-class}} helper](#use-the-local-class-helper)
+1. [Use the {{local}} helper](#use-the-local-helper)
 
 
 ## Install dependencies
@@ -106,11 +106,11 @@ Next, remove all `:local()` pseudo-class selectors. Instead, use the `:global()`
 
 
 
-## Use the {{local-class}} helper
+## Use the {{local}} helper
 
 ⚠️ You may skip this step if you didn't create the `{{styles}}` helper.
 
-Remove the `{{styles}}` helper. To apply multiple styles, use the [`{{local-class}}` helper](../../packages/embroider-css-modules/README.md#helper-local-class) instead.
+Remove the `{{styles}}` helper. To apply multiple styles, use the [`{{local}}` helper](../../packages/embroider-css-modules/README.md#helper-local) instead.
 
 <details>
 
@@ -138,7 +138,7 @@ Remove the `{{styles}}` helper. To apply multiple styles, use the [`{{local-clas
 ```hbs
 {{! After: app/templates/products.hbs }}
 <div
-  class={{local-class
+  class={{local
     this.styles
     (if
       this.isInExperimentalGroup
