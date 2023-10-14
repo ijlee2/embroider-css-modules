@@ -1,4 +1,4 @@
-# docs-app-for-embroider-css-modules-temporary
+# my-app-with-ember-css-modules
 
 ## 1.0.0
 

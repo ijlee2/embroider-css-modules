@@ -3,10 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "docs-app-for-embroider-css-modules-temporary/tests/*": [
+      "my-app-with-ember-css-modules/tests/*": [
         "tests/*"
       ],
-      "docs-app-for-embroider-css-modules-temporary/*": [
+      "my-app-with-ember-css-modules/*": [
         "app/*"
       ],
       "*": [

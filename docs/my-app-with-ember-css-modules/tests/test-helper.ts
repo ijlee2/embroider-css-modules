@@ -1,7 +1,7 @@
 import { setApplication } from '@ember/test-helpers';
-import Application from 'docs-app-for-embroider-css-modules-temporary/app';
-import config from 'docs-app-for-embroider-css-modules-temporary/config/environment';
 import { start } from 'ember-qunit';
+import Application from 'my-app-with-ember-css-modules/app';
+import config from 'my-app-with-ember-css-modules/config/environment';
 import * as QUnit from 'qunit';
 import { setup } from 'qunit-dom';
 

@@ -2,7 +2,7 @@
 "ember-codemod-remove-ember-css-modules": minor
 "embroider-css-modules-temporary": minor
 "embroider-css-modules": minor
-"docs-app-for-embroider-css-modules-temporary": patch
+"my-app-with-ember-css-modules": patch
 "test-app-for-embroider-css-modules": patch
 "my-app": patch
 "test-app-for-sample-v2-addon": patch

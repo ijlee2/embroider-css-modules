@@ -218,186 +218,6 @@ importers:
         specifier: ^3.0.3
         version: 3.0.3
 
-  docs/embroider-css-modules-temporary:
-    devDependencies:
-      '@babel/core':
-        specifier: ^7.23.2
-        version: 7.23.2(supports-color@8.1.1)
-      '@ember/optional-features':
-        specifier: ^2.0.0
-        version: 2.0.0
-      '@ember/string':
-        specifier: ^3.1.1
-        version: 3.1.1
-      '@ember/test-helpers':
-        specifier: ^3.2.0
-        version: 3.2.0(@glint/template@1.2.1)(ember-source@5.3.0)(webpack@5.89.0)
-      '@embroider/compat':
-        specifier: ^3.2.3
-        version: 3.2.3(@embroider/core@3.3.0)(@glint/template@1.2.1)
-      '@embroider/core':
-        specifier: ^3.3.0
-        version: 3.3.0(@glint/template@1.2.1)
-      '@embroider/router':
-        specifier: ^2.1.4
-        version: 2.1.4(@embroider/core@3.3.0)
-      '@embroider/webpack':
-        specifier: ^3.2.0
-        version: 3.2.0(@embroider/core@3.3.0)(webpack@5.89.0)
-      '@gavant/glint-template-types':
-        specifier: ^0.3.6
-        version: 0.3.6(ember-modifier@4.1.0)(ember-source@5.3.0)
-      '@glimmer/component':
-        specifier: ^1.1.2
-        version: 1.1.2(@babel/core@7.23.2)
-      '@glimmer/tracking':
-        specifier: ^1.1.2
-        version: 1.1.2
-      '@glint/core':
-        specifier: ^1.2.1
-        version: 1.2.1(typescript@5.2.2)
-      '@glint/environment-ember-loose':
-        specifier: ^1.2.1
-        version: 1.2.1(@glimmer/component@1.1.2)(@glint/template@1.2.1)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.1.0)
-      '@glint/environment-ember-template-imports':
-        specifier: ^1.2.1
-        version: 1.2.1(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(ember-template-imports@3.4.2)
-      '@glint/template':
-        specifier: ^1.2.1
-        version: 1.2.1
-      '@percy/cli':
-        specifier: ^1.27.3
-        version: 1.27.3(typescript@5.2.2)
-      '@percy/ember':
-        specifier: ^4.2.0
-        version: 4.2.0
-      '@shared-configs/ember-template-lint':
-        specifier: workspace:*
-        version: link:../../configs/ember-template-lint
-      '@shared-configs/eslint-config-ember':
-        specifier: workspace:*
-        version: link:../../configs/eslint/ember
-      '@shared-configs/prettier':
-        specifier: workspace:*
-        version: link:../../configs/prettier
-      '@shared-configs/stylelint':
-        specifier: workspace:*
-        version: link:../../configs/stylelint
-      '@shared-configs/testem':
-        specifier: workspace:*
-        version: link:../../configs/testem
-      '@shared-configs/typescript':
-        specifier: workspace:*
-        version: link:../../configs/typescript
-      '@types/qunit':
-        specifier: ^2.19.6
-        version: 2.19.6
-      autoprefixer:
-        specifier: ^10.4.16
-        version: 10.4.16(postcss@8.4.31)
-      broccoli-asset-rev:
-        specifier: ^3.0.0
-        version: 3.0.0
-      concurrently:
-        specifier: ^8.2.1
-        version: 8.2.1
-      ember-a11y-testing:
-        specifier: ^6.1.1
-        version: 6.1.1(@babel/core@7.23.2)(@ember/test-helpers@3.2.0)(@glint/template@1.2.1)(qunit@2.20.0)(webpack@5.89.0)
-      ember-auto-import:
-        specifier: ^2.6.3
-        version: 2.6.3(@glint/template@1.2.1)(webpack@5.89.0)
-      ember-cli:
-        specifier: ~5.3.0
-        version: 5.3.0
-      ember-cli-app-version:
-        specifier: ^6.0.1
-        version: 6.0.1(ember-source@5.3.0)
-      ember-cli-babel:
-        specifier: ^8.2.0
-        version: 8.2.0(@babel/core@7.23.2)
-      ember-cli-clean-css:
-        specifier: ^3.0.0
-        version: 3.0.0
-      ember-cli-dependency-checker:
-        specifier: ^3.3.2
-        version: 3.3.2(ember-cli@5.3.0)
-      ember-cli-dependency-lint:
-        specifier: ^2.0.1
-        version: 2.0.1
-      ember-cli-htmlbars:
-        specifier: ^6.3.0
-        version: 6.3.0
-      ember-cli-inject-live-reload:
-        specifier: ^2.1.0
-        version: 2.1.0
-      ember-css-modules:
-        specifier: ^2.0.1
-        version: 2.0.1
-      ember-load-initializers:
-        specifier: ^2.1.2
-        version: 2.1.2(@babel/core@7.23.2)
-      ember-page-title:
-        specifier: ^8.0.0
-        version: 8.0.0
-      ember-qunit:
-        specifier: ^8.0.1
-        version: 8.0.1(@ember/test-helpers@3.2.0)(@glint/template@1.2.1)(ember-source@5.3.0)(qunit@2.20.0)
-      ember-resolver:
-        specifier: ^11.0.1
-        version: 11.0.1(ember-source@5.3.0)
-      ember-source:
-        specifier: ~5.3.0
-        version: 5.3.0(@babel/core@7.23.2)(@glimmer/component@1.1.2)(@glint/template@1.2.1)(rsvp@4.8.5)(webpack@5.89.0)
-      ember-source-channel-url:
-        specifier: ^3.0.0
-        version: 3.0.0
-      ember-template-imports:
-        specifier: ^3.4.2
-        version: 3.4.2
-      ember-template-lint:
-        specifier: ^5.11.2
-        version: 5.11.2
-      ember-test-selectors:
-        specifier: ^6.0.0
-        version: 6.0.0
-      embroider-css-modules-temporary:
-        specifier: workspace:*
-        version: link:../../packages/embroider-css-modules-temporary
-      eslint:
-        specifier: ^8.51.0
-        version: 8.51.0
-      loader.js:
-        specifier: ^4.7.0
-        version: 4.7.0
-      prettier:
-        specifier: ^3.0.3
-        version: 3.0.3
-      qunit:
-        specifier: ^2.20.0
-        version: 2.20.0
-      qunit-dom:
-        specifier: ^3.0.0
-        version: 3.0.0
-      sample-v2-addon:
-        specifier: workspace:*
-        version: link:../sample-v2-addon
-      stylelint:
-        specifier: ^15.10.3
-        version: 15.10.3
-      stylelint-no-unsupported-browser-features:
-        specifier: ^7.0.0
-        version: 7.0.0(stylelint@15.10.3)
-      type-css-modules:
-        specifier: workspace:*
-        version: link:../../packages/type-css-modules
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2
-      webpack:
-        specifier: ^5.89.0
-        version: 5.89.0
-
   docs/my-app:
     devDependencies:
       '@babel/core':
@@ -597,7 +417,187 @@ importers:
         version: link:../sample-v2-addon
       stylelint:
         specifier: ^15.10.3
-        version: 15.10.3
+        version: 15.10.3(typescript@5.2.2)
+      stylelint-no-unsupported-browser-features:
+        specifier: ^7.0.0
+        version: 7.0.0(stylelint@15.10.3)
+      type-css-modules:
+        specifier: workspace:*
+        version: link:../../packages/type-css-modules
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
+      webpack:
+        specifier: ^5.89.0
+        version: 5.89.0
+
+  docs/my-app-with-ember-css-modules:
+    devDependencies:
+      '@babel/core':
+        specifier: ^7.23.2
+        version: 7.23.2(supports-color@8.1.1)
+      '@ember/optional-features':
+        specifier: ^2.0.0
+        version: 2.0.0
+      '@ember/string':
+        specifier: ^3.1.1
+        version: 3.1.1
+      '@ember/test-helpers':
+        specifier: ^3.2.0
+        version: 3.2.0(@glint/template@1.2.1)(ember-source@5.3.0)(webpack@5.89.0)
+      '@embroider/compat':
+        specifier: ^3.2.3
+        version: 3.2.3(@embroider/core@3.3.0)(@glint/template@1.2.1)
+      '@embroider/core':
+        specifier: ^3.3.0
+        version: 3.3.0(@glint/template@1.2.1)
+      '@embroider/router':
+        specifier: ^2.1.4
+        version: 2.1.4(@embroider/core@3.3.0)
+      '@embroider/webpack':
+        specifier: ^3.2.0
+        version: 3.2.0(@embroider/core@3.3.0)(webpack@5.89.0)
+      '@gavant/glint-template-types':
+        specifier: ^0.3.6
+        version: 0.3.6(ember-modifier@4.1.0)(ember-source@5.3.0)
+      '@glimmer/component':
+        specifier: ^1.1.2
+        version: 1.1.2(@babel/core@7.23.2)
+      '@glimmer/tracking':
+        specifier: ^1.1.2
+        version: 1.1.2
+      '@glint/core':
+        specifier: ^1.2.1
+        version: 1.2.1(typescript@5.2.2)
+      '@glint/environment-ember-loose':
+        specifier: ^1.2.1
+        version: 1.2.1(@glimmer/component@1.1.2)(@glint/template@1.2.1)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.1.0)
+      '@glint/environment-ember-template-imports':
+        specifier: ^1.2.1
+        version: 1.2.1(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(ember-template-imports@3.4.2)
+      '@glint/template':
+        specifier: ^1.2.1
+        version: 1.2.1
+      '@percy/cli':
+        specifier: ^1.27.3
+        version: 1.27.3(typescript@5.2.2)
+      '@percy/ember':
+        specifier: ^4.2.0
+        version: 4.2.0
+      '@shared-configs/ember-template-lint':
+        specifier: workspace:*
+        version: link:../../configs/ember-template-lint
+      '@shared-configs/eslint-config-ember':
+        specifier: workspace:*
+        version: link:../../configs/eslint/ember
+      '@shared-configs/prettier':
+        specifier: workspace:*
+        version: link:../../configs/prettier
+      '@shared-configs/stylelint':
+        specifier: workspace:*
+        version: link:../../configs/stylelint
+      '@shared-configs/testem':
+        specifier: workspace:*
+        version: link:../../configs/testem
+      '@shared-configs/typescript':
+        specifier: workspace:*
+        version: link:../../configs/typescript
+      '@types/qunit':
+        specifier: ^2.19.6
+        version: 2.19.6
+      autoprefixer:
+        specifier: ^10.4.16
+        version: 10.4.16(postcss@8.4.31)
+      broccoli-asset-rev:
+        specifier: ^3.0.0
+        version: 3.0.0
+      concurrently:
+        specifier: ^8.2.1
+        version: 8.2.1
+      ember-a11y-testing:
+        specifier: ^6.1.1
+        version: 6.1.1(@babel/core@7.23.2)(@ember/test-helpers@3.2.0)(@glint/template@1.2.1)(qunit@2.20.0)(webpack@5.89.0)
+      ember-auto-import:
+        specifier: ^2.6.3
+        version: 2.6.3(@glint/template@1.2.1)(webpack@5.89.0)
+      ember-cli:
+        specifier: ~5.3.0
+        version: 5.3.0
+      ember-cli-app-version:
+        specifier: ^6.0.1
+        version: 6.0.1(ember-source@5.3.0)
+      ember-cli-babel:
+        specifier: ^8.2.0
+        version: 8.2.0(@babel/core@7.23.2)
+      ember-cli-clean-css:
+        specifier: ^3.0.0
+        version: 3.0.0
+      ember-cli-dependency-checker:
+        specifier: ^3.3.2
+        version: 3.3.2(ember-cli@5.3.0)
+      ember-cli-dependency-lint:
+        specifier: ^2.0.1
+        version: 2.0.1
+      ember-cli-htmlbars:
+        specifier: ^6.3.0
+        version: 6.3.0
+      ember-cli-inject-live-reload:
+        specifier: ^2.1.0
+        version: 2.1.0
+      ember-css-modules:
+        specifier: ^2.0.1
+        version: 2.0.1
+      ember-load-initializers:
+        specifier: ^2.1.2
+        version: 2.1.2(@babel/core@7.23.2)
+      ember-page-title:
+        specifier: ^8.0.0
+        version: 8.0.0
+      ember-qunit:
+        specifier: ^8.0.1
+        version: 8.0.1(@ember/test-helpers@3.2.0)(@glint/template@1.2.1)(ember-source@5.3.0)(qunit@2.20.0)
+      ember-resolver:
+        specifier: ^11.0.1
+        version: 11.0.1(ember-source@5.3.0)
+      ember-source:
+        specifier: ~5.3.0
+        version: 5.3.0(@babel/core@7.23.2)(@glimmer/component@1.1.2)(@glint/template@1.2.1)(rsvp@4.8.5)(webpack@5.89.0)
+      ember-source-channel-url:
+        specifier: ^3.0.0
+        version: 3.0.0
+      ember-template-imports:
+        specifier: ^3.4.2
+        version: 3.4.2
+      ember-template-lint:
+        specifier: ^5.11.2
+        version: 5.11.2
+      ember-test-selectors:
+        specifier: ^6.0.0
+        version: 6.0.0
+      embroider-css-modules-temporary:
+        specifier: workspace:*
+        version: link:../../packages/embroider-css-modules-temporary
+      eslint:
+        specifier: ^8.51.0
+        version: 8.51.0
+      loader.js:
+        specifier: ^4.7.0
+        version: 4.7.0
+      prettier:
+        specifier: ^3.0.3
+        version: 3.0.3
+      qunit:
+        specifier: ^2.20.0
+        version: 2.20.0
+      qunit-dom:
+        specifier: ^3.0.0
+        version: 3.0.0
+      sample-v2-addon:
+        specifier: workspace:*
+        version: link:../sample-v2-addon
+      stylelint:
+        specifier: ^15.10.3
+        version: 15.10.3(typescript@5.2.2)
       stylelint-no-unsupported-browser-features:
         specifier: ^7.0.0
         version: 7.0.0(stylelint@15.10.3)
@@ -694,7 +694,7 @@ importers:
         version: 4.0.2(postcss@8.4.31)
       stylelint:
         specifier: ^15.10.3
-        version: 15.10.3
+        version: 15.10.3(typescript@5.2.2)
       type-css-modules:
         specifier: workspace:*
         version: link:../../packages/type-css-modules
@@ -1094,7 +1094,7 @@ importers:
         version: 3.0.0
       stylelint:
         specifier: ^15.10.3
-        version: 15.10.3
+        version: 15.10.3(typescript@5.2.2)
       stylelint-no-unsupported-browser-features:
         specifier: ^7.0.0
         version: 7.0.0(stylelint@15.10.3)
@@ -1241,7 +1241,7 @@ importers:
         version: link:../../docs/sample-v2-addon
       stylelint:
         specifier: ^15.10.3
-        version: 15.10.3
+        version: 15.10.3(typescript@5.2.2)
       stylelint-no-unsupported-browser-features:
         specifier: ^7.0.0
         version: 7.0.0(stylelint@15.10.3)
@@ -6464,7 +6464,7 @@ packages:
     dependencies:
       '@babel/core': 7.23.2(supports-color@8.1.1)
       '@babel/helper-define-polyfill-provider': 0.3.3(@babel/core@7.23.2)
-      core-js-compat: 3.29.1
+      core-js-compat: 3.33.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -8299,6 +8299,7 @@ packages:
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
+    dev: false
 
   /cosmiconfig@8.3.6(typescript@5.2.2):
     resolution: {integrity: sha512-kcZ6+W5QzcJ3P1Mt+83OUv/oHFqZHIx8DuxG6eZ5RGMERoLqp4BuGjhHLYGK+Kf5XVkQvqBSmAy/nGWN3qDgEA==}
@@ -8376,7 +8377,7 @@ packages:
       postcss-modules-values: 4.0.0(postcss@8.4.31)
       postcss-value-parser: 4.2.0
       schema-utils: 3.3.0
-      semver: 7.5.0
+      semver: 7.5.4
       webpack: 5.89.0
     dev: true
 
@@ -16107,7 +16108,7 @@ packages:
       doiuse: 6.0.2
       lodash: 4.17.21
       postcss: 8.4.31
-      stylelint: 15.10.3
+      stylelint: 15.10.3(typescript@5.2.2)
     dev: true
 
   /stylelint-order@6.0.3(stylelint@15.10.3):
@@ -16179,6 +16180,57 @@ packages:
       write-file-atomic: 5.0.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /stylelint@15.10.3(typescript@5.2.2):
+    resolution: {integrity: sha512-aBQMMxYvFzJJwkmg+BUUg3YfPyeuCuKo2f+LOw7yYbU8AZMblibwzp9OV4srHVeQldxvSFdz0/Xu8blq2AesiA==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    hasBin: true
+    dependencies:
+      '@csstools/css-parser-algorithms': 2.3.1(@csstools/css-tokenizer@2.2.0)
+      '@csstools/css-tokenizer': 2.2.0
+      '@csstools/media-query-list-parser': 2.1.4(@csstools/css-parser-algorithms@2.3.1)(@csstools/css-tokenizer@2.2.0)
+      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
+      balanced-match: 2.0.0
+      colord: 2.9.3
+      cosmiconfig: 8.3.6(typescript@5.2.2)
+      css-functions-list: 3.2.0
+      css-tree: 2.3.1
+      debug: 4.3.4(supports-color@8.1.1)
+      fast-glob: 3.3.1
+      fastest-levenshtein: 1.0.16
+      file-entry-cache: 6.0.1
+      global-modules: 2.0.0
+      globby: 11.1.0
+      globjoin: 0.1.4
+      html-tags: 3.3.1
+      ignore: 5.2.4
+      import-lazy: 4.0.0
+      imurmurhash: 0.1.4
+      is-plain-object: 5.0.0
+      known-css-properties: 0.28.0
+      mathml-tag-names: 2.1.3
+      meow: 10.1.5
+      micromatch: 4.0.5
+      normalize-path: 3.0.0
+      picocolors: 1.0.0
+      postcss: 8.4.31
+      postcss-resolve-nested-selector: 0.1.1
+      postcss-safe-parser: 6.0.0(postcss@8.4.31)
+      postcss-selector-parser: 6.0.13
+      postcss-value-parser: 4.2.0
+      resolve-from: 5.0.0
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+      style-search: 0.1.0
+      supports-hyperlinks: 3.0.0
+      svg-tags: 1.0.0
+      table: 6.8.1
+      write-file-atomic: 5.0.1
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: true
 
   /supports-color@2.0.0:
     resolution: {integrity: sha512-KKNVtd6pCYgPIKU4cp2733HWYCpplQhddZLBUryaAHou723x+FRzQ5Df824Fj+IyyuiQTRoub4SnIFfIcrp70g==}
