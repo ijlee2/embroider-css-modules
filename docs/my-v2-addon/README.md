@@ -1,7 +1,7 @@
 [![This project uses GitHub Actions for continuous integration.](https://github.com/ijlee2/embroider-css-modules/actions/workflows/ci.yml/badge.svg)](https://github.com/ijlee2/embroider-css-modules/actions/workflows/ci.yml)
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Isaac/embroider-css-modules)
 
-# sample-v2-addon
+# my-v2-addon
 
 1. [What is it?](#what-is-it)
 1. [Local development](#local-development)
@@ -11,7 +11,7 @@
 
 ## What is it?
 
-`sample-v2-addon` is an Ember addon. We use it to check that `embroider-css-modules` is compatible with v2 addons.
+`my-v2-addon` is an Ember addon with `embroider-css-modules`. We use it to check that `embroider-css-modules` is compatible with v2 addons.
 
 
 ## Local development

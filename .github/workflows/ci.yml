@@ -20,7 +20,7 @@ jobs:
         package-location:
           - 'docs/my-app'
           - 'docs/my-app-with-ember-css-modules'
-          - 'docs/sample-v2-addon'
+          - 'docs/my-v2-addon'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
           - 'packages/embroider-css-modules-temporary'
@@ -59,7 +59,7 @@ jobs:
         package-location:
           - 'docs/my-app'
           - 'docs/my-app-with-ember-css-modules'
-          - 'docs/sample-v2-addon'
+          - 'docs/my-v2-addon'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
           - 'packages/embroider-css-modules-temporary'

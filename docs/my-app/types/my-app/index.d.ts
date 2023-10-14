@@ -7,7 +7,7 @@ import { ComponentLike, HelperLike } from '@glint/template';
 import type EmberContainerQueryRegistry from 'ember-container-query/template-registry';
 import type EmberSvgJarRegistry from 'ember-svg-jar/template-registry';
 import type EmbroiderCssModulesRegistry from 'embroider-css-modules/template-registry';
-import type SampleV2AddonRegistry from 'sample-v2-addon/template-registry';
+import type MyV2AddonRegistry from 'my-v2-addon/template-registry';
 
 type NavigationNarratorComponent = ComponentLike<{
   Args: {
@@ -25,7 +25,7 @@ declare module '@glint/environment-ember-loose/registry' {
     extends EmberContainerQueryRegistry,
       EmberSvgJarRegistry,
       EmbroiderCssModulesRegistry,
-      SampleV2AddonRegistry {
+      MyV2AddonRegistry {
     // Add any registry entries from other addons here that your addon itself uses (in non-strict mode templates)
     // See https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons
     NavigationNarrator: NavigationNarratorComponent;

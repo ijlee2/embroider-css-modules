@@ -7,7 +7,7 @@
 "my-app": patch
 "type-css-modules": patch
 "test-app-for-sample-v2-addon": patch
-"sample-v2-addon": patch
+"my-v2-addon": patch
 ---
 
 Updated dependencies

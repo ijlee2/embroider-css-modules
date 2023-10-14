@@ -1,4 +1,4 @@
-# sample-v2-addon
+# my-v2-addon
 
 ## 1.0.0
 

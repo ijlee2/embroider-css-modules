@@ -6,7 +6,7 @@
 "test-app-for-embroider-css-modules": patch
 "my-app": patch
 "test-app-for-sample-v2-addon": patch
-"sample-v2-addon": patch
+"my-v2-addon": patch
 ---
 
 Deprecated the helpers {{local-class}} and {{local-class-new}}

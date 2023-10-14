@@ -7,9 +7,6 @@ const addon = new Addon({
   destDir: 'dist',
 });
 
-// Add extensions here, such as ts, gjs, etc that you may import
-const extensions = ['.js', '.ts'];
-
 export default {
   // This provides defaults that work well alongside `publicEntrypoints` below.
   // You can augment this if you need to.
@@ -39,8 +36,7 @@ export default {
     postcss({
       autoModules: false,
       modules: {
-        generateScopedName: 'sample-v2-addon__[sha512:hash:base64:5]',
-        // generateScopedName: 'sample-v2-addon__[path][name]__[local]',
+        generateScopedName: 'my-v2-addon__[sha512:hash:base64:5]',
       },
     }),
 
@@ -52,7 +48,7 @@ export default {
     // babel.config.json.
     babel({
       babelHelpers: 'bundled',
-      extensions,
+      extensions: ['.js', '.ts'],
     }),
 
     // Ensure that standalone .hbs files are properly integrated as Javascript.

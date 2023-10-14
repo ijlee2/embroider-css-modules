@@ -1,8 +1,8 @@
 import { render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { hbs } from 'ember-cli-htmlbars';
+import { getClassForUiPage } from 'my-v2-addon/test-support';
 import { module, test } from 'qunit';
-import { getClassForUiPage } from 'sample-v2-addon/test-support';
 
 import { setupRenderingTest } from '../../../helpers';
 

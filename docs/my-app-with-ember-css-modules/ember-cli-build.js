@@ -7,7 +7,7 @@ module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     // Add options here
     autoImport: {
-      watchDependencies: ['embroider-css-modules-temporary', 'sample-v2-addon'],
+      watchDependencies: ['embroider-css-modules-temporary', 'my-v2-addon'],
     },
     'ember-cli-babel': {
       enableTypeScriptTransform: true,

@@ -1,9 +1,9 @@
 import { array, hash } from '@ember/helper';
 import { findAll, render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
+import { NavigationMenu } from 'my-v2-addon';
+import { getClassForNavigationMenu } from 'my-v2-addon/test-support';
 import { module, test } from 'qunit';
-import { NavigationMenu } from 'sample-v2-addon';
-import { getClassForNavigationMenu } from 'sample-v2-addon/test-support';
 
 import { setupRenderingTest } from '../../helpers';
 

@@ -4,7 +4,7 @@ import type UiPageDemoComponent from './components/ui/page/demo.ts';
 import type UiPageSectionComponent from './components/ui/page/section.ts';
 import type UiPageSubsectionComponent from './components/ui/page/subsection.ts';
 
-export default interface SampleV2AddonRegistry {
+export default interface MyV2AddonRegistry {
   NavigationMenu: typeof NavigationMenuComponent;
   'Ui::Page': typeof UiPageComponent;
   'Ui::Page::Demo': typeof UiPageDemoComponent;
