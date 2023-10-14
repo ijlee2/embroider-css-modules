@@ -1,6 +1,9 @@
 import { set } from '@ember/object';
-import type { TestContext as BaseTestContext } from '@ember/test-helpers';
-import { fillIn, render } from '@ember/test-helpers';
+import {
+  fillIn,
+  render,
+  type TestContext as BaseTestContext,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 
@@ -11,13 +14,14 @@ interface TestContext extends BaseTestContext {
   updateChangeset: ({ key, value }: { key: string; value: any }) => void;
 }
 
-module('Integration | Component | ui/form/input', function (hooks) {
+module('Integration | Component | ui/form/number', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function (this: TestContext) {
     this.changeset = {
+      donation: 1000,
       email: 'zoey@emberjs.com',
-      message: 'I 🧡 CSS modules!',
+      message: 'I 🧡 container queries!',
       name: 'Zoey',
       subscribe: false,
     };
@@ -29,25 +33,27 @@ module('Integration | Component | ui/form/input', function (hooks) {
 
   test('The component renders a label and an input', async function (this: TestContext, assert) {
     await render<TestContext>(hbs`
-      <Ui::Form::Input
+      <Ui::Form::Number
         @changeset={{this.changeset}}
-        @key="name"
-        @label="Name"
+        @key="donation"
+        @label="Donation amount ($)"
+        @minValue={{0}}
         @onUpdate={{this.updateChangeset}}
+        @placeholder="100"
       />
     `);
 
     assert
       .dom('[data-test-label]')
-      .hasText('Name', 'We see the correct label.');
+      .hasText('Donation amount ($)', 'We see the correct label.');
 
     assert
-      .dom('[data-test-field="Name"]')
+      .dom('[data-test-field="Donation amount ($)"]')
       .doesNotHaveAttribute('readonly', 'The input should not be readonly.')
-      .hasAttribute('type', 'text', 'We see the correct type.')
+      .hasAttribute('type', 'number', 'We see the correct type.')
       .hasStyle({ padding: '2px 4px' }, 'We see the correct style.')
       .hasTagName('input', 'We see the correct tag name.')
-      .hasValue('Zoey', 'We see the correct value.')
+      .hasValue('1000', 'We see the correct value.')
       .isEnabled('The input should be enabled.')
       .isNotRequired('The input should not be required.');
 
@@ -58,60 +64,69 @@ module('Integration | Component | ui/form/input', function (hooks) {
 
   test('We can pass @isDisabled to disable the input', async function (this: TestContext, assert) {
     await render<TestContext>(hbs`
-      <Ui::Form::Input
+      <Ui::Form::Number
         @changeset={{this.changeset}}
         @isDisabled={{true}}
-        @key="name"
-        @label="Name"
+        @key="donation"
+        @label="Donation amount ($)"
+        @minValue={{0}}
         @onUpdate={{this.updateChangeset}}
+        @placeholder="100"
       />
     `);
 
     assert
-      .dom('[data-test-field="Name"]')
+      .dom('[data-test-field="Donation amount ($)"]')
       .hasStyle({ cursor: 'not-allowed' }, 'We see the correct style.')
       .isDisabled('The input is disabled.');
   });
 
   test('We can pass @isReadOnly to display the value', async function (this: TestContext, assert) {
     await render<TestContext>(hbs`
-      <Ui::Form::Input
+      <Ui::Form::Number
         @changeset={{this.changeset}}
         @isReadOnly={{true}}
-        @key="name"
-        @label="Name"
+        @key="donation"
+        @label="Donation amount ($)"
+        @minValue={{0}}
         @onUpdate={{this.updateChangeset}}
+        @placeholder="100"
       />
     `);
 
     assert
-      .dom('[data-test-field="Name"]')
+      .dom('[data-test-field="Donation amount ($)"]')
       .hasAttribute('readonly', '', 'We see the readonly attribute.')
-      .hasValue('Zoey', 'We see the correct value.');
+      .hasValue('1000', 'We see the correct value.');
   });
 
   test('We can pass @isRequired to require a value', async function (this: TestContext, assert) {
     await render<TestContext>(hbs`
-      <Ui::Form::Input
+      <Ui::Form::Number
         @changeset={{this.changeset}}
         @isRequired={{true}}
-        @key="name"
-        @label="Name"
+        @key="donation"
+        @label="Donation amount ($)"
+        @minValue={{0}}
         @onUpdate={{this.updateChangeset}}
+        @placeholder="100"
       />
     `);
 
     assert
       .dom('[data-test-label]')
-      .hasText('Name *', 'The label shows that the field is required.');
+      .hasText(
+        'Donation amount ($) *',
+        'The label shows that the field is required.',
+      );
 
     assert
-      .dom('[data-test-field="Name"]')
-      .isRequired('The input should be required.');
+      .dom('[data-test-field="Donation amount ($)"]')
+      .isRequired('The input is required.');
   });
 
   test('We can pass @onUpdate to get the updated value', async function (this: TestContext, assert) {
-    let expectedValue = '';
+    let expectedValue: any = undefined;
 
     this.updateChangeset = ({ key, value }) => {
       assert.step('onUpdate');
@@ -126,20 +141,22 @@ module('Integration | Component | ui/form/input', function (hooks) {
     };
 
     await render<TestContext>(hbs`
-      <Ui::Form::Input
+      <Ui::Form::Number
         @changeset={{this.changeset}}
         @isRequired={{true}}
-        @key="name"
-        @label="Name"
+        @key="donation"
+        @label="Donation amount ($)"
+        @minValue={{0}}
         @onUpdate={{this.updateChangeset}}
+        @placeholder="100"
       />
     `);
 
     // Update the value
-    await fillIn('[data-test-field="Name"]', '');
+    await fillIn('[data-test-field="Donation amount ($)"]', '');
 
     assert
-      .dom('[data-test-field="Name"]')
+      .dom('[data-test-field="Donation amount ($)"]')
       .hasValue('', 'We see the correct value.');
 
     assert
@@ -147,47 +164,18 @@ module('Integration | Component | ui/form/input', function (hooks) {
       .hasText('Please provide a value.', 'We see an error message.');
 
     // Update the value again
-    expectedValue = 'Tomster';
+    expectedValue = 10000;
 
-    await fillIn('[data-test-field="Name"]', 'Tomster');
+    await fillIn('[data-test-field="Donation amount ($)"]', '10000');
 
     assert
-      .dom('[data-test-field="Name"]')
-      .hasValue('Tomster', 'We see the correct value.');
+      .dom('[data-test-field="Donation amount ($)"]')
+      .hasValue('10000', 'We see the correct value.');
 
     assert
       .dom('[data-test-feedback]')
       .doesNotExist('We should not see an error message.');
 
     assert.verifySteps(['onUpdate', 'onUpdate']);
-  });
-
-  test('We can pass @type to create an email input', async function (this: TestContext, assert) {
-    await render<TestContext>(hbs`
-      <Ui::Form::Input
-        @changeset={{this.changeset}}
-        @key="email"
-        @label="Email"
-        @type="email"
-        @onUpdate={{this.updateChangeset}}
-      />
-    `);
-
-    assert
-      .dom('[data-test-label]')
-      .hasText('Email', 'We see the correct label.');
-
-    assert
-      .dom('[data-test-field="Email"]')
-      .doesNotHaveAttribute('readonly', 'The input should not be readonly.')
-      .hasAttribute('type', 'email', 'We see the correct type.')
-      .hasTagName('input', 'We see the correct tag name.')
-      .hasValue('zoey@emberjs.com', 'We see the correct value.')
-      .isEnabled('The input should be enabled.')
-      .isNotRequired('The input should not be required.');
-
-    assert
-      .dom('[data-test-feedback]')
-      .doesNotExist('We should not see an error message.');
   });
 });

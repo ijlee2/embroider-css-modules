@@ -93,12 +93,34 @@ pnpm build
 
 `ember-css-modules` allows composing (really, inheriting) CSS code in two ways:
 
-- `{{local-class ... from="..."}}` in `*.hbs`
 - `composes: ... from '...';` in `*.css`
+- `{{local-class ... from="..."}}` in `*.hbs`
 
-Code inheritance can be signs of premature abstraction and incorrect component design. Ideally, you might duplicate code, then refactor it.
+The first syntax will continue to work in an Embroider app, provided that the import path is either `global` or a relative path.
 
-If short on time, you can import the relevant `styles` object in the backing class.
+```css
+/* app/components/ui/form/textarea.css */
+.textarea {
+  composes: input from "./input.css";
+}
+
+.is-disabled {
+  composes: input-disabled from global;
+}
+
+/* These do not work */
+.textarea {
+  composes: input from "my-app/components/ui/form/input.css";
+}
+
+.textarea {
+  composes: input from "my-v2-addon/components/ui/form/input.css";
+}
+```
+
+The second syntax isn't supported by the `{{local}}` helper from `embroider-css-modules`, so you will need to update the template and stylesheet accordingly.
+
+However, note that the presence of `composes` (in a set of related components) may indicate a premature abstraction and an incorrect component design. Ideally, you might duplicate the CSS, then refactor the components. If short on time, you can import the relevant `styles` object in the backing class.
 
 <details>
 
@@ -109,7 +131,7 @@ Case 1:
 ```hbs
 {{! app/components/ui/form/textarea.hbs }}
 <textarea
-  class={{local-class "input" from="app/components/ui/form/input.css"}}
+  class={{local-class "input" from="my-app/components/ui/form/input.css"}}
 />
 ```
 
@@ -118,7 +140,7 @@ Case 2:
 ```css
 /* app/components/ui/form/textarea.css */
 .textarea {
-  composes: input from "app/components/ui/form/input.css";
+  composes: input from "my-app/components/ui/form/input.css";
 }
 ```
 

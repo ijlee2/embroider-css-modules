@@ -49,6 +49,7 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
       .hasAria('required', 'false', 'The input should not be required.')
       .hasAttribute('role', 'checkbox', 'We see the correct role.')
       .hasAttribute('tabindex', '0', 'The input is focusable.')
+      .hasStyle({ padding: '0px' }, 'We see the correct style.')
       .hasTagName('span', 'We see the correct tag name.');
 
     assert
@@ -70,7 +71,8 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
     assert
       .dom('[data-test-field="Subscribe to The Ember Times?"]')
       .doesNotHaveAttribute('tabindex', 'The input should not be focusable.')
-      .hasAria('disabled', 'true', 'The input is disabled.');
+      .hasAria('disabled', 'true', 'The input is disabled.')
+      .hasStyle({ cursor: 'not-allowed' }, 'We see the correct style.');
   });
 
   test('We can pass @isReadOnly to display the value', async function (this: TestContext, assert) {
