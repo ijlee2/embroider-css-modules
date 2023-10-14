@@ -23,11 +23,11 @@ module('Acceptance | index', function (hooks) {
       'We can use the {{local-class}} helper from ember-css-modules.',
     );
 
-    assert.dom('[data-test-local-class-new-helper]').hasStyle(
+    assert.dom('[data-test-local-helper]').hasStyle(
       {
         color: 'rgb(255, 0, 255)',
       },
-      'We can use the {{local-class-new}} helper from embroider-css-modules-temporary.',
+      'We can use the {{local}} helper from embroider-css-modules-temporary.',
     );
   });
 });
