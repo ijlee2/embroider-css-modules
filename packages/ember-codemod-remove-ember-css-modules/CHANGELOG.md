@@ -8,8 +8,8 @@
 
 ### Patch Changes
 
-- [#106](https://github.com/ijlee2/embroider-css-modules/pull/106) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 - [#109](https://github.com/ijlee2/embroider-css-modules/pull/109) Documented how to use composes ([@ijlee2](https://github.com/ijlee2))
+- [#106](https://github.com/ijlee2/embroider-css-modules/pull/106) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
 ## 1.0.0
 
@@ -23,8 +23,8 @@
 
 ### Patch Changes
 
-- [#100](https://github.com/ijlee2/embroider-css-modules/pull/100) Updated eslint configuration ([@ijlee2](https://github.com/ijlee2))
 - [#105](https://github.com/ijlee2/embroider-css-modules/pull/105) Updated latestVersions ([@ijlee2](https://github.com/ijlee2))
+- [#100](https://github.com/ijlee2/embroider-css-modules/pull/100) Updated eslint configuration ([@ijlee2](https://github.com/ijlee2))
 
 ## 0.4.3
 
