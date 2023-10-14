@@ -1,6 +1,6 @@
 # Set up CSS modules (apps)
 
-We will use Webpack and PostCSS to implement CSS modules. (If you get lost, you can check [`docs-app-for-embroider-css-modules`](../embroider-css-modules) for reference.)
+We will use Webpack and PostCSS to implement CSS modules. (If you get lost, you can check [`my-app`](../my-app) for reference.)
 
 1. [Install dependencies](#install-dependencies)
 1. [Configure Webpack](#configure-webpack)

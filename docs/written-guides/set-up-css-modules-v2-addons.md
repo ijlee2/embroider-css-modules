@@ -1,6 +1,6 @@
 # Set up CSS modules (v2 addons)
 
-We will use Rollup and PostCSS to implement CSS modules. (If you get lost, you can check [`sample-v2-addon`](../sample-v2-addon) for reference.)
+We will use Rollup and PostCSS to implement CSS modules. (If you get lost, you can check [`my-v2-addon`](../my-v2-addon) for reference.)
 
 1. [Install dependencies](#install-dependencies)
 1. [Configure Rollup](#configure-rollup)
