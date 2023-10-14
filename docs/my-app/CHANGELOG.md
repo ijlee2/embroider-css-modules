@@ -1,4 +1,4 @@
-# docs-app-for-embroider-css-modules
+# my-app
 
 ## 1.0.0
 

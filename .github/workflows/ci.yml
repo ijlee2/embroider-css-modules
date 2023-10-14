@@ -18,8 +18,8 @@ jobs:
     strategy:
       matrix:
         package-location:
-          - 'docs/embroider-css-modules'
           - 'docs/embroider-css-modules-temporary'
+          - 'docs/my-app'
           - 'docs/sample-v2-addon'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
@@ -57,8 +57,8 @@ jobs:
     strategy:
       matrix:
         package-location:
-          - 'docs/embroider-css-modules'
           - 'docs/embroider-css-modules-temporary'
+          - 'docs/my-app'
           - 'docs/sample-v2-addon'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
@@ -68,7 +68,7 @@ jobs:
           - 'tests/sample-v2-addon'
     timeout-minutes: 5
     env:
-      RUN_PERCY: ${{ matrix.package-location == 'docs/embroider-css-modules' || matrix.package-location == 'docs/embroider-css-modules-temporary' }}
+      RUN_PERCY: ${{ matrix.package-location == 'docs/my-app' || matrix.package-location == 'docs/embroider-css-modules-temporary' }}
     steps:
       - name: Check out a copy of the repo
         uses: actions/checkout@v4

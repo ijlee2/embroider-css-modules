@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   const ENV = {
-    modulePrefix: 'docs-app-for-embroider-css-modules',
+    modulePrefix: 'my-app',
     environment,
     rootURL: '/',
     locationType: 'history',

@@ -1,5 +1,5 @@
 // Types for compiled templates
-declare module 'docs-app-for-embroider-css-modules/templates/*' {
+declare module 'my-app/templates/*' {
   import { TemplateFactory } from 'ember-cli-htmlbars';
 
   const tmpl: TemplateFactory;

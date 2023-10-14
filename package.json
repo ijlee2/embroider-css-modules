@@ -12,8 +12,8 @@
   "type": "module",
   "scripts": {
     "build": "concurrently 'npm:build:*'",
-    "build:docs-app-for-embroider-css-modules": "pnpm --filter docs-app-for-embroider-css-modules build",
     "build:embroider-css-modules": "pnpm --filter embroider-css-modules build",
+    "build:my-app": "pnpm --filter my-app build",
     "build:sample-v2-addon": "pnpm --filter sample-v2-addon build",
     "changeset": "changeset add",
     "lint": "pnpm --filter '*' lint",
@@ -22,8 +22,8 @@
     "publish:changelogs": "changeset version",
     "publish:packages": "changeset publish",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
-    "start:docs-app-for-embroider-css-modules": "pnpm --filter docs-app-for-embroider-css-modules start",
     "start:embroider-css-modules": "pnpm --filter embroider-css-modules start",
+    "start:my-app": "pnpm --filter my-app start",
     "start:sample-v2-addon": "pnpm --filter sample-v2-addon start",
     "test": "pnpm --filter '*' test"
   },

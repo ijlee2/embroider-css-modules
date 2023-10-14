@@ -1,7 +1,7 @@
 import type { TestContext as BaseTestContext } from '@ember/test-helpers';
-import concertData from 'docs-app-for-embroider-css-modules/data/concert';
-import type { ContainerDimensions } from 'docs-app-for-embroider-css-modules/utils/components/widgets/widget-3';
-import { findBestFittingImage } from 'docs-app-for-embroider-css-modules/utils/components/widgets/widget-3';
+import concertData from 'my-app/data/concert';
+import type { ContainerDimensions } from 'my-app/utils/components/widgets/widget-3';
+import { findBestFittingImage } from 'my-app/utils/components/widgets/widget-3';
 import { module, test } from 'qunit';
 
 type TestMatrix = Map<string, ContainerDimensions>;

@@ -1,9 +1,9 @@
-import musicRevenue from 'docs-app-for-embroider-css-modules/data/music-revenue';
+import musicRevenue from 'my-app/data/music-revenue';
 import {
   createDataForVisualization,
   createSummariesForCaptions,
   formatRevenue,
-} from 'docs-app-for-embroider-css-modules/utils/components/widgets/widget-2';
+} from 'my-app/utils/components/widgets/widget-2';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | components/widgets/widget-2', function () {

@@ -4,7 +4,7 @@
 "docs-app-for-embroider-css-modules-temporary": patch
 "embroider-css-modules": patch
 "test-app-for-embroider-css-modules": patch
-"docs-app-for-embroider-css-modules": patch
+"my-app": patch
 "type-css-modules": patch
 "test-app-for-sample-v2-addon": patch
 "sample-v2-addon": patch

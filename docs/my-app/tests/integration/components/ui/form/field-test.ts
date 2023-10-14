@@ -1,8 +1,8 @@
 import type { TestContext } from '@ember/test-helpers';
 import { render } from '@ember/test-helpers';
-import styles from 'docs-app-for-embroider-css-modules/components/ui/form/field.css';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { hbs } from 'ember-cli-htmlbars';
+import styles from 'my-app/components/ui/form/field.css';
 import { module, test } from 'qunit';
 
 import { setupRenderingTest } from '../../../../helpers';

@@ -10,7 +10,7 @@ type QUnitAssert = {
 };
 
 function getName(qunitAssert: QUnitAssert): string {
-  const packageName = 'docs-app-for-embroider-css-modules';
+  const packageName = 'my-app';
   const moduleName = qunitAssert.test.module.name;
   const testName = qunitAssert.test.testName;
 
