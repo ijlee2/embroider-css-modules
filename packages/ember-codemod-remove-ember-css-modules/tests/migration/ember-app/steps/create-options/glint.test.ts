@@ -23,7 +23,6 @@ test('migration | ember-app | steps | create-options > glint', function () {
   loadFixture(inputProject, codemodOptions);
 
   assert.deepStrictEqual(createOptions(codemodOptions), {
-    __styles__: 'styles',
     componentStructure: 'flat',
     project: {
       dependencies: new Map([

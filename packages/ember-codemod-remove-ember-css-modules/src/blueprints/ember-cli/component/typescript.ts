@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-<% if (options.componentStructure === 'nested') { %>import <%= options.__styles__ %> from './index.css';<% } else { %>import <%= options.__styles__ %> from './<%= entity.fileName %>.css';<% } %>
+<% if (options.componentStructure === 'nested') { %>import styles from './index.css';<% } else { %>import styles from './<%= entity.fileName %>.css';<% } %>
 
 interface <%= entity.classifiedName %>Signature {
   // The arguments accepted by the component
@@ -14,7 +14,7 @@ interface <%= entity.classifiedName %>Signature {
 }
 
 export default class <%= entity.classifiedName %>Component extends Component<<%= entity.classifiedName %>Signature> {
-  <%= options.__styles__ %> = <%= options.__styles__ %>;
+  styles = styles;
 }
 <% if (options.project.hasGlint) { %>
 declare module '@glint/environment-ember-loose/registry' {

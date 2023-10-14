@@ -54,7 +54,6 @@ const context: Context = {
 };
 
 const options: Options = {
-  __styles__: 'styles',
   componentStructure: 'nested',
   project: {
     dependencies: new Map([

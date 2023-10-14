@@ -24,7 +24,6 @@ export function createOptions(codemodOptions: CodemodOptions): Options {
   const project = analyzePackageJson(codemodOptions);
 
   const options = {
-    __styles__: 'styles',
     componentStructure: codemodOptions.componentStructure,
     project,
     projectRoot: codemodOptions.projectRoot,

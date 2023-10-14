@@ -13,7 +13,6 @@ type Context = {
 type Entities = Map<string, Set<string>>;
 
 type Options = {
-  __styles__: string;
   componentStructure: 'flat' | 'nested';
   project: {
     dependencies: Map<string, string>;

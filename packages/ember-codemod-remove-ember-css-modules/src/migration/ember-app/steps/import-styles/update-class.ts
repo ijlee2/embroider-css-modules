@@ -8,7 +8,6 @@ import { createFiles, parseFilePath } from '@codemod-utils/files';
 import type { OptionsForImportStyles } from '../../../../types/index.js';
 
 type Data = {
-  __styles__: string;
   fileName: string;
   isTypeScript: boolean;
 };
@@ -32,8 +31,8 @@ function removeTemplateOnlyComponentMethod(file: string, data: Data): string {
         null,
         AST.builders.classBody([
           AST.builders.classProperty(
-            AST.builders.identifier(data.__styles__),
-            AST.builders.identifier(data.__styles__),
+            AST.builders.identifier('styles'),
+            AST.builders.identifier('styles'),
           ),
         ]),
         superClass,
@@ -97,11 +96,7 @@ function importStylesInClass(file: string, data: Data): string {
     index + 1,
     0,
     AST.builders.importDeclaration(
-      [
-        AST.builders.importDefaultSpecifier(
-          AST.builders.identifier(data.__styles__),
-        ),
-      ],
+      [AST.builders.importDefaultSpecifier(AST.builders.identifier('styles'))],
       AST.builders.literal(`./${data.fileName}.css`),
     ),
   );
@@ -118,8 +113,8 @@ function addStylesAsClassProperty(file: string, data: Data): string {
 
       const nodesToAdd = [
         AST.builders.classProperty(
-          AST.builders.identifier(data.__styles__),
-          AST.builders.identifier(data.__styles__),
+          AST.builders.identifier('styles'),
+          AST.builders.identifier('styles'),
         ),
       ];
 
@@ -142,13 +137,12 @@ export function updateClass(
   { customizations, options }: OptionsForImportStyles,
 ): void {
   const { getFilePath } = customizations;
-  const { __styles__, projectRoot } = options;
+  const { projectRoot } = options;
 
   const filePath = getFilePath(entityName);
   const { ext, name } = parseFilePath(filePath);
 
   const data = {
-    __styles__,
     fileName: name,
     isTypeScript: ext === '.ts',
   };

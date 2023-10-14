@@ -21,7 +21,6 @@ test('migration | ember-app | steps | create-options > javascript', function () 
   loadFixture(inputProject, codemodOptions);
 
   assert.deepStrictEqual(createOptions(codemodOptions), {
-    __styles__: 'styles',
     componentStructure: 'flat',
     project: {
       dependencies: new Map([['ember-css-modules', '^2.0.1']]),
