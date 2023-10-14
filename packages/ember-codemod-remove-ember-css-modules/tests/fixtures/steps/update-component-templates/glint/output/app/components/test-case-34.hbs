@@ -1,7 +1,7 @@
 {{! We can combine text nodes with mustache statements. }}
 <div
   data-test-container
-  class="{{this.styles.container}} {{local-class this.styles (unless (eq this.someProperty 'someValue') (array "a2" "a3" "a4") 'a1')}} 
+  class="{{this.styles.container}} {{local this.styles (unless (eq this.someProperty 'someValue') (array "a2" "a3" "a4") 'a1')}} 
   "
 >
   {{! Some content }}

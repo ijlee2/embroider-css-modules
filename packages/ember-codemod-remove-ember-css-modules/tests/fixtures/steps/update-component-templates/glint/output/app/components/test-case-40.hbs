@@ -1,12 +1,12 @@
 {{! We can pass the local-class attribute to helpers. }}
 <button
   aria-label="Cancel"
-  class={{local-class this.styles "button" "button-secondary"}}
+  class={{local this.styles "button" "button-secondary"}}
   type="button"
 >
   {{svg-jar
     "clear"
     aria-hidden="true"
-    class=(local-class this.styles (array "icon" "icon-secondary"))
+    class=(local this.styles (array "icon" "icon-secondary"))
   }}
 </button>
