@@ -1,5 +1,16 @@
 # my-v2-addon
 
+## 1.1.0
+
+### Minor Changes
+
+- [#107](https://github.com/ijlee2/embroider-css-modules/pull/107) Deprecated the helpers {{local-class}} and {{local-class-new}} ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#108](https://github.com/ijlee2/embroider-css-modules/pull/108) Renamed package for clarity ([@ijlee2](https://github.com/ijlee2))
+- [#106](https://github.com/ijlee2/embroider-css-modules/pull/106) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.0.0
 
 ### Major Changes
