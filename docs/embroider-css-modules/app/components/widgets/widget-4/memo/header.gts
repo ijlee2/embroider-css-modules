@@ -1,6 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import type { QueryResults } from 'ember-container-query';
-import { localClass } from 'embroider-css-modules';
+import { local } from 'embroider-css-modules';
 
 import strictAnd from '../../../../helpers/strict-and';
 import strictOr from '../../../../helpers/strict-or';
@@ -20,7 +20,7 @@ const WidgetsWidget4MemoHeaderComponent: TOC<WidgetsWidget4MemoHeaderSignature> 
       as |showHorizontalLayout showMinimalLayout|
     }}
       <div
-        class={{localClass
+        class={{local
           styles
           "header"
           (if showMinimalLayout "minimal-layout")
