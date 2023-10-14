@@ -16,7 +16,7 @@
     "lint:js:fix": "prettier --write \"**/*.js\""
   },
   "dependencies": {
-    "@tsconfig/ember": "^3.0.0",
+    "@tsconfig/ember": "^3.0.1",
     "@tsconfig/node18": "^18.2.2",
     "@tsconfig/strictest": "^2.0.2"
   },
