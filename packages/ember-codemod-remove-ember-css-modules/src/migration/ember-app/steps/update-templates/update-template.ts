@@ -200,6 +200,34 @@ function removeLocalClassHelpers(file: string): string {
       ]);
     },
 
+    MustacheStatement(node) {
+      if (
+        node.path.type !== 'PathExpression' ||
+        node.path.original !== 'local-class'
+      ) {
+        return;
+      }
+
+      const param = node.params[0]!;
+
+      if (param.type !== 'StringLiteral') {
+        return;
+      }
+
+      const localClassNames = param.value.trim().split(/\s+/);
+
+      if (localClassNames.length === 1) {
+        return AST.builders.mustache(
+          AST.builders.path(`this.styles.${localClassNames[0]!}`),
+        );
+      }
+
+      return AST.builders.mustache(AST.builders.path('local'), [
+        AST.builders.path('this.styles'),
+        ...localClassNames.map(AST.builders.string),
+      ]);
+    },
+
     SubExpression(node) {
       // @ts-ignore: Assume that types from external packages are correct
       const hasLocalClassHelper = node.path.original === 'local-class';
