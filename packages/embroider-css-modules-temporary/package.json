@@ -96,7 +96,8 @@
   },
   "ember-addon": {
     "app-js": {
-      "./helpers/local-class-new.js": "./dist/_app_/helpers/local-class-new.js"
+      "./helpers/local-class-new.js": "./dist/_app_/helpers/local-class-new.js",
+      "./helpers/local.js": "./dist/_app_/helpers/local.js"
     },
     "main": "addon-main.cjs",
     "type": "addon",

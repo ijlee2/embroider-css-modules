@@ -16,7 +16,7 @@
 
 Both [`ember-css-modules`](https://github.com/salsify/ember-css-modules) and [`embroider-css-modules`](../embroider-css-modules) provide a helper named `{{local-class}}` (with different signatures).
 
-When you have a monorepo with many packages that depend on `ember-css-modules`, you will want to migrate code in increments. This addon provides `{{local-class-new}}` so that you don't run into a name collision.
+When you have a monorepo with many packages that depend on `ember-css-modules`, you will want to migrate code in increments. This addon provides `{{local}}` so that you don't run into a name collision.
 
 In any template, you can mix code from `ember-css-modules` and `embroider-css-modules-temporary`.
 
@@ -31,7 +31,7 @@ In any template, you can mix code from `ember-css-modules` and `embroider-css-mo
   Hello world!
 </div>
 
-<div class={{local-class-new this.styles "container-new"}}>
+<div class={{local this.styles "container-new"}}>
   Hello world!
 </div>
 ```
@@ -39,7 +39,6 @@ In any template, you can mix code from `ember-css-modules` and `embroider-css-mo
 Once the migration is complete:
 
 - Replace `embroider-css-modules-temporary` with `embroider-css-modules`
-- Rename `{{local-class-new}}` to `{{local-class}}`
 
 
 ## API
