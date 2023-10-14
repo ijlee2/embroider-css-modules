@@ -11,7 +11,7 @@ interface TestContext extends BaseTestContext {
   styles: Record<string, never>;
 }
 
-module('Integration | Helper | local-class', function (hooks) {
+module('Integration | Helper | local', function (hooks) {
   setupRenderingTest(hooks);
 
   module('When styles is an empty object', function (nestedHooks) {
@@ -22,7 +22,7 @@ module('Integration | Helper | local-class', function (hooks) {
     test('returns an empty string when there are no local class names', async function (this: TestContext, assert) {
       await render<TestContext>(hbs`
         <div
-          class={{local-class this.styles}}
+          class={{local this.styles}}
           data-test-element
         >
         </div>
@@ -37,7 +37,7 @@ module('Integration | Helper | local-class', function (hooks) {
       await render<TestContext>(hbs`
         <div
           {{! @glint-expect-error: We are testing a special case (styles is an empty object) }}
-          class={{local-class this.styles "container" "is-wide" "is-inline"}}
+          class={{local this.styles "container" "is-wide" "is-inline"}}
           data-test-element
         >
         </div>
