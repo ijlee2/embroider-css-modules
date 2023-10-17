@@ -12,11 +12,11 @@ export function getClassNames(filePath: string, options: Options): string[] {
   const classNames = new Set<string>();
 
   traverse(file, {
-    ClassSelector(node: { name: string }) {
+    ClassSelector(node) {
       classNames.add(node.name);
     },
 
-    PseudoClassSelector(node: { name: string }) {
+    PseudoClassSelector(node) {
       if (node.name === 'local') {
         console.warn(
           `WARNING: type-css-modules assumes that all user-defined classes are local. Consider removing the pseudo-class :local() in \`${filePath}\`.\n`,
