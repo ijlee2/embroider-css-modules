@@ -22,12 +22,12 @@
   },
   "devDependencies": {
     "@shared-configs/prettier": "workspace:*",
-    "concurrently": "^8.2.1",
+    "concurrently": "^8.2.2",
     "prettier": "^3.0.3"
   },
   "peerDependencies": {
     "prettier": "^3.0.3",
-    "stylelint": "^15.10.3"
+    "stylelint": "^15.11.0"
   },
   "peerDependenciesMeta": {
     "prettier": {

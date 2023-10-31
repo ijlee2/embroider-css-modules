@@ -15,12 +15,11 @@
     "build:embroider-css-modules": "pnpm --filter embroider-css-modules build",
     "build:my-app": "pnpm --filter my-app build",
     "build:my-v2-addon": "pnpm --filter my-v2-addon build",
-    "changeset": "changeset add",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
     "prepare": "pnpm --filter './packages/**' --filter my-v2-addon build",
-    "publish:changelogs": "changeset version",
-    "publish:packages": "changeset publish",
+    "release:changelog": "changeset version",
+    "release:publish": "changeset publish",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:embroider-css-modules": "pnpm --filter embroider-css-modules start",
     "start:my-app": "pnpm --filter my-app start",
@@ -30,14 +29,14 @@
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
     "@changesets/get-github-info": "^0.5.2",
-    "concurrently": "^8.2.1"
+    "concurrently": "^8.2.2"
   },
   "engines": {
     "node": "18.* || >= 20"
   },
   "pnpm": {
     "overrides": {
-      "eslint-plugin-import@2.28.1>tsconfig-paths": "^4.2.0"
+      "eslint-plugin-import@2.29.0>tsconfig-paths": "^4.2.0"
     }
   }
 }

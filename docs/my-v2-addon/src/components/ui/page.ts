@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { WithBoundArgs } from '@glint/template';
+import type { WithBoundArgs } from '@glint/template';
 
 import styles from './page.css';
 import type UiPageDemoComponent from './page/demo.ts';
