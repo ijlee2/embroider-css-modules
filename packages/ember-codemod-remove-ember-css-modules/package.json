@@ -52,8 +52,8 @@
     "@sondr3/minitest": "^0.1.2",
     "@types/node": "^18.18.7",
     "@types/yargs": "^17.0.29",
-    "concurrently": "^8.2.1",
-    "eslint": "^8.51.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.52.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   },

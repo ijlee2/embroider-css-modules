@@ -79,13 +79,13 @@
     "@shared-configs/eslint-config-ember": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",
-    "@types/ember__component": "^4.0.18",
-    "@types/ember__debug": "^4.0.5",
-    "concurrently": "^8.2.1",
+    "@types/ember__component": "^4.0.19",
+    "@types/ember__debug": "^4.0.6",
+    "concurrently": "^8.2.2",
     "ember-template-lint": "^5.11.2",
-    "eslint": "^8.51.0",
+    "eslint": "^8.52.0",
     "prettier": "^3.0.3",
-    "rollup": "^4.1.0",
+    "rollup": "^4.2.0",
     "typescript": "^5.2.2"
   },
   "engines": {
