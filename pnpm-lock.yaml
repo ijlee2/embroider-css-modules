@@ -159,7 +159,7 @@ importers:
   configs/stylelint:
     dependencies:
       stylelint:
-        specifier: ^15.10.3
+        specifier: ^15.11.0
         version: 15.11.0(typescript@5.2.2)
       stylelint-config-standard:
         specifier: ^34.0.0
