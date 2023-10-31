@@ -1,6 +1,6 @@
 {
   "name": "embroider-css-modules-temporary",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "embroider-css-modules with renamed {{local-class}} helper",
   "keywords": [
     "css",

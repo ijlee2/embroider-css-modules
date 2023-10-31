@@ -1,5 +1,12 @@
 # my-v2-addon
 
+## 1.1.1
+
+### Patch Changes
+
+- [#112](https://github.com/ijlee2/embroider-css-modules/pull/112) Enabled embroider-safe and embroider-optimized in CI ([@ijlee2](https://github.com/ijlee2))
+- [#113](https://github.com/ijlee2/embroider-css-modules/pull/113) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.1.0
 
 ### Minor Changes
