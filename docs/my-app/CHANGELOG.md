@@ -1,5 +1,11 @@
 # my-app
 
+## 1.1.2
+
+### Patch Changes
+
+- [#116](https://github.com/ijlee2/embroider-css-modules/pull/116) Downstreamed changes from @embroider/addon-blueprint@2.7.0 ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.1.1
 
 ### Patch Changes
