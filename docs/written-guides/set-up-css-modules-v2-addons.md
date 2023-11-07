@@ -67,22 +67,25 @@ export default {
   output: addon.output(),
 
   plugins: [
-    addon.publicEntrypoints([
-      'components/**/*.js',
-      'index.js',
-      'template-registry.js',
-    ]),
+    addon.publicEntrypoints(['**/*.js', 'index.js', 'template-registry.js']),
 
-    addon.appReexports(['components/**/*.js']),
+    addon.appReexports([
+      'components/**/*.js',
+      'helpers/**/*.js',
+      'modifiers/**/*.js',
+      'services/**/*.js',
+    ]),
 
     addon.dependencies(),
 
     babel({
       babelHelpers: 'bundled',
-      extensions: ['.js', '.ts'],
+      extensions: ['.gjs', '.gts', '.js', '.ts'],
     }),
 
     addon.hbs(),
+
+    addon.gjs(),
 
     addon.keepAssets(['**/*.css']),
 
@@ -124,31 +127,35 @@ export default {
   output: addon.output(),
 
   plugins: [
-    addon.publicEntrypoints([
-      'components/**/*.js',
-      'index.js',
-      'template-registry.js',
-    ]),
+    addon.publicEntrypoints(['**/*.js', 'index.js', 'template-registry.js']),
 
-    addon.appReexports(['components/**/*.js']),
+    addon.appReexports([
+      'components/**/*.js',
+      'helpers/**/*.js',
+      'modifiers/**/*.js',
+      'services/**/*.js',
+    ]),
 
     addon.dependencies(),
 
-+    postcss({
-+      autoModules: false,
-+      modules: {
-+        generateScopedName: 'your-v2-addon__[sha512:hash:base64:5]',
-+      },
-+    }),
++     postcss({
++       autoModules: false,
++       modules: {
++         generateScopedName: 'your-v2-addon__[sha512:hash:base64:5]',
++       },
++     }),
 +
     babel({
       babelHelpers: 'bundled',
-      extensions: ['.js', '.ts'],
+      extensions: ['.gjs', '.gts', '.js', '.ts'],
     }),
 
     addon.hbs(),
 
-    addon.keepAssets([]),
+    addon.gjs(),
+
+-     addon.keepAssets(['**/*.css']),
++     addon.keepAssets([]),
 
     addon.clean(),
 
@@ -349,7 +356,7 @@ You can also [apply multiple styles with the `{{local}}` helper](../../packages/
 
 You may have noticed a downside of `embroider-css-modules`. Since we pass `styles` to the template as a class property, it's not possible to style template-only components.
 
-We can address this issue by writing [`<template>`-tag components](https://github.com/ember-template-imports/ember-template-imports).<sup>1</sup> Replace `navigation-menu.{hbs,ts}` with `navigation-menu.gts`:
+We can address this issue by writing [`<template>`-tag components](https://github.com/ember-template-imports/ember-template-imports). Replace `navigation-menu.{hbs,ts}` with `navigation-menu.gts`:
 
 <details>
 
@@ -392,8 +399,6 @@ export default NavigationMenuComponent;
 ```
 
 </details>
-
-<sup>1. You need [`rollup-plugin-glimmer-template-tag`](https://github.com/NullVoxPopuli/rollup-plugin-glimmer-template-tag) to write `*.{gjs,gts}` files in a v2 addon.</sup>
 
 
 ### CSS declaration files
