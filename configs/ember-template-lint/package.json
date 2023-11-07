@@ -24,7 +24,7 @@
     "prettier": "^3.0.3"
   },
   "peerDependencies": {
-    "ember-template-lint": "^5.11.2"
+    "ember-template-lint": "^5.12.0"
   },
   "peerDependenciesMeta": {
     "ember-template-lint": {
