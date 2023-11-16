@@ -27,7 +27,7 @@ module('Acceptance | index', function (hooks) {
       {
         color: 'rgb(255, 0, 255)',
       },
-      'We can use the {{local}} helper from embroider-css-modules-temporary.',
+      'We can use the {{local}} helper from embroider-css-modules.',
     );
   });
 });

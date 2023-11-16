@@ -577,9 +577,9 @@ importers:
       ember-test-selectors:
         specifier: ^6.0.0
         version: 6.0.0
-      embroider-css-modules-temporary:
+      embroider-css-modules:
         specifier: workspace:*
-        version: link:../../packages/embroider-css-modules-temporary
+        version: link:../../packages/embroider-css-modules
       eslint:
         specifier: ^8.53.0
         version: 8.53.0
@@ -770,85 +770,6 @@ importers:
         version: 5.2.2
 
   packages/embroider-css-modules:
-    dependencies:
-      '@embroider/addon-shim':
-        specifier: ^1.8.6
-        version: 1.8.6
-    devDependencies:
-      '@babel/core':
-        specifier: ^7.23.2
-        version: 7.23.2(supports-color@8.1.1)
-      '@babel/plugin-proposal-decorators':
-        specifier: ^7.23.2
-        version: 7.23.2(@babel/core@7.23.2)
-      '@babel/plugin-transform-class-properties':
-        specifier: ^7.22.5
-        version: 7.22.5(@babel/core@7.23.2)
-      '@babel/plugin-transform-class-static-block':
-        specifier: ^7.22.11
-        version: 7.22.11(@babel/core@7.23.2)
-      '@babel/plugin-transform-typescript':
-        specifier: ^7.22.15
-        version: 7.22.15(@babel/core@7.23.2)
-      '@babel/runtime':
-        specifier: ^7.23.2
-        version: 7.23.2
-      '@embroider/addon-dev':
-        specifier: ^4.1.1
-        version: 4.1.1(@glint/template@1.2.1)(rollup@4.3.0)
-      '@glint/core':
-        specifier: ^1.2.1
-        version: 1.2.1(typescript@5.2.2)
-      '@glint/environment-ember-loose':
-        specifier: ^1.2.1
-        version: 1.2.1(@glimmer/component@1.1.2)(@glint/template@1.2.1)(@types/ember__component@4.0.19)
-      '@glint/template':
-        specifier: ^1.2.1
-        version: 1.2.1
-      '@rollup/plugin-babel':
-        specifier: ^6.0.4
-        version: 6.0.4(@babel/core@7.23.2)(rollup@4.3.0)
-      '@shared-configs/ember-template-lint':
-        specifier: workspace:*
-        version: link:../../configs/ember-template-lint
-      '@shared-configs/eslint-config-ember':
-        specifier: workspace:*
-        version: link:../../configs/eslint/ember
-      '@shared-configs/prettier':
-        specifier: workspace:*
-        version: link:../../configs/prettier
-      '@shared-configs/typescript':
-        specifier: workspace:*
-        version: link:../../configs/typescript
-      '@types/ember__component':
-        specifier: ^4.0.19
-        version: 4.0.19(@babel/core@7.23.2)
-      '@types/ember__debug':
-        specifier: ^4.0.6
-        version: 4.0.6(@babel/core@7.23.2)
-      babel-plugin-ember-template-compilation:
-        specifier: ^2.2.1
-        version: 2.2.1
-      concurrently:
-        specifier: ^8.2.2
-        version: 8.2.2
-      ember-template-lint:
-        specifier: ^5.12.0
-        version: 5.12.0
-      eslint:
-        specifier: ^8.53.0
-        version: 8.53.0
-      prettier:
-        specifier: ^3.0.3
-        version: 3.0.3
-      rollup:
-        specifier: ^4.3.0
-        version: 4.3.0
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2
-
-  packages/embroider-css-modules-temporary:
     dependencies:
       '@embroider/addon-shim':
         specifier: ^1.8.6

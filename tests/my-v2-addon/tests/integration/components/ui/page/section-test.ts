@@ -13,7 +13,7 @@ module('Integration | Component | ui/page/section', function (hooks) {
       <Ui::Page::Section>
         <:title>
           Package:
-          <code>embroider-css-modules-temporary</code>
+          <code>embroider-css-modules</code>
         </:title>
 
         <:content>
@@ -25,10 +25,7 @@ module('Integration | Component | ui/page/section', function (hooks) {
     assert
       .dom('[data-test-section-title]')
       .hasTagName('h2', 'The header level is correct.')
-      .hasText(
-        'Package: embroider-css-modules-temporary',
-        'We see the section title.',
-      );
+      .hasText('Package: embroider-css-modules', 'We see the section title.');
 
     assert
       .dom('[data-test-section-content]')
