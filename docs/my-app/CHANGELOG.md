@@ -1,5 +1,11 @@
 # my-app
 
+## 2.0.0
+
+### Major Changes
+
+- [#117](https://github.com/ijlee2/embroider-css-modules/pull/117) Removed the {{local-class}} helper ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.1.2
 
 ### Patch Changes
