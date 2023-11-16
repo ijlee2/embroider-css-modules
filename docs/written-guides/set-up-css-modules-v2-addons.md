@@ -28,7 +28,7 @@ For PostCSS, here is what you likely need at minimum.
 
 Finally, some packages to improve your developer experience (DX).
 
-- [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)<sup>1, 2</sup>
+- [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)<sup>1</sup>
 - [`type-css-modules`](../../packages/type-css-modules/README.md)<sup>1</sup>
 
 All in all, here are the commands for installation:
@@ -39,8 +39,6 @@ pnpm install embroider-css-modules
 ```
 
 <sup>1. Needed only if you use the `{{local}}` helper. Add to `dependencies`, not `devDependencies`.</sup>
-
-<sup>2. Install [`embroider-css-modules-temporary`](../../packages/embroider-css-modules-temporary/README.md) instead, if your addon will be consumed by an Ember project that depends on `ember-css-modules`.</sup>
 
 
 ## Configure Rollup
