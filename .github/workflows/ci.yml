@@ -20,6 +20,7 @@ jobs:
         package-location:
           - 'docs/my-app'
           - 'docs/my-app-with-ember-css-modules'
+          - 'docs/my-v1-addon'
           - 'docs/my-v2-addon'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
@@ -58,6 +59,7 @@ jobs:
         package-location:
           - 'docs/my-app'
           - 'docs/my-app-with-ember-css-modules'
+          - 'docs/my-v1-addon'
           - 'docs/my-v2-addon'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
@@ -137,6 +139,45 @@ jobs:
       - name: Test
         run: pnpm test:ember-compatibility ${{ matrix.scenario }} --- pnpm test
         working-directory: 'tests/embroider-css-modules'
+
+
+  test-compatibility-my-v1-addon:
+    name: Test compatibility (tests/my-v1-addon)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        scenario:
+          - 'ember-lts-4.4'
+          - 'ember-lts-4.8'
+          - 'ember-lts-4.12'
+          - 'ember-release'
+          - 'ember-beta'
+          - 'ember-canary'
+          - 'embroider-safe'
+          - 'embroider-optimized'
+    timeout-minutes: 5
+    steps:
+      - name: Check out a copy of the repo
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Test
+        run: pnpm test:ember-compatibility ${{ matrix.scenario }} --- pnpm test
+        working-directory: 'docs/my-v1-addon'
 
 
   test-compatibility-my-v2-addon:
