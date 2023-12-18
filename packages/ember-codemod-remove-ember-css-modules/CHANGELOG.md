@@ -1,5 +1,11 @@
 # ember-codemod-remove-ember-css-modules
 
+## 1.1.2
+
+### Patch Changes
+
+- [#121](https://github.com/ijlee2/embroider-css-modules/pull/121) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.1.1
 
 ### Patch Changes

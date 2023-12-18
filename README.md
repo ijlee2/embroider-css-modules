@@ -49,7 +49,7 @@ In short, `embroider-css-modules` depends little on how CSS modules is implement
 What `embroider-css-modules` looks like is:
 
 - Quite stable for apps
-- In development for v2 addons
+- Quite stable for v2 addons
 - Unknown for v1 addons
 - Unknown for engines
 
