@@ -3,7 +3,7 @@ import '@glint/environment-ember-template-imports';
 import 'ember-source/types';
 import 'ember-source/types/preview';
 
-import { HelperLike } from '@glint/template';
+import type { HelperLike } from '@glint/template';
 import type MyV2AddonRegistry from 'my-v2-addon/template-registry';
 
 type PageTitleHelper = HelperLike<{
