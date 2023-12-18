@@ -27,8 +27,8 @@
     "test": "pnpm --filter '*' test"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
-    "@changesets/get-github-info": "^0.5.2",
+    "@changesets/cli": "^2.27.1",
+    "@changesets/get-github-info": "^0.6.0",
     "concurrently": "^8.2.2"
   },
   "engines": {
@@ -36,7 +36,7 @@
   },
   "pnpm": {
     "overrides": {
-      "eslint-plugin-import@2.29.0>tsconfig-paths": "^4.2.0"
+      "eslint-plugin-import@2.29.1>tsconfig-paths": "^4.2.0"
     }
   }
 }

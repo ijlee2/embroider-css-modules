@@ -3,14 +3,10 @@ import {
   setupApplicationTest as upstreamSetupApplicationTest,
   setupRenderingTest as upstreamSetupRenderingTest,
   setupTest as upstreamSetupTest,
+  type SetupTestOptions,
 } from 'ember-qunit';
-import type Resolver from 'ember-resolver';
 
 import { takeSnapshot } from './percy';
-
-interface SetupTestOptions {
-  resolver?: Resolver | undefined;
-}
 
 // This file exists to provide wrappers around ember-qunit's
 // test setup functions. This way, you can easily extend the setup that is
