@@ -76,6 +76,7 @@ module.exports = function (defaults) {
     staticAddonTestSupportTrees: true,
     staticAddonTrees: true,
     staticComponents: true,
+    staticEmberSource: true,
     staticHelpers: true,
     staticModifiers: true,
   };

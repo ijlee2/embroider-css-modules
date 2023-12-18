@@ -24,6 +24,7 @@ module.exports = function (defaults) {
     staticAddonTestSupportTrees: true,
     staticAddonTrees: false, // due to ember-css-modules
     staticComponents: false, // due to ember-css-modules
+    staticEmberSource: true,
     staticHelpers: false, // match the value of staticComponents
     staticModifiers: true,
   };
