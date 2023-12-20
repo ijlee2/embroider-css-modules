@@ -46,7 +46,6 @@
     "@embroider/core": "^3.4.3",
     "@embroider/router": "^2.1.6",
     "@embroider/webpack": "^3.2.1",
-    "@gavant/glint-template-types": "^0.3.6",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@glint/core": "^1.2.1",
