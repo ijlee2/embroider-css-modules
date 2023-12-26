@@ -1,5 +1,11 @@
 # type-css-modules
 
+## 1.0.5
+
+### Patch Changes
+
+- [#125](https://github.com/ijlee2/embroider-css-modules/pull/125) Fixed typos in README ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.0.4
 
 ### Patch Changes
