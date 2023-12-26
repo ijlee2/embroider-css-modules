@@ -102,12 +102,12 @@ When you provide accurate types, libraries (e.g. [`Glint`](https://typed-ember.g
 
 ```hbs
 {{! app/components/ui/page.hbs }}
-<div class={{local-class this.styles "ontainer"}}> {{! ⚠️ Property 'ontainer' is missing }}
+<div class={{local this.styles "ontainer"}}> {{! ⚠️ Property 'ontainer' is missing }}
   <h1 class={{this.styles.head}}> {{! ⚠️ Property 'head' does not exist }}
     {{@title}}
   </h1>
 
-  <div class={{local-class this.style "body"}}> {{! ⚠️ Did you mean 'styles'? }}
+  <div class={{local this.style "body"}}> {{! ⚠️ Did you mean 'styles'? }}
     {{yield}}
   </div>
 </div>
@@ -235,7 +235,7 @@ Here are some examples that meet the syntax requirements.
 
 ```hbs
 {{! app/components/ui/page.hbs }}
-<div class={{local-class this.styles "container"}}>
+<div class={{local this.styles "container"}}>
   <h1 class={{this.styles.header}}>
     {{@title}}
   </h1>
@@ -265,12 +265,12 @@ export default class UiPageComponent extends Component {
 
 ```ts
 /* app/components/ui/page.gts */
-import { localClass } from 'embroider-css-modules';
+import { local } from 'embroider-css-modules';
 
 import styles from './page.css';
 
 <template>
-  <div class={{localClass styles "container"}}>
+  <div class={{local styles "container"}}>
     <h1 class={{styles.header}}>
       {{@title}}
     </h1>
