@@ -96,7 +96,7 @@
     "prettier": "^3.1.1",
     "rollup": "^4.9.1",
     "rollup-plugin-postcss": "^4.0.2",
-    "stylelint": "^16.0.2",
+    "stylelint": "^16.1.0",
     "type-css-modules": "workspace:*",
     "typescript": "^5.3.3"
   },

@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "@embroider/macros": "^1.13.4",
-    "ember-auto-import": "^2.7.1",
+    "ember-auto-import": "^2.7.2",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-typescript": "^5.2.1",
@@ -104,7 +104,7 @@
     "prettier": "^3.1.1",
     "qunit": "^2.20.0",
     "qunit-dom": "^3.0.0",
-    "stylelint": "^16.0.2",
+    "stylelint": "^16.1.0",
     "stylelint-no-unsupported-browser-features": "^7.0.0",
     "type-css-modules": "workspace:*",
     "typescript": "^5.3.3",
