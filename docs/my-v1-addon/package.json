@@ -61,7 +61,7 @@
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-typescript": "^5.2.1",
-    "ember-container-query": "^5.0.4",
+    "ember-container-query": "^5.0.6",
     "embroider-css-modules": "workspace:*"
   },
   "devDependencies": {
@@ -105,7 +105,7 @@
     "qunit": "^2.20.0",
     "qunit-dom": "^3.0.0",
     "stylelint": "^16.1.0",
-    "stylelint-no-unsupported-browser-features": "^7.0.0",
+    "stylelint-no-unsupported-browser-features": "^8.0.0",
     "type-css-modules": "workspace:*",
     "typescript": "^5.3.3",
     "webpack": "^5.89.0"
