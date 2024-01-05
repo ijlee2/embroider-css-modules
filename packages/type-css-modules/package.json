@@ -44,7 +44,7 @@
     "@shared-configs/typescript": "workspace:*",
     "@sondr3/minitest": "^0.1.2",
     "@types/css-tree": "^2.3.4",
-    "@types/node": "^18.19.3",
+    "@types/node": "^18.19.4",
     "@types/yargs": "^17.0.32",
     "concurrently": "^8.2.2",
     "eslint": "^8.56.0",
