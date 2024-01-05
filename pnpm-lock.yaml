@@ -353,8 +353,8 @@ importers:
         specifier: ^0.4.1
         version: 0.4.1
       ember-container-query:
-        specifier: ^5.0.4
-        version: 5.0.4(@babel/core@7.23.7)(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(ember-source@5.5.0)
+        specifier: ^5.0.6
+        version: 5.0.6(@babel/core@7.23.7)(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(ember-source@5.5.0)
       ember-load-initializers:
         specifier: ^2.1.2
         version: 2.1.2(@babel/core@7.23.7)
@@ -629,8 +629,8 @@ importers:
         specifier: ^5.2.1
         version: 5.2.1
       ember-container-query:
-        specifier: ^5.0.4
-        version: 5.0.4(@babel/core@7.23.7)(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(ember-source@5.5.0)
+        specifier: ^5.0.6
+        version: 5.0.6(@babel/core@7.23.7)(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(ember-source@5.5.0)
       embroider-css-modules:
         specifier: workspace:*
         version: link:../../packages/embroider-css-modules
@@ -929,8 +929,8 @@ importers:
         specifier: ^1.8.7
         version: 1.8.7
       decorator-transforms:
-        specifier: ^1.0.1
-        version: 1.0.1(@babel/core@7.23.7)
+        specifier: ^1.0.3
+        version: 1.0.3(@babel/core@7.23.7)
     devDependencies:
       '@babel/core':
         specifier: ^7.23.7
@@ -7903,8 +7903,8 @@ packages:
       mimic-response: 1.0.1
     dev: true
 
-  /decorator-transforms@1.0.1(@babel/core@7.23.7):
-    resolution: {integrity: sha512-ZOaiw4tqiyhtqiMKCNzjS+nGsYPZltToqRAFc5rOUcc4u8d7MTlgelw1qXfL6ieg2l6xZcz6lTZ5M94Ohnk2xA==}
+  /decorator-transforms@1.0.3(@babel/core@7.23.7):
+    resolution: {integrity: sha512-kY+IuCYwp1WvWWDrT+NmqckV4ZZ4wBDIvbbvhQBNUZYLxztLpN/P+hBhmVXN/1G95U61yYWewJEdJ+o4Sm8Tng==}
     dependencies:
       '@babel/plugin-syntax-decorators': 7.23.3(@babel/core@7.23.7)
       babel-import-util: 2.0.1
@@ -8811,12 +8811,12 @@ packages:
       - '@babel/core'
       - supports-color
 
-  /ember-container-query@5.0.4(@babel/core@7.23.7)(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(ember-source@5.5.0):
-    resolution: {integrity: sha512-DTwCNnv/yUgREoGNONQmC75YIeZCA+18ZFfgED5XiNLhamBNQJLWOuPch0c/LiFWSkIXaeGLKSEihNmTMxhW8A==}
+  /ember-container-query@5.0.6(@babel/core@7.23.7)(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(ember-source@5.5.0):
+    resolution: {integrity: sha512-ixsg7QMpYoEFT1kINOdL1SAvstz4dUhMCH0qaBKRRd7BSqgnxbsKXeTRtt0RyxZr57vMfaLqoXOtgcP51OTN2w==}
     engines: {node: 18.* || >= 20}
     dependencies:
       '@embroider/addon-shim': 1.8.7
-      decorator-transforms: 1.0.1(@babel/core@7.23.7)
+      decorator-transforms: 1.0.3(@babel/core@7.23.7)
       ember-element-helper: 0.8.5(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(ember-source@5.5.0)
       ember-modifier: 4.1.0(ember-source@5.5.0)
       ember-resize-observer-service: 1.1.0
