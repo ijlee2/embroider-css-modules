@@ -128,8 +128,7 @@ const options = {
       module: {
         rules: [
           {
-            exclude: /node_modules/,
-            test: /\.css$/i,
+            test: /(node_modules\/\.embroider\/rewritten-app\/)(.*\.css)$/i,
             use: [
               {
                 loader: 'postcss-loader',
@@ -142,6 +141,14 @@ const options = {
               },
             ],
           },
+          /*
+            Add the following rule to load asset files, e.g. fonts, icons, etc.
+            See https://webpack.js.org/guides/asset-modules/ for more information.
+          */
+          // {
+          //   test: /(node_modules\/\.embroider\/rewritten-app\/)(.*\.(ttf|woff))$/,
+          //   type: 'asset/resource',
+          // },
         ],
       },
     },
@@ -233,7 +240,7 @@ module.exports = {
 
 For CSS modules to work, we need JS files to be able to import a CSS file.
 
-Unfortunately, in Ember v4.12, we can't import CSS files located in `app/styles`. This somewhat limits where we can store files (e.g. stylesheets for routes). We can't delete `app/styles` either, as `ember-cli` expects [`app/styles/app.css`](https://cli.emberjs.com/release/advanced-use/stylesheets/) to exist.
+Unfortunately, as of Ember v5.6, we can't import CSS files located in `app/styles`. This somewhat limits where we can store files (e.g. stylesheets for routes). We can't delete `app/styles` either, as `ember-cli` expects [`app/styles/app.css`](https://cli.emberjs.com/release/advanced-use/stylesheets/) to exist.
 
 
 ### Create app/assets/app.css
@@ -410,8 +417,8 @@ Lucky for you, [`type-css-modules`](../../packages/type-css-modules) can create 
 {
   "scripts": {
     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
-    "lint:types": "tsc --noEmit", // or "glint"
-    "prelint:types": "type-css-modules --src app"
+    "prelint:types": "type-css-modules --src app",
+    "lint:types": "tsc --noEmit" // or "glint"
   }
 }
 ```
@@ -431,7 +438,7 @@ pnpm prelint:types
 
 ### Do the file location and name matter?
 
-In Ember v4.12, a component's template and backing class must have the same name (the related technical terms are [resolve and resolution](https://github.com/ember-cli/ember-resolver)):
+As of Ember v5.6, a component's template and backing class must have the same name (the related technical terms are [resolve and resolution](https://github.com/ember-cli/ember-resolver)):
 
 - `hello-world.{hbs,ts}` with the flat component structure
 - `hello-world/index.{hbs,ts}` with the nested component structure
@@ -522,7 +529,7 @@ To style a route, apply [the ideas that you learned for components](#style-your-
 
 ### Do the file location and name matter?
 
-In Ember v4.12, a route's template and backing class must have the same name:
+As of Ember v5.6, a route's template and backing class must have the same name:
 
 - `app/controllers/index.ts`
 - `app/templates/index.hbs`

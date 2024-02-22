@@ -40,6 +40,7 @@ const options = {
   staticAddonTestSupportTrees: true,
   staticAddonTrees: true, // <-- new
   staticComponents: true, // <-- new
+  staticEmberSource: true,
   staticHelpers: true,
   staticModifiers: true,
 };
