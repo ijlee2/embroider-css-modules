@@ -416,8 +416,8 @@ Lucky for you, [`type-css-modules`](../../packages/type-css-modules) can create 
 {
   "scripts": {
     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
-    "lint:types": "tsc --noEmit", // or "glint"
-    "prelint:types": "type-css-modules --src src"
+    "prelint:types": "type-css-modules --src src",
+    "lint:types": "tsc --noEmit" // or "glint"
   }
 }
 ```
@@ -437,7 +437,7 @@ pnpm prelint:types
 
 ### Do the file location and name matter?
 
-In Ember v4.12, a component's template and backing class must have the same name (the related technical terms are [resolve and resolution](https://github.com/ember-cli/ember-resolver)):
+As of Ember v5.6, a component's template and backing class must have the same name (the related technical terms are [resolve and resolution](https://github.com/ember-cli/ember-resolver)):
 
 - `navigation-menu.{hbs,ts}`
 

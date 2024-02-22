@@ -55,8 +55,7 @@ module.exports = function (defaults) {
         module: {
           rules: [
             {
-              exclude: /node_modules/,
-              test: /\.css$/i,
+              test: /(node_modules\/\.embroider\/rewritten-app\/)(.*\.css)$/i,
               use: [
                 {
                   loader: 'postcss-loader',
