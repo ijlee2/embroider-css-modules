@@ -1,5 +1,6 @@
 'use strict';
 
+const sideWatch = require('@embroider/broccoli-side-watch');
 const { Webpack } = require('@embroider/webpack');
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
@@ -12,13 +13,22 @@ module.exports = function (defaults) {
     // Add options here
     autoImport: {
       watchDependencies: [
-        'embroider-css-modules',
-        'my-v1-addon',
-        'my-v2-addon',
+        // 'embroider-css-modules',
+        // 'my-v2-addon',
       ],
     },
+
     'ember-cli-babel': {
       enableTypeScriptTransform: true,
+    },
+
+    trees: {
+      app: sideWatch('app', {
+        watching: [
+          '../../packages/embroider-css-modules/src',
+          '../my-v2-addon/src',
+        ],
+      }),
     },
   });
 
