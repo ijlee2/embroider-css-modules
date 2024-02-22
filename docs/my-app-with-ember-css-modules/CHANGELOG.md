@@ -1,5 +1,12 @@
 # my-app-with-ember-css-modules
 
+## 2.0.4
+
+### Patch Changes
+
+- [#130](https://github.com/ijlee2/embroider-css-modules/pull/130) Introduced @embroider/broccoli-side-watch for live reload in apps ([@ijlee2](https://github.com/ijlee2))
+- [#129](https://github.com/ijlee2/embroider-css-modules/pull/129) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # my-app
 
+## 2.0.5
+
+### Patch Changes
+
+- [#131](https://github.com/ijlee2/embroider-css-modules/pull/131) Updated webpack configuration ([@ijlee2](https://github.com/ijlee2))
+- [#130](https://github.com/ijlee2/embroider-css-modules/pull/130) Introduced @embroider/broccoli-side-watch for live reload in apps ([@ijlee2](https://github.com/ijlee2))
+- [#129](https://github.com/ijlee2/embroider-css-modules/pull/129) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.4
 
 ### Patch Changes
