@@ -2,11 +2,11 @@ import type {
   CodemodOptions,
   Context,
   Options,
-} from '../../../src/types/index.js';
+} from '../../../../src/types/index.js';
 
 const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
-  projectRoot: 'tmp/ember-container-query-typescript',
+  projectRoot: 'tmp/ember-app/ember-container-query-typescript',
   projectType: 'app',
 };
 
@@ -127,7 +127,7 @@ const options: Options = {
     hasGlint: false,
     hasTypeScript: true,
   },
-  projectRoot: 'tmp/ember-container-query-typescript',
+  projectRoot: 'tmp/ember-app/ember-container-query-typescript',
   projectType: 'app',
 };
 

@@ -1,7 +1,7 @@
 import { assert, loadFixture, test } from '@codemod-utils/tests';
 
 import { createOptions } from '../../../../../src/migration/ember-app/steps/index.js';
-import { codemodOptions } from '../../../../helpers/shared-test-setups/javascript.js';
+import { codemodOptions } from '../../../../helpers/shared-test-setups/ember-app/javascript.js';
 
 test('migration | ember-app | steps | create-options > javascript', function () {
   const inputProject = {
@@ -28,7 +28,7 @@ test('migration | ember-app | steps | create-options > javascript', function () 
       hasGlint: false,
       hasTypeScript: false,
     },
-    projectRoot: 'tmp/ember-container-query-javascript',
+    projectRoot: 'tmp/ember-app/ember-container-query-javascript',
     projectType: 'app',
   });
 });

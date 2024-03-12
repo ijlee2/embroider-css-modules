@@ -9,15 +9,15 @@ import { updatePackageJson } from '../../../../../src/migration/ember-app/steps/
 import {
   codemodOptions,
   options,
-} from '../../../../helpers/shared-test-setups/nested.js';
+} from '../../../../helpers/shared-test-setups/ember-app/nested.js';
 
 test('migration | ember-app | steps | update-package-json > nested', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-package-json/nested/input',
+    'ember-app/steps/update-package-json/nested/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-package-json/nested/output',
+    'ember-app/steps/update-package-json/nested/output',
   );
 
   loadFixture(inputProject, codemodOptions);

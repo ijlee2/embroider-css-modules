@@ -1,7 +1,7 @@
 import { assert, loadFixture, test } from '@codemod-utils/tests';
 
 import { createOptions } from '../../../../../src/migration/ember-app/steps/index.js';
-import { codemodOptions } from '../../../../helpers/shared-test-setups/glint.js';
+import { codemodOptions } from '../../../../helpers/shared-test-setups/ember-app/glint.js';
 
 test('migration | ember-app | steps | create-options > glint', function () {
   const inputProject = {
@@ -34,7 +34,7 @@ test('migration | ember-app | steps | create-options > glint', function () {
       hasGlint: true,
       hasTypeScript: true,
     },
-    projectRoot: 'tmp/ember-container-query-glint',
+    projectRoot: 'tmp/ember-app/ember-container-query-glint',
     projectType: 'app',
   });
 });

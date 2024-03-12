@@ -16,7 +16,7 @@ import { updateComponentTemplates } from '../../../../../src/migration/ember-app
 import {
   codemodOptions,
   options,
-} from '../../../../helpers/shared-test-setups/nested.js';
+} from '../../../../helpers/shared-test-setups/ember-app/nested.js';
 
 function getContext(folderName: string) {
   const entityName = folderName.replace(new RegExp(/\.hbs$/), '');
@@ -30,11 +30,11 @@ function getContext(folderName: string) {
 
 test('migration | ember-app | steps | update-component-templates > nested', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-component-templates/nested/input',
+    'ember-app/steps/update-component-templates/nested/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-component-templates/nested/output',
+    'ember-app/steps/update-component-templates/nested/output',
   );
 
   const fileMap = (inputProject['app'] as DirJSON)['components'] as DirJSON;

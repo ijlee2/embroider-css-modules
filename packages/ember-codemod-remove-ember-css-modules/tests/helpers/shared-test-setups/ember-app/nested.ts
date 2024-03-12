@@ -2,11 +2,11 @@ import type {
   CodemodOptions,
   Context,
   Options,
-} from '../../../src/types/index.js';
+} from '../../../../src/types/index.js';
 
 const codemodOptions: CodemodOptions = {
   componentStructure: 'nested',
-  projectRoot: 'tmp/ember-container-query-nested',
+  projectRoot: 'tmp/ember-app/ember-container-query-nested',
   projectType: 'app',
 };
 
@@ -131,7 +131,7 @@ const options: Options = {
     hasGlint: true,
     hasTypeScript: true,
   },
-  projectRoot: 'tmp/ember-container-query-nested',
+  projectRoot: 'tmp/ember-app/ember-container-query-nested',
   projectType: 'app',
 };
 

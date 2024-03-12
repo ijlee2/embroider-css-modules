@@ -4,7 +4,7 @@ import { moveStylesheets } from '../../../../../src/migration/ember-app/steps/in
 import {
   codemodOptions,
   options,
-} from '../../../../helpers/shared-test-setups/nested.js';
+} from '../../../../helpers/shared-test-setups/ember-app/nested.js';
 
 test('migration | ember-app | steps | move-stylesheets > nested', function () {
   const inputProject = {
