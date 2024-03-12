@@ -33,5 +33,6 @@ test('migration | ember-app | steps | create-options > typescript', function () 
       hasTypeScript: true,
     },
     projectRoot: 'tmp/ember-container-query-typescript',
+    projectType: 'app',
   });
 });

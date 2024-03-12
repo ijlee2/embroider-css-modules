@@ -35,5 +35,6 @@ test('migration | ember-app | steps | create-options > glint', function () {
       hasTypeScript: true,
     },
     projectRoot: 'tmp/ember-container-query-glint',
+    projectType: 'app',
   });
 });

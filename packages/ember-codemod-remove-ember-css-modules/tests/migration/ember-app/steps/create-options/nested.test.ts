@@ -35,5 +35,6 @@ test('migration | ember-app | steps | create-options > nested', function () {
       hasTypeScript: true,
     },
     projectRoot: 'tmp/ember-container-query-nested',
+    projectType: 'app',
   });
 });

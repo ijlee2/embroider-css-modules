@@ -29,5 +29,6 @@ test('migration | ember-app | steps | create-options > javascript', function () 
       hasTypeScript: false,
     },
     projectRoot: 'tmp/ember-container-query-javascript',
+    projectType: 'app',
   });
 });

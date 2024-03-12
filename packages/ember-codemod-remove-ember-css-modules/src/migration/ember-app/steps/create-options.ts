@@ -21,13 +21,14 @@ function analyzePackageJson(codemodOptions: CodemodOptions): Project {
 }
 
 export function createOptions(codemodOptions: CodemodOptions): Options {
+  const { componentStructure, projectRoot, projectType } = codemodOptions;
+
   const project = analyzePackageJson(codemodOptions);
 
-  const options = {
-    componentStructure: codemodOptions.componentStructure,
+  return {
+    componentStructure,
     project,
-    projectRoot: codemodOptions.projectRoot,
+    projectRoot,
+    projectType,
   };
-
-  return options;
 }

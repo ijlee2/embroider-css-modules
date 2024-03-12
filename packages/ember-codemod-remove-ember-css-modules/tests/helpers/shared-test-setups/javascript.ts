@@ -7,6 +7,7 @@ import type {
 const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   projectRoot: 'tmp/ember-container-query-javascript',
+  projectType: 'app',
 };
 
 const context: Context = {
@@ -123,6 +124,7 @@ const options: Options = {
     hasTypeScript: false,
   },
   projectRoot: 'tmp/ember-container-query-javascript',
+  projectType: 'app',
 };
 
 export { codemodOptions, context, options };

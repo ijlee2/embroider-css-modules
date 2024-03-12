@@ -23,6 +23,12 @@ const argv = yargs(hideBin(process.argv))
     describe: 'Location of your Ember project',
     type: 'string',
   })
+  .option('type', {
+    choices: ['app', 'v2-addon'] as const,
+    demandOption: true,
+    describe: 'Type of your Ember project',
+    type: 'string',
+  })
   .parseSync();
 
 const codemodOptions: CodemodOptions = {
@@ -30,6 +36,7 @@ const codemodOptions: CodemodOptions = {
     'component-structure'
   ] as CodemodOptions['componentStructure'],
   projectRoot: argv['root'] ?? process.cwd(),
+  projectType: argv['type'],
 };
 
 removeEmberCssModules(codemodOptions);

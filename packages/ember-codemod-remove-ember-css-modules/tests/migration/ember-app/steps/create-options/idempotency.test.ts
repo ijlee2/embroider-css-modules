@@ -33,5 +33,6 @@ test('migration | ember-app | steps | create-options > idempotency', function ()
       hasTypeScript: true,
     },
     projectRoot: 'tmp/ember-container-query-glint',
+    projectType: 'app',
   });
 });
