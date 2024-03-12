@@ -12,6 +12,23 @@ type Data = {
   isTypeScript: boolean;
 };
 
+function canSkip(file: string, data: Data): boolean {
+  const traverse = AST.traverse(data.isTypeScript);
+  let canSkip = false;
+
+  traverse(file, {
+    visitImportDeclaration(path) {
+      if (path.node.source.value === `./${data.fileName}.css`) {
+        canSkip = true;
+      }
+
+      return false;
+    },
+  });
+
+  return canSkip;
+}
+
 function removeTemplateOnlyComponentMethod(file: string, data: Data): string {
   const traverse = AST.traverse(data.isTypeScript);
 
@@ -149,6 +166,11 @@ export function updateClass(
 
   try {
     let file = readFileSync(join(projectRoot, filePath), 'utf8');
+
+    if (canSkip(file, data)) {
+      return;
+    }
+
     file = removeTemplateOnlyComponentMethod(file, data);
     file = importStylesInClass(file, data);
     file = addStylesAsClassProperty(file, data);
