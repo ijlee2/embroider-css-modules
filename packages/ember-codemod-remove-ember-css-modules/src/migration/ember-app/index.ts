@@ -1,7 +1,7 @@
 import type { CodemodOptions } from '../../types/index.js';
+import { createOptions } from '../../utils/steps/create-options.js';
 import {
-  analyzeApp,
-  createOptions,
+  analyzeProject,
   importStylesInComponents,
   importStylesInRoutes,
   moveStylesheets,
@@ -21,7 +21,7 @@ export function migrateEmberApp(codemodOptions: CodemodOptions): void {
   }
 
   // Prepare for migration
-  const context = analyzeApp(options);
+  const context = analyzeProject(options);
 
   // Import styles in classes
   moveStylesheets(options);

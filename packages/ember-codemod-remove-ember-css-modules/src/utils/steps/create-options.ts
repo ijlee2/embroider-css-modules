@@ -1,6 +1,6 @@
 import { readPackageJson } from '@codemod-utils/json';
 
-import type { CodemodOptions, Options } from '../../../types/index.js';
+import type { CodemodOptions, Options } from '../../types/index.js';
 
 type Project = Options['project'];
 

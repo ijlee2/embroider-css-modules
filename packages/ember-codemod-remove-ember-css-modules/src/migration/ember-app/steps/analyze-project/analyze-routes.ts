@@ -1,7 +1,7 @@
 import { findFiles, renamePathByDirectory } from '@codemod-utils/files';
 
 import type { Entities, Options } from '../../../../types/index.js';
-import { analyzeFilePaths } from './analyze-file-paths.js';
+import { analyzeFilePaths } from '../../../../utils/steps/analyze-project/analyze-file-paths.js';
 
 export function analyzeRoutes(options: Options): Entities {
   const { projectRoot } = options;

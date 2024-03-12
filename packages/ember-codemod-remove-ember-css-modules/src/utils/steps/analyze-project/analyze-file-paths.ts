@@ -2,7 +2,7 @@ import { join } from 'node:path';
 
 import { parseFilePath } from '@codemod-utils/files';
 
-import type { Entities } from '../../../../types/index.js';
+import type { Entities } from '../../../types/index.js';
 
 export function analyzeFilePaths(filePaths: string[]): Entities {
   const entities = new Map<string, Set<string>>();

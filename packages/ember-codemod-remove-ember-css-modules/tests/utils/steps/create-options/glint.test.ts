@@ -1,9 +1,9 @@
 import { assert, loadFixture, test } from '@codemod-utils/tests';
 
-import { createOptions } from '../../../../../src/migration/ember-app/steps/index.js';
-import { codemodOptions } from '../../../../helpers/shared-test-setups/ember-app/nested.js';
+import { createOptions } from '../../../../src/utils/steps/create-options.js';
+import { codemodOptions } from '../../../helpers/shared-test-setups/ember-app/glint.js';
 
-test('migration | ember-app | steps | create-options > nested', function () {
+test('utils | steps | create-options > glint', function () {
   const inputProject = {
     'package.json': JSON.stringify(
       {
@@ -23,7 +23,7 @@ test('migration | ember-app | steps | create-options > nested', function () {
   loadFixture(inputProject, codemodOptions);
 
   assert.deepStrictEqual(createOptions(codemodOptions), {
-    componentStructure: 'nested',
+    componentStructure: 'flat',
     project: {
       dependencies: new Map([
         ['@glint/core', '^v1.0.0-beta.4'],
@@ -34,7 +34,7 @@ test('migration | ember-app | steps | create-options > nested', function () {
       hasGlint: true,
       hasTypeScript: true,
     },
-    projectRoot: 'tmp/ember-app/ember-container-query-nested',
+    projectRoot: 'tmp/ember-app/ember-container-query-glint',
     projectType: 'app',
   });
 });

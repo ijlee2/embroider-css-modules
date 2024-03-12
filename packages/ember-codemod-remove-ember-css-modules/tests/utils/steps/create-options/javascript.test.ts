@@ -1,9 +1,9 @@
 import { assert, loadFixture, test } from '@codemod-utils/tests';
 
-import { createOptions } from '../../../../../src/migration/ember-app/steps/index.js';
-import { codemodOptions } from '../../../../helpers/shared-test-setups/ember-app/typescript.js';
+import { createOptions } from '../../../../src/utils/steps/create-options.js';
+import { codemodOptions } from '../../../helpers/shared-test-setups/ember-app/javascript.js';
 
-test('migration | ember-app | steps | create-options > typescript', function () {
+test('utils | steps | create-options > javascript', function () {
   const inputProject = {
     'package.json': JSON.stringify(
       {
@@ -11,7 +11,6 @@ test('migration | ember-app | steps | create-options > typescript', function () 
         version: '4.0.0-alpha.5',
         devDependencies: {
           'ember-css-modules': '^2.0.1',
-          typescript: '^5.0.3',
         },
       },
       null,
@@ -24,15 +23,12 @@ test('migration | ember-app | steps | create-options > typescript', function () 
   assert.deepStrictEqual(createOptions(codemodOptions), {
     componentStructure: 'flat',
     project: {
-      dependencies: new Map([
-        ['ember-css-modules', '^2.0.1'],
-        ['typescript', '^5.0.3'],
-      ]),
+      dependencies: new Map([['ember-css-modules', '^2.0.1']]),
       hasEmberCssModules: true,
       hasGlint: false,
-      hasTypeScript: true,
+      hasTypeScript: false,
     },
-    projectRoot: 'tmp/ember-app/ember-container-query-typescript',
+    projectRoot: 'tmp/ember-app/ember-container-query-javascript',
     projectType: 'app',
   });
 });

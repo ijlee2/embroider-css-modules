@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { AST } from '@codemod-utils/ast-javascript';
 import { createFiles, parseFilePath } from '@codemod-utils/files';
 
-import type { OptionsForImportStyles } from '../../../../types/index.js';
+import type { OptionsForImportStyles } from '../../../types/index.js';
 
 type Data = {
   fileName: string;

@@ -5,8 +5,8 @@ import { processTemplate } from '@codemod-utils/blueprints';
 import { classify, doubleColonize } from '@codemod-utils/ember-cli-string';
 import { createFiles, parseFilePath } from '@codemod-utils/files';
 
-import type { OptionsForImportStyles } from '../../../../types/index.js';
-import { blueprintsRoot } from '../../../../utils/blueprints.js';
+import type { OptionsForImportStyles } from '../../../types/index.js';
+import { blueprintsRoot } from '../../blueprints.js';
 
 export function createClass(
   entityName: string,

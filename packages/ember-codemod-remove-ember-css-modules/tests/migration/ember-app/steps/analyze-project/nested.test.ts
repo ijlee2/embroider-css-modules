@@ -1,6 +1,6 @@
 import { assert, loadFixture, test } from '@codemod-utils/tests';
 
-import { analyzeApp } from '../../../../../src/migration/ember-app/steps/index.js';
+import { analyzeProject } from '../../../../../src/migration/ember-app/steps/index.js';
 import { inputProject } from '../../../../fixtures/ember-app/ember-container-query-nested/index.js';
 import {
   codemodOptions,
@@ -8,8 +8,8 @@ import {
   options,
 } from '../../../../helpers/shared-test-setups/ember-app/nested.js';
 
-test('migration | ember-app | steps | analyze-app > nested', function () {
+test('migration | ember-app | steps | analyze-project > nested', function () {
   loadFixture(inputProject, codemodOptions);
 
-  assert.deepStrictEqual(analyzeApp(options), context);
+  assert.deepStrictEqual(analyzeProject(options), context);
 });

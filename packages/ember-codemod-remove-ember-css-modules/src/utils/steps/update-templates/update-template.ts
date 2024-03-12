@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { AST } from '@codemod-utils/ast-template';
 import { createFiles } from '@codemod-utils/files';
 
-import type { OptionsForUpdateTemplates } from '../../../../types/index.js';
+import type { OptionsForUpdateTemplates } from '../../../types/index.js';
 
 function sanitizeClassAndLocalClassAttributes(file: string): string {
   function removeAttributeWithoutValue(

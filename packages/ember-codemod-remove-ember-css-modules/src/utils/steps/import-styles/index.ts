@@ -1,7 +1,4 @@
-import type {
-  Entities,
-  OptionsForImportStyles,
-} from '../../../../types/index.js';
+import type { Entities, OptionsForImportStyles } from '../../../types/index.js';
 import { createClass } from './create-class.js';
 import { updateClass } from './update-class.js';
 

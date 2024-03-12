@@ -1,7 +1,7 @@
 import type {
   Entities,
   OptionsForUpdateTemplates,
-} from '../../../../types/index.js';
+} from '../../../types/index.js';
 import { updateTemplate } from './update-template.js';
 
 export function updateTemplates(

@@ -1,9 +1,9 @@
 import { assert, loadFixture, test } from '@codemod-utils/tests';
 
-import { createOptions } from '../../../../../src/migration/ember-app/steps/index.js';
-import { codemodOptions } from '../../../../helpers/shared-test-setups/ember-app/glint.js';
+import { createOptions } from '../../../../src/utils/steps/create-options.js';
+import { codemodOptions } from '../../../helpers/shared-test-setups/ember-app/glint.js';
 
-test('migration | ember-app | steps | create-options > glint', function () {
+test('utils | steps | create-options > idempotency', function () {
   const inputProject = {
     'package.json': JSON.stringify(
       {
@@ -11,7 +11,6 @@ test('migration | ember-app | steps | create-options > glint', function () {
         version: '4.0.0-alpha.5',
         devDependencies: {
           '@glint/core': '^v1.0.0-beta.4',
-          'ember-css-modules': '^2.0.1',
           typescript: '^5.0.3',
         },
       },
@@ -27,10 +26,9 @@ test('migration | ember-app | steps | create-options > glint', function () {
     project: {
       dependencies: new Map([
         ['@glint/core', '^v1.0.0-beta.4'],
-        ['ember-css-modules', '^2.0.1'],
         ['typescript', '^5.0.3'],
       ]),
-      hasEmberCssModules: true,
+      hasEmberCssModules: false,
       hasGlint: true,
       hasTypeScript: true,
     },
