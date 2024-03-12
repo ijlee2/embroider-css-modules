@@ -10,15 +10,15 @@ import {
   codemodOptions,
   context,
   options,
-} from '../../../../helpers/shared-test-setups/javascript.js';
+} from '../../../../helpers/shared-test-setups/ember-app/javascript.js';
 
 test('migration | ember-app | steps | import-styles-in-components > javascript', function () {
   const inputProject = convertFixtureToJson(
-    'steps/import-styles-in-components/javascript/input',
+    'ember-app/steps/import-styles-in-components/javascript/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/import-styles-in-components/javascript/output',
+    'ember-app/steps/import-styles-in-components/javascript/output',
   );
 
   loadFixture(inputProject, codemodOptions);

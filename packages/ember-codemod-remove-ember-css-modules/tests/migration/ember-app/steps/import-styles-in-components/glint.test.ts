@@ -10,15 +10,15 @@ import {
   codemodOptions,
   context,
   options,
-} from '../../../../helpers/shared-test-setups/glint.js';
+} from '../../../../helpers/shared-test-setups/ember-app/glint.js';
 
 test('migration | ember-app | steps | import-styles-in-components > glint', function () {
   const inputProject = convertFixtureToJson(
-    'steps/import-styles-in-components/glint/input',
+    'ember-app/steps/import-styles-in-components/glint/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/import-styles-in-components/glint/output',
+    'ember-app/steps/import-styles-in-components/glint/output',
   );
 
   loadFixture(inputProject, codemodOptions);

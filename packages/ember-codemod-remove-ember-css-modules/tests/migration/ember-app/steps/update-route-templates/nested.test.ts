@@ -15,7 +15,7 @@ import { updateRouteTemplates } from '../../../../../src/migration/ember-app/ste
 import {
   codemodOptions,
   options,
-} from '../../../../helpers/shared-test-setups/nested.js';
+} from '../../../../helpers/shared-test-setups/ember-app/nested.js';
 
 function getContext(fileName: string) {
   const entityName = fileName.replace(new RegExp(/\.hbs$/), '');
@@ -29,11 +29,11 @@ function getContext(fileName: string) {
 
 test('migration | ember-app | steps | update-route-templates > nested', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-route-templates/nested/input',
+    'ember-app/steps/update-route-templates/nested/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-route-templates/nested/output',
+    'ember-app/steps/update-route-templates/nested/output',
   );
 
   const fileMap = (inputProject['app'] as DirJSON)['templates'] as DirJSON;

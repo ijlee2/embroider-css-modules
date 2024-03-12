@@ -1,7 +1,7 @@
 import { assert, test } from '@codemod-utils/tests';
 
 import { getVersion } from '../../../src/utils/blueprints.js';
-import { options } from '../../helpers/shared-test-setups/glint.js';
+import { options } from '../../helpers/shared-test-setups/ember-app/glint.js';
 
 test('utils | blueprints | get-version', function () {
   const version = getVersion('webpack', options);

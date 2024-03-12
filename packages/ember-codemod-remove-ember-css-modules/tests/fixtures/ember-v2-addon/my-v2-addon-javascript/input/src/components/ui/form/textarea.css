@@ -1,0 +1,3 @@
+.textarea {
+  composes: input from "docs-app/components/ui/form/input.css";
+}

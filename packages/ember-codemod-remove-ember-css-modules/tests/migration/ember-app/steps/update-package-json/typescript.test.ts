@@ -9,15 +9,15 @@ import { updatePackageJson } from '../../../../../src/migration/ember-app/steps/
 import {
   codemodOptions,
   options,
-} from '../../../../helpers/shared-test-setups/typescript.js';
+} from '../../../../helpers/shared-test-setups/ember-app/typescript.js';
 
 test('migration | ember-app | steps | update-package-json > typescript', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-package-json/typescript/input',
+    'ember-app/steps/update-package-json/typescript/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-package-json/typescript/output',
+    'ember-app/steps/update-package-json/typescript/output',
   );
 
   loadFixture(inputProject, codemodOptions);

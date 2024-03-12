@@ -10,15 +10,15 @@ import {
   codemodOptions,
   context,
   options,
-} from '../../../../helpers/shared-test-setups/nested.js';
+} from '../../../../helpers/shared-test-setups/ember-app/nested.js';
 
 test('migration | ember-app | steps | import-styles-in-routes > nested', function () {
   const inputProject = convertFixtureToJson(
-    'steps/import-styles-in-routes/nested/input',
+    'ember-app/steps/import-styles-in-routes/nested/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/import-styles-in-routes/nested/output',
+    'ember-app/steps/import-styles-in-routes/nested/output',
   );
 
   loadFixture(inputProject, codemodOptions);

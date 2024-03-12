@@ -3,6 +3,7 @@ import type { PackageJson } from '@codemod-utils/json';
 type CodemodOptions = {
   componentStructure: 'flat' | 'nested';
   projectRoot: string;
+  projectType: 'app' | 'v2-addon';
 };
 
 type Context = {
@@ -21,6 +22,7 @@ type Options = {
     hasTypeScript: boolean;
   };
   projectRoot: string;
+  projectType: 'app' | 'v2-addon';
 };
 
 type OptionsForImportStyles = {

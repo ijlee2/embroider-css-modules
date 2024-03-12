@@ -10,15 +10,15 @@ import {
   codemodOptions,
   context,
   options,
-} from '../../../../helpers/shared-test-setups/typescript.js';
+} from '../../../../helpers/shared-test-setups/ember-app/typescript.js';
 
 test('migration | ember-app | steps | import-styles-in-components > typescript', function () {
   const inputProject = convertFixtureToJson(
-    'steps/import-styles-in-components/typescript/input',
+    'ember-app/steps/import-styles-in-components/typescript/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/import-styles-in-components/typescript/output',
+    'ember-app/steps/import-styles-in-components/typescript/output',
   );
 
   loadFixture(inputProject, codemodOptions);

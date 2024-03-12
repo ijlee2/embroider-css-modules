@@ -4,7 +4,7 @@ import { moveStylesheets } from '../../../../../src/migration/ember-app/steps/in
 import {
   codemodOptions,
   options,
-} from '../../../../helpers/shared-test-setups/glint.js';
+} from '../../../../helpers/shared-test-setups/ember-app/glint.js';
 
 test('migration | ember-app | steps | move-stylesheets > glint', function () {
   const inputProject = {

@@ -4,7 +4,7 @@ import { moveStylesheets } from '../../../../../src/migration/ember-app/steps/in
 import {
   codemodOptions,
   options,
-} from '../../../../helpers/shared-test-setups/javascript.js';
+} from '../../../../helpers/shared-test-setups/ember-app/javascript.js';
 
 test('migration | ember-app | steps | move-stylesheets > javascript', function () {
   const inputProject = {

@@ -1,5 +1,4 @@
-export * from './analyze-app.js';
-export * from './create-options.js';
+export * from './analyze-project.js';
 export * from './import-styles-in-components.js';
 export * from './import-styles-in-routes.js';
 export * from './move-stylesheets.js';

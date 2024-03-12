@@ -1,0 +1,9 @@
+<div class={{concat this.styles.container " ui-page-container"}}>
+  <h1 class={{this.styles.header}}>
+    {{@title}}
+  </h1>
+
+  <div id="main-content" class={{this.styles.body}} tabindex="-1">
+    {{yield}}
+  </div>
+</div>

@@ -5,7 +5,7 @@ import type {
   Options,
   OptionsForImportStyles,
 } from '../../../types/index.js';
-import { importStyles } from './import-styles/index.js';
+import { importStyles } from '../../../utils/steps/import-styles/index.js';
 
 type Customizations = OptionsForImportStyles['customizations'];
 

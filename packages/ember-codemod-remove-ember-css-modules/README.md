@@ -18,14 +18,18 @@ _Codemod to replace `ember-css-modules` with `embroider-css-modules`_
 
 ## Features
 
-- Preserves your code whenever possible
-- Supports [`glint`](https://typed-ember.gitbook.io/glint/)
-- Focuses on maintainability and extensibility
+The codemod helps you:
+
+- Remove `ember-css-modules` syntax from an Embroider app
+- Set up `embroider-css-modules` on an Embroider app
+- Remove `ember-css-modules` syntax from a v2 addon
+
+It takes [`glint`](https://typed-ember.gitbook.io/glint/) into account, and preserves your code whenever possible.
 
 
 ## Usage
 
-You can check [`ember-container-query`](https://github.com/ijlee2/ember-container-query/pull/167) as a reference.
+You can find a migration example in [`ember-container-query`](https://github.com/ijlee2/ember-container-query/pull/167).
 
 Step 1. Quickly migrate to [`embroider-css-modules`](https://github.com/ijlee2/embroider-css-modules).<sup>1</sup>
 
@@ -47,24 +51,34 @@ Step 2. Review the project.
 
 ### Arguments
 
+You must pass `--type` to indicate what type of project you have.
+
+```sh
+npx ember-codemod-remove-ember-css-modules --type app
+npx ember-codemod-remove-ember-css-modules --type v2-addon
+```
+
+
 <details>
+
 <summary>Optional: Specify the component structure</summary>
 
 By default, an Octane project has the flat component structure. Pass `--component-structure` to indicate otherwise.
 
 ```sh
-npx ember-codemod-remove-ember-css-modules --component-structure="nested"
+npx ember-codemod-remove-ember-css-modules --component-structure nested
 ```
 
 </details>
 
 <details>
+
 <summary>Optional: Specify the project root</summary>
 
 Pass `--root` to run the codemod on a project somewhere else (i.e. not in the current directory).
 
 ```sh
-npx ember-codemod-remove-ember-css-modules --root=<path/to/your/project>
+npx ember-codemod-remove-ember-css-modules --root <path/to/your/project>
 ```
 
 </details>
@@ -73,6 +87,14 @@ npx ember-codemod-remove-ember-css-modules --root=<path/to/your/project>
 ### Limitations
 
 The codemod is designed to cover typical uses of `ember-css-modules`. It is not designed to cover one-off cases.
+
+<details>
+
+<summary>V2 Addons</summary>
+
+The codemod updates components only. Please see [Set up CSS modules (v2 addons)](../../docs/written-guides/set-up-css-modules-v2-addons.md) to set up `embroider-css-modules`.
+
+</details>
 
 To better meet your needs, consider cloning the repo and running the codemod locally.
 

@@ -16,14 +16,33 @@
 pnpm build
 
 ./codemod-test-fixture.sh \
-  ember-container-query-glint
+  -N "--type app" \
+  ember-app/ember-container-query-glint
 
 ./codemod-test-fixture.sh \
-  ember-container-query-javascript
+  -N "--type app" \
+  ember-app/ember-container-query-javascript
 
 ./codemod-test-fixture.sh \
-  -a "--component-structure nested" \
-  ember-container-query-nested
+  -N "--component-structure nested --type app" \
+  ember-app/ember-container-query-nested
 
 ./codemod-test-fixture.sh \
-  ember-container-query-typescript
+  -N "--type app" \
+  ember-app/ember-container-query-typescript
+
+./codemod-test-fixture.sh \
+  -N "--type v2-addon" \
+  ember-v2-addon/my-v2-addon-glint
+
+./codemod-test-fixture.sh \
+  -N "--type v2-addon" \
+  ember-v2-addon/my-v2-addon-javascript
+
+./codemod-test-fixture.sh \
+  -N "--component-structure nested --type v2-addon" \
+  ember-v2-addon/my-v2-addon-nested
+
+./codemod-test-fixture.sh \
+  -N "--type v2-addon" \
+  ember-v2-addon/my-v2-addon-typescript

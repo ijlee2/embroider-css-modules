@@ -16,10 +16,10 @@
 #---------
 
 # Read the named arguments
-while getopts ":a:" flag
+while getopts ":N:" flag
 do
   case $flag in
-    a) ARGUMENTS=$OPTARG;;
+    N) NAMED_ARGUMENTS=$OPTARG;;
   esac
 done
 
@@ -39,6 +39,6 @@ fi
 rm -r "tests/fixtures/$FIXTURE/output"
 cp -r "tests/fixtures/$FIXTURE/input" "tests/fixtures/$FIXTURE/output"
 
-./dist/bin/ember-codemod-remove-ember-css-modules.js $ARGUMENTS --root="tests/fixtures/$FIXTURE/output"
+./dist/bin/ember-codemod-remove-ember-css-modules.js $NAMED_ARGUMENTS --root="tests/fixtures/$FIXTURE/output"
 
 echo "SUCCESS: Updated the output of $FIXTURE.\n"

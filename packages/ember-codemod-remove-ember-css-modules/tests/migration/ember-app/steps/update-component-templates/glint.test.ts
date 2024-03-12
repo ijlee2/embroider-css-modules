@@ -14,7 +14,7 @@ import { updateComponentTemplates } from '../../../../../src/migration/ember-app
 import {
   codemodOptions,
   options,
-} from '../../../../helpers/shared-test-setups/glint.js';
+} from '../../../../helpers/shared-test-setups/ember-app/glint.js';
 
 function getContext(fileName: string) {
   const entityName = fileName.replace(new RegExp(/\.hbs$/), '');
@@ -28,11 +28,11 @@ function getContext(fileName: string) {
 
 test('migration | ember-app | steps | update-component-templates > glint', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-component-templates/glint/input',
+    'ember-app/steps/update-component-templates/glint/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-component-templates/glint/output',
+    'ember-app/steps/update-component-templates/glint/output',
   );
 
   const fileMap = (inputProject['app'] as DirJSON)['components'] as DirJSON;

@@ -9,15 +9,15 @@ import { updatePackageJson } from '../../../../../src/migration/ember-app/steps/
 import {
   codemodOptions,
   options,
-} from '../../../../helpers/shared-test-setups/glint.js';
+} from '../../../../helpers/shared-test-setups/ember-app/glint.js';
 
 test('migration | ember-app | steps | update-package-json > glint', function () {
   const inputProject = convertFixtureToJson(
-    'steps/update-package-json/glint/input',
+    'ember-app/steps/update-package-json/glint/input',
   );
 
   const outputProject = convertFixtureToJson(
-    'steps/update-package-json/glint/output',
+    'ember-app/steps/update-package-json/glint/output',
   );
 
   loadFixture(inputProject, codemodOptions);
