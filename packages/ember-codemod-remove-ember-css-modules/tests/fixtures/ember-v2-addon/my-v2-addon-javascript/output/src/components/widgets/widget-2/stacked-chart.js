@@ -1,5 +1,9 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-const WidgetsWidget2StackedChartComponent = templateOnlyComponent();
+import styles from './stacked-chart.css';
+
+const WidgetsWidget2StackedChartComponent = class extends Component {
+  styles = styles;
+};
 
 export default WidgetsWidget2StackedChartComponent;

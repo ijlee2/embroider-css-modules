@@ -1,24 +1,23 @@
 <div
-  local-class="container
-    {{if @isInline 'is-inline'}}
-    {{if @isWide 'is-wide'}}
-    {{unless @errorMessage 'no-feedback'}}
+  class="{{this.styles.container}} {{local this.styles (if @isInline 'is-inline')}} 
+     {{local this.styles (if @isWide 'is-wide')}} 
+     {{local this.styles (unless @errorMessage 'no-feedback')}} 
   "
 >
-  <div local-class="label">
+  <div class={{this.styles.label}}>
     {{yield (hash inputId=this.inputId) to="label"}}
   </div>
 
-  <div local-class="field">
+  <div class={{this.styles.field}}>
     {{yield (hash inputId=this.inputId) to="field"}}
   </div>
 
   {{#if @errorMessage}}
-    <div class={{local-class "feedback is-error"}}>
+    <div class={{local this.styles "feedback" "is-error"}}>
       {{svg-jar "alert" aria-hidden="true"}}
 
       <span
-        class={{local-class "message"}}
+        class={{this.styles.message}}
         data-test-feedback
         role="alert"
       >

@@ -1,5 +1,9 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-const UiFormInformationComponent = templateOnlyComponent();
+import styles from './information.css';
+
+const UiFormInformationComponent = class extends Component {
+  styles = styles;
+};
 
 export default UiFormInformationComponent;

@@ -1,5 +1,9 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-const WidgetsWidget3TourScheduleComponent = templateOnlyComponent();
+import styles from './tour-schedule.css';
+
+const WidgetsWidget3TourScheduleComponent = class extends Component {
+  styles = styles;
+};
 
 export default WidgetsWidget3TourScheduleComponent;

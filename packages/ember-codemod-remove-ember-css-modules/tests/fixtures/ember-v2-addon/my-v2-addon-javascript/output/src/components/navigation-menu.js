@@ -1,5 +1,9 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-const NavigationMenuComponent = templateOnlyComponent();
+import styles from './navigation-menu.css';
+
+const NavigationMenuComponent = class extends Component {
+  styles = styles;
+};
 
 export default NavigationMenuComponent;

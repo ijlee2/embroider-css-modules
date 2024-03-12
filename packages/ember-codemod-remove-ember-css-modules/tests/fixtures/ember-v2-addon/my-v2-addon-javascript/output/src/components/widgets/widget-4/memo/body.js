@@ -1,5 +1,9 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-const WidgetsWidget4MemoBodyComponent = templateOnlyComponent();
+import styles from './body.css';
+
+const WidgetsWidget4MemoBodyComponent = class extends Component {
+  styles = styles;
+};
 
 export default WidgetsWidget4MemoBodyComponent;
