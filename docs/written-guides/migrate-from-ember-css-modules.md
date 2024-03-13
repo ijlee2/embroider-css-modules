@@ -9,7 +9,7 @@ You can reach `embroider-css-modules` in a few steps. (See [`ember-container-que
 
 ## Remove ember-css-modules
 
-Run `ember-codemod-remove-ember-css-modules` to update syntax and project dependencies.
+Run `ember-codemod-remove-ember-css-modules` to remove `ember-css-modules` syntax.
 
 ```sh
 npx ember-codemod-remove-ember-css-modules <arguments>
@@ -18,9 +18,9 @@ npx ember-codemod-remove-ember-css-modules <arguments>
 For more information, please see [the codemod's `README`](../../packages/ember-codemod-remove-ember-css-modules/README.md).
 
 
-## Configure Webpack
+## Update project configurations
 
-Update `ember-cli-build.js` and `postcss.config.js`. See the instructions in [Set up CSS modules (apps) - Configure Webpack](./set-up-css-modules-apps.md#configure-webpack).
+Please follow steps 1-3 of [Set up CSS modules (apps)](./set-up-css-modules-apps.md).
 
 
 ## Enable stricter Embroider settings

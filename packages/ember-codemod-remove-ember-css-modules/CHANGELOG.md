@@ -1,5 +1,15 @@
 # ember-codemod-remove-ember-css-modules
 
+## 2.0.0
+
+### Major Changes
+
+- [#135](https://github.com/ijlee2/embroider-css-modules/pull/135) Let end-developers set up embroider-css-modules in their Embroider app ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#134](https://github.com/ijlee2/embroider-css-modules/pull/134) Extracted documentation for refactoring code. Added more examples. ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.2.0
 
 ### Minor Changes
