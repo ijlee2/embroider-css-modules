@@ -18,27 +18,27 @@ _Codemod to replace `ember-css-modules` with `embroider-css-modules`_
 The codemod helps you:
 
 - Remove `ember-css-modules` syntax from an Embroider app
-- Set up `embroider-css-modules` on an Embroider app
 - Remove `ember-css-modules` syntax from a v2 addon
 
-It takes [`glint`](https://typed-ember.gitbook.io/glint/) into account, and preserves your code whenever possible.
+It preserves your code whenever possible.
 
 
 ## Usage
 
 You can find a migration example in [`ember-container-query`](https://github.com/ijlee2/ember-container-query/pull/167).
 
-Step 1. Quickly migrate to [`embroider-css-modules`](https://github.com/ijlee2/embroider-css-modules).<sup>1</sup>
+Step 1. Quickly remove `ember-css-modules` syntax.<sup>1</sup>
 
 ```sh
 cd <path/to/your/project>
 npx ember-codemod-remove-ember-css-modules <arguments>
 ```
 
-Step 2. Review the project.
+Manually remove the remaining instances of `local-class` attributes and `{{local-class}}` helpers.
 
-- [x] Update the configuration files.<sup>2</sup>
-- [x] Remove the remaining instances of `local-class` attributes and `{{local-class}}` helpers from `ember-css-modules`.
+Step 2. Update project configurations.
+
+- [x] Set up CSS modules (see the guides for [apps](../../docs/written-guides/set-up-css-modules-apps.md) and [v2 addons](../../docs/written-guides/set-up-css-modules-v2-addons.md)).
 - [x] Confirm that you can run all scripts in `package.json`.
 
 <sup>1. Some prerequisites for running the codemod: First, migrate to the Octane layout (flat or nested). You can leverage codemods for [classic](https://github.com/ember-codemods/ember-component-template-colocation-migrator) and [pod](https://github.com/ijlee2/ember-codemod-pod-to-octane) layouts. Second, [refactor code](../../docs/refactor-code.md) to help the codemod update templates correctly.</sup>
@@ -60,7 +60,7 @@ npx ember-codemod-remove-ember-css-modules --type v2-addon
 
 <summary>Optional: Specify the component structure</summary>
 
-By default, an Octane project has the flat component structure. Pass `--component-structure` to indicate otherwise.
+By default, an Embroider project has the flat component structure. Pass `--component-structure` to indicate otherwise.
 
 ```sh
 npx ember-codemod-remove-ember-css-modules --component-structure nested

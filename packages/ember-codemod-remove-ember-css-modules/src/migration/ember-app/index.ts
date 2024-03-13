@@ -5,20 +5,12 @@ import {
   importStylesInComponents,
   importStylesInRoutes,
   moveStylesheets,
-  updateAppAppJs,
   updateComponentTemplates,
-  updatePackageJson,
   updateRouteTemplates,
 } from './steps/index.js';
 
 export function migrateEmberApp(codemodOptions: CodemodOptions): void {
   const options = createOptions(codemodOptions);
-  const { hasEmberCssModules } = options.project;
-
-  // Guarantee idempotency
-  if (!hasEmberCssModules) {
-    return;
-  }
 
   // Prepare for migration
   const context = analyzeProject(options);
@@ -31,8 +23,4 @@ export function migrateEmberApp(codemodOptions: CodemodOptions): void {
   // Update templates
   updateComponentTemplates(context, options);
   updateRouteTemplates(context, options);
-
-  // Fine-tune individual files
-  updateAppAppJs(options);
-  updatePackageJson(options);
 }
