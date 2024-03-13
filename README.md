@@ -40,6 +40,7 @@ In short, `embroider-css-modules` depends little on how CSS modules is implement
 
 - [Migrate from ember-css-modules](./docs/written-guides/migrate-from-ember-css-modules.md)
 - [Migrate from ember-modern-css](./docs/written-guides/migrate-from-ember-modern-css.md)
+- [Refactor code](./docs/written-guides/refactor-code.md)
 - [Set up CSS modules (apps)](./docs/written-guides/set-up-css-modules-apps.md)
 - [Set up CSS modules (v2 addons)](./docs/written-guides/set-up-css-modules-v2-addons.md)
 
@@ -50,8 +51,7 @@ What `embroider-css-modules` looks like is:
 
 - Quite stable for apps
 - Quite stable for v2 addons
-- Unknown for v1 addons
-- Unknown for engines
+- Unknown for v1 addons (including engines)
 
 
 ## Contributing
@@ -61,7 +61,7 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
 
 ## Credits
 
-The `webpack` implementation is possible thanks to [Ember + Modern CSS](https://github.com/evoactivity/ember-modern-css) by [@evoactivity](https://github.com/evoactivity). Special thanks to the maintainers of [`ember-css-modules`](https://github.com/salsify/ember-css-modules), who paved the Ember way to CSS modules.
+The `webpack` implementation is possible, thanks to ideas from [Ember + Modern CSS](https://github.com/evoactivity/ember-modern-css) by [@evoactivity](https://github.com/evoactivity). Special thanks to the maintainers of [`ember-css-modules`](https://github.com/salsify/ember-css-modules), who paved the Ember way to CSS modules.
 
 
 ## License
