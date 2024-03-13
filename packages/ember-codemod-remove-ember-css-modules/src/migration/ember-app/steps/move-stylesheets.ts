@@ -7,6 +7,16 @@ import {
 
 import type { Options } from '../../../types/index.js';
 
+function canSkip(options: Options): boolean {
+  const { projectRoot } = options;
+
+  const filePaths = findFiles('app/assets/app.css', {
+    projectRoot,
+  });
+
+  return filePaths.length === 1;
+}
+
 function moveRouteStylesheets(options: Options): void {
   const { projectRoot } = options;
 
@@ -24,6 +34,10 @@ function moveRouteStylesheets(options: Options): void {
 }
 
 function moveAppCssToAssets(options: Options): void {
+  if (canSkip(options)) {
+    return;
+  }
+
   const { projectRoot } = options;
 
   const filePaths = findFiles('app/styles/app.css', {

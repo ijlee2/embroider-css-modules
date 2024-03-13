@@ -11,12 +11,6 @@ import {
 
 export function migrateEmberApp(codemodOptions: CodemodOptions): void {
   const options = createOptions(codemodOptions);
-  const { hasEmberCssModules } = options.project;
-
-  // Guarantee idempotency
-  if (!hasEmberCssModules) {
-    return;
-  }
 
   // Prepare for migration
   const context = analyzeProject(options);
