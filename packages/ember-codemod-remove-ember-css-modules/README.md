@@ -36,7 +36,7 @@ npx ember-codemod-remove-ember-css-modules <arguments>
 
 Manually remove the remaining instances of `local-class` attributes and `{{local-class}}` helpers.
 
-Step 2. Update project configurations.
+Step 2. Update project configurations.<sup>2</sup>
 
 - [x] Set up CSS modules (see the guides for [apps](../../docs/written-guides/set-up-css-modules-apps.md) and [v2 addons](../../docs/written-guides/set-up-css-modules-v2-addons.md)).
 - [x] Confirm that you can run all scripts in `package.json`.
@@ -89,7 +89,7 @@ The codemod is designed to cover typical uses of `ember-css-modules`. It is not 
 
 <summary>V2 Addons</summary>
 
-The codemod updates components only. Please see [Set up CSS modules (v2 addons)](../../docs/written-guides/set-up-css-modules-v2-addons.md) to set up `embroider-css-modules`.
+The codemod updates components only.
 
 </details>
 

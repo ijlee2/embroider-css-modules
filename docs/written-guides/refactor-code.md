@@ -66,7 +66,7 @@ Thanks to the helper, it's easy to understand how we can apply a style condition
 </div>
 ```
 
-To apply multiple styles conditionally, use the `{{array}}` helper. Again, Glint will find typos in the words `this.styles`, `message`, `hide`, or `after-3-sec`.
+To apply multiple styles conditionally, use the `{{array}}` helper. Again, Glint will find typos in the words `this.styles`, `message`, `hide`, and `after-3-sec`.
 
 ```hbs
 <div
@@ -110,7 +110,6 @@ Often, the `{{concat}}` helper is used to change an argument to a class name. Th
 Consider the following component, which allows end-developers to pass an argument to style the list items.
 
 ```hbs
-{{! src/components/ui/list.hbs }}
 <ul
   class={{local
     this.styles
@@ -123,7 +122,6 @@ Consider the following component, which allows end-developers to pass an argumen
 ```
 
 ```ts
-/* src/components/ui/list.ts */
 import Component from '@glimmer/component';
 
 import styles from './list.css';
@@ -148,10 +146,9 @@ export default class UiListComponent extends Component<UiListSignature> {
 }
 ```
 
-We will create the local class name in the backing class, so the template will look like,
+The goal is to create the local class name in the backing class, where we have more control over types. The template would end up looking like,
 
 ```hbs
-{{! src/components/ui/list.hbs }}
 <ul
   class={{local
     this.styles
@@ -163,14 +160,13 @@ We will create the local class name in the backing class, so the template will l
 </ul>
 ```
 
-One solution is to use a `switch` statement, a universal concept in programming. The code is accessible to many developers, but the rate at which LOC (lines of code) increase makes it difficult to maintain and extend.
+One solution is to use a `switch` statement, a universal concept in programming. The code is accessible to many developers, but the rate at which LOC (lines of code) increase makes the code difficult to maintain and extend.
 
 <details>
 
 <summary>Solution</summary>
 
 ```ts
-/* src/components/ui/list.ts */
 import Component from '@glimmer/component';
 
 import styles from './list.css';
@@ -209,14 +205,13 @@ export default class UiListComponent extends Component<UiListSignature> {
 
 </details>
 
-We can instead use an object to create the mapping. The code is more concise, but it takes a while to get used to type derivation.
+So let's use instead an object to create the mapping. The code is more concise, but it takes a while to get used to type derivation.
 
 <details>
 
 <summary>Solution</summary>
 
 ```ts
-/* src/components/ui/list.ts */
 import Component from '@glimmer/component';
 
 import styles from './list.css';
@@ -258,7 +253,6 @@ The simplest solution is a string concatenation with `as const` ("const assertio
 <summary>Solution</summary>
 
 ```ts
-/* src/components/ui/list.ts */
 import Component from '@glimmer/component';
 
 import styles from './list.css';
@@ -287,7 +281,7 @@ export default class UiListComponent extends Component<UiListSignature> {
 
 </details>
 
-The code is extremely concise, but argument values now dictate the class names (you don't encounter this issue with `switch` and objects). You may introduce inconsistencies in casing and make it difficult to change code in the future.
+The code is extremely concise, but argument values now dictate the class names (you can avoid this issue using `switch` or an object). You may introduce inconsistencies in casing and make it hard to refactor code in the future.
 
 
 ## Remove code inheritance
@@ -312,7 +306,7 @@ The `composes` property, defined by [CSS modules](https://github.com/css-modules
 
 <details>
 
-<summary>Syntaxes that don't work (yet)</summary>
+<summary>Syntaxes that don't work</summary>
 
 An absolute path:
 
