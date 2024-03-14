@@ -156,12 +156,13 @@ type-css-modules --src app/components app/controllers
 ```
 
 <details>
+
 <summary>Optional: Specify the project root</summary>
 
 Pass `--root` to run the codemod on a project somewhere else (i.e. not in the current directory).
 
 ```sh
-npx type-css-modules --root=<path/to/your/project>
+npx type-css-modules --root <path/to/your/project>
 ```
 
 </details>

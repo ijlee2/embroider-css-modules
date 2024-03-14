@@ -5,6 +5,7 @@
     - [Use `{{concat}}` helper to group substrings](#use-concat-helper-to-group-substrings)
     - [Do concatenations in the backing class](#do-concatenations-in-the-backing-class)
 1. [Remove code inheritance](#remove-code-inheritance)
+1. [Set spacing on the consumer's side](#set-spacing-on-the-consumers-side)
 
 
 ## Apply multiple styles
@@ -66,7 +67,7 @@ Thanks to the helper, it's easy to understand how we can apply a style condition
 </div>
 ```
 
-To apply multiple styles conditionally, use the `{{array}}` helper. Again, Glint will find typos in the words `this.styles`, `message`, `hide`, or `after-3-sec`.
+To apply multiple styles conditionally, use the `{{array}}` helper. Again, Glint will find typos in the words `this.styles`, `message`, `hide`, and `after-3-sec`.
 
 ```hbs
 <div
@@ -110,7 +111,6 @@ Often, the `{{concat}}` helper is used to change an argument to a class name. Th
 Consider the following component, which allows end-developers to pass an argument to style the list items.
 
 ```hbs
-{{! src/components/ui/list.hbs }}
 <ul
   class={{local
     this.styles
@@ -123,7 +123,6 @@ Consider the following component, which allows end-developers to pass an argumen
 ```
 
 ```ts
-/* src/components/ui/list.ts */
 import Component from '@glimmer/component';
 
 import styles from './list.css';
@@ -148,10 +147,9 @@ export default class UiListComponent extends Component<UiListSignature> {
 }
 ```
 
-We will create the local class name in the backing class, so the template will look like,
+The goal is to create the local class name in the backing class, where we have more control over types. The template would end up looking like,
 
 ```hbs
-{{! src/components/ui/list.hbs }}
 <ul
   class={{local
     this.styles
@@ -163,14 +161,13 @@ We will create the local class name in the backing class, so the template will l
 </ul>
 ```
 
-One solution is to use a `switch` statement, a universal concept in programming. The code is accessible to many developers, but the rate at which LOC (lines of code) increase makes it difficult to maintain and extend.
+One solution is to use a `switch` statement, a universal concept in programming. The code is accessible to many developers, but the rate at which LOC (lines of code) increase makes the code difficult to maintain and extend.
 
 <details>
 
 <summary>Solution</summary>
 
 ```ts
-/* src/components/ui/list.ts */
 import Component from '@glimmer/component';
 
 import styles from './list.css';
@@ -209,14 +206,13 @@ export default class UiListComponent extends Component<UiListSignature> {
 
 </details>
 
-We can instead use an object to create the mapping. The code is more concise, but it takes a while to get used to type derivation.
+So let's use instead an object to create the mapping. The code is more concise, but it takes a while to get used to type derivation.
 
 <details>
 
 <summary>Solution</summary>
 
 ```ts
-/* src/components/ui/list.ts */
 import Component from '@glimmer/component';
 
 import styles from './list.css';
@@ -258,7 +254,6 @@ The simplest solution is a string concatenation with `as const` ("const assertio
 <summary>Solution</summary>
 
 ```ts
-/* src/components/ui/list.ts */
 import Component from '@glimmer/component';
 
 import styles from './list.css';
@@ -287,7 +282,7 @@ export default class UiListComponent extends Component<UiListSignature> {
 
 </details>
 
-The code is extremely concise, but argument values now dictate the class names (you don't encounter this issue with `switch` and objects). You may introduce inconsistencies in casing and make it difficult to change code in the future.
+The code is extremely concise, but argument values now dictate the class names (you can avoid this issue using `switch` or an object). You may introduce inconsistencies in casing and make it hard to refactor code in the future.
 
 
 ## Remove code inheritance
@@ -312,7 +307,7 @@ The `composes` property, defined by [CSS modules](https://github.com/css-modules
 
 <details>
 
-<summary>Syntaxes that don't work (yet)</summary>
+<summary>Syntaxes that don't work</summary>
 
 An absolute path:
 
@@ -396,3 +391,92 @@ export default class UiFormTextareaComponent extends Component {
 ```
 
 </details>
+
+
+## Set spacing on the consumer's side
+
+A component becomes less reusable, when its container sets `margin`, `padding`, `height`, or `width` in an attempt to distance itself from other components. A value that worked in one situation can fail to work in another.
+
+```css
+/* Addon: src/components/ui/form/input.css */
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+}
+```
+
+```hbs
+{{! Addon: src/components/ui/form/input.hbs }}
+<div class={{this.styles.container}}>
+  <label for={{this.inputId}}>
+    {{@label}}
+  </label>
+
+  <input
+    id={{this.inputId}}
+    value={{this.value}}
+    {{on "input" this.updateValue}}
+  />
+</div>
+```
+
+```hbs
+{{! App: app/components/send-order.hbs }}
+<Ui::Form
+  @data={{this.initialData}}
+  @onSubmit={{this.submitForm}}
+  as |F|
+>
+  <F.Input @key="address" @label="Address" />
+
+  <F.Input @key="city" @label="City" />
+
+  <F.Input @key="state" @label="State" />
+
+  {{! ... }}
+</Ui::Form>
+```
+
+Instead, let the consumer set spacings. The rationale is, reusable components shouldn't care about what happens "outside." We encounter this idea also in [container queries](https://github.com/ijlee2/ember-container-query).
+
+```diff
+/* Addon: src/components/ui/form/input.css */
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+-   margin-bottom: 16px;
+}
+```
+
+```diff
+/* App: app/components/send-order.css */
++ .input-container {
++   margin-bottom: 16px;
++ }
+```
+
+```diff
+{{! App: app/components/send-order.hbs }}
+<Ui::Form
+  @data={{this.initialData}}
+  @onSubmit={{this.submitForm}}
+  as |F|
+>
++   <div class={{this.styles.input-container}}>
+    <F.Input @key="address" @label="Address" />
++   </div>
+
++   <div class={{this.styles.input-container}}>
+    <F.Input @key="city" @label="City" />
++   </div>
+
++   <div class={{this.styles.input-container}}>
+    <F.Input @key="state" @label="State" />
++   </div>
+
+  {{! ... }}
+</Ui::Form>
+```
