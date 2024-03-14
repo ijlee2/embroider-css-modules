@@ -5,6 +5,7 @@
     - [Use `{{concat}}` helper to group substrings](#use-concat-helper-to-group-substrings)
     - [Do concatenations in the backing class](#do-concatenations-in-the-backing-class)
 1. [Remove code inheritance](#remove-code-inheritance)
+1. [Set spacing on the consumer's side](#set-spacing-on-the-consumers-side)
 
 
 ## Apply multiple styles
@@ -390,3 +391,92 @@ export default class UiFormTextareaComponent extends Component {
 ```
 
 </details>
+
+
+## Set spacing on the consumer's side
+
+A component becomes less reusable, when its container sets `margin`, `padding`, `height`, or `width` in an attempt to distance itself from other components. A value that worked in one situation can fail to work in another.
+
+```css
+/* Addon: src/components/ui/form/input.css */
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+}
+```
+
+```hbs
+{{! Addon: src/components/ui/form/input.hbs }}
+<div class={{this.styles.container}}>
+  <label for={{this.inputId}}>
+    {{@label}}
+  </label>
+
+  <input
+    id={{this.inputId}}
+    value={{this.value}}
+    {{on "input" this.updateValue}}
+  />
+</div>
+```
+
+```hbs
+{{! App: app/components/send-order.hbs }}
+<Ui::Form
+  @data={{this.initialData}}
+  @onSubmit={{this.submitForm}}
+  as |F|
+>
+  <F.Input @key="address" @label="Address" />
+
+  <F.Input @key="city" @label="City" />
+
+  <F.Input @key="state" @label="State" />
+
+  {{! ... }}
+</Ui::Form>
+```
+
+Instead, let the consumer set spacings. The rationale is, reusable components shouldn't care about what happens "outside." We encounter this idea also in [container queries](https://github.com/ijlee2/ember-container-query).
+
+```diff
+/* Addon: src/components/ui/form/input.css */
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+-   margin-bottom: 16px;
+}
+```
+
+```diff
+/* App: app/components/send-order.css */
++ .input-container {
++   margin-bottom: 16px;
++ }
+```
+
+```diff
+{{! App: app/components/send-order.hbs }}
+<Ui::Form
+  @data={{this.initialData}}
+  @onSubmit={{this.submitForm}}
+  as |F|
+>
++   <div class={{this.styles.input-container}}>
+    <F.Input @key="address" @label="Address" />
++   </div>
+
++   <div class={{this.styles.input-container}}>
+    <F.Input @key="city" @label="City" />
++   </div>
+
++   <div class={{this.styles.input-container}}>
+    <F.Input @key="state" @label="State" />
++   </div>
+
+  {{! ... }}
+</Ui::Form>
+```
