@@ -1,28 +1,30 @@
 # Set up CSS modules (apps)
 
-We will use Webpack and PostCSS to implement CSS modules. (If you get lost, you can check [`my-app`](../my-app) for reference.)
+We will use Webpack and PostCSS to implement CSS modules.
 
 1. [Install dependencies](#install-dependencies)
 1. [Configure Webpack](#configure-webpack)
     - [Update ember-cli-build.js](#update-ember-cli-buildjs)
     - [Create postcss.config.js](#create-postcssconfigjs)
-1. [Define entry point for CSS](#define-entry-point-for-css)
-    - [Create app/assets/app.css](#create-appassetsappcss)
-    - [Import app/assets/app.css](#import-appassetsappcss)
+1. [Move app.css code](#move-appcss-code)
 1. [Style your first component](#style-your-first-component)
     - [Glimmer components](#glimmer-components)
-    - [&lt;template&gt;-tag components](#template-tag-components)
+    - [&lt;template&gt; tag](#template-tag)
     - [CSS declaration files](#css-declaration-files)
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter)
     - [Can I use the file extension \*.module.css?](#can-i-use-the-file-extension-modulecss)
     - [Write tests](#write-tests)
 1. [Style your first route](#style-your-first-route)
+    - [&lt;template&gt; tag](#template-tag-1)
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter-1)
+
+> [!NOTE]
+> If you get lost, you can check how [`my-app`](../my-app) is set up.
 
 
 ## Install dependencies
 
-If you have a new Ember app, you need these dependencies to build the app with Embroider.
+If you have a new Ember app, you will need these dependencies to build it with Embroider.
 
 - `@embroider/compat`
 - `@embroider/core`
@@ -49,14 +51,14 @@ pnpm install --dev \
   embroider-css-modules type-css-modules
 ```
 
-<sup>1. Needed only if you have a TypeScript project</sup>
+<sup>1. Needed only if you have a TypeScript project.</sup>
 
 
-## Configure Webpack
+## Configure Webpack and PostCSS
 
-In this step, you will configure `ember-cli-build.js` and `postcss.config.js`.
+In this step, you will update two files: `ember-cli-build.js` and `postcss.config.js`.
 
-If you have a new Ember app, copy-paste the starter code for `ember-cli-build.js`. The code defines a variable called `options`, which you will update later. (Even if your app already runs with Embroider, it's a good idea to compare your `ember-cli-build.js` to the starter code so that we are on the same page.)
+If you have a new Ember app, you can copy-paste the starter code for `ember-cli-build.js`. The code defines a variable called `options`, which you will update later.
 
 <details>
 
@@ -96,16 +98,17 @@ module.exports = function (defaults) {
 
 </details>
 
+> [!NOTE]
+> Even if you already have an Embroider app, please do compare your `ember-cli-build.js` to the starter code so that we are on the same page.
+
 
 ### Update ember-cli-build.js
 
-In the variable `options`, define [`cssLoaderOptions`, `publicAssetURL`, and `webpackConfig` ](https://github.com/embroider-build/embroider/blob/main/packages/webpack/src/options.ts) for Embroider.
+You'll need to set these [Webpack options](https://github.com/embroider-build/embroider/blob/main/packages/webpack/src/options.ts): `cssLoaderOptions`, `publicAssetURL`, and `webpackConfig`. You can do so by adding a key named `packagerOptions` to `options`.
 
 <details>
 
-<summary><code>ember-cli-build.js</code></summary>
-
-For simplicity, only `options` is shown. (The rest of the code remains the same.)
+<summary><code>options</code> variable</summary>
 
 ```js
 const options = {
@@ -142,7 +145,7 @@ const options = {
             ],
           },
           /*
-            Add the following rule to load asset files, e.g. fonts, icons, etc.
+            Uncomment this rule to load asset files, e.g. fonts, icons, etc.
             See https://webpack.js.org/guides/asset-modules/ for more information.
           */
           // {
@@ -173,27 +176,18 @@ function mode(resourcePath) {
 }
 ```
 
-⚠️ If your app belongs to a monorepo, you must provide the relative path (from the workspace root to the app) to `hostAppLocation`. This way, Webpack can distinguish the CSS files from your app (local) from those from an addon in the monorepo (global).
-
-```js
-function mode(resourcePath) {
-  // If your app is located in `apps/your-ember-app`
-  const hostAppLocation = `apps/your-ember-app/node_modules/.embroider/rewritten-app`;
-
-  return resourcePath.includes(hostAppLocation) ? 'local' : 'global';
-}
-```
+> [!IMPORTANT]
+> If your app lives in a monorepo, please include the relative path from the workspace root to the app. This way, Webpack can distinguish CSS files from your app (local) from those from an addon in the monorepo (global).
+>
+> ```js
+> // If your app is located at `docs-app`
+> const hostAppLocation = 'docs-app/node_modules/.embroider/rewritten-app';
+> ```
 
 
 ### Create postcss.config.js
 
-List the PostCSS plugins that your app depends on.
-
-<details>
-
-<summary><code>postcss.config.js</code></summary>
-
-List the `autoprefixer` plugin.
+In `postcss.config.js`, list the PostCSS plugins that you need (e.g. `autoprefixer`).
 
 ```js
 const env = process.env.EMBER_ENV ?? 'development';
@@ -208,13 +202,11 @@ module.exports = {
 };
 ```
 
-</details>
-
 <details>
 
-<summary><code>.eslintrc.js</code></summary>
+<summary>Use <code>eslint-plugin-n</code>?</summary>
 
-Find the override for Node files. Add `postcss.config.js` to the list of files.
+In `.eslintrc.js`, find the override rule for Node files. Add `postcss.config.js` to the list of files.
 
 ```js
 'use strict';
@@ -236,43 +228,33 @@ module.exports = {
 </details>
 
 
-## Define entry point for CSS
+## Move app.css code
 
-For CSS modules to work, we need JS files to be able to import a CSS file.
+To ensure the load order with Webpack, you will need to move the code in `app/styles/app.css` (e.g. global styles, `@import`, `@font-face`) to `app/assets/app.css`.
 
-Unfortunately, as of Ember v5.6, we can't import CSS files located in `app/styles`. This somewhat limits where we can store files (e.g. stylesheets for routes). We can't delete `app/styles` either, as `ember-cli` expects [`app/styles/app.css`](https://cli.emberjs.com/release/advanced-use/stylesheets/) to exist.
-
-
-### Create app/assets/app.css
-
-Given the constraints above, let's define the entry point for CSS in a new folder, namely `app/assets/app.css`. (The location and name of the file do not matter.)
-
-<details>
-
-<summary><code>app/assets/app.css</code></summary>
-
-Here is the default file from `ember-cli`.
-
-```css
-/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+```sh
+mkdir app/assets
+cp app/styles/app.css app/assets/app.css
 ```
 
-</details>
+> [!IMPORTANT]
+> Ember expects `app/styles/app.css` to exist. Instead of deleting the file, leave it empty.
+>
+> Here is the default file from `ember-cli`.
+>
+> ```css
+> /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+> ```
 
-This file serves the same purpose as `app/styles/app.css`. That is, in `app/assets/app.css`, you can import stylesheets and define the global styles for type selectors (e.g. `h1`, `h2`). 
-
-
-### Import app/assets/app.css
-
-Once the file is created, import it in `app/app.ts`.
+Next, import the stylesheet `app/assets/app.css` in `app/app.ts`.
 
 <details>
 
 <summary><code>app/app.ts</code></summary>
 
-```ts
-import './assets/app.css';
-
+```diff
++ import './assets/app.css';
++ 
 import Application from '@ember/application';
 import loadInitializers from 'ember-load-initializers';
 import Resolver from 'ember-resolver';
@@ -290,31 +272,29 @@ loadInitializers(App, config.modulePrefix);
 
 </details>
 
-By importing the file in `app/app.ts`, we can ensure the load order in production. Webpack injects `<link>` tags in the order in which they are imported, and we want our entry point to be the first. (paraphrased from [ember-modern-css](https://github.com/evoactivity/ember-modern-css#importing-css))
-
 
 ## Style your first component
 
-You can start styling your app! Let's create a Glimmer component to test CSS modules.
+You can style your app now. Let's create a Glimmer component to test CSS modules.
 
 ```sh
-ember g component hello-world -gc
+ember g component hello -gc
 ```
 
-While `ember-cli` can take care of the template and the backing class, you will need to manually create the stylesheet (for now).
+While `ember-cli` can create the template and the backing class, you will need to manually create the stylesheet.
 
 ```sh
-touch app/components/hello-world.css
+touch app/components/hello.css
 ```
 
 
 ### Glimmer components
 
-The goal is to render the text `Hello world!` in a `<div>`-container. In the stylesheet, define a class selector named `.container`.
+The goal is to display `Hello world!` in a `<div>`-container. In the stylesheet, define a class selector named `.container`.
 
 <details>
 
-<summary><code>app/components/hello-world.css</code></summary>
+<summary><code>app/components/hello.css</code></summary>
 
 ```css
 .container {
@@ -332,27 +312,27 @@ Next, in the backing class, import the stylesheet and name it `styles`. Store `s
 
 <details>
 
-<summary><code>app/components/hello-world.ts</code></summary>
+<summary><code>app/components/hello.ts</code></summary>
 
 Note, we write the file extension `.css` explicitly.
 
 ```ts
 import Component from '@glimmer/component';
 
-import styles from './hello-world.css';
+import styles from './hello.css';
 
-export default class HelloWorldComponent extends Component {
+export default class HelloComponent extends Component {
   styles = styles;
 }
 ```
 
 </details>
 
-Display the message and style the `<div>`-container.
+Display the message and style the container.
 
 <details>
 
-<summary><code>app/components/hello-world.hbs</code></summary>
+<summary><code>app/components/hello.hbs</code></summary>
 
 ```hbs
 <div class={{this.styles.container}}>
@@ -362,33 +342,34 @@ Display the message and style the `<div>`-container.
 
 </details>
 
-Finally, render the component somewhere. Et voilà! ✨
+Finally, render the component. Et voilà! ✨
 
 <details>
 
 <summary><code>app/templates/index.hbs</code></summary>
 
 ```hbs
-<HelloWorld />
+<Hello />
 ```
 
 </details>
 
-You can also [apply multiple styles with the `{{local}}` helper](../../packages/embroider-css-modules/README.md#helper-local).
+> [!NOTE]
+> Use the [`{{local}}` helper](../../packages/embroider-css-modules/README.md#helper-local) to apply multiple styles.
 
 
-### &lt;template&gt;-tag components
+### &lt;template&gt; tag
 
-You may have noticed a downside of `embroider-css-modules`. Since we pass `styles` to the template as a class property, it's not possible to style template-only components.
+Since we pass `styles` to the template as a class property, it's not possible to style template-only components.
 
-We can address this issue by writing [`<template>`-tag components](https://github.com/ember-template-imports/ember-template-imports). Replace `hello-world.{hbs,ts}` with `hello-world.gts`:
+We can address this issue by writing components with [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports). Replace `hello.{hbs,ts}` with `hello.gts`:
 
 <details>
 
-<summary><code>app/components/hello-world.gts</code></summary>
+<summary><code>app/components/hello.gts</code></summary>
 
 ```ts
-import styles from './hello-world.css';
+import styles from './hello.css';
 
 <template>
   <div class={{styles.container}}>
@@ -405,10 +386,10 @@ import styles from './hello-world.css';
 To help TypeScript understand what it means to import a CSS file,
 
 ```ts
-import styles from './hello-world.css';
+import styles from './hello.css';
 ```
 
-and what `styles` looks like, you will need to provide the declaration file `hello-world.css.d.ts`.
+and what `styles` looks like, you will need to provide the declaration file `hello.css.d.ts`.
 
 Lucky for you, [`type-css-modules`](../../packages/type-css-modules) can create this file. Write a pre-script as shown below:
 
@@ -429,7 +410,7 @@ Now, when you run `lint`, the `prelint:types` script will create the CSS declara
 pnpm lint
 ```
 
-If the `lint` script takes too long to run, you can run just `prelint:types` to create the declaration files.
+At any time, you can run `prelint:types` to create the CSS declaration files.
 
 ```sh
 pnpm prelint:types
@@ -438,10 +419,10 @@ pnpm prelint:types
 
 ### Do the file location and name matter?
 
-As of Ember v5.6, a component's template and backing class must have the same name (the related technical terms are [resolve and resolution](https://github.com/ember-cli/ember-resolver)):
+A component's template and backing class must have the same name (the related technical terms are [resolve and resolution](https://github.com/ember-cli/ember-resolver)):
 
-- `hello-world.{hbs,ts}` with the flat component structure
-- `hello-world/index.{hbs,ts}` with the nested component structure
+- `hello.{hbs,ts}` with the flat component structure
+- `hello/index.{hbs,ts}` with the nested component structure
 
 In contrast, the component's stylesheet can have a different name and even live in a different folder. This is because we explicitly import the CSS file in the backing class.
 
@@ -452,10 +433,10 @@ Still, for everyone's sanity, I recommend colocating the stylesheet and providin
 your-ember-app
 ├── app
 │   └── components
-│       ├── hello-world.css
-│       ├── hello-world.css.d.ts
-│       ├── hello-world.hbs
-│       └── hello-world.ts
+│       ├── hello.css
+│       ├── hello.css.d.ts
+│       ├── hello.hbs
+│       └── hello.ts
 ...
 ```
 
@@ -464,7 +445,7 @@ your-ember-app
 your-ember-app
 ├── app
 │   └── components
-│       └── hello-world
+│       └── hello
 │           ├── index.css
 │           ├── index.css.d.ts
 │           ├── index.hbs
@@ -475,39 +456,40 @@ your-ember-app
 
 ### Can I use the file extension \*.module.css?
 
-Yes! You may use `*.module.css` to indicate the stylesheets that are for CSS modules. `type-css-modules` will create declaration files with the extension `*.module.css.d.ts`.
+Yes! You can use `*.module.css` to indicate the stylesheets that are for CSS modules. `type-css-modules` will create declaration files with the extension `*.module.css.d.ts`.
 
 ```diff
-- import styles from './hello-world.css';
-+ import styles from './hello-world.module.css';
+- import styles from './hello.css';
++ import styles from './hello.module.css';
 ```
 
-⚠️ The files `app/assets/app.css` and `app/styles/app.css` keep the extension `*.css`.
+> [!NOTE]
+> The files `app/assets/app.css` and `app/styles/app.css` keep the extension `*.css`.
 
 
 ### Write tests
 
-In general, I don't recommend writing an [`hasClass()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasclass) assertion to test styles.
+In general, I recommend not writing an [`hasClass()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasclass) assertion to test styles.
 
-Checking if a class is present doesn't guarantee, what your user sees is correct and will be in the future. An [`hasStyle()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasstyle) assertion is somewhat better (a stronger assertion than `hasClass`) but may fail due to rounding errors. In general, prefer writing [visual regression tests](https://docs.percy.io/docs/ember). This helps you hide any implementation details.
+The presence (or absence) of a class doesn't guarantee that what your user sees is correct and will be in the future. An [`hasStyle()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasstyle) assertion is somewhat better (the assertion is stronger), but may fail due to rounding errors. In general, prefer writing [visual regression tests](https://docs.percy.io/docs/ember). This helps you hide implementation details.
 
 That said, if you _must_ write an `hasClass` assertion, you can get the global class name by importing the stylesheet.
 
 <details>
 
-<summary><code>tests/integration/components/hello-world-test.ts</code></summary>
+<summary><code>tests/integration/components/hello-test.ts</code></summary>
 
 For simplicity, other import statements have been hidden.
 
 ```ts
-import styles from 'your-ember-app/components/hello-world.css';
+import styles from 'your-ember-app/components/hello.css';
 
-module('Integration | Component | hello-world', function (hooks) {
+module('Integration | Component | hello', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     await render(hbs`
-      <HelloWorld />
+      <Hello />
     `);
 
     assert.dom('div').hasClass(styles.container);
@@ -527,9 +509,35 @@ To style a route, apply [the ideas that you learned for components](#style-your-
 1. Write `this.styles` in the template.
 
 
+### &lt;template&gt; tag
+
+If you want to avoid passing `styles` via a controller, you can use [`ember-route-template`](https://github.com/discourse/ember-route-template) (experimental).
+
+<details>
+
+<summary><code>app/templates/index.gts</code></summary>
+
+```ts
+import Route from 'ember-route-template';
+
+import Hello from '../components/hello.gts';
+import styles from './index.css';
+
+export default Route(
+  <template>
+    <div class={{styles.container}}>
+      <Hello />
+    </div>
+  </template>
+);
+```
+
+</details>
+
+
 ### Do the file location and name matter?
 
-As of Ember v5.6, a route's template and backing class must have the same name:
+A route's template and backing class must have the same name:
 
 - `app/controllers/index.ts`
 - `app/templates/index.hbs`
@@ -547,6 +555,18 @@ your-ember-app
 │   │   └── index.ts
 │   │
 │   └── templates
+│       └── index.hbs
+...
+```
+
+If you use `ember-route-template`, you may instead colocate the stylesheet and the route template.
+
+```sh
+your-ember-app
+├── app
+│   └── templates
+│       ├── index.css
+│       ├── index.css.d.ts
 │       └── index.hbs
 ...
 ```

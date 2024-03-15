@@ -1,17 +1,20 @@
 # Set up CSS modules (v2 addons)
 
-We will use Rollup and PostCSS to implement CSS modules. (If you get lost, you can check [`my-v2-addon`](../my-v2-addon) for reference.)
+We will use Rollup and PostCSS to implement CSS modules.
 
 1. [Install dependencies](#install-dependencies)
 1. [Configure Rollup](#configure-rollup)
     - [Update rollup.config.mjs](#update-rollupconfigmjs)
 1. [Style your first component](#style-your-first-component)
     - [Glimmer components](#glimmer-components)
-    - [&lt;template&gt;-tag components](#template-tag-components)
+    - [&lt;template&gt; tag](#template-tag)
     - [CSS declaration files](#css-declaration-files)
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter)
     - [Can I use the file extension \*.module.css?](#can-i-use-the-file-extension-modulecss)
     - [Write tests](#write-tests)
+
+> [!NOTE]
+> If you get lost, you can check how [`my-v2-addon`](../my-v2-addon) is set up.
 
 
 ## Install dependencies
@@ -29,7 +32,7 @@ For PostCSS, here is what you likely need at minimum.
 Finally, some packages to improve your developer experience (DX).
 
 - [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)<sup>1</sup>
-- [`type-css-modules`](../../packages/type-css-modules/README.md)<sup>1</sup>
+- [`type-css-modules`](../../packages/type-css-modules/README.md)<sup>2</sup>
 
 All in all, here are the commands for installation:
 
@@ -38,12 +41,14 @@ pnpm install --dev postcss rollup-plugin-postcss type-css-modules
 pnpm install embroider-css-modules
 ```
 
-<sup>1. Needed only if you use the `{{local}}` helper. Add to `dependencies`, not `devDependencies`.</sup>
+<sup>1. Add to `dependencies`, not `devDependencies`.</sup>
+
+<sup>2. Needed only if you have a TypeScript project.</sup>
 
 
 ## Configure Rollup
 
-In this step, you will configure `rollup.config.mjs`. Your file should look similar to this starter code.
+In this step, you will update one file: `rollup.config.mjs`. Your current file should look similar to this starter code.
 
 <details>
 
@@ -169,7 +174,7 @@ export default {
 
 </details>
 
-Let's take a closer look at `postcss()`, as you have a few options.
+Let's take a closer look at `postcss()`, where you have a few options.
 
 ```js
 postcss({
@@ -180,7 +185,7 @@ postcss({
 })
 ```
 
-This setup prepends the hash with the package name (e.g. `your-v2-addon`), so that you can identify a style's source when you run the consuming app. A hash collision in the consuming app becomes unlikely, too.
+The setup prepends the hash with the package name (e.g. `your-v2-addon`). This way, you can identify a style's source in the consuming app. Hash collisions in the consuming app become unlikely, too.
 
 ```js
 // Styles for src/components/navigation-menu
@@ -190,7 +195,7 @@ const styles = {
 };
 ```
 
-If you want to debug the addon code, then you may prefer having predictable names:
+You may instead prefer predictable names to debug code easily:
 
 ```js
 postcss({
@@ -221,12 +226,13 @@ const styles = {
 };
 ```
 
-I recommend the first option, where `generateScopedName` is `<package-name>__[sha512:hash:base64:5]`.
+> [!NOTE]
+> I recommend the first option: Set `generateScopedName` to `<package-name>__[sha512:hash:base64:5]`.
 
 
 ## Style your first component
 
-You can start styling your addon! Let's create a Glimmer component called `<NavigationMenu>` to test CSS modules.
+You can style your addon now. Let's create a Glimmer component called `<NavigationMenu>` to test CSS modules.
 
 ```sh
 your-v2-addon
@@ -347,14 +353,16 @@ Finally, style the links. ✨
 
 </details>
 
-You can also [apply multiple styles with the `{{local}}` helper](../../packages/embroider-css-modules/README.md#helper-local).
+> [!NOTE]
+> Use the [`{{local}}` helper](../../packages/embroider-css-modules/README.md#helper-local) to apply multiple styles.
 
 
-### &lt;template&gt;-tag components
+### &lt;template&gt; tag
 
-You may have noticed a downside of `embroider-css-modules`. Since we pass `styles` to the template as a class property, it's not possible to style template-only components.
+Since we pass `styles` to the template as a class property, it's not possible to style template-only components.
 
-We can address this issue by writing [`<template>`-tag components](https://github.com/ember-template-imports/ember-template-imports). Replace `navigation-menu.{hbs,ts}` with `navigation-menu.gts`:
+
+We can address this issue by writing components with [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports). Replace `navigation-menu.{hbs,ts}` with `navigation-menu.gts`:
 
 <details>
 
@@ -428,7 +436,7 @@ Now, when you run `lint`, the `prelint:types` script will create the CSS declara
 pnpm lint
 ```
 
-If the `lint` script takes too long to run, you can run just `prelint:types` to create the declaration files.
+At any time, you can run `prelint:types` to create the CSS declaration files.
 
 ```sh
 pnpm prelint:types
@@ -437,7 +445,7 @@ pnpm prelint:types
 
 ### Do the file location and name matter?
 
-As of Ember v5.6, a component's template and backing class must have the same name (the related technical terms are [resolve and resolution](https://github.com/ember-cli/ember-resolver)):
+A component's template and backing class must have the same name (the related technical terms are [resolve and resolution](https://github.com/ember-cli/ember-resolver)):
 
 - `navigation-menu.{hbs,ts}`
 
@@ -459,7 +467,7 @@ your-v2-addon
 
 ### Can I use the file extension \*.module.css?
 
-Yes! You may use `*.module.css` to indicate the stylesheets that are for CSS modules. `type-css-modules` will create declaration files with the extension `*.module.css.d.ts`.
+Yes! You can use `*.module.css` to indicate the stylesheets that are for CSS modules. `type-css-modules` will create declaration files with the extension `*.module.css.d.ts`.
 
 ```diff
 - import styles from './navigation-menu.css';
@@ -469,11 +477,11 @@ Yes! You may use `*.module.css` to indicate the stylesheets that are for CSS mod
 
 ### Write tests
 
-In general, I don't recommend writing an [`hasClass()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasclass) assertion to test styles.
+In general, I recommend not writing an [`hasClass()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasclass) assertion to test styles.
 
-Checking if a class is present doesn't guarantee, what your user sees is correct and will be in the future. An [`hasStyle()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasstyle) assertion is somewhat better (a stronger assertion than `hasClass`) but may fail due to rounding errors. In general, prefer writing [visual regression tests](https://docs.percy.io/docs/ember). This helps you hide any implementation details.
+The presence (or absence) of a class doesn't guarantee that what your user sees is correct and will be in the future. An [`hasStyle()`](https://github.com/mainmatter/qunit-dom/blob/master/API.md#hasstyle) assertion is somewhat better (the assertion is stronger), but may fail due to rounding errors. In general, prefer writing [visual regression tests](https://docs.percy.io/docs/ember). This helps you hide implementation details.
 
-That said, if you _must_ write an `hasClass` assertion, then provide a test helper to hide implementation details.
+That said, if you _must_ write an `hasClass` assertion, you can provide a test helper.
 
 <details>
 
@@ -497,7 +505,7 @@ export function getClassForNavigationMenu(
 
 <summary>Addon: <code>src/test-support.ts</code></summary>
 
-For convenience, re-export the test helper(s). In `rollup.config.mjs`, don't forget to add `test-support.js` to `addon.publicEntrypoints()`.
+For convenience, re-export the test helper(s).
 
 ```ts
 export * from './test-support/components/navigation-menu.ts';
@@ -534,3 +542,15 @@ module('Integration | Component | navigation-menu', function (hooks) {
 ```
 
 </details>
+
+> [!NOTE]
+> In `rollup.config.mjs`, don't forget to add `test-support.js` to `addon.publicEntrypoints()`.
+>
+> ```js
+> addon.publicEntrypoints([
+>   '**/*.js',
+>   'index.js',
+>   'template-registry.js',
+>   'test-support.js',
+> ]),
+> ```

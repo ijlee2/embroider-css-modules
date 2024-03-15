@@ -29,12 +29,13 @@ pnpm install --dev \
   embroider-css-modules type-css-modules
 ```
 
-<sup>1. Needed only if you have a TypeScript project</sup>
+<sup>1. Needed only if you have a TypeScript project.</sup>
 
 
 ## Configure type-css-modules
 
-⚠️ You may skip this step if your project doesn't support TypeScript.
+> [!NOTE]
+> You can skip this step if you don't have a TypeScript project.
 
 If you have typed `*.css` files, either by installing [`@types/css-modules`](https://www.npmjs.com/package/@types/css-modules) or defining the type to be `Record<string, string>` in `types/global.d.ts`, please undo the change.
 
@@ -108,7 +109,8 @@ Next, remove all `:local()` pseudo-class selectors. Instead, use the `:global()`
 
 ## Use the {{local}} helper
 
-⚠️ You may skip this step if you didn't create the `{{styles}}` helper.
+> [!NOTE]
+> You can skip this step if you didn't create the `{{styles}}` helper.
 
 Remove the `{{styles}}` helper. To apply multiple styles, use the [`{{local}}` helper](../../packages/embroider-css-modules/README.md#helper-local) instead.
 

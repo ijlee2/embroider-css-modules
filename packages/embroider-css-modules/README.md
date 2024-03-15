@@ -30,13 +30,12 @@ ember install embroider-css-modules
 ```
 
 <details>
+
 <summary>Use Glint or <code>&lt;template&gt;</code> tag? ✨</summary>
 
 - Update your template registry to extend this addon's. Check the [Glint documentation](https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons#using-glint-enabled-addons) for more information.
 
     ```ts
-    /* types/global.d.ts */
-
     import '@glint/environment-ember-loose';
 
     import type EmbroiderCssModulesRegistry from 'embroider-css-modules/template-registry';
@@ -48,23 +47,31 @@ ember install embroider-css-modules
     }
     ```
 
-- If you are using `<template>` tag, you are good to go! Use the named import to consume things.
+- In a `<template>` tag, use the named import to consume the `{{local}}` helper.
 
     ```css
-    /* app/components/hello-world.css */
-    .container {
-      padding: 1rem;
+    /* app/components/hello.css */
+    .message {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+    }
+
+    .emphasize {
+      font-size: 64px;
+      font-style: italic;
     }
     ```
 
     ```ts
-    /* app/components/hello-world.gts */
-    import { localClass } from 'embroider-css-modules';
+    /* app/components/hello.gts */
+    import { local } from 'embroider-css-modules';
 
-    import styles from './hello-world.css';
+    import styles from './hello.css';
 
     <template>
-      <div class={{localClass styles "container"}}>
+      <div class={{local styles "message" "emphasize"}}>
         Hello world!
       </div>
     </template>
@@ -142,26 +149,22 @@ The `{{local}}` helper is useful when you want to apply multiple styles.
 
 </details>
 
-To apply multiple styles when a conditional statement holds, use the `{{array}}` helper.
+To conditionally apply multiple styles, use the `{{array}}` helper.
 
 <details>
 
 <summary>Example</summary>
 
 ```hbs
-{{! app/templates/products.hbs }}
+{{! app/components/hello.hbs }}
 <div
   class={{local
     this.styles
-    (if
-      this.isInExperimentalGroup
-      (array "shared-layout" "products-with-details")
-      (array "shared-layout" "products")
-    )
-    "sticky-container"
+    "message"
+    (if this.someCondition (array "hide" "after-3-sec"))
   }}
 >
-  ...
+  Hello world!
 </div>
 ```
 
@@ -180,13 +183,10 @@ The `{{local}}` helper returns a concatenated string. The string lists the globa
 
 ## Compatibility
 
-- `ember-auto-import@v2`<sup>1</sup>
-- Ember.js v4.4 or above<sup>2</sup>
+- Ember.js v4.4 or above<sup>1</sup>
 - Node.js v18 or above
 
-<sup>1. `embroider-css-modules` is a v2 addon. This means, your project must have `ember-auto-import@v2`. If you are momentarily stuck with `ember-auto-import@v1`, you can use [`ember-css-modules`](https://github.com/salsify/ember-css-modules) to implement CSS modules.</sup>
-
-<sup>2. Older versions may work but won't be supported.</sup>
+<sup>1. `embroider-css-modules` works on older versions (e.g. `3.28`), but issues that arise from these may not be supported.</sup>
 
 
 ## Contributing

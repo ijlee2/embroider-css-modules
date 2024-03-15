@@ -2,7 +2,7 @@
 
 # type-css-modules
 
-_Generate declaration files for CSS modules_ (independent of JavaScript framework)
+_Generate declaration files for CSS modules_
 
 1. [Why use this package?](#why-use-this-package)
 1. [How to use this package?](#how-to-use-this-package)
@@ -69,7 +69,7 @@ import styles from './page.css';
 
 </details>
 
-Second, the loose definition may be incompatible with libraries that provide types (e.g. [`qunit-dom`](https://github.com/mainmatter/qunit-dom)). You will end up overusing the non-null assertion operator `!`.
+Second, the loose definition may be incompatible with libraries that provide types (e.g. [`qunit-dom`](https://github.com/mainmatter/qunit-dom)). You will overuse the non-null assertion operator `!`.
 
 <details>
 
@@ -94,7 +94,7 @@ assert
 
 </details>
 
-When you provide accurate types, libraries (e.g. [`Glint`](https://typed-ember.gitbook.io/glint/), [`embroider-css-modules`](https://github.com/ijlee2/embroider-css-modules/tree/main/embroider-css-modules)) can improve your DX in return. You can catch typos and find unused styles early.
+When you provide accurate types, libraries (e.g. [`Glint`](https://typed-ember.gitbook.io/glint/), [`embroider-css-modules`](https://github.com/ijlee2/embroider-css-modules/tree/main/embroider-css-modules)) improve your DX in return. You can catch typos and type issues early.
 
 <details>
 
@@ -118,27 +118,20 @@ When you provide accurate types, libraries (e.g. [`Glint`](https://typed-ember.g
 
 ## How to use this package?
 
-Option 1 (recommended). Install `type-css-modules` as a development dependency. Ensure that the CSS declaration files exist before checking the types; for example, you can write a [pre-script](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts).
+Install `type-css-modules` as a development dependency. Ensure that CSS declaration files exist before checking types; for example, you can write a [pre-script](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts).
 
 ```json5
 /* package.json */
 {
   "scripts": {
-    "lint:types": "tsc --noEmit",
-    "prelint:types": "type-css-modules <arguments>"
+    "prelint:types": "type-css-modules <arguments>",
+    "lint:types": "tsc --noEmit" // or "glint"
   },
   "devDependencies": {
     "type-css-modules": "...",
     "typescript": "..."
   }
 }
-```
-
-Option 2 (one-time use). Use `npx` to run `type-css-modules`.
-
-```sh
-cd <path/to/your/project>
-npx type-css-modules <arguments>
 ```
 
 
@@ -162,7 +155,7 @@ type-css-modules --src app/components app/controllers
 Pass `--root` to run the codemod on a project somewhere else (i.e. not in the current directory).
 
 ```sh
-npx type-css-modules --root <path/to/your/project>
+type-css-modules --root <path/to/your/project>
 ```
 
 </details>
@@ -198,7 +191,7 @@ The [Prettier configuration](#use-prettier) (shown above) can remain as is.
 
 ## Limitations
 
-To reduce complexity, `type-css-modules` assumes that you will follow the conventions of `embroider-css-modules`:
+To reduce complexity, `type-css-modules` expects you to follow the conventions of `embroider-css-modules`:
 
 - Give the local scope to the styles that you own<sup>1</sup>
 - Avoid nesting styles<sup>2</sup>
@@ -285,7 +278,7 @@ import styles from './page.css';
 
 </details>
 
-Lastly, some counterexamples (what not to do):
+And some counterexamples (what not to do):
 
 <details>
 
@@ -370,9 +363,9 @@ import { container, header, body } from './page.css';
 
 </details>
 
-<sup>1. With `webpack`, for example, you can configure [`mode`](https://webpack.js.org/loaders/css-loader/#mode) to be a function that returns `'local'` or `'global'`. In CSS module stylesheets, you can use the `:global()` pseudo-class selector to refer to "things from outside."</sup>
+<sup>1. With `webpack`, for example, you can configure [`mode`](https://webpack.js.org/loaders/css-loader/#mode) to be a function that returns `'local'` or `'global'`. In stylesheets, you can use the `:global()` pseudo-class selector to refer to "things from outside."</sup>
 
-<sup>2. [CSS nesting is in spec](https://www.w3.org/TR/css-nesting-1/). Once it is official, `type-css-modules` will leave it up to [`CSSTree`](https://github.com/csstree/csstree) to parse nested styles.
+<sup>2. [CSS nesting is in spec](https://www.w3.org/TR/css-nesting-1/). To reduce maintenance cost, `type-css-modules` will leave it up to `css-tree` to parse nested styles (see [issue #210](https://github.com/csstree/csstree/issues/210)).
 
 
 ## Compatibility
