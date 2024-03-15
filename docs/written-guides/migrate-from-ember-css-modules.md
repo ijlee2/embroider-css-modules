@@ -1,21 +1,25 @@
 # Migrate from ember-css-modules
 
-You can reach `embroider-css-modules` in a few steps. (See [`ember-container-query`](https://github.com/ijlee2/ember-container-query/pull/167) for reference.)
+Have an Embroider app that runs on `ember-css-modules`? In a few steps, you can replace it with `embroider-css-modules` so that you can enable stricter Embroider settings.
 
-1. [Remove ember-css-modules](#remove-ember-css-modules)
-1. [Configure Webpack](#configure-webpack)
+1. [Remove ember-css-modules syntax](#remove-ember-css-modules-syntax)
+1. [Update project configurations](#update-project-configurations)
 1. [Enable stricter Embroider settings](#enable-stricter-embroider-settings)
 
+> [!NOTE]
+> If you get lost, you can check [`ember-container-query`](https://github.com/ijlee2/ember-container-query/pull/167) for reference.
 
-## Remove ember-css-modules
 
-Run `ember-codemod-remove-ember-css-modules` to remove `ember-css-modules` syntax.
+## Remove ember-css-modules syntax
+
+Run the provided [codemod](../../packages/ember-codemod-remove-ember-css-modules/README.md) to get started.
 
 ```sh
-npx ember-codemod-remove-ember-css-modules <arguments>
+# From the project root
+npx ember-codemod-remove-ember-css-modules --type app
 ```
 
-For more information, please see [the codemod's `README`](../../packages/ember-codemod-remove-ember-css-modules/README.md).
+You may also want to [refactor code](./refactor-code.md).
 
 
 ## Update project configurations
@@ -25,13 +29,9 @@ Please follow steps 1-3 of [Set up CSS modules (apps)](./set-up-css-modules-apps
 
 ## Enable stricter Embroider settings
 
-With `ember-css-modules` gone, you may be able to apply stricter settings for Embroider.
+In `ember-cli-build.js`, you may now be able to apply stricter settings for Embroider.
 
-<details>
-
-<summary><code>ember-cli-build.js</code></summary>
-
-For simplicity, only `options` is shown. (The rest of the code remains the same.)
+For simplicity, only the [options for `@embroider/compat`](https://github.com/embroider-build/embroider/#options) are shown. (The rest of the file remains the same.)
 
 ```js
 const options = {
@@ -41,11 +41,7 @@ const options = {
   staticAddonTrees: true, // <-- new
   staticComponents: true, // <-- new
   staticEmberSource: true,
-  staticHelpers: true,
+  staticHelpers: true, // <-- new
   staticModifiers: true,
 };
 ```
-
-</details>
-
-Learn more about the [options for Embroider](https://github.com/embroider-build/embroider/#options).
