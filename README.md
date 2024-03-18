@@ -41,6 +41,7 @@ In short, `embroider-css-modules` depends little on how CSS modules is implement
 - [Migrate from ember-css-modules](./docs/written-guides/migrate-from-ember-css-modules.md)
 - [Migrate from ember-modern-css](./docs/written-guides/migrate-from-ember-modern-css.md)
 - [Refactor code](./docs/written-guides/refactor-code.md)
+- [Set up CSS modules (apps built with Vite)](./docs/written-guides/set-up-css-modules-apps-built-with-vite.md)
 - [Set up CSS modules (apps built with Webpack)](./docs/written-guides/set-up-css-modules-apps-built-with-webpack.md)
 - [Set up CSS modules (v2 addons)](./docs/written-guides/set-up-css-modules-v2-addons.md)
 
