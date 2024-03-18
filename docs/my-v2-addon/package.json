@@ -90,7 +90,7 @@
     "concurrently": "^8.2.2",
     "ember-template-lint": "^5.13.0",
     "eslint": "^8.57.0",
-    "postcss": "^8.4.35",
+    "postcss": "^8.4.36",
     "prettier": "^3.2.5",
     "rollup": "^4.13.0",
     "rollup-plugin-postcss": "^4.0.2",

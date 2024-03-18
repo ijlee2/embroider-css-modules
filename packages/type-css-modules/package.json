@@ -33,18 +33,18 @@
     "test": "./build.sh --test && mt dist-for-testing --quiet"
   },
   "dependencies": {
-    "@codemod-utils/files": "^1.1.1",
+    "@codemod-utils/files": "^2.0.0",
     "css-tree": "^2.3.1",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@codemod-utils/tests": "^1.1.2",
+    "@codemod-utils/tests": "^1.1.3",
     "@shared-configs/eslint-config-node": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",
     "@sondr3/minitest": "^0.1.2",
     "@types/css-tree": "^2.3.7",
-    "@types/node": "^18.19.23",
+    "@types/node": "^18.19.24",
     "@types/yargs": "^17.0.32",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
