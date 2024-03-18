@@ -49,7 +49,7 @@ First, you will run into poor developer experience (DX) when [`noPropertyAccessF
 
 <details>
 
-<summary>Ember: <code>&lt;template&gt;</code>-tag component</summary>
+<summary>Ember: <code>&lt;template&gt;</code> tag</summary>
 
 ```ts
 /* app/components/ui/page.gts */
@@ -255,7 +255,7 @@ export default class UiPageComponent extends Component {
 
 <details>
 
-<summary>Ember: <code>&lt;template&gt;</code>-tag component</summary>
+<summary>Ember: <code>&lt;template&gt;</code> tag</summary>
 
 ```ts
 /* app/components/ui/page.gts */

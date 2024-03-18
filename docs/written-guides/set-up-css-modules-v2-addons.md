@@ -5,8 +5,9 @@ We will use Rollup and PostCSS to implement CSS modules.
 1. [Install dependencies](#install-dependencies)
 1. [Configure Rollup](#configure-rollup)
     - [Update rollup.config.mjs](#update-rollupconfigmjs)
+    - [Configure hashing](#configure-hashing)
 1. [Style your first component](#style-your-first-component)
-    - [Glimmer components](#glimmer-components)
+    - [Glimmer component](#glimmer-component)
     - [&lt;template&gt; tag](#template-tag)
     - [CSS declaration files](#css-declaration-files)
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter)
@@ -54,7 +55,7 @@ In this step, you will update one file: `rollup.config.mjs`. Your current file s
 
 <summary>Starter code for <code>rollup.config.mjs</code></summary>
 
-For simplicity, the comments have been hidden.
+For simplicity, comments have been hidden.
 
 ```js
 import { Addon } from '@embroider/addon-dev/rollup';
@@ -174,7 +175,10 @@ export default {
 
 </details>
 
-Let's take a closer look at `postcss()`, where you have a few options.
+
+### Configure hashing
+
+Let's take a closer look at `generateScopedName`, for which you have a few options.
 
 ```js
 postcss({
@@ -245,7 +249,7 @@ your-v2-addon
 ```
 
 
-### Glimmer components
+### Glimmer component
 
 The goal is to render and style a `<nav>`-element that contains links.
 
@@ -359,10 +363,9 @@ Finally, style the links. ✨
 
 ### &lt;template&gt; tag
 
-Since we pass `styles` to the template as a class property, it's not possible to style template-only components.
+Since we pass `styles` to the template as a class property, it's not possible to style template-only components. (Note, template-only components have the import path `@ember/component/template-only`.)
 
-
-We can address this issue by writing components with [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports). Replace `navigation-menu.{hbs,ts}` with `navigation-menu.gts`:
+We can address this issue by using [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports). Replace `navigation-menu.{hbs,ts}` with `navigation-menu.gts`:
 
 <details>
 
@@ -430,13 +433,13 @@ Lucky for you, [`type-css-modules`](../../packages/type-css-modules) can create 
 }
 ```
 
-Now, when you run `lint`, the `prelint:types` script will create the CSS declaration file(s), then `lint:types` will type-check the files in your project.
+Now, when you run `lint`, the `prelint:types` script will create the CSS declaration files, then `lint:types` will type-check the files in your project.
 
 ```sh
 pnpm lint
 ```
 
-At any time, you can run `prelint:types` to create the CSS declaration files.
+At any time, you can run `prelint:types` to only create the CSS declaration files.
 
 ```sh
 pnpm prelint:types
@@ -447,13 +450,17 @@ pnpm prelint:types
 
 A component's template and backing class must have the same name (the related technical terms are [resolve and resolution](https://github.com/ember-cli/ember-resolver)):
 
-- `navigation-menu.{hbs,ts}`
+- `navigation-menu.{hbs,ts}` with the flat component structure
+- `navigation-menu/index.{hbs,ts}` with the nested component structure<sup>1</sup>
+
+<sup>1. Currently, the nested layout doesn't work in v2 addons (see [issue #1596](https://github.com/embroider-build/embroider/pull/1596)).</sup>
 
 In contrast, the component's stylesheet can have a different name and even live in a different folder. This is because we explicitly import the CSS file in the backing class.
 
 Still, for everyone's sanity, I recommend colocating the stylesheet and providing the same name.
 
 ```sh
+# Flat component structure
 your-v2-addon
 ├── src
 │   └── components
@@ -461,6 +468,19 @@ your-v2-addon
 │       ├── navigation-menu.css.d.ts
 │       ├── navigation-menu.hbs
 │       └── navigation-menu.ts
+...
+```
+
+```sh
+# Nested component structure
+your-v2-addon
+├── src
+│   └── components
+│       └── navigation-menu
+│           ├── index.css
+│           ├── index.css.d.ts
+│           ├── index.hbs
+│           └── index.ts
 ...
 ```
 

@@ -6,6 +6,7 @@
     - [Do concatenations in the backing class](#do-concatenations-in-the-backing-class)
 1. [Remove code inheritance](#remove-code-inheritance)
 1. [Set spacing on the consumer's side](#set-spacing-on-the-consumers-side)
+1. [Use var() for variables](#use-var-for-variables)
 
 
 ## Apply multiple styles
@@ -480,3 +481,181 @@ Instead, let the consumer set spacings. The rationale is, reusable components sh
   {{! ... }}
 </Ui::Form>
 ```
+
+
+## Use var() for variables
+
+CSS modules allows the [`@value`](https://github.com/css-modules/css-modules/blob/master/docs/values-variables.md) syntax for exporting and importing variables.
+
+```css
+/* app/assets/app.css */
+/* stylelint-disable-next-line at-rule-no-unknown */
+@value color-error: #ff5252;
+```
+
+```css
+/* app/components/ui/form/field.css */
+/* stylelint-disable-next-line at-rule-no-unknown */
+@value color-error from "../../../assets/app.css";
+
+.feedback.is-error {
+  color: color-error;
+}
+```
+
+By using [`var()`](https://developer.mozilla.org/docs/Web/CSS/var) (i.e. native CSS), we can avoid a dependency (`postcss-modules-values`) and leverage `stylelint` better. For example, we can enable [`declaration-property-value-no-unknown`](https://stylelint.io/user-guide/rules/declaration-property-value-no-unknown/) to find incorrect key-value pairs. (Before, we couldn't enable it because lines like `color: color-error;` would be flagged.)
+
+```css
+/* app/assets/app.css */
+:root {
+  --color-error: #ff5252;
+}
+```
+
+```css
+/* app/components/ui/form/field.css */
+.feedback.is-error {
+  color: var(--color-error);
+}
+```
+
+> [!NOTE]
+> `var()` can't be used in media and container queries.
+
+If you have many files with `@value`, consider [running a codemod](https://github.com/ijlee2/codemod-utils). The following code covers the usual cases.
+
+<details>
+
+<summary>PostCSS plugin</code></summary>
+
+```ts
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+export const PostcssRemoveAtValue = () => {
+  return {
+    postcssPlugin: 'postcss-remove-at-value',
+
+    prepare() {
+      const errorMessages = [];
+      const tokenValues = new Map<string, string>();
+
+      return {
+        AtRule(node) {
+          switch (node.name) {
+            case 'value': {
+              const matches = node.params.match(/(.+) from/);
+
+              if (!matches) {
+                return;
+              }
+
+              matches[1].split(',').forEach((str) => {
+                const key = str.trim();
+
+                if (key === '') {
+                  return;
+                }
+
+                if (key.includes(' as ')) {
+                  const [oldName, newName] = key.split(' as ');
+
+                  tokenValues.set(newName.trim(), `var(--${oldName.trim()})`);
+
+                  return;
+                }
+
+                tokenValues.set(key, `var(--${key})`);
+              });
+
+              node.remove();
+
+              break;
+            }
+          }
+        },
+
+        Declaration(node) {
+          const matches = node.value.match(/calc\(([^)]+)\)/);
+
+          // End-developers must update calc() manually
+          if (matches) {
+            const warn = Array.from(tokenValues.keys()).some((key) => {
+              return matches[1].includes(key);
+            });
+
+            if (warn) {
+              errorMessages.push(
+                `Couldn't update \`${node.prop}\` on line ${node.source.start.line}`,
+              );
+            }
+
+            return;
+          }
+
+          const values = node.value.split(' ');
+
+          const newValues = values.map((value) => {
+            if (!tokenValues.has(value)) {
+              return value;
+            }
+
+            return tokenValues.get(value);
+          });
+
+          node.value = newValues.join(' ');
+        },
+
+        OnceExit() {
+          console.log(errorMessages);
+        },
+      };
+    },
+  };
+};
+```
+
+</details>
+
+<details>
+
+<summary>Codemod step</code></summary>
+
+```ts
+import { readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+import { findFiles } from '@codemod-utils/files';
+import postcss from 'postcss';
+
+import type { Options } from '../types/index.js';
+import { PostcssRemoveAtValue } from '../utils/css/postcss-remove-at-rule.js';
+
+const postcssPlugins = [PostcssRemoveAtValue()];
+
+function updateFile(file: string): string {
+  const result = postcss(postcssPlugins).process(file);
+
+  return result.css;
+}
+
+export function removeAtValue(options: Options): void {
+  const { projectRoot } = options;
+
+  // Assumed to be an Ember app (not a v1 or v2 addon)
+  const filePaths = findFiles('app/**/*.css', {
+    projectRoot,
+  });
+
+  filePaths.forEach((filePath) => {
+    const oldPath = join(projectRoot, filePath);
+    const oldFile = readFileSync(oldPath, 'utf8');
+
+    console.log(`-- Logs for ${filePath} --`);
+    const newFile = updateFile(oldFile);
+
+    writeFileSync(oldPath, newFile, 'utf8');
+  });
+}
+```
+
+</details>

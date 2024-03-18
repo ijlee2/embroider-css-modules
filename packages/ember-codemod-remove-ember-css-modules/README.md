@@ -38,7 +38,7 @@ Manually remove the remaining instances of `local-class` attributes and `{{local
 
 Step 2. Update project configurations.<sup>2</sup>
 
-- [x] Set up CSS modules (see the guides for [apps](../../docs/written-guides/set-up-css-modules-apps.md) and [v2 addons](../../docs/written-guides/set-up-css-modules-v2-addons.md)).
+- [x] Set up CSS modules (see the guides for [apps](../../docs/written-guides/set-up-css-modules-apps-built-with-webpack.md) and [v2 addons](../../docs/written-guides/set-up-css-modules-v2-addons.md)).
 - [x] Confirm that you can run all scripts in `package.json`.
 
 <sup>1. Some prerequisites for running the codemod: First, migrate to the Octane layout (flat or nested). You can leverage codemods for [classic](https://github.com/ember-codemods/ember-component-template-colocation-migrator) and [pod](https://github.com/ijlee2/ember-codemod-pod-to-octane) layouts. Second, [refactor code](../../docs/refactor-code.md) to help the codemod update templates correctly.</sup>
