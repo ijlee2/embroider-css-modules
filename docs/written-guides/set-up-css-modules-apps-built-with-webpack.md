@@ -1,14 +1,14 @@
-# Set up CSS modules (apps)
+# Set up CSS modules (apps built with Webpack)
 
 We will use Webpack and PostCSS to implement CSS modules.
 
 1. [Install dependencies](#install-dependencies)
 1. [Configure Webpack](#configure-webpack)
     - [Update ember-cli-build.js](#update-ember-cli-buildjs)
-    - [Create postcss.config.js](#create-postcssconfigjs)
-1. [Move app.css code](#move-appcss-code)
+    - [Set up PostCSS](#set-up-postcss)
+    - [Move app.css code](#move-appcss-code)
 1. [Style your first component](#style-your-first-component)
-    - [Glimmer components](#glimmer-components)
+    - [Glimmer component](#glimmer-component)
     - [&lt;template&gt; tag](#template-tag)
     - [CSS declaration files](#css-declaration-files)
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter)
@@ -24,7 +24,7 @@ We will use Webpack and PostCSS to implement CSS modules.
 
 ## Install dependencies
 
-If you have a new Ember app, you will need these dependencies to build it with Embroider.
+You will need these dependencies to build an Embroider app with Webpack.
 
 - `@embroider/compat`
 - `@embroider/core`
@@ -54,7 +54,7 @@ pnpm install --dev \
 <sup>1. Needed only if you have a TypeScript project.</sup>
 
 
-## Configure Webpack and PostCSS
+## Configure Webpack
 
 In this step, you will update two files: `ember-cli-build.js` and `postcss.config.js`.
 
@@ -185,9 +185,14 @@ function mode(resourcePath) {
 > ```
 
 
-### Create postcss.config.js
+### Set up PostCSS
 
-In `postcss.config.js`, list the PostCSS plugins that you need (e.g. `autoprefixer`).
+[Webpack supports PostCSS](https://webpack.js.org/loaders/postcss-loader/). Create the file `postcss.config.js`, then list the PostCSS plugins that you need (e.g. `autoprefixer`).
+
+```sh
+# From the project root
+touch postcss.config.js
+```
 
 ```js
 const env = process.env.EMBER_ENV ?? 'development';
@@ -228,9 +233,11 @@ module.exports = {
 </details>
 
 
-## Move app.css code
+### Move app.css code
 
-To ensure the load order with Webpack, you will need to move the code in `app/styles/app.css` (e.g. global styles, `@import`, `@font-face`) to `app/assets/app.css`.
+To ensure the load order with Webpack, you will now import `app/styles/app.css` (which defines global styles, `@import`, `@font-face`, etc.) in `app/app.ts`.
+
+Unfortunately, we can't import CSS files located in `app/styles`, so you'll need to move `app.css` somewhere else. To do so, let's create the folder `app/assets`.
 
 ```sh
 mkdir app/assets
@@ -238,15 +245,13 @@ cp app/styles/app.css app/assets/app.css
 ```
 
 > [!IMPORTANT]
-> Ember expects `app/styles/app.css` to exist. Instead of deleting the file, leave it empty.
->
-> Here is the default file from `ember-cli`.
+> Ember expects `app/styles/app.css` to exist. Instead of deleting the file, leave it empty. You can copy-paste this default code from Ember CLI:
 >
 > ```css
 > /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
 > ```
 
-Next, import the stylesheet `app/assets/app.css` in `app/app.ts`.
+Finally, import `app.css` in `app/app.ts`.
 
 <details>
 
@@ -281,16 +286,17 @@ You can style your app now. Let's create a Glimmer component to test CSS modules
 ember g component hello -gc
 ```
 
-While `ember-cli` can create the template and the backing class, you will need to manually create the stylesheet.
+While Ember CLI can create the template and the backing class, you will need to manually create the stylesheet.
 
 ```sh
+# From the project root
 touch app/components/hello.css
 ```
 
 
-### Glimmer components
+### Glimmer component
 
-The goal is to display `Hello world!` in a `<div>`-container. In the stylesheet, define a class selector named `.container`.
+The goal is to display `Hello world!` in a `<div>`-container. In the stylesheet, define the class selector `.container`.
 
 <details>
 
@@ -360,9 +366,9 @@ Finally, render the component. Et voilà! ✨
 
 ### &lt;template&gt; tag
 
-Since we pass `styles` to the template as a class property, it's not possible to style template-only components.
+Since we pass `styles` to the template as a class property, it's not possible to style template-only components. (Note, template-only components have the import path `@ember/component/template-only`.)
 
-We can address this issue by writing components with [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports). Replace `hello.{hbs,ts}` with `hello.gts`:
+We can address this issue by using [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports). Replace `hello.{hbs,ts}` with `hello.gts`:
 
 <details>
 
@@ -404,13 +410,13 @@ Lucky for you, [`type-css-modules`](../../packages/type-css-modules) can create 
 }
 ```
 
-Now, when you run `lint`, the `prelint:types` script will create the CSS declaration file(s), then `lint:types` will type-check the files in your project.
+Now, when you run `lint`, the `prelint:types` script will create the CSS declaration files, then `lint:types` will type-check the files in your project.
 
 ```sh
 pnpm lint
 ```
 
-At any time, you can run `prelint:types` to create the CSS declaration files.
+At any time, you can run `prelint:types` to only create the CSS declaration files.
 
 ```sh
 pnpm prelint:types
@@ -511,7 +517,7 @@ To style a route, apply [the ideas that you learned for components](#style-your-
 
 ### &lt;template&gt; tag
 
-If you want to avoid passing `styles` via a controller, you can use [`ember-route-template`](https://github.com/discourse/ember-route-template) (experimental).
+If you want to avoid controllers, you can use [`ember-route-template`](https://github.com/discourse/ember-route-template) (experimental) and pass `styles` to the template directly.
 
 <details>
 
@@ -520,7 +526,7 @@ If you want to avoid passing `styles` via a controller, you can use [`ember-rout
 ```ts
 import Route from 'ember-route-template';
 
-import Hello from '../components/hello.gts';
+import Hello from '../components/hello';
 import styles from './index.css';
 
 export default Route(
@@ -528,7 +534,7 @@ export default Route(
     <div class={{styles.container}}>
       <Hello />
     </div>
-  </template>
+  </template>,
 );
 ```
 
@@ -544,7 +550,7 @@ A route's template and backing class must have the same name:
 
 In contrast, the route's stylesheet can have a different name and be placed in any folder (besides `app/styles`). Again, this is because we explicitly import the CSS file in the backing class.
 
-For proximity, I recommend colocating the stylesheet and the controller and providing the same name.
+For proximity, I recommend colocating the stylesheet and the controller. Do provide the same name.
 
 ```sh
 your-ember-app
@@ -559,7 +565,7 @@ your-ember-app
 ...
 ```
 
-If you use `ember-route-template`, you may instead colocate the stylesheet and the route template.
+With `ember-route-template`, you may colocate the stylesheet and the route template.
 
 ```sh
 your-ember-app
@@ -567,6 +573,6 @@ your-ember-app
 │   └── templates
 │       ├── index.css
 │       ├── index.css.d.ts
-│       └── index.hbs
+│       └── index.gts
 ...
 ```

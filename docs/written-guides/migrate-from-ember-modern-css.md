@@ -39,12 +39,12 @@ pnpm install --dev \
 
 If you have typed `*.css` files, either by installing [`@types/css-modules`](https://www.npmjs.com/package/@types/css-modules) or defining the type to be `Record<string, string>` in `types/global.d.ts`, please undo the change.
 
-Instead, write a pre-script as shown in [Set up CSS modules (apps) - CSS declaration files](./set-up-css-modules-apps.md#css-declaration-files).
+Instead, write a pre-script as shown in [Set up CSS modules (apps built with Webpack) - CSS declaration files](./set-up-css-modules-apps-built-with-webpack.md#css-declaration-files).
 
 
 ## Own your styles
 
-First, reconfigure [`cssLoaderOptions.modules.mode`](https://webpack.js.org/loaders/css-loader/#mode) as shown in [Set up CSS modules (apps) - Configure Webpack](./set-up-css-modules-apps.md#configure-webpack).
+First, reconfigure [`cssLoaderOptions.modules.mode`](https://webpack.js.org/loaders/css-loader/#mode) as shown in [Set up CSS modules (apps) - Configure Webpack](./set-up-css-modules-apps-built-with-webpack.md#configure-webpack).
 
 Next, remove all `:local()` pseudo-class selectors. Instead, use the `:global()` pseudo-class selector to refer to "things from outside."
 
@@ -104,7 +104,6 @@ Next, remove all `:local()` pseudo-class selectors. Instead, use the `:global()`
 ```
 
 </details>
-
 
 
 ## Use the {{local}} helper

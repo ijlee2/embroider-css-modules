@@ -41,7 +41,7 @@ In short, `embroider-css-modules` depends little on how CSS modules is implement
 - [Migrate from ember-css-modules](./docs/written-guides/migrate-from-ember-css-modules.md)
 - [Migrate from ember-modern-css](./docs/written-guides/migrate-from-ember-modern-css.md)
 - [Refactor code](./docs/written-guides/refactor-code.md)
-- [Set up CSS modules (apps)](./docs/written-guides/set-up-css-modules-apps.md)
+- [Set up CSS modules (apps built with Webpack)](./docs/written-guides/set-up-css-modules-apps-built-with-webpack.md)
 - [Set up CSS modules (v2 addons)](./docs/written-guides/set-up-css-modules-v2-addons.md)
 
 
@@ -53,7 +53,7 @@ What `embroider-css-modules` looks like is:
 - Quite stable for v2 addons
 - Unknown for v1 addons (including engines) - likely won't be implemented
 
-Non-Embroider projects can use [`ember-css-modules`](https://github.com/salsify/ember-css-modules). V2 addons that use `embroider-css-modules` do work on non-Embroider projects, i.e. you can use both addons at the same time.
+Non-Embroider projects can use [`ember-css-modules`](https://github.com/salsify/ember-css-modules). V2 addons with `embroider-css-modules` do work on non-Embroider projects, i.e. you can use both addons at the same time.
 
 
 ## Contributing
