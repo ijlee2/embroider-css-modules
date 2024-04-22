@@ -1,6 +1,6 @@
 {
   "name": "ember-codemod-remove-ember-css-modules",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Codemod to replace ember-css-modules with embroider-css-modules",
   "keywords": [
     "codemod",
