@@ -65,7 +65,7 @@ module('Integration | Component | navigation-menu', function (hooks) {
       )
       .hasStyle(
         {
-          textDecorationLine: 'none',
+          'text-decoration-line': 'none',
         },
         'We see the applied style.',
       );

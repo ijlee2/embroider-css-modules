@@ -42,7 +42,7 @@ module('Integration | Component | ui/page', function (hooks) {
       .hasClass(getClassForUiPage('title'), 'We see the local class name.')
       .hasStyle(
         {
-          fontWeight: '700',
+          'font-weight': '700',
         },
         'We see the applied style.',
       );
