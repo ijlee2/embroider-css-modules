@@ -83,7 +83,7 @@ module('Integration | Component | products/product/card', function (hooks) {
       )
       .hasStyle(
         {
-          textDecorationLine: 'none',
+          'text-decoration-line': 'none',
         },
         'We see the applied style.',
       );
