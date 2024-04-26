@@ -1,5 +1,12 @@
 # my-app-with-ember-css-modules
 
+## 2.0.7
+
+### Patch Changes
+
+- [#144](https://github.com/ijlee2/embroider-css-modules/pull/144) Downstreamed changes from ember-cli and @embroider/addon-blueprint ([@ijlee2](https://github.com/ijlee2))
+- [#143](https://github.com/ijlee2/embroider-css-modules/pull/143) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.6
 
 ### Patch Changes

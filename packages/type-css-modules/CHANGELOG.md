@@ -1,5 +1,11 @@
 # type-css-modules
 
+## 1.0.10
+
+### Patch Changes
+
+- [#144](https://github.com/ijlee2/embroider-css-modules/pull/144) Downstreamed changes from ember-cli and @embroider/addon-blueprint ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.0.9
 
 ### Patch Changes
