@@ -92,9 +92,9 @@
     "eslint": "^8.57.0",
     "postcss": "^8.4.36",
     "prettier": "^3.2.5",
-    "rollup": "^4.16.1",
+    "rollup": "^4.16.4",
     "rollup-plugin-postcss": "^4.0.2",
-    "stylelint": "^16.3.1",
+    "stylelint": "^16.4.0",
     "type-css-modules": "workspace:*",
     "typescript": "^5.4.2"
   },
