@@ -1,11 +1,15 @@
 # my-v1-addon
 
+## 0.1.8
+
+### Patch Changes
+
+- [#145](https://github.com/ijlee2/embroider-css-modules/pull/145) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.7
 
 ### Patch Changes
 
-- [#144](https://github.com/ijlee2/embroider-css-modules/pull/144) Downstreamed changes from ember-cli and @embroider/addon-blueprint ([@ijlee2](https://github.com/ijlee2))
-- [#143](https://github.com/ijlee2/embroider-css-modules/pull/143) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 - [#144](https://github.com/ijlee2/embroider-css-modules/pull/144) Downstreamed changes from ember-cli and @embroider/addon-blueprint ([@ijlee2](https://github.com/ijlee2))
 - [#143](https://github.com/ijlee2/embroider-css-modules/pull/143) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
@@ -13,7 +17,6 @@
 
 ### Patch Changes
 
-- [#141](https://github.com/ijlee2/embroider-css-modules/pull/141) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 - [#141](https://github.com/ijlee2/embroider-css-modules/pull/141) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
 ## 0.1.5
