@@ -1,5 +1,11 @@
 # my-v1-addon
 
+## 0.1.9
+
+### Patch Changes
+
+- [#146](https://github.com/ijlee2/embroider-css-modules/pull/146) Updated dependencies. Added ember-lts-5.8 scenario. ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.8
 
 ### Patch Changes

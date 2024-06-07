@@ -1,5 +1,11 @@
 # my-app
 
+## 2.0.10
+
+### Patch Changes
+
+- [#146](https://github.com/ijlee2/embroider-css-modules/pull/146) Updated dependencies. Added ember-lts-5.8 scenario. ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.9
 
 ### Patch Changes

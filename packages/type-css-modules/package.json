@@ -1,6 +1,6 @@
 {
   "name": "type-css-modules",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Generate declaration files for CSS modules",
   "keywords": [
     "css",

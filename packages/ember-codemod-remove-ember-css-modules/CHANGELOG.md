@@ -1,5 +1,11 @@
 # ember-codemod-remove-ember-css-modules
 
+## 2.0.4
+
+### Patch Changes
+
+- [#146](https://github.com/ijlee2/embroider-css-modules/pull/146) Updated dependencies. Added ember-lts-5.8 scenario. ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.3
 
 ### Patch Changes
