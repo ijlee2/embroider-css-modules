@@ -66,14 +66,14 @@
     "test": "echo 'A v2 addon does not have tests, run tests in tests/my-v2-addon'"
   },
   "dependencies": {
-    "@embroider/addon-shim": "^1.8.8",
+    "@embroider/addon-shim": "^1.8.9",
     "decorator-transforms": "^2.0.0",
     "embroider-css-modules": "workspace:*"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.5",
-    "@babel/plugin-transform-typescript": "^7.24.5",
-    "@babel/runtime": "^7.24.5",
+    "@babel/core": "^7.24.7",
+    "@babel/plugin-transform-typescript": "^7.24.7",
+    "@babel/runtime": "^7.24.7",
     "@embroider/addon-dev": "^4.3.1",
     "@glimmer/component": "^1.1.2",
     "@glint/core": "^1.4.0",
@@ -91,10 +91,10 @@
     "ember-template-lint": "^6.0.0",
     "eslint": "^8.57.0",
     "postcss": "^8.4.36",
-    "prettier": "^3.2.5",
-    "rollup": "^4.17.2",
+    "prettier": "^3.3.1",
+    "rollup": "^4.18.0",
     "rollup-plugin-postcss": "^4.0.2",
-    "stylelint": "^16.5.0",
+    "stylelint": "^16.6.1",
     "type-css-modules": "workspace:*",
     "typescript": "^5.4.2"
   },
