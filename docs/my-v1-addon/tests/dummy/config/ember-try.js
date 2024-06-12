@@ -14,6 +14,7 @@ module.exports = async function () {
           devDependencies: {
             '@types/ember__application': '^4.0.10',
             '@types/ember__routing': '^4.0.18',
+            'ember-resolver': '11.0.1',
             'ember-source': '~4.4.0',
           },
         },
@@ -22,6 +23,7 @@ module.exports = async function () {
         name: 'ember-lts-4.8',
         npm: {
           devDependencies: {
+            'ember-resolver': '11.0.1',
             'ember-source': '~4.8.0',
           },
         },
