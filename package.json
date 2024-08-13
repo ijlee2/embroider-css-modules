@@ -31,8 +31,10 @@
     "@changesets/get-github-info": "^0.6.0",
     "concurrently": "^8.2.2"
   },
+  "packageManager": "pnpm@9.7.0",
   "engines": {
-    "node": "18.* || >= 20"
+    "node": "18.* || >= 20",
+    "pnpm": ">= 9"
   },
   "pnpm": {
     "overrides": {
