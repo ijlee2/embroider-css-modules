@@ -1,7 +1,6 @@
 import '@glint/environment-ember-loose';
 import '@glint/environment-ember-template-imports';
 import 'ember-source/types';
-import 'ember-source/types/preview';
 
 import type { ComponentLike } from '@glint/template';
 import type EmberContainerQueryRegistry from 'ember-container-query/template-registry';
