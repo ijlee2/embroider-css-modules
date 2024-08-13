@@ -1,5 +1,13 @@
 # my-v2-addon
 
+## 2.0.11
+
+### Patch Changes
+
+- [#150](https://github.com/ijlee2/embroider-css-modules/pull/150) Replaced @types/ember__* with native types ([@ijlee2](https://github.com/ijlee2))
+- [#149](https://github.com/ijlee2/embroider-css-modules/pull/149) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#148](https://github.com/ijlee2/embroider-css-modules/pull/148) Used pnpm@9 to manage dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.10
 
 ### Patch Changes

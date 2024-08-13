@@ -1,6 +1,6 @@
 {
   "name": "my-v1-addon",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "private": true,
   "description": "A v1 addon with embroider-css-modules",
   "keywords": [
