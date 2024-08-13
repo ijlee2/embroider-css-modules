@@ -32,7 +32,8 @@
     "concurrently": "^8.2.2"
   },
   "engines": {
-    "node": "18.* || >= 20"
+    "node": "18.* || >= 20",
+    "pnpm": ">= 9"
   },
   "pnpm": {
     "overrides": {
