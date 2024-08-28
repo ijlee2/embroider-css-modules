@@ -39,7 +39,7 @@
     "@codemod-utils/ast-javascript": "^1.2.8",
     "@codemod-utils/ast-template": "^1.1.4",
     "@codemod-utils/blueprints": "^1.1.5",
-    "@codemod-utils/ember-cli-string": "^1.1.4",
+    "@codemod-utils/ember": "^2.0.0",
     "@codemod-utils/files": "^2.0.4",
     "@codemod-utils/json": "^1.1.9",
     "yargs": "^17.7.2"
@@ -50,7 +50,7 @@
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",
     "@sondr3/minitest": "^0.1.2",
-    "@types/node": "^18.19.44",
+    "@types/node": "^18.19.47",
     "@types/yargs": "^17.0.33",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
