@@ -15,10 +15,10 @@ export function createClass(
   const { blueprintFilePaths, getFilePath } = customizations;
 
   const entity = {
-    classifiedName: pascalize(entityName),
     doubleColonizedName: doubleColonize(entityName),
     fileName: parseFilePath(entityName).name,
     name: entityName,
+    pascalizedName: pascalize(entityName),
   };
 
   const filePath = getFilePath(entityName);
