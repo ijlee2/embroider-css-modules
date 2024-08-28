@@ -18,6 +18,7 @@
 /.prettierignore
 /.prettierrc.cjs
 /build.sh
-/codemod-test-fixture.sh
-/codemod-test-fixtures.sh
+/CHANGELOG.md
+/CONTRIBUTING.md
+/update-test-fixtures.sh
 /tests/

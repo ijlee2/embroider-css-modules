@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { processTemplate } from '@codemod-utils/blueprints';
-import { classify, doubleColonize } from '@codemod-utils/ember-cli-string';
+import { doubleColonize, pascalize } from '@codemod-utils/ember';
 import { createFiles, parseFilePath } from '@codemod-utils/files';
 
 import type { OptionsForImportStyles } from '../../../types/index.js';
@@ -15,10 +15,10 @@ export function createClass(
   const { blueprintFilePaths, getFilePath } = customizations;
 
   const entity = {
-    classifiedName: classify(entityName),
     doubleColonizedName: doubleColonize(entityName),
     fileName: parseFilePath(entityName).name,
     name: entityName,
+    pascalizedName: pascalize(entityName),
   };
 
   const filePath = getFilePath(entityName);
