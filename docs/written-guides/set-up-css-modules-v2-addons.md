@@ -71,7 +71,7 @@ export default {
   output: addon.output(),
 
   plugins: [
-    addon.publicEntrypoints(['**/*.js', 'index.js', 'template-registry.js']),
+    addon.publicEntrypoints(['**/*.js', 'index.ts', 'template-registry.ts']),
 
     addon.appReexports([
       'components/**/*.js',
@@ -131,7 +131,7 @@ export default {
   output: addon.output(),
 
   plugins: [
-    addon.publicEntrypoints(['**/*.js', 'index.js', 'template-registry.js']),
+    addon.publicEntrypoints(['**/*.js', 'index.ts', 'template-registry.ts']),
 
     addon.appReexports([
       'components/**/*.js',
@@ -564,13 +564,13 @@ module('Integration | Component | navigation-menu', function (hooks) {
 </details>
 
 > [!NOTE]
-> In `rollup.config.mjs`, don't forget to add `test-support.js` to `addon.publicEntrypoints()`.
+> In `rollup.config.mjs`, don't forget to add `test-support.ts` to `addon.publicEntrypoints()`.
 >
 > ```js
 > addon.publicEntrypoints([
 >   '**/*.js',
->   'index.js',
->   'template-registry.js',
->   'test-support.js',
+>   'index.ts',
+>   'template-registry.ts',
+>   'test-support.ts',
 > ]),
 > ```
