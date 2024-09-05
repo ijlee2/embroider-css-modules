@@ -1,10 +1,17 @@
 # my-app
 
+## 2.0.12
+
+### Patch Changes
+
+- [#155](https://github.com/ijlee2/embroider-css-modules/pull/155) Updated development dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#154](https://github.com/ijlee2/embroider-css-modules/pull/154) Made pnpm settings stricter ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.11
 
 ### Patch Changes
 
-- [#150](https://github.com/ijlee2/embroider-css-modules/pull/150) Replaced @types/ember__* with native types ([@ijlee2](https://github.com/ijlee2))
+- [#150](https://github.com/ijlee2/embroider-css-modules/pull/150) Replaced @types/ember\_\_\* with native types ([@ijlee2](https://github.com/ijlee2))
 - [#149](https://github.com/ijlee2/embroider-css-modules/pull/149) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 - [#148](https://github.com/ijlee2/embroider-css-modules/pull/148) Used pnpm@9 to manage dependencies ([@ijlee2](https://github.com/ijlee2))
 

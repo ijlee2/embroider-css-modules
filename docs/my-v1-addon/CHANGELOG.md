@@ -1,10 +1,18 @@
 # my-v1-addon
 
+## 0.1.11
+
+### Patch Changes
+
+- [#155](https://github.com/ijlee2/embroider-css-modules/pull/155) Updated development dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#154](https://github.com/ijlee2/embroider-css-modules/pull/154) Made pnpm settings stricter ([@ijlee2](https://github.com/ijlee2))
+- [#153](https://github.com/ijlee2/embroider-css-modules/pull/153) Replaced .js with .ts in publicEntrypoints() ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.10
 
 ### Patch Changes
 
-- [#150](https://github.com/ijlee2/embroider-css-modules/pull/150) Replaced @types/ember__* with native types ([@ijlee2](https://github.com/ijlee2))
+- [#150](https://github.com/ijlee2/embroider-css-modules/pull/150) Replaced @types/ember\_\_\* with native types ([@ijlee2](https://github.com/ijlee2))
 - [#149](https://github.com/ijlee2/embroider-css-modules/pull/149) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 - [#148](https://github.com/ijlee2/embroider-css-modules/pull/148) Used pnpm@9 to manage dependencies ([@ijlee2](https://github.com/ijlee2))
 
