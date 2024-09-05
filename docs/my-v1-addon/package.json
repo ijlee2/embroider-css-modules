@@ -56,7 +56,7 @@
     "test:ember-compatibility": "./node_modules/.bin/ember try:one"
   },
   "dependencies": {
-    "@embroider/macros": "^1.16.3",
+    "@embroider/macros": "^1.16.6",
     "ember-auto-import": "^2.7.4",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
@@ -83,8 +83,8 @@
     "@types/qunit": "^2.19.10",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^8.2.2",
-    "ember-a11y-testing": "^6.1.1",
-    "ember-cli": "~5.10.0",
+    "ember-a11y-testing": "^7.0.0",
+    "ember-cli": "~5.11.0",
     "ember-cli-clean-css": "^3.0.0",
     "ember-cli-dependency-checker": "^3.3.2",
     "ember-cli-inject-live-reload": "^2.1.0",
@@ -94,7 +94,7 @@
     "ember-page-title": "^8.2.3",
     "ember-qunit": "^8.1.0",
     "ember-resolver": "^12.0.1",
-    "ember-source": "~5.10.2",
+    "ember-source": "~5.11.0",
     "ember-template-lint": "^6.0.0",
     "ember-test-selectors": "^7.0.0",
     "ember-try": "^3.0.0",
@@ -102,13 +102,13 @@
     "latest-version": "^9.0.0",
     "loader.js": "^4.7.0",
     "prettier": "^3.3.3",
-    "qunit": "^2.21.1",
+    "qunit": "^2.22.0",
     "qunit-dom": "^3.2.0",
-    "stylelint": "^16.8.1",
+    "stylelint": "^16.9.0",
     "stylelint-no-unsupported-browser-features": "^8.0.1",
     "type-css-modules": "workspace:*",
     "typescript": "^5.5.4",
-    "webpack": "^5.93.0"
+    "webpack": "^5.94.0"
   },
   "engines": {
     "node": "18.* || >= 20"

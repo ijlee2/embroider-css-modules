@@ -22,9 +22,9 @@ export default {
     // See https://github.com/embroider-build/embroider/blob/main/docs/v2-faq.md#how-can-i-define-the-public-exports-of-my-addon
     addon.publicEntrypoints([
       '**/*.js',
-      'index.js',
-      'template-registry.js',
-      'test-support.js',
+      'index.ts',
+      'template-registry.ts',
+      'test-support.ts',
     ]),
 
     // These are the modules that should get reexported into the traditional
