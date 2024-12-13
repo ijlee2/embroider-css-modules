@@ -1,5 +1,11 @@
 # my-app-with-ember-css-modules
 
+## 2.0.12
+
+### Patch Changes
+
+- [#156](https://github.com/ijlee2/embroider-css-modules/pull/156) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.11
 
 ### Patch Changes
