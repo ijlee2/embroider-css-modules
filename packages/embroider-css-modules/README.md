@@ -183,10 +183,10 @@ The `{{local}}` helper returns a concatenated string. The string lists the globa
 
 ## Compatibility
 
-- Ember.js v4.4 or above<sup>1</sup>
+- Ember.js v4.12 or above<sup>1</sup>
 - Node.js v18 or above
 
-<sup>1. `embroider-css-modules` works on older versions (e.g. `3.28`), but issues that arise from these may not be supported.</sup>
+<sup>1. `ember-container-query` may work on older versions of Ember (e.g. `4.4`), but issues that arise from these won't be supported.</sup>
 
 
 ## Contributing
