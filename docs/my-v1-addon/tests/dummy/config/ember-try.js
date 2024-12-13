@@ -9,26 +9,6 @@ module.exports = async function () {
     usePnpm: true,
     scenarios: [
       {
-        name: 'ember-lts-4.4',
-        npm: {
-          devDependencies: {
-            '@types/ember__application': '^4.0.10',
-            '@types/ember__routing': '^4.0.18',
-            'ember-resolver': '11.0.1',
-            'ember-source': '~4.4.0',
-          },
-        },
-      },
-      {
-        name: 'ember-lts-4.8',
-        npm: {
-          devDependencies: {
-            'ember-resolver': '11.0.1',
-            'ember-source': '~4.8.0',
-          },
-        },
-      },
-      {
         name: 'ember-lts-4.12',
         npm: {
           devDependencies: {
@@ -37,18 +17,10 @@ module.exports = async function () {
         },
       },
       {
-        name: 'ember-lts-5.4',
+        name: 'ember-lts-5.12',
         npm: {
           devDependencies: {
-            'ember-source': '~5.4.0',
-          },
-        },
-      },
-      {
-        name: 'ember-lts-5.8',
-        npm: {
-          devDependencies: {
-            'ember-source': '~5.8.0',
+            'ember-source': '~5.12.0',
           },
         },
       },

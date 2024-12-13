@@ -62,31 +62,31 @@
     "test": "echo 'A v2 addon does not have tests, run tests in tests/embroider-css-modules'"
   },
   "dependencies": {
-    "@embroider/addon-shim": "^1.8.9",
-    "decorator-transforms": "^2.0.0"
+    "@embroider/addon-shim": "^1.9.0",
+    "decorator-transforms": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/plugin-transform-typescript": "^7.25.2",
-    "@babel/runtime": "^7.25.6",
-    "@embroider/addon-dev": "^5.0.0",
-    "@glint/core": "^1.4.0",
-    "@glint/environment-ember-loose": "^1.4.0",
-    "@glint/environment-ember-template-imports": "^1.4.0",
-    "@glint/template": "^1.4.0",
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-transform-typescript": "^7.26.3",
+    "@babel/runtime": "^7.26.0",
+    "@embroider/addon-dev": "^7.0.0",
+    "@glint/core": "^1.5.0",
+    "@glint/environment-ember-loose": "^1.5.0",
+    "@glint/environment-ember-template-imports": "^1.5.0",
+    "@glint/template": "^1.5.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@shared-configs/ember-template-lint": "workspace:*",
     "@shared-configs/eslint-config-ember": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",
-    "babel-plugin-ember-template-compilation": "^2.2.5",
-    "concurrently": "^8.2.2",
-    "ember-source": "~5.11.0",
+    "babel-plugin-ember-template-compilation": "^2.3.0",
+    "concurrently": "^9.1.0",
+    "ember-source": "~6.0.1",
     "ember-template-lint": "^6.0.0",
-    "eslint": "^8.57.0",
-    "prettier": "^3.3.3",
-    "rollup": "^4.21.2",
-    "typescript": "^5.5.4"
+    "eslint": "^8.57.1",
+    "prettier": "^3.4.2",
+    "rollup": "^4.28.1",
+    "typescript": "^5.7.2"
   },
   "engines": {
     "node": "18.* || >= 20"
