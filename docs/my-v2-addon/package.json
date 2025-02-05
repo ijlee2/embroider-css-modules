@@ -86,7 +86,7 @@
     "concurrently": "^9.1.2",
     "ember-source": "~6.1.0",
     "ember-template-lint": "^6.1.0",
-    "eslint": "^8.57.1",
+    "eslint": "^9.19.0",
     "postcss": "^8.5.1",
     "prettier": "^3.4.2",
     "rollup": "^4.34.3",
