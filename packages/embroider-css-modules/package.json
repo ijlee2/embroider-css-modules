@@ -46,16 +46,16 @@
   ],
   "scripts": {
     "build": "rollup --config",
-    "lint": "concurrently 'pnpm:lint:*(!fix)' --names 'lint:'",
-    "lint:fix": "concurrently 'pnpm:lint:*:fix' --names 'fix:'",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
-    "prepack": "concurrently 'pnpm:build:*'",
+    "prepack": "concurrently \"pnpm:build:*\"",
     "start": "rollup --config --watch",
-    "test": "echo 'A v2 addon does not have tests, run tests in tests/embroider-css-modules'"
+    "test": "echo \"A v2 addon does not have tests, run tests in tests/embroider-css-modules\""
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.9.0",
