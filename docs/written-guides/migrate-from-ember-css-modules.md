@@ -42,9 +42,7 @@ const options = {
   skipBabel: { /* ... */ },
   staticAddonTestSupportTrees: true,
   staticAddonTrees: true, // <-- new
-  staticComponents: true, // <-- new
   staticEmberSource: true,
-  staticHelpers: true, // <-- new
-  staticModifiers: true,
+  staticInvokables: true, // <-- new
 };
 ```

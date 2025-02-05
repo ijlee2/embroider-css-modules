@@ -4,11 +4,11 @@
     "allowImportingTsExtensions": true,
     "allowJs": true,
     "declarationDir": "declarations",
-    "emitDeclarationOnly": true,
-    "noEmit": false,
-    "noEmitOnError": false,
     "rootDir": "./src",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": [
+      "ember-source/types"
+    ]
   },
   "include": [
     "src/**/*",

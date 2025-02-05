@@ -37,10 +37,8 @@ module.exports = function (defaults) {
     splitAtRoutes: [],
     staticAddonTestSupportTrees: true,
     staticAddonTrees: false, // due to ember-css-modules
-    staticComponents: false, // due to ember-css-modules
     staticEmberSource: true,
-    staticHelpers: false, // match the value of staticComponents
-    staticModifiers: true,
+    staticInvokables: false, // due to ember-css-modules
   };
 
   return require('@embroider/compat').compatBuild(app, Webpack, options);
