@@ -1,6 +1,6 @@
 {
   "name": "my-v2-addon",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "private": true,
   "description": "A v2 addon with embroider-css-modules",
   "keywords": [
@@ -57,7 +57,7 @@
     "lint:js:fix": "eslint . --fix",
     "prelint:types": "type-css-modules --src src",
     "lint:types": "glint",
-    "prepack": "concurrently \"pnpm:build:*\"",
+    "prepack": "rollup --config",
     "start": "rollup --config --watch",
     "test": "echo \"A v2 addon does not have tests, run tests in tests/my-v2-addon\""
   },

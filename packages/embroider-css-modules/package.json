@@ -1,6 +1,6 @@
 {
   "name": "embroider-css-modules",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "CSS modules for Embroider projects",
   "keywords": [
     "css",
@@ -53,7 +53,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
-    "prepack": "concurrently \"pnpm:build:*\"",
+    "prepack": "rollup --config",
     "start": "rollup --config --watch",
     "test": "echo \"A v2 addon does not have tests, run tests in tests/embroider-css-modules\""
   },

@@ -1,5 +1,12 @@
 # my-v1-addon
 
+## 0.1.13
+
+### Patch Changes
+
+- [#158](https://github.com/ijlee2/embroider-css-modules/pull/158) Updated eslint to v9 ([@ijlee2](https://github.com/ijlee2))
+- [#157](https://github.com/ijlee2/embroider-css-modules/pull/157) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.12
 
 ### Patch Changes
