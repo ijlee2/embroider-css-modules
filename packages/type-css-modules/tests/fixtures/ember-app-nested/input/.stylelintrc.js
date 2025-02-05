@@ -4,7 +4,7 @@ const { browsers } = require('./config/targets');
 
 module.exports = {
   extends: ['stylelint-config-standard'],
-  plugins: ['stylelint-no-unsupported-browser-features', 'stylelint-order'],
+  plugins: ['stylelint-order'],
   rules: {
     /*
       Customize plugins
@@ -16,17 +16,6 @@ module.exports = {
       ],
       {
         unspecified: 'bottomAlphabetical',
-      },
-    ],
-
-    'plugin/no-unsupported-browser-features': [
-      true,
-      {
-        browsers,
-        ignore: [
-          // grid-template-columns falsely identified as multicolumn
-          'multicolumn',
-        ],
       },
     ],
 

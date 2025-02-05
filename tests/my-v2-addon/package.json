@@ -83,7 +83,6 @@
     "qunit": "^2.24.1",
     "qunit-dom": "^3.4.0",
     "stylelint": "^16.14.1",
-    "stylelint-no-unsupported-browser-features": "^8.0.4",
     "typescript": "^5.7.3",
     "webpack": "^5.97.1"
   },

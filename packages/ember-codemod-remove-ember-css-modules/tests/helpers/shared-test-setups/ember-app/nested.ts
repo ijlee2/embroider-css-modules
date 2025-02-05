@@ -122,7 +122,6 @@ const options: Options = {
       ['qunit-dom', '^2.0.0'],
       ['stylelint', '^15.4.0'],
       ['stylelint-config-standard', '^32.0.0'],
-      ['stylelint-no-unsupported-browser-features', '^6.1.0'],
       ['stylelint-order', '^6.0.3'],
       ['typescript', '^5.0.3'],
       ['webpack', '^5.77.0'],
