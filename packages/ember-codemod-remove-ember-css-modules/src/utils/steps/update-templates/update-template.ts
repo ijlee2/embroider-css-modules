@@ -313,7 +313,6 @@ function removeLocalClassAttributes(file: string): string {
         // @ts-ignore: Assume that types from external packages are correct
         switch (part.path.original) {
           case 'concat': {
-            // eslint-disable-next-line no-inner-declarations
             function hasPathExpression(params: unknown[]) {
               // @ts-ignore: Assume that types from external packages are correct
               return params.some((param) => param.type === 'PathExpression');
