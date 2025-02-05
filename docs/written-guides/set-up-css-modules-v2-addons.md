@@ -91,6 +91,8 @@ export default {
 
     addon.gjs(),
 
+    addon.declarations('declarations'),
+
     addon.keepAssets(['**/*.css']),
 
     addon.clean(),
@@ -157,6 +159,8 @@ export default {
     addon.hbs(),
 
     addon.gjs(),
+
+    addon.declarations('declarations'),
 
 -     addon.keepAssets(['**/*.css']),
 +     addon.keepAssets([]),
@@ -426,7 +430,7 @@ Lucky for you, [`type-css-modules`](../../packages/type-css-modules) can create 
 /* package.json */
 {
   "scripts": {
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
     "prelint:types": "type-css-modules --src src",
     "lint:types": "tsc --noEmit" // or "glint"
   }

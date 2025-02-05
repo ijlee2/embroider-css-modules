@@ -403,7 +403,7 @@ Lucky for you, [`type-css-modules`](../../packages/type-css-modules) can create 
 /* package.json */
 {
   "scripts": {
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
     "prelint:types": "type-css-modules --src app",
     "lint:types": "tsc --noEmit" // or "glint"
   }
