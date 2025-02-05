@@ -46,9 +46,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "concurrently 'pnpm:build:*' --names 'build:'",
-    "build:js": "rollup --config",
-    "build:types": "glint --declaration",
+    "build": "rollup --config",
     "lint": "concurrently 'pnpm:lint:*(!fix)' --names 'lint:'",
     "lint:css": "stylelint '**/*.css' --cache",
     "lint:css:fix": "stylelint '**/*.css' --fix",
@@ -60,9 +58,7 @@
     "prelint:types": "type-css-modules --src src",
     "lint:types": "glint",
     "prepack": "concurrently 'pnpm:build:*'",
-    "start": "concurrently 'pnpm:start:*' --names 'start:'",
-    "start:js": "rollup --config --watch --no-watch.clearScreen",
-    "start:types": "glint --declaration --watch",
+    "start": "rollup --config --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in tests/my-v2-addon'"
   },
   "dependencies": {
