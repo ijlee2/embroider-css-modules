@@ -109,7 +109,7 @@ function groupDataByMusicFormat(data: Data[]): GroupedData {
 
     if (accumulator[musicFormat]) {
       /* eslint-disable-next-line prefer-const */
-      let { data, relevantYears } = accumulator[musicFormat]!;
+      let { data, relevantYears } = accumulator[musicFormat];
 
       data.set(year, revenue);
 
@@ -143,11 +143,11 @@ function sanitizeData(groupedData: GroupedData): GroupedData {
 
   Object.keys(groupedData).forEach((musicFormat) => {
     const { data, relevantYears } = groupedData[musicFormat]!;
-    const relevantData = new Map();
+    const relevantData = new Map<number, number>();
 
     // Remove data points outside of the relevant years
     for (let year = relevantYears.min; year <= relevantYears.max; year++) {
-      const revenue = data.get(year);
+      const revenue = data.get(year)!;
       relevantData.set(year, revenue);
     }
 

@@ -55,6 +55,7 @@ export default class UiFormComponent extends Component<UiFormSignature> {
   @action updateChangeset({ key, value }: { key: string; value: any }): void {
     this.changeset = {
       ...this.changeset,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       [key]: value,
     };
   }

@@ -41,6 +41,7 @@ export default class ProductsController extends Controller {
       return;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     this[key as SupportedKey] = value;
   }
 }
