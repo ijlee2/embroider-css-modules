@@ -1,13 +1,12 @@
 # compiled output
-/dist/
-/dist-for-testing/
-/tmp/
+dist/
+dist-for-testing/
+tmp/
 
 # dependencies
-/node_modules/
+node_modules/
 
 # misc
-/.DS_Store
-/.env*
-/.eslintcache
-/.pnpm-debug.log
+.DS_Store
+.env*
+.eslintcache
