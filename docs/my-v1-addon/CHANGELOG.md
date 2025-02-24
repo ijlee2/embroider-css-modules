@@ -1,5 +1,11 @@
 # my-v1-addon
 
+## 0.1.15
+
+### Patch Changes
+
+- [#161](https://github.com/ijlee2/embroider-css-modules/pull/161) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.14
 
 ### Patch Changes

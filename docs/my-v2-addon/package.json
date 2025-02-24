@@ -1,6 +1,6 @@
 {
   "name": "my-v2-addon",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "private": true,
   "description": "A v2 addon with embroider-css-modules",
   "keywords": [
