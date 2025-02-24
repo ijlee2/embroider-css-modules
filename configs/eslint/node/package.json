@@ -14,23 +14,23 @@
     "./typescript": "./typescript/index.js"
   },
   "scripts": {
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
-    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@ijlee2-frontend-configs/eslint-config-node": "^0.2.1"
+    "@ijlee2-frontend-configs/eslint-config-node": "^0.2.3"
   },
   "devDependencies": {
     "@shared-configs/prettier": "workspace:*",
     "concurrently": "^9.1.2",
-    "eslint": "^9.20.0",
-    "prettier": "^3.5.0"
+    "eslint": "^9.21.0",
+    "prettier": "^3.5.2"
   },
   "peerDependencies": {
-    "eslint": "^9.20.0",
-    "prettier": "^3.5.0",
+    "eslint": "^9.21.0",
+    "prettier": "^3.5.2",
     "typescript": "^5.7.3"
   },
   "peerDependenciesMeta": {
