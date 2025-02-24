@@ -14,8 +14,8 @@
     "./node18": "./node18/index.json"
   },
   "scripts": {
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
-    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
     "lint:js": "prettier \"**/*.{cjs,json,mjs}\" --check",
     "lint:js:fix": "prettier \"**/*.{cjs,json,mjs}\" --write"
   },
