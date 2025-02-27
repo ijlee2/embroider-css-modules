@@ -10,7 +10,7 @@ type QUnitAssert = {
 };
 
 function getName(qunitAssert: QUnitAssert): string {
-  const packageName = 'my-app';
+  const packageName = 'my-v1-app';
   const moduleName = qunitAssert.test.module.name;
   const testName = qunitAssert.test.testName;
 

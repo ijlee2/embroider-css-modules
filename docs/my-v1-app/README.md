@@ -1,7 +1,7 @@
 [![This project uses GitHub Actions for continuous integration.](https://github.com/ijlee2/embroider-css-modules/actions/workflows/ci.yml/badge.svg)](https://github.com/ijlee2/embroider-css-modules/actions/workflows/ci.yml)
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Isaac/embroider-css-modules)
 
-# my-app
+# my-v1-app
 
 1. [What is it?](#what-is-it)
 1. [Local development](#local-development)
@@ -13,7 +13,7 @@
 
 ## What is it?
 
-`my-app` is an Ember app with `embroider-css-modules`. We use it to check that `embroider-css-modules` is compatible with "bleeding-edge" Ember:
+`my-v1-app` is an Ember app with `embroider-css-modules`. We use it to check that `embroider-css-modules` is compatible with "bleeding-edge" Ember:
 
 - [Embroider on the strictest settings](https://github.com/embroider-build/embroider/#options) (including route splitting)
 - [TypeScript](https://www.typescriptlang.org/docs/) + [Glint](https://typed-ember.gitbook.io/glint/)
@@ -33,7 +33,7 @@ Before starting the application, build its dependencies so that you can test the
 pnpm build
 
 # Change directory
-cd docs/my-app
+cd docs/my-v1-app
 ```
 
 Some useful commands:

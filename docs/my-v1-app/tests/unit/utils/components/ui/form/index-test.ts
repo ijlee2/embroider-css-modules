@@ -1,4 +1,4 @@
-import { generateErrorMessage } from 'my-app/utils/components/ui/form';
+import { generateErrorMessage } from 'my-v1-app/utils/components/ui/form';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | components/ui/form/index', function () {

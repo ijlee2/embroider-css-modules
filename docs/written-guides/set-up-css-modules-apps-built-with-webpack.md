@@ -19,7 +19,7 @@ We will use Webpack and PostCSS to implement CSS modules.
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter-1)
 
 > [!NOTE]
-> If you get lost, you can check how [`my-app`](../my-app) is set up.
+> If you get lost, you can check how [`my-v1-app`](../my-v1-app) is set up.
 
 
 ## Install dependencies

@@ -1,9 +1,9 @@
-import musicRevenue from 'my-app/data/music-revenue';
+import musicRevenue from 'my-v1-app/data/music-revenue';
 import {
   createDataForVisualization,
   createSummariesForCaptions,
   formatRevenue,
-} from 'my-app/utils/components/widgets/widget-2';
+} from 'my-v1-app/utils/components/widgets/widget-2';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | components/widgets/widget-2', function () {
