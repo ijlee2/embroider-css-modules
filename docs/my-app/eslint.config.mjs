@@ -1,4 +1,4 @@
-import baseConfiguration from '@shared-configs/eslint-config-ember/app';
+import baseConfiguration from '@shared-configs/eslint-config-ember/v1-app';
 
 export default [
   ...baseConfiguration,
