@@ -1,6 +1,8 @@
 # Set up CSS modules (apps built with Vite)
 
-We will use [Vite's built-in support for CSS modules](https://vitejs.dev/guide/features#css-modules).
+Apps built with Vite are called "v2 apps." The blueprint for v2 apps are still in development, so this page will stay away from any blueprint details (e.g. Embroider dependencies).
+
+Good news is, [Vite provides CSS modules out of the box](https://vitejs.dev/guide/features#css-modules). We just need to configure our app a bit.
 
 1. [Install dependencies](#install-dependencies)
 1. [Configure Vite](#configure-vite)
@@ -9,34 +11,20 @@ We will use [Vite's built-in support for CSS modules](https://vitejs.dev/guide/f
 1. [Style your first route](#style-your-first-route)
 
 > [!NOTE]
-> If you get lost, you can check how [`embroider-css-modules-vite-app`](https://github.com/ijlee2/embroider-css-modules-vite-app) is set up.
+> If you get lost, you can check how [`my-v2-app`](../my-v2-app) is set up.
 
 
 ## Install dependencies
 
-You will need these dependencies to build an Embroider app with Vite.
-
-- `@embroider/compat`
-- `@embroider/core`
-- `@embroider/vite`
-- `vite`
-
-For PostCSS, here is what you likely need at minimum.
-
-- `autoprefixer`
-
-Finally, some packages to improve your developer experience (DX).
+You can install these packages to improve your developer experience (DX).
 
 - [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)
 - [`type-css-modules`](../../packages/type-css-modules/README.md)<sup>1</sup>
 
-All in all, here's a one-line command for installation:
+Here's a one-line command for installation:
 
 ```sh
-pnpm install --dev \
-  @embroider/compat @embroider/core @embroider/vite vite \
-  autoprefixer \
-  embroider-css-modules type-css-modules
+pnpm install --dev embroider-css-modules type-css-modules
 ```
 
 <sup>1. Needed only if you have a TypeScript project.</sup>
@@ -44,65 +32,31 @@ pnpm install --dev \
 
 ## Configure Vite
 
-In this step, you will update one file: `vite.config.mjs`.
-
-Vite supports CSS modules out of the box, so we just need to pass the option [`css.modules`](https://vitejs.dev/config/shared-options.html#css-modules).
+In this step, you will update one file: `vite.config.mjs`. Pass the option [`css.modules`](https://vitejs.dev/config/shared-options.html#css-modules).
 
 <details>
 
 <summary><code>vite.config.mjs</code></summary>
 
 ```diff
-import {
-  compatPrebuild,
-  hbs,
-  optimizeDeps,
-  resolver,
-  scripts,
-  templateTag,
-} from '@embroider/vite';
+import { classicEmberSupport, ember, extensions } from '@embroider/vite';
 import { babel } from '@rollup/plugin-babel';
-import { resolve } from 'path';
 import { defineConfig } from 'vite';
-
-const root = 'node_modules/.embroider/rewritten-app';
 
 export default defineConfig({
 +   css: {
 +     modules: {
-+       generateScopedName: '[sha512:hash:base64:5]',
++       generateScopedName: 'your-ember-app__[sha512:hash:base64:5]',
 +     },
 +   },
-  root,
-  esbuild: false,
-  cacheDir: resolve('node_modules', '.vite'),
   plugins: [
-    hbs(),
-    templateTag(),
-    scripts(),
-    resolver(),
-    compatPrebuild(),
+    classicEmberSupport(),
+    ember(),
     babel({
       babelHelpers: 'runtime',
-      extensions: ['.gjs', '.js', '.hbs', '.ts', '.gts'],
+      extensions,
     }),
   ],
-  optimizeDeps: optimizeDeps(),
-  server: {
-    port: 4200,
-    watch: {
-      ignored: [`!**/${root}/**`],
-    },
-  },
-  build: {
-    outDir: resolve(process.cwd(), 'dist'),
-    rollupOptions: {
-      input: {
-        main: resolve(root, 'index.html'),
-        tests: resolve(root, 'tests/index.html'),
-      },
-    },
-  },
 });
 ```
 
@@ -144,36 +98,21 @@ Hence, when we create the component `<Hello>`, we name the stylesheet `hello.mod
 
 <details>
 
-<summary><code>app/components/hello.ts</code></summary>
+<summary><code>app/components/hello.gts</code></summary>
 
 Note, we write the file extension `.module.css` explicitly.
 
 ```ts
-import Component from '@glimmer/component';
-
 import styles from './hello.module.css';
 
-export default class HelloComponent extends Component {
-  styles = styles;
-}
+<template>
+  <div class={{styles.container}}>
+    Hello world!
+  </div>
+</template>
 ```
 
 </details>
-
-<details>
-
-<summary><code>app/components/hello.hbs</code></summary>
-
-```hbs
-<div class={{this.styles.container}}>
-  Hello world!
-</div>
-```
-
-</details>
-
-> [!NOTE]
-> `type-css-modules` will create declaration files with the extension `*.module.css.d.ts`. The configuration remains the same.
 
 
 ## Style your first route
