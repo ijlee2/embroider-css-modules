@@ -7,9 +7,7 @@ module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     // Add options here
     autoImport: {
-      watchDependencies: [
-        // 'embroider-css-modules',
-      ],
+      watchDependencies: [],
     },
 
     'ember-cli-babel': {
