@@ -1,6 +1,7 @@
 # compiled output
-/dist/
 /declarations/
+/dist/
+/tmp/
 
 # dependencies
 /node_modules/
@@ -9,6 +10,7 @@
 /.env*
 /.pnp*
 /.eslintcache
+/.stylelintcache
 /coverage/
 /npm-debug.log*
 /testem.log

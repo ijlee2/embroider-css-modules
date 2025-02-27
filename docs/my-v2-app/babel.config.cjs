@@ -1,4 +1,7 @@
-const { babelCompatSupport, templateCompatSupport } = require('@embroider/compat/babel');
+const {
+  babelCompatSupport,
+  templateCompatSupport,
+} = require('@embroider/compat/babel');
 
 module.exports = {
   plugins: [
@@ -18,7 +21,9 @@ module.exports = {
     [
       'module:decorator-transforms',
       {
-        runtime: { import: require.resolve('decorator-transforms/runtime-esm') },
+        runtime: {
+          import: require.resolve('decorator-transforms/runtime-esm'),
+        },
       },
     ],
     [
