@@ -10,7 +10,7 @@ type QUnitAssert = {
 };
 
 function getName(qunitAssert: QUnitAssert): string {
-  const packageName = 'my-app-with-ember-css-modules';
+  const packageName = 'my-v1-app-with-ember-css-modules';
   const moduleName = qunitAssert.test.module.name;
   const testName = qunitAssert.test.testName;
 

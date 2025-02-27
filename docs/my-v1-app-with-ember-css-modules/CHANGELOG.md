@@ -1,4 +1,4 @@
-# my-app-with-ember-css-modules
+# my-v1-app-with-ember-css-modules
 
 ## 2.0.15
 

@@ -3,10 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "my-app-with-ember-css-modules/tests/*": [
+      "my-v1-app-with-ember-css-modules/tests/*": [
         "tests/*"
       ],
-      "my-app-with-ember-css-modules/*": [
+      "my-v1-app-with-ember-css-modules/*": [
         "app/*"
       ],
       "*": [

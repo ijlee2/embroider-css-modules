@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   const ENV = {
-    modulePrefix: 'my-app-with-ember-css-modules',
+    modulePrefix: 'my-v1-app-with-ember-css-modules',
     environment,
     rootURL: '/',
     locationType: 'history',
