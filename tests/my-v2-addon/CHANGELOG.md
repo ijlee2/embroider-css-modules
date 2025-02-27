@@ -1,5 +1,11 @@
 # test-app-for-my-v2-addon
 
+## 2.0.17
+
+### Patch Changes
+
+- [#163](https://github.com/ijlee2/embroider-css-modules/pull/163) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.16
 
 ### Patch Changes
