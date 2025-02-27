@@ -13,7 +13,7 @@
   "scripts": {
     "build": "concurrently \"pnpm:build:*\"",
     "build:embroider-css-modules": "pnpm --filter embroider-css-modules build",
-    "build:my-app": "pnpm --filter my-app build",
+    "build:my-v1-app": "pnpm --filter my-v1-app build",
     "build:my-v2-addon": "pnpm --filter my-v2-addon build",
     "lint": "pnpm --filter \"*\" lint",
     "lint:fix": "pnpm --filter \"*\" lint:fix",
@@ -22,7 +22,7 @@
     "release:publish": "pnpm build && changeset publish",
     "start": "concurrently \"pnpm:start:*\" --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:embroider-css-modules": "pnpm --filter embroider-css-modules start",
-    "start:my-app": "pnpm --filter my-app start",
+    "start:my-v1-app": "pnpm --filter my-v1-app start",
     "start:my-v2-addon": "pnpm --filter my-v2-addon start",
     "test": "pnpm --filter \"*\" test"
   },
@@ -30,7 +30,7 @@
     "@changesets/cli": "^2.28.1",
     "@changesets/get-github-info": "^0.6.0",
     "concurrently": "^9.1.2",
-    "update-workspace-root-version": "^1.0.3"
+    "update-workspace-root-version": "^1.0.4"
   },
   "packageManager": "pnpm@9.15.5",
   "engines": {

@@ -18,9 +18,9 @@ jobs:
     strategy:
       matrix:
         package-location:
-          - 'docs/my-app'
-          - 'docs/my-app-with-ember-css-modules'
           - 'docs/my-v1-addon'
+          - 'docs/my-v1-app'
+          - 'docs/my-v1-app-with-ember-css-modules'
           - 'docs/my-v2-addon'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
@@ -55,9 +55,9 @@ jobs:
     strategy:
       matrix:
         package-location:
-          - 'docs/my-app'
-          - 'docs/my-app-with-ember-css-modules'
           - 'docs/my-v1-addon'
+          - 'docs/my-v1-app'
+          - 'docs/my-v1-app-with-ember-css-modules'
           - 'docs/my-v2-addon'
           - 'packages/ember-codemod-remove-ember-css-modules'
           - 'packages/embroider-css-modules'
@@ -66,7 +66,7 @@ jobs:
           - 'tests/my-v2-addon'
     timeout-minutes: 5
     env:
-      RUN_PERCY: ${{ matrix.package-location == 'docs/my-app' || matrix.package-location == 'docs/my-app-with-ember-css-modules' }}
+      RUN_PERCY: ${{ matrix.package-location == 'docs/my-v1-app' || matrix.package-location == 'docs/my-v1-app-with-ember-css-modules' }}
     steps:
       - name: Check out a copy of the repo
         uses: actions/checkout@v4
