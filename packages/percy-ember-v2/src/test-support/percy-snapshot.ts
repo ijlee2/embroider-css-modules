@@ -1,7 +1,5 @@
 import utils from '@percy/sdk-utils';
 
-const alwaysRun = true;
-
 type QunitAssert = {
   test: {
     module: {
@@ -66,7 +64,7 @@ export async function percySnapshot(
   options: Record<string, unknown> = {},
 ): Promise<void> {
   // Check if Percy is enabled
-  if (!alwaysRun && !(await utils.isPercyEnabled())) {
+  if (!(await utils.isPercyEnabled())) {
     return;
   }
 
