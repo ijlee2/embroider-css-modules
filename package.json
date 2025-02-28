@@ -41,6 +41,9 @@
     "overrides": {
       "@ember/test-waiters": "^4.0.0",
       "get-tsconfig": "4.7.3"
+    },
+    "patchedDependencies": {
+      "@percy/ember": "patches/@percy__ember.patch"
     }
   }
 }
