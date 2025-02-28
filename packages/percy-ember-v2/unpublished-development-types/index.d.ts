@@ -7,6 +7,14 @@ import '@glint/environment-ember-template-imports';
 import type PercyEmberRegistry from '../src/template-registry.ts';
 import type {} from './percy.d.ts';
 
+declare global {
+  interface Window {
+    PercyDOM?: {
+      serialize: (options: Record<string, unknown>) => unknown;
+    };
+  }
+}
+
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry extends PercyEmberRegistry {
     // Add any registry entries from other addons here that your addon itself uses (in non-strict mode templates)
