@@ -11,6 +11,13 @@ type QunitAssert = {
   };
 };
 
+// Collect client and environment information
+const CLIENT_INFO = `@percy/ember/${utils.percy.version}`;
+const ENV_INFO = ['ember/unknown-version', 'qunit/unknown-version'];
+
+// Maybe set the CLI API address from the environment
+// utils.percy.address = process.env.PERCY_SERVER_ADDRESS;
+
 // Helper to generate a snapshot name from the test suite
 function generateName(qunitAssertOrName: object | string): string {
   const isQunitAssert = typeof qunitAssertOrName !== 'string';
@@ -91,8 +98,11 @@ export async function percySnapshot(
 
     await utils.postSnapshot({
       ...options,
+      clientInfo: CLIENT_INFO,
       domSnapshot,
+      environmentInfo: ENV_INFO,
       name,
+      url: document.URL,
     });
   } catch (error: unknown) {
     // Handle errors

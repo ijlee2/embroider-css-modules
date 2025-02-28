@@ -10,12 +10,18 @@ declare module '@percy/sdk-utils' {
     };
   }
 
+  const percy = {
+    address: '',
+    version: '',
+  };
+
   async function postSnapshot(options: Record<string, unknown>) {}
 
   const utils = {
     fetchPercyDOM,
     isPercyEnabled,
     logger,
+    percy,
     postSnapshot,
   };
 
