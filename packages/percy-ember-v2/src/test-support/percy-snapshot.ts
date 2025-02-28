@@ -26,13 +26,24 @@ function generateName(qunitAssertOrName: object | string): string {
 
 export async function percySnapshot(
   qunitAssertOrName: object | string,
+  options: Record<string, unknown> = {},
 ): Promise<void> {
   // Check if Percy is enabled
   if (!alwaysRun && !(await utils.isPercyEnabled())) {
     return;
   }
 
+  const log = utils.logger('ember');
   const name = generateName(qunitAssertOrName);
 
-  console.log(name);
+  try {
+    await utils.postSnapshot({
+      ...options,
+      name,
+    });
+  } catch (error: unknown) {
+    // Handle errors
+    log.error(`Could not take DOM snapshot "${name}"`);
+    log.error(error);
+  }
 }
