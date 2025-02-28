@@ -5,6 +5,7 @@ import '@glint/environment-ember-loose';
 import '@glint/environment-ember-template-imports';
 
 import type PercyEmberRegistry from '../src/template-registry.ts';
+import type {} from './percy.d.ts';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry extends PercyEmberRegistry {
