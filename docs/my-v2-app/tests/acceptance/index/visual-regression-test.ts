@@ -1,6 +1,6 @@
 import { visit } from '@ember/test-helpers';
 import styles from 'my-v2-app/templates/application.module.css';
-import { setupApplicationTest } from 'my-v2-app/tests/helpers';
+import { setupApplicationTest, takeSnapshot } from 'my-v2-app/tests/helpers';
 import { module, test } from 'qunit';
 
 module('Acceptance | index', function (hooks) {
@@ -8,6 +8,7 @@ module('Acceptance | index', function (hooks) {
 
   test('We can visit index', async function (assert) {
     await visit('/');
+    await takeSnapshot(assert);
 
     assert
       .dom('[data-test-hello-container]')

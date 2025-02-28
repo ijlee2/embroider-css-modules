@@ -59,6 +59,8 @@
     "@glint/environment-ember-loose": "^1.5.2",
     "@glint/environment-ember-template-imports": "^1.5.2",
     "@glint/template": "^1.5.2",
+    "@percy/cli": "^1.30.7",
+    "@percy/ember": "^4.2.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@shared-configs/ember-template-lint": "workspace:*",
     "@shared-configs/eslint-config-ember": "workspace:*",
