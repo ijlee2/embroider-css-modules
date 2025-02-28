@@ -3,5 +3,6 @@ packages:
   - docs/**
   - packages/ember-codemod-remove-ember-css-modules
   - packages/embroider-css-modules
+  - packages/percy-ember-v2
   - packages/type-css-modules
   - tests/**

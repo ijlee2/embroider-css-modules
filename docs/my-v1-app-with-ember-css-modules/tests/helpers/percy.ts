@@ -1,4 +1,4 @@
-import percySnapshot from '@percy/ember';
+import { percySnapshot } from 'percy-ember-v2/test-support';
 
 type QUnitAssert = {
   test: {

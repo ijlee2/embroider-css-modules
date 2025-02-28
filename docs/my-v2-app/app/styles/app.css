@@ -14,3 +14,11 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.global-container {
+  border: 1px solid steelblue;
+  color: orange;
+  font-size: 8rem;
+  font-style: italic;
+  letter-spacing: 0.01rem;
+}
