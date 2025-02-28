@@ -1,5 +1,5 @@
 import { visit } from '@ember/test-helpers';
-import styles from 'my-v2-app/templates/application.module.css';
+import styles from 'my-v2-app/templates/index.module.css';
 import { setupApplicationTest, takeSnapshot } from 'my-v2-app/tests/helpers';
 import { module, test } from 'qunit';
 
