@@ -8,11 +8,6 @@ overrides:
   '@ember/test-waiters': ^4.0.0
   get-tsconfig: 4.7.3
 
-patchedDependencies:
-  '@percy/ember':
-    hash: rlewgrrolmrnrznqxyft7rkbiq
-    path: patches/@percy__ember.patch
-
 importers:
 
   .:
@@ -351,9 +346,6 @@ importers:
       '@percy/cli':
         specifier: ^1.30.7
         version: 1.30.7(typescript@5.7.3)
-      '@percy/ember':
-        specifier: ^4.2.0
-        version: 4.2.0(patch_hash=rlewgrrolmrnrznqxyft7rkbiq)
       '@shared-configs/ember-template-lint':
         specifier: workspace:*
         version: link:../../configs/ember-template-lint
@@ -486,6 +478,9 @@ importers:
       my-v2-addon:
         specifier: workspace:*
         version: link:../my-v2-addon
+      percy-ember-v2:
+        specifier: workspace:*
+        version: link:../../packages/percy-ember-v2
       postcss:
         specifier: ^8.5.3
         version: 8.5.3
@@ -564,9 +559,6 @@ importers:
       '@percy/cli':
         specifier: ^1.30.7
         version: 1.30.7(typescript@5.7.3)
-      '@percy/ember':
-        specifier: ^4.2.0
-        version: 4.2.0(patch_hash=rlewgrrolmrnrznqxyft7rkbiq)
       '@shared-configs/ember-template-lint':
         specifier: workspace:*
         version: link:../../configs/ember-template-lint
@@ -666,6 +658,9 @@ importers:
       my-v2-addon:
         specifier: workspace:*
         version: link:../my-v2-addon
+      percy-ember-v2:
+        specifier: workspace:*
+        version: link:../../packages/percy-ember-v2
       prettier:
         specifier: ^3.5.2
         version: 3.5.2
@@ -838,9 +833,6 @@ importers:
       '@percy/cli':
         specifier: ^1.30.7
         version: 1.30.7(typescript@5.7.3)
-      '@percy/ember':
-        specifier: ^4.2.0
-        version: 4.2.0(patch_hash=rlewgrrolmrnrznqxyft7rkbiq)
       '@rollup/plugin-babel':
         specifier: ^6.0.4
         version: 6.0.4(@babel/core@7.26.9)(rollup@4.34.8)
@@ -946,6 +938,9 @@ importers:
       lightningcss:
         specifier: ^1.29.1
         version: 1.29.1
+      percy-ember-v2:
+        specifier: workspace:*
+        version: link:../../packages/percy-ember-v2
       prettier:
         specifier: ^3.5.2
         version: 3.5.2
@@ -1031,6 +1026,82 @@ importers:
       '@embroider/addon-shim':
         specifier: ^1.9.0
         version: 1.9.0
+      decorator-transforms:
+        specifier: ^2.3.0
+        version: 2.3.0(@babel/core@7.26.9)
+    devDependencies:
+      '@babel/core':
+        specifier: ^7.26.9
+        version: 7.26.9(supports-color@8.1.1)
+      '@babel/plugin-transform-typescript':
+        specifier: ^7.26.8
+        version: 7.26.8(@babel/core@7.26.9)
+      '@babel/runtime':
+        specifier: ^7.26.9
+        version: 7.26.9
+      '@embroider/addon-dev':
+        specifier: ^7.1.1
+        version: 7.1.1(@glint/template@1.5.2)(rollup@4.34.8)
+      '@glint/core':
+        specifier: ^1.5.2
+        version: 1.5.2(typescript@5.7.3)
+      '@glint/environment-ember-loose':
+        specifier: ^1.5.2
+        version: 1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.0(@babel/core@7.26.9)(ember-source@6.2.0(@glimmer/component@2.0.0)(@glint/template@1.5.2)(rsvp@4.8.5)))
+      '@glint/environment-ember-template-imports':
+        specifier: ^1.5.2
+        version: 1.5.2(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.0(@babel/core@7.26.9)(ember-source@6.2.0(@glimmer/component@2.0.0)(@glint/template@1.5.2)(rsvp@4.8.5))))(@glint/template@1.5.2)
+      '@glint/template':
+        specifier: ^1.5.2
+        version: 1.5.2
+      '@rollup/plugin-babel':
+        specifier: ^6.0.4
+        version: 6.0.4(@babel/core@7.26.9)(rollup@4.34.8)
+      '@shared-configs/ember-template-lint':
+        specifier: workspace:*
+        version: link:../../configs/ember-template-lint
+      '@shared-configs/eslint-config-ember':
+        specifier: workspace:*
+        version: link:../../configs/eslint/ember
+      '@shared-configs/prettier':
+        specifier: workspace:*
+        version: link:../../configs/prettier
+      '@shared-configs/typescript':
+        specifier: workspace:*
+        version: link:../../configs/typescript
+      babel-plugin-ember-template-compilation:
+        specifier: ^2.3.0
+        version: 2.3.0
+      concurrently:
+        specifier: ^9.1.2
+        version: 9.1.2
+      ember-source:
+        specifier: ~6.2.0
+        version: 6.2.0(@glimmer/component@2.0.0)(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.98.0)
+      ember-template-lint:
+        specifier: ^6.1.0
+        version: 6.1.0
+      eslint:
+        specifier: ^9.21.0
+        version: 9.21.0(jiti@1.21.0)
+      prettier:
+        specifier: ^3.5.2
+        version: 3.5.2
+      rollup:
+        specifier: ^4.34.8
+        version: 4.34.8
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+
+  packages/percy-ember-v2:
+    dependencies:
+      '@embroider/addon-shim':
+        specifier: ^1.9.0
+        version: 1.9.0
+      '@percy/sdk-utils':
+        specifier: ^1.30.8
+        version: 1.30.8
       decorator-transforms:
         specifier: ^2.3.0
         version: 2.3.0(@babel/core@7.26.9)
@@ -2833,10 +2904,6 @@ packages:
   '@percy/dom@1.30.7':
     resolution: {integrity: sha512-/3ZWIfd62VFkgtAeeg73orUYBC0D/RgopT2TNzjCFQAu3noduH/JH8pLQGvbfdt5QpqszTYYgL7uxLE/dfhH7w==}
 
-  '@percy/ember@4.2.0':
-    resolution: {integrity: sha512-D/WckDD2tQetdn8uq46nQA1rOVgov8jsZG4uN7snAq6SrOpxNxacONg37QPwczmICBc7o/NlipCAUteukmtKzg==}
-    engines: {node: '>= 14'}
-
   '@percy/env@1.30.7':
     resolution: {integrity: sha512-5Gx1aU6xV52PK17QMFp0ytnVcdKce0AYCvI19IDd4V61woBYu4wYUZG1UFFy8Mpi1Km+cfrdJ77UW2eDobdx8g==}
     engines: {node: '>=14'}
@@ -2851,6 +2918,10 @@ packages:
 
   '@percy/sdk-utils@1.30.7':
     resolution: {integrity: sha512-HVQSg0MgY4Ziv0mtbeelz4aRBKoEQnKaKtWl7Nf6FzSELAdUXNz4BNRBAJWOt8O6M5MRXbk6/7jSFJStGsg5Zw==}
+    engines: {node: '>=14'}
+
+  '@percy/sdk-utils@1.30.8':
+    resolution: {integrity: sha512-NkRZk4iJs3nEaUnurFDaO1tMWofE7AszSriDZ90eCmMTjYrUUxOpvQs/35qMKT4o+qVTkeHicBGPZ8RsnY55zw==}
     engines: {node: '>=14'}
 
   '@percy/webdriver-utils@1.30.7':
@@ -11186,13 +11257,6 @@ snapshots:
 
   '@percy/dom@1.30.7': {}
 
-  '@percy/ember@4.2.0(patch_hash=rlewgrrolmrnrznqxyft7rkbiq)':
-    dependencies:
-      '@percy/sdk-utils': 1.30.7
-      ember-cli-babel: 7.26.11
-    transitivePeerDependencies:
-      - supports-color
-
   '@percy/env@1.30.7':
     dependencies:
       '@percy/logger': 1.30.7
@@ -11209,6 +11273,8 @@ snapshots:
       - typescript
 
   '@percy/sdk-utils@1.30.7': {}
+
+  '@percy/sdk-utils@1.30.8': {}
 
   '@percy/webdriver-utils@1.30.7(typescript@5.7.3)':
     dependencies:
