@@ -26,10 +26,10 @@
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
-    "prettier": "^3.5.2"
+    "prettier": "^3.5.3"
   },
   "peerDependencies": {
-    "prettier": "^3.5.2"
+    "prettier": "^3.5.3"
   },
   "peerDependenciesMeta": {
     "prettier": {

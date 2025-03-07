@@ -78,11 +78,11 @@
     "babel-plugin-ember-template-compilation": "^2.3.0",
     "concurrently": "^9.1.2",
     "ember-source": "~6.2.0",
-    "ember-template-lint": "^6.1.0",
+    "ember-template-lint": "^7.0.1",
     "eslint": "^9.21.0",
-    "prettier": "^3.5.2",
-    "rollup": "^4.34.8",
-    "typescript": "^5.7.3"
+    "prettier": "^3.5.3",
+    "rollup": "^4.34.9",
+    "typescript": "^5.8.2"
   },
   "engines": {
     "node": "18.* || >= 20"
