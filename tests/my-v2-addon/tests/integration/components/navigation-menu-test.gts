@@ -14,12 +14,10 @@ module('Integration | Component | navigation-menu', function (hooks) {
     await render(
       <template>
         <NavigationMenu
-          @menuItems={{array
-            (hash label="Home" route="index")
-          }}
+          @menuItems={{array (hash label="Home" route="index")}}
           @name="Main Navigation"
         />
-      </template>
+      </template>,
     );
 
     assert
@@ -49,12 +47,10 @@ module('Integration | Component | navigation-menu', function (hooks) {
     await render(
       <template>
         <NavigationMenu
-          @menuItems={{array
-            (hash label="Home" route="index")
-          }}
+          @menuItems={{array (hash label="Home" route="index")}}
           @name="Main Navigation"
         />
-      </template>
+      </template>,
     );
 
     assert
