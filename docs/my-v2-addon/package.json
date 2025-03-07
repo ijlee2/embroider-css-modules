@@ -85,15 +85,15 @@
     "babel-plugin-ember-template-compilation": "^2.3.0",
     "concurrently": "^9.1.2",
     "ember-source": "~6.2.0",
-    "ember-template-lint": "^6.1.0",
+    "ember-template-lint": "^7.0.1",
     "eslint": "^9.21.0",
     "postcss": "^8.5.3",
-    "prettier": "^3.5.2",
-    "rollup": "^4.34.8",
+    "prettier": "^3.5.3",
+    "rollup": "^4.34.9",
     "rollup-plugin-postcss": "^4.0.2",
-    "stylelint": "^16.14.1",
+    "stylelint": "^16.15.0",
     "type-css-modules": "workspace:*",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
   "engines": {
     "node": "18.* || >= 20"

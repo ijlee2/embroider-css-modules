@@ -36,12 +36,12 @@
     "test": "./build.sh --test && mt dist-for-testing --quiet"
   },
   "dependencies": {
-    "@codemod-utils/ast-javascript": "^1.2.13",
+    "@codemod-utils/ast-javascript": "^1.2.14",
     "@codemod-utils/ast-template": "^1.1.8",
     "@codemod-utils/blueprints": "^1.1.9",
     "@codemod-utils/ember": "^2.0.4",
     "@codemod-utils/files": "^2.1.0",
-    "@codemod-utils/json": "^1.1.14",
+    "@codemod-utils/json": "^1.1.15",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
@@ -50,12 +50,12 @@
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",
     "@sondr3/minitest": "^0.1.2",
-    "@types/node": "^18.19.76",
+    "@types/node": "^18.19.79",
     "@types/yargs": "^17.0.33",
     "concurrently": "^9.1.2",
     "eslint": "^9.21.0",
-    "prettier": "^3.5.2",
-    "typescript": "^5.7.3"
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
   },
   "engines": {
     "node": "18.* || >= 20"

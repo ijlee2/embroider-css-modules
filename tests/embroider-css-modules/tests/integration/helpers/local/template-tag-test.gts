@@ -18,12 +18,9 @@ module('Integration | Helper | local', function (hooks) {
 
       await render(
         <template>
-          <div
-            class={{local styles}}
-            data-test-element
-          >
+          <div class={{local styles}} data-test-element>
           </div>
-        </template>
+        </template>,
       );
 
       assert
@@ -46,7 +43,7 @@ module('Integration | Helper | local', function (hooks) {
             data-test-element
           >
           </div>
-        </template>
+        </template>,
       );
 
       assert

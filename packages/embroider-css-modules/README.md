@@ -183,10 +183,8 @@ The `{{local}}` helper returns a concatenated string. The string lists the globa
 
 ## Compatibility
 
-- Ember.js v4.12 or above<sup>1</sup>
+- Ember.js v4.12 or above
 - Node.js v18 or above
-
-<sup>1. `ember-container-query` may work on older versions of Ember (e.g. `4.4`), but issues that arise from these won't be supported.</sup>
 
 
 ## Contributing
