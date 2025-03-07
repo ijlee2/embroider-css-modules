@@ -101,9 +101,9 @@ Here are some guidelines to help you and everyone else.
 
 <details>
 
-<summary>Publish packages (for admins)</summary>
+<summary>Publish packages</summary>
 
-1. Generate a [personal access token](https://github.com/settings/tokens/) in GitHub, with `repo` and `read:user` scopes enabled. This token will be used to retrieve pull request information.
+1. Generate a [personal access token](https://github.com/settings/tokens/) in GitHub. This token will be used to retrieve pull request information.
 
 1. Run the `release:prepare` script. This removes changesets, updates package versions, and updates `CHANGELOG`s.
 
