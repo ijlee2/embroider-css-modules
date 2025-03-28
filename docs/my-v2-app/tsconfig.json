@@ -13,7 +13,6 @@
         "types/*"
       ]
     },
-    "skipLibCheck": true,
     "types": [
       "ember-source/types"
     ]
