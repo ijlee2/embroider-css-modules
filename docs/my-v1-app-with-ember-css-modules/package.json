@@ -1,6 +1,6 @@
 {
   "name": "my-v1-app-with-ember-css-modules",
-  "version": "2.0.16",
+  "version": "2.0.17",
   "private": true,
   "description": "An Ember app with ember-css-modules",
   "keywords": [

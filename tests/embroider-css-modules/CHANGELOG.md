@@ -1,5 +1,12 @@
 # test-app-for-embroider-css-modules
 
+## 2.0.18
+
+### Patch Changes
+
+- [#166](https://github.com/ijlee2/embroider-css-modules/pull/166) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#165](https://github.com/ijlee2/embroider-css-modules/pull/165) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.17
 
 ### Patch Changes
