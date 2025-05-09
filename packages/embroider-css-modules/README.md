@@ -184,7 +184,7 @@ The `{{local}}` helper returns a concatenated string. The string lists the globa
 ## Compatibility
 
 - Ember.js v4.12 or above
-- Node.js v18 or above
+- Node.js v20 or above
 
 
 ## Contributing
