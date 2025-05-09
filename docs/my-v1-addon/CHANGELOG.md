@@ -1,5 +1,15 @@
 # my-v1-addon
 
+## 1.0.0
+
+### Major Changes
+
+- [#167](https://github.com/ijlee2/embroider-css-modules/pull/167) Dropped Node 18 support ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#167](https://github.com/ijlee2/embroider-css-modules/pull/167) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.1.16
 
 ### Patch Changes
