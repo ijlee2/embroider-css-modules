@@ -62,15 +62,15 @@
     "test": "echo \"A v2 addon does not have tests, run tests in tests/my-v2-addon\""
   },
   "dependencies": {
-    "@embroider/addon-shim": "^1.9.0",
+    "@embroider/addon-shim": "^1.10.0",
     "decorator-transforms": "^2.3.0",
     "embroider-css-modules": "workspace:*"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.10",
-    "@babel/plugin-transform-typescript": "^7.27.0",
-    "@babel/runtime": "^7.27.0",
-    "@embroider/addon-dev": "^7.1.3",
+    "@babel/core": "^7.27.1",
+    "@babel/plugin-transform-typescript": "^7.27.1",
+    "@babel/runtime": "^7.27.1",
+    "@embroider/addon-dev": "^8.0.1",
     "@glimmer/component": "^2.0.0",
     "@glint/core": "^1.5.2",
     "@glint/environment-ember-loose": "^1.5.2",
@@ -84,16 +84,16 @@
     "@shared-configs/typescript": "workspace:*",
     "babel-plugin-ember-template-compilation": "^2.4.1",
     "concurrently": "^9.1.2",
-    "ember-source": "~6.3.0",
-    "ember-template-lint": "^7.0.1",
-    "eslint": "^9.23.0",
+    "ember-source": "~6.4.0",
+    "ember-template-lint": "^7.6.0",
+    "eslint": "^9.26.0",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
-    "rollup": "^4.37.0",
+    "rollup": "^4.40.2",
     "rollup-plugin-postcss": "^4.0.2",
-    "stylelint": "^16.17.0",
+    "stylelint": "^16.19.1",
     "type-css-modules": "workspace:*",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": "18.* || >= 20"
