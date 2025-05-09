@@ -11,7 +11,7 @@
   "type": "module",
   "exports": {
     "./ember": "./ember/index.json",
-    "./node18": "./node18/index.json"
+    "./node20": "./node20/index.json"
   },
   "scripts": {
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
