@@ -17,6 +17,9 @@ importers:
       concurrently:
         specifier: ^9.1.2
         version: 9.1.2
+      sort-package-json:
+        specifier: ^3.2.1
+        version: 3.2.1
       update-workspace-root-version:
         specifier: ^2.0.0
         version: 2.0.1
@@ -138,8 +141,8 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0
       ember-container-query:
-        specifier: ^5.1.1
-        version: 5.1.1(@babel/core@7.27.4)
+        specifier: ^6.0.1
+        version: 6.0.1(@babel/core@7.27.4)
       embroider-css-modules:
         specifier: workspace:*
         version: link:../../packages/embroider-css-modules
@@ -412,8 +415,8 @@ importers:
         specifier: ^0.4.1
         version: 0.4.1
       ember-container-query:
-        specifier: ^5.1.1
-        version: 5.1.1(@babel/core@7.27.4)
+        specifier: ^6.0.1
+        version: 6.0.1(@babel/core@7.27.4)
       ember-load-initializers:
         specifier: ^3.0.1
         version: 3.0.1(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -959,8 +962,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.2
       yargs:
-        specifier: ^17.7.2
-        version: 17.7.2
+        specifier: ^18.0.0
+        version: 18.0.0
     devDependencies:
       '@codemod-utils/tests':
         specifier: ^2.0.0
@@ -1078,8 +1081,8 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0
       yargs:
-        specifier: ^17.7.2
-        version: 17.7.2
+        specifier: ^18.0.0
+        version: 18.0.0
     devDependencies:
       '@codemod-utils/tests':
         specifier: ^2.0.0
@@ -5014,9 +5017,9 @@ packages:
     engines: {node: '>= 18'}
     hasBin: true
 
-  ember-container-query@5.1.1:
-    resolution: {integrity: sha512-7YmgagMpHD0tE5uz3CuO5HjDs1z/64Yt/5IETmBUpmzOaRkPjkyP0JshSGFLiuw/JZaQ6c2jj3t2HaznQtoEJg==}
-    engines: {node: 18.* || >= 20}
+  ember-container-query@6.0.1:
+    resolution: {integrity: sha512-MTttEwVboK82sCCLsTbDLXQfaaDkIdU058yO4laV/lCQeEsIpjqgICPAzQ5VrvinNT/Rol0AIPCX3jby2rZ8Rg==}
+    engines: {node: 20.* || >= 22}
 
   ember-css-modules@2.1.1:
     resolution: {integrity: sha512-9MbaaGC49s4wGoTXnG1OCcHyLs3gOBd3Ptxy2mhY53tIen72S7KRYJD13CRvGXX55Si0RIfDo0lrER+9CO5zyw==}
@@ -5849,6 +5852,9 @@ packages:
 
   git-hooks-list@3.2.0:
     resolution: {integrity: sha512-ZHG9a1gEhUMX1TvGrLdyWb9kDopCBbTnI8z4JgRMYxsijWipgjSEYoPWqBuIB0DnRnvqlQSEeVmzpeuPm7NdFQ==}
+
+  git-hooks-list@4.1.1:
+    resolution: {integrity: sha512-cmP497iLq54AZnv4YRAEMnEyQ1eIn4tGKbmswqwmFV4GBnAqE8NLtWxxdXa++AalfgL5EBH4IxTPyquEuGY/jA==}
 
   git-repo-info@2.1.1:
     resolution: {integrity: sha512-8aCohiDo4jwjOwma4FmYFd3i97urZulL8XL24nIPxuE+GZnfsAyy/g2Shqx6OjUiFKUXZM+Yy+KHnOmmA3FVcg==}
@@ -8337,6 +8343,10 @@ packages:
 
   sort-package-json@2.15.1:
     resolution: {integrity: sha512-9x9+o8krTT2saA9liI4BljNjwAbvUnWf11Wq+i/iZt8nl2UGYnf3TH5uBydE7VALmP7AGwlfszuEeL8BDyb0YA==}
+    hasBin: true
+
+  sort-package-json@3.2.1:
+    resolution: {integrity: sha512-rTfRdb20vuoAn7LDlEtCqOkYfl2X+Qze6cLbNOzcDpbmKEhJI30tTN44d5shbKJnXsvz24QQhlCm81Bag7EOKg==}
     hasBin: true
 
   source-map-js@1.2.1:
@@ -14722,7 +14732,7 @@ snapshots:
       - walrus
       - whiskers
 
-  ember-container-query@5.1.1(@babel/core@7.27.4):
+  ember-container-query@6.0.1(@babel/core@7.27.4):
     dependencies:
       '@embroider/addon-shim': 1.10.0
       decorator-transforms: 2.3.0(@babel/core@7.27.4)
@@ -16064,6 +16074,8 @@ snapshots:
   get-value@2.0.6: {}
 
   git-hooks-list@3.2.0: {}
+
+  git-hooks-list@4.1.1: {}
 
   git-repo-info@2.1.1: {}
 
@@ -18649,6 +18661,16 @@ snapshots:
       detect-newline: 4.0.1
       get-stdin: 9.0.0
       git-hooks-list: 3.2.0
+      is-plain-obj: 4.1.0
+      semver: 7.7.2
+      sort-object-keys: 1.1.3
+      tinyglobby: 0.2.14
+
+  sort-package-json@3.2.1:
+    dependencies:
+      detect-indent: 7.0.1
+      detect-newline: 4.0.1
+      git-hooks-list: 4.1.1
       is-plain-obj: 4.1.0
       semver: 7.7.2
       sort-object-keys: 1.1.3

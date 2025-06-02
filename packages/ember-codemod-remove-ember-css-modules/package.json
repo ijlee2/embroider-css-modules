@@ -44,7 +44,7 @@
     "@codemod-utils/ember": "^3.0.0",
     "@codemod-utils/files": "^3.0.1",
     "@codemod-utils/json": "^2.0.1",
-    "yargs": "^17.7.2"
+    "yargs": "^18.0.0"
   },
   "devDependencies": {
     "@codemod-utils/tests": "^2.0.0",

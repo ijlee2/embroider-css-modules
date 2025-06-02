@@ -63,7 +63,7 @@
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-typescript": "^5.3.0",
-    "ember-container-query": "^5.1.1",
+    "ember-container-query": "^6.0.1",
     "embroider-css-modules": "workspace:*"
   },
   "devDependencies": {
