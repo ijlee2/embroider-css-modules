@@ -1,5 +1,11 @@
 # test-app-for-embroider-css-modules
 
+## 3.0.1
+
+### Patch Changes
+
+- [#168](https://github.com/ijlee2/embroider-css-modules/pull/168) Separated formatting and linting ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.0.0
 
 ### Major Changes

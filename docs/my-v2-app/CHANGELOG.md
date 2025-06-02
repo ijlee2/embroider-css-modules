@@ -1,5 +1,11 @@
 # my-v2-app
 
+## 1.0.1
+
+### Patch Changes
+
+- [#168](https://github.com/ijlee2/embroider-css-modules/pull/168) Separated formatting and linting ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.0.0
 
 ### Major Changes
