@@ -1,14 +1,13 @@
-# unconventional js
-/blueprints/*/files/
-
 # compiled output
 /dist/
-
+/dist-for-testing/
+/tmp/
+ 
 # misc
-/coverage/
+/src/blueprints/
+/tests/fixtures/
 !.*
 .*/
-*.html
 README.md
 
 # specific to this package
