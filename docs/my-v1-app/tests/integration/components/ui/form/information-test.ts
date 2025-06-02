@@ -10,9 +10,7 @@ module('Integration | Component | ui/form/information', function (hooks) {
 
   test('The component renders nothing when we do not pass @title or @instructions', async function (this: TestContext, assert) {
     await render<TestContext>(hbs`
-      <Ui::Form::Information
-        @formId="ember123"
-      />
+      <Ui::Form::Information @formId="ember123" />
     `);
 
     assert
@@ -26,10 +24,7 @@ module('Integration | Component | ui/form/information', function (hooks) {
 
   test('We can pass @title to display the form title', async function (this: TestContext, assert) {
     await render<TestContext>(hbs`
-      <Ui::Form::Information
-        @formId="ember123"
-        @title="Contact me"
-      />
+      <Ui::Form::Information @formId="ember123" @title="Contact me" />
     `);
 
     assert

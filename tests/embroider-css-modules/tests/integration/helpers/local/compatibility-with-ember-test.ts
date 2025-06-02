@@ -59,12 +59,7 @@ module('Integration | Helper | local', function (hooks) {
     test('component arguments', async function (this: TestContext, assert) {
       await render<TestContext>(hbs`
         <SomeComponentWithArguments
-          @classNames={{local
-            this.styles
-            "container"
-            "is-wide"
-            "is-inline"
-          }}
+          @classNames={{local this.styles "container" "is-wide" "is-inline"}}
         />
       `);
 
@@ -79,6 +74,7 @@ module('Integration | Helper | local', function (hooks) {
 
     test('globally scoped classes', async function (this: TestContext, assert) {
       await render<TestContext>(hbs`
+        {{! prettier-ignore }}
         <div
           class="p-4 {{local this.styles 'container' 'is-wide' 'is-inline'}} my-2"
           data-test-element
@@ -128,12 +124,7 @@ module('Integration | Helper | local', function (hooks) {
     test('splattributes', async function (this: TestContext, assert) {
       await render<TestContext>(hbs`
         <SomeComponentWithSplattributes
-          class={{local
-            this.styles
-            'container'
-            'is-wide'
-            'is-inline'
-          }}
+          class={{local this.styles "container" "is-wide" "is-inline"}}
         />
       `);
 

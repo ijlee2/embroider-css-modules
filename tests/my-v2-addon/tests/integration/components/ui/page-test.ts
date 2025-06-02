@@ -50,10 +50,7 @@ module('Integration | Component | ui/page', function (hooks) {
 
   test('We can render sections and subsections', async function (assert) {
     await render(hbs`
-      <Ui::Page
-        @title="embroider-css-modules with ember-css-modules"
-        as |Page|
-      >
+      <Ui::Page @title="embroider-css-modules with ember-css-modules" as |Page|>
         <Page.Section>
           <:title>
             Package:

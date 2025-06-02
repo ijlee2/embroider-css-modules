@@ -3,24 +3,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "test-app-for-embroider-css-modules/tests/*": [
-        "tests/*"
-      ],
-      "test-app-for-embroider-css-modules/*": [
-        "app/*"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "test-app-for-embroider-css-modules/tests/*": ["tests/*"],
+      "test-app-for-embroider-css-modules/*": ["app/*"],
+      "*": ["types/*"]
     },
-    "types": [
-      "ember-source/types"
-    ]
+    "types": ["ember-source/types"]
   },
   "glint": {
-    "environment": [
-      "ember-loose",
-      "ember-template-imports"
-    ]
+    "environment": ["ember-loose", "ember-template-imports"]
   }
 }

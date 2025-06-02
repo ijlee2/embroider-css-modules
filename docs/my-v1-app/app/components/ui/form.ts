@@ -41,10 +41,10 @@ interface UiFormSignature {
 }
 
 export default class UiFormComponent extends Component<UiFormSignature> {
+  @tracked changeset = this.args.data ?? ({} as Record<string, any>);
+
   formId = guidFor(this);
   styles = styles;
-
-  @tracked changeset = this.args.data ?? ({} as Record<string, any>);
 
   @action submitForm(event: SubmitEvent): void {
     event.preventDefault();
