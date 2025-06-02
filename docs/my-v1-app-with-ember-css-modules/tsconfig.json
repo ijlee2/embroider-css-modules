@@ -3,24 +3,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "my-v1-app-with-ember-css-modules/tests/*": [
-        "tests/*"
-      ],
-      "my-v1-app-with-ember-css-modules/*": [
-        "app/*"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "my-v1-app-with-ember-css-modules/tests/*": ["tests/*"],
+      "my-v1-app-with-ember-css-modules/*": ["app/*"],
+      "*": ["types/*"]
     },
-    "types": [
-      "ember-source/types"
-    ]
+    "types": ["ember-source/types"]
   },
   "glint": {
-    "environment": [
-      "ember-loose",
-      "ember-template-imports"
-    ]
+    "environment": ["ember-loose", "ember-template-imports"]
   }
 }

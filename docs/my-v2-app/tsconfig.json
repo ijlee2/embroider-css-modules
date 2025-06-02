@@ -3,29 +3,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "my-v2-app/tests/*": [
-        "tests/*"
-      ],
-      "my-v2-app/*": [
-        "app/*"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "my-v2-app/tests/*": ["tests/*"],
+      "my-v2-app/*": ["app/*"],
+      "*": ["types/*"]
     },
-    "types": [
-      "ember-source/types"
-    ]
+    "types": ["ember-source/types"]
   },
   "glint": {
-    "environment": [
-      "ember-loose",
-      "ember-template-imports"
-    ]
+    "environment": ["ember-loose", "ember-template-imports"]
   },
-  "include": [
-    "app/**/*",
-    "tests/**/*",
-    "types/**/*"
-  ]
+  "include": ["app/**/*", "tests/**/*", "types/**/*"]
 }

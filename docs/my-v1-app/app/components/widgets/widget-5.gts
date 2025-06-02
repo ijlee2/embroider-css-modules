@@ -23,8 +23,8 @@ const WidgetsWidget5Component: TOC<WidgetsWidget5Signature> = <template>
         <p class={{styles.highlight}}>
           <a
             href="https://github.com/ijlee2/embroider-css-modules"
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
           >
             embroider-css-modules
           </a>

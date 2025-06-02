@@ -46,8 +46,10 @@
   ],
   "scripts": {
     "build": "rollup --config",
+    "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
-    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" && pnpm format",
+    "lint:format": "prettier . --cache --check",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
@@ -78,8 +80,8 @@
     "babel-plugin-ember-template-compilation": "^2.4.1",
     "concurrently": "^9.1.2",
     "ember-source": "~6.4.0",
-    "ember-template-lint": "^7.6.0",
-    "eslint": "^9.26.0",
+    "ember-template-lint": "^7.7.0",
+    "eslint": "^9.28.0",
     "prettier": "^3.5.3",
     "rollup": "^4.40.2",
     "typescript": "^5.8.3"

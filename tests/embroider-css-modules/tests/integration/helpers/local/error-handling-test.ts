@@ -51,7 +51,13 @@ module('Integration | Helper | local', function (hooks) {
     test('does not ignore duplicated local class names', async function (this: TestContext, assert) {
       await render<TestContext>(hbs`
         <div
-          class={{local this.styles "is-wide" "container" "is-wide" "is-inline"}}
+          class={{local
+            this.styles
+            "is-wide"
+            "container"
+            "is-wide"
+            "is-inline"
+          }}
           data-test-element
         >
         </div>

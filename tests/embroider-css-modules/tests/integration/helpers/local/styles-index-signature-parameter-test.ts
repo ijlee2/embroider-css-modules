@@ -28,10 +28,7 @@ module('Integration | Helper | local', function (hooks) {
 
       test('returns an empty string when there are no local class names', async function (this: TestContext, assert) {
         await render<TestContext>(hbs`
-          <div
-            class={{local this.styles}}
-            data-test-element
-          >
+          <div class={{local this.styles}} data-test-element>
           </div>
         `);
 
