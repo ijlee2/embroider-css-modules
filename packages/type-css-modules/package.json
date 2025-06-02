@@ -37,7 +37,7 @@
   "dependencies": {
     "@codemod-utils/files": "^3.0.1",
     "css-tree": "^3.1.0",
-    "yargs": "^17.7.2"
+    "yargs": "^18.0.0"
   },
   "devDependencies": {
     "@codemod-utils/tests": "^2.0.0",
