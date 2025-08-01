@@ -83,7 +83,7 @@
 }
 
 .my-v1-addon-container[data-container-query-wide] {
-  grid-column-gap: 1.5rem;
+  column-gap: 1.5rem;
   grid-template-areas:
     "image-container header"
     "image-container body"
