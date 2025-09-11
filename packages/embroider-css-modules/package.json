@@ -64,9 +64,9 @@
     "decorator-transforms": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.0",
+    "@babel/core": "^7.28.4",
     "@babel/plugin-transform-typescript": "^7.28.0",
-    "@babel/runtime": "^7.28.2",
+    "@babel/runtime": "^7.28.4",
     "@embroider/addon-dev": "^8.1.0",
     "@glint/core": "^1.5.2",
     "@glint/environment-ember-loose": "^1.5.2",
@@ -78,12 +78,12 @@
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",
     "babel-plugin-ember-template-compilation": "^2.4.1",
-    "concurrently": "^9.2.0",
-    "ember-source": "~6.6.0",
-    "ember-template-lint": "^7.9.1",
-    "eslint": "^9.32.0",
+    "concurrently": "^9.2.1",
+    "ember-source": "~6.7.0",
+    "ember-template-lint": "^7.9.3",
+    "eslint": "^9.35.0",
     "prettier": "^3.6.2",
-    "rollup": "^4.46.2",
+    "rollup": "^4.50.1",
     "typescript": "^5.9.2"
   },
   "engines": {
