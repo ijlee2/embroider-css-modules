@@ -1,4 +1,4 @@
-import { readPackageJson } from '@codemod-utils/json';
+import { readPackageJson } from '@codemod-utils/package-json';
 
 import type { CodemodOptions, Options } from '../../types/index.js';
 

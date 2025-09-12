@@ -1,4 +1,4 @@
-import type { PackageJson } from '@codemod-utils/json';
+import type { PackageJson } from '@codemod-utils/package-json';
 
 type CodemodOptions = {
   componentStructure: 'flat' | 'nested';
