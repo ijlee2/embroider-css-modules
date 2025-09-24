@@ -517,25 +517,22 @@ To style a route, apply [the ideas that you learned for components](#style-your-
 
 ### &lt;template&gt; tag
 
-If you want to avoid controllers, you can use [`ember-route-template`](https://github.com/discourse/ember-route-template) (experimental) and pass `styles` to the template directly.
+You can avoid controllers by using `<template>` tag. If your `ember-source` version is below `6.3`, you will need to install [`ember-route-template`](https://github.com/discourse/ember-route-template).
 
 <details>
 
 <summary><code>app/templates/index.gts</code></summary>
 
 ```ts
-import Route from 'ember-route-template';
+import Hello from 'app/components/hello';
 
-import Hello from '../components/hello';
 import styles from './index.css';
 
-export default Route(
-  <template>
-    <div class={{styles.container}}>
-      <Hello />
-    </div>
-  </template>,
-);
+<template>
+  <div class={{styles.container}}>
+    <Hello />
+  </div>
+</template>
 ```
 
 </details>
@@ -565,7 +562,7 @@ your-ember-app
 ...
 ```
 
-With `ember-route-template`, you may colocate the stylesheet and the route template.
+With `<template>` tag, you can colocate the stylesheet and the route template.
 
 ```sh
 your-ember-app
