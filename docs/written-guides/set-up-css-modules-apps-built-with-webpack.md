@@ -524,7 +524,7 @@ You can avoid controllers by using `<template>` tag. If your `ember-source` vers
 <summary><code>app/templates/index.gts</code></summary>
 
 ```ts
-import Hello from 'app/components/hello';
+import Hello from 'your-ember-app/components/hello';
 
 import styles from './index.css';
 

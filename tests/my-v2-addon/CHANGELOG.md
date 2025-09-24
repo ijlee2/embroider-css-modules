@@ -1,5 +1,12 @@
 # test-app-for-my-v2-addon
 
+## 3.0.4
+
+### Patch Changes
+
+- [#177](https://github.com/ijlee2/embroider-css-modules/pull/177) Listed @glimmer/component as a dependency to account for the change in ember-auto-import@2.10.1 ([@ijlee2](https://github.com/ijlee2))
+- [#177](https://github.com/ijlee2/embroider-css-modules/pull/177) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.0.3
 
 ### Patch Changes
