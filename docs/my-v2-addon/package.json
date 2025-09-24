@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.10.0",
+    "@glimmer/component": "^2.0.0",
     "decorator-transforms": "^2.3.0",
     "embroider-css-modules": "workspace:*"
   },
@@ -73,7 +74,6 @@
     "@babel/plugin-transform-typescript": "^7.28.0",
     "@babel/runtime": "^7.28.4",
     "@embroider/addon-dev": "^8.1.0",
-    "@glimmer/component": "^2.0.0",
     "@glint/core": "^1.5.2",
     "@glint/environment-ember-loose": "^1.5.2",
     "@glint/environment-ember-template-imports": "^1.5.2",
@@ -88,10 +88,10 @@
     "concurrently": "^9.2.1",
     "ember-source": "~6.7.0",
     "ember-template-lint": "^7.9.3",
-    "eslint": "^9.35.0",
+    "eslint": "^9.36.0",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
-    "rollup": "^4.50.1",
+    "rollup": "^4.52.2",
     "rollup-plugin-postcss": "^4.0.2",
     "stylelint": "^16.24.0",
     "type-css-modules": "workspace:*",
