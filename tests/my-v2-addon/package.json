@@ -85,8 +85,8 @@
     "qunit": "^2.24.1",
     "qunit-dom": "^3.5.0",
     "stylelint": "^16.24.0",
-    "typescript": "^5.9.2",
-    "webpack": "^5.101.3"
+    "typescript": "^5.9.3",
+    "webpack": "^5.102.0"
   },
   "engines": {
     "node": "20.* || >= 22"
