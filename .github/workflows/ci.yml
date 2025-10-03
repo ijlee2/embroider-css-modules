@@ -25,7 +25,6 @@ jobs:
           - 'packages/embroider-css-modules'
           - 'packages/type-css-modules'
           - 'tests/embroider-css-modules'
-          - 'tests/my-v2-addon'
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -61,7 +60,6 @@ jobs:
           - 'packages/embroider-css-modules'
           - 'packages/type-css-modules'
           - 'tests/embroider-css-modules'
-          - 'tests/my-v2-addon'
     timeout-minutes: 5
     env:
       RUN_PERCY: ${{ matrix.package-location == 'docs/my-v1-app' }}
@@ -129,38 +127,3 @@ jobs:
       - name: Test
         run: pnpm test:ember-compatibility ${{ matrix.scenario }} --- pnpm test
         working-directory: 'tests/embroider-css-modules'
-
-
-  test-compatibility-my-v2-addon:
-    name: Test compatibility (tests/my-v2-addon)
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        scenario:
-          - 'ember-lts-4.12'
-          - 'ember-lts-5.12'
-          - 'ember-release'
-          - 'ember-beta'
-          - 'ember-canary'
-          - 'embroider-optimized'
-    timeout-minutes: 5
-    steps:
-      - name: Check out a copy of the repo
-        uses: actions/checkout@v5
-
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v5
-        with:
-          cache: 'pnpm'
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Test
-        run: pnpm test:ember-compatibility ${{ matrix.scenario }} --- pnpm test
-        working-directory: 'tests/my-v2-addon'
