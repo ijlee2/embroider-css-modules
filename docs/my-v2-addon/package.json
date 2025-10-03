@@ -91,11 +91,11 @@
     "eslint": "^9.36.0",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
-    "rollup": "^4.52.2",
+    "rollup": "^4.52.4",
     "rollup-plugin-postcss": "^4.0.2",
     "stylelint": "^16.24.0",
     "type-css-modules": "workspace:*",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": "20.* || >= 22"

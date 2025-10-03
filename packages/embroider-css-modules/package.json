@@ -83,8 +83,8 @@
     "ember-template-lint": "^7.9.3",
     "eslint": "^9.36.0",
     "prettier": "^3.6.2",
-    "rollup": "^4.52.2",
-    "typescript": "^5.9.2"
+    "rollup": "^4.52.4",
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": "20.* || >= 22"
