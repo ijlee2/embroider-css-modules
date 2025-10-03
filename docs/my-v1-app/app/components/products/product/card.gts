@@ -1,12 +1,11 @@
 import { hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
-import { ContainerQuery, width } from 'ember-container-query';
-import ProductsProductImage from 'my-v1-app/components/products/product/image';
-
 import Component from '@glimmer/component';
+import { ContainerQuery, width } from 'ember-container-query';
 
 import type { Product } from '../../../data/products';
 import styles from './card.css';
+import ProductsProductImage from './image';
 
 interface ProductsProductCardSignature {
   Args: {
@@ -44,7 +43,7 @@ export default class ProductsProductCardComponent extends Component<ProductsProd
         </p>
 
         <p class={{this.styles.price}} data-test-field="Price">
-          \${{@product.price}}
+          ${{@product.price}}
         </p>
       </div>
 

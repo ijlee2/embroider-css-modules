@@ -1,5 +1,6 @@
 import type { TestContext } from '@ember/test-helpers';
 import { findAll, render } from '@ember/test-helpers';
+import WidgetsWidget1 from 'my-v1-app/components/widgets/widget-1';
 import { module, test } from 'qunit';
 
 import { setupRenderingTest } from '../../../helpers';
@@ -8,7 +9,7 @@ module('Integration | Component | widgets/widget-1', function (hooks) {
   setupRenderingTest(hooks);
 
   test('The component renders', async function (this: TestContext, assert) {
-    await render(<template><Widgets::Widget-1 /></template>);
+    await render(<template><WidgetsWidget1 /></template>);
 
     const titles = findAll('[data-test-title]');
 

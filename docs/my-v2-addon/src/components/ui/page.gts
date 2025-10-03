@@ -1,14 +1,11 @@
 import { hash } from '@ember/helper';
 import Component from '@glimmer/component';
 import type { WithBoundArgs } from '@glint/template';
-import UiPageDemo from 'my-v2-addon/components/ui/page/demo';
-import UiPageSection from 'my-v2-addon/components/ui/page/section';
-import UiPageSubsection from 'my-v2-addon/components/ui/page/subsection';
 
 import styles from './page.css';
-import type UiPageDemoComponent from './page/demo.ts';
-import type UiPageSectionComponent from './page/section.ts';
-import type UiPageSubsectionComponent from './page/subsection.ts';
+import UiPageDemo from './page/demo.gts';
+import UiPageSection from './page/section.gts';
+import UiPageSubsection from './page/subsection.gts';
 
 interface UiPageSignature {
   Args: {
@@ -17,9 +14,9 @@ interface UiPageSignature {
   Blocks: {
     default: [
       {
-        Demo: WithBoundArgs<typeof UiPageDemoComponent, never>;
-        Section: WithBoundArgs<typeof UiPageSectionComponent, never>;
-        Subsection: WithBoundArgs<typeof UiPageSubsectionComponent, never>;
+        Demo: WithBoundArgs<typeof UiPageDemo, never>;
+        Section: WithBoundArgs<typeof UiPageSection, never>;
+        Subsection: WithBoundArgs<typeof UiPageSubsection, never>;
       },
     ];
   };

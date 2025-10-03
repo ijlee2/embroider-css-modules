@@ -1,2 +1,2 @@
-export { default as NavigationMenu } from './components/navigation-menu.ts';
-export { default as UiPage } from './components/ui/page.ts';
+export { default as NavigationMenu } from './components/navigation-menu.gts';
+export { default as UiPage } from './components/ui/page.gts';

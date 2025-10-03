@@ -1,8 +1,8 @@
-import type NavigationMenuComponent from './components/navigation-menu.ts';
-import type UiPageComponent from './components/ui/page.ts';
-import type UiPageDemoComponent from './components/ui/page/demo.ts';
-import type UiPageSectionComponent from './components/ui/page/section.ts';
-import type UiPageSubsectionComponent from './components/ui/page/subsection.ts';
+import type NavigationMenuComponent from './components/navigation-menu.gts';
+import type UiPageComponent from './components/ui/page.gts';
+import type UiPageDemoComponent from './components/ui/page/demo.gts';
+import type UiPageSectionComponent from './components/ui/page/section.gts';
+import type UiPageSubsectionComponent from './components/ui/page/subsection.gts';
 
 export default interface MyV2AddonRegistry {
   NavigationMenu: typeof NavigationMenuComponent;
