@@ -3,8 +3,8 @@ import { render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
-import { getClassForProductsProductCard } from 'my-v1-addon/test-support';
-import type { Product } from 'my-v1-addon/types/product';
+import styles from 'my-v1-app/components/products/product/card.css';
+import type { Product } from 'my-v1-app/data/products';
 import { module, test } from 'qunit';
 
 interface TestContext extends BaseTestContext {
@@ -77,10 +77,7 @@ module('Integration | Component | products/product/card', function (hooks) {
 
     assert
       .dom('[data-test-link="Learn More"]')
-      .hasClass(
-        getClassForProductsProductCard('link'),
-        'We see the local class name.',
-      )
+      .hasClass(styles.link, 'We see the local class name.')
       .hasStyle(
         {
           'text-decoration-line': 'none',

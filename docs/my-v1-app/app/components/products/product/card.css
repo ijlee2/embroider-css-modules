@@ -1,4 +1,4 @@
-.my-v1-addon-container {
+.container {
   display: grid;
   grid-template-areas:
     "header"
@@ -13,47 +13,47 @@
   width: calc(100% - 2rem) !important;
 }
 
-.my-v1-addon-container:hover {
+.container:hover {
   background: #26313d;
   transform: translateY(-0.25rem);
   transition: all 0.25s;
 }
 
-.my-v1-addon-header {
+.header {
   grid-area: header;
 }
 
-.my-v1-addon-name {
+.name {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
-.my-v1-addon-image-container {
+.image-container {
   grid-area: image-container;
   max-height: 6rem;
   max-width: 8rem;
 }
 
-.my-v1-addon-body {
+.body {
   grid-area: body;
   margin-top: 1rem;
 }
 
-.my-v1-addon-description,
-.my-v1-addon-price {
+.description,
+.price {
   font-size: 0.875rem;
   margin-bottom: 0.375rem;
 }
 
-.my-v1-addon-actions {
+.actions {
   align-items: center;
   display: flex;
   grid-area: actions;
   justify-content: flex-end;
 }
 
-.my-v1-addon-link {
+.link {
   background: transparent;
   border: 0.0625rem solid rgb(247 252 251 / 50%);
   border-radius: 0.15rem;
@@ -65,7 +65,7 @@
   text-decoration: none;
 }
 
-.my-v1-addon-link::after {
+.link::after {
   content: "";
   height: 100%;
   left: 0;
@@ -74,15 +74,15 @@
   width: 100%;
 }
 
-.my-v1-addon-link:focus {
+.link:focus {
   outline: 0;
 }
 
-.my-v1-addon-link:focus::after {
+.link:focus::after {
   border: 1px solid orange;
 }
 
-.my-v1-addon-container[data-container-query-wide] {
+.container[data-container-query-wide] {
   column-gap: 1.5rem;
   grid-template-areas:
     "image-container header"
@@ -92,10 +92,10 @@
   grid-template-rows: auto 1fr auto;
 }
 
-.my-v1-addon-container[data-container-query-wide] .my-v1-addon-body {
+.container[data-container-query-wide] .body {
   margin-top: 0;
 }
 
-.my-v1-addon-container[data-container-query-wide] .my-v1-addon-link {
+.container[data-container-query-wide] .link {
   margin-top: 1rem;
 }
