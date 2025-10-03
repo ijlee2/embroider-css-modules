@@ -1,5 +1,12 @@
 # test-app-for-embroider-css-modules
 
+## 3.0.5
+
+### Patch Changes
+
+- [#181](https://github.com/ijlee2/embroider-css-modules/pull/181) Converted to `<template>` tag ([@ijlee2](https://github.com/ijlee2))
+- [#179](https://github.com/ijlee2/embroider-css-modules/pull/179) Updated development dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.0.4
 
 ### Patch Changes

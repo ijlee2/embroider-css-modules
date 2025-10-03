@@ -1,5 +1,15 @@
 # my-v1-app
 
+## 3.0.5
+
+### Patch Changes
+
+- [#182](https://github.com/ijlee2/embroider-css-modules/pull/182) Moved components in my-v1-addon to my-v1-app ([@ijlee2](https://github.com/ijlee2))
+- [#182](https://github.com/ijlee2/embroider-css-modules/pull/182) Moved tests from test-app-for-my-v2-addon to my-v1-app ([@ijlee2](https://github.com/ijlee2))
+- [#181](https://github.com/ijlee2/embroider-css-modules/pull/181) Converted to `<template>` tag ([@ijlee2](https://github.com/ijlee2))
+- [#179](https://github.com/ijlee2/embroider-css-modules/pull/179) Updated development dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#178](https://github.com/ijlee2/embroider-css-modules/pull/178) Patched ember-inspector to work around a bug in ember-source@6.1.0 ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.0.4
 
 ### Patch Changes

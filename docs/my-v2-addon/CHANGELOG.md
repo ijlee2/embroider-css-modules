@@ -1,5 +1,13 @@
 # my-v2-addon
 
+## 3.0.5
+
+### Patch Changes
+
+- [#182](https://github.com/ijlee2/embroider-css-modules/pull/182) Moved tests from test-app-for-my-v2-addon to my-v1-app ([@ijlee2](https://github.com/ijlee2))
+- [#181](https://github.com/ijlee2/embroider-css-modules/pull/181) Converted to `<template>` tag ([@ijlee2](https://github.com/ijlee2))
+- [#179](https://github.com/ijlee2/embroider-css-modules/pull/179) Updated development dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.0.4
 
 ### Patch Changes
