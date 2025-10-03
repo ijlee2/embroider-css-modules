@@ -10,8 +10,8 @@ interface SomeComponentWithArgumentsSignature {
 }
 
 const SomeComponentWithArgumentsComponent = <template>
-<div class={{@classNames}} data-test-element>
-</div>
+  <div class={{@classNames}} data-test-element>
+  </div>
 </template> satisfies TOC<SomeComponentWithArgumentsSignature>;
 
 export default SomeComponentWithArgumentsComponent;

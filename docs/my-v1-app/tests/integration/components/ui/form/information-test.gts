@@ -1,7 +1,6 @@
-import UiFormInformation from 'my-v1-app/components/ui/form/information';
-
 import type { TestContext } from '@ember/test-helpers';
 import { render } from '@ember/test-helpers';
+import UiFormInformation from 'my-v1-app/components/ui/form/information';
 import { module, test } from 'qunit';
 
 import { setupRenderingTest } from '../../../../helpers';
@@ -10,9 +9,7 @@ module('Integration | Component | ui/form/information', function (hooks) {
   setupRenderingTest(hooks);
 
   test('The component renders nothing when we do not pass @title or @instructions', async function (this: TestContext, assert) {
-    await render(<template>
-    <UiFormInformation @formId="ember123" />
-    </template>);
+    await render(<template><UiFormInformation @formId="ember123" /></template>);
 
     assert
       .dom('[data-test-title]')
@@ -24,9 +21,11 @@ module('Integration | Component | ui/form/information', function (hooks) {
   });
 
   test('We can pass @title to display the form title', async function (this: TestContext, assert) {
-    await render(<template>
-    <UiFormInformation @formId="ember123" @title="Contact me" />
-    </template>);
+    await render(
+      <template>
+        <UiFormInformation @formId="ember123" @title="Contact me" />
+      </template>,
+    );
 
     assert
       .dom('[data-test-title]')
@@ -39,12 +38,14 @@ module('Integration | Component | ui/form/information', function (hooks) {
   });
 
   test('We can pass @instructions to display the form instructions', async function (this: TestContext, assert) {
-    await render(<template>
-    <UiFormInformation
-    @formId="ember123"
-    @instructions="Still have questions about embroider-css-modules? Try sending me a message."
-    />
-    </template>);
+    await render(
+      <template>
+        <UiFormInformation
+          @formId="ember123"
+          @instructions="Still have questions about embroider-css-modules? Try sending me a message."
+        />
+      </template>,
+    );
 
     assert
       .dom('[data-test-title]')

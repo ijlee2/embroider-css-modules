@@ -1,13 +1,12 @@
 import { array } from '@ember/helper';
-import { local } from 'embroider-css-modules';
-import SomeComponentWithArguments from 'test-app-for-embroider-css-modules/components/some-component-with-arguments';
-import SomeComponentWithSplattributes from 'test-app-for-embroider-css-modules/components/some-component-with-splattributes';
-
 import {
   render,
   type TestContext as BaseTestContext,
 } from '@ember/test-helpers';
+import { local } from 'embroider-css-modules';
 import { module, test } from 'qunit';
+import SomeComponentWithArguments from 'test-app-for-embroider-css-modules/components/some-component-with-arguments';
+import SomeComponentWithSplattributes from 'test-app-for-embroider-css-modules/components/some-component-with-splattributes';
 
 import { setupRenderingTest } from '../../../helpers';
 
@@ -41,20 +40,19 @@ module('Integration | Helper | local', function (hooks) {
     test('{{array}} helper', async function (this: TestContext, assert) {
       const self = this;
 
-
-
-
-      await render(<template>
-      <div
-      class={{local
-      self.styles
-      "container"
-      (if true (array "is-wide" "is-inline") "no-feedback")
-      }}
-      data-test-element
-      >
-      </div>
-      </template>);
+      await render(
+        <template>
+          <div
+            class={{local
+              self.styles
+              "container"
+              (if true (array "is-wide" "is-inline") "no-feedback")
+            }}
+            data-test-element
+          >
+          </div>
+        </template>,
+      );
 
       assert
         .dom('[data-test-element]')
@@ -68,14 +66,13 @@ module('Integration | Helper | local', function (hooks) {
     test('component arguments', async function (this: TestContext, assert) {
       const self = this;
 
-
-
-
-      await render(<template>
-      <SomeComponentWithArguments
-      @classNames={{local self.styles "container" "is-wide" "is-inline"}}
-      />
-      </template>);
+      await render(
+        <template>
+          <SomeComponentWithArguments
+            @classNames={{local self.styles "container" "is-wide" "is-inline"}}
+          />
+        </template>,
+      );
 
       assert
         .dom('[data-test-element]')
@@ -89,17 +86,16 @@ module('Integration | Helper | local', function (hooks) {
     test('globally scoped classes', async function (this: TestContext, assert) {
       const self = this;
 
-
-
-
-      await render(<template>
-      {{! prettier-ignore }}
-      <div
+      await render(
+        <template>
+          {{! prettier-ignore }}
+          <div
       class="p-4 {{local self.styles 'container' 'is-wide' 'is-inline'}} my-2"
       data-test-element
       >
       </div>
-      </template>);
+        </template>,
+      );
 
       assert
         .dom('[data-test-element]')
@@ -119,22 +115,21 @@ module('Integration | Helper | local', function (hooks) {
 
       const self = this;
 
-
-
-
-      await render(<template>
-      <div
-      class={{local
-      self.styles
-      "container"
-      (if self.arguments.isWide "is-wide")
-      (if self.arguments.isInline "is-inline")
-      (unless self.arguments.errorMessage "no-feedback")
-      }}
-      data-test-element
-      >
-      </div>
-      </template>);
+      await render(
+        <template>
+          <div
+            class={{local
+              self.styles
+              "container"
+              (if self.arguments.isWide "is-wide")
+              (if self.arguments.isInline "is-inline")
+              (unless self.arguments.errorMessage "no-feedback")
+            }}
+            data-test-element
+          >
+          </div>
+        </template>,
+      );
 
       assert
         .dom('[data-test-element]')
@@ -148,14 +143,13 @@ module('Integration | Helper | local', function (hooks) {
     test('splattributes', async function (this: TestContext, assert) {
       const self = this;
 
-
-
-
-      await render(<template>
-      <SomeComponentWithSplattributes
-      class={{local self.styles "container" "is-wide" "is-inline"}}
-      />
-      </template>);
+      await render(
+        <template>
+          <SomeComponentWithSplattributes
+            class={{local self.styles "container" "is-wide" "is-inline"}}
+          />
+        </template>,
+      );
 
       assert
         .dom('[data-test-element]')

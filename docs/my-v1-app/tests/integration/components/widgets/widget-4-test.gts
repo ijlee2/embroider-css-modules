@@ -8,9 +8,7 @@ module('Integration | Component | widgets/widget-4', function (hooks) {
   setupRenderingTest(hooks);
 
   test('The component renders', async function (this: TestContext, assert) {
-    await render(<template>
-    <Widgets::Widget-4 />
-    </template>);
+    await render(<template><Widgets::Widget-4 /></template>);
 
     assert
       .dom('[data-test-link="All memos"]')

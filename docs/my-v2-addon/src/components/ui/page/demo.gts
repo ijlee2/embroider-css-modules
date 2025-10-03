@@ -11,10 +11,9 @@ interface UiPageDemoSignature {
 export default class UiPageDemoComponent extends Component<UiPageDemoSignature> {
   styles = styles;
 
-
   <template>
-  <div class={{this.styles.demo}}>
-  {{yield}}
-  </div>
+    <div class={{this.styles.demo}}>
+      {{yield}}
+    </div>
   </template>
 }

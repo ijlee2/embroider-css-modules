@@ -5,35 +5,29 @@ import { local } from 'embroider-css-modules';
 import { UiPage } from 'my-v2-addon';
 
 <template>
-{{pageTitle "Page Not Found"}}
+  {{pageTitle "Page Not Found"}}
 
-<UiPage @title="404">
-  <p>Feeling lost? Un<em>contained</em>?</p>
-  <p>Don't worry. We all have our off days.</p>
+  <UiPage @title="404">
+    <p>Feeling lost? Un<em>contained</em>?</p>
+    <p>Don't worry. We all have our off days.</p>
 
-  <div class={{@controller.styles.animation}}>
-    <ContainerQuery
-      @features={{hash small=(width max=350)}}
-      as |CQ|
-    >
-      <div
-        class={{local
-          @controller.styles
-          "metaphor"
-          (if CQ.features.small "small-layout")
-        }}
-      >
-        <div class={{@controller.styles.mental-block}}>
-        </div>
-
+    <div class={{@controller.styles.animation}}>
+      <ContainerQuery @features={{hash small=(width max=350)}} as |CQ|>
         <div
-          aria-hidden="true"
-          class={{@controller.styles.the-next-idea}}
+          class={{local
+            @controller.styles
+            "metaphor"
+            (if CQ.features.small "small-layout")
+          }}
         >
-          embroider-<br />css-<br />modules
+          <div class={{@controller.styles.mental-block}}>
+          </div>
+
+          <div aria-hidden="true" class={{@controller.styles.the-next-idea}}>
+            embroider-<br />css-<br />modules
+          </div>
         </div>
-      </div>
-    </ContainerQuery>
-  </div>
-</UiPage>
+      </ContainerQuery>
+    </div>
+  </UiPage>
 </template>

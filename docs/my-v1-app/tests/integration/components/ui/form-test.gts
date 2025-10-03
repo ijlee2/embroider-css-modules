@@ -1,8 +1,7 @@
 import { hash } from '@ember/helper';
-import UiForm from 'my-v1-app/components/ui/form';
-
 import type { TestContext } from '@ember/test-helpers';
 import { find, render } from '@ember/test-helpers';
+import UiForm from 'my-v1-app/components/ui/form';
 import { module, test } from 'qunit';
 
 import { setupRenderingTest } from '../../../helpers';
@@ -11,46 +10,51 @@ module('Integration | Component | ui/form', function (hooks) {
   setupRenderingTest(hooks);
 
   test('The component renders a form', async function (this: TestContext, assert) {
-    await render(<template>
-    <UiForm
-    @data={{hash
-      email=undefined
-      message="I 🧡 CSS modules!"
-      name=undefined
-      subscribe=true
-    }}
-    @instructions="Still have questions about embroider-css-modules? Try sending me a message."
-    @title="Contact me"
-    as |F|
-    >
-    <div>
-      <F.Input
-        @isRequired={{true}}
-        @key="name"
-        @label="Name"
-        @placeholder="Zoey"
-      />
-    </div>
+    await render(
+      <template>
+        <UiForm
+          @data={{hash
+            email=undefined
+            message="I 🧡 CSS modules!"
+            name=undefined
+            subscribe=true
+          }}
+          @instructions="Still have questions about embroider-css-modules? Try sending me a message."
+          @title="Contact me"
+          as |F|
+        >
+          <div>
+            <F.Input
+              @isRequired={{true}}
+              @key="name"
+              @label="Name"
+              @placeholder="Zoey"
+            />
+          </div>
 
-    <div>
-      <F.Input
-        @isRequired={{true}}
-        @key="email"
-        @label="Email"
-        @placeholder="zoey@emberjs.com"
-        @type="email"
-      />
-    </div>
+          <div>
+            <F.Input
+              @isRequired={{true}}
+              @key="email"
+              @label="Email"
+              @placeholder="zoey@emberjs.com"
+              @type="email"
+            />
+          </div>
 
-    <div>
-      <F.Textarea @key="message" @label="Message" />
-    </div>
+          <div>
+            <F.Textarea @key="message" @label="Message" />
+          </div>
 
-    <div>
-      <F.Checkbox @key="subscribe" @label="Subscribe to The Ember Times?" />
-    </div>
-    </UiForm>
-    </template>);
+          <div>
+            <F.Checkbox
+              @key="subscribe"
+              @label="Subscribe to The Ember Times?"
+            />
+          </div>
+        </UiForm>
+      </template>,
+    );
 
     const titleId = find('[data-test-title]')!.getAttribute('id')!;
     const instructionsId = find('[data-test-instructions]')!.getAttribute(

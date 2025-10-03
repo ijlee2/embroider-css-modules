@@ -1,9 +1,8 @@
-import { local } from 'embroider-css-modules';
-
 import {
   render,
   type TestContext as BaseTestContext,
 } from '@ember/test-helpers';
+import { local } from 'embroider-css-modules';
 import { module, test } from 'qunit';
 
 import { setupRenderingTest } from '../../../helpers';
@@ -33,17 +32,16 @@ module('Integration | Helper | local', function (hooks) {
     test('ignores misspelled local class names', async function (this: TestContext, assert) {
       const self = this;
 
-
-
-
-      await render(<template>
-      <div
-      {{! @glint-expect-error: We are testing a special case (there are typos) }}
-      class={{local self.styles "ontainer" "is-wide" "is-inlin"}}
-      data-test-element
-      >
-      </div>
-      </template>);
+      await render(
+        <template>
+          <div
+            {{! @glint-expect-error: We are testing a special case (there are typos) }}
+            class={{local self.styles "ontainer" "is-wide" "is-inlin"}}
+            data-test-element
+          >
+          </div>
+        </template>,
+      );
 
       assert
         .dom('[data-test-element]')
@@ -57,22 +55,21 @@ module('Integration | Helper | local', function (hooks) {
     test('does not ignore duplicated local class names', async function (this: TestContext, assert) {
       const self = this;
 
-
-
-
-      await render(<template>
-      <div
-      class={{local
-      self.styles
-      "is-wide"
-      "container"
-      "is-wide"
-      "is-inline"
-      }}
-      data-test-element
-      >
-      </div>
-      </template>);
+      await render(
+        <template>
+          <div
+            class={{local
+              self.styles
+              "is-wide"
+              "container"
+              "is-wide"
+              "is-inline"
+            }}
+            data-test-element
+          >
+          </div>
+        </template>,
+      );
 
       assert
         .dom('[data-test-element]')

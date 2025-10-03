@@ -5,8 +5,8 @@ interface SomeComponentWithSplattributesSignature {
 }
 
 const SomeComponentWithSplattributesComponent = <template>
-<div data-test-element ...attributes>
-</div>
+  <div data-test-element ...attributes>
+  </div>
 </template> satisfies TOC<SomeComponentWithSplattributesSignature>;
 
 export default SomeComponentWithSplattributesComponent;

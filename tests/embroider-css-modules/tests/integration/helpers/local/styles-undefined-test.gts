@@ -1,11 +1,10 @@
-import { local } from 'embroider-css-modules';
-
 import {
   render,
   resetOnerror,
   setupOnerror,
   type TestContext as BaseTestContext,
 } from '@ember/test-helpers';
+import { local } from 'embroider-css-modules';
 import { module, test } from 'qunit';
 
 import { setupRenderingTest } from '../../../helpers';
@@ -29,17 +28,16 @@ module('Integration | Helper | local', function (hooks) {
 
       const self = this;
 
-
-
-
-      await render(<template>
-      <div
-      {{! @glint-expect-error: We are testing a special case (styles has an incorrect type) }}
-      class={{local self.styles}}
-      data-test-element
-      >
-      </div>
-      </template>);
+      await render(
+        <template>
+          <div
+            {{! @glint-expect-error: We are testing a special case (styles has an incorrect type) }}
+            class={{local self.styles}}
+            data-test-element
+          >
+          </div>
+        </template>,
+      );
 
       assert.throws(function () {
         throw new Error('The styles object is undefined.');
@@ -55,17 +53,16 @@ module('Integration | Helper | local', function (hooks) {
 
       const self = this;
 
-
-
-
-      await render(<template>
-      <div
-      {{! @glint-expect-error: We are testing a special case (styles has an incorrect type) }}
-      class={{local self.styles "container" "is-wide" "is-inline"}}
-      data-test-element
-      >
-      </div>
-      </template>);
+      await render(
+        <template>
+          <div
+            {{! @glint-expect-error: We are testing a special case (styles has an incorrect type) }}
+            class={{local self.styles "container" "is-wide" "is-inline"}}
+            data-test-element
+          >
+          </div>
+        </template>,
+      );
 
       assert.throws(function () {
         throw new Error('The styles object is undefined.');

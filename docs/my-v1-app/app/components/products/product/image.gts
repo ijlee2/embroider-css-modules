@@ -14,14 +14,13 @@ export default class ProductsProductImageComponent extends Component<ProductsPro
 
   styles = styles;
 
-
   <template>
-  {{#if this.isTestEnvironment}}
-  <div class={{this.styles.placeholder-image}}></div>
+    {{#if this.isTestEnvironment}}
+      <div class={{this.styles.placeholder-image}}></div>
 
-  {{else}}
-  <img alt="" class={{this.styles.image}} src={{@src}} />
+    {{else}}
+      <img alt="" class={{this.styles.image}} src={{@src}} />
 
-  {{/if}}
+    {{/if}}
   </template>
 }

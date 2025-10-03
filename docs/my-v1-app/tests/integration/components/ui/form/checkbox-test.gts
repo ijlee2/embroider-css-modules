@@ -1,8 +1,7 @@
-import UiFormCheckbox from 'my-v1-app/components/ui/form/checkbox';
-
 import { set } from '@ember/object';
 import type { TestContext as BaseTestContext } from '@ember/test-helpers';
 import { click, render, triggerKeyEvent } from '@ember/test-helpers';
+import UiFormCheckbox from 'my-v1-app/components/ui/form/checkbox';
 import { module, test } from 'qunit';
 
 import { setupRenderingTest } from '../../../../helpers';
@@ -31,17 +30,16 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
   test('The component renders a label and a checkbox', async function (this: TestContext, assert) {
     const self = this;
 
-
-
-
-    await render(<template>
-    <UiFormCheckbox
-    @changeset={{self.changeset}}
-    @key="subscribe"
-    @label="Subscribe to The Ember Times?"
-    @onUpdate={{self.updateChangeset}}
-    />
-    </template>);
+    await render(
+      <template>
+        <UiFormCheckbox
+          @changeset={{self.changeset}}
+          @key="subscribe"
+          @label="Subscribe to The Ember Times?"
+          @onUpdate={{self.updateChangeset}}
+        />
+      </template>,
+    );
 
     assert
       .dom('[data-test-label]')
@@ -66,18 +64,17 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
   test('We can pass @isDisabled to disable the input', async function (this: TestContext, assert) {
     const self = this;
 
-
-
-
-    await render(<template>
-    <UiFormCheckbox
-    @changeset={{self.changeset}}
-    @isDisabled={{true}}
-    @key="subscribe"
-    @label="Subscribe to The Ember Times?"
-    @onUpdate={{self.updateChangeset}}
-    />
-    </template>);
+    await render(
+      <template>
+        <UiFormCheckbox
+          @changeset={{self.changeset}}
+          @isDisabled={{true}}
+          @key="subscribe"
+          @label="Subscribe to The Ember Times?"
+          @onUpdate={{self.updateChangeset}}
+        />
+      </template>,
+    );
 
     assert
       .dom('[data-test-field="Subscribe to The Ember Times?"]')
@@ -89,18 +86,17 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
   test('We can pass @isReadOnly to display the value', async function (this: TestContext, assert) {
     const self = this;
 
-
-
-
-    await render(<template>
-    <UiFormCheckbox
-    @changeset={{self.changeset}}
-    @isReadOnly={{true}}
-    @key="subscribe"
-    @label="Subscribe to The Ember Times?"
-    @onUpdate={{self.updateChangeset}}
-    />
-    </template>);
+    await render(
+      <template>
+        <UiFormCheckbox
+          @changeset={{self.changeset}}
+          @isReadOnly={{true}}
+          @key="subscribe"
+          @label="Subscribe to The Ember Times?"
+          @onUpdate={{self.updateChangeset}}
+        />
+      </template>,
+    );
 
     assert
       .dom('[data-test-field="Subscribe to The Ember Times?"]')
@@ -112,18 +108,17 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
   test('We can pass @isRequired to require a value', async function (this: TestContext, assert) {
     const self = this;
 
-
-
-
-    await render(<template>
-    <UiFormCheckbox
-    @changeset={{self.changeset}}
-    @isRequired={{true}}
-    @key="subscribe"
-    @label="Subscribe to The Ember Times?"
-    @onUpdate={{self.updateChangeset}}
-    />
-    </template>);
+    await render(
+      <template>
+        <UiFormCheckbox
+          @changeset={{self.changeset}}
+          @isRequired={{true}}
+          @key="subscribe"
+          @label="Subscribe to The Ember Times?"
+          @onUpdate={{self.updateChangeset}}
+        />
+      </template>,
+    );
 
     assert
       .dom('[data-test-label]')
@@ -154,18 +149,17 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
 
     const self = this;
 
-
-
-
-    await render(<template>
-    <UiFormCheckbox
-    @changeset={{self.changeset}}
-    @isRequired={{true}}
-    @key="subscribe"
-    @label="Subscribe to The Ember Times?"
-    @onUpdate={{self.updateChangeset}}
-    />
-    </template>);
+    await render(
+      <template>
+        <UiFormCheckbox
+          @changeset={{self.changeset}}
+          @isRequired={{true}}
+          @key="subscribe"
+          @label="Subscribe to The Ember Times?"
+          @onUpdate={{self.updateChangeset}}
+        />
+      </template>,
+    );
 
     // Click the checkbox
     await click('[data-test-field="Subscribe to The Ember Times?"]');
@@ -211,18 +205,17 @@ module('Integration | Component | ui/form/checkbox', function (hooks) {
 
     const self = this;
 
-
-
-
-    await render(<template>
-    <UiFormCheckbox
-    @changeset={{self.changeset}}
-    @isRequired={{true}}
-    @key="subscribe"
-    @label="Subscribe to The Ember Times?"
-    @onUpdate={{self.updateChangeset}}
-    />
-    </template>);
+    await render(
+      <template>
+        <UiFormCheckbox
+          @changeset={{self.changeset}}
+          @isRequired={{true}}
+          @key="subscribe"
+          @label="Subscribe to The Ember Times?"
+          @onUpdate={{self.updateChangeset}}
+        />
+      </template>,
+    );
 
     // Press the Space key
     await triggerKeyEvent(
