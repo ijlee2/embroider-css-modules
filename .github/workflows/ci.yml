@@ -9,7 +9,7 @@ on:
 env:
   NODE_VERSION: 20
   PERCY_PARALLEL_NONCE: ${{ github.run_id }}-${{ github.run_number }}
-  PERCY_PARALLEL_TOTAL: 2
+  PERCY_PARALLEL_TOTAL: 1
 
 jobs:
   lint:
@@ -20,7 +20,6 @@ jobs:
         package-location:
           - 'docs/my-v1-addon'
           - 'docs/my-v1-app'
-          - 'docs/my-v1-app-with-ember-css-modules'
           - 'docs/my-v2-addon'
           - 'docs/my-v2-app'
           - 'packages/ember-codemod-remove-ember-css-modules'
@@ -58,7 +57,6 @@ jobs:
         package-location:
           - 'docs/my-v1-addon'
           - 'docs/my-v1-app'
-          - 'docs/my-v1-app-with-ember-css-modules'
           - 'docs/my-v2-addon'
           - 'docs/my-v2-app'
           - 'packages/ember-codemod-remove-ember-css-modules'
@@ -68,7 +66,7 @@ jobs:
           - 'tests/my-v2-addon'
     timeout-minutes: 5
     env:
-      RUN_PERCY: ${{ matrix.package-location == 'docs/my-v1-app' || matrix.package-location == 'docs/my-v1-app-with-ember-css-modules' }}
+      RUN_PERCY: ${{ matrix.package-location == 'docs/my-v1-app' }}
     steps:
       - name: Check out a copy of the repo
         uses: actions/checkout@v5
