@@ -100,7 +100,6 @@
     "embroider-css-modules": "workspace:*",
     "eslint": "^9.36.0",
     "loader.js": "^4.7.0",
-    "my-v1-addon": "workspace:*",
     "my-v2-addon": "workspace:*",
     "postcss": "^8.5.6",
     "postcss-loader": "^8.2.0",
