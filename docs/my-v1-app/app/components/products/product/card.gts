@@ -2,7 +2,7 @@ import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 import { ContainerQuery, width } from 'ember-container-query';
-import type { Product } from 'my-app/utils/routes/products';
+import type { Product } from 'my-v1-app/utils/routes/products';
 
 import styles from './card.module.css';
 import ProductsProductImage from './image';

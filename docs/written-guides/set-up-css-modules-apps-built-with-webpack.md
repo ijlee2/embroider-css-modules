@@ -327,7 +327,7 @@ import Component from '@glimmer/component';
 
 import styles from './hello.css';
 
-export default class HelloComponent extends Component {
+export default class Hello extends Component {
   styles = styles;
 }
 ```

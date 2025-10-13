@@ -332,7 +332,7 @@ interface NavigationMenuSignature {
   };
 }
 
-export default class NavigationMenuComponent extends Component<NavigationMenuSignature> {
+export default class NavigationMenu extends Component<NavigationMenuSignature> {
   styles = styles;
 }
 ```
@@ -393,7 +393,7 @@ interface NavigationMenuSignature {
   };
 }
 
-const NavigationMenuComponent: TOC<NavigationMenuSignature> =
+const NavigationMenu: TOC<NavigationMenuSignature> =
   <template>
     <nav aria-label={{@name}}>
       <ul class={{styles.list}}>
@@ -408,7 +408,7 @@ const NavigationMenuComponent: TOC<NavigationMenuSignature> =
     </nav>
   </template>
 
-export default NavigationMenuComponent;
+export default NavigationMenu;
 ```
 
 </details>

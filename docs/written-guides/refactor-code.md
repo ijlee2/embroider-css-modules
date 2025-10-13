@@ -130,7 +130,7 @@ import styles from './list.css';
 
 type ItemSpace = 'loose' | 'normal' | 'tight';
 
-interface UiListSignature {
+interface ListSignature {
   Args: {
     itemSpace?: ItemSpace;
   };
@@ -139,7 +139,7 @@ interface UiListSignature {
   };
 }
 
-export default class UiListComponent extends Component<UiListSignature> {
+export default class List extends Component<ListSignature> {
   styles = styles;
 
   get itemSpace() {
@@ -175,7 +175,7 @@ import styles from './list.css';
 
 type ItemSpace = 'loose' | 'normal' | 'tight';
 
-interface UiListSignature {
+interface ListSignature {
   Args: {
     itemSpace?: ItemSpace;
   };
@@ -184,7 +184,7 @@ interface UiListSignature {
   };
 }
 
-export default class UiListComponent extends Component<UiListSignature> {
+export default class List extends Component<ListSignature> {
   styles = styles;
 
   get itemSpaceClass() {
@@ -226,7 +226,7 @@ const itemSpaceClasses = {
 
 type ItemSpace = keyof typeof itemSpaceClasses;
 
-interface UiListSignature {
+interface ListSignature {
   Args: {
     itemSpace?: ItemSpace;
   };
@@ -235,7 +235,7 @@ interface UiListSignature {
   };
 }
 
-export default class UiListComponent extends Component<UiListSignature> {
+export default class List extends Component<ListSignature> {
   styles = styles;
 
   get itemSpaceClass() {
@@ -261,7 +261,7 @@ import styles from './list.css';
 
 type ItemSpace = 'loose' | 'normal' | 'tight';
 
-interface UiListSignature {
+interface ListSignature {
   Args: {
     itemSpace?: ItemSpace;
   };
@@ -270,7 +270,7 @@ interface UiListSignature {
   };
 }
 
-export default class UiListComponent extends Component<UiListSignature> {
+export default class List extends Component<ListSignature> {
   styles = styles;
 
   get itemSpaceClass() {
@@ -385,7 +385,7 @@ import Component from '@glimmer/component';
 import inputStyles from './input.css';
 import styles from './textarea.css';
 
-export default class UiFormTextareaComponent extends Component {
+export default class UiFormTextarea extends Component {
   inputStyles = inputStyles;
   styles = styles;
 }
