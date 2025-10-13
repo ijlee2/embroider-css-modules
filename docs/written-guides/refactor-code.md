@@ -18,7 +18,7 @@ Suppose we want to migrate the following code with `ember-css-modules`:
 ```hbs
 <div
   local-class="
-    message
+    container
     hide
   "
 >
@@ -26,12 +26,12 @@ Suppose we want to migrate the following code with `ember-css-modules`:
 </div>
 ```
 
-One option is to use the `{{concat}}` helper (i.e. pure Ember). Glint will alert typos in the words `this.styles`, `message`, or `hide`, but we have to ensure that a space exists between two styles.
+One option is to use the `{{concat}}` helper (i.e. pure Ember). Glint will alert typos in the words `this.styles`, `container`, or `hide`, but we have to ensure that a space exists between two styles.
 
 ```hbs
 <div
   class={{concat
-    this.styles.message
+    this.styles.container
     " "
     this.styles.hide
   }}
@@ -46,7 +46,7 @@ To improve DX, we use the `{{local}}` helper from `embroider-css-modules`.
 <div
   class={{local
     this.styles
-    "message"
+    "container"
     "hide"
   }}
 >
@@ -60,7 +60,7 @@ Thanks to the helper, it's easy to understand how we can apply a style condition
 <div
   class={{local
     this.styles
-    "message"
+    "container"
     (if this.someCondition "hide")
   }}
 >
@@ -68,13 +68,13 @@ Thanks to the helper, it's easy to understand how we can apply a style condition
 </div>
 ```
 
-To apply multiple styles conditionally, use the `{{array}}` helper. Again, Glint will find typos in the words `this.styles`, `message`, `hide`, and `after-3-sec`.
+To apply multiple styles conditionally, use the `{{array}}` helper. Again, Glint will find typos in the words `this.styles`, `container`, `hide`, and `after-3-sec`.
 
 ```hbs
 <div
   class={{local
     this.styles
-    "message"
+    "container"
     (if this.someCondition (array "hide" "after-3-sec"))
   }}
 >

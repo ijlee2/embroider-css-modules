@@ -50,7 +50,7 @@ In short, `embroider-css-modules` depends little on how CSS modules is implement
 
 `embroider-css-modules` is stable for v1 apps (Webpack), v2 apps (Vite), and v2 addons.
 
-There's no known implementation for v1 apps (classic) and v1 addons (including engines). These projects can use [`ember-css-modules`](https://github.com/salsify/ember-css-modules) in the meantime.
+There's no known implementation for v1 apps (classic) and v1 addons (including engines). You can use [`ember-css-modules`](https://github.com/salsify/ember-css-modules) for these projects.
 
 
 ## Contributing

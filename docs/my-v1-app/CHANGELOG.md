@@ -1,5 +1,16 @@
 # my-v1-app
 
+## 3.1.0
+
+### Minor Changes
+
+- [#184](https://github.com/ijlee2/embroider-css-modules/pull/184) Modernized code ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#185](https://github.com/ijlee2/embroider-css-modules/pull/185) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#183](https://github.com/ijlee2/embroider-css-modules/pull/183) Installed @embroider/legacy-inspector-support ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.0.5
 
 ### Patch Changes
