@@ -1,13 +1,12 @@
-import type { TestContext } from '@ember/test-helpers';
 import { render } from '@ember/test-helpers';
-import { setupRenderingTest } from 'ember-qunit';
 import ProductsProductImage from 'my-v1-app/components/products/product/image';
+import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 import { module, test } from 'qunit';
 
 module('Integration | Component | products/product/image', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('The component renders a placeholder in test environment', async function (this: TestContext, assert) {
+  test('it renders', async function (assert) {
     await render(
       <template>
         <ProductsProductImage
@@ -16,6 +15,6 @@ module('Integration | Component | products/product/image', function (hooks) {
       </template>,
     );
 
-    assert.dom('img').doesNotExist('We should not make a network request.');
+    assert.dom('img').doesNotExist();
   });
 });

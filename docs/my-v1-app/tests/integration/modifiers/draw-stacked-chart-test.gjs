@@ -1,8 +1,7 @@
 import { render } from '@ember/test-helpers';
 import drawStackedChart from 'my-v1-app/modifiers/draw-stacked-chart';
+import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 import { module, test } from 'qunit';
-
-import { setupRenderingTest } from '../../helpers';
 
 module('Integration | Modifier | draw-stacked-chart', function (hooks) {
   setupRenderingTest(hooks);

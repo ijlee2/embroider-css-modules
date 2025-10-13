@@ -1,11 +1,7 @@
-import type { TOC } from '@ember/component/template-only';
-
 import styles from './widget-4.module.css';
 import WidgetsWidget4Memo from './widget-4/memo';
 
-interface WidgetsWidget4Signature {}
-
-const WidgetsWidget4Component: TOC<WidgetsWidget4Signature> = <template>
+const WidgetsWidget4Component = <template>
   <section class={{styles.container}}>
     <header class={{styles.header}}>
       <h2>Widget 4</h2>
@@ -24,9 +20,3 @@ const WidgetsWidget4Component: TOC<WidgetsWidget4Signature> = <template>
 </template>;
 
 export default WidgetsWidget4Component;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-4': typeof WidgetsWidget4Component;
-  }
-}

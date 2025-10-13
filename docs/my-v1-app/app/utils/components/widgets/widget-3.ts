@@ -1,4 +1,4 @@
-import type { Image } from '../../../data/concert';
+import type { Image } from 'my-v1-app/data/concert';
 
 export type ContainerDimensions = {
   aspectRatio: number;

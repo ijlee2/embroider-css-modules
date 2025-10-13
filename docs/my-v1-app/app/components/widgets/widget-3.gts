@@ -1,9 +1,9 @@
 import type Owner from '@ember/owner';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import type { Concert } from 'my-v1-app/data/concert';
+import concertData from 'my-v1-app/data/concert';
 
-import type { Concert } from '../../data/concert';
-import concertData from '../../data/concert';
 import styles from './widget-3.module.css';
 import WidgetsWidget3TourSchedule from './widget-3/tour-schedule';
 
@@ -13,8 +13,6 @@ interface WidgetsWidget3Signature {
 
 export default class WidgetsWidget3Component extends Component<WidgetsWidget3Signature> {
   @tracked concertData = {} as Concert;
-
-  styles = styles;
 
   constructor(owner: Owner, args: WidgetsWidget3Signature['Args']) {
     super(owner, args);
@@ -27,18 +25,18 @@ export default class WidgetsWidget3Component extends Component<WidgetsWidget3Sig
   }
 
   <template>
-    <section class={{this.styles.container}}>
-      <header class={{this.styles.header}}>
+    <section class={{styles.container}}>
+      <header class={{styles.header}}>
         <h2>Widget 3</h2>
 
-        <div class={{this.styles.actions}}>
+        <div class={{styles.actions}}>
           <a data-test-link="All tours" href="#">
             All tours
           </a>
         </div>
       </header>
 
-      <div class={{this.styles.tour-schedule}} data-test-tour-schedule>
+      <div class={{styles.tour-schedule}} data-test-tour-schedule>
         <WidgetsWidget3TourSchedule @concert={{this.concertData}} />
       </div>
     </section>

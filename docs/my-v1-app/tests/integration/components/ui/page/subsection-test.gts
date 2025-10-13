@@ -1,9 +1,8 @@
 import { render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
+import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 import UiPageSubsection from 'my-v2-addon/components/ui/page/subsection';
 import { module, test } from 'qunit';
-
-import { setupRenderingTest } from '../../../../helpers';
 
 module('Integration | Component | ui/page/subsection', function (hooks) {
   setupRenderingTest(hooks);
@@ -26,15 +25,11 @@ module('Integration | Component | ui/page/subsection', function (hooks) {
 
     assert
       .dom('[data-test-subsection-title]')
-      .hasTagName('h3', 'The header level is correct.')
-      .hasText('Helper: {{local}}', 'We see the subsection title.');
+      .hasTagName('h3')
+      .hasText('Helper: {{local}}');
 
-    assert
-      .dom('[data-test-subsection-content]')
-      .hasText('Render a demo here.', 'We see the subsection content.');
+    assert.dom('[data-test-subsection-content]').hasText('Render a demo here.');
 
     await a11yAudit();
-
-    assert.ok(true, 'We passed Axe tests.');
   });
 });

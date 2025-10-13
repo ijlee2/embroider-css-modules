@@ -1,13 +1,10 @@
-import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import { ContainerQuery, height, width } from 'ember-container-query';
 import { and } from 'ember-truth-helpers';
 
 import styles from './widget-5.module.css';
 
-interface WidgetsWidget5Signature {}
-
-const WidgetsWidget5Component: TOC<WidgetsWidget5Signature> = <template>
+const WidgetsWidget5Component = <template>
   <ContainerQuery
     @features={{hash large=(width min=224) tall=(height min=120)}}
     @tagName="section"
@@ -39,9 +36,3 @@ const WidgetsWidget5Component: TOC<WidgetsWidget5Signature> = <template>
 </template>;
 
 export default WidgetsWidget5Component;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-5': typeof WidgetsWidget5Component;
-  }
-}

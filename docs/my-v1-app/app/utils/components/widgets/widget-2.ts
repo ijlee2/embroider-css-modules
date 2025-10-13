@@ -1,4 +1,4 @@
-import type { Revenue } from '../../../data/music-revenue';
+import type { Revenue } from 'my-v1-app/data/music-revenue';
 
 export type Data = {
   musicFormat: string;

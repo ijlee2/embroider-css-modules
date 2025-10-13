@@ -2,9 +2,9 @@ import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { containerQuery, type Dimensions } from 'ember-container-query';
+import type { Image } from 'my-v1-app/data/concert';
+import { findBestFittingImage } from 'my-v1-app/utils/components/widgets/widget-3';
 
-import type { Image } from '../../../../data/concert';
-import { findBestFittingImage } from '../../../../utils/components/widgets/widget-3';
 import styles from './responsive-image.module.css';
 
 interface WidgetsWidget3TourScheduleResponsiveImageSignature {
@@ -40,10 +40,4 @@ export default class WidgetsWidget3TourScheduleResponsiveImageComponent extends 
       {{/if}}
     </div>
   </template>
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-3::TourSchedule::ResponsiveImage': typeof WidgetsWidget3TourScheduleResponsiveImageComponent;
-  }
 }

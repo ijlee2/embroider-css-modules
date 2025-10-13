@@ -1,8 +1,8 @@
 import type { TOC } from '@ember/component/template-only';
-
 // eslint-disable-next-line import-x/default
-import drawStackedChart from '../../../modifiers/draw-stacked-chart';
-import type { Data } from '../../../utils/components/widgets/widget-2';
+import drawStackedChart from 'my-v1-app/modifiers/draw-stacked-chart';
+import type { Data } from 'my-v1-app/utils/components/widgets/widget-2';
+
 import styles from './stacked-chart.module.css';
 
 interface WidgetsWidget2StackedChartSignature {
@@ -24,9 +24,3 @@ const WidgetsWidget2StackedChartComponent: TOC<WidgetsWidget2StackedChartSignatu
   </template>;
 
 export default WidgetsWidget2StackedChartComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-2::StackedChart': typeof WidgetsWidget2StackedChartComponent;
-  }
-}

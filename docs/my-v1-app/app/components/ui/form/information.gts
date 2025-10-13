@@ -12,7 +12,7 @@ interface UiFormInformationSignature {
   };
 }
 
-const UiFormInformationComponent: TOC<UiFormInformationSignature> = <template>
+const UiFormInformation: TOC<UiFormInformationSignature> = <template>
   {{#if (or @title @instructions)}}
     <div class={{styles.container}}>
       {{#if @title}}
@@ -38,10 +38,4 @@ const UiFormInformationComponent: TOC<UiFormInformationSignature> = <template>
   {{/if}}
 </template>;
 
-export default UiFormInformationComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Ui::Form::Information': typeof UiFormInformationComponent;
-  }
-}
+export default UiFormInformation;

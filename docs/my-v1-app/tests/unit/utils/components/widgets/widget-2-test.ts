@@ -25,27 +25,19 @@ module('Unit | Utility | components/widgets/widget-2', function () {
     test('works', function (assert) {
       const data = createDataForVisualization(musicRevenue);
 
-      assert.strictEqual(data.length, 1058, 'There are 1058 data points.');
+      assert.strictEqual(data.length, 1058);
 
-      assert.deepEqual(
-        data[0],
-        {
-          musicFormat: '8 - Track',
-          year: 1973,
-          revenue: 2699600000,
-        },
-        'We created the first data point correctly.',
-      );
+      assert.deepEqual(data[0], {
+        musicFormat: '8 - Track',
+        year: 1973,
+        revenue: 2699600000,
+      });
 
-      assert.deepEqual(
-        data[data.length - 1],
-        {
-          musicFormat: 'Vinyl Single',
-          year: 2018,
-          revenue: 5300000,
-        },
-        'We created the last data point correctly.',
-      );
+      assert.deepEqual(data[data.length - 1], {
+        musicFormat: 'Vinyl Single',
+        year: 2018,
+        revenue: 5300000,
+      });
     });
   });
 
@@ -54,35 +46,27 @@ module('Unit | Utility | components/widgets/widget-2', function () {
       const data = createDataForVisualization(musicRevenue);
       const summaries = createSummariesForCaptions(data);
 
-      assert.strictEqual(summaries.length, 23, 'There are 23 summaries.');
+      assert.strictEqual(summaries.length, 23);
 
-      assert.deepEqual(
-        summaries[0],
-        {
-          musicFormat: '8 - Track',
-          markerColor: '#5B8DB8',
-          averageRevenue: '$2.3 billion',
-          relevantYears: {
-            min: 1973,
-            max: 1982,
-          },
+      assert.deepEqual(summaries[0], {
+        musicFormat: '8 - Track',
+        markerColor: '#5B8DB8',
+        averageRevenue: '$2.3 billion',
+        relevantYears: {
+          min: 1973,
+          max: 1982,
         },
-        'We created the first summary correctly.',
-      );
+      });
 
-      assert.deepEqual(
-        summaries[summaries.length - 1],
-        {
-          musicFormat: 'Vinyl Single',
-          markerColor: '#43719F',
-          averageRevenue: '$304.8 million',
-          relevantYears: {
-            min: 1973,
-            max: 2018,
-          },
+      assert.deepEqual(summaries[summaries.length - 1], {
+        musicFormat: 'Vinyl Single',
+        markerColor: '#43719F',
+        averageRevenue: '$304.8 million',
+        relevantYears: {
+          min: 1973,
+          max: 2018,
         },
-        'We created the last summary correctly.',
-      );
+      });
     });
   });
 });

@@ -6,8 +6,6 @@ import {
   type SetupTestOptions,
 } from 'ember-qunit';
 
-import { takeSnapshot } from './percy';
-
 // This file exists to provide wrappers around ember-qunit's
 // test setup functions. This way, you can easily extend the setup that is
 // needed per test type.
@@ -43,10 +41,7 @@ function setupTest(hooks: NestedHooks, options?: SetupTestOptions) {
   // Additional setup for unit tests can be done here.
 }
 
-export {
-  a11yAudit,
-  setupApplicationTest,
-  setupRenderingTest,
-  setupTest,
-  takeSnapshot,
-};
+export { a11yAudit, setupApplicationTest, setupRenderingTest, setupTest };
+
+export { UiForm } from './components/ui/form';
+export { takeSnapshot } from './percy';

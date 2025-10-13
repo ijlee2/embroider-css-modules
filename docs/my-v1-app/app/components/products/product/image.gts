@@ -1,5 +1,5 @@
+import type { TOC } from '@ember/component/template-only';
 import { isTesting, macroCondition } from '@embroider/macros';
-import Component from '@glimmer/component';
 
 import styles from './image.module.css';
 
@@ -9,18 +9,12 @@ interface ProductsProductImageSignature {
   };
 }
 
-export default class ProductsProductImageComponent extends Component<ProductsProductImageSignature> {
-  isTestEnvironment = macroCondition(isTesting()) ? true : false;
+const ProductsProductImage: TOC<ProductsProductImageSignature> = macroCondition(
+  isTesting(),
+)
+  ? <template>
+      <div class={{styles.placeholder-image}}></div>
+    </template>
+  : <template><img alt="" class={{styles.image}} src={{@src}} /></template>;
 
-  styles = styles;
-
-  <template>
-    {{#if this.isTestEnvironment}}
-      <div class={{this.styles.placeholder-image}}></div>
-
-    {{else}}
-      <img alt="" class={{this.styles.image}} src={{@src}} />
-
-    {{/if}}
-  </template>
-}
+export default ProductsProductImage;

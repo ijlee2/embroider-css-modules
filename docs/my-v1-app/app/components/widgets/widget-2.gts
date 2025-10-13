@@ -3,13 +3,16 @@ import type Owner from '@ember/owner';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { ContainerQuery, height } from 'ember-container-query';
-
-import musicRevenue from '../../data/music-revenue';
-import type { Data, Summary } from '../../utils/components/widgets/widget-2';
+import musicRevenue from 'my-v1-app/data/music-revenue';
+import type {
+  Data,
+  Summary,
+} from 'my-v1-app/utils/components/widgets/widget-2';
 import {
   createDataForVisualization,
   createSummariesForCaptions,
-} from '../../utils/components/widgets/widget-2';
+} from 'my-v1-app/utils/components/widgets/widget-2';
+
 import styles from './widget-2.module.css';
 import WidgetsWidget2Captions from './widget-2/captions';
 import WidgetsWidget2StackedChart from './widget-2/stacked-chart';
@@ -21,8 +24,6 @@ interface WidgetsWidget2Signature {
 export default class WidgetsWidget2Component extends Component<WidgetsWidget2Signature> {
   @tracked data = [] as Data[];
   @tracked summaries = [] as Summary[];
-
-  styles = styles;
 
   constructor(owner: Owner, args: WidgetsWidget2Signature['Args']) {
     super(owner, args);
@@ -43,7 +44,7 @@ export default class WidgetsWidget2Component extends Component<WidgetsWidget2Sig
         very-tall=(height min=480)
       }}
       @tagName="section"
-      class={{this.styles.container}}
+      class={{styles.container}}
       as |CQ|
     >
       <header>
@@ -51,12 +52,12 @@ export default class WidgetsWidget2Component extends Component<WidgetsWidget2Sig
       </header>
 
       {{#unless CQ.features.short}}
-        <div class={{this.styles.visualization}} data-test-visualization>
+        <div class={{styles.visualization}} data-test-visualization>
           <WidgetsWidget2StackedChart @data={{this.data}} />
         </div>
       {{/unless}}
 
-      <div class={{this.styles.captions}} data-test-captions>
+      <div class={{styles.captions}} data-test-captions>
         <WidgetsWidget2Captions @summaries={{this.summaries}} />
       </div>
     </ContainerQuery>

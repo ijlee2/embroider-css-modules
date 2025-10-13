@@ -1,11 +1,13 @@
-import type { TestContext as BaseTestContext } from '@ember/test-helpers';
-import { render } from '@ember/test-helpers';
+import {
+  render,
+  type TestContext as BaseTestContext,
+} from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
-import { setupRenderingTest } from 'ember-qunit';
-// @ts-expect-error: File '/docs/my-v1-app/app/components/products/product/card.ts' is not a module.
+// @ts-expect-error: File '/my-v1-app/app/components/products/product/card.ts' is not a module.
 import ProductsProductCard from 'my-v1-app/components/products/product/card';
 import styles from 'my-v1-app/components/products/product/card.module.css';
 import type { Product } from 'my-v1-app/data/products';
+import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 import { module, test } from 'qunit';
 
 interface TestContext extends BaseTestContext {
@@ -19,8 +21,7 @@ module('Integration | Component | products/product/card', function (hooks) {
     this.product = {
       description: 'Made with organic herbs',
       id: '1',
-      imageUrl:
-        'https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg?auto=compress&cs=tinysrgb&dpr=1&h=256',
+      imageUrl: '',
       name: 'Vanilla Ice Cream Cake',
       price: 40,
       rating: 4.5,
@@ -29,69 +30,48 @@ module('Integration | Component | products/product/card', function (hooks) {
     };
   });
 
-  test('The component renders a product', async function (this: TestContext, assert) {
-    const self = this;
+  test('it renders', async function (this: TestContext, assert) {
+    const { product } = this;
 
     await render(
       <template>
         <ProductsProductCard
-          @product={{self.product}}
+          @product={{product}}
           @redirectTo="products.product"
         />
       </template>,
     );
 
-    assert
-      .dom('[data-test-field="Name"]')
-      .hasText('Vanilla Ice Cream Cake', 'We see the product name.');
+    assert.dom('[data-test-field="Name"]').hasText('Vanilla Ice Cream Cake');
 
     assert
       .dom('[data-test-field="Short Description"]')
-      .hasText(
-        'Made with organic herbs',
-        'We see the product short description.',
-      );
+      .hasText('Made with organic herbs');
 
-    assert
-      .dom('[data-test-field="Price"]')
-      .hasText('$40', 'We see the product price.');
+    assert.dom('[data-test-field="Price"]').hasText('$40');
 
     assert
       .dom('[data-test-link="Learn More"]')
-      .hasTagName('a', 'We see the correct tag name.')
-      .hasText('Learn more', 'We see the learn more link.');
+      .hasTagName('a')
+      .hasText('Learn more');
 
-    await a11yAudit({
-      rules: {
-        'scrollable-region-focusable': {
-          enabled: false,
-        },
-      },
-    });
-
-    assert.ok(true, 'We passed the accessibility audit.');
+    await a11yAudit();
   });
 
   test('CSS modules', async function (this: TestContext, assert) {
-    const self = this;
+    const { product } = this;
 
     await render(
       <template>
         <ProductsProductCard
-          @product={{self.product}}
+          @product={{product}}
           @redirectTo="products.product"
         />
       </template>,
     );
 
-    assert
-      .dom('[data-test-link="Learn More"]')
-      .hasClass(styles.link, 'We see the local class name.')
-      .hasStyle(
-        {
-          'text-decoration-line': 'none',
-        },
-        'We see the applied style.',
-      );
+    assert.dom('[data-test-link="Learn More"]').hasClass(styles.link).hasStyle({
+      'text-decoration-line': 'none',
+    });
   });
 });

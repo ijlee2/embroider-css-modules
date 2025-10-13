@@ -1,15 +1,16 @@
 import { hash } from '@ember/helper';
-import type { TestContext } from '@ember/test-helpers';
 import { find, render } from '@ember/test-helpers';
+import { a11yAudit } from 'ember-a11y-testing/test-support';
 import UiForm from 'my-v1-app/components/ui/form';
+import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 import { module, test } from 'qunit';
-
-import { setupRenderingTest } from '../../../helpers';
 
 module('Integration | Component | ui/form', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('The component renders a form', async function (this: TestContext, assert) {
+  test('it renders', async function (assert) {
+    const doNothing = () => {};
+
     await render(
       <template>
         <UiForm
@@ -20,6 +21,8 @@ module('Integration | Component | ui/form', function (hooks) {
             subscribe=true
           }}
           @instructions="Still have questions about embroider-css-modules? Try sending me a message."
+          {{! @glint-expect-error: Incorrect type }}
+          @onSubmit={{doNothing}}
           @title="Contact me"
           as |F|
         >
@@ -63,19 +66,17 @@ module('Integration | Component | ui/form', function (hooks) {
 
     assert
       .dom('[data-test-form="Contact me"]')
-      .hasAria(
-        'describedby',
-        instructionsId,
-        'We see the correct aria-describedby.',
-      )
-      .hasAria('labelledby', titleId, 'We see the correct aria-labelledby.');
+      .hasAria('describedby', instructionsId)
+      .hasAria('labelledby', titleId);
 
-    assert.dom('[data-test-field]').exists({ count: 4 }, 'We see 4 fields.');
+    assert.dom('[data-test-field]').exists({ count: 4 });
 
     assert
       .dom('[data-test-button="Submit"]')
-      .hasAttribute('type', 'submit', 'We see the correct type.')
-      .hasTagName('button', 'We see the correct tag name.')
-      .hasText('Submit', 'We see the submit button.');
+      .hasAttribute('type', 'submit')
+      .hasTagName('button')
+      .hasText('Submit');
+
+    await a11yAudit();
   });
 });
