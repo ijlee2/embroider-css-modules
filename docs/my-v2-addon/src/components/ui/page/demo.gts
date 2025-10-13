@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-import styles from './demo.css';
+import styles from './demo.module.css';
 
 interface UiPageDemoSignature {
   Blocks: {

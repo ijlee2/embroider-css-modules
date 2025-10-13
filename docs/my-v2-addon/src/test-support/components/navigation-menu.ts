@@ -1,4 +1,4 @@
-import styles from '../../components/navigation-menu.css';
+import styles from '../../components/navigation-menu.module.css';
 
 type LocalClassName = keyof typeof styles;
 
