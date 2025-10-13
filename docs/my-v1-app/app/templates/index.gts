@@ -1,12 +1,19 @@
-import { local } from 'embroider-css-modules';
+import type { TOC } from '@ember/component/template-only';
 import { UiPage } from 'my-v2-addon';
+
+import styles from './index.module.css';
+
+interface IndexSignature {
+  controller: unknown;
+  model: unknown;
+}
 
 <template>
   <UiPage @title="Welcome!">
     <p>
       Thanks for trying out
       <a
-        class={{local @controller.styles "code"}}
+        class={{styles.code}}
         data-test-link="embroider-css-modules"
         href="https://github.com/ijlee2/embroider-css-modules"
         rel="noopener noreferrer"
@@ -21,4 +28,4 @@ import { UiPage } from 'my-v2-addon';
       inspect the DOM.
     </p>
   </UiPage>
-</template>
+</template> satisfies TOC<IndexSignature>;

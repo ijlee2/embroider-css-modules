@@ -1,13 +1,10 @@
-import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import { aspectRatio, ContainerQuery } from 'ember-container-query';
 
-import styles from './widget-1.css';
+import styles from './widget-1.module.css';
 import WidgetsWidget1Item from './widget-1/item';
 
-interface WidgetsWidget1Signature {}
-
-const WidgetsWidget1Component: TOC<WidgetsWidget1Signature> = <template>
+const WidgetsWidget1Component = <template>
   <ContainerQuery
     @features={{hash
       square=(aspectRatio max=1.25 min=0.8)
@@ -38,9 +35,3 @@ const WidgetsWidget1Component: TOC<WidgetsWidget1Signature> = <template>
 </template>;
 
 export default WidgetsWidget1Component;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-1': typeof WidgetsWidget1Component;
-  }
-}

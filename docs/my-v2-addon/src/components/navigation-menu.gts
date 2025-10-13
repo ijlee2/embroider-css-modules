@@ -2,7 +2,7 @@ import { LinkTo } from '@ember/routing';
 import Component from '@glimmer/component';
 import { local } from 'embroider-css-modules';
 
-import styles from './navigation-menu.css';
+import styles from './navigation-menu.module.css';
 
 type MenuItem = {
   label: string;

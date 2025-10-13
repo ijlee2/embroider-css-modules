@@ -8,9 +8,9 @@ import { modifier } from 'ember-modifier';
 import svgJar from 'ember-svg-jar/helpers/svg-jar';
 import { or } from 'ember-truth-helpers';
 import { local } from 'embroider-css-modules';
+import type { Summary } from 'my-v1-app/utils/components/widgets/widget-2';
 
-import type { Summary } from '../../../utils/components/widgets/widget-2';
-import styles from './captions.css';
+import styles from './captions.module.css';
 
 const colorSvg = modifier((container: Element, [color]: [string]) => {
   const svgElement = container.querySelector('svg');
@@ -30,9 +30,6 @@ interface WidgetsWidget2CaptionsSignature {
 
 export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWidget2CaptionsSignature> {
   @tracked currentIndex = 0;
-
-  colorSvg = colorSvg;
-  styles = styles;
 
   get canShowNextButton(): boolean {
     return this.currentIndex < this.summaries.length - 1;
@@ -64,13 +61,11 @@ export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWi
       @features={{hash large=(width min=320) tall=(height min=80)}}
       as |CQ|
     >
-      <div
-        class={{local this.styles "container" (unless CQ.features.tall "flat")}}
-      >
+      <div class={{local styles "container" (unless CQ.features.tall "flat")}}>
         {{#if this.summary}}
           <div
             class={{local
-              this.styles
+              styles
               "summary"
               (if CQ.features.large "horizontal-layout")
             }}
@@ -78,14 +73,14 @@ export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWi
           >
             <h3
               class={{local
-                this.styles
+                styles
                 "music-format"
                 (unless CQ.features.large "small-font-size")
               }}
             >
               <span
-                class={{this.styles.marker}}
-                {{this.colorSvg this.summary.markerColor}}
+                class={{styles.marker}}
+                {{colorSvg this.summary.markerColor}}
               >
                 {{svgJar
                   "stop"
@@ -100,27 +95,27 @@ export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWi
             </h3>
 
             <div
-              class={{this.styles.annual-revenue}}
+              class={{styles.annual-revenue}}
               data-test-field="Annual Revenue"
             >
               {{#if (or CQ.features.tall CQ.features.large)}}
                 <span>Annual revenue:</span>
               {{/if}}
 
-              <span class={{this.styles.highlight}}>
+              <span class={{styles.highlight}}>
                 {{this.summary.averageRevenue}}
               </span>
             </div>
 
             <div
-              class={{this.styles.relevant-years}}
+              class={{styles.relevant-years}}
               data-test-field="Relevant Years"
             >
               {{#if (or CQ.features.tall CQ.features.large)}}
                 <span>Relevant years:</span>
               {{/if}}
 
-              <span class={{this.styles.highlight}}>
+              <span class={{styles.highlight}}>
                 {{this.summary.relevantYears.min}}
                 -
                 {{this.summary.relevantYears.max}}
@@ -131,7 +126,7 @@ export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWi
           {{#if this.canShowPreviousButton}}
             <button
               aria-label="Previous"
-              class={{this.styles.previous-button}}
+              class={{styles.previous-button}}
               data-test-button="Previous"
               type="button"
               {{on "click" (fn this.showNextSummary -1)}}
@@ -142,7 +137,7 @@ export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWi
               {{else}}
                 {{svgJar
                   "chevron-left"
-                  class=(local this.styles "icon")
+                  class=(local styles "icon")
                   desc="A chevron arrow pointing left"
                   role="img"
                 }}
@@ -154,7 +149,7 @@ export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWi
           {{#if this.canShowNextButton}}
             <button
               aria-label="Next"
-              class={{this.styles.next-button}}
+              class={{styles.next-button}}
               data-test-button="Next"
               type="button"
               {{on "click" (fn this.showNextSummary 1)}}
@@ -165,7 +160,7 @@ export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWi
               {{else}}
                 {{svgJar
                   "chevron-right"
-                  class=(local this.styles "icon")
+                  class=(local styles "icon")
                   desc="A chevron arrow pointing right"
                   role="img"
                 }}

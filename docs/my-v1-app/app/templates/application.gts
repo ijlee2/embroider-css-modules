@@ -1,13 +1,21 @@
+import type { TOC } from '@ember/component/template-only';
 import { array, hash } from '@ember/helper';
 import { NavigationNarrator } from 'ember-a11y-refocus';
 import { pageTitle } from 'ember-page-title';
 import { NavigationMenu } from 'my-v2-addon';
 
+import styles from './application.module.css';
+
+interface ApplicationSignature {
+  controller: unknown;
+  model: unknown;
+}
+
 <template>
   {{pageTitle "Embroider CSS Modules"}}
 
-  <div class={{@controller.styles.application}}>
-    <header class={{@controller.styles.header}}>
+  <div class={{styles.application}}>
+    <header class={{styles.header}}>
       <NavigationNarrator @skipTo="#main-content" />
 
       <NavigationMenu
@@ -21,17 +29,17 @@ import { NavigationMenu } from 'my-v2-addon';
       />
     </header>
 
-    <main class={{@controller.styles.main}}>
-      <div class={{@controller.styles.center}}>
+    <main class={{styles.main}}>
+      <div class={{styles.center}}>
         {{outlet}}
       </div>
     </main>
 
-    <footer class={{@controller.styles.footer}}>
-      <span class={{@controller.styles.copyright}}>
+    <footer class={{styles.footer}}>
+      <span class={{styles.copyright}}>
         Created by
         <a
-          class={{@controller.styles.link}}
+          class={{styles.link}}
           href="https://www.linkedin.com/in/ijlee2/"
           rel="noopener noreferrer"
           target="_blank"
@@ -42,4 +50,4 @@ import { NavigationMenu } from 'my-v2-addon';
       </span>
     </footer>
   </div>
-</template>
+</template> satisfies TOC<ApplicationSignature>;

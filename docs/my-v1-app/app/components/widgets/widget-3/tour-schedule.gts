@@ -1,9 +1,9 @@
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import { ContainerQuery, width } from 'ember-container-query';
+import type { Concert } from 'my-v1-app/data/concert';
 
-import type { Concert } from '../../../data/concert';
-import styles from './tour-schedule.css';
+import styles from './tour-schedule.module.css';
 import WidgetsWidget3TourScheduleResponsiveImage from './tour-schedule/responsive-image';
 
 interface WidgetsWidget3TourScheduleSignature {
@@ -50,9 +50,3 @@ const WidgetsWidget3TourScheduleComponent: TOC<WidgetsWidget3TourScheduleSignatu
   </template>;
 
 export default WidgetsWidget3TourScheduleComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-3::TourSchedule': typeof WidgetsWidget3TourScheduleComponent;
-  }
-}

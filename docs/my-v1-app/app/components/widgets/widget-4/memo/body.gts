@@ -3,7 +3,7 @@ import type { QueryResults } from 'ember-container-query';
 import { or } from 'ember-truth-helpers';
 import { local } from 'embroider-css-modules';
 
-import styles from './body.css';
+import styles from './body.module.css';
 
 interface WidgetsWidget4MemoBodySignature {
   Args: {
@@ -51,9 +51,3 @@ const WidgetsWidget4MemoBodyComponent: TOC<WidgetsWidget4MemoBodySignature> =
   </template>;
 
 export default WidgetsWidget4MemoBodyComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-4::Memo::Body': typeof WidgetsWidget4MemoBodyComponent;
-  }
-}

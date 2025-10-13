@@ -2,7 +2,7 @@ import { hash } from '@ember/helper';
 import Component from '@glimmer/component';
 import type { WithBoundArgs } from '@glint/template';
 
-import styles from './page.css';
+import styles from './page.module.css';
 import UiPageDemo from './page/demo.gts';
 import UiPageSection from './page/section.gts';
 import UiPageSubsection from './page/subsection.gts';

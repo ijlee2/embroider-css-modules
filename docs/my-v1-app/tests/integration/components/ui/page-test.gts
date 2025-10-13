@@ -1,10 +1,9 @@
 import { render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
+import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 import { UiPage } from 'my-v2-addon';
 import { getClassForUiPage } from 'my-v2-addon/test-support';
 import { module, test } from 'qunit';
-
-import { setupRenderingTest } from '../../../helpers';
 
 module('Integration | Component | ui/page', function (hooks) {
   setupRenderingTest(hooks);
@@ -18,18 +17,11 @@ module('Integration | Component | ui/page', function (hooks) {
       </template>,
     );
 
-    assert
-      .dom('[data-test-page-title]')
-      .hasTagName('h1', 'The header level is correct.')
-      .hasText('Form', 'We see the page title.');
+    assert.dom('[data-test-page-title]').hasTagName('h1').hasText('Form');
 
-    assert
-      .dom('[data-test-page-content]')
-      .hasText('Render a section here.', 'We see the page content.');
+    assert.dom('[data-test-page-content]').hasText('Render a section here.');
 
     await a11yAudit();
-
-    assert.ok(true, 'We passed Axe tests.');
   });
 
   test('CSS modules', async function (assert) {
@@ -43,13 +35,10 @@ module('Integration | Component | ui/page', function (hooks) {
 
     assert
       .dom('[data-test-page-title]')
-      .hasClass(getClassForUiPage('title'), 'We see the local class name.')
-      .hasStyle(
-        {
-          'font-weight': '700',
-        },
-        'We see the applied style.',
-      );
+      .hasClass(getClassForUiPage('title'))
+      .hasStyle({
+        'font-weight': '700',
+      });
   });
 
   test('We can render sections and subsections', async function (assert) {
@@ -94,16 +83,10 @@ module('Integration | Component | ui/page', function (hooks) {
       </template>,
     );
 
-    assert
-      .dom('[data-test-section-title]')
-      .exists({ count: 1 }, 'We see 1 section.');
+    assert.dom('[data-test-section-title]').exists({ count: 1 });
 
-    assert
-      .dom('[data-test-subsection-title]')
-      .exists({ count: 2 }, 'We see 2 subsections.');
+    assert.dom('[data-test-subsection-title]').exists({ count: 2 });
 
     await a11yAudit();
-
-    assert.ok(true, 'We passed Axe tests.');
   });
 });

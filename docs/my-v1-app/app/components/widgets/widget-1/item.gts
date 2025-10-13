@@ -1,6 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 
-import styles from './item.css';
+import styles from './item.module.css';
 
 interface WidgetsWidget1ItemSignature {
   Args: {
@@ -17,9 +17,3 @@ const WidgetsWidget1ItemComponent: TOC<WidgetsWidget1ItemSignature> = <template>
 </template>;
 
 export default WidgetsWidget1ItemComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-1::Item': typeof WidgetsWidget1ItemComponent;
-  }
-}

@@ -6,7 +6,7 @@ import svgJar from 'ember-svg-jar/helpers/svg-jar';
 import { or } from 'ember-truth-helpers';
 import { local } from 'embroider-css-modules';
 
-import styles from './actions.css';
+import styles from './actions.module.css';
 
 interface WidgetsWidget4MemoActionsSignature {
   Args: {
@@ -58,9 +58,3 @@ const WidgetsWidget4MemoActionsComponent: TOC<WidgetsWidget4MemoActionsSignature
   </template>;
 
 export default WidgetsWidget4MemoActionsComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-4::Memo::Actions': typeof WidgetsWidget4MemoActionsComponent;
-  }
-}

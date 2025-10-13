@@ -1,16 +1,14 @@
-import type { TestContext } from '@ember/test-helpers';
 import { render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import UiFormField from 'my-v1-app/components/ui/form/field';
-import styles from 'my-v1-app/components/ui/form/field.css';
+import styles from 'my-v1-app/components/ui/form/field.module.css';
+import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 import { module, test } from 'qunit';
-
-import { setupRenderingTest } from '../../../../helpers';
 
 module('Integration | Component | ui/form/field', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('The component handles the field layout', async function (this: TestContext, assert) {
+  test('it renders', async function (assert) {
     await render(
       <template>
         <UiFormField>
@@ -29,31 +27,21 @@ module('Integration | Component | ui/form/field', function (hooks) {
 
     assert
       .dom('[data-test-field-container]')
-      .hasClass(styles['container'], 'We see the container class.')
-      .doesNotHaveClass(
-        styles['is-inline'],
-        'We should not see the is-inline class.',
-      )
-      .doesNotHaveClass(
-        styles['is-wide'],
-        'We should not see the is-wide class.',
-      )
-      .hasClass(styles['no-feedback'], 'We see the no-feedback class.');
+      .hasClass(styles['container'])
+      .doesNotHaveClass(styles['is-inline'])
+      .doesNotHaveClass(styles['is-wide'])
+      .hasClass(styles['no-feedback']);
 
-    assert.dom('[data-test-label]').hasText('Name', 'We see the label.');
+    assert.dom('[data-test-label]').hasText('Name');
 
-    assert.dom('[data-test-field="Name"]').hasValue('', 'We see the field.');
+    assert.dom('[data-test-field="Name"]').hasNoValue();
 
-    assert
-      .dom('[data-test-feedback]')
-      .doesNotExist('We should not see an error message.');
+    assert.dom('[data-test-error-message]').doesNotExist();
 
     await a11yAudit();
-
-    assert.ok(true, 'We passed the accessibility audit.');
   });
 
-  test('We can pass @errorMessage to show an error message', async function (this: TestContext, assert) {
+  test('We can pass @errorMessage to show an error message', async function (assert) {
     await render(
       <template>
         <UiFormField @errorMessage="Please provide a value.">
@@ -77,22 +65,11 @@ module('Integration | Component | ui/form/field', function (hooks) {
 
     assert
       .dom('[data-test-field-container]')
-      .hasClass(styles['container'], 'We see the container class.')
-      .doesNotHaveClass(
-        styles['is-inline'],
-        'We should not see the is-inline class.',
-      )
-      .doesNotHaveClass(
-        styles['is-wide'],
-        'We should not see the is-wide class.',
-      )
-      .doesNotHaveClass(
-        styles['no-feedback'],
-        'We should not see the no-feedback class.',
-      );
+      .hasClass(styles['container'])
+      .doesNotHaveClass(styles['is-inline'])
+      .doesNotHaveClass(styles['is-wide'])
+      .doesNotHaveClass(styles['no-feedback']);
 
-    assert
-      .dom('[data-test-feedback]')
-      .hasText('Please provide a value.', 'We see the error message.');
+    assert.dom('[data-test-error-message]').hasText('Please provide a value.');
   });
 });

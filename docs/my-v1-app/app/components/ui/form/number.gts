@@ -4,13 +4,13 @@ import Component from '@glimmer/component';
 import { or } from 'ember-truth-helpers';
 import { local } from 'embroider-css-modules';
 import UiFormField from 'my-v1-app/components/ui/form/field';
+import { generateErrorMessage } from 'my-v1-app/utils/components/ui/form';
 
-import { generateErrorMessage } from '../../../utils/components/ui/form';
-import styles from './number.css';
+import styles from './number.module.css';
 
 interface UiFormNumberSignature {
   Args: {
-    changeset: Record<string, any>;
+    data: Record<string, unknown>;
     isDisabled?: boolean;
     isReadOnly?: boolean;
     isRequired?: boolean;
@@ -19,16 +19,14 @@ interface UiFormNumberSignature {
     label: string;
     maxValue?: number;
     minValue?: number;
-    onUpdate: ({ key, value }: { key: string; value: any }) => void;
+    onUpdate: ({ key, value }: { key: string; value: unknown }) => void;
     placeholder?: string;
     step?: number | 'any';
     type?: string;
   };
 }
 
-export default class UiFormNumberComponent extends Component<UiFormNumberSignature> {
-  styles = styles;
-
+export default class UiFormNumber extends Component<UiFormNumberSignature> {
   get errorMessage(): string | undefined {
     const { isRequired } = this.args;
 
@@ -40,21 +38,22 @@ export default class UiFormNumberComponent extends Component<UiFormNumberSignatu
   }
 
   get value(): string {
-    const { changeset, key } = this.args;
+    const { data, key } = this.args;
 
-    return ((get(changeset, key) as string) ?? '').toString();
+    return ((get(data, key) as string) ?? '').toString();
   }
 
   @action updateValue(event: Event): void {
     const { key, onUpdate } = this.args;
-    const { value } = event.target as HTMLInputElement;
+    const isValid = (event.target as HTMLInputElement).checkValidity();
 
-    const valueAsNumber = Number.parseFloat(value);
-
-    if (Number.isNaN(valueAsNumber)) {
+    if (!isValid) {
       onUpdate({ key, value: undefined });
       return;
     }
+
+    const { value } = event.target as HTMLInputElement;
+    const valueAsNumber = Number.parseFloat(value);
 
     onUpdate({ key, value: valueAsNumber });
   }
@@ -76,7 +75,7 @@ export default class UiFormNumberComponent extends Component<UiFormNumberSignatu
       <:field as |f|>
         <input
           class={{local
-            this.styles
+            styles
             "input"
             (if (or @isDisabled @isReadOnly) "is-disabled")
           }}

@@ -1,4 +1,4 @@
-import styles from '../../../components/ui/page.css';
+import styles from '../../../components/ui/page.module.css';
 
 type LocalClassName = keyof typeof styles;
 
