@@ -11,6 +11,9 @@ module('Acceptance | index', function (hooks) {
 
     assert
       .dom('[data-test-link="embroider-css-modules"]')
-      .hasClass('controllers-index__code', 'We see the correct class name.');
+      .hasClass(
+        'controllers-index-module__code',
+        'We see the correct class name.',
+      );
   });
 });

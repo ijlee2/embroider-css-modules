@@ -7,7 +7,7 @@ import { local } from 'embroider-css-modules';
 import UiFormField from 'my-v1-app/components/ui/form/field';
 
 import { generateErrorMessage } from '../../../utils/components/ui/form';
-import styles from './input.css';
+import styles from './input.module.css';
 
 interface UiFormInputSignature {
   Args: {

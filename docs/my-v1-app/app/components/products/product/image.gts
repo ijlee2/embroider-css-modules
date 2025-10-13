@@ -1,7 +1,7 @@
 import { isTesting, macroCondition } from '@embroider/macros';
 import Component from '@glimmer/component';
 
-import styles from './image.css';
+import styles from './image.module.css';
 
 interface ProductsProductImageSignature {
   Args: {

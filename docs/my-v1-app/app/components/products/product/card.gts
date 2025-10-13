@@ -4,7 +4,7 @@ import Component from '@glimmer/component';
 import { ContainerQuery, width } from 'ember-container-query';
 
 import type { Product } from '../../../data/products';
-import styles from './card.css';
+import styles from './card.module.css';
 import ProductsProductImage from './image';
 
 interface ProductsProductCardSignature {

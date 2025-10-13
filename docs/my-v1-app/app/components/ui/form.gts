@@ -12,7 +12,7 @@ import UiFormInput from 'my-v1-app/components/ui/form/input';
 import UiFormNumber from 'my-v1-app/components/ui/form/number';
 import UiFormTextarea from 'my-v1-app/components/ui/form/textarea';
 
-import styles from './form.css';
+import styles from './form.module.css';
 import type UiFormCheckboxComponent from './form/checkbox';
 import type UiFormInputComponent from './form/input';
 import type UiFormNumberComponent from './form/number';

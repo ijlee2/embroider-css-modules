@@ -8,7 +8,7 @@ import { local } from 'embroider-css-modules';
 import UiFormField from 'my-v1-app/components/ui/form/field';
 
 import { generateErrorMessage } from '../../../utils/components/ui/form';
-import styles from './checkbox.css';
+import styles from './checkbox.module.css';
 
 interface UiFormCheckboxSignature {
   Args: {

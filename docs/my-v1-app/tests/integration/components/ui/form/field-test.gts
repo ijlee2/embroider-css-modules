@@ -2,7 +2,7 @@ import type { TestContext } from '@ember/test-helpers';
 import { render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import UiFormField from 'my-v1-app/components/ui/form/field';
-import styles from 'my-v1-app/components/ui/form/field.css';
+import styles from 'my-v1-app/components/ui/form/field.module.css';
 import { module, test } from 'qunit';
 
 import { setupRenderingTest } from '../../../../helpers';

@@ -4,7 +4,7 @@ import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { setupRenderingTest } from 'ember-qunit';
 // @ts-expect-error: File '/docs/my-v1-app/app/components/products/product/card.ts' is not a module.
 import ProductsProductCard from 'my-v1-app/components/products/product/card';
-import styles from 'my-v1-app/components/products/product/card.css';
+import styles from 'my-v1-app/components/products/product/card.module.css';
 import type { Product } from 'my-v1-app/data/products';
 import { module, test } from 'qunit';
 
