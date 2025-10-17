@@ -1,4 +1,3 @@
-import Helper from '@ember/component/helper';
 import { assert } from '@ember/debug';
 
 type IndexSignatureParameter = string | number | symbol;
@@ -16,38 +15,28 @@ type MaybeLocalClassName<T extends IndexSignatureParameter> =
   | undefined
   | null;
 
-interface LocalSignature<T extends IndexSignatureParameter> {
-  Args: {
-    Positional: [Styles<T>, ...MaybeLocalClassName<T>[]];
-  };
-  Return: string;
-}
+export default function local<T extends IndexSignatureParameter>(
+  styles: Styles<T>,
+  ...localClassNames: MaybeLocalClassName<T>[]
+): string {
+  assert('The styles object is undefined.', styles);
 
-export default class LocalHelper<
-  T extends IndexSignatureParameter,
-> extends Helper<LocalSignature<T>> {
-  compute(positional: LocalSignature<T>['Args']['Positional']) {
-    const [styles, ...localClassNames] = positional;
-
-    assert('The styles object is undefined.', styles);
-
-    const classNames = localClassNames.reduce<string[]>(
-      (accumulator, localClassName) => {
-        if (localClassName === undefined || localClassName === null) {
-          return accumulator;
-        }
-
-        if (Array.isArray(localClassName)) {
-          accumulator.push(...localClassName.map((element) => styles[element]));
-        } else {
-          accumulator.push(styles[localClassName]);
-        }
-
+  const classNames = localClassNames.reduce<string[]>(
+    (accumulator, localClassName) => {
+      if (localClassName === undefined || localClassName === null) {
         return accumulator;
-      },
-      [],
-    );
+      }
 
-    return classNames.filter(Boolean).join(' ');
-  }
+      if (Array.isArray(localClassName)) {
+        accumulator.push(...localClassName.map((element) => styles[element]));
+      } else {
+        accumulator.push(styles[localClassName]);
+      }
+
+      return accumulator;
+    },
+    [],
+  );
+
+  return classNames.filter(Boolean).join(' ');
 }
