@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import type { TOC } from '@ember/component/template-only';
 
 import styles from './demo.module.css';
 
@@ -8,12 +8,10 @@ interface UiPageDemoSignature {
   };
 }
 
-export default class UiPageDemoComponent extends Component<UiPageDemoSignature> {
-  styles = styles;
+const UiPageDemo: TOC<UiPageDemoSignature> = <template>
+  <div class={{styles.demo}}>
+    {{yield}}
+  </div>
+</template>;
 
-  <template>
-    <div class={{this.styles.demo}}>
-      {{yield}}
-    </div>
-  </template>
-}
+export default UiPageDemo;

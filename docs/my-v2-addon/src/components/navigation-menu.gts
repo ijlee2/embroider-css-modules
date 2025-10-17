@@ -1,5 +1,5 @@
+import type { TOC } from '@ember/component/template-only';
 import { LinkTo } from '@ember/routing';
-import Component from '@glimmer/component';
 import { local } from 'embroider-css-modules';
 
 import styles from './navigation-menu.module.css';
@@ -16,24 +16,22 @@ interface NavigationMenuSignature {
   };
 }
 
-export default class NavigationMenuComponent extends Component<NavigationMenuSignature> {
-  styles = styles;
+const NavigationMenu: TOC<NavigationMenuSignature> = <template>
+  <nav aria-label={{@name}} data-test-nav={{@name}}>
+    <ul class={{styles.list}}>
+      {{#each @menuItems as |menuItem|}}
+        <li>
+          <LinkTo
+            @route={{menuItem.route}}
+            class={{local styles "link"}}
+            data-test-link={{menuItem.label}}
+          >
+            {{menuItem.label}}
+          </LinkTo>
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
+</template>;
 
-  <template>
-    <nav aria-label={{@name}} data-test-nav={{@name}}>
-      <ul class={{this.styles.list}}>
-        {{#each @menuItems as |menuItem|}}
-          <li>
-            <LinkTo
-              @route={{menuItem.route}}
-              class={{local this.styles "link"}}
-              data-test-link={{menuItem.label}}
-            >
-              {{menuItem.label}}
-            </LinkTo>
-          </li>
-        {{/each}}
-      </ul>
-    </nav>
-  </template>
-}
+export default NavigationMenu;
