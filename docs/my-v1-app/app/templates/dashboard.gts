@@ -1,4 +1,3 @@
-import type { TOC } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import WidgetsWidget1 from 'my-v1-app/components/widgets/widget-1';
 import WidgetsWidget2 from 'my-v1-app/components/widgets/widget-2';
@@ -8,11 +7,6 @@ import WidgetsWidget5 from 'my-v1-app/components/widgets/widget-5';
 import { UiPage } from 'my-v2-addon';
 
 import styles from './dashboard.module.css';
-
-interface DashboardSignature {
-  controller: unknown;
-  model: unknown;
-}
 
 <template>
   {{pageTitle "Dashboard"}}
@@ -40,4 +34,4 @@ interface DashboardSignature {
       </div>
     </div>
   </UiPage>
-</template> satisfies TOC<DashboardSignature>;
+</template>

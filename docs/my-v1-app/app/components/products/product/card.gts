@@ -2,10 +2,14 @@ import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';
 import { ContainerQuery, width } from 'ember-container-query';
-import type { Product } from 'my-v1-app/utils/routes/products';
+import type { Product } from 'my-v1-app/data/products';
 
 import styles from './card.module.css';
 import ProductsProductImage from './image';
+
+function formatPrice(price: number): string {
+  return `$${price}`;
+}
 
 interface ProductsProductCardSignature {
   Args: {
@@ -37,7 +41,7 @@ const ProductsProductCard: TOC<ProductsProductCardSignature> = <template>
       </p>
 
       <p class={{styles.price}} data-test-field="Price">
-        ${{@product.price}}
+        {{formatPrice @product.price}}
       </p>
     </div>
 

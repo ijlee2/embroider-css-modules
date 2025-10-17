@@ -4,7 +4,7 @@ import { and } from 'ember-truth-helpers';
 
 import styles from './widget-5.module.css';
 
-const WidgetsWidget5Component = <template>
+const WidgetsWidget5 = <template>
   <ContainerQuery
     @features={{hash large=(width min=224) tall=(height min=120)}}
     @tagName="section"
@@ -35,4 +35,4 @@ const WidgetsWidget5Component = <template>
   </ContainerQuery>
 </template>;
 
-export default WidgetsWidget5Component;
+export default WidgetsWidget5;

@@ -4,7 +4,7 @@ import { aspectRatio, ContainerQuery } from 'ember-container-query';
 import styles from './widget-1.module.css';
 import WidgetsWidget1Item from './widget-1/item';
 
-const WidgetsWidget1Component = <template>
+const WidgetsWidget1 = <template>
   <ContainerQuery
     @features={{hash
       square=(aspectRatio max=1.25 min=0.8)
@@ -34,4 +34,4 @@ const WidgetsWidget1Component = <template>
   </ContainerQuery>
 </template>;
 
-export default WidgetsWidget1Component;
+export default WidgetsWidget1;

@@ -9,7 +9,7 @@ export type Product = {
   shortDescription: string;
 };
 
-const products: Product[] = [
+export const products: Product[] = [
   {
     description: 'Made with organic herbs',
     id: '1',
@@ -402,5 +402,3 @@ const products: Product[] = [
     shortDescription: 'Phased clear-thinking projection',
   },
 ];
-
-export default products;

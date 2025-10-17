@@ -1,5 +1,4 @@
 import type { TOC } from '@ember/component/template-only';
-// eslint-disable-next-line import-x/default
 import drawStackedChart from 'my-v1-app/modifiers/draw-stacked-chart';
 import type { Data } from 'my-v1-app/utils/components/widgets/widget-2';
 
@@ -11,16 +10,12 @@ interface WidgetsWidget2StackedChartSignature {
   };
 }
 
-const WidgetsWidget2StackedChartComponent: TOC<WidgetsWidget2StackedChartSignature> =
+const WidgetsWidget2StackedChart: TOC<WidgetsWidget2StackedChartSignature> =
   <template>
-    <div
-      class={{styles.svg-container}}
-      {{! @glint-expect-error: The given value does not appear to be usable as a component, modifier or helper. }}
-      {{drawStackedChart data=@data}}
-    >
+    <div class={{styles.svg-container}} {{drawStackedChart data=@data}}>
       <svg class={{styles.svg}}>
       </svg>
     </div>
   </template>;
 
-export default WidgetsWidget2StackedChartComponent;
+export default WidgetsWidget2StackedChart;

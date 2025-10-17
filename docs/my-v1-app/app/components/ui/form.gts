@@ -5,13 +5,13 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import type { WithBoundArgs } from '@glint/template';
 import { ContainerQuery, width } from 'ember-container-query';
-import UiFormCheckbox from 'my-v1-app/components/ui/form/checkbox';
-import UiFormInformation from 'my-v1-app/components/ui/form/information';
-import UiFormInput from 'my-v1-app/components/ui/form/input';
-import UiFormNumber from 'my-v1-app/components/ui/form/number';
-import UiFormTextarea from 'my-v1-app/components/ui/form/textarea';
 
 import styles from './form.module.css';
+import UiFormCheckbox from './form/checkbox';
+import UiFormInformation from './form/information';
+import UiFormInput from './form/input';
+import UiFormNumber from './form/number';
+import UiFormTextarea from './form/textarea';
 
 interface UiFormSignature {
   Args: {
@@ -44,7 +44,7 @@ interface UiFormSignature {
   };
 }
 
-export default class UiFormComponent extends Component<UiFormSignature> {
+export default class UiForm extends Component<UiFormSignature> {
   @tracked data = this.args.data ?? ({} as Record<string, unknown>);
 
   @action submitForm(event: SubmitEvent): void {
@@ -56,7 +56,6 @@ export default class UiFormComponent extends Component<UiFormSignature> {
   @action updateData({ key, value }: { key: string; value: unknown }): void {
     this.data = {
       ...this.data,
-
       [key]: value,
     };
   }

@@ -3,7 +3,6 @@ import {
   type TestContext as BaseTestContext,
 } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
-// @ts-expect-error: File '/my-v1-app/app/components/products/product/card.ts' is not a module.
 import ProductsProductCard from 'my-v1-app/components/products/product/card';
 import styles from 'my-v1-app/components/products/product/card.module.css';
 import type { Product } from 'my-v1-app/data/products';

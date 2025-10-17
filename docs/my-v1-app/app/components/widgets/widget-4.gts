@@ -1,7 +1,7 @@
 import styles from './widget-4.module.css';
 import WidgetsWidget4Memo from './widget-4/memo';
 
-const WidgetsWidget4Component = <template>
+const WidgetsWidget4 = <template>
   <section class={{styles.container}}>
     <header class={{styles.header}}>
       <h2>Widget 4</h2>
@@ -19,4 +19,4 @@ const WidgetsWidget4Component = <template>
   </section>
 </template>;
 
-export default WidgetsWidget4Component;
+export default WidgetsWidget4;

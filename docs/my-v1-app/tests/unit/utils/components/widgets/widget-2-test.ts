@@ -1,4 +1,4 @@
-import musicRevenue from 'my-v1-app/data/music-revenue';
+import { revenues } from 'my-v1-app/data/music-revenue';
 import {
   createDataForVisualization,
   createSummariesForCaptions,
@@ -23,7 +23,7 @@ module('Unit | Utility | components/widgets/widget-2', function () {
 
   module('createDataForVisualization', function () {
     test('works', function (assert) {
-      const data = createDataForVisualization(musicRevenue);
+      const data = createDataForVisualization(revenues);
 
       assert.strictEqual(data.length, 1058);
 
@@ -43,7 +43,7 @@ module('Unit | Utility | components/widgets/widget-2', function () {
 
   module('createSummariesForCaptions', function () {
     test('works', function (assert) {
-      const data = createDataForVisualization(musicRevenue);
+      const data = createDataForVisualization(revenues);
       const summaries = createSummariesForCaptions(data);
 
       assert.strictEqual(summaries.length, 23);

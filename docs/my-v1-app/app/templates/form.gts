@@ -7,12 +7,7 @@ import { UiPage } from 'my-v2-addon';
 
 import styles from './form.module.css';
 
-interface FormSignature {
-  controller: unknown;
-  model: unknown;
-}
-
-export default class FormRoute extends Component<FormSignature> {
+export default class FormRoute extends Component {
   @action submitData(data: Record<string, unknown>): void {
     console.table(data);
   }
