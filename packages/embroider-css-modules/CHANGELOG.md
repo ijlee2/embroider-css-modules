@@ -1,5 +1,11 @@
 # embroider-css-modules
 
+## 3.1.0
+
+### Minor Changes
+
+- [#186](https://github.com/ijlee2/embroider-css-modules/pull/186) Updated {{local}} to follow the function approach ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.0.2
 
 ### Patch Changes
