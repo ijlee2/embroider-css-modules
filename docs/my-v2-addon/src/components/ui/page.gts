@@ -1,5 +1,5 @@
+import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
-import Component from '@glimmer/component';
 import type { WithBoundArgs } from '@glint/template';
 
 import styles from './page.module.css';
@@ -22,29 +22,27 @@ interface UiPageSignature {
   };
 }
 
-export default class UiPageComponent extends Component<UiPageSignature> {
-  styles = styles;
+const UiPage: TOC<UiPageSignature> = <template>
+  <div class={{styles.container}}>
+    <h1 class={{styles.title}} data-test-page-title>
+      {{@title}}
+    </h1>
 
-  <template>
-    <div class={{this.styles.container}}>
-      <h1 class={{this.styles.title}} data-test-page-title>
-        {{@title}}
-      </h1>
-
-      <div
-        class={{this.styles.content}}
-        data-test-page-content
-        id="main-content"
-        tabindex="-1"
-      >
-        {{yield
-          (hash
-            Demo=(component UiPageDemo)
-            Section=(component UiPageSection)
-            Subsection=(component UiPageSubsection)
-          )
-        }}
-      </div>
+    <div
+      class={{styles.content}}
+      data-test-page-content
+      id="main-content"
+      tabindex="-1"
+    >
+      {{yield
+        (hash
+          Demo=(component UiPageDemo)
+          Section=(component UiPageSection)
+          Subsection=(component UiPageSubsection)
+        )
+      }}
     </div>
-  </template>
-}
+  </div>
+</template>;
+
+export default UiPage;
