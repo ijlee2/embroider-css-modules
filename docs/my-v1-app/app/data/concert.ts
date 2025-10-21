@@ -16,7 +16,7 @@ export type Concert = {
   name: string;
 };
 
-const concert: Concert = {
+export const concert: Concert = {
   name: 'ACL Live',
   date: 'Jun 01',
   location: {
@@ -89,5 +89,3 @@ const concert: Concert = {
     },
   ],
 };
-
-export default concert;

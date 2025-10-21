@@ -1,15 +1,9 @@
-import type { TOC } from '@ember/component/template-only';
 import { array, hash } from '@ember/helper';
 import { NavigationNarrator } from 'ember-a11y-refocus';
 import { pageTitle } from 'ember-page-title';
 import { NavigationMenu } from 'my-v2-addon';
 
 import styles from './application.module.css';
-
-interface ApplicationSignature {
-  controller: unknown;
-  model: unknown;
-}
 
 <template>
   {{pageTitle "Embroider CSS Modules"}}
@@ -50,4 +44,4 @@ interface ApplicationSignature {
       </span>
     </footer>
   </div>
-</template> satisfies TOC<ApplicationSignature>;
+</template>

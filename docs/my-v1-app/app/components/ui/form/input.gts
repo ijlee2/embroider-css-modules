@@ -4,9 +4,9 @@ import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 import { or } from 'ember-truth-helpers';
 import { local } from 'embroider-css-modules';
-import UiFormField from 'my-v1-app/components/ui/form/field';
 import { generateErrorMessage } from 'my-v1-app/utils/components/ui/form';
 
+import UiFormField from './field';
 import styles from './input.module.css';
 
 interface UiFormInputSignature {

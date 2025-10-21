@@ -6,7 +6,7 @@ import { module, test } from 'qunit';
 module('Integration | Component | widgets/widget-1', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('The component renders', async function (assert) {
+  test('it renders', async function (assert) {
     await render(<template><WidgetsWidget1 /></template>);
 
     const titles = findAll('[data-test-title]');
