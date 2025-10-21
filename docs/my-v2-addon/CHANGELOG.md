@@ -1,6 +1,6 @@
 # my-v2-addon
 
-## 3.1.0
+## 1.4.0
 
 ### Minor Changes
 
@@ -10,7 +10,7 @@
 
 - [#185](https://github.com/ijlee2/embroider-css-modules/pull/185) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 3.0.5
+## 1.3.5
 
 ### Patch Changes
 
@@ -18,34 +18,34 @@
 - [#181](https://github.com/ijlee2/embroider-css-modules/pull/181) Converted to `<template>` tag ([@ijlee2](https://github.com/ijlee2))
 - [#179](https://github.com/ijlee2/embroider-css-modules/pull/179) Updated development dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 3.0.4
+## 1.3.4
 
 ### Patch Changes
 
 - [#177](https://github.com/ijlee2/embroider-css-modules/pull/177) Listed @glimmer/component as a dependency to account for the change in ember-auto-import@2.10.1 ([@ijlee2](https://github.com/ijlee2))
 - [#177](https://github.com/ijlee2/embroider-css-modules/pull/177) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 3.0.3
+## 1.3.3
 
 ### Patch Changes
 
 - [#174](https://github.com/ijlee2/embroider-css-modules/pull/174) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 3.0.2
+## 1.3.2
 
 ### Patch Changes
 
 - [#171](https://github.com/ijlee2/embroider-css-modules/pull/171) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 3.0.1
+## 1.3.1
 
 ### Patch Changes
 
 - [#168](https://github.com/ijlee2/embroider-css-modules/pull/168) Separated formatting and linting ([@ijlee2](https://github.com/ijlee2))
 
-## 3.0.0
+## 1.3.0
 
-### Major Changes
+### Minor Changes
 
 - [#167](https://github.com/ijlee2/embroider-css-modules/pull/167) Dropped Node 18 support ([@ijlee2](https://github.com/ijlee2))
 
@@ -53,7 +53,7 @@
 
 - [#167](https://github.com/ijlee2/embroider-css-modules/pull/167) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.17
+## 1.2.17
 
 ### Patch Changes
 
@@ -61,33 +61,33 @@
 - [#165](https://github.com/ijlee2/embroider-css-modules/pull/165) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 - [#165](https://github.com/ijlee2/embroider-css-modules/pull/165) Updated README ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.16
+## 1.2.16
 
 ### Patch Changes
 
 - [#161](https://github.com/ijlee2/embroider-css-modules/pull/161) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.15
+## 1.2.15
 
 ### Patch Changes
 
 - [#160](https://github.com/ijlee2/embroider-css-modules/pull/160) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 - [#159](https://github.com/ijlee2/embroider-css-modules/pull/159) Simplified lint configurations ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.14
+## 1.2.14
 
 ### Patch Changes
 
 - [#158](https://github.com/ijlee2/embroider-css-modules/pull/158) Updated eslint to v9 ([@ijlee2](https://github.com/ijlee2))
 - [#157](https://github.com/ijlee2/embroider-css-modules/pull/157) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.13
+## 1.2.13
 
 ### Patch Changes
 
 - [#156](https://github.com/ijlee2/embroider-css-modules/pull/156) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.12
+## 1.2.12
 
 ### Patch Changes
 
@@ -95,7 +95,7 @@
 - [#154](https://github.com/ijlee2/embroider-css-modules/pull/154) Made pnpm settings stricter ([@ijlee2](https://github.com/ijlee2))
 - [#153](https://github.com/ijlee2/embroider-css-modules/pull/153) Replaced .js with .ts in publicEntrypoints() ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.11
+## 1.2.11
 
 ### Patch Changes
 
@@ -103,71 +103,71 @@
 - [#149](https://github.com/ijlee2/embroider-css-modules/pull/149) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 - [#148](https://github.com/ijlee2/embroider-css-modules/pull/148) Used pnpm@9 to manage dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.10
+## 1.2.10
 
 ### Patch Changes
 
 - [#146](https://github.com/ijlee2/embroider-css-modules/pull/146) Updated dependencies. Added ember-lts-5.8 scenario. ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.9
+## 1.2.9
 
 ### Patch Changes
 
 - [#145](https://github.com/ijlee2/embroider-css-modules/pull/145) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.8
+## 1.2.8
 
 ### Patch Changes
 
 - [#144](https://github.com/ijlee2/embroider-css-modules/pull/144) Downstreamed changes from ember-cli and @embroider/addon-blueprint ([@ijlee2](https://github.com/ijlee2))
 - [#143](https://github.com/ijlee2/embroider-css-modules/pull/143) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.7
+## 1.2.7
 
 ### Patch Changes
 
 - [#141](https://github.com/ijlee2/embroider-css-modules/pull/141) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.6
+## 1.2.6
 
 ### Patch Changes
 
 - [#132](https://github.com/ijlee2/embroider-css-modules/pull/132) Updated development dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.5
+## 1.2.5
 
 ### Patch Changes
 
 - [#129](https://github.com/ijlee2/embroider-css-modules/pull/129) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.4
+## 1.2.4
 
 ### Patch Changes
 
 - [#127](https://github.com/ijlee2/embroider-css-modules/pull/127) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.3
+## 1.2.3
 
 ### Patch Changes
 
 - [#126](https://github.com/ijlee2/embroider-css-modules/pull/126) Updated development dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.2
+## 1.2.2
 
 ### Patch Changes
 
 - [#124](https://github.com/ijlee2/embroider-css-modules/pull/124) Added ember-lts-5.4 to ember-try scenarios ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.1
+## 1.2.1
 
 ### Patch Changes
 
 - [#121](https://github.com/ijlee2/embroider-css-modules/pull/121) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 - [#120](https://github.com/ijlee2/embroider-css-modules/pull/120) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
 
-## 2.0.0
+## 1.2.0
 
-### Major Changes
+### Minor Changes
 
 - [#117](https://github.com/ijlee2/embroider-css-modules/pull/117) Removed the {{local-class}} helper ([@ijlee2](https://github.com/ijlee2))
 
