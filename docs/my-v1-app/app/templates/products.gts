@@ -2,7 +2,6 @@ import type { TOC } from '@ember/component/template-only';
 import { array, hash } from '@ember/helper';
 import { pageTitle } from 'ember-page-title';
 import { local } from 'embroider-css-modules';
-// @ts-expect-error: File '/my-v1-app/app/components/products/product/card.ts' is not a module.
 import ProductsProductCard from 'my-v1-app/components/products/product/card';
 import UiFormInput from 'my-v1-app/components/ui/form/input';
 import type ProductsController from 'my-v1-app/controllers/products';

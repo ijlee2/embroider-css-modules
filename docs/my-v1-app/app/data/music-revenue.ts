@@ -6,7 +6,7 @@ export type Revenue = {
   Year: number;
 };
 
-const revenues: Revenue[] = [
+export const revenues: Revenue[] = [
   {
     Format: '8 - Track',
     Year: 1973,
@@ -7414,5 +7414,3 @@ const revenues: Revenue[] = [
     'Revenue (Inflation Adjusted)': 5300000,
   },
 ];
-
-export default revenues;

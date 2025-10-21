@@ -1,12 +1,6 @@
-import type { TOC } from '@ember/component/template-only';
 import { UiPage } from 'my-v2-addon';
 
 import styles from './index.module.css';
-
-interface IndexSignature {
-  controller: unknown;
-  model: unknown;
-}
 
 <template>
   <UiPage @title="Welcome!">
@@ -28,4 +22,4 @@ interface IndexSignature {
       inspect the DOM.
     </p>
   </UiPage>
-</template> satisfies TOC<IndexSignature>;
+</template>

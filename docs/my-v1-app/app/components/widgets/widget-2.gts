@@ -3,14 +3,12 @@ import type Owner from '@ember/owner';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { ContainerQuery, height } from 'ember-container-query';
-import musicRevenue from 'my-v1-app/data/music-revenue';
-import type {
-  Data,
-  Summary,
-} from 'my-v1-app/utils/components/widgets/widget-2';
+import { revenues } from 'my-v1-app/data/music-revenue';
 import {
   createDataForVisualization,
   createSummariesForCaptions,
+  type Data,
+  type Summary,
 } from 'my-v1-app/utils/components/widgets/widget-2';
 
 import styles from './widget-2.module.css';
@@ -21,7 +19,7 @@ interface WidgetsWidget2Signature {
   Args: {};
 }
 
-export default class WidgetsWidget2Component extends Component<WidgetsWidget2Signature> {
+export default class WidgetsWidget2 extends Component<WidgetsWidget2Signature> {
   @tracked data = [] as Data[];
   @tracked summaries = [] as Summary[];
 
@@ -32,7 +30,7 @@ export default class WidgetsWidget2Component extends Component<WidgetsWidget2Sig
   }
 
   loadData(): void {
-    this.data = createDataForVisualization(musicRevenue);
+    this.data = createDataForVisualization(revenues);
     this.summaries = createSummariesForCaptions(this.data);
   }
 

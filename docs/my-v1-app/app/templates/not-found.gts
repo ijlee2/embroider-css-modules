@@ -1,4 +1,3 @@
-import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import { ContainerQuery, width } from 'ember-container-query';
 import { pageTitle } from 'ember-page-title';
@@ -6,11 +5,6 @@ import { local } from 'embroider-css-modules';
 import { UiPage } from 'my-v2-addon';
 
 import styles from './not-found.module.css';
-
-interface NotFoundSignature {
-  controller: unknown;
-  model: unknown;
-}
 
 <template>
   {{pageTitle "Page Not Found"}}
@@ -38,4 +32,4 @@ interface NotFoundSignature {
       </ContainerQuery>
     </div>
   </UiPage>
-</template> satisfies TOC<NotFoundSignature>;
+</template>

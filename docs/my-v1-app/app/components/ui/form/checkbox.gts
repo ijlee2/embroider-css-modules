@@ -5,10 +5,10 @@ import Component from '@glimmer/component';
 import svgJar from 'ember-svg-jar/helpers/svg-jar';
 import { or } from 'ember-truth-helpers';
 import { local } from 'embroider-css-modules';
-import UiFormField from 'my-v1-app/components/ui/form/field';
 import { generateErrorMessage } from 'my-v1-app/utils/components/ui/form';
 
 import styles from './checkbox.module.css';
+import UiFormField from './field';
 
 interface UiFormCheckboxSignature {
   Args: {

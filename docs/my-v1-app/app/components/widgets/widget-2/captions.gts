@@ -28,7 +28,7 @@ interface WidgetsWidget2CaptionsSignature {
   };
 }
 
-export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWidget2CaptionsSignature> {
+export default class WidgetsWidget2Captions extends Component<WidgetsWidget2CaptionsSignature> {
   @tracked currentIndex = 0;
 
   get canShowNextButton(): boolean {
@@ -133,15 +133,13 @@ export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWi
             >
               {{#if CQ.features.tall}}
                 Previous
-
               {{else}}
                 {{svgJar
                   "chevron-left"
-                  class=(local styles "icon")
+                  class=styles.icon
                   desc="A chevron arrow pointing left"
                   role="img"
                 }}
-
               {{/if}}
             </button>
           {{/if}}
@@ -156,15 +154,13 @@ export default class WidgetsWidget2CaptionsComponent extends Component<WidgetsWi
             >
               {{#if CQ.features.tall}}
                 Next
-
               {{else}}
                 {{svgJar
                   "chevron-right"
-                  class=(local styles "icon")
+                  class=styles.icon
                   desc="A chevron arrow pointing right"
                   role="img"
                 }}
-
               {{/if}}
             </button>
           {{/if}}

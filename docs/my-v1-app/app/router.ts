@@ -11,6 +11,5 @@ Router.map(function () {
   this.route('dashboard');
   this.route('form');
   this.route('products');
-
   this.route('not-found', { path: '*' });
 });
