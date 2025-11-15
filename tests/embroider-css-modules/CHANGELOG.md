@@ -1,5 +1,13 @@
 # test-app-for-embroider-css-modules
 
+## 1.3.7
+
+### Patch Changes
+
+- [#191](https://github.com/ijlee2/embroider-css-modules/pull/191) Replaced @glint/core with @glint/ember-tsc ([@ijlee2](https://github.com/ijlee2))
+- [#190](https://github.com/ijlee2/embroider-css-modules/pull/190) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#188](https://github.com/ijlee2/embroider-css-modules/pull/188) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.3.6
 
 ### Patch Changes

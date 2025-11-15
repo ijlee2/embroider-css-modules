@@ -1,5 +1,12 @@
 # ember-codemod-remove-ember-css-modules
 
+## 3.0.7
+
+### Patch Changes
+
+- [#193](https://github.com/ijlee2/embroider-css-modules/pull/193) Added `declare module` only if @glint/environment-ember-loose is present ([@ijlee2](https://github.com/ijlee2))
+- [#190](https://github.com/ijlee2/embroider-css-modules/pull/190) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.0.6
 
 ### Patch Changes

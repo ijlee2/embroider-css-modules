@@ -1,5 +1,15 @@
 # my-v2-addon
 
+## 1.4.1
+
+### Patch Changes
+
+- [#192](https://github.com/ijlee2/embroider-css-modules/pull/192) Updated README ([@ijlee2](https://github.com/ijlee2))
+- [#191](https://github.com/ijlee2/embroider-css-modules/pull/191) Replaced @glint/core with @glint/ember-tsc ([@ijlee2](https://github.com/ijlee2))
+- [#190](https://github.com/ijlee2/embroider-css-modules/pull/190) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#188](https://github.com/ijlee2/embroider-css-modules/pull/188) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#187](https://github.com/ijlee2/embroider-css-modules/pull/187) Patched #184 ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.4.0
 
 ### Minor Changes
