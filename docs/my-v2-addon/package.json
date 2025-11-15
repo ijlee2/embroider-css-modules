@@ -58,7 +58,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "prelint:types": "type-css-modules --src src",
-    "lint:types": "glint",
+    "lint:types": "ember-tsc --noEmit",
     "prepack": "rollup --config",
     "start": "rollup --config --watch",
     "test": "echo \"A v2 addon does not have tests, run tests in docs/my-v1-app\""
