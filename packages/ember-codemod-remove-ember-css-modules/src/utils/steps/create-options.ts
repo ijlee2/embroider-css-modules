@@ -15,7 +15,7 @@ function analyzePackageJson(codemodOptions: CodemodOptions): Project {
   return {
     dependencies: projectDependencies,
     hasEmberCssModules: projectDependencies.has('ember-css-modules'),
-    hasGlint: projectDependencies.has('@glint/core'),
+    hasGlint: projectDependencies.has('@glint/environment-ember-loose'),
     hasTypeScript: projectDependencies.has('typescript'),
   } as unknown as Project;
 }

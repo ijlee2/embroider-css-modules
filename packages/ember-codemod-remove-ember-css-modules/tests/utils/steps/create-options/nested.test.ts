@@ -10,7 +10,7 @@ test('utils | steps | create-options > nested', function () {
         name: 'docs-app',
         version: '4.0.0-alpha.5',
         devDependencies: {
-          '@glint/core': '^v1.0.0-beta.4',
+          '@glint/environment-ember-loose': '^v1.0.0-beta.4',
           'ember-css-modules': '^2.0.1',
           typescript: '^5.0.3',
         },
@@ -26,7 +26,7 @@ test('utils | steps | create-options > nested', function () {
     componentStructure: 'nested',
     project: {
       dependencies: new Map([
-        ['@glint/core', '^v1.0.0-beta.4'],
+        ['@glint/environment-ember-loose', '^v1.0.0-beta.4'],
         ['ember-css-modules', '^2.0.1'],
         ['typescript', '^5.0.3'],
       ]),
