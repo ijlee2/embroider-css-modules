@@ -40,5 +40,11 @@
   "engines": {
     "node": "20.* || >= 22",
     "pnpm": ">= 10"
+  },
+  "pnpm": {
+    "overrides": {
+      "@embroider/macros": "^1.9.4",
+      "@glint/template": "1.5.2"
+    }
   }
 }
