@@ -8,13 +8,13 @@ _CSS modules for Embroider projects_
 
 ## What is it?
 
-`embroider-css-modules` provides a set of **tools and conventions** to help you implement [CSS modules](https://github.com/css-modules/css-modules). It is compatible with "bleeding-edge" Ember:
+`embroider-css-modules` provides **tools and conventions** to help you use [CSS modules](https://github.com/css-modules/css-modules) in Embroider projects. It works on "bleeding-edge" Ember:
 
 - [Embroider on the strictest settings](https://github.com/embroider-build/embroider/#options) (including route splitting)
 - [TypeScript](https://www.typescriptlang.org/docs/) + [Glint](https://typed-ember.gitbook.io/glint/)
 - [`<template>` tag](https://github.com/ember-template-imports/ember-template-imports)
 
-A key idea behind `embroider-css-modules`: There is _some way_ to map local class names to global ones. The _how_ is loosely tied to Ember and allowed to change in the future.
+A key idea behind `embroider-css-modules`: _How_ we map local class names to global ones has little to do with Ember. It's also allowed to change in the future.
 
 ```ts
 // We can somehow map local class names to global ones
@@ -26,7 +26,7 @@ const styles = {
 };
 ```
 
-In short, `embroider-css-modules` depends little on how CSS modules is implemented. It focuses on providing tools and conventions that improve your developer experience (DX).
+As you will see in the [Guides](#guides) below, we delegate the how to Rollup, Webpack, and Vite—build tools from the wider JavaScript. With fewer responsibilities, `embroider-css-modules` can focus on improving developer experience (DX).
 
 
 ## Package overview
@@ -48,9 +48,7 @@ In short, `embroider-css-modules` depends little on how CSS modules is implement
 
 ## Limitations
 
-`embroider-css-modules` is stable for v1 apps (Webpack), v2 apps (Vite), and v2 addons.
-
-There's no known implementation for v1 apps (classic) and v1 addons (including engines). You can use [`ember-css-modules`](https://github.com/salsify/ember-css-modules) for these projects.
+For classic v1 apps (i.e. without Webpack) and v1 addons, you will want to use [`ember-css-modules`](https://github.com/salsify/ember-css-modules).
 
 
 ## Contributing

@@ -5,18 +5,10 @@
 
 _CSS modules for Embroider projects_
 
-1. [What is it?](#what-is-it)
-1. [Installation](#installation)
-1. [API](#api)
-    - [Helper: `{{local}}`](#helper-local)
-1. [Compatibility](#compatibility)
-1. [Contributing](#contributing)
-1. [License](#license)
-
 
 ## What is it?
 
-`embroider-css-modules` provides a set of **tools and conventions** to help you implement [CSS modules](https://github.com/css-modules/css-modules). It is compatible with "bleeding-edge" Ember:
+The addon provides tools to help you use [CSS modules](https://github.com/css-modules/css-modules) in Embroider projects. It works on "bleeding-edge" Ember:
 
 - [Embroider on the strictest settings](https://github.com/embroider-build/embroider/#options) (including route splitting)
 - [TypeScript](https://www.typescriptlang.org/docs/) + [Glint](https://typed-ember.gitbook.io/glint/)
@@ -26,56 +18,32 @@ _CSS modules for Embroider projects_
 ## Installation
 
 ```sh
-ember install embroider-css-modules
+# For apps
+pnpm add -D embroider-css-modules
+
+# For addons (install as a dependency)
+pnpm add embroider-css-modules
 ```
 
 <details>
 
-<summary>Use Glint or <code>&lt;template&gt;</code> tag? ✨</summary>
+<summary>Use Glint and <code>*.hbs</code> files?</summary>
 
-- Update your template registry to extend this addon's. Check the [Glint documentation](https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons#using-glint-enabled-addons) for more information.
+Extend this addon's template registry to get native types.
 
-    ```ts
-    import '@glint/environment-ember-loose';
+```ts
+/* types/index.d.ts */
+import '@glint/environment-ember-loose';
+import '@glint/environment-ember-template-imports';
 
-    import type EmbroiderCssModulesRegistry from 'embroider-css-modules/template-registry';
+import type EmbroiderCssModulesRegistry from 'embroider-css-modules/template-registry';
 
-    declare module '@glint/environment-ember-loose/registry' {
-      export default interface Registry extends EmbroiderCssModulesRegistry, /* other addon registries */ {
-        // local entries
-      }
-    }
-    ```
-
-- In a `<template>` tag, use the named import to consume the `{{local}}` helper.
-
-    ```css
-    /* app/components/hello.css */
-    .message {
-      align-items: center;
-      display: flex;
-      height: 100%;
-      justify-content: center;
-    }
-
-    .emphasize {
-      font-size: 64px;
-      font-style: italic;
-    }
-    ```
-
-    ```ts
-    /* app/components/hello.gts */
-    import { local } from 'embroider-css-modules';
-
-    import styles from './hello.css';
-
-    <template>
-      <div class={{local styles "message" "emphasize"}}>
-        Hello world!
-      </div>
-    </template>
-    ```
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry extends EmbroiderCssModulesRegistry, /* other addon registries */ {
+    // local entries
+  }
+}
+```
 
 </details>
 
@@ -86,18 +54,6 @@ The addon provides 1 helper:
 
 - `{{local}}`
 
-Throughout the section, you can assume that there is a `styles` object, which maps local class names to global ones.
-
-```ts
-// An example
-const styles = {
-  'container': 'lzeQ4',
-  'is-inline': 'mJGCE',
-  'is-wide': '_2lPSR',
-  'no-feedback': 'YpQbt',
-};
-```
-
 
 ### Helper: {{local}}
 
@@ -105,70 +61,40 @@ const styles = {
 
 The `{{local}}` helper is useful when you want to apply multiple styles.
 
-<details>
+```glimmer-js
+/* app/components/hello.gjs */
+import { local } from 'embroider-css-modules';
 
-<summary>Before: With the <code>{{concat}}</code> helper</summary>
+import styles from './hello.module.css';
 
-```hbs
-{{! app/components/ui/form/field.hbs }}
-<div
-  class={{concat
-    this.styles.container
-    " "
-    (if @isInline this.styles.is-inline)
-    " "
-    (if @isWide this.styles.is-wide)
-    " "
-    (unless @errorMessage this.styles.no-feedback)
-  }}
->
-  ...
-</div>
+<template>
+  <div class={{local styles "message" "hide"}}>
+    Hello world!
+  </div>
+</template>
 ```
-
-</details>
-
-<details>
-
-<summary>After: With the <code>{{local}}</code> helper</summary>
-
-```hbs
-{{! app/components/ui/form/field.hbs }}
-<div
-  class={{local
-    this.styles
-    "container"
-    (if @isInline "is-inline")
-    (if @isWide "is-wide")
-    (unless @errorMessage "no-feedback")
-  }}
->
-  ...
-</div>
-```
-
-</details>
 
 To conditionally apply multiple styles, use the `{{array}}` helper.
 
-<details>
+```glimmer-js
+/* app/components/hello.gjs */
+import { array } from '@ember/helper';
+import { local } from 'embroider-css-modules';
 
-<summary>Example</summary>
+import styles from './hello.module.css';
 
-```hbs
-{{! app/components/hello.hbs }}
-<div
-  class={{local
-    this.styles
-    "message"
-    (if this.someCondition (array "hide" "after-3-sec"))
-  }}
->
-  Hello world!
-</div>
+<template>
+  <div
+    class={{local
+      styles
+      "message"
+      (if @hide (array "hide" "after-3-sec"))
+    }}
+  >
+    Hello world!
+  </div>
+</template>
 ```
-
-</details>
 
 
 #### Arguments
@@ -176,7 +102,7 @@ To conditionally apply multiple styles, use the `{{array}}` helper.
 The `{{local}}` helper uses positional arguments so that styles are applied in sequence. Pass the `styles` object first, then the local class name(s).
 
 
-#### Outputs
+#### Output
 
 The `{{local}}` helper returns a concatenated string. The string lists the global class names in the same order as the local ones.
 

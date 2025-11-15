@@ -4,128 +4,26 @@
 
 _Generate declaration files for CSS modules_
 
-1. [Why use this package?](#why-use-this-package)
-1. [How to use this package?](#how-to-use-this-package)
-    - [Arguments](#arguments)
-    - [Use Prettier?](#use-prettier)
-    - [Can I use the file extension \*.module.css?](#can-i-use-the-file-extension-modulecss)
-1. [Limitations](#limitations)
-1. [Compatibility](#compatibility)
-1. [Contributing](#contributing)
-1. [License](#license)
+
+## What is it?
+
+The package provides accurate types for CSS module files. It's designed with Ember projects in mind, but can be used with any JavaScript framework and build tool.
 
 
-## Why use this package?
+## Installation
 
-The type definition from [`@types/css-modules`](https://www.npmjs.com/package/@types/css-modules) is easy for humans to understand, but not specific enough for programs:
-
-```ts
-declare module '*.css' {
-  const styles: Record<string, string>;
-
-  export default styles;
-}
+```sh
+pnpm add -D type-css-modules
 ```
 
-First, you will run into poor developer experience (DX) when [`noPropertyAccessFromIndexSignature`](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature) is enabled.
-
-<details>
-
-<summary>Ember: Glimmer component</summary>
-
-```hbs
-{{! app/components/ui/page.hbs }}
-{{! This should work, but results in an error. }}
-<div class={{this.styles.container}}>
-  {{!-- ↳ Property 'container' comes from an index signature, so it must be accessed with {{get ... 'container'}}. --}}
-</div>
-
-{{! A workaround }}
-<div class={{get this.styles "container"}}>
-</div>
-```
-
-</details>
-
-<details>
-
-<summary>Ember: <code>&lt;template&gt;</code> tag</summary>
-
-```ts
-/* app/components/ui/page.gts */
-import styles from './page.css';
-
-<template>
-  // This should work, but results in an error.
-  <div class={{styles.container}}>
-    // ↳ Property 'container' comes from an index signature, so it must be accessed with ['container'].
-  </div>
-
-  // A workaround
-  <div class={{styles['container']}}>
-  </div>
-</template>
-```
-
-</details>
-
-Second, the loose definition may be incompatible with libraries that provide types (e.g. [`qunit-dom`](https://github.com/mainmatter/qunit-dom)). You will overuse the non-null assertion operator `!`.
-
-<details>
-
-<summary>Ember: Rendering test</summary>
-
-```ts
-/* tests/integration/components/ui/page-test.ts */
-import styles from 'app/components/ui/page.css';
-
-// This should work, but results in an error.
-assert
-  .dom('[data-test-container]')
-  .hasClass(styles.container);
-    // ↳ Argument of type 'string | undefined' is not assignable to parameter of type 'string | RegExp'.
-    //   Type 'undefined' is not assignable to 'string | RegExp'.
-
-// A workaround
-assert
-  .dom('[data-test-container]')
-  .hasClass(styles['container']!);
-```
-
-</details>
-
-When you provide accurate types, libraries (e.g. [`Glint`](https://typed-ember.gitbook.io/glint/), [`embroider-css-modules`](https://github.com/ijlee2/embroider-css-modules/tree/main/embroider-css-modules)) improve your DX in return. You can catch typos and type issues early.
-
-<details>
-
-<summary>Ember: Glimmer component</summary>
-
-```hbs
-{{! app/components/ui/page.hbs }}
-<div class={{local this.styles "ontainer"}}> {{! ⚠️ Property 'ontainer' is missing }}
-  <h1 class={{this.styles.head}}> {{! ⚠️ Property 'head' does not exist }}
-    {{@title}}
-  </h1>
-
-  <div class={{local this.style "body"}}> {{! ⚠️ Did you mean 'styles'? }}
-    {{yield}}
-  </div>
-</div>
-```
-
-</details>
-
-
-## How to use this package?
-
-Install `type-css-modules` as a development dependency. Ensure that CSS declaration files exist before checking types; for example, you can write a [pre-script](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts).
+Ensure that CSS declaration files exist before types are checked. For example, you can write a [pre-script](https://docs.npmjs.com/cli/v9/using-npm/scripts#pre--post-scripts).
 
 ```json5
 /* package.json */
 {
   "scripts": {
     "prelint:types": "type-css-modules <arguments>",
-    "lint:types": "tsc --noEmit" // or "glint"
+    "lint:types": "ember-tsc --noEmit" // or "glint"
   },
   "devDependencies": {
     "type-css-modules": "...",
@@ -137,15 +35,17 @@ Install `type-css-modules` as a development dependency. Ensure that CSS declarat
 
 ### Arguments
 
-You must pass `--src` to indicate the location(s) of your CSS files.
-
+You must pass `--src` to indicate the location of your CSS module files.
 
 ```sh
-# One source directory
 type-css-modules --src app
+```
 
-# Multiple source directories
-type-css-modules --src app/components app/controllers
+You can pass multiple values or use glob patterns to specify multiple locations.
+
+```sh
+type-css-modules --src app/components app/templates
+type-css-modules --src "app/{components,controllers,templates}"
 ```
 
 <details>
@@ -163,13 +63,13 @@ type-css-modules --root <path/to/your/project>
 
 ### Use Prettier?
 
-`type-css-modules` adds quotation marks in declaration files. This way, the names of CSS class selectors can always be used as object keys.
+`type-css-modules` uses quotation marks in declaration files so that we can always use class selector names as object keys.
 
-To separate formatting concerns, configure Prettier to handle `*.css.d.ts` files differently.
+On the other hand, `prettier` removes quotation marks when it deems unnecessary. To separate formatting concerns, you can pass the option `quoteProps: 'preserve'` for `*.css.d.ts` files:
 
 ```js
-/* .prettierrc.js */
-module.exports = {
+/* prettier.config.mjs */
+export default {
   overrides: [
     {
       files: '*.css.d.ts',
@@ -180,6 +80,8 @@ module.exports = {
   ],
 };
 ```
+
+Alternatively, you can use `.prettierignore` to ignore `*.css.d.ts` files.
 
 
 ### Can I use the file extension \*.module.css?
