@@ -10,7 +10,7 @@ test('utils | steps | create-options > idempotency', function () {
         name: 'docs-app',
         version: '4.0.0-alpha.5',
         devDependencies: {
-          '@glint/core': '^v1.0.0-beta.4',
+          '@glint/environment-ember-loose': '^v1.0.0-beta.4',
           typescript: '^5.0.3',
         },
       },
@@ -25,7 +25,7 @@ test('utils | steps | create-options > idempotency', function () {
     componentStructure: 'flat',
     project: {
       dependencies: new Map([
-        ['@glint/core', '^v1.0.0-beta.4'],
+        ['@glint/environment-ember-loose', '^v1.0.0-beta.4'],
         ['typescript', '^5.0.3'],
       ]),
       hasEmberCssModules: false,
