@@ -432,7 +432,7 @@ Lucky for you, [`type-css-modules`](../../packages/type-css-modules) can create 
   "scripts": {
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
     "prelint:types": "type-css-modules --src src",
-    "lint:types": "tsc --noEmit" // or "glint"
+    "lint:types": "ember-tsc --noEmit" // or "glint"
   }
 }
 ```
