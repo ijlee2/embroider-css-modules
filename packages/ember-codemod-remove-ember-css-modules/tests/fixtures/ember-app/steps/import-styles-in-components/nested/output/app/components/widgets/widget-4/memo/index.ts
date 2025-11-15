@@ -19,7 +19,7 @@ export default class WidgetsWidget4MemoComponent extends Component<WidgetsWidget
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Widgets::Widget4::Memo': typeof WidgetsWidget4MemoComponent;
+    'Widgets::Widget-4::Memo': typeof WidgetsWidget4MemoComponent;
     'widgets/widget-4/memo': typeof WidgetsWidget4MemoComponent;
   }
 }
