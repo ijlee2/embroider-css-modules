@@ -59,6 +59,7 @@
     "@glimmer/tracking": "^1.1.2",
     "@glint/ember-tsc": "^1.0.8",
     "@glint/template": "^1.7.3",
+    "@glint/tsserver-plugin": "^2.0.8",
     "@rollup/plugin-babel": "^6.1.0",
     "@shared-configs/ember-template-lint": "workspace:*",
     "@shared-configs/eslint-config-ember": "workspace:*",
