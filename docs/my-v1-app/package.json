@@ -54,8 +54,8 @@
     "@embroider/webpack": "^4.1.1",
     "@glimmer/component": "^2.0.0",
     "@glimmer/tracking": "^1.1.2",
-    "@glint/ember-tsc": "^1.0.7",
-    "@glint/template": "^1.7.2",
+    "@glint/ember-tsc": "^1.0.8",
+    "@glint/template": "^1.7.3",
     "@percy/cli": "^1.31.4",
     "@percy/ember": "^5.0.0",
     "@shared-configs/ember-template-lint": "workspace:*",
@@ -85,13 +85,14 @@
     "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-netlify": "^0.4.1",
-    "ember-container-query": "^6.1.1",
+    "ember-container-query": "^6.1.2",
     "ember-load-initializers": "^3.0.1",
     "ember-modifier": "^4.2.2",
     "ember-page-title": "^9.0.3",
+    "ember-primitives": "^0.42.1",
     "ember-qunit": "^9.0.4",
     "ember-resolver": "^13.1.1",
-    "ember-source": "~6.8.1",
+    "ember-source": "~6.8.2",
     "ember-svg-jar": "^2.7.1",
     "ember-template-imports": "^4.3.0",
     "ember-template-lint": "^7.9.3",
@@ -109,7 +110,7 @@
     "stylelint": "^16.25.0",
     "type-css-modules": "workspace:*",
     "typescript": "^5.9.3",
-    "webpack": "^5.102.1"
+    "webpack": "^5.103.0"
   },
   "engines": {
     "node": "20.* || >= 22"

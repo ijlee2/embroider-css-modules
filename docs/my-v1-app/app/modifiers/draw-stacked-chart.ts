@@ -3,13 +3,13 @@
 /* eslint-disable @typescript-eslint/unbound-method, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return */
 import { registerDestructor } from '@ember/destroyable';
 import { action } from '@ember/object';
-import { type Registry as Services, service } from '@ember/service';
 import { extent, max, rollup, ticks } from 'd3-array';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { scaleBand, scaleLinear, scaleOrdinal } from 'd3-scale';
 import { select } from 'd3-selection';
 import { stack, stackOrderReverse } from 'd3-shape';
 import Modifier from 'ember-modifier';
+import { resizeObserver } from 'ember-primitives/resize-observer';
 import {
   COLOR_PALETTE,
   type Data,
@@ -29,11 +29,10 @@ interface DrawStackedChartSignature {
 }
 
 export default class DrawStackedChartModifier extends Modifier<DrawStackedChartSignature> {
-  @service declare resizeObserver: Services['resize-observer'];
-
   _element = undefined;
   _named = {};
   height = 0;
+  resizeObserver = resizeObserver(this);
   width = 0;
 
   get color() {
