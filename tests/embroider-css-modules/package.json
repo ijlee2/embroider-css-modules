@@ -48,8 +48,9 @@
     "@embroider/test-setup": "^4.0.0",
     "@glimmer/component": "^2.0.0",
     "@glimmer/tracking": "^1.1.2",
-    "@glint/ember-tsc": "^1.0.7",
-    "@glint/template": "^1.7.2",
+    "@glint/ember-tsc": "^1.0.8",
+    "@glint/template": "^1.7.3",
+    "@glint/tsserver-plugin": "^2.0.8",
     "@shared-configs/ember-template-lint": "workspace:*",
     "@shared-configs/eslint-config-ember": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
@@ -73,7 +74,7 @@
     "ember-qunit": "^9.0.4",
     "ember-resolver": "^13.1.1",
     "ember-route-template": "^1.0.3",
-    "ember-source": "~6.8.1",
+    "ember-source": "~6.8.2",
     "ember-template-imports": "^4.3.0",
     "ember-template-lint": "^7.9.3",
     "ember-test-selectors": "^7.1.0",
@@ -87,7 +88,7 @@
     "qunit-dom": "^3.5.0",
     "stylelint": "^16.25.0",
     "typescript": "^5.9.3",
-    "webpack": "^5.102.1"
+    "webpack": "^5.103.0"
   },
   "engines": {
     "node": "20.* || >= 22"
