@@ -52,7 +52,7 @@ type-css-modules --src "app/{components,controllers,templates}"
 
 <summary>Optional: Specify the project root</summary>
 
-Pass `--root` to run the codemod on a project somewhere else (i.e. not in the current directory).
+Pass `--root` to run the codemod somewhere else (i.e. not in the current directory).
 
 ```sh
 type-css-modules --root <path/to/your/project>
