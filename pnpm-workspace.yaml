@@ -2,6 +2,7 @@ packages:
   - configs/**
   - docs/**
   - packages/ember-codemod-remove-ember-css-modules
+  - packages/ember-codemod-remove-global-styles
   - packages/embroider-css-modules
   - packages/type-css-modules
   - tests/**

@@ -32,6 +32,7 @@ As you will see in the [Guides](#guides) below, we delegate the how to Rollup, W
 ## Package overview
 
 - [ember-codemod-remove-ember-css-modules](/packages/ember-codemod-remove-ember-css-modules/README.md)
+- [ember-codemod-remove-global-styles](/packages/ember-codemod-remove-global-styles/README.md)
 - [embroider-css-modules](/packages/embroider-css-modules/README.md)
 - [type-css-modules](/packages/type-css-modules/README.md)
 
