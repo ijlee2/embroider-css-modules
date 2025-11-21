@@ -1,6 +1,6 @@
 {
   "name": "my-v1-app",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "private": true,
   "description": "An Ember app with embroider-css-modules",
   "keywords": [

@@ -1,5 +1,11 @@
 # embroider-css-modules
 
+## 3.1.2
+
+### Patch Changes
+
+- [#195](https://github.com/ijlee2/embroider-css-modules/pull/195) Updated `@embroider/addon-dev` to `8.1.1` ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.1.1
 
 ### Patch Changes

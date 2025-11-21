@@ -1,5 +1,13 @@
 # my-v1-app
 
+## 1.4.2
+
+### Patch Changes
+
+- [#195](https://github.com/ijlee2/embroider-css-modules/pull/195) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#194](https://github.com/ijlee2/embroider-css-modules/pull/194) Replaced ember-resize-observer-service with ember-primitives/resize-observer ([@ijlee2](https://github.com/ijlee2))
+- [#194](https://github.com/ijlee2/embroider-css-modules/pull/194) Patched #191 ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.4.1
 
 ### Patch Changes
