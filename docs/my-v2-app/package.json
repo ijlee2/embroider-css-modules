@@ -52,9 +52,9 @@
     "@ember/test-helpers": "^5.4.1",
     "@embroider/compat": "^4.1.10",
     "@embroider/config-meta-loader": "^1.0.0",
-    "@embroider/core": "^4.2.7",
-    "@embroider/router": "^3.0.4",
-    "@embroider/vite": "^1.4.1",
+    "@embroider/core": "^4.2.8",
+    "@embroider/router": "^3.0.5",
+    "@embroider/vite": "^1.4.2",
     "@glimmer/component": "^2.0.0",
     "@glimmer/tracking": "^1.1.2",
     "@glint/ember-tsc": "^1.0.8",
@@ -96,10 +96,10 @@
     "prettier": "^3.6.2",
     "qunit": "^2.24.2",
     "qunit-dom": "^3.5.0",
-    "stylelint": "^16.25.0",
+    "stylelint": "^16.26.0",
     "type-css-modules": "workspace:*",
     "typescript": "^5.9.3",
-    "vite": "^7.2.2"
+    "vite": "^7.2.4"
   },
   "engines": {
     "node": "20.* || >= 22"
