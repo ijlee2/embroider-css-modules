@@ -10,6 +10,10 @@ type Options = {
 
 type ClassToStyles = Map<string, Style[]>;
 
+type Project = {
+  classToStyles: ClassToStyles;
+};
+
 type Style = {
   classes: string[];
   location: {
@@ -28,4 +32,4 @@ type Style = {
   selector: string;
 };
 
-export type { ClassToStyles, CodemodOptions, Options, Style };
+export type { ClassToStyles, CodemodOptions, Options, Project, Style };
