@@ -1,0 +1,18 @@
+import type { Style } from '../../types/index.js';
+
+export function printStyles(styles: Style[]): string {
+  return styles
+    .sort((a, b) => {
+      if (a.location.start.offset > b.location.start.offset) {
+        return 1;
+      }
+
+      if (a.location.start.offset < b.location.start.offset) {
+        return -1;
+      }
+
+      return 0;
+    })
+    .map(({ raw }) => raw)
+    .join('\n\n');
+}
