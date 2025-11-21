@@ -16,10 +16,16 @@ const argv = yargs(hideBin(process.argv))
     describe: 'Where to run the codemod',
     type: 'string',
   })
+  .option('src', {
+    demandOption: true,
+    describe: 'Location of the global stylesheet (e.g. app/assets/app.css)',
+    type: 'string',
+  })
   .parseSync();
 
 const codemodOptions: CodemodOptions = {
   projectRoot: argv['root'] ?? process.cwd(),
+  src: argv['src'],
 };
 
 runCodemod(codemodOptions);
