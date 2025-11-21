@@ -72,7 +72,7 @@ npx ember-codemod-remove-ember-css-modules --component-structure nested
 
 <summary>Optional: Specify the project root</summary>
 
-Pass `--root` to run the codemod on a project somewhere else (i.e. not in the current directory).
+Pass `--root` to run the codemod somewhere else (i.e. not in the current directory).
 
 ```sh
 npx ember-codemod-remove-ember-css-modules --root <path/to/your/project>
