@@ -4,6 +4,7 @@ function extractClasses(value: string): string[] {
   return value.split(/\s+/).filter(Boolean);
 }
 
+type ConcatStatement = ReturnType<typeof AST.builders.concat>;
 type MustacheStatement = ReturnType<typeof AST.builders.mustache>;
 type StringLiteral = ReturnType<typeof AST.builders.string>;
 type TextNode = ReturnType<typeof AST.builders.text>;
@@ -24,6 +25,22 @@ export class Processor {
       classes: Array.from(classes),
       errors,
     };
+  }
+
+  processConcatStatement(nodeValue: ConcatStatement): void {
+    nodeValue.parts.forEach((part) => {
+      switch (part.type) {
+        case 'MustacheStatement': {
+          this.processMustacheStatement(part);
+          break;
+        }
+
+        case 'TextNode': {
+          this.processTextNode(part);
+          break;
+        }
+      }
+    });
   }
 
   processMustacheStatement(nodeValue: MustacheStatement): void {
