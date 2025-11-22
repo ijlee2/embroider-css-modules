@@ -1,6 +1,11 @@
 import postcss from 'postcss';
 
 import type { ClassToStyles } from '../../types/index.js';
+import {
+  extractClasses,
+  extractRootClass,
+  extractSelectors,
+} from './get-class-to-styles/index.js';
 
 type Node = {
   [key: string]: unknown;
@@ -21,31 +26,15 @@ type Node = {
   toString: () => string;
 };
 
-function getClasses(selector: string): string[] {
-  const matches = Array.from(selector.matchAll(/\.([\w-]+)/g));
-
-  return matches.map((results) => results[1]!);
-}
-
-function getRootClass(selector: string): string | undefined {
-  const matches = selector.match(/^\.([\w-]+).*$/);
-
-  if (matches === null) {
-    return undefined;
-  }
-
-  return matches[1];
-}
-
 export function getClassToStyles(file: string): ClassToStyles {
   const classToStyles: ClassToStyles = new Map();
 
   function processRule(node: Node): void {
-    const allSelectors = node.selector.split(/\s*,\s*/);
+    const selectors = extractSelectors(node.selector);
     const clone = node.clone();
 
-    allSelectors.forEach((selector) => {
-      const containerClass = getRootClass(selector);
+    selectors.forEach((selector) => {
+      const containerClass = extractRootClass(selector);
 
       if (containerClass === undefined) {
         return;
@@ -54,7 +43,7 @@ export function getClassToStyles(file: string): ClassToStyles {
       clone.selector = selector;
 
       const data = {
-        classes: getClasses(selector),
+        classes: extractClasses(selector),
         location: {
           end: node.source.end,
           start: node.source.start,
