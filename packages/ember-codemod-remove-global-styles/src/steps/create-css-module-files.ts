@@ -1,15 +1,11 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { findTemplateTags } from '@codemod-utils/ast-template-tag';
 import { createFiles, findFiles } from '@codemod-utils/files';
 
-import type { Options, Project, Style } from '../types/index.js';
-import {
-  getClasses,
-  getModuleFilePath,
-  printStyles,
-} from '../utils/css/index.js';
+import type { Options, Project } from '../types/index.js';
+import { getModuleFilePath, printStyles } from '../utils/css/index.js';
+import { getEntityData } from './analyze-project/get-entity-data.js';
 import { getFile, logErrors } from './create-css-module-files/index.js';
 
 export function createCssModuleFiles(project: Project, options: Options): void {
@@ -24,40 +20,12 @@ export function createCssModuleFiles(project: Project, options: Options): void {
   filePaths.forEach((filePath) => {
     const file = readFileSync(join(projectRoot, filePath), 'utf8');
 
-    const classes: string[] = [];
-    const errors: string[] = [];
+    const entityData = getEntityData(file, {
+      classToStyles: project.classToStyles,
+      isHbs: filePath.endsWith('.hbs'),
+    });
 
-    if (filePath.endsWith('.hbs')) {
-      const output = getClasses(file);
-
-      classes.push(...output.classes);
-      errors.push(...output.errors);
-    } else {
-      const templateTags = findTemplateTags(file);
-
-      templateTags.forEach(({ contents }) => {
-        const output = getClasses(contents);
-
-        classes.push(...output.classes);
-        errors.push(...output.errors);
-      });
-    }
-
-    const classesSet = new Set(classes);
-
-    const localStyles = classes.reduce((accumulator, className) => {
-      const styles = project.classToStyles.get(className) ?? [];
-
-      const filteredStyles = styles.filter(({ classes }) => {
-        return classes.every((className) => classesSet.has(className));
-      });
-
-      accumulator.push(...filteredStyles);
-
-      return accumulator;
-    }, [] as Style[]);
-
-    if (localStyles.length === 0) {
+    if (entityData.localStyles.length === 0) {
       return;
     }
 
@@ -65,11 +33,11 @@ export function createCssModuleFiles(project: Project, options: Options): void {
 
     let cssModuleFile = getFile(cssModuleFilePath, options);
 
-    cssModuleFile += `${printStyles(localStyles)}\n`;
+    cssModuleFile += `${printStyles(entityData.localStyles)}\n`;
 
     fileMap.set(cssModuleFilePath, cssModuleFile);
 
-    logErrors(errors, { cssModuleFilePath });
+    logErrors(entityData.errors, { cssModuleFilePath });
   });
 
   createFiles(fileMap, { projectRoot });
