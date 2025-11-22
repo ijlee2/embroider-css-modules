@@ -9,7 +9,11 @@ _Codemod to localize global styles_
 
 ### Arguments
 
-[PROVIDE REQUIRED AND OPTIONAL ARGUMENTS.]
+You must pass `--src` to indicate the location of your global stylesheet.
+
+```sh
+ember-codemod-remove-global-styles --src app/assets/app.css
+```
 
 <details>
 
