@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { findTemplateTags } from '@codemod-utils/ast-template-tag';
@@ -10,6 +10,7 @@ import {
   getModuleFilePath,
   printStyles,
 } from '../utils/css/index.js';
+import { getFile, logErrors } from './create-css-module-files/index.js';
 
 export function createCssModuleFiles(project: Project, options: Options): void {
   const { projectRoot } = options;
@@ -62,19 +63,13 @@ export function createCssModuleFiles(project: Project, options: Options): void {
 
     const cssModuleFilePath = getModuleFilePath(filePath);
 
-    let cssModuleFile = existsSync(join(projectRoot, cssModuleFilePath))
-      ? readFileSync(join(projectRoot, cssModuleFilePath), 'utf8')
-      : '';
+    let cssModuleFile = getFile(cssModuleFilePath, options);
 
     cssModuleFile += `${printStyles(localStyles)}\n`;
 
     fileMap.set(cssModuleFilePath, cssModuleFile);
 
-    if (errors.length > 0) {
-      console.warn(`WARNING: ${cssModuleFilePath} may be incorrect.`);
-      console.warn(errors.map((error) => `- ${error}`).join('\n'));
-      console.log();
-    }
+    logErrors(errors, { cssModuleFilePath });
   });
 
   createFiles(fileMap, { projectRoot });
