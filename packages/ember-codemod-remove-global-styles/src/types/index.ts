@@ -10,8 +10,15 @@ type Options = {
 
 type ClassToStyles = Map<string, Style[]>;
 
+type EntityData = {
+  classes: string[];
+  errors: string[];
+  localStyles: Style[];
+};
+
 type Project = {
-  classToStyles: ClassToStyles;
+  components: Map<string, EntityData>;
+  routes: Map<string, EntityData>;
 };
 
 type Style = {
@@ -32,4 +39,11 @@ type Style = {
   selector: string;
 };
 
-export type { ClassToStyles, CodemodOptions, Options, Project, Style };
+export type {
+  ClassToStyles,
+  CodemodOptions,
+  EntityData,
+  Options,
+  Project,
+  Style,
+};
