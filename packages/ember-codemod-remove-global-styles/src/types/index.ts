@@ -17,7 +17,8 @@ type EntityData = {
 };
 
 type Project = {
-  classToStyles: ClassToStyles;
+  components: Map<string, EntityData>;
+  routes: Map<string, EntityData>;
 };
 
 type Style = {
