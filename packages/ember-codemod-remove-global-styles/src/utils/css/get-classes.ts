@@ -14,20 +14,7 @@ export function getClasses(file: string): ProcessorReturn {
 
       switch (node.value.type) {
         case 'ConcatStatement': {
-          node.value.parts.forEach((part) => {
-            switch (part.type) {
-              case 'MustacheStatement': {
-                processor.processMustacheStatement(part);
-                break;
-              }
-
-              case 'TextNode': {
-                processor.processTextNode(part);
-                break;
-              }
-            }
-          });
-
+          processor.processConcatStatement(node.value);
           break;
         }
 
