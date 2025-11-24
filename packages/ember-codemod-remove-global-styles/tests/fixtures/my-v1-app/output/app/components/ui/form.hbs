@@ -5,7 +5,7 @@
       (concat formId "-instructions")
     }}
     aria-labelledby={{if @title (concat formId "-title")}}
-    class={{styles.components-ui-form__form}}
+    class={{this.styles.components-ui-form__form}}
     data-test-form={{if @title @title ""}}
     {{on "submit" this.submitForm}}
   >
@@ -50,9 +50,9 @@
       }}
     </ContainerQuery>
 
-    <div class={{styles.components-ui-form__actions}}>
+    <div class={{this.styles.components-ui-form__actions}}>
       <button
-        class={{styles.components-ui-form__submit-button}}
+        class={{this.styles.components-ui-form__submit-button}}
         data-test-button="Submit"
         type="submit"
       >

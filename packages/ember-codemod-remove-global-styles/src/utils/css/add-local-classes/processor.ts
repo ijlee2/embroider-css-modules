@@ -6,10 +6,12 @@ type ConcatStatement = ReturnType<typeof AST.builders.concat>;
 type MustacheStatement = ReturnType<typeof AST.builders.mustache>;
 type PathExpression = ReturnType<typeof AST.builders.path>;
 type StringLiteral = ReturnType<typeof AST.builders.string>;
+type SubExpression = ReturnType<typeof AST.builders.sexpr>;
 type TextNode = ReturnType<typeof AST.builders.text>;
 
 type ProcessorArgs = {
   classToStyles: ClassToStyles;
+  isHbs: boolean;
 };
 
 export type ProcessorReturn = {
@@ -18,14 +20,18 @@ export type ProcessorReturn = {
 };
 
 export class Processor {
-  private classToStyles: ClassToStyles;
+  private args: ProcessorArgs;
 
   constructor(args: ProcessorArgs) {
-    this.classToStyles = args.classToStyles;
+    this.args = args;
+  }
+
+  private getLocalClass(className: string): string {
+    return this.args.isHbs ? `this.styles.${className}` : `styles.${className}`;
   }
 
   private isLocal(className: string): boolean {
-    return this.classToStyles.has(className);
+    return this.args.classToStyles.has(className);
   }
 
   processConcatStatement(nodeValue: ConcatStatement): ConcatStatement {
@@ -103,7 +109,7 @@ export class Processor {
       const className = classNames[0]!;
 
       return this.isLocal(className)
-        ? AST.builders.path(`styles.${className}`)
+        ? AST.builders.path(this.getLocalClass(className))
         : nodeValue;
     }
 
@@ -116,7 +122,10 @@ export class Processor {
     const parts = classNames
       .map((className) => {
         return this.isLocal(className)
-          ? [AST.builders.path(`styles.${className}`), AST.builders.string(' ')]
+          ? [
+              AST.builders.path(this.getLocalClass(className)),
+              AST.builders.string(' '),
+            ]
           : [AST.builders.string(`${className} `), AST.builders.string(' ')];
       })
       .flat();
@@ -125,6 +134,43 @@ export class Processor {
     parts.splice(-1);
 
     return AST.builders.sexpr(AST.builders.path('concat'), parts);
+  }
+
+  processSubExpression(nodeValue: SubExpression): SubExpression {
+    switch (nodeValue.path.type) {
+      case 'PathExpression': {
+        switch (nodeValue.path.original) {
+          case 'if':
+          case 'unless': {
+            if (nodeValue.params[1]?.type === 'StringLiteral') {
+              // @ts-expect-error: Incorrect type
+              nodeValue.params[1] = this.processStringLiteral(
+                nodeValue.params[1],
+              );
+            }
+
+            if (nodeValue.params[2]?.type === 'StringLiteral') {
+              // @ts-expect-error: Incorrect type
+              nodeValue.params[2] = this.processStringLiteral(
+                nodeValue.params[2],
+              );
+            }
+
+            break;
+          }
+        }
+
+        break;
+      }
+
+      case 'StringLiteral': {
+        // @ts-expect-error: Incorrect type
+        nodeValue.path = this.processStringLiteral(nodeValue.path);
+        break;
+      }
+    }
+
+    return nodeValue;
   }
 
   processTextNode(nodeValue: TextNode): MustacheStatement | TextNode {
@@ -138,7 +184,7 @@ export class Processor {
       const className = classNames[0]!;
 
       return this.isLocal(className)
-        ? AST.builders.mustache(`styles.${className}`)
+        ? AST.builders.mustache(this.getLocalClass(className))
         : nodeValue;
     }
 
@@ -151,7 +197,10 @@ export class Processor {
     const parts = classNames
       .map((className) => {
         return this.isLocal(className)
-          ? [AST.builders.path(`styles.${className}`), AST.builders.string(' ')]
+          ? [
+              AST.builders.path(this.getLocalClass(className)),
+              AST.builders.string(' '),
+            ]
           : [AST.builders.string(className), AST.builders.string(' ')];
       })
       .flat();

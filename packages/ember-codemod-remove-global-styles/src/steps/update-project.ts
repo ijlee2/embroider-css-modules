@@ -24,6 +24,7 @@ export function updateProject(project: Project, options: Options): void {
 
     const data = {
       classToStyles: getClassToStyles(cssModuleFile),
+      isHbs: filePath.endsWith('.hbs'),
     };
 
     if (filePath.endsWith('.hbs')) {
@@ -43,6 +44,7 @@ export function updateProject(project: Project, options: Options): void {
 
     const data = {
       classToStyles: getClassToStyles(cssModuleFile),
+      isHbs: filePath.endsWith('.hbs'),
     };
 
     if (filePath.endsWith('.hbs')) {

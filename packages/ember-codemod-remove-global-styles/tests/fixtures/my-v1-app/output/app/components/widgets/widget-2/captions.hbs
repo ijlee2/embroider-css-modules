@@ -3,27 +3,27 @@
   as |CQ|
 >
   <div
-    class="{{styles.components-widgets-widget-2-captions__container}} {{unless
+    class="{{this.styles.components-widgets-widget-2-captions__container}} {{unless
         CQ.features.tall
         'components-widgets-widget-2-captions__flat'
       }}  "
   >
     {{#if this.summary}}
       <div
-        class="{{styles.components-widgets-widget-2-captions__summary}} {{if
+        class="{{this.styles.components-widgets-widget-2-captions__summary}} {{if
             CQ.features.large
             'components-widgets-widget-2-captions__horizontal-layout'
           }}  "
         tabindex="0"
       >
         <h3
-          class="{{styles.components-widgets-widget-2-captions__music-format}} {{unless
+          class="{{this.styles.components-widgets-widget-2-captions__music-format}} {{unless
               CQ.features.large
               'components-widgets-widget-2-captions__small-font-size'
             }}  "
         >
           <span
-            class={{styles.components-widgets-widget-2-captions__marker}}
+            class={{this.styles.components-widgets-widget-2-captions__marker}}
             {{this.colorSvg this.summary.markerColor}}
           >
             {{svg-jar
@@ -39,7 +39,7 @@
         </h3>
 
         <div
-          class={{styles.components-widgets-widget-2-captions__annual-revenue}}
+          class={{this.styles.components-widgets-widget-2-captions__annual-revenue}}
           data-test-field="Annual Revenue"
         >
           {{#if (or CQ.features.tall CQ.features.large)}}
@@ -47,14 +47,14 @@
           {{/if}}
 
           <span
-            class={{styles.components-widgets-widget-2-captions__highlight}}
+            class={{this.styles.components-widgets-widget-2-captions__highlight}}
           >
             {{this.summary.averageRevenue}}
           </span>
         </div>
 
         <div
-          class={{styles.components-widgets-widget-2-captions__relevant-years}}
+          class={{this.styles.components-widgets-widget-2-captions__relevant-years}}
           data-test-field="Relevant Years"
         >
           {{#if (or CQ.features.tall CQ.features.large)}}
@@ -62,7 +62,7 @@
           {{/if}}
 
           <span
-            class={{styles.components-widgets-widget-2-captions__highlight}}
+            class={{this.styles.components-widgets-widget-2-captions__highlight}}
           >
             {{this.summary.relevantYears.min}}
             -
@@ -74,7 +74,7 @@
       {{#if this.canShowPreviousButton}}
         <button
           aria-label="Previous"
-          class={{styles.components-widgets-widget-2-captions__previous-button}}
+          class={{this.styles.components-widgets-widget-2-captions__previous-button}}
           data-test-button="Previous"
           type="button"
           {{on "click" (fn this.showNextSummary -1)}}
@@ -84,7 +84,7 @@
           {{else}}
             {{svg-jar
               "chevron-left"
-              class="components-widgets-widget-2-captions__icon"
+              class=this.styles.components-widgets-widget-2-captions__icon
               desc="A chevron arrow pointing left"
               role="img"
             }}
@@ -95,7 +95,7 @@
       {{#if this.canShowNextButton}}
         <button
           aria-label="Next"
-          class={{styles.components-widgets-widget-2-captions__next-button}}
+          class={{this.styles.components-widgets-widget-2-captions__next-button}}
           data-test-button="Next"
           type="button"
           {{on "click" (fn this.showNextSummary 1)}}
@@ -105,7 +105,7 @@
           {{else}}
             {{svg-jar
               "chevron-right"
-              class="components-widgets-widget-2-captions__icon"
+              class=this.styles.components-widgets-widget-2-captions__icon
               desc="A chevron arrow pointing right"
               role="img"
             }}

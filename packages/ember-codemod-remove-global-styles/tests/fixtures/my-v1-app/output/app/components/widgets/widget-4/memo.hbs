@@ -5,25 +5,25 @@
     small=(width max=200)
   }}
   @tagName="article"
-  class={{styles.components-widgets-widget-4-memo__container}}
+  class={{this.styles.components-widgets-widget-4-memo__container}}
   as |CQ|
 >
   <div
-    class={{styles.components-widgets-widget-4-memo__header-container}}
+    class={{this.styles.components-widgets-widget-4-memo__header-container}}
   >
     <Widgets::Widget-4::Memo::Header
       @cqFeatures={{CQ.features}}
     />
   </div>
 
-  <div class={{styles.components-widgets-widget-4-memo__body-container}}>
+  <div class={{this.styles.components-widgets-widget-4-memo__body-container}}>
     <Widgets::Widget-4::Memo::Body
       @cqFeatures={{CQ.features}}
     />
   </div>
 
   <div
-    class={{styles.components-widgets-widget-4-memo__actions-container}}
+    class={{this.styles.components-widgets-widget-4-memo__actions-container}}
   >
     <Widgets::Widget-4::Memo::Actions
       @cqFeatures={{CQ.features}}

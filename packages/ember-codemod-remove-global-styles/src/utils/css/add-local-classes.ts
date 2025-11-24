@@ -5,6 +5,7 @@ import { Processor } from './add-local-classes/index.js';
 
 type Data = {
   classToStyles: ClassToStyles;
+  isHbs: boolean;
 };
 
 export function addLocalClasses(file: string, data: Data): string {
@@ -30,6 +31,25 @@ export function addLocalClasses(file: string, data: Data): string {
 
         case 'TextNode': {
           node.value = processor.processTextNode(node.value);
+          break;
+        }
+      }
+    },
+
+    HashPair(node) {
+      if (node.key !== 'class') {
+        return;
+      }
+
+      switch (node.value.type) {
+        case 'StringLiteral': {
+          // @ts-expect-error: Incorrect type
+          node.value = processor.processStringLiteral(node.value);
+          break;
+        }
+
+        case 'SubExpression': {
+          node.value = processor.processSubExpression(node.value);
           break;
         }
       }

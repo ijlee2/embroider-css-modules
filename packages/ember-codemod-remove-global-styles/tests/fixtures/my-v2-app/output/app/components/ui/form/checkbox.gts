@@ -82,7 +82,7 @@ export default class UiFormCheckbox extends Component<UiFormCheckboxSignature> {
           aria-labelledby={{concat f.inputId "-label"}}
           aria-readonly={{if @isReadOnly "true" "false"}}
           aria-required={{if @isRequired "true" "false"}}
-          class="{{styles.components-ui-form-checkbox__checkbox}} {{if this.isChecked styles.components-ui-form-checkbox__is-checked}}  {{if (or @isDisabled @isReadOnly) 'is-disabled'}}  "
+          class="{{styles.components-ui-form-checkbox__checkbox}} {{if this.isChecked styles.components-ui-form-checkbox__is-checked}}  {{if (or @isDisabled @isReadOnly) styles.is-disabled}}  "
           data-test-field={{@label}}
           role="checkbox"
           tabindex={{unless @isDisabled "0"}}
@@ -92,7 +92,7 @@ export default class UiFormCheckbox extends Component<UiFormCheckboxSignature> {
           {{#if this.isChecked}}
             {{svgJar
               "check"
-              class="components-ui-form-checkbox__checkmark-icon"
+              class=styles.components-ui-form-checkbox__checkmark-icon
               desc="A checkmark to indicate that the input field is checked"
               role="img"
             }}

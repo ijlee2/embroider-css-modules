@@ -1,8 +1,8 @@
 {{#if (or @title @instructions)}}
-  <div class={{styles.components-ui-form-information__container}}>
+  <div class={{this.styles.components-ui-form-information__container}}>
     {{#if @title}}
       <div
-        class={{styles.components-ui-form-information__title}}
+        class={{this.styles.components-ui-form-information__title}}
         data-test-title
         id={{concat @formId "-title"}}
       >
@@ -12,7 +12,7 @@
 
     {{#if @instructions}}
       <p
-        class={{styles.components-ui-form-information__instructions}}
+        class={{this.styles.components-ui-form-information__instructions}}
         data-test-instructions
         id={{concat @formId "-instructions"}}
       >

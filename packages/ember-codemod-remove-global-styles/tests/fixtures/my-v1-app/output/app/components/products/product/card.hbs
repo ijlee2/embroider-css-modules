@@ -1,12 +1,12 @@
 <ContainerQuery
   @features={{hash wide=(width min=320)}}
   @tagName="article"
-  class={{styles.components-products-product-card__container}}
+  class={{this.styles.components-products-product-card__container}}
   data-test-product-card
 >
-  <header class={{styles.components-products-product-card__header}}>
+  <header class={{this.styles.components-products-product-card__header}}>
     <h2
-      class={{styles.components-products-product-card__name}}
+      class={{this.styles.components-products-product-card__name}}
       data-test-field="Name"
     >
       {{@product.name}}
@@ -14,32 +14,32 @@
   </header>
 
   <div
-    class={{styles.components-products-product-card__image-container}}
+    class={{this.styles.components-products-product-card__image-container}}
   >
     <Products::Product::Image @src={{@product.imageUrl}} />
   </div>
 
-  <div class={{styles.components-products-product-card__body}}>
+  <div class={{this.styles.components-products-product-card__body}}>
     <p
-      class={{styles.components-products-product-card__description}}
+      class={{this.styles.components-products-product-card__description}}
       data-test-field="Short Description"
     >
       {{@product.shortDescription}}
     </p>
 
     <p
-      class={{styles.components-products-product-card__price}}
+      class={{this.styles.components-products-product-card__price}}
       data-test-field="Price"
     >
       {{this.formatPrice @product.price}}
     </p>
   </div>
 
-  <div class={{styles.components-products-product-card__actions}}>
+  <div class={{this.styles.components-products-product-card__actions}}>
     <LinkTo
       @model={{@product.id}}
       @route={{@redirectTo}}
-      class={{styles.components-products-product-card__link}}
+      class={{this.styles.components-products-product-card__link}}
       data-test-link="Learn More"
     >
       Learn more

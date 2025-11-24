@@ -4,12 +4,12 @@
   <div
     class="{{if
         this.isPartOfNestProductDetailsExperiment
-        (concat styles.templates-products__shared-layout " " styles.templates-products__products-with-details)
-        (concat styles.templates-products__shared-layout " " styles.templates-products__products)
-      }} {{styles.templates-products__sticky-container}} "
+        (concat this.styles.templates-products__shared-layout " " this.styles.templates-products__products-with-details)
+        (concat this.styles.templates-products__shared-layout " " this.styles.templates-products__products)
+      }} {{this.styles.templates-products__sticky-container}} "
   >
-    <div class={{styles.templates-products__filters}}>
-      <div class={{styles.templates-products__filter}}>
+    <div class={{this.styles.templates-products__filters}}>
+      <div class={{this.styles.templates-products__filter}}>
         <Ui::Form::Input
           @data={{hash name=this.name}}
           @key="name"
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class={{styles.templates-products__list}}>
+    <div class={{this.styles.templates-products__list}}>
       {{#each this.filteredProducts as |product|}}
         <Products::Product::Card @product={{product}} />
       {{else}}
@@ -30,7 +30,7 @@
       {{/each}}
     </div>
 
-    <div class={{styles.templates-products__product-details}}>
+    <div class={{this.styles.templates-products__product-details}}>
       {{outlet}}
     </div>
   </div>

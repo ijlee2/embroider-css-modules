@@ -1,11 +1,11 @@
 {{#if this.isTestEnvironment}}
   <div
-    class={{styles.components-products-product-image__placeholder-image}}
+    class={{this.styles.components-products-product-image__placeholder-image}}
   ></div>
 {{else}}
   <img
     alt=""
-    class={{styles.components-products-product-image__image}}
+    class={{this.styles.components-products-product-image__image}}
     src={{@src}}
   />
 {{/if}}
