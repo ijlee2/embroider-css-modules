@@ -1,9 +1,16 @@
 type CodemodOptions = {
+  convert: Set<'components' | 'routes'>;
+  folder: string;
   projectRoot: string;
   src: string;
 };
 
 type Options = {
+  convert: {
+    components: boolean;
+    routes: boolean;
+  };
+  folder: string;
   projectRoot: string;
   src: string;
 };

@@ -12,6 +12,15 @@ process.title = 'ember-codemod-remove-global-styles';
 
 // Set codemod options
 const argv = yargs(hideBin(process.argv))
+  .option('convert', {
+    choices: ['components', 'routes'] as const,
+    describe: 'Which type of files to consider',
+    type: 'array',
+  })
+  .option('folder', {
+    describe: 'Which folder to consider',
+    type: 'string',
+  })
   .option('root', {
     describe: 'Where to run the codemod',
     type: 'string',
@@ -23,7 +32,11 @@ const argv = yargs(hideBin(process.argv))
   })
   .parseSync();
 
+const DEFAULT_FOR_CONVERT = ['components', 'routes'] as const;
+
 const codemodOptions: CodemodOptions = {
+  convert: new Set(argv['convert'] ?? DEFAULT_FOR_CONVERT),
+  folder: argv['folder'] ?? '',
   projectRoot: argv['root'] ?? process.cwd(),
   src: argv['src'],
 };
