@@ -6,6 +6,7 @@ type ConcatStatement = ReturnType<typeof AST.builders.concat>;
 type MustacheStatement = ReturnType<typeof AST.builders.mustache>;
 type PathExpression = ReturnType<typeof AST.builders.path>;
 type StringLiteral = ReturnType<typeof AST.builders.string>;
+type SubExpression = ReturnType<typeof AST.builders.sexpr>;
 type TextNode = ReturnType<typeof AST.builders.text>;
 
 type ProcessorArgs = {
@@ -133,6 +134,43 @@ export class Processor {
     parts.splice(-1);
 
     return AST.builders.sexpr(AST.builders.path('concat'), parts);
+  }
+
+  processSubExpression(nodeValue: SubExpression): SubExpression {
+    switch (nodeValue.path.type) {
+      case 'PathExpression': {
+        switch (nodeValue.path.original) {
+          case 'if':
+          case 'unless': {
+            if (nodeValue.params[1]?.type === 'StringLiteral') {
+              // @ts-expect-error: Incorrect type
+              nodeValue.params[1] = this.processStringLiteral(
+                nodeValue.params[1],
+              );
+            }
+
+            if (nodeValue.params[2]?.type === 'StringLiteral') {
+              // @ts-expect-error: Incorrect type
+              nodeValue.params[2] = this.processStringLiteral(
+                nodeValue.params[2],
+              );
+            }
+
+            break;
+          }
+        }
+
+        break;
+      }
+
+      case 'StringLiteral': {
+        // @ts-expect-error: Incorrect type
+        nodeValue.path = this.processStringLiteral(nodeValue.path);
+        break;
+      }
+    }
+
+    return nodeValue;
   }
 
   processTextNode(nodeValue: TextNode): MustacheStatement | TextNode {

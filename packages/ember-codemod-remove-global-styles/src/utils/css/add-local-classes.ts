@@ -35,6 +35,25 @@ export function addLocalClasses(file: string, data: Data): string {
         }
       }
     },
+
+    HashPair(node) {
+      if (node.key !== 'class') {
+        return;
+      }
+
+      switch (node.value.type) {
+        case 'StringLiteral': {
+          // @ts-expect-error: Incorrect type
+          node.value = processor.processStringLiteral(node.value);
+          break;
+        }
+
+        case 'SubExpression': {
+          node.value = processor.processSubExpression(node.value);
+          break;
+        }
+      }
+    },
   });
 
   return AST.print(ast);

@@ -29,6 +29,24 @@ export function getClasses(file: string): ProcessorReturn {
         }
       }
     },
+
+    HashPair(node) {
+      if (node.key !== 'class') {
+        return;
+      }
+
+      switch (node.value.type) {
+        case 'StringLiteral': {
+          processor.processStringLiteral(node.value);
+          break;
+        }
+
+        case 'SubExpression': {
+          processor.processSubExpression(node.value);
+          break;
+        }
+      }
+    },
   });
 
   return processor.print();

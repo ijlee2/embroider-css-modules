@@ -7,6 +7,7 @@ function extractClasses(value: string): string[] {
 type ConcatStatement = ReturnType<typeof AST.builders.concat>;
 type MustacheStatement = ReturnType<typeof AST.builders.mustache>;
 type StringLiteral = ReturnType<typeof AST.builders.string>;
+type SubExpression = ReturnType<typeof AST.builders.sexpr>;
 type TextNode = ReturnType<typeof AST.builders.text>;
 
 export type ProcessorReturn = {
@@ -87,6 +88,44 @@ export class Processor {
     classNames.forEach((className) => {
       this.classes.add(className);
     });
+  }
+
+  processSubExpression(nodeValue: SubExpression): void {
+    switch (nodeValue.path.type) {
+      case 'PathExpression': {
+        switch (nodeValue.path.original) {
+          case 'if':
+          case 'unless': {
+            if (nodeValue.params[1]?.type === 'StringLiteral') {
+              this.processStringLiteral(nodeValue.params[1]);
+            }
+
+            if (nodeValue.params[2]?.type === 'StringLiteral') {
+              this.processStringLiteral(nodeValue.params[2]);
+            }
+
+            break;
+          }
+
+          default: {
+            const isLocalClass = nodeValue.path.original.startsWith('styles.');
+
+            if (!isLocalClass) {
+              this.errors.push(
+                `Could not analyze {{${nodeValue.path.original}}} in template, line ${nodeValue.loc.start.line}.`,
+              );
+            }
+          }
+        }
+
+        break;
+      }
+
+      case 'StringLiteral': {
+        this.processStringLiteral(nodeValue.path);
+        break;
+      }
+    }
   }
 
   processTextNode(nodeValue: TextNode): void {
