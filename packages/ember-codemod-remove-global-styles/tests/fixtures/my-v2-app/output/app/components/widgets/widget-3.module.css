@@ -1,0 +1,21 @@
+.components-widgets-widget-3__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.components-widgets-widget-3__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.components-widgets-widget-3__actions {
+  margin-top: 0.4rem;
+}
+
+.components-widgets-widget-3__tour-schedule {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+}

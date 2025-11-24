@@ -1,0 +1,16 @@
+.components-ui-form-information__container {
+  margin-bottom: 1rem;
+}
+
+.components-ui-form-information__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.components-ui-form-information__instructions {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.25rem;
+  margin-bottom: 0.5rem;
+}

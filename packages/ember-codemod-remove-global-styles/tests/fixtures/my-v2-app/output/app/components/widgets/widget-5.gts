@@ -6,12 +6,12 @@ const WidgetsWidget5 = <template>
   <ContainerQuery
     @features={{hash large=(width min=224) tall=(height min=120)}}
     @tagName="section"
-    class="components-widgets-widget-5__container"
+    class={{styles.components-widgets-widget-5__container}}
     as |CQ|
   >
     {{#let (and CQ.features.large CQ.features.tall) as |showFullText|}}
       <div
-        class="components-widgets-widget-5__call-to-action"
+        class={{styles.components-widgets-widget-5__call-to-action}}
         data-test-call-to-action
       >
         {{#if showFullText}}

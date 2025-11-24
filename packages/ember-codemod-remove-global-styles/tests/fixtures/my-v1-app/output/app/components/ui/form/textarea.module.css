@@ -1,0 +1,24 @@
+.input-disabled {
+  background-color: #9ea4b0 !important;
+  color: #546e7a !important;
+  cursor: not-allowed !important;
+}
+
+.components-ui-form-input__input {
+  border: 0.125rem solid #ffd54f;
+  padding: 0.125rem 0.25rem;
+  width: calc(100% - 0.75rem);
+}
+
+.components-ui-form-input__input:focus {
+  background-color: #ffecb3;
+  outline: 0;
+}
+
+.components-ui-form-input__input:not(:focus) {
+  border-color: transparent;
+}
+
+.components-ui-form-input__input::placeholder {
+  font-style: italic;
+}

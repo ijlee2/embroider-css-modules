@@ -21,40 +21,40 @@ const ProductsProductCard: TOC<ProductsProductCardSignature> = <template>
   <ContainerQuery
     @features={{hash wide=(width min=320)}}
     @tagName="article"
-    class="components-products-product-card__container"
+    class={{styles.components-products-product-card__container}}
     data-test-product-card
   >
-    <header class="components-products-product-card__header">
-      <h2 class="components-products-product-card__name" data-test-field="Name">
+    <header class={{styles.components-products-product-card__header}}>
+      <h2 class={{styles.components-products-product-card__name}} data-test-field="Name">
         {{@product.name}}
       </h2>
     </header>
 
-    <div class="components-products-product-card__image-container">
+    <div class={{styles.components-products-product-card__image-container}}>
       <ProductsProductImage @src={{@product.imageUrl}} />
     </div>
 
-    <div class="components-products-product-card__body">
+    <div class={{styles.components-products-product-card__body}}>
       <p
-        class="components-products-product-card__description"
+        class={{styles.components-products-product-card__description}}
         data-test-field="Short Description"
       >
         {{@product.shortDescription}}
       </p>
 
       <p
-        class="components-products-product-card__price"
+        class={{styles.components-products-product-card__price}}
         data-test-field="Price"
       >
         {{formatPrice @product.price}}
       </p>
     </div>
 
-    <div class="components-products-product-card__actions">
+    <div class={{styles.components-products-product-card__actions}}>
       <LinkTo
         @model={{@product.id}}
         @route={{@redirectTo}}
-        class="components-products-product-card__link"
+        class={{styles.components-products-product-card__link}}
         data-test-link="Learn More"
       >
         Learn more

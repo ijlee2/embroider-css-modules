@@ -1,0 +1,12 @@
+.components-widgets-widget-3-tour-schedule-responsive-image__image-container {
+  display: grid;
+  height: 100%;
+  width: 100%;
+}
+
+.components-widgets-widget-3-tour-schedule-responsive-image__image {
+  border-radius: 0.25rem;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}

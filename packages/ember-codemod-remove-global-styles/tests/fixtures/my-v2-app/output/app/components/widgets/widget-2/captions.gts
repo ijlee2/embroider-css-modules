@@ -59,33 +59,27 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
       as |CQ|
     >
       <div
-        class="components-widgets-widget-2-captions__container
-          {{unless
+        class="{{styles.components-widgets-widget-2-captions__container}} {{unless
             CQ.features.tall
             'components-widgets-widget-2-captions__flat'
-          }}
-          "
+          }}  "
       >
         {{#if this.summary}}
           <div
-            class="components-widgets-widget-2-captions__summary
-              {{if
+            class="{{styles.components-widgets-widget-2-captions__summary}} {{if
                 CQ.features.large
                 'components-widgets-widget-2-captions__horizontal-layout'
-              }}
-              "
+              }}  "
             tabindex="0"
           >
             <h3
-              class="components-widgets-widget-2-captions__music-format
-                {{unless
+              class="{{styles.components-widgets-widget-2-captions__music-format}} {{unless
                   CQ.features.large
                   'components-widgets-widget-2-captions__small-font-size'
-                }}
-                "
+                }}  "
             >
               <span
-                class="components-widgets-widget-2-captions__marker"
+                class={{styles.components-widgets-widget-2-captions__marker}}
                 {{colorSvg this.summary.markerColor}}
               >
                 {{svgJar
@@ -101,27 +95,27 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
             </h3>
 
             <div
-              class="components-widgets-widget-2-captions__annual-revenue"
+              class={{styles.components-widgets-widget-2-captions__annual-revenue}}
               data-test-field="Annual Revenue"
             >
               {{#if (or CQ.features.tall CQ.features.large)}}
                 <span>Annual revenue:</span>
               {{/if}}
 
-              <span class="components-widgets-widget-2-captions__highlight">
+              <span class={{styles.components-widgets-widget-2-captions__highlight}}>
                 {{this.summary.averageRevenue}}
               </span>
             </div>
 
             <div
-              class="components-widgets-widget-2-captions__relevant-years"
+              class={{styles.components-widgets-widget-2-captions__relevant-years}}
               data-test-field="Relevant Years"
             >
               {{#if (or CQ.features.tall CQ.features.large)}}
                 <span>Relevant years:</span>
               {{/if}}
 
-              <span class="components-widgets-widget-2-captions__highlight">
+              <span class={{styles.components-widgets-widget-2-captions__highlight}}>
                 {{this.summary.relevantYears.min}}
                 -
                 {{this.summary.relevantYears.max}}
@@ -132,7 +126,7 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
           {{#if this.canShowPreviousButton}}
             <button
               aria-label="Previous"
-              class="components-widgets-widget-2-captions__previous-button"
+              class={{styles.components-widgets-widget-2-captions__previous-button}}
               data-test-button="Previous"
               type="button"
               {{on "click" (fn this.showNextSummary -1)}}
@@ -153,7 +147,7 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
           {{#if this.canShowNextButton}}
             <button
               aria-label="Next"
-              class="components-widgets-widget-2-captions__next-button"
+              class={{styles.components-widgets-widget-2-captions__next-button}}
               data-test-button="Next"
               type="button"
               {{on "click" (fn this.showNextSummary 1)}}

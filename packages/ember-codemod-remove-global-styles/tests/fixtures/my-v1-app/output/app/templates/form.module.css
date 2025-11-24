@@ -1,0 +1,7 @@
+.templates-form__field {
+  margin-bottom: 1.25rem;
+}
+
+.templates-form__field:last-of-type {
+  margin-bottom: 0;
+}

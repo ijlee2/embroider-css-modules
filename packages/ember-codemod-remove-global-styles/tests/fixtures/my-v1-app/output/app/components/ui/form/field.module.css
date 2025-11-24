@@ -1,0 +1,37 @@
+.components-ui-form-field__container {
+  align-items: start;
+  display: grid;
+}
+
+.components-ui-form-field__container.components-ui-form-field__is-wide.components-ui-form-field__no-feedback {
+  column-gap: 1rem;
+  grid-template-areas: "label field";
+  grid-template-columns: 10rem 1fr;
+  grid-template-rows: 1fr;
+  row-gap: 0.5rem;
+}
+
+.components-ui-form-field__label {
+  grid-area: label;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.components-ui-form-field__field {
+  grid-area: field;
+}
+
+.components-ui-form-field__feedback {
+  align-items: center;
+  display: flex;
+  font-size: 0.875rem;
+  grid-area: feedback;
+}
+
+.components-ui-form-field__feedback.components-ui-form-field__is-error {
+  color: #ff5252;
+}
+
+.components-ui-form-field__message {
+  margin-left: 0.5rem;
+}

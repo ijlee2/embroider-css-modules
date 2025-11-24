@@ -3,33 +3,27 @@
   as |CQ|
 >
   <div
-    class="components-widgets-widget-2-captions__container
-      {{unless
+    class="{{styles.components-widgets-widget-2-captions__container}} {{unless
         CQ.features.tall
         'components-widgets-widget-2-captions__flat'
-      }}
-      "
+      }}  "
   >
     {{#if this.summary}}
       <div
-        class="components-widgets-widget-2-captions__summary
-          {{if
+        class="{{styles.components-widgets-widget-2-captions__summary}} {{if
             CQ.features.large
             'components-widgets-widget-2-captions__horizontal-layout'
-          }}
-          "
+          }}  "
         tabindex="0"
       >
         <h3
-          class="components-widgets-widget-2-captions__music-format
-            {{unless
+          class="{{styles.components-widgets-widget-2-captions__music-format}} {{unless
               CQ.features.large
               'components-widgets-widget-2-captions__small-font-size'
-            }}
-            "
+            }}  "
         >
           <span
-            class="components-widgets-widget-2-captions__marker"
+            class={{styles.components-widgets-widget-2-captions__marker}}
             {{this.colorSvg this.summary.markerColor}}
           >
             {{svg-jar
@@ -45,7 +39,7 @@
         </h3>
 
         <div
-          class="components-widgets-widget-2-captions__annual-revenue"
+          class={{styles.components-widgets-widget-2-captions__annual-revenue}}
           data-test-field="Annual Revenue"
         >
           {{#if (or CQ.features.tall CQ.features.large)}}
@@ -53,14 +47,14 @@
           {{/if}}
 
           <span
-            class="components-widgets-widget-2-captions__highlight"
+            class={{styles.components-widgets-widget-2-captions__highlight}}
           >
             {{this.summary.averageRevenue}}
           </span>
         </div>
 
         <div
-          class="components-widgets-widget-2-captions__relevant-years"
+          class={{styles.components-widgets-widget-2-captions__relevant-years}}
           data-test-field="Relevant Years"
         >
           {{#if (or CQ.features.tall CQ.features.large)}}
@@ -68,7 +62,7 @@
           {{/if}}
 
           <span
-            class="components-widgets-widget-2-captions__highlight"
+            class={{styles.components-widgets-widget-2-captions__highlight}}
           >
             {{this.summary.relevantYears.min}}
             -
@@ -80,7 +74,7 @@
       {{#if this.canShowPreviousButton}}
         <button
           aria-label="Previous"
-          class="components-widgets-widget-2-captions__previous-button"
+          class={{styles.components-widgets-widget-2-captions__previous-button}}
           data-test-button="Previous"
           type="button"
           {{on "click" (fn this.showNextSummary -1)}}
@@ -101,7 +95,7 @@
       {{#if this.canShowNextButton}}
         <button
           aria-label="Next"
-          class="components-widgets-widget-2-captions__next-button"
+          class={{styles.components-widgets-widget-2-captions__next-button}}
           data-test-button="Next"
           type="button"
           {{on "click" (fn this.showNextSummary 1)}}

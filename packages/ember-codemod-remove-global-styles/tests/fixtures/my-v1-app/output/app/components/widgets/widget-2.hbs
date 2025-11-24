@@ -5,7 +5,7 @@
     very-tall=(height min=480)
   }}
   @tagName="section"
-  class="components-widgets-widget-2__container"
+  class={{styles.components-widgets-widget-2__container}}
   as |CQ|
 >
   <header>
@@ -14,7 +14,7 @@
 
   {{#unless CQ.features.short}}
     <div
-      class="components-widgets-widget-2__visualization"
+      class={{styles.components-widgets-widget-2__visualization}}
       data-test-visualization
     >
       <Widgets::Widget-2::StackedChart @data={{this.data}} />

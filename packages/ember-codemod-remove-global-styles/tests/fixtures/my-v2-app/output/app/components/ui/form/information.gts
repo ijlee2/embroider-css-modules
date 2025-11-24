@@ -12,10 +12,10 @@ interface UiFormInformationSignature {
 
 const UiFormInformation: TOC<UiFormInformationSignature> = <template>
   {{#if (or @title @instructions)}}
-    <div class="components-ui-form-information__container">
+    <div class={{styles.components-ui-form-information__container}}>
       {{#if @title}}
         <div
-          class="components-ui-form-information__title"
+          class={{styles.components-ui-form-information__title}}
           data-test-title
           id={{concat @formId "-title"}}
         >
@@ -25,7 +25,7 @@ const UiFormInformation: TOC<UiFormInformationSignature> = <template>
 
       {{#if @instructions}}
         <p
-          class="components-ui-form-information__instructions"
+          class={{styles.components-ui-form-information__instructions}}
           data-test-instructions
           id={{concat @formId "-instructions"}}
         >

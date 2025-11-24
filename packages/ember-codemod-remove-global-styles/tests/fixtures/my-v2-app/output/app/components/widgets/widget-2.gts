@@ -41,7 +41,7 @@ export default class WidgetsWidget2 extends Component<WidgetsWidget2Signature> {
         very-tall=(height min=480)
       }}
       @tagName="section"
-      class="components-widgets-widget-2__container"
+      class={{styles.components-widgets-widget-2__container}}
       as |CQ|
     >
       <header>
@@ -50,7 +50,7 @@ export default class WidgetsWidget2 extends Component<WidgetsWidget2Signature> {
 
       {{#unless CQ.features.short}}
         <div
-          class="components-widgets-widget-2__visualization"
+          class={{styles.components-widgets-widget-2__visualization}}
           data-test-visualization
         >
           <WidgetsWidget2StackedChart @data={{this.data}} />

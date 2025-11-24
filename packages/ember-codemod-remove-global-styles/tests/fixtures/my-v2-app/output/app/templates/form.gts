@@ -28,7 +28,7 @@ export default class FormRoute extends Component {
         @title="Contact me"
         as |F|
       >
-        <div class="templates-form__field">
+        <div class={{styles.templates-form__field}}>
           <F.Input
             @isRequired={{true}}
             @key="name"
@@ -37,7 +37,7 @@ export default class FormRoute extends Component {
           />
         </div>
 
-        <div class="templates-form__field">
+        <div class={{styles.templates-form__field}}>
           <F.Input
             @isRequired={{true}}
             @key="email"
@@ -47,15 +47,15 @@ export default class FormRoute extends Component {
           />
         </div>
 
-        <div class="templates-form__field">
+        <div class={{styles.templates-form__field}}>
           <F.Textarea @key="message" @label="Message" />
         </div>
 
-        <div class="templates-form__field">
+        <div class={{styles.templates-form__field}}>
           <F.Checkbox @key="subscribe" @label="Subscribe to The Ember Times?" />
         </div>
 
-        <div class="templates-form__field">
+        <div class={{styles.templates-form__field}}>
           <F.Number
             @key="donation"
             @label="Donation amount ($)"

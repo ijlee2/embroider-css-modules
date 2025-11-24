@@ -22,13 +22,10 @@
       aria-labelledby={{concat f.inputId "-label"}}
       aria-readonly={{if @isReadOnly "true" "false"}}
       aria-required={{if @isRequired "true" "false"}}
-      class="components-ui-form-checkbox__checkbox
-        {{if
+      class="{{styles.components-ui-form-checkbox__checkbox}} {{if
           this.isChecked
-          'components-ui-form-checkbox__is-checked'
-        }}
-        {{if (or @isDisabled @isReadOnly) 'is-disabled'}}
-        "
+          styles.components-ui-form-checkbox__is-checked
+        }}  {{if (or @isDisabled @isReadOnly) 'is-disabled'}}  "
       data-test-field={{@label}}
       role="checkbox"
       tabindex={{unless @isDisabled "0"}}

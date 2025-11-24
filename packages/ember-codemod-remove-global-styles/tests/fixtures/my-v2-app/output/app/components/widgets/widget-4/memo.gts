@@ -16,18 +16,18 @@ const WidgetsWidget4Memo: TOC<WidgetsWidget4MemoSignature> = <template>
       small=(width max=200)
     }}
     @tagName="article"
-    class="components-widgets-widget-4-memo__container"
+    class={{styles.components-widgets-widget-4-memo__container}}
     as |CQ|
   >
-    <div class="components-widgets-widget-4-memo__header-container">
+    <div class={{styles.components-widgets-widget-4-memo__header-container}}>
       <WidgetsWidget4MemoHeader @cqFeatures={{CQ.features}} />
     </div>
 
-    <div class="components-widgets-widget-4-memo__body-container">
+    <div class={{styles.components-widgets-widget-4-memo__body-container}}>
       <WidgetsWidget4MemoBody @cqFeatures={{CQ.features}} />
     </div>
 
-    <div class="components-widgets-widget-4-memo__actions-container">
+    <div class={{styles.components-widgets-widget-4-memo__actions-container}}>
       <WidgetsWidget4MemoActions @cqFeatures={{CQ.features}} />
     </div>
   </ContainerQuery>

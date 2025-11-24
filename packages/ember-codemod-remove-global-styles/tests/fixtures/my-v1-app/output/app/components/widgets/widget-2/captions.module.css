@@ -1,0 +1,98 @@
+.components-widgets-widget-2-captions__container {
+  column-gap: 2.5rem;
+  display: grid;
+  grid-template-areas:
+    "summary summary"
+    "previous-button next-button";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+  overflow: hidden;
+  row-gap: 1rem;
+  width: 100%;
+}
+
+.components-widgets-widget-2-captions__summary {
+  color: #455a64;
+  display: grid;
+  font-size: 0.875rem;
+  grid-area: summary;
+  grid-template-areas:
+    "music-format"
+    "annual-revenue"
+    "relevant-years";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  overflow-y: auto;
+}
+
+.components-widgets-widget-2-captions__music-format {
+  color: rgb(247 252 251 / 90%);
+  display: flex;
+  font-size: 1rem;
+  grid-area: music-format;
+  margin-bottom: 0.5rem;
+  word-break: break-all;
+}
+
+.components-widgets-widget-2-captions__marker {
+  align-items: center;
+  background-color: rgb(247 252 251 / 90%);
+  border-radius: 0.5rem;
+  display: flex;
+  height: 1em;
+  justify-content: center;
+  margin-right: 0.25rem;
+  padding: 0.125rem;
+  width: 1rem;
+}
+
+.components-widgets-widget-2-captions__annual-revenue {
+  font-size: 0.8rem;
+  grid-area: annual-revenue;
+}
+
+.components-widgets-widget-2-captions__relevant-years {
+  font-size: 0.8rem;
+  grid-area: relevant-years;
+}
+
+.components-widgets-widget-2-captions__highlight {
+  color: rgb(247 252 251 / 90%);
+}
+
+.components-widgets-widget-2-captions__previous-button {
+  align-items: center;
+  display: flex;
+  height: 2rem;
+  justify-content: center;
+  margin: 0.25rem;
+}
+
+.components-widgets-widget-2-captions__next-button {
+  align-items: center;
+  display: flex;
+  height: 2rem;
+  justify-content: center;
+  margin: 0.25rem;
+}
+
+.components-widgets-widget-2-captions__previous-button {
+  grid-area: previous-button;
+}
+
+.components-widgets-widget-2-captions__next-button {
+  grid-area: next-button;
+}
+
+.components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat {
+  column-gap: 1rem;
+  grid-template-areas: "previous-button summary next-button";
+  grid-template-columns: 2.5rem 1fr 2.5rem;
+  grid-template-rows: minmax(3rem, 1fr);
+}
+
+.components-widgets-widget-2-captions__music-format.components-widgets-widget-2-captions__small-font-size {
+  font-size: 0.875rem;
+  margin: 0;
+}

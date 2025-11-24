@@ -64,7 +64,7 @@ export default class UiForm extends Component<UiFormSignature> {
       <form
         aria-describedby={{if @instructions (concat formId "-instructions")}}
         aria-labelledby={{if @title (concat formId "-title")}}
-        class="components-ui-form__form"
+        class={{styles.components-ui-form__form}}
         data-test-form={{if @title @title ""}}
         {{on "submit" this.submitForm}}
       >
@@ -106,9 +106,9 @@ export default class UiForm extends Component<UiFormSignature> {
           }}
         </ContainerQuery>
 
-        <div class="components-ui-form__actions">
+        <div class={{styles.components-ui-form__actions}}>
           <button
-            class="components-ui-form__submit-button"
+            class={{styles.components-ui-form__submit-button}}
             data-test-button="Submit"
             type="submit"
           >

@@ -1,0 +1,11 @@
+.components-widgets-widget-2__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.components-widgets-widget-2__visualization {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}

@@ -6,8 +6,8 @@ import { NavigationMenu } from 'my-v2-addon';
 <template>
   {{pageTitle "Embroider CSS Modules"}}
 
-  <div class="templates-application__application">
-    <header class="templates-application__header">
+  <div class={{styles.templates-application__application}}>
+    <header class={{styles.templates-application__header}}>
       <NavigationNarrator @skipTo="#main-content" />
 
       <NavigationMenu
@@ -21,14 +21,14 @@ import { NavigationMenu } from 'my-v2-addon';
       />
     </header>
 
-    <main class="templates-application__main">
-      <div class="templates-application__center">
+    <main class={{styles.templates-application__main}}>
+      <div class={{styles.templates-application__center}}>
         {{outlet}}
       </div>
     </main>
 
-    <footer class="templates-application__footer">
-      <span class="templates-application__copyright">
+    <footer class={{styles.templates-application__footer}}>
+      <span class={{styles.templates-application__copyright}}>
         Created by
         <a
           class="templates-application__link"

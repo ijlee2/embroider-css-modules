@@ -18,13 +18,12 @@ interface ProductsSignature {
     <div
       class="{{if
           @controller.isPartOfNestProductDetailsExperiment
-          'templates-products__shared-layout templates-products__products-with-details'
-          'templates-products__shared-layout templates-products__products'
-        }}
-        templates-products__sticky-container"
+          (concat styles.templates-products__shared-layout " " styles.templates-products__products-with-details)
+          (concat styles.templates-products__shared-layout " " styles.templates-products__products)
+        }} {{styles.templates-products__sticky-container}} "
     >
-      <div class="templates-products__filters">
-        <div class="templates-products__filter">
+      <div class={{styles.templates-products__filters}}>
+        <div class={{styles.templates-products__filter}}>
           <UiFormInput
             @data={{hash name=@controller.name}}
             @key="name"
@@ -35,7 +34,7 @@ interface ProductsSignature {
         </div>
       </div>
 
-      <div class="templates-products__list">
+      <div class={{styles.templates-products__list}}>
         {{#each @controller.filteredProducts as |product|}}
           <ProductsProductCard @product={{product}} />
         {{else}}
@@ -45,7 +44,7 @@ interface ProductsSignature {
         {{/each}}
       </div>
 
-      <div class="templates-products__product-details">
+      <div class={{styles.templates-products__product-details}}>
         {{outlet}}
       </div>
     </div>

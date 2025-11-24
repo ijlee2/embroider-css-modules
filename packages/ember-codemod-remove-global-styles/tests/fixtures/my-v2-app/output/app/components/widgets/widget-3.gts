@@ -23,11 +23,11 @@ export default class WidgetsWidget3 extends Component<WidgetsWidget3Signature> {
   }
 
   <template>
-    <section class="components-widgets-widget-3__container">
-      <header class="components-widgets-widget-3__header">
+    <section class={{styles.components-widgets-widget-3__container}}>
+      <header class={{styles.components-widgets-widget-3__header}}>
         <h2>Widget 3</h2>
 
-        <div class="components-widgets-widget-3__actions">
+        <div class={{styles.components-widgets-widget-3__actions}}>
           <a data-test-link="All tours" href="#">
             All tours
           </a>
@@ -35,7 +35,7 @@ export default class WidgetsWidget3 extends Component<WidgetsWidget3Signature> {
       </header>
 
       <div
-        class="components-widgets-widget-3__tour-schedule"
+        class={{styles.components-widgets-widget-3__tour-schedule}}
         data-test-tour-schedule
       >
         <WidgetsWidget3TourSchedule @concert={{this.concertData}} />

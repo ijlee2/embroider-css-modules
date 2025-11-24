@@ -5,7 +5,7 @@ export default <template>
     <p>
       Thanks for trying out
       <a
-        class="templates-index__code"
+        class={{styles.templates-index__code}}
         data-test-link="embroider-css-modules"
         href="https://github.com/ijlee2/embroider-css-modules"
         rel="noopener noreferrer"

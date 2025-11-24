@@ -1,0 +1,28 @@
+.components-widgets-widget-5__container {
+  height: 100%;
+  overflow: hidden;
+}
+
+.components-widgets-widget-5__call-to-action {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  height: 100%;
+  justify-content: center;
+  line-height: 1.25;
+  width: 100%;
+}
+
+.components-widgets-widget-5__call-to-action p {
+  margin: 0;
+}
+
+.components-widgets-widget-5__call-to-action a {
+  border: 0.0625rem solid white;
+  display: block;
+  height: calc(100% - 2 * (0.2rem + 0.0625rem));
+  padding: 0.2rem 0.5rem;
+  text-decoration: none;
+  width: calc(100% - 2 * (0.5rem + 0.0625rem));
+}

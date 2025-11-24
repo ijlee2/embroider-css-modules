@@ -10,15 +10,13 @@ interface WidgetsWidget4MemoBodySignature {
 
 const WidgetsWidget4MemoBody: TOC<WidgetsWidget4MemoBodySignature> = <template>
   <div
-    class="components-widgets-widget-4-memo-body__body
-      {{if
+    class="{{styles.components-widgets-widget-4-memo-body__body}} {{if
         (or @cqFeatures.small @cqFeatures.short)
         'components-widgets-widget-4-memo-body__minimal-layout'
-      }}
-      "
+      }}  "
     data-test-memo-body
   >
-    <div class="components-widgets-widget-4-memo-body__message" tabindex="0">
+    <div class={{styles.components-widgets-widget-4-memo-body__message}} tabindex="0">
       <p>
         <strong>Buffon’s needle</strong>
         is a classic Monte Carlo simulation that we can conduct in a classroom.

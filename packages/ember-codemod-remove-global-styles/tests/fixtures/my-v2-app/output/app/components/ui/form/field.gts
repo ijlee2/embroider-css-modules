@@ -27,24 +27,20 @@ interface UiFormFieldSignature {
 const UiFormField: TOC<UiFormFieldSignature> = <template>
   {{#let (uniqueId) as |inputId|}}
     <div
-      class="components-ui-form-field__container
-        {{if @isInline 'components-ui-form-field__is-inline'}}
-        {{if @isWide 'components-ui-form-field__is-wide'}}
-        {{unless @errorMessage 'components-ui-form-field__no-feedback'}}
-        "
+      class="{{styles.components-ui-form-field__container}} {{if @isInline 'components-ui-form-field__is-inline'}}  {{if @isWide 'components-ui-form-field__is-wide'}}  {{unless @errorMessage 'components-ui-form-field__no-feedback'}}  "
       data-test-field-container
     >
-      <div class="components-ui-form-field__label">
+      <div class={{styles.components-ui-form-field__label}}>
         {{yield (hash inputId=inputId) to="label"}}
       </div>
 
-      <div class="components-ui-form-field__field">
+      <div class={{styles.components-ui-form-field__field}}>
         {{yield (hash inputId=inputId) to="field"}}
       </div>
 
       {{#if @errorMessage}}
         <div
-          class="components-ui-form-field__feedback components-ui-form-field__is-error"
+          class={{concat styles.components-ui-form-field__feedback " " "components-ui-form-field__is-error"}}
         >
           {{svgJar
             "alert"
@@ -53,7 +49,7 @@ const UiFormField: TOC<UiFormFieldSignature> = <template>
           }}
 
           <span
-            class="components-ui-form-field__message"
+            class={{styles.components-ui-form-field__message}}
             data-test-error-message
             role="alert"
           >

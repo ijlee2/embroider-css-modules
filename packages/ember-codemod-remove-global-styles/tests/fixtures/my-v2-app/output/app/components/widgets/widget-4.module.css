@@ -1,0 +1,26 @@
+.components-widgets-widget-4__container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "memo-highlight"
+    "actions";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr 2.5rem;
+  height: 100%;
+}
+
+.components-widgets-widget-4__header {
+  grid-area: header;
+}
+
+.components-widgets-widget-4__memo-highlight {
+  grid-area: memo-highlight;
+  overflow: hidden;
+}
+
+.components-widgets-widget-4__actions {
+  align-items: flex-end;
+  display: flex;
+  grid-area: actions;
+  justify-content: flex-end;
+}

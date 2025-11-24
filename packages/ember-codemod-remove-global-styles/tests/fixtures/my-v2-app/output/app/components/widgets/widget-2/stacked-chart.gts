@@ -11,10 +11,10 @@ interface WidgetsWidget2StackedChartSignature {
 const WidgetsWidget2StackedChart: TOC<WidgetsWidget2StackedChartSignature> =
   <template>
     <div
-      class="components-widgets-widget-2-stacked-chart__svg-container"
+      class={{styles.components-widgets-widget-2-stacked-chart__svg-container}}
       {{drawStackedChart data=@data}}
     >
-      <svg class="components-widgets-widget-2-stacked-chart__svg">
+      <svg class={{styles.components-widgets-widget-2-stacked-chart__svg}}>
       </svg>
     </div>
   </template>;

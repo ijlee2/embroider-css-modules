@@ -73,9 +73,7 @@ export default class UiFormInput extends Component<UiFormInputSignature> {
 
       <:field as |f|>
         <input
-          class="components-ui-form-input__input
-            {{if (or @isDisabled @isReadOnly) 'input-disabled'}}
-            "
+          class="{{styles.components-ui-form-input__input}} {{if (or @isDisabled @isReadOnly) styles.input-disabled}}  "
           data-test-field={{@label}}
           disabled={{@isDisabled}}
           id={{f.inputId}}

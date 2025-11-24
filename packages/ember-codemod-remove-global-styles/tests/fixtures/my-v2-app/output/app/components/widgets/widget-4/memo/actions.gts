@@ -14,17 +14,15 @@ interface WidgetsWidget4MemoActionsSignature {
 const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> =
   <template>
     <div
-      class="components-widgets-widget-4-memo-actions__actions
-        {{if
+      class="{{styles.components-widgets-widget-4-memo-actions__actions}} {{if
           (or @cqFeatures.small @cqFeatures.short)
           'components-widgets-widget-4-memo-actions__minimal-layout'
-        }}
-        "
+        }}  "
       data-test-memo-actions
     >
       <button
         aria-label="Comment"
-        class="components-widgets-widget-4-memo-actions__button"
+        class={{styles.components-widgets-widget-4-memo-actions__button}}
         type="button"
       >
         {{svgJar
@@ -37,7 +35,7 @@ const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> =
 
       <button
         aria-label="Repost"
-        class="components-widgets-widget-4-memo-actions__button"
+        class={{styles.components-widgets-widget-4-memo-actions__button}}
         type="button"
       >
         {{svgJar
@@ -50,7 +48,7 @@ const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> =
 
       <button
         aria-label="Like"
-        class="components-widgets-widget-4-memo-actions__button"
+        class={{styles.components-widgets-widget-4-memo-actions__button}}
         type="button"
       >
         {{svgJar
@@ -63,7 +61,7 @@ const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> =
 
       <button
         aria-label="Share"
-        class="components-widgets-widget-4-memo-actions__button"
+        class={{styles.components-widgets-widget-4-memo-actions__button}}
         type="button"
       >
         {{svgJar
