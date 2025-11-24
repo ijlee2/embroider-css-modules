@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "title"
+    "content";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  height: calc(100% - 3rem);
+  overflow-y: auto;
+  padding: 1.5rem 1rem;
+  scrollbar-gutter: stable;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  grid-area: title;
+  margin-bottom: 1.5rem;
+}
+
+.content {
+  grid-area: content;
+}
+
+.content code {
+  font-weight: 300;
+}

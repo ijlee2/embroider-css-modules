@@ -2,6 +2,7 @@ import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import type { WithBoundArgs } from '@glint/template';
 
+import styles from './page.module.css';
 import UiPageDemo from './page/demo.gts';
 import UiPageSection from './page/section.gts';
 import UiPageSubsection from './page/subsection.gts';
@@ -22,13 +23,13 @@ interface UiPageSignature {
 }
 
 const UiPage: TOC<UiPageSignature> = <template>
-  <div class="components-ui-page__container">
-    <h1 class="components-ui-page__title" data-test-page-title>
+  <div class={{styles.container}}>
+    <h1 class={{styles.title}} data-test-page-title>
       {{@title}}
     </h1>
 
     <div
-      class="components-ui-page__content"
+      class={{styles.content}}
       data-test-page-content
       id="main-content"
       tabindex="-1"

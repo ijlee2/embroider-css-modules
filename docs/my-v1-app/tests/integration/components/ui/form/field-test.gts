@@ -1,6 +1,7 @@
 import { render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import UiFormField from 'my-v1-app/components/ui/form/field';
+import styles from 'my-v1-app/components/ui/form/field.module.css';
 import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 import { module, test } from 'qunit';
 
@@ -23,6 +24,13 @@ module('Integration | Component | ui/form/field', function (hooks) {
         </UiFormField>
       </template>,
     );
+
+    assert
+      .dom('[data-test-field-container]')
+      .hasClass(styles['container'])
+      .doesNotHaveClass(styles['is-inline'])
+      .doesNotHaveClass(styles['is-wide'])
+      .hasClass(styles['no-feedback']);
 
     assert.dom('[data-test-label]').hasText('Name');
 
@@ -54,6 +62,13 @@ module('Integration | Component | ui/form/field', function (hooks) {
         </UiFormField>
       </template>,
     );
+
+    assert
+      .dom('[data-test-field-container]')
+      .hasClass(styles['container'])
+      .doesNotHaveClass(styles['is-inline'])
+      .doesNotHaveClass(styles['is-wide'])
+      .doesNotHaveClass(styles['no-feedback']);
 
     assert.dom('[data-test-error-message]').hasText('Please provide a value.');
   });

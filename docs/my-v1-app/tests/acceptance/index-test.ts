@@ -14,7 +14,7 @@ module('Acceptance | index', function (hooks) {
 
     assert
       .dom('[data-test-link="embroider-css-modules"]')
-      .hasClass('templates-index__code');
+      .hasClass('templates-index-module__code');
 
     await a11yAudit();
     await takeSnapshot(assert);
