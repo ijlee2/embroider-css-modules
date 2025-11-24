@@ -1,5 +1,16 @@
 # ember-codemod-remove-global-styles
 
+## 0.3.0
+
+### Minor Changes
+
+- [#204](https://github.com/ijlee2/embroider-css-modules/pull/204) Allowed codemod to import stylesheet ([@ijlee2](https://github.com/ijlee2))
+- [#203](https://github.com/ijlee2/embroider-css-modules/pull/203) Supported incremental migration ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#204](https://github.com/ijlee2/embroider-css-modules/pull/204) Colocated controller and stylesheet for `*.hbs` template files ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.2.1
 
 ### Patch Changes
