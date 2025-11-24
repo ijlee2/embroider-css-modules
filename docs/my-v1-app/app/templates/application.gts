@@ -3,13 +3,11 @@ import { NavigationNarrator } from 'ember-a11y-refocus';
 import { pageTitle } from 'ember-page-title';
 import { NavigationMenu } from 'my-v2-addon';
 
-import styles from './application.module.css';
-
 <template>
   {{pageTitle "Embroider CSS Modules"}}
 
-  <div class={{styles.application}}>
-    <header class={{styles.header}}>
+  <div class="templates-application__application">
+    <header class="templates-application__header">
       <NavigationNarrator @skipTo="#main-content" />
 
       <NavigationMenu
@@ -23,17 +21,17 @@ import styles from './application.module.css';
       />
     </header>
 
-    <main class={{styles.main}}>
-      <div class={{styles.center}}>
+    <main class="templates-application__main">
+      <div class="templates-application__center">
         {{outlet}}
       </div>
     </main>
 
-    <footer class={{styles.footer}}>
-      <span class={{styles.copyright}}>
+    <footer class="templates-application__footer">
+      <span class="templates-application__copyright">
         Created by
         <a
-          class={{styles.link}}
+          class="templates-application__link"
           href="https://www.linkedin.com/in/ijlee2/"
           rel="noopener noreferrer"
           target="_blank"

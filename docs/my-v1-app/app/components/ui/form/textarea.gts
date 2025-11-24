@@ -2,11 +2,9 @@ import { on } from '@ember/modifier';
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 import { or } from 'ember-truth-helpers';
-import { local } from 'embroider-css-modules';
 import { generateErrorMessage } from 'my-v1-app/utils/components/ui/form';
 
 import UiFormField from './field';
-import styles from './textarea.module.css';
 
 interface UiFormTextareaSignature {
   Args: {
@@ -62,11 +60,9 @@ export default class UiFormTextarea extends Component<UiFormTextareaSignature> {
 
       <:field as |f|>
         <textarea
-          class={{local
-            styles
-            "textarea"
-            (if (or @isDisabled @isReadOnly) "is-disabled")
-          }}
+          class="components-ui-form-input__input
+            {{if (or @isDisabled @isReadOnly) 'input-disabled'}}
+            "
           data-test-field={{@label}}
           disabled={{@isDisabled}}
           id={{f.inputId}}

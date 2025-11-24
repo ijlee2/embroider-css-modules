@@ -1,13 +1,10 @@
 import type { TOC } from '@ember/component/template-only';
-import { array, hash } from '@ember/helper';
+import { hash } from '@ember/helper';
 import { pageTitle } from 'ember-page-title';
-import { local } from 'embroider-css-modules';
 import ProductsProductCard from 'my-v1-app/components/products/product/card';
 import UiFormInput from 'my-v1-app/components/ui/form/input';
 import type ProductsController from 'my-v1-app/controllers/products';
 import { UiPage } from 'my-v2-addon';
-
-import styles from './products.module.css';
 
 interface ProductsSignature {
   controller: ProductsController;
@@ -19,18 +16,15 @@ interface ProductsSignature {
 
   <UiPage @title="Products">
     <div
-      class={{local
-        styles
-        (if
+      class="{{if
           @controller.isPartOfNestProductDetailsExperiment
-          (array "shared-layout" "products-with-details")
-          (array "shared-layout" "products")
-        )
-        "sticky-container"
-      }}
+          'templates-products__shared-layout templates-products__products-with-details'
+          'templates-products__shared-layout templates-products__products'
+        }}
+        templates-products__sticky-container"
     >
-      <div class={{styles.filters}}>
-        <div class={{styles.filter}}>
+      <div class="templates-products__filters">
+        <div class="templates-products__filter">
           <UiFormInput
             @data={{hash name=@controller.name}}
             @key="name"
@@ -41,7 +35,7 @@ interface ProductsSignature {
         </div>
       </div>
 
-      <div class={{styles.list}}>
+      <div class="templates-products__list">
         {{#each @controller.filteredProducts as |product|}}
           <ProductsProductCard @product={{product}} />
         {{else}}
@@ -51,7 +45,7 @@ interface ProductsSignature {
         {{/each}}
       </div>
 
-      <div class={{styles.product-details}}>
+      <div class="templates-products__product-details">
         {{outlet}}
       </div>
     </div>

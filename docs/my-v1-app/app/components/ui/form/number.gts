@@ -2,11 +2,9 @@ import { on } from '@ember/modifier';
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 import { or } from 'ember-truth-helpers';
-import { local } from 'embroider-css-modules';
 import { generateErrorMessage } from 'my-v1-app/utils/components/ui/form';
 
 import UiFormField from './field';
-import styles from './number.module.css';
 
 interface UiFormNumberSignature {
   Args: {
@@ -74,11 +72,9 @@ export default class UiFormNumber extends Component<UiFormNumberSignature> {
 
       <:field as |f|>
         <input
-          class={{local
-            styles
-            "input"
-            (if (or @isDisabled @isReadOnly) "is-disabled")
-          }}
+          class="components-ui-form-input__input
+            {{if (or @isDisabled @isReadOnly) 'input-disabled'}}
+            "
           data-test-field={{@label}}
           disabled={{@isDisabled}}
           id={{f.inputId}}

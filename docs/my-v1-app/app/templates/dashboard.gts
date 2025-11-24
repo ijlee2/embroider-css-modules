@@ -6,30 +6,28 @@ import WidgetsWidget4 from 'my-v1-app/components/widgets/widget-4';
 import WidgetsWidget5 from 'my-v1-app/components/widgets/widget-5';
 import { UiPage } from 'my-v2-addon';
 
-import styles from './dashboard.module.css';
-
 <template>
   {{pageTitle "Dashboard"}}
 
   <UiPage @title="Dashboard">
-    <div class={{styles.widgets}}>
-      <div class={{styles.widget-1}} data-test-widget="1">
+    <div class="templates-dashboard__widgets">
+      <div class="templates-dashboard__widget-1" data-test-widget="1">
         <WidgetsWidget1 />
       </div>
 
-      <div class={{styles.widget-2}} data-test-widget="2">
+      <div class="templates-dashboard__widget-2" data-test-widget="2">
         <WidgetsWidget2 />
       </div>
 
-      <div class={{styles.widget-3}} data-test-widget="3">
+      <div class="templates-dashboard__widget-3" data-test-widget="3">
         <WidgetsWidget3 />
       </div>
 
-      <div class={{styles.widget-4}} data-test-widget="4">
+      <div class="templates-dashboard__widget-4" data-test-widget="4">
         <WidgetsWidget4 />
       </div>
 
-      <div class={{styles.widget-5}} data-test-widget="5">
+      <div class="templates-dashboard__widget-5" data-test-widget="5">
         <WidgetsWidget5 />
       </div>
     </div>

@@ -7,10 +7,7 @@ import { ContainerQuery, height, width } from 'ember-container-query';
 import { modifier } from 'ember-modifier';
 import svgJar from 'ember-svg-jar/helpers/svg-jar';
 import { or } from 'ember-truth-helpers';
-import { local } from 'embroider-css-modules';
 import type { Summary } from 'my-v1-app/utils/components/widgets/widget-2';
-
-import styles from './captions.module.css';
 
 const colorSvg = modifier((container: Element, [color]: [string]) => {
   const svgElement = container.querySelector('svg');
@@ -61,25 +58,34 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
       @features={{hash large=(width min=320) tall=(height min=80)}}
       as |CQ|
     >
-      <div class={{local styles "container" (unless CQ.features.tall "flat")}}>
+      <div
+        class="components-widgets-widget-2-captions__container
+          {{unless
+            CQ.features.tall
+            'components-widgets-widget-2-captions__flat'
+          }}
+          "
+      >
         {{#if this.summary}}
           <div
-            class={{local
-              styles
-              "summary"
-              (if CQ.features.large "horizontal-layout")
-            }}
+            class="components-widgets-widget-2-captions__summary
+              {{if
+                CQ.features.large
+                'components-widgets-widget-2-captions__horizontal-layout'
+              }}
+              "
             tabindex="0"
           >
             <h3
-              class={{local
-                styles
-                "music-format"
-                (unless CQ.features.large "small-font-size")
-              }}
+              class="components-widgets-widget-2-captions__music-format
+                {{unless
+                  CQ.features.large
+                  'components-widgets-widget-2-captions__small-font-size'
+                }}
+                "
             >
               <span
-                class={{styles.marker}}
+                class="components-widgets-widget-2-captions__marker"
                 {{colorSvg this.summary.markerColor}}
               >
                 {{svgJar
@@ -95,27 +101,27 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
             </h3>
 
             <div
-              class={{styles.annual-revenue}}
+              class="components-widgets-widget-2-captions__annual-revenue"
               data-test-field="Annual Revenue"
             >
               {{#if (or CQ.features.tall CQ.features.large)}}
                 <span>Annual revenue:</span>
               {{/if}}
 
-              <span class={{styles.highlight}}>
+              <span class="components-widgets-widget-2-captions__highlight">
                 {{this.summary.averageRevenue}}
               </span>
             </div>
 
             <div
-              class={{styles.relevant-years}}
+              class="components-widgets-widget-2-captions__relevant-years"
               data-test-field="Relevant Years"
             >
               {{#if (or CQ.features.tall CQ.features.large)}}
                 <span>Relevant years:</span>
               {{/if}}
 
-              <span class={{styles.highlight}}>
+              <span class="components-widgets-widget-2-captions__highlight">
                 {{this.summary.relevantYears.min}}
                 -
                 {{this.summary.relevantYears.max}}
@@ -126,7 +132,7 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
           {{#if this.canShowPreviousButton}}
             <button
               aria-label="Previous"
-              class={{styles.previous-button}}
+              class="components-widgets-widget-2-captions__previous-button"
               data-test-button="Previous"
               type="button"
               {{on "click" (fn this.showNextSummary -1)}}
@@ -136,7 +142,7 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
               {{else}}
                 {{svgJar
                   "chevron-left"
-                  class=styles.icon
+                  class="components-widgets-widget-2-captions__icon"
                   desc="A chevron arrow pointing left"
                   role="img"
                 }}
@@ -147,7 +153,7 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
           {{#if this.canShowNextButton}}
             <button
               aria-label="Next"
-              class={{styles.next-button}}
+              class="components-widgets-widget-2-captions__next-button"
               data-test-button="Next"
               type="button"
               {{on "click" (fn this.showNextSummary 1)}}
@@ -157,7 +163,7 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
               {{else}}
                 {{svgJar
                   "chevron-right"
-                  class=styles.icon
+                  class="components-widgets-widget-2-captions__icon"
                   desc="A chevron arrow pointing right"
                   role="img"
                 }}

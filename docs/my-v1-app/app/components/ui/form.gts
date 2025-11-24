@@ -6,7 +6,6 @@ import { tracked } from '@glimmer/tracking';
 import type { WithBoundArgs } from '@glint/template';
 import { ContainerQuery, width } from 'ember-container-query';
 
-import styles from './form.module.css';
 import UiFormCheckbox from './form/checkbox';
 import UiFormInformation from './form/information';
 import UiFormInput from './form/input';
@@ -65,7 +64,7 @@ export default class UiForm extends Component<UiFormSignature> {
       <form
         aria-describedby={{if @instructions (concat formId "-instructions")}}
         aria-labelledby={{if @title (concat formId "-title")}}
-        class={{styles.form}}
+        class="components-ui-form__form"
         data-test-form={{if @title @title ""}}
         {{on "submit" this.submitForm}}
       >
@@ -107,9 +106,9 @@ export default class UiForm extends Component<UiFormSignature> {
           }}
         </ContainerQuery>
 
-        <div class={{styles.actions}}>
+        <div class="components-ui-form__actions">
           <button
-            class={{styles.submit-button}}
+            class="components-ui-form__submit-button"
             data-test-button="Submit"
             type="submit"
           >

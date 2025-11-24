@@ -3,7 +3,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { type Concert, concert } from 'my-v1-app/data/concert';
 
-import styles from './widget-3.module.css';
 import WidgetsWidget3TourSchedule from './widget-3/tour-schedule';
 
 interface WidgetsWidget3Signature {
@@ -24,18 +23,21 @@ export default class WidgetsWidget3 extends Component<WidgetsWidget3Signature> {
   }
 
   <template>
-    <section class={{styles.container}}>
-      <header class={{styles.header}}>
+    <section class="components-widgets-widget-3__container">
+      <header class="components-widgets-widget-3__header">
         <h2>Widget 3</h2>
 
-        <div class={{styles.actions}}>
+        <div class="components-widgets-widget-3__actions">
           <a data-test-link="All tours" href="#">
             All tours
           </a>
         </div>
       </header>
 
-      <div class={{styles.tour-schedule}} data-test-tour-schedule>
+      <div
+        class="components-widgets-widget-3__tour-schedule"
+        data-test-tour-schedule
+      >
         <WidgetsWidget3TourSchedule @concert={{this.concertData}} />
       </div>
     </section>

@@ -5,8 +5,6 @@ import { pageTitle } from 'ember-page-title';
 import UiForm from 'my-v1-app/components/ui/form';
 import { UiPage } from 'my-v2-addon';
 
-import styles from './form.module.css';
-
 export default class FormRoute extends Component {
   @action submitData(data: Record<string, unknown>): void {
     console.table(data);
@@ -30,7 +28,7 @@ export default class FormRoute extends Component {
         @title="Contact me"
         as |F|
       >
-        <div class={{styles.field}}>
+        <div class="templates-form__field">
           <F.Input
             @isRequired={{true}}
             @key="name"
@@ -39,7 +37,7 @@ export default class FormRoute extends Component {
           />
         </div>
 
-        <div class={{styles.field}}>
+        <div class="templates-form__field">
           <F.Input
             @isRequired={{true}}
             @key="email"
@@ -49,15 +47,15 @@ export default class FormRoute extends Component {
           />
         </div>
 
-        <div class={{styles.field}}>
+        <div class="templates-form__field">
           <F.Textarea @key="message" @label="Message" />
         </div>
 
-        <div class={{styles.field}}>
+        <div class="templates-form__field">
           <F.Checkbox @key="subscribe" @label="Subscribe to The Ember Times?" />
         </div>
 
-        <div class={{styles.field}}>
+        <div class="templates-form__field">
           <F.Number
             @key="donation"
             @label="Donation amount ($)"

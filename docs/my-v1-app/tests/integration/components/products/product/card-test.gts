@@ -4,7 +4,6 @@ import {
 } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import ProductsProductCard from 'my-v1-app/components/products/product/card';
-import styles from 'my-v1-app/components/products/product/card.module.css';
 import type { Product } from 'my-v1-app/data/products';
 import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 import { module, test } from 'qunit';
@@ -69,8 +68,11 @@ module('Integration | Component | products/product/card', function (hooks) {
       </template>,
     );
 
-    assert.dom('[data-test-link="Learn More"]').hasClass(styles.link).hasStyle({
-      'text-decoration-line': 'none',
-    });
+    assert
+      .dom('[data-test-link="Learn More"]')
+      .hasClass('components-products-product-card__link')
+      .hasStyle({
+        'text-decoration-line': 'none',
+      });
   });
 });

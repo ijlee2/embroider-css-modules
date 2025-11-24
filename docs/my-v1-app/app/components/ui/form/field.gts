@@ -3,9 +3,6 @@ import { hash, uniqueId } from '@ember/helper';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Could not find a declaration file for module 'ember-svg-jar/helpers/svg-jar'.
 import svgJar from 'ember-svg-jar/helpers/svg-jar';
-import { local } from 'embroider-css-modules';
-
-import styles from './field.module.css';
 
 interface UiFormFieldSignature {
   Args: {
@@ -30,32 +27,36 @@ interface UiFormFieldSignature {
 const UiFormField: TOC<UiFormFieldSignature> = <template>
   {{#let (uniqueId) as |inputId|}}
     <div
-      class={{local
-        styles
-        "container"
-        (if @isInline "is-inline")
-        (if @isWide "is-wide")
-        (unless @errorMessage "no-feedback")
-      }}
+      class="components-ui-form-field__container
+        {{if @isInline 'components-ui-form-field__is-inline'}}
+        {{if @isWide 'components-ui-form-field__is-wide'}}
+        {{unless @errorMessage 'components-ui-form-field__no-feedback'}}
+        "
       data-test-field-container
     >
-      <div class={{styles.label}}>
+      <div class="components-ui-form-field__label">
         {{yield (hash inputId=inputId) to="label"}}
       </div>
 
-      <div class={{styles.field}}>
+      <div class="components-ui-form-field__field">
         {{yield (hash inputId=inputId) to="field"}}
       </div>
 
       {{#if @errorMessage}}
-        <div class={{local styles "feedback" "is-error"}}>
+        <div
+          class="components-ui-form-field__feedback components-ui-form-field__is-error"
+        >
           {{svgJar
             "alert"
             desc="A warning to indicate that the input field has an error"
             role="img"
           }}
 
-          <span class={{styles.message}} data-test-error-message role="alert">
+          <span
+            class="components-ui-form-field__message"
+            data-test-error-message
+            role="alert"
+          >
             {{@errorMessage}}
           </span>
         </div>

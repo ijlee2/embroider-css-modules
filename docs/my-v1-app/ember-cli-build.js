@@ -43,6 +43,13 @@ module.exports = function (defaults) {
             const hostAppLocation =
               'docs/my-v1-app/node_modules/.embroider/rewritten-app';
 
+            if (
+              resourcePath.includes(hostAppLocation) &&
+              resourcePath.endsWith('assets/app.css')
+            ) {
+              return 'global';
+            }
+
             return resourcePath.includes(hostAppLocation) ? 'local' : 'global';
           },
         },

@@ -2,8 +2,6 @@ import type { TOC } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
 import { or } from 'ember-truth-helpers';
 
-import styles from './information.module.css';
-
 interface UiFormInformationSignature {
   Args: {
     formId: string;
@@ -14,10 +12,10 @@ interface UiFormInformationSignature {
 
 const UiFormInformation: TOC<UiFormInformationSignature> = <template>
   {{#if (or @title @instructions)}}
-    <div class={{styles.container}}>
+    <div class="components-ui-form-information__container">
       {{#if @title}}
         <div
-          class={{styles.title}}
+          class="components-ui-form-information__title"
           data-test-title
           id={{concat @formId "-title"}}
         >
@@ -27,7 +25,7 @@ const UiFormInformation: TOC<UiFormInformationSignature> = <template>
 
       {{#if @instructions}}
         <p
-          class={{styles.instructions}}
+          class="components-ui-form-information__instructions"
           data-test-instructions
           id={{concat @formId "-instructions"}}
         >

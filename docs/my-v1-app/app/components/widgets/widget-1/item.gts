@@ -1,7 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
 
-import styles from './item.module.css';
-
 interface WidgetsWidget1ItemSignature {
   Args: {
     title: string;
@@ -9,7 +7,7 @@ interface WidgetsWidget1ItemSignature {
 }
 
 const WidgetsWidget1Item: TOC<WidgetsWidget1ItemSignature> = <template>
-  <div class={{styles.container}}>
+  <div class="components-widgets-widget-1-item__container">
     <p data-test-title>
       {{@title}}
     </p>

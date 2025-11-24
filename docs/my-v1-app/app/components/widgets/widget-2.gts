@@ -11,7 +11,6 @@ import {
   type Summary,
 } from 'my-v1-app/utils/components/widgets/widget-2';
 
-import styles from './widget-2.module.css';
 import WidgetsWidget2Captions from './widget-2/captions';
 import WidgetsWidget2StackedChart from './widget-2/stacked-chart';
 
@@ -42,7 +41,7 @@ export default class WidgetsWidget2 extends Component<WidgetsWidget2Signature> {
         very-tall=(height min=480)
       }}
       @tagName="section"
-      class={{styles.container}}
+      class="components-widgets-widget-2__container"
       as |CQ|
     >
       <header>
@@ -50,12 +49,15 @@ export default class WidgetsWidget2 extends Component<WidgetsWidget2Signature> {
       </header>
 
       {{#unless CQ.features.short}}
-        <div class={{styles.visualization}} data-test-visualization>
+        <div
+          class="components-widgets-widget-2__visualization"
+          data-test-visualization
+        >
           <WidgetsWidget2StackedChart @data={{this.data}} />
         </div>
       {{/unless}}
 
-      <div class={{styles.captions}} data-test-captions>
+      <div class="components-widgets-widget-2__captions" data-test-captions>
         <WidgetsWidget2Captions @summaries={{this.summaries}} />
       </div>
     </ContainerQuery>

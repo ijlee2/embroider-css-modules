@@ -4,9 +4,6 @@ import type { QueryResults } from 'ember-container-query';
 // @ts-ignore: Could not find a declaration file for module 'ember-svg-jar/helpers/svg-jar'.
 import svgJar from 'ember-svg-jar/helpers/svg-jar';
 import { or } from 'ember-truth-helpers';
-import { local } from 'embroider-css-modules';
-
-import styles from './actions.module.css';
 
 interface WidgetsWidget4MemoActionsSignature {
   Args: {
@@ -17,39 +14,61 @@ interface WidgetsWidget4MemoActionsSignature {
 const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> =
   <template>
     <div
-      class={{local
-        styles
-        "actions"
-        (if (or @cqFeatures.small @cqFeatures.short) "minimal-layout")
-      }}
+      class="components-widgets-widget-4-memo-actions__actions
+        {{if
+          (or @cqFeatures.small @cqFeatures.short)
+          'components-widgets-widget-4-memo-actions__minimal-layout'
+        }}
+        "
       data-test-memo-actions
     >
-      <button aria-label="Comment" class={{styles.button}} type="button">
+      <button
+        aria-label="Comment"
+        class="components-widgets-widget-4-memo-actions__button"
+        type="button"
+      >
         {{svgJar
           "message-processing-outline"
-          class=(local styles "icon" "icon-comment")
+          class="components-widgets-widget-4-memo-actions__icon components-widgets-widget-4-memo-actions__icon-comment"
           desc="A speech bubble"
           role="img"
         }}
       </button>
 
-      <button aria-label="Repost" class={{styles.button}} type="button">
+      <button
+        aria-label="Repost"
+        class="components-widgets-widget-4-memo-actions__button"
+        type="button"
+      >
         {{svgJar
           "sync"
-          class=(local styles "icon" "icon-repost")
+          class="components-widgets-widget-4-memo-actions__icon components-widgets-widget-4-memo-actions__icon-repost"
           desc="Two circular arrows pointing to each other"
           role="img"
         }}
       </button>
 
-      <button aria-label="Like" class={{styles.button}} type="button">
-        {{svgJar "heart-outline" class=styles.icon desc="A heart" role="img"}}
+      <button
+        aria-label="Like"
+        class="components-widgets-widget-4-memo-actions__button"
+        type="button"
+      >
+        {{svgJar
+          "heart-outline"
+          class="components-widgets-widget-4-memo-actions__icon"
+          desc="A heart"
+          role="img"
+        }}
       </button>
 
-      <button aria-label="Share" class={{styles.button}} type="button">
+      <button
+        aria-label="Share"
+        class="components-widgets-widget-4-memo-actions__button"
+        type="button"
+      >
         {{svgJar
           "share-variant-outline"
-          class=styles.icon
+          class="components-widgets-widget-4-memo-actions__icon"
           desc="A circular node that branches out to two circular nodes"
           role="img"
         }}

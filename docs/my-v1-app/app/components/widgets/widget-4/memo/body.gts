@@ -1,9 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import type { QueryResults } from 'ember-container-query';
 import { or } from 'ember-truth-helpers';
-import { local } from 'embroider-css-modules';
-
-import styles from './body.module.css';
 
 interface WidgetsWidget4MemoBodySignature {
   Args: {
@@ -13,14 +10,15 @@ interface WidgetsWidget4MemoBodySignature {
 
 const WidgetsWidget4MemoBody: TOC<WidgetsWidget4MemoBodySignature> = <template>
   <div
-    class={{local
-      styles
-      "body"
-      (if (or @cqFeatures.small @cqFeatures.short) "minimal-layout")
-    }}
+    class="components-widgets-widget-4-memo-body__body
+      {{if
+        (or @cqFeatures.small @cqFeatures.short)
+        'components-widgets-widget-4-memo-body__minimal-layout'
+      }}
+      "
     data-test-memo-body
   >
-    <div class={{styles.message}} tabindex="0">
+    <div class="components-widgets-widget-4-memo-body__message" tabindex="0">
       <p>
         <strong>Buffon’s needle</strong>
         is a classic Monte Carlo simulation that we can conduct in a classroom.

@@ -4,10 +4,8 @@ import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 import svgJar from 'ember-svg-jar/helpers/svg-jar';
 import { or } from 'ember-truth-helpers';
-import { local } from 'embroider-css-modules';
 import { generateErrorMessage } from 'my-v1-app/utils/components/ui/form';
 
-import styles from './checkbox.module.css';
 import UiFormField from './field';
 
 interface UiFormCheckboxSignature {
@@ -84,12 +82,10 @@ export default class UiFormCheckbox extends Component<UiFormCheckboxSignature> {
           aria-labelledby={{concat f.inputId "-label"}}
           aria-readonly={{if @isReadOnly "true" "false"}}
           aria-required={{if @isRequired "true" "false"}}
-          class={{local
-            styles
-            "checkbox"
-            (if this.isChecked "is-checked")
-            (if (or @isDisabled @isReadOnly) "is-disabled")
-          }}
+          class="components-ui-form-checkbox__checkbox
+            {{if this.isChecked 'components-ui-form-checkbox__is-checked'}}
+            {{if (or @isDisabled @isReadOnly) 'is-disabled'}}
+            "
           data-test-field={{@label}}
           role="checkbox"
           tabindex={{unless @isDisabled "0"}}
@@ -99,7 +95,7 @@ export default class UiFormCheckbox extends Component<UiFormCheckboxSignature> {
           {{#if this.isChecked}}
             {{svgJar
               "check"
-              class=styles.checkmark-icon
+              class="components-ui-form-checkbox__checkmark-icon"
               desc="A checkmark to indicate that the input field is checked"
               role="img"
             }}

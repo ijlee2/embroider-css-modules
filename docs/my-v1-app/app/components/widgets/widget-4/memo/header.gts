@@ -1,9 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import type { QueryResults } from 'ember-container-query';
 import { and, or } from 'ember-truth-helpers';
-import { local } from 'embroider-css-modules';
-
-import styles from './header.module.css';
 
 interface WidgetsWidget4MemoHeaderSignature {
   Args: {
@@ -19,31 +16,40 @@ const WidgetsWidget4MemoHeader: TOC<WidgetsWidget4MemoHeaderSignature> =
       as |showHorizontalLayout showMinimalLayout|
     }}
       <div
-        class={{local
-          styles
-          "header"
-          (if showMinimalLayout "minimal-layout")
-          (if showHorizontalLayout "horizontal-layout")
-        }}
+        class="components-widgets-widget-4-memo-header__header
+          {{if
+            showMinimalLayout
+            'components-widgets-widget-4-memo-header__minimal-layout'
+          }}
+          {{if
+            showHorizontalLayout
+            'components-widgets-widget-4-memo-header__horizontal-layout'
+          }}
+          "
         data-test-memo-header
       >
         {{#unless showMinimalLayout}}
-          <div class={{styles.avatar-container}}>
+          <div
+            class="components-widgets-widget-4-memo-header__avatar-container"
+          >
             <img
               alt=""
-              class={{styles.avatar}}
+              class="components-widgets-widget-4-memo-header__avatar"
               data-test-image="Avatar"
               src="/images/widgets/widget-4/avatar.jpg"
             />
           </div>
         {{/unless}}
 
-        <p class={{styles.name}}>
+        <p class="components-widgets-widget-4-memo-header__name">
           Isaac Lee
         </p>
 
-        <div class={{styles.metadata}}>
-          <a class={{styles.handle}} href="#">@ijlee2</a>
+        <div class="components-widgets-widget-4-memo-header__metadata">
+          <a
+            class="components-widgets-widget-4-memo-header__handle"
+            href="#"
+          >@ijlee2</a>
           · 38m
         </div>
       </div>
