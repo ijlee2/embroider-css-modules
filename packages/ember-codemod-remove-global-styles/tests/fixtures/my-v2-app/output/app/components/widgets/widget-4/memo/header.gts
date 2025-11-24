@@ -1,0 +1,59 @@
+import type { TOC } from '@ember/component/template-only';
+import type { QueryResults } from 'ember-container-query';
+import { and, or } from 'ember-truth-helpers';
+
+interface WidgetsWidget4MemoHeaderSignature {
+  Args: {
+    cqFeatures?: QueryResults<'small' | 'large' | 'short'>;
+  };
+}
+
+const WidgetsWidget4MemoHeader: TOC<WidgetsWidget4MemoHeaderSignature> =
+  <template>
+    {{#let
+      (and @cqFeatures.large @cqFeatures.short)
+      (or @cqFeatures.small @cqFeatures.short)
+      as |showHorizontalLayout showMinimalLayout|
+    }}
+      <div
+        class="components-widgets-widget-4-memo-header__header
+          {{if
+            showMinimalLayout
+            'components-widgets-widget-4-memo-header__minimal-layout'
+          }}
+          {{if
+            showHorizontalLayout
+            'components-widgets-widget-4-memo-header__horizontal-layout'
+          }}
+          "
+        data-test-memo-header
+      >
+        {{#unless showMinimalLayout}}
+          <div
+            class="components-widgets-widget-4-memo-header__avatar-container"
+          >
+            <img
+              alt=""
+              class="components-widgets-widget-4-memo-header__avatar"
+              data-test-image="Avatar"
+              src="/images/widgets/widget-4/avatar.jpg"
+            />
+          </div>
+        {{/unless}}
+
+        <p class="components-widgets-widget-4-memo-header__name">
+          Isaac Lee
+        </p>
+
+        <div class="components-widgets-widget-4-memo-header__metadata">
+          <a
+            class="components-widgets-widget-4-memo-header__handle"
+            href="#"
+          >@ijlee2</a>
+          · 38m
+        </div>
+      </div>
+    {{/let}}
+  </template>;
+
+export default WidgetsWidget4MemoHeader;
