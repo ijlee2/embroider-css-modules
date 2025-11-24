@@ -1,4 +1,5 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import styles from './field.module.css';
+import Component from '@glimmer/component';
 
 interface UiFormFieldSignature {
   Args: {
@@ -20,7 +21,9 @@ interface UiFormFieldSignature {
   };
 }
 
-const UiFormField = templateOnlyComponent<UiFormFieldSignature>();
+const UiFormField = class extends Component<UiFormFieldSignature> {
+  styles = styles;
+};
 
 export default UiFormField;
 

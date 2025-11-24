@@ -1,3 +1,4 @@
+import styles from './textarea.module.css';
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 import { generateErrorMessage } from 'my-v1-app/utils/components/ui/form';
@@ -17,6 +18,8 @@ interface UiFormTextareaSignature {
 }
 
 export default class UiFormTextarea extends Component<UiFormTextareaSignature> {
+  styles = styles;
+
   get errorMessage(): string | undefined {
     const { isRequired } = this.args;
 

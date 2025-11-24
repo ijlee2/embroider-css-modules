@@ -1,3 +1,4 @@
+import styles from './dashboard.module.css';
 import { pageTitle } from 'ember-page-title';
 import WidgetsWidget1 from 'my-v1-app/components/widgets/widget-1';
 import WidgetsWidget2 from 'my-v1-app/components/widgets/widget-2';

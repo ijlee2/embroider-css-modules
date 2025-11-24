@@ -1,3 +1,4 @@
+import styles from './image.module.css';
 import type { TOC } from '@ember/component/template-only';
 import { isTesting, macroCondition } from '@embroider/macros';
 
@@ -9,11 +10,9 @@ interface ProductsProductImageSignature {
 
 const ProductsProductImage: TOC<ProductsProductImageSignature> = macroCondition(
   isTesting(),
-)
-  ? <template>
+) ? <template>
       <div class={{styles.components-products-product-image__placeholder-image}}></div>
-    </template>
-  : <template>
+    </template> : <template>
       <img
         alt=""
         class={{styles.components-products-product-image__image}}

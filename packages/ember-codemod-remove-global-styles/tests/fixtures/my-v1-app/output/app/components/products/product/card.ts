@@ -1,3 +1,4 @@
+import styles from './card.module.css';
 import Component from '@glimmer/component';
 import type { Product } from 'my-v1-app/data/products';
 
@@ -13,6 +14,8 @@ interface ProductsProductCardSignature {
 }
 
 export default class ProductsProductCard extends Component<ProductsProductCardSignature> {
+  styles = styles;
+
   formatPrice = formatPrice;
 }
 

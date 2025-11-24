@@ -1,3 +1,4 @@
+import styles from './information.module.css';
 import type { TOC } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
 import { or } from 'ember-truth-helpers';

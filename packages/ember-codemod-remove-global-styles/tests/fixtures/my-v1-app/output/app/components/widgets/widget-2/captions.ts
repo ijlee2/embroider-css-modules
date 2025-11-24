@@ -1,3 +1,4 @@
+import styles from './captions.module.css';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
@@ -21,6 +22,8 @@ interface WidgetsWidget2CaptionsSignature {
 }
 
 export default class WidgetsWidget2Captions extends Component<WidgetsWidget2CaptionsSignature> {
+  styles = styles;
+
   @tracked currentIndex = 0;
 
   colorSvg = colorSvg;

@@ -1,3 +1,4 @@
+import styles from './products.module.css';
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import { pageTitle } from 'ember-page-title';

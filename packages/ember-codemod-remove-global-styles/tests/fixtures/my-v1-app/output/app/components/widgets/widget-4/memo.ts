@@ -1,8 +1,11 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import styles from './memo.module.css';
+import Component from '@glimmer/component';
 
 interface WidgetsWidget4MemoSignature {}
 
-const WidgetsWidget4Memo = templateOnlyComponent<WidgetsWidget4MemoSignature>();
+const WidgetsWidget4Memo = class extends Component<WidgetsWidget4MemoSignature> {
+  styles = styles;
+};
 
 export default WidgetsWidget4Memo;
 

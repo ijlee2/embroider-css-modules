@@ -1,3 +1,4 @@
+import styles from './widget-4.module.css';
 import WidgetsWidget4Memo from './widget-4/memo';
 
 const WidgetsWidget4 = <template>
