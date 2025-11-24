@@ -19,6 +19,14 @@
   border-color: transparent;
 }
 
+.components-ui-form-checkbox__checkmark-icon {
+  color: white;
+}
+
 .components-ui-form-checkbox__is-checked {
   background-color: #1976d2;
+}
+
+.is-disabled .components-ui-form-checkbox__checkmark-icon {
+  color: #546e7a;
 }

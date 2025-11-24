@@ -136,7 +136,7 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
               {{else}}
                 {{svgJar
                   "chevron-left"
-                  class="components-widgets-widget-2-captions__icon"
+                  class=styles.components-widgets-widget-2-captions__icon
                   desc="A chevron arrow pointing left"
                   role="img"
                 }}
@@ -157,7 +157,7 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
               {{else}}
                 {{svgJar
                   "chevron-right"
-                  class="components-widgets-widget-2-captions__icon"
+                  class=styles.components-widgets-widget-2-captions__icon
                   desc="A chevron arrow pointing right"
                   role="img"
                 }}

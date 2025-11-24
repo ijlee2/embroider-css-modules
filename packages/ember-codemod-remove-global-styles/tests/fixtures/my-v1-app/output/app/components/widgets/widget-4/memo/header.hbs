@@ -4,7 +4,7 @@
   as |showHorizontalLayout showMinimalLayout|
 }}
   <div
-    class="{{styles.components-widgets-widget-4-memo-header__header}} {{if
+    class="{{this.styles.components-widgets-widget-4-memo-header__header}} {{if
         showMinimalLayout
         'components-widgets-widget-4-memo-header__minimal-layout'
       }}  {{if
@@ -15,26 +15,26 @@
   >
     {{#unless showMinimalLayout}}
       <div
-        class={{styles.components-widgets-widget-4-memo-header__avatar-container}}
+        class={{this.styles.components-widgets-widget-4-memo-header__avatar-container}}
       >
         <img
           alt=""
-          class={{styles.components-widgets-widget-4-memo-header__avatar}}
+          class={{this.styles.components-widgets-widget-4-memo-header__avatar}}
           data-test-image="Avatar"
           src="/images/widgets/widget-4/avatar.jpg"
         />
       </div>
     {{/unless}}
 
-    <p class={{styles.components-widgets-widget-4-memo-header__name}}>
+    <p class={{this.styles.components-widgets-widget-4-memo-header__name}}>
       Isaac Lee
     </p>
 
     <div
-      class={{styles.components-widgets-widget-4-memo-header__metadata}}
+      class={{this.styles.components-widgets-widget-4-memo-header__metadata}}
     >
       <a
-        class={{styles.components-widgets-widget-4-memo-header__handle}}
+        class={{this.styles.components-widgets-widget-4-memo-header__handle}}
         href="#"
       >@ijlee2</a>
       · 38m

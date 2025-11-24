@@ -1,7 +1,7 @@
 {{page-title "Embroider CSS Modules"}}
 
-<div class={{styles.templates-application__application}}>
-  <header class={{styles.templates-application__header}}>
+<div class={{this.styles.templates-application__application}}>
+  <header class={{this.styles.templates-application__header}}>
     <NavigationNarrator @skipTo="#main-content" />
 
     <NavigationMenu
@@ -15,14 +15,14 @@
     />
   </header>
 
-  <main class={{styles.templates-application__main}}>
-    <div class={{styles.templates-application__center}}>
+  <main class={{this.styles.templates-application__main}}>
+    <div class={{this.styles.templates-application__center}}>
       {{outlet}}
     </div>
   </main>
 
-  <footer class={{styles.templates-application__footer}}>
-    <span class={{styles.templates-application__copyright}}>
+  <footer class={{this.styles.templates-application__footer}}>
+    <span class={{this.styles.templates-application__copyright}}>
       Created by
       <a
         class="templates-application__link"

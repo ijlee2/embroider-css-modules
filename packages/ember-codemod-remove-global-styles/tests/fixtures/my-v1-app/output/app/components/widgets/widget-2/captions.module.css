@@ -85,6 +85,10 @@
   grid-area: next-button;
 }
 
+.components-widgets-widget-2-captions__icon {
+  color: rgb(247 252 251 / 90%);
+}
+
 .components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat {
   column-gap: 1rem;
   grid-template-areas: "previous-button summary next-button";

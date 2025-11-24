@@ -1,5 +1,5 @@
 <div
-  class="{{styles.components-widgets-widget-4-memo-actions__actions}} {{if
+  class="{{this.styles.components-widgets-widget-4-memo-actions__actions}} {{if
       (or @cqFeatures.small @cqFeatures.short)
       'components-widgets-widget-4-memo-actions__minimal-layout'
     }}  "
@@ -7,12 +7,12 @@
 >
   <button
     aria-label="Comment"
-    class={{styles.components-widgets-widget-4-memo-actions__button}}
+    class={{this.styles.components-widgets-widget-4-memo-actions__button}}
     type="button"
   >
     {{svg-jar
       "message-processing-outline"
-      class="components-widgets-widget-4-memo-actions__icon components-widgets-widget-4-memo-actions__icon-comment"
+      class=(concat this.styles.components-widgets-widget-4-memo-actions__icon " " this.styles.components-widgets-widget-4-memo-actions__icon-comment)
       desc="A speech bubble"
       role="img"
     }}
@@ -20,12 +20,12 @@
 
   <button
     aria-label="Repost"
-    class={{styles.components-widgets-widget-4-memo-actions__button}}
+    class={{this.styles.components-widgets-widget-4-memo-actions__button}}
     type="button"
   >
     {{svg-jar
       "sync"
-      class="components-widgets-widget-4-memo-actions__icon components-widgets-widget-4-memo-actions__icon-repost"
+      class=(concat this.styles.components-widgets-widget-4-memo-actions__icon " " this.styles.components-widgets-widget-4-memo-actions__icon-repost)
       desc="Two circular arrows pointing to each other"
       role="img"
     }}
@@ -33,12 +33,12 @@
 
   <button
     aria-label="Like"
-    class={{styles.components-widgets-widget-4-memo-actions__button}}
+    class={{this.styles.components-widgets-widget-4-memo-actions__button}}
     type="button"
   >
     {{svg-jar
       "heart-outline"
-      class="components-widgets-widget-4-memo-actions__icon"
+      class=this.styles.components-widgets-widget-4-memo-actions__icon
       desc="A heart"
       role="img"
     }}
@@ -46,12 +46,12 @@
 
   <button
     aria-label="Share"
-    class={{styles.components-widgets-widget-4-memo-actions__button}}
+    class={{this.styles.components-widgets-widget-4-memo-actions__button}}
     type="button"
   >
     {{svg-jar
       "share-variant-outline"
-      class="components-widgets-widget-4-memo-actions__icon"
+      class=this.styles.components-widgets-widget-4-memo-actions__icon
       desc="A circular node that branches out to two circular nodes"
       role="img"
     }}

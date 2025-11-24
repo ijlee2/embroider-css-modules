@@ -27,7 +27,7 @@ const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> =
       >
         {{svgJar
           "message-processing-outline"
-          class="components-widgets-widget-4-memo-actions__icon components-widgets-widget-4-memo-actions__icon-comment"
+          class=(concat styles.components-widgets-widget-4-memo-actions__icon " " styles.components-widgets-widget-4-memo-actions__icon-comment)
           desc="A speech bubble"
           role="img"
         }}
@@ -40,7 +40,7 @@ const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> =
       >
         {{svgJar
           "sync"
-          class="components-widgets-widget-4-memo-actions__icon components-widgets-widget-4-memo-actions__icon-repost"
+          class=(concat styles.components-widgets-widget-4-memo-actions__icon " " styles.components-widgets-widget-4-memo-actions__icon-repost)
           desc="Two circular arrows pointing to each other"
           role="img"
         }}
@@ -53,7 +53,7 @@ const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> =
       >
         {{svgJar
           "heart-outline"
-          class="components-widgets-widget-4-memo-actions__icon"
+          class=styles.components-widgets-widget-4-memo-actions__icon
           desc="A heart"
           role="img"
         }}
@@ -66,7 +66,7 @@ const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> =
       >
         {{svgJar
           "share-variant-outline"
-          class="components-widgets-widget-4-memo-actions__icon"
+          class=styles.components-widgets-widget-4-memo-actions__icon
           desc="A circular node that branches out to two circular nodes"
           role="img"
         }}

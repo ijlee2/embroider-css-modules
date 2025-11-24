@@ -16,7 +16,7 @@
 
   <:field as |f|>
     <textarea
-      class="{{styles.components-ui-form-input__input}} {{if (or @isDisabled @isReadOnly) styles.input-disabled}}  "
+      class="{{this.styles.components-ui-form-input__input}} {{if (or @isDisabled @isReadOnly) this.styles.input-disabled}}  "
       data-test-field={{@label}}
       disabled={{@isDisabled}}
       id={{f.inputId}}
