@@ -1,4 +1,6 @@
 declare const styles: {
+  readonly 'components-navigation-menu__link': string;
+  readonly 'components-navigation-menu__list': string;
   readonly 'components-products-product-card__actions': string;
   readonly 'components-products-product-card__body': string;
   readonly 'components-products-product-card__container': string;
@@ -29,6 +31,14 @@ declare const styles: {
   readonly 'components-ui-form__actions': string;
   readonly 'components-ui-form__form': string;
   readonly 'components-ui-form__submit-button': string;
+  readonly 'components-ui-page-demo__demo': string;
+  readonly 'components-ui-page-section__section': string;
+  readonly 'components-ui-page-section__title': string;
+  readonly 'components-ui-page-subsection__subsection': string;
+  readonly 'components-ui-page-subsection__title': string;
+  readonly 'components-ui-page__container': string;
+  readonly 'components-ui-page__content': string;
+  readonly 'components-ui-page__title': string;
   readonly 'components-widgets-widget-1-item__container': string;
   readonly 'components-widgets-widget-1__container': string;
   readonly 'components-widgets-widget-1__item-1': string;

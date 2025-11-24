@@ -1,7 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
 
-import styles from './demo.module.css';
-
 interface UiPageDemoSignature {
   Blocks: {
     default: [];
@@ -9,7 +7,7 @@ interface UiPageDemoSignature {
 }
 
 const UiPageDemo: TOC<UiPageDemoSignature> = <template>
-  <div class={{styles.demo}}>
+  <div class="components-ui-page-demo__demo">
     {{yield}}
   </div>
 </template>;

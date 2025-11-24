@@ -1,8 +1,5 @@
 import type { TOC } from '@ember/component/template-only';
 import { LinkTo } from '@ember/routing';
-import { local } from 'embroider-css-modules';
-
-import styles from './navigation-menu.module.css';
 
 type MenuItem = {
   label: string;
@@ -18,12 +15,12 @@ interface NavigationMenuSignature {
 
 const NavigationMenu: TOC<NavigationMenuSignature> = <template>
   <nav aria-label={{@name}} data-test-nav={{@name}}>
-    <ul class={{styles.list}}>
+    <ul class="components-navigation-menu__list">
       {{#each @menuItems as |menuItem|}}
         <li>
           <LinkTo
             @route={{menuItem.route}}
-            class={{local styles "link"}}
+            class="components-navigation-menu__link"
             data-test-link={{menuItem.label}}
           >
             {{menuItem.label}}
