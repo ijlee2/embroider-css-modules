@@ -1,5 +1,14 @@
 # ember-codemod-remove-global-styles
 
+## 0.2.1
+
+### Patch Changes
+
+- [#202](https://github.com/ijlee2/embroider-css-modules/pull/202) Wrote this.styles in `*.hbs` files ([@ijlee2](https://github.com/ijlee2))
+- [#202](https://github.com/ijlee2/embroider-css-modules/pull/202) Handled hash pairs ([@ijlee2](https://github.com/ijlee2))
+- [#201](https://github.com/ijlee2/embroider-css-modules/pull/201) Added fixtures ([@ijlee2](https://github.com/ijlee2))
+- [#200](https://github.com/ijlee2/embroider-css-modules/pull/200) Added tests ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.2.0
 
 ### Minor Changes

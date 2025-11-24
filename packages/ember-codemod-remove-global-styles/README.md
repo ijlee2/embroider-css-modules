@@ -12,7 +12,7 @@ _Codemod to localize global styles_
 You must pass `--src` to indicate the location of your global stylesheet.
 
 ```sh
-ember-codemod-remove-global-styles --src app/assets/app.css
+pnpx ember-codemod-remove-global-styles --src app/assets/app.css
 ```
 
 <details>
@@ -22,7 +22,7 @@ ember-codemod-remove-global-styles --src app/assets/app.css
 Pass `--root` to run the codemod somewhere else (i.e. not in the current directory).
 
 ```sh
-npx ember-codemod-remove-global-styles --root <path/to/your/project>
+pnpx ember-codemod-remove-global-styles --root <path/to/your/project>
 ```
 
 </details>
