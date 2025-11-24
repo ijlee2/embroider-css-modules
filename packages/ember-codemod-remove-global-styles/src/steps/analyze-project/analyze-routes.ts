@@ -7,13 +7,20 @@ import type { ClassToStyles, Options, Project } from '../../types/index.js';
 import { getEntityData } from './get-entity-data.js';
 
 export function analyzeRoutes(classToStyles: ClassToStyles, options: Options) {
-  const { projectRoot } = options;
-
-  const filePaths = findFiles('app/templates/**/*.{gjs,gts,hbs}', {
-    projectRoot,
-  });
+  const { convert, folder, projectRoot } = options;
 
   const routes: Project['routes'] = new Map();
+
+  if (!convert.routes) {
+    return routes;
+  }
+
+  const filePaths = findFiles(
+    join('app/templates', folder, '**/*.{gjs,gts,hbs}'),
+    {
+      projectRoot,
+    },
+  );
 
   filePaths.forEach((filePath) => {
     const file = readFileSync(join(projectRoot, filePath), 'utf8');
