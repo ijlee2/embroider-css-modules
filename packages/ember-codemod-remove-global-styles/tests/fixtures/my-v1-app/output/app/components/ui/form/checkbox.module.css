@@ -1,0 +1,24 @@
+.components-ui-form-checkbox__checkbox {
+  align-items: center;
+  background-color: white;
+  border: 0.125rem solid #ffd54f;
+  cursor: pointer;
+  display: flex;
+  height: 1rem;
+  justify-content: center;
+  position: relative;
+  width: 1rem;
+}
+
+.components-ui-form-checkbox__checkbox:focus {
+  background-color: #ffecb3;
+  outline: 0;
+}
+
+.components-ui-form-checkbox__checkbox:not(:focus) {
+  border-color: transparent;
+}
+
+.components-ui-form-checkbox__is-checked {
+  background-color: #1976d2;
+}

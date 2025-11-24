@@ -1,0 +1,17 @@
+.components-widgets-widget-4-memo-actions__actions {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.components-widgets-widget-4-memo-actions__button {
+  align-items: center;
+  border: 0;
+  border-radius: 50%;
+  display: flex;
+  height: 2rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 2rem;
+}

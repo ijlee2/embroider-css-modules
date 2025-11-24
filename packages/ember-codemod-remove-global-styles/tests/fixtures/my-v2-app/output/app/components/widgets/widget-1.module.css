@@ -1,0 +1,24 @@
+.components-widgets-widget-1__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.components-widgets-widget-1__items {
+  display: grid;
+  flex: 1;
+  gap: 0.6rem;
+  overflow: hidden;
+}
+
+.components-widgets-widget-1__item-1 {
+  grid-area: item-1;
+}
+
+.components-widgets-widget-1__item-2 {
+  grid-area: item-2;
+}
+
+.components-widgets-widget-1__item-3 {
+  grid-area: item-3;
+}

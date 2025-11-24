@@ -1,0 +1,50 @@
+.components-widgets-widget-4-memo-header__header {
+  column-gap: 0;
+  display: grid;
+  grid-template-areas:
+    "avatar-container name"
+    "avatar-container metadata";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  row-gap: 0.25rem;
+}
+
+.components-widgets-widget-4-memo-header__avatar-container {
+  display: grid;
+  grid-area: avatar-container;
+  height: 2rem;
+  margin-right: 0.5rem;
+  width: 2rem;
+}
+
+.components-widgets-widget-4-memo-header__avatar {
+  border-radius: 50%;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.components-widgets-widget-4-memo-header__name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  grid-area: name;
+  margin: 0;
+}
+
+.components-widgets-widget-4-memo-header__metadata {
+  font-size: 0.8rem;
+  grid-area: metadata;
+}
+
+.components-widgets-widget-4-memo-header__handle {
+  color: #03a9f4;
+  text-decoration: none;
+}
+
+.components-widgets-widget-4-memo-header__header.components-widgets-widget-4-memo-header__horizontal-layout {
+  column-gap: 0.6rem;
+  grid-template-areas: "name metadata";
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr;
+  row-gap: 0;
+}

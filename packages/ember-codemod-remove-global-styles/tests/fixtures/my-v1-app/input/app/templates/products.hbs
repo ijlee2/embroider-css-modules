@@ -1,0 +1,38 @@
+{{page-title "Products"}}
+
+<Ui::Page @title="Products">
+  <div
+    class="{{if
+        this.isPartOfNestProductDetailsExperiment
+        'templates-products__shared-layout templates-products__products-with-details'
+        'templates-products__shared-layout templates-products__products'
+      }}
+      templates-products__sticky-container"
+  >
+    <div class="templates-products__filters">
+      <div class="templates-products__filter">
+        <Ui::Form::Input
+          @data={{hash name=this.name}}
+          @key="name"
+          @label="Filter by"
+          @onUpdate={{this.noOp}}
+          @placeholder="Cake, pasta, etc."
+        />
+      </div>
+    </div>
+
+    <div class="templates-products__list">
+      {{#each this.filteredProducts as |product|}}
+        <Products::Product::Card @product={{product}} />
+      {{else}}
+        <p>
+          No products found.
+        </p>
+      {{/each}}
+    </div>
+
+    <div class="templates-products__product-details">
+      {{outlet}}
+    </div>
+  </div>
+</Ui::Page>

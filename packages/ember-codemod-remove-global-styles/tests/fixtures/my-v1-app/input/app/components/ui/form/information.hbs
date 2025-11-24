@@ -1,0 +1,23 @@
+{{#if (or @title @instructions)}}
+  <div class="components-ui-form-information__container">
+    {{#if @title}}
+      <div
+        class="components-ui-form-information__title"
+        data-test-title
+        id={{concat @formId "-title"}}
+      >
+        {{@title}}
+      </div>
+    {{/if}}
+
+    {{#if @instructions}}
+      <p
+        class="components-ui-form-information__instructions"
+        data-test-instructions
+        id={{concat @formId "-instructions"}}
+      >
+        {{@instructions}}
+      </p>
+    {{/if}}
+  </div>
+{{/if}}
