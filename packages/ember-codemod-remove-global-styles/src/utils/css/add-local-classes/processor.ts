@@ -10,6 +10,7 @@ type TextNode = ReturnType<typeof AST.builders.text>;
 
 type ProcessorArgs = {
   classToStyles: ClassToStyles;
+  isHbs: boolean;
 };
 
 export type ProcessorReturn = {
@@ -18,14 +19,18 @@ export type ProcessorReturn = {
 };
 
 export class Processor {
-  private classToStyles: ClassToStyles;
+  private args: ProcessorArgs;
 
   constructor(args: ProcessorArgs) {
-    this.classToStyles = args.classToStyles;
+    this.args = args;
+  }
+
+  private getLocalClass(className: string): string {
+    return this.args.isHbs ? `this.styles.${className}` : `styles.${className}`;
   }
 
   private isLocal(className: string): boolean {
-    return this.classToStyles.has(className);
+    return this.args.classToStyles.has(className);
   }
 
   processConcatStatement(nodeValue: ConcatStatement): ConcatStatement {
@@ -103,7 +108,7 @@ export class Processor {
       const className = classNames[0]!;
 
       return this.isLocal(className)
-        ? AST.builders.path(`styles.${className}`)
+        ? AST.builders.path(this.getLocalClass(className))
         : nodeValue;
     }
 
@@ -116,7 +121,10 @@ export class Processor {
     const parts = classNames
       .map((className) => {
         return this.isLocal(className)
-          ? [AST.builders.path(`styles.${className}`), AST.builders.string(' ')]
+          ? [
+              AST.builders.path(this.getLocalClass(className)),
+              AST.builders.string(' '),
+            ]
           : [AST.builders.string(`${className} `), AST.builders.string(' ')];
       })
       .flat();
@@ -138,7 +146,7 @@ export class Processor {
       const className = classNames[0]!;
 
       return this.isLocal(className)
-        ? AST.builders.mustache(`styles.${className}`)
+        ? AST.builders.mustache(this.getLocalClass(className))
         : nodeValue;
     }
 
@@ -151,7 +159,10 @@ export class Processor {
     const parts = classNames
       .map((className) => {
         return this.isLocal(className)
-          ? [AST.builders.path(`styles.${className}`), AST.builders.string(' ')]
+          ? [
+              AST.builders.path(this.getLocalClass(className)),
+              AST.builders.string(' '),
+            ]
           : [AST.builders.string(className), AST.builders.string(' ')];
       })
       .flat();

@@ -5,6 +5,7 @@ import { Processor } from './add-local-classes/index.js';
 
 type Data = {
   classToStyles: ClassToStyles;
+  isHbs: boolean;
 };
 
 export function addLocalClasses(file: string, data: Data): string {
