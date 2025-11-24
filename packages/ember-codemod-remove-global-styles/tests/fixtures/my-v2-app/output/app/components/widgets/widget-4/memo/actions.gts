@@ -1,3 +1,4 @@
+import styles from './actions.module.css';
 import type { TOC } from '@ember/component/template-only';
 import type { QueryResults } from 'ember-container-query';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -11,8 +12,7 @@ interface WidgetsWidget4MemoActionsSignature {
   };
 }
 
-const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> =
-  <template>
+const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> = <template>
     <div
       class="{{styles.components-widgets-widget-4-memo-actions__actions}} {{if
           (or @cqFeatures.small @cqFeatures.short)

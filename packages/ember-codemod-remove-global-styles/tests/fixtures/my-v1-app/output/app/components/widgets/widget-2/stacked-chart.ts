@@ -1,4 +1,5 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import styles from './stacked-chart.module.css';
+import Component from '@glimmer/component';
 import type { Data } from 'my-v1-app/utils/components/widgets/widget-2';
 
 interface WidgetsWidget2StackedChartSignature {
@@ -8,7 +9,9 @@ interface WidgetsWidget2StackedChartSignature {
 }
 
 const WidgetsWidget2StackedChart =
-  templateOnlyComponent<WidgetsWidget2StackedChartSignature>();
+  class extends Component<WidgetsWidget2StackedChartSignature> {
+    styles = styles;
+  };
 
 export default WidgetsWidget2StackedChart;
 

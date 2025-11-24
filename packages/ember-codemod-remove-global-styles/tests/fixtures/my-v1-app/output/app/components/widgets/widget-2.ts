@@ -1,3 +1,4 @@
+import styles from './widget-2.module.css';
 import type Owner from '@ember/owner';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
@@ -14,6 +15,8 @@ interface WidgetsWidget2Signature {
 }
 
 export default class WidgetsWidget2 extends Component<WidgetsWidget2Signature> {
+  styles = styles;
+
   @tracked data = [] as Data[];
   @tracked summaries = [] as Summary[];
 

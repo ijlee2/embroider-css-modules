@@ -1,3 +1,4 @@
+import styles from './input.module.css';
 import { assert } from '@ember/debug';
 import { on } from '@ember/modifier';
 import { action, get } from '@ember/object';
@@ -58,33 +59,33 @@ export default class UiFormInput extends Component<UiFormInputSignature> {
   }
 
   <template>
-    <UiFormField @errorMessage={{this.errorMessage}} @isWide={{@isWide}}>
-      <:label as |l|>
-        <label data-test-label for={{l.inputId}}>
-          {{@label}}
+  <UiFormField @errorMessage={{this.errorMessage}} @isWide={{@isWide}}>
+    <:label as |l|>
+      <label data-test-label for={{l.inputId}}>
+        {{@label}}
 
-          {{#if @isRequired}}
-            <span aria-hidden="true">
-              *
-            </span>
-          {{/if}}
-        </label>
-      </:label>
+        {{#if @isRequired}}
+          <span aria-hidden="true">
+            *
+          </span>
+        {{/if}}
+      </label>
+    </:label>
 
-      <:field as |f|>
-        <input
-          class="{{styles.components-ui-form-input__input}} {{if (or @isDisabled @isReadOnly) styles.input-disabled}}  "
-          data-test-field={{@label}}
-          disabled={{@isDisabled}}
-          id={{f.inputId}}
-          placeholder={{@placeholder}}
-          readonly={{@isReadOnly}}
-          required={{@isRequired}}
-          type={{this.type}}
-          value={{this.value}}
-          {{on "input" this.updateValue}}
-        />
-      </:field>
-    </UiFormField>
+    <:field as |f|>
+      <input
+        class="{{styles.components-ui-form-input__input}} {{if (or @isDisabled @isReadOnly) styles.input-disabled}}  "
+        data-test-field={{@label}}
+        disabled={{@isDisabled}}
+        id={{f.inputId}}
+        placeholder={{@placeholder}}
+        readonly={{@isReadOnly}}
+        required={{@isRequired}}
+        type={{this.type}}
+        value={{this.value}}
+        {{on "input" this.updateValue}}
+      />
+    </:field>
+  </UiFormField>
   </template>
 }

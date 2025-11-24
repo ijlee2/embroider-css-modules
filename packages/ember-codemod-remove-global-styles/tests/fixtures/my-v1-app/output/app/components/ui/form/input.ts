@@ -1,3 +1,4 @@
+import styles from './input.module.css';
 import { assert } from '@ember/debug';
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
@@ -19,6 +20,8 @@ interface UiFormInputSignature {
 }
 
 export default class UiFormInput extends Component<UiFormInputSignature> {
+  styles = styles;
+
   get errorMessage(): string | undefined {
     const { isRequired } = this.args;
 

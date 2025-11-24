@@ -1,3 +1,4 @@
+import styles from './widget-1.module.css';
 import { hash } from '@ember/helper';
 import { aspectRatio, ContainerQuery } from 'ember-container-query';
 

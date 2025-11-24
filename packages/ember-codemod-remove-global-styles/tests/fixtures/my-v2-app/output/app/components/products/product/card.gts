@@ -1,3 +1,4 @@
+import styles from './card.module.css';
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import { LinkTo } from '@ember/routing';

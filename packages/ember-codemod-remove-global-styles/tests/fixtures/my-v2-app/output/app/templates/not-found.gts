@@ -1,9 +1,10 @@
+import styles from './not-found.module.css';
 import { hash } from '@ember/helper';
 import { ContainerQuery, width } from 'ember-container-query';
 import { pageTitle } from 'ember-page-title';
 import { UiPage } from 'my-v2-addon';
 
-export default <template>
+<template>
   {{pageTitle "Page Not Found"}}
 
   <UiPage @title="404">
@@ -25,4 +26,4 @@ export default <template>
       </ContainerQuery>
     </div>
   </UiPage>
-</template>;
+</template>

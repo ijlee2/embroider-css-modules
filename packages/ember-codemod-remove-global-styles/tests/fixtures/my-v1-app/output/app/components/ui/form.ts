@@ -1,3 +1,4 @@
+import styles from './form.module.css';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
@@ -40,6 +41,8 @@ interface UiFormSignature {
 }
 
 export default class UiForm extends Component<UiFormSignature> {
+  styles = styles;
+
   @tracked data = this.args.data ?? ({} as Record<string, unknown>);
 
   @action submitForm(event: SubmitEvent): void {

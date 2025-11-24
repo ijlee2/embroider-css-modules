@@ -1,4 +1,5 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import styles from './header.module.css';
+import Component from '@glimmer/component';
 import type { QueryResults } from 'ember-container-query';
 
 interface WidgetsWidget4MemoHeaderSignature {
@@ -8,7 +9,9 @@ interface WidgetsWidget4MemoHeaderSignature {
 }
 
 const WidgetsWidget4MemoHeader =
-  templateOnlyComponent<WidgetsWidget4MemoHeaderSignature>();
+  class extends Component<WidgetsWidget4MemoHeaderSignature> {
+    styles = styles;
+  };
 
 export default WidgetsWidget4MemoHeader;
 

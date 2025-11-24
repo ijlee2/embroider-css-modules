@@ -1,3 +1,4 @@
+import styles from './body.module.css';
 import type { TOC } from '@ember/component/template-only';
 import type { QueryResults } from 'ember-container-query';
 import { or } from 'ember-truth-helpers';

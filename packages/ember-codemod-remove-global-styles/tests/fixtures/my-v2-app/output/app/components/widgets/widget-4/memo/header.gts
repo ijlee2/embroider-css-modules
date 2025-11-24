@@ -1,3 +1,4 @@
+import styles from './header.module.css';
 import type { TOC } from '@ember/component/template-only';
 import type { QueryResults } from 'ember-container-query';
 import { and, or } from 'ember-truth-helpers';
@@ -8,8 +9,7 @@ interface WidgetsWidget4MemoHeaderSignature {
   };
 }
 
-const WidgetsWidget4MemoHeader: TOC<WidgetsWidget4MemoHeaderSignature> =
-  <template>
+const WidgetsWidget4MemoHeader: TOC<WidgetsWidget4MemoHeaderSignature> = <template>
     {{#let
       (and @cqFeatures.large @cqFeatures.short)
       (or @cqFeatures.small @cqFeatures.short)

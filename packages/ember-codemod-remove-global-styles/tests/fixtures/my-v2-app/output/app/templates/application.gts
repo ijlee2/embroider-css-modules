@@ -1,3 +1,4 @@
+import styles from './application.module.css';
 import { array, hash } from '@ember/helper';
 import { NavigationNarrator } from 'ember-a11y-refocus';
 import { pageTitle } from 'ember-page-title';

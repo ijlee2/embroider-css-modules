@@ -1,3 +1,4 @@
+import styles from './memo.module.css';
 import type { TOC } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 import { ContainerQuery, height, width } from 'ember-container-query';

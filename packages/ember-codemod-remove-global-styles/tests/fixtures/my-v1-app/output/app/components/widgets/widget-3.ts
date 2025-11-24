@@ -1,3 +1,4 @@
+import styles from './widget-3.module.css';
 import type Owner from '@ember/owner';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
@@ -8,6 +9,8 @@ interface WidgetsWidget3Signature {
 }
 
 export default class WidgetsWidget3 extends Component<WidgetsWidget3Signature> {
+  styles = styles;
+
   @tracked concertData = {} as Concert;
 
   constructor(owner: Owner, args: WidgetsWidget3Signature['Args']) {

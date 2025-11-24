@@ -1,3 +1,4 @@
+import styles from './tour-schedule.module.css';
 import { hash } from '@ember/helper';
 import { ContainerQuery, width } from 'ember-container-query';
 

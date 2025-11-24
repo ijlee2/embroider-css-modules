@@ -1,3 +1,4 @@
+import styles from './products.module.css';
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
@@ -6,6 +7,8 @@ import type { Model } from 'my-v1-app/routes/products';
 type SupportedKey = 'name';
 
 export default class ProductsController extends Controller {
+  styles = styles;
+
   declare model: Model;
 
   @tracked name: string | null = null;

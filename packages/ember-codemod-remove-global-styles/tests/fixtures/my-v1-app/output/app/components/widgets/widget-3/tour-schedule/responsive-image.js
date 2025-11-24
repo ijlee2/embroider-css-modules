@@ -1,9 +1,12 @@
+import styles from './responsive-image.module.css';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { findBestFittingImage } from 'my-v1-app/utils/components/widgets/widget-3';
 
 export default class WidgetsWidget3TourScheduleResponsiveImage extends Component {
+  styles = styles;
+
   @tracked imageSource;
 
   @action setImageSource({ dimensions }) {

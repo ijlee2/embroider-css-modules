@@ -1,3 +1,4 @@
+import styles from './image.module.css';
 import { isTesting, macroCondition } from '@embroider/macros';
 import Component from '@glimmer/component';
 
@@ -8,6 +9,8 @@ interface ProductsProductImageSignature {
 }
 
 export default class ProductsProductImage extends Component<ProductsProductImageSignature> {
+  styles = styles;
+
   isTestEnvironment = macroCondition(isTesting()) ? true : false;
 }
 

@@ -1,3 +1,4 @@
+import styles from './field.module.css';
 import type { TOC } from '@ember/component/template-only';
 import { hash, uniqueId } from '@ember/helper';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

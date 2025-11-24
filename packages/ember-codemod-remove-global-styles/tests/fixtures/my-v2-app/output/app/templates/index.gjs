@@ -1,6 +1,7 @@
+import styles from './index.module.css';
 import { UiPage } from 'my-v2-addon';
 
-export default <template>
+<template>
   <UiPage @title="Welcome!">
     <p>
       Thanks for trying out
@@ -20,4 +21,4 @@ export default <template>
       inspect the DOM.
     </p>
   </UiPage>
-</template>;
+</template>
