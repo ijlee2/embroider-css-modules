@@ -1,0 +1,61 @@
+<div
+  class="components-widgets-widget-4-memo-actions__actions
+    {{if
+      (or @cqFeatures.small @cqFeatures.short)
+      'components-widgets-widget-4-memo-actions__minimal-layout'
+    }}
+    "
+  data-test-memo-actions
+>
+  <button
+    aria-label="Comment"
+    class="components-widgets-widget-4-memo-actions__button"
+    type="button"
+  >
+    {{svg-jar
+      "message-processing-outline"
+      class="components-widgets-widget-4-memo-actions__icon components-widgets-widget-4-memo-actions__icon-comment"
+      desc="A speech bubble"
+      role="img"
+    }}
+  </button>
+
+  <button
+    aria-label="Repost"
+    class="components-widgets-widget-4-memo-actions__button"
+    type="button"
+  >
+    {{svg-jar
+      "sync"
+      class="components-widgets-widget-4-memo-actions__icon components-widgets-widget-4-memo-actions__icon-repost"
+      desc="Two circular arrows pointing to each other"
+      role="img"
+    }}
+  </button>
+
+  <button
+    aria-label="Like"
+    class="components-widgets-widget-4-memo-actions__button"
+    type="button"
+  >
+    {{svg-jar
+      "heart-outline"
+      class="components-widgets-widget-4-memo-actions__icon"
+      desc="A heart"
+      role="img"
+    }}
+  </button>
+
+  <button
+    aria-label="Share"
+    class="components-widgets-widget-4-memo-actions__button"
+    type="button"
+  >
+    {{svg-jar
+      "share-variant-outline"
+      class="components-widgets-widget-4-memo-actions__icon"
+      desc="A circular node that branches out to two circular nodes"
+      role="img"
+    }}
+  </button>
+</div>
