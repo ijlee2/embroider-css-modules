@@ -10,13 +10,20 @@ export function analyzeComponents(
   classToStyles: ClassToStyles,
   options: Options,
 ) {
-  const { projectRoot } = options;
-
-  const filePaths = findFiles('app/components/**/*.{gjs,gts,hbs}', {
-    projectRoot,
-  });
+  const { convert, folder, projectRoot } = options;
 
   const components: Project['components'] = new Map();
+
+  if (!convert.components) {
+    return components;
+  }
+
+  const filePaths = findFiles(
+    join('app/components', folder, '**/*.{gjs,gts,hbs}'),
+    {
+      projectRoot,
+    },
+  );
 
   filePaths.forEach((filePath) => {
     const file = readFileSync(join(projectRoot, filePath), 'utf8');
