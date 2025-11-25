@@ -4,8 +4,8 @@
   <div
     class="{{if
         this.isPartOfNestProductDetailsExperiment
-        (concat this.styles.templates-products__shared-layout " " this.styles.templates-products__products-with-details)
-        (concat this.styles.templates-products__shared-layout " " this.styles.templates-products__products)
+        (local this.styles "templates-products__shared-layout" "templates-products__products-with-details")
+        (local this.styles "templates-products__shared-layout" "templates-products__products")
       }} {{this.styles.templates-products__sticky-container}} "
   >
     <div class={{this.styles.templates-products__filters}}>

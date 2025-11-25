@@ -27,7 +27,11 @@ export class Processor {
   }
 
   private getLocalClass(className: string): string {
-    return this.args.isHbs ? `this.styles.${className}` : `styles.${className}`;
+    return `${this.getStyles()}.${className}`;
+  }
+
+  private getStyles(): 'this.styles' | 'styles' {
+    return this.args.isHbs ? 'this.styles' : 'styles';
   }
 
   private isLocal(className: string): boolean {
@@ -113,22 +117,46 @@ export class Processor {
         : nodeValue;
     }
 
-    const hasLocalClass = classNames.some(this.isLocal.bind(this));
+    const allGlobal = classNames.every((className) => !this.isLocal(className));
 
-    if (!hasLocalClass) {
+    if (allGlobal) {
       return nodeValue;
     }
 
-    const parts = classNames
-      .map((className) => {
-        return this.isLocal(className)
-          ? [
-              AST.builders.path(this.getLocalClass(className)),
-              AST.builders.string(' '),
-            ]
-          : [AST.builders.string(`${className} `), AST.builders.string(' ')];
-      })
-      .flat();
+    const allLocal = classNames.every(this.isLocal.bind(this));
+
+    if (allLocal) {
+      const parts = [
+        AST.builders.path(this.getStyles()),
+        ...classNames.map((className) => AST.builders.string(className)),
+      ];
+
+      return AST.builders.sexpr(AST.builders.path('local'), parts);
+    }
+
+    const parts: (PathExpression | StringLiteral)[] = [];
+    const globalClasses: string[] = [];
+
+    classNames.forEach((className) => {
+      if (!this.isLocal(className)) {
+        globalClasses.push(className);
+        return;
+      }
+
+      if (globalClasses.length > 0) {
+        parts.push(AST.builders.string(globalClasses.join(' ')));
+        parts.push(AST.builders.string(' '));
+      }
+
+      parts.push(AST.builders.path(this.getLocalClass(className)));
+      parts.push(AST.builders.string(' '));
+      globalClasses.length = 0;
+    });
+
+    if (globalClasses.length > 0) {
+      parts.push(AST.builders.string(globalClasses.join(' ')));
+      parts.push(AST.builders.string(' '));
+    }
 
     // Remove space at the end
     parts.splice(-1);
@@ -188,22 +216,46 @@ export class Processor {
         : nodeValue;
     }
 
-    const hasLocalClass = classNames.some(this.isLocal.bind(this));
+    const allGlobal = classNames.every((className) => !this.isLocal(className));
 
-    if (!hasLocalClass) {
+    if (allGlobal) {
       return nodeValue;
     }
 
-    const parts = classNames
-      .map((className) => {
-        return this.isLocal(className)
-          ? [
-              AST.builders.path(this.getLocalClass(className)),
-              AST.builders.string(' '),
-            ]
-          : [AST.builders.string(className), AST.builders.string(' ')];
-      })
-      .flat();
+    const allLocal = classNames.every(this.isLocal.bind(this));
+
+    if (allLocal) {
+      const parts = [
+        AST.builders.path(this.getStyles()),
+        ...classNames.map((className) => AST.builders.string(className)),
+      ];
+
+      return AST.builders.mustache(AST.builders.path('local'), parts);
+    }
+
+    const parts: (PathExpression | StringLiteral)[] = [];
+    const globalClasses: string[] = [];
+
+    classNames.forEach((className) => {
+      if (!this.isLocal(className)) {
+        globalClasses.push(className);
+        return;
+      }
+
+      if (globalClasses.length > 0) {
+        parts.push(AST.builders.string(globalClasses.join(' ')));
+        parts.push(AST.builders.string(' '));
+      }
+
+      parts.push(AST.builders.path(this.getLocalClass(className)));
+      parts.push(AST.builders.string(' '));
+      globalClasses.length = 0;
+    });
+
+    if (globalClasses.length > 0) {
+      parts.push(AST.builders.string(globalClasses.join(' ')));
+      parts.push(AST.builders.string(' '));
+    }
 
     // Remove space at the end
     parts.splice(-1);
