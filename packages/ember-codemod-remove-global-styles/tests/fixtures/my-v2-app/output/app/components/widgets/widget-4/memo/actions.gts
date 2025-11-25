@@ -27,7 +27,7 @@ const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> = <temp
       >
         {{svgJar
           "message-processing-outline"
-          class=(concat styles.components-widgets-widget-4-memo-actions__icon " " styles.components-widgets-widget-4-memo-actions__icon-comment)
+          class=(local styles "components-widgets-widget-4-memo-actions__icon" "components-widgets-widget-4-memo-actions__icon-comment")
           desc="A speech bubble"
           role="img"
         }}
@@ -40,7 +40,7 @@ const WidgetsWidget4MemoActions: TOC<WidgetsWidget4MemoActionsSignature> = <temp
       >
         {{svgJar
           "sync"
-          class=(concat styles.components-widgets-widget-4-memo-actions__icon " " styles.components-widgets-widget-4-memo-actions__icon-repost)
+          class=(local styles "components-widgets-widget-4-memo-actions__icon" "components-widgets-widget-4-memo-actions__icon-repost")
           desc="Two circular arrows pointing to each other"
           role="img"
         }}

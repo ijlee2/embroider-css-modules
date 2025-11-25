@@ -19,8 +19,8 @@ interface ProductsSignature {
     <div
       class="{{if
           @controller.isPartOfNestProductDetailsExperiment
-          (concat styles.templates-products__shared-layout " " styles.templates-products__products-with-details)
-          (concat styles.templates-products__shared-layout " " styles.templates-products__products)
+          (local styles "templates-products__shared-layout" "templates-products__products-with-details")
+          (local styles "templates-products__shared-layout" "templates-products__products")
         }} {{styles.templates-products__sticky-container}} "
     >
       <div class={{styles.templates-products__filters}}>
