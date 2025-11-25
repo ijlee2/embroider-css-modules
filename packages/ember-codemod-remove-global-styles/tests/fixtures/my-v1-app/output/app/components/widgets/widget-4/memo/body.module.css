@@ -20,3 +20,12 @@
 .components-widgets-widget-4-memo-body__message a {
   color: #03a9f4;
 }
+
+.components-widgets-widget-4-memo-body__body.components-widgets-widget-4-memo-body__minimal-layout
+  .components-widgets-widget-4-memo-body__message {
+  font-size: 0.75rem;
+  height: calc(100% - 1rem);
+  line-height: 1.6;
+  padding: 0.5rem;
+  width: calc(100% - 1rem);
+}

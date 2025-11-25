@@ -22,3 +22,29 @@
 .components-widgets-widget-1__item-3 {
   grid-area: item-3;
 }
+
+.components-widgets-widget-1__container[data-container-query-tall]
+  .components-widgets-widget-1__items {
+  grid-template-areas:
+    "item-1"
+    "item-2"
+    "item-3";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.components-widgets-widget-1__container[data-container-query-square]
+  .components-widgets-widget-1__items {
+  grid-template-areas:
+    "item-1 item-2"
+    "item-3 item-3";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.components-widgets-widget-1__container[data-container-query-wide]
+  .components-widgets-widget-1__items {
+  grid-template-areas: "item-1 item-2 item-3";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+}
