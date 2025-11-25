@@ -48,3 +48,13 @@
   grid-template-rows: 1fr;
   row-gap: 0;
 }
+
+.components-widgets-widget-4-memo-header__header.components-widgets-widget-4-memo-header__minimal-layout
+  .components-widgets-widget-4-memo-header__name {
+  font-size: 0.8rem;
+}
+
+.components-widgets-widget-4-memo-header__header.components-widgets-widget-4-memo-header__minimal-layout
+  .components-widgets-widget-4-memo-header__metadata {
+  font-size: 0.75rem;
+}

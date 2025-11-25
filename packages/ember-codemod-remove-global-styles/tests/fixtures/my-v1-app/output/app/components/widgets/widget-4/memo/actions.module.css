@@ -29,3 +29,21 @@
 .components-widgets-widget-4-memo-actions__icon-repost {
   transform: translate(0, 0) scale(-1, 1) rotate(90deg);
 }
+
+.components-widgets-widget-4-memo-actions__actions.components-widgets-widget-4-memo-actions__minimal-layout
+  .components-widgets-widget-4-memo-actions__button {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.components-widgets-widget-4-memo-actions__actions.components-widgets-widget-4-memo-actions__minimal-layout
+  .components-widgets-widget-4-memo-actions__button:hover {
+  background: transparent;
+  transition: none;
+}
+
+.components-widgets-widget-4-memo-actions__actions.components-widgets-widget-4-memo-actions__minimal-layout
+  .components-widgets-widget-4-memo-actions__icon {
+  height: 0.875rem;
+  width: 0.875rem;
+}
