@@ -27,7 +27,11 @@ export class Processor {
   }
 
   private getLocalClass(className: string): string {
-    return this.args.isHbs ? `this.styles.${className}` : `styles.${className}`;
+    return `${this.getStyles()}.${className}`;
+  }
+
+  private getStyles(): 'this.styles' | 'styles' {
+    return this.args.isHbs ? 'this.styles' : 'styles';
   }
 
   private isLocal(className: string): boolean {
