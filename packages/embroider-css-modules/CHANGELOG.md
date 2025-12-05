@@ -1,5 +1,11 @@
 # embroider-css-modules
 
+## 3.1.3
+
+### Patch Changes
+
+- [#207](https://github.com/ijlee2/embroider-css-modules/pull/207) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.1.2
 
 ### Patch Changes
