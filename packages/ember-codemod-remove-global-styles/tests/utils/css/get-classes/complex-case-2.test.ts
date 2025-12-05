@@ -1,0 +1,66 @@
+import { assert, normalizeFile, test } from '@codemod-utils/tests';
+
+import { getClasses } from '../../../../src/utils/css/index.js';
+
+test('utils | css | get-classes > complex case (2)', function () {
+  const file = normalizeFile([
+    `<ContainerQuery`,
+    `  @features={{hash wide=(width min=320)}}`,
+    `  @tagName="article"`,
+    `  class="container"`,
+    `  data-test-product-card`,
+    `>`,
+    `  <header class="header">`,
+    `    <h2 class="name" data-test-field="Name">`,
+    `      {{@product.name}}`,
+    `    </h2>`,
+    `  </header>`,
+    ``,
+    `  <div class="image-container">`,
+    `    <ProductsProductImage @src={{@product.imageUrl}} />`,
+    `  </div>`,
+    ``,
+    `  <div class="body">`,
+    `    <p`,
+    `      class="description"`,
+    `      data-test-field="Short Description"`,
+    `    >`,
+    `      {{@product.shortDescription}}`,
+    `    </p>`,
+    ``,
+    `    <p`,
+    `      class="price"`,
+    `      data-test-field="Price"`,
+    `    >`,
+    `      {{formatPrice @product.price}}`,
+    `    </p>`,
+    `  </div>`,
+    ``,
+    `  <div class="actions">`,
+    `    <LinkTo`,
+    `      @model={{@product.id}}`,
+    `      @route={{@redirectTo}}`,
+    `      class="link"`,
+    `      data-test-link="Learn More"`,
+    `    >`,
+    `      Learn more`,
+    `    </LinkTo>`,
+    `  </div>`,
+    `</ContainerQuery>`,
+  ]);
+
+  assert.deepStrictEqual(getClasses(file), {
+    classes: [
+      'container',
+      'header',
+      'name',
+      'image-container',
+      'body',
+      'description',
+      'price',
+      'actions',
+      'link',
+    ],
+    errors: [],
+  });
+});
