@@ -1,9 +1,11 @@
 import { readFileSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { EOL } from 'node:os';
+import { join, normalize, relative } from 'node:path';
 
 import { findFiles, parseFilePath } from '@codemod-utils/files';
 
 import type { Options } from '../../../types/index.js';
+import { normalizedJoin } from '../../files/index.js';
 
 export function getClassFile(
   templateFilePath: string,
@@ -16,7 +18,7 @@ export function getClassFile(
 
   const { dir, ext, name } = parseFilePath(templateFilePath);
   const data = {
-    isRouteTemplate: dir.startsWith('app/templates'),
+    isRouteTemplate: dir.startsWith(normalize('app/templates')),
     isTemplateTag: ext === '.gjs' || ext === '.gts',
   };
 
@@ -32,9 +34,12 @@ export function getClassFile(
   if (data.isRouteTemplate) {
     const controllersDir = join(dir, relative(dir, 'app/controllers'));
 
-    const classFilePaths = findFiles(join(controllersDir, `${name}.{js,ts}`), {
-      projectRoot,
-    });
+    const classFilePaths = findFiles(
+      normalizedJoin(controllersDir, `${name}.{js,ts}`),
+      {
+        projectRoot,
+      },
+    );
 
     if (classFilePaths.length === 0) {
       const classFilePath = join(controllersDir, `${name}.js`);
@@ -46,7 +51,7 @@ export function getClassFile(
           ``,
           `export default class extends Controller {}`,
           ``,
-        ].join('\n'),
+        ].join(EOL),
       };
     }
 
@@ -58,7 +63,7 @@ export function getClassFile(
     };
   }
 
-  const classFilePaths = findFiles(join(dir, `${name}.{js,ts}`), {
+  const classFilePaths = findFiles(normalizedJoin(dir, `${name}.{js,ts}`), {
     projectRoot,
   });
 
@@ -72,7 +77,7 @@ export function getClassFile(
         ``,
         `export default class extends Component {}`,
         ``,
-      ].join('\n'),
+      ].join(EOL),
     };
   }
 

@@ -1,4 +1,4 @@
-import { join } from 'node:path';
+import { join, sep } from 'node:path';
 
 import { parseFilePath } from '@codemod-utils/files';
 
@@ -9,7 +9,7 @@ export function analyzeFilePaths(filePaths: string[]): Entities {
 
   filePaths.forEach((filePath) => {
     const { dir, ext, name } = parseFilePath(filePath);
-    const entityName = join(dir, name);
+    const entityName = join(dir, name).replaceAll(sep, '/');
 
     if (entities.has(entityName)) {
       entities.get(entityName)!.add(ext);

@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { EOL } from 'node:os';
 import { join } from 'node:path';
 
 import { createFiles } from '@codemod-utils/files';
@@ -22,7 +23,7 @@ function logErrors(cssModuleFilePath: string, errors: string[]): void {
   }
 
   console.warn(`WARNING: ${cssModuleFilePath} may be incorrect.`);
-  console.warn(errors.map((error) => `- ${error}`).join('\n'));
+  console.warn(errors.map((error) => `- ${error}`).join(EOL));
   console.log();
 }
 
@@ -33,7 +34,7 @@ export function createStylesheets(project: Project, options: Options): void {
     const cssModuleFilePath = getModuleFilePath(filePath);
 
     let cssModuleFile = getFile(cssModuleFilePath, options);
-    cssModuleFile += `${printStyles(data.localStyles)}\n`;
+    cssModuleFile += `${printStyles(data.localStyles)}${EOL}`;
 
     fileMap.set(cssModuleFilePath, cssModuleFile);
     logErrors(cssModuleFilePath, data.errors);
@@ -43,7 +44,7 @@ export function createStylesheets(project: Project, options: Options): void {
     const cssModuleFilePath = getModuleFilePath(filePath);
 
     let cssModuleFile = getFile(cssModuleFilePath, options);
-    cssModuleFile += `${printStyles(data.localStyles)}\n`;
+    cssModuleFile += `${printStyles(data.localStyles)}${EOL}`;
 
     fileMap.set(cssModuleFilePath, cssModuleFile);
     logErrors(cssModuleFilePath, data.errors);

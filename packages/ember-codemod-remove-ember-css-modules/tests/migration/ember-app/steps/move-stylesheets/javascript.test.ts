@@ -1,4 +1,9 @@
-import { assertFixture, loadFixture, test } from '@codemod-utils/tests';
+import {
+  assertFixture,
+  loadFixture,
+  normalizeFile,
+  test,
+} from '@codemod-utils/tests';
 
 import { moveStylesheets } from '../../../../../src/migration/ember-app/steps/index.js';
 import {
@@ -45,8 +50,10 @@ test('migration | ember-app | steps | move-stylesheets > javascript', function (
         'products.js': 'some code for products.js',
       },
       styles: {
-        'app.css':
-          '/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */\n',
+        'app.css': normalizeFile([
+          `/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */`,
+          ``,
+        ]),
       },
     },
   };

@@ -185,6 +185,6 @@ export function updateClass(
       message += ` (${error.message})`;
     }
 
-    console.warn(`${message}\n`);
+    console.warn(message);
   }
 }

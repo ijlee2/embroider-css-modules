@@ -1,4 +1,4 @@
-import { join, relative } from 'node:path';
+import { join, normalize, relative } from 'node:path';
 
 import { parseFilePath } from '@codemod-utils/files';
 
@@ -10,8 +10,8 @@ export function getModuleFilePath(templateFilePath: string): string {
   }
 
   const data = {
-    isComponentTemplate: dir.startsWith('app/components'),
-    isRouteTemplate: dir.startsWith('app/templates'),
+    isComponentTemplate: dir.startsWith(normalize('app/components')),
+    isRouteTemplate: dir.startsWith(normalize('app/templates')),
     isTemplateTag: ext === '.gjs' || ext === '.gts',
   };
 

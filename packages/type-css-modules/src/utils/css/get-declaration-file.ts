@@ -1,3 +1,5 @@
+import { EOL } from 'node:os';
+
 export function getDeclarationFile(classNames: string[] = []): string {
   if (classNames.length === 0) {
     return [
@@ -5,7 +7,7 @@ export function getDeclarationFile(classNames: string[] = []): string {
       '',
       'export default styles;',
       '',
-    ].join('\n');
+    ].join(EOL);
   }
 
   return [
@@ -17,5 +19,5 @@ export function getDeclarationFile(classNames: string[] = []): string {
     '',
     'export default styles;',
     '',
-  ].join('\n');
+  ].join(EOL);
 }

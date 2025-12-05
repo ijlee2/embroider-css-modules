@@ -1,3 +1,5 @@
+import { EOL } from 'node:os';
+
 import {
   createFiles,
   findFiles,
@@ -54,7 +56,7 @@ function moveAppCssToAssets(options: Options): void {
   const fileMap = new Map([
     [
       'app/styles/app.css',
-      '/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */\n',
+      `/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */${EOL}`,
     ],
   ]);
 
