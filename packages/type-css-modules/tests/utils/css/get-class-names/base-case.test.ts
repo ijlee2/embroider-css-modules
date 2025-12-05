@@ -1,4 +1,4 @@
-import { assert, loadFixture, test } from '@codemod-utils/tests';
+import { assert, loadFixture, normalizeFile, test } from '@codemod-utils/tests';
 
 import { getClassNames } from '../../../../src/utils/css.js';
 import {
@@ -7,14 +7,14 @@ import {
 } from '../../../helpers/shared-test-setups/ember-app-flat.js';
 
 test('utils | css | get-class-names > base case', function () {
-  const cssFile = [
+  const cssFile = normalizeFile([
     '.application {}',
     '.header {}',
     '.main {}',
     '.footer {}',
     '.copyright {}',
     '.copyright .link {}',
-  ].join('\n');
+  ]);
 
   const inputProject = {
     app: {

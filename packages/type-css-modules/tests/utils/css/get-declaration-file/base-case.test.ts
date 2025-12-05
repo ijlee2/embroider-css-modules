@@ -1,4 +1,4 @@
-import { assert, test } from '@codemod-utils/tests';
+import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
 import { getDeclarationFile } from '../../../../src/utils/css.js';
 
@@ -7,7 +7,7 @@ test('utils | css | get-declaration-file > base case', function () {
 
   assert.deepStrictEqual(
     getDeclarationFile(classNames),
-    [
+    normalizeFile([
       'declare const styles: {',
       "  readonly 'copyright': string;",
       "  readonly 'has-error': string;",
@@ -17,6 +17,6 @@ test('utils | css | get-declaration-file > base case', function () {
       '',
       'export default styles;',
       '',
-    ].join('\n'),
+    ]),
   );
 });
