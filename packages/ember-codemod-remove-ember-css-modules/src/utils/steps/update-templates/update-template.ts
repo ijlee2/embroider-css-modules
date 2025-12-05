@@ -501,6 +501,6 @@ export function updateTemplate(
       message += ` (${error.message})`;
     }
 
-    console.warn(`${message}\n`);
+    console.warn(message);
   }
 }
