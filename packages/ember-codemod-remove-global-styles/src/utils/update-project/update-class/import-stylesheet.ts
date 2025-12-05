@@ -1,3 +1,5 @@
+import { EOL } from 'node:os';
+
 import { AST } from '@codemod-utils/ast-javascript';
 
 type Data = {
@@ -26,5 +28,5 @@ export function importStylesheet(file: string, data: Data): string {
 
   return canSkip
     ? file
-    : [`import styles from './${data.fileName}.module.css';`, file].join('\n');
+    : [`import styles from './${data.fileName}.module.css';`, file].join(EOL);
 }

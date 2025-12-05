@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { findFiles } from '@codemod-utils/files';
 
 import type { ClassToStyles, Options, Project } from '../../types/index.js';
+import { normalizedJoin } from '../../utils/files/index.js';
 import { getEntityData } from './get-entity-data.js';
 
 export function analyzeRoutes(classToStyles: ClassToStyles, options: Options) {
@@ -16,7 +17,7 @@ export function analyzeRoutes(classToStyles: ClassToStyles, options: Options) {
   }
 
   const filePaths = findFiles(
-    join('app/templates', folder, '**/*.{gjs,gts,hbs}'),
+    normalizedJoin('app/templates', folder, '**/*.{gjs,gts,hbs}'),
     {
       projectRoot,
     },

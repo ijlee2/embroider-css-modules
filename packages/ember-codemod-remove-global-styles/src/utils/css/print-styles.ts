@@ -1,3 +1,5 @@
+import { EOL } from 'node:os';
+
 import type { Style } from '../../types/index.js';
 
 export function printStyles(styles: Style[]): string {
@@ -14,5 +16,5 @@ export function printStyles(styles: Style[]): string {
       return 0;
     })
     .map(({ raw }) => raw)
-    .join('\n\n');
+    .join(EOL.repeat(2));
 }

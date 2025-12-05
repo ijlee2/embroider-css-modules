@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { findFiles } from '@codemod-utils/files';
 
 import type { ClassToStyles, Options, Project } from '../../types/index.js';
+import { normalizedJoin } from '../../utils/files/index.js';
 import { getEntityData } from './get-entity-data.js';
 
 export function analyzeComponents(
@@ -19,7 +20,7 @@ export function analyzeComponents(
   }
 
   const filePaths = findFiles(
-    join('app/components', folder, '**/*.{gjs,gts,hbs}'),
+    normalizedJoin('app/components', folder, '**/*.{gjs,gts,hbs}'),
     {
       projectRoot,
     },
