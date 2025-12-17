@@ -12,7 +12,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ijlee2/embroider-css-modules.git"
+    "url": "https://github.com/ijlee2/embroider-css-modules.git",
+    "directory": "packages/ember-codemod-remove-ember-css-modules"
   },
   "license": "MIT",
   "author": "Isaac J. Lee",

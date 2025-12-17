@@ -31,10 +31,10 @@ As you will see in the [Guides](#guides) below, we delegate the how to Rollup, W
 
 ## Package overview
 
-- [ember-codemod-remove-ember-css-modules](/packages/ember-codemod-remove-ember-css-modules/README.md)
-- [ember-codemod-remove-global-styles](/packages/ember-codemod-remove-global-styles/README.md)
-- [embroider-css-modules](/packages/embroider-css-modules/README.md)
-- [type-css-modules](/packages/type-css-modules/README.md)
+- [ember-codemod-remove-ember-css-modules](./packages/ember-codemod-remove-ember-css-modules/README.md)
+- [ember-codemod-remove-global-styles](./packages/ember-codemod-remove-global-styles/README.md)
+- [embroider-css-modules](./packages/embroider-css-modules/README.md)
+- [type-css-modules](./packages/type-css-modules/README.md)
 
 
 ## Guides
@@ -54,7 +54,7 @@ For classic v1 apps (i.e. without Webpack) and v1 addons, you will want to use [
 
 ## Contributing
 
-See the [Contributing](CONTRIBUTING.md) guide for details.
+See the [Contributing](./CONTRIBUTING.md) guide for details.
 
 
 ## Credits
@@ -64,4 +64,4 @@ The `webpack` implementation is possible, thanks to ideas from [Ember + Modern C
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE.md).
+This project is licensed under the [MIT License](./LICENSE.md).

@@ -5,8 +5,6 @@
 
 1. [What is it?](#what-is-it)
 1. [Local development](#local-development)
-1. [Compatibility](#compatibility)
-1. [Contributing](#contributing)
 
 
 ## What is it?
@@ -16,13 +14,14 @@
 
 ## Local development
 
-After making a code change, build the addon so that consuming apps can test the latest code.
-
-```sh
-pnpm build
-```
-
-Some useful commands:
+> [!NOTE]
+>
+> To run the commands below, some packages in this monorepo must be built first.
+>
+> ```sh
+> # From the workspace root
+> pnpm prepare
+> ```
 
 ```sh
 # Keep the addon running (live reload)
@@ -32,18 +31,3 @@ pnpm start
 pnpm lint
 pnpm lint:fix
 ```
-
-
-## Compatibility
-
-- Node.js v20 or above
-
-
-## Contributing
-
-See the [Contributing](../../CONTRIBUTING.md) guide for details.
-
-
-## License
-
-This project is licensed under the [MIT License](../../LICENSE.md).
