@@ -63,9 +63,9 @@ type-css-modules --root <path/to/your/project>
 
 ### Use Prettier?
 
-`type-css-modules` uses quotation marks in declaration files so that we can always use class selector names as object keys.
+You can run into a couple of issues when `prettier` and `type-css-modules` run side-by-side.
 
-On the other hand, `prettier` removes quotation marks when it deems unnecessary. To separate formatting concerns, you can pass the option `quoteProps: 'preserve'` for `*.css.d.ts` files:
+`type-css-modules` uses quotation marks in declaration files so that we can always use class selector names as object keys. On the other hand, `prettier` removes quotation marks when it deems unnecessary. To separate formatting concerns, set `quoteProps: 'preserve'` for `*.css.d.ts` files:
 
 ```js
 /* prettier.config.mjs */
@@ -81,7 +81,7 @@ export default {
 };
 ```
 
-Alternatively, you can use `.prettierignore` to ignore `*.css.d.ts` files.
+Furthermore, if you run `prettier` as a standalone tool (i.e. not as a linter plugin), you can run into a concurrency issue because `type-css-modules` deletes declaration files before creating new ones. Make the two independent by adding `*.css.d.ts` to `.prettierignore`.
 
 
 ### Can I use the file extension \*.module.css?
