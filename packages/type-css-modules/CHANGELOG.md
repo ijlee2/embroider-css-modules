@@ -1,5 +1,13 @@
 # type-css-modules
 
+## 2.1.1
+
+### Patch Changes
+
+- [#211](https://github.com/ijlee2/embroider-css-modules/pull/211) Advised adding `*.css.d.ts` to .prettierignore ([@ijlee2](https://github.com/ijlee2))
+- [#210](https://github.com/ijlee2/embroider-css-modules/pull/210) Added repository.directory ([@ijlee2](https://github.com/ijlee2))
+- [#210](https://github.com/ijlee2/embroider-css-modules/pull/210) Updated README ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.1.0
 
 ### Minor Changes
