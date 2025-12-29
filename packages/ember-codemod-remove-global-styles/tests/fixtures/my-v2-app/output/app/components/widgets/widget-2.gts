@@ -34,33 +34,31 @@ export default class WidgetsWidget2 extends Component<WidgetsWidget2Signature> {
     this.summaries = createSummariesForCaptions(this.data);
   }
 
-  <template>
-  <ContainerQuery
-    @features={{hash
-      short=(height max=240)
-      tall=(height max=480 min=240)
-      very-tall=(height min=480)
-    }}
-    @tagName="section"
-    class={{styles.components-widgets-widget-2__container}}
-    as |CQ|
+  <template><ContainerQuery
+  @features={{hash
+  short=(height max=240)
+  tall=(height max=480 min=240)
+  very-tall=(height min=480)
+  }}
+  @tagName="section"
+  class={{styles.components-widgets-widget-2__container}}
+  as |CQ|
   >
-    <header>
-      <h2>Widget 2</h2>
-    </header>
+  <header>
+  <h2>Widget 2</h2>
+  </header>
 
-    {{#unless CQ.features.short}}
-      <div
-        class={{styles.components-widgets-widget-2__visualization}}
-        data-test-visualization
-      >
-        <WidgetsWidget2StackedChart @data={{this.data}} />
-      </div>
-    {{/unless}}
+  {{#unless CQ.features.short}}
+  <div
+    class={{styles.components-widgets-widget-2__visualization}}
+    data-test-visualization
+  >
+    <WidgetsWidget2StackedChart @data={{this.data}} />
+  </div>
+  {{/unless}}
 
-    <div class="components-widgets-widget-2__captions" data-test-captions>
-      <WidgetsWidget2Captions @summaries={{this.summaries}} />
-    </div>
-  </ContainerQuery>
-  </template>
+  <div class="components-widgets-widget-2__captions" data-test-captions>
+  <WidgetsWidget2Captions @summaries={{this.summaries}} />
+  </div>
+  </ContainerQuery></template>
 }

@@ -54,119 +54,117 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
     this.currentIndex = nextIndex;
   }
 
-  <template>
-  <ContainerQuery
-    @features={{hash large=(width min=320) tall=(height min=80)}}
-    as |CQ|
+  <template><ContainerQuery
+  @features={{hash large=(width min=320) tall=(height min=80)}}
+  as |CQ|
   >
+  <div
+  class="{{styles.components-widgets-widget-2-captions__container}} {{unless
+      CQ.features.tall
+      'components-widgets-widget-2-captions__flat'
+    }}  "
+  >
+  {{#if this.summary}}
     <div
-      class="{{styles.components-widgets-widget-2-captions__container}} {{unless
-          CQ.features.tall
-          'components-widgets-widget-2-captions__flat'
+      class="{{styles.components-widgets-widget-2-captions__summary}} {{if
+          CQ.features.large
+          'components-widgets-widget-2-captions__horizontal-layout'
         }}  "
+      tabindex="0"
     >
-      {{#if this.summary}}
-        <div
-          class="{{styles.components-widgets-widget-2-captions__summary}} {{if
-              CQ.features.large
-              'components-widgets-widget-2-captions__horizontal-layout'
-            }}  "
-          tabindex="0"
+      <h3
+        class="{{styles.components-widgets-widget-2-captions__music-format}} {{unless
+            CQ.features.large
+            'components-widgets-widget-2-captions__small-font-size'
+          }}  "
+      >
+        <span
+          class={{styles.components-widgets-widget-2-captions__marker}}
+          {{colorSvg this.summary.markerColor}}
         >
-          <h3
-            class="{{styles.components-widgets-widget-2-captions__music-format}} {{unless
-                CQ.features.large
-                'components-widgets-widget-2-captions__small-font-size'
-              }}  "
-          >
-            <span
-              class={{styles.components-widgets-widget-2-captions__marker}}
-              {{colorSvg this.summary.markerColor}}
-            >
-              {{svgJar
-                "stop"
-                desc="A square whose color matches that of a bar in the bar chart"
-                role="img"
-              }}
-            </span>
+          {{svgJar
+            "stop"
+            desc="A square whose color matches that of a bar in the bar chart"
+            role="img"
+          }}
+        </span>
 
-            <span data-test-field="Music Format">
-              {{this.summary.musicFormat}}
-            </span>
-          </h3>
+        <span data-test-field="Music Format">
+          {{this.summary.musicFormat}}
+        </span>
+      </h3>
 
-          <div
-            class={{styles.components-widgets-widget-2-captions__annual-revenue}}
-            data-test-field="Annual Revenue"
-          >
-            {{#if (or CQ.features.tall CQ.features.large)}}
-              <span>Annual revenue:</span>
-            {{/if}}
-
-            <span class={{styles.components-widgets-widget-2-captions__highlight}}>
-              {{this.summary.averageRevenue}}
-            </span>
-          </div>
-
-          <div
-            class={{styles.components-widgets-widget-2-captions__relevant-years}}
-            data-test-field="Relevant Years"
-          >
-            {{#if (or CQ.features.tall CQ.features.large)}}
-              <span>Relevant years:</span>
-            {{/if}}
-
-            <span class={{styles.components-widgets-widget-2-captions__highlight}}>
-              {{this.summary.relevantYears.min}}
-              -
-              {{this.summary.relevantYears.max}}
-            </span>
-          </div>
-        </div>
-
-        {{#if this.canShowPreviousButton}}
-          <button
-            aria-label="Previous"
-            class={{styles.components-widgets-widget-2-captions__previous-button}}
-            data-test-button="Previous"
-            type="button"
-            {{on "click" (fn this.showNextSummary -1)}}
-          >
-            {{#if CQ.features.tall}}
-              Previous
-            {{else}}
-              {{svgJar
-                "chevron-left"
-                class=styles.components-widgets-widget-2-captions__icon
-                desc="A chevron arrow pointing left"
-                role="img"
-              }}
-            {{/if}}
-          </button>
+      <div
+        class={{styles.components-widgets-widget-2-captions__annual-revenue}}
+        data-test-field="Annual Revenue"
+      >
+        {{#if (or CQ.features.tall CQ.features.large)}}
+          <span>Annual revenue:</span>
         {{/if}}
 
-        {{#if this.canShowNextButton}}
-          <button
-            aria-label="Next"
-            class={{styles.components-widgets-widget-2-captions__next-button}}
-            data-test-button="Next"
-            type="button"
-            {{on "click" (fn this.showNextSummary 1)}}
-          >
-            {{#if CQ.features.tall}}
-              Next
-            {{else}}
-              {{svgJar
-                "chevron-right"
-                class=styles.components-widgets-widget-2-captions__icon
-                desc="A chevron arrow pointing right"
-                role="img"
-              }}
-            {{/if}}
-          </button>
+        <span class={{styles.components-widgets-widget-2-captions__highlight}}>
+          {{this.summary.averageRevenue}}
+        </span>
+      </div>
+
+      <div
+        class={{styles.components-widgets-widget-2-captions__relevant-years}}
+        data-test-field="Relevant Years"
+      >
+        {{#if (or CQ.features.tall CQ.features.large)}}
+          <span>Relevant years:</span>
         {{/if}}
-      {{/if}}
+
+        <span class={{styles.components-widgets-widget-2-captions__highlight}}>
+          {{this.summary.relevantYears.min}}
+          -
+          {{this.summary.relevantYears.max}}
+        </span>
+      </div>
     </div>
-  </ContainerQuery>
-  </template>
+
+    {{#if this.canShowPreviousButton}}
+      <button
+        aria-label="Previous"
+        class={{styles.components-widgets-widget-2-captions__previous-button}}
+        data-test-button="Previous"
+        type="button"
+        {{on "click" (fn this.showNextSummary -1)}}
+      >
+        {{#if CQ.features.tall}}
+          Previous
+        {{else}}
+          {{svgJar
+            "chevron-left"
+            class=styles.components-widgets-widget-2-captions__icon
+            desc="A chevron arrow pointing left"
+            role="img"
+          }}
+        {{/if}}
+      </button>
+    {{/if}}
+
+    {{#if this.canShowNextButton}}
+      <button
+        aria-label="Next"
+        class={{styles.components-widgets-widget-2-captions__next-button}}
+        data-test-button="Next"
+        type="button"
+        {{on "click" (fn this.showNextSummary 1)}}
+      >
+        {{#if CQ.features.tall}}
+          Next
+        {{else}}
+          {{svgJar
+            "chevron-right"
+            class=styles.components-widgets-widget-2-captions__icon
+            desc="A chevron arrow pointing right"
+            role="img"
+          }}
+        {{/if}}
+      </button>
+    {{/if}}
+  {{/if}}
+  </div>
+  </ContainerQuery></template>
 }
