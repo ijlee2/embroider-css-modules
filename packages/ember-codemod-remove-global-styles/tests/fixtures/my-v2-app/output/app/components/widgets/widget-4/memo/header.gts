@@ -9,48 +9,46 @@ interface WidgetsWidget4MemoHeaderSignature {
   };
 }
 
-const WidgetsWidget4MemoHeader: TOC<WidgetsWidget4MemoHeaderSignature> = <template>
-    {{#let
-      (and @cqFeatures.large @cqFeatures.short)
-      (or @cqFeatures.small @cqFeatures.short)
-      as |showHorizontalLayout showMinimalLayout|
-    }}
+const WidgetsWidget4MemoHeader: TOC<WidgetsWidget4MemoHeaderSignature> = <template>{{#let
+  (and @cqFeatures.large @cqFeatures.short)
+  (or @cqFeatures.small @cqFeatures.short)
+  as |showHorizontalLayout showMinimalLayout|
+}}
+  <div
+    class="{{styles.components-widgets-widget-4-memo-header__header}} {{if
+        showMinimalLayout
+        'components-widgets-widget-4-memo-header__minimal-layout'
+      }}  {{if
+        showHorizontalLayout
+        'components-widgets-widget-4-memo-header__horizontal-layout'
+      }}  "
+    data-test-memo-header
+  >
+    {{#unless showMinimalLayout}}
       <div
-        class="{{styles.components-widgets-widget-4-memo-header__header}} {{if
-            showMinimalLayout
-            'components-widgets-widget-4-memo-header__minimal-layout'
-          }}  {{if
-            showHorizontalLayout
-            'components-widgets-widget-4-memo-header__horizontal-layout'
-          }}  "
-        data-test-memo-header
+        class={{styles.components-widgets-widget-4-memo-header__avatar-container}}
       >
-        {{#unless showMinimalLayout}}
-          <div
-            class={{styles.components-widgets-widget-4-memo-header__avatar-container}}
-          >
-            <img
-              alt=""
-              class={{styles.components-widgets-widget-4-memo-header__avatar}}
-              data-test-image="Avatar"
-              src="/images/widgets/widget-4/avatar.jpg"
-            />
-          </div>
-        {{/unless}}
-
-        <p class={{styles.components-widgets-widget-4-memo-header__name}}>
-          Isaac Lee
-        </p>
-
-        <div class={{styles.components-widgets-widget-4-memo-header__metadata}}>
-          <a
-            class={{styles.components-widgets-widget-4-memo-header__handle}}
-            href="#"
-          >@ijlee2</a>
-          · 38m
-        </div>
+        <img
+          alt=""
+          class={{styles.components-widgets-widget-4-memo-header__avatar}}
+          data-test-image="Avatar"
+          src="/images/widgets/widget-4/avatar.jpg"
+        />
       </div>
-    {{/let}}
-  </template>;
+    {{/unless}}
+
+    <p class={{styles.components-widgets-widget-4-memo-header__name}}>
+      Isaac Lee
+    </p>
+
+    <div class={{styles.components-widgets-widget-4-memo-header__metadata}}>
+      <a
+        class={{styles.components-widgets-widget-4-memo-header__handle}}
+        href="#"
+      >@ijlee2</a>
+      · 38m
+    </div>
+  </div>
+{{/let}}</template>;
 
 export default WidgetsWidget4MemoHeader;

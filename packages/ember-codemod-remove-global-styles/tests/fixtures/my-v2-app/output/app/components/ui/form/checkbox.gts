@@ -58,48 +58,46 @@ export default class UiFormCheckbox extends Component<UiFormCheckboxSignature> {
     }
   }
 
-  <template>
-  <UiFormField
-    @errorMessage={{this.errorMessage}}
-    @isInline={{@isInline}}
-    @isWide={{@isWide}}
+  <template><UiFormField
+  @errorMessage={{this.errorMessage}}
+  @isInline={{@isInline}}
+  @isWide={{@isWide}}
   >
-    <:label as |l|>
-      <label data-test-label id={{concat l.inputId "-label"}}>
-        {{@label}}
+  <:label as |l|>
+  <label data-test-label id={{concat l.inputId "-label"}}>
+    {{@label}}
 
-        {{#if @isRequired}}
-          <span aria-hidden="true">
-            *
-          </span>
-        {{/if}}
-      </label>
-    </:label>
-
-    <:field as |f|>
-      <span
-        aria-checked={{if this.isChecked "true" "false"}}
-        aria-disabled={{if @isDisabled "true" "false"}}
-        aria-labelledby={{concat f.inputId "-label"}}
-        aria-readonly={{if @isReadOnly "true" "false"}}
-        aria-required={{if @isRequired "true" "false"}}
-        class="{{styles.components-ui-form-checkbox__checkbox}} {{if this.isChecked styles.components-ui-form-checkbox__is-checked}}  {{if (or @isDisabled @isReadOnly) styles.is-disabled}}  "
-        data-test-field={{@label}}
-        role="checkbox"
-        tabindex={{unless @isDisabled "0"}}
-        {{on "click" this.updateValue}}
-        {{on "keypress" this.updateValueByPressingSpace}}
-      >
-        {{#if this.isChecked}}
-          {{svgJar
-            "check"
-            class=styles.components-ui-form-checkbox__checkmark-icon
-            desc="A checkmark to indicate that the input field is checked"
-            role="img"
-          }}
-        {{/if}}
+    {{#if @isRequired}}
+      <span aria-hidden="true">
+        *
       </span>
-    </:field>
-  </UiFormField>
-  </template>
+    {{/if}}
+  </label>
+  </:label>
+
+  <:field as |f|>
+  <span
+    aria-checked={{if this.isChecked "true" "false"}}
+    aria-disabled={{if @isDisabled "true" "false"}}
+    aria-labelledby={{concat f.inputId "-label"}}
+    aria-readonly={{if @isReadOnly "true" "false"}}
+    aria-required={{if @isRequired "true" "false"}}
+    class="{{styles.components-ui-form-checkbox__checkbox}} {{if this.isChecked styles.components-ui-form-checkbox__is-checked}}  {{if (or @isDisabled @isReadOnly) styles.is-disabled}}  "
+    data-test-field={{@label}}
+    role="checkbox"
+    tabindex={{unless @isDisabled "0"}}
+    {{on "click" this.updateValue}}
+    {{on "keypress" this.updateValueByPressingSpace}}
+  >
+    {{#if this.isChecked}}
+      {{svgJar
+        "check"
+        class=styles.components-ui-form-checkbox__checkmark-icon
+        desc="A checkmark to indicate that the input field is checked"
+        role="img"
+      }}
+    {{/if}}
+  </span>
+  </:field>
+  </UiFormField></template>
 }

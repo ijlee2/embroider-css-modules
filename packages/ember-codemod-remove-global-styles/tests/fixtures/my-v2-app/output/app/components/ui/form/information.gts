@@ -11,30 +11,28 @@ interface UiFormInformationSignature {
   };
 }
 
-const UiFormInformation: TOC<UiFormInformationSignature> = <template>
-  {{#if (or @title @instructions)}}
-    <div class={{styles.components-ui-form-information__container}}>
-      {{#if @title}}
-        <div
-          class={{styles.components-ui-form-information__title}}
-          data-test-title
-          id={{concat @formId "-title"}}
-        >
-          {{@title}}
-        </div>
-      {{/if}}
+const UiFormInformation: TOC<UiFormInformationSignature> = <template>{{#if (or @title @instructions)}}
+  <div class={{styles.components-ui-form-information__container}}>
+    {{#if @title}}
+      <div
+        class={{styles.components-ui-form-information__title}}
+        data-test-title
+        id={{concat @formId "-title"}}
+      >
+        {{@title}}
+      </div>
+    {{/if}}
 
-      {{#if @instructions}}
-        <p
-          class={{styles.components-ui-form-information__instructions}}
-          data-test-instructions
-          id={{concat @formId "-instructions"}}
-        >
-          {{@instructions}}
-        </p>
-      {{/if}}
-    </div>
-  {{/if}}
-</template>;
+    {{#if @instructions}}
+      <p
+        class={{styles.components-ui-form-information__instructions}}
+        data-test-instructions
+        id={{concat @formId "-instructions"}}
+      >
+        {{@instructions}}
+      </p>
+    {{/if}}
+  </div>
+{{/if}}</template>;
 
 export default UiFormInformation;

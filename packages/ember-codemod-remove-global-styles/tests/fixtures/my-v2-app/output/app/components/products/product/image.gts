@@ -10,14 +10,10 @@ interface ProductsProductImageSignature {
 
 const ProductsProductImage: TOC<ProductsProductImageSignature> = macroCondition(
   isTesting(),
-) ? <template>
-      <div class={{styles.components-products-product-image__placeholder-image}}></div>
-    </template> : <template>
-      <img
-        alt=""
-        class={{styles.components-products-product-image__image}}
-        src={{@src}}
-      />
-    </template>;
+) ? <template><div class={{styles.components-products-product-image__placeholder-image}}></div></template> : <template><img
+  alt=""
+  class={{styles.components-products-product-image__image}}
+  src={{@src}}
+/></template>;
 
 export default ProductsProductImage;

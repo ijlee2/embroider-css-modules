@@ -12,42 +12,40 @@ interface ProductsSignature {
   model: unknown;
 }
 
-<template>
-  {{pageTitle "Products"}}
+<template>{{pageTitle "Products"}}
 
-  <UiPage @title="Products">
-    <div
-      class="{{if
-          @controller.isPartOfNestProductDetailsExperiment
-          (local styles "templates-products__shared-layout" "templates-products__products-with-details")
-          (local styles "templates-products__shared-layout" "templates-products__products")
-        }} {{styles.templates-products__sticky-container}} "
-    >
-      <div class={{styles.templates-products__filters}}>
-        <div class={{styles.templates-products__filter}}>
-          <UiFormInput
-            @data={{hash name=@controller.name}}
-            @key="name"
-            @label="Filter by"
-            @onUpdate={{@controller.noOp}}
-            @placeholder="Cake, pasta, etc."
-          />
-        </div>
-      </div>
-
-      <div class={{styles.templates-products__list}}>
-        {{#each @controller.filteredProducts as |product|}}
-          <ProductsProductCard @product={{product}} />
-        {{else}}
-          <p>
-            No products found.
-          </p>
-        {{/each}}
-      </div>
-
-      <div class={{styles.templates-products__product-details}}>
-        {{outlet}}
+<UiPage @title="Products">
+  <div
+    class="{{if
+        @controller.isPartOfNestProductDetailsExperiment
+        (local styles "templates-products__shared-layout" "templates-products__products-with-details")
+        (local styles "templates-products__shared-layout" "templates-products__products")
+      }} {{styles.templates-products__sticky-container}} "
+  >
+    <div class={{styles.templates-products__filters}}>
+      <div class={{styles.templates-products__filter}}>
+        <UiFormInput
+          @data={{hash name=@controller.name}}
+          @key="name"
+          @label="Filter by"
+          @onUpdate={{@controller.noOp}}
+          @placeholder="Cake, pasta, etc."
+        />
       </div>
     </div>
-  </UiPage>
-</template> satisfies TOC<ProductsSignature>;
+
+    <div class={{styles.templates-products__list}}>
+      {{#each @controller.filteredProducts as |product|}}
+        <ProductsProductCard @product={{product}} />
+      {{else}}
+        <p>
+          No products found.
+        </p>
+      {{/each}}
+    </div>
+
+    <div class={{styles.templates-products__product-details}}>
+      {{outlet}}
+    </div>
+  </div>
+</UiPage></template> satisfies TOC<ProductsSignature>;
