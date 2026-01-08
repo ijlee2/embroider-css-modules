@@ -10,19 +10,28 @@ import {
   getModuleFilePath,
 } from '../css/index.js';
 
+type Output =
+  | {
+      output: {
+        templateFile: string;
+      };
+      status: 'success';
+    }
+  | {
+      output: undefined;
+      status: 'error';
+    };
+
 export function updateTemplate(
   templateFilePath: string,
   options: Options,
-): string {
+): Output {
   const { projectRoot } = options;
+
+  let templateFile = readFileSync(join(projectRoot, templateFilePath), 'utf8');
 
   const cssModuleFile = readFileSync(
     join(projectRoot, getModuleFilePath(templateFilePath)),
-    'utf8',
-  );
-
-  const templateFile = readFileSync(
-    join(projectRoot, templateFilePath),
     'utf8',
   );
 
@@ -31,11 +40,35 @@ export function updateTemplate(
     isHbs: templateFilePath.endsWith('.hbs'),
   };
 
-  if (data.isHbs) {
-    return addLocalClasses(templateFile, data);
-  }
+  try {
+    if (data.isHbs) {
+      templateFile = addLocalClasses(templateFile, data);
 
-  return updateTemplates(templateFile, (code) => {
-    return addLocalClasses(code, data);
-  });
+      return {
+        output: {
+          templateFile,
+        },
+        status: 'success',
+      };
+    }
+
+    templateFile = updateTemplates(templateFile, (code) => {
+      return addLocalClasses(code, data);
+    });
+
+    return {
+      output: {
+        templateFile,
+      },
+      status: 'success',
+    };
+  } catch (error) {
+    console.log(`WARNING: ${templateFilePath} could not be updated.`);
+    console.log((error as Error).message);
+
+    return {
+      output: undefined,
+      status: 'error',
+    };
+  }
 }
