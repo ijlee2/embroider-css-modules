@@ -7,13 +7,23 @@ export function updateTemplates(project: Project, options: Options): void {
   const fileMap = new Map<string, string>();
 
   project.components.forEach((_data, templateFilePath) => {
-    const templateFile = updateTemplate(templateFilePath, options);
-    fileMap.set(templateFilePath, templateFile);
+    const { output, status } = updateTemplate(templateFilePath, options);
+
+    if (status === 'error') {
+      return;
+    }
+
+    fileMap.set(templateFilePath, output.templateFile);
   });
 
   project.routes.forEach((_data, templateFilePath) => {
-    const templateFile = updateTemplate(templateFilePath, options);
-    fileMap.set(templateFilePath, templateFile);
+    const { output, status } = updateTemplate(templateFilePath, options);
+
+    if (status === 'error') {
+      return;
+    }
+
+    fileMap.set(templateFilePath, output.templateFile);
   });
 
   createFiles(fileMap, options);
