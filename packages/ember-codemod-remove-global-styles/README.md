@@ -68,13 +68,13 @@ pnpx ember-codemod-remove-global-styles --convert routes
 By default, the codemod considers all files and folders for components and routes. Pass `--folder` to limit the search to 1 folder. (You may use glob patterns to specify multiple folders.)
 
 ```sh
-# `ui` folder only
+# `ui` folder only (search `app/{components,templates}/ui`)
 pnpx ember-codemod-remove-global-styles --folder ui
 
-# `ui/form` folder only
+# `ui/form` folder only (search `app/{components,templates}/ui/form`)
 pnpx ember-codemod-remove-global-styles --folder ui/form
 
-# `route1` and `route2` folders only
+# `route1` and `route2` folders only (search `app/templates/{route1,route2}`)
 pnpx ember-codemod-remove-global-styles --convert routes --folder "{route1,route2}"
 ```
 
