@@ -1,5 +1,12 @@
 # embroider-css-modules
 
+## 3.1.6
+
+### Patch Changes
+
+- [#216](https://github.com/ijlee2/embroider-css-modules/pull/216) Added ember-source@6.8 to ember-try scenarios ([@ijlee2](https://github.com/ijlee2))
+- [#215](https://github.com/ijlee2/embroider-css-modules/pull/215) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.1.5
 
 ### Patch Changes
