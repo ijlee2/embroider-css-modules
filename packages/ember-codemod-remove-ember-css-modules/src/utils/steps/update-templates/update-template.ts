@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/explicit-function-return-type */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 

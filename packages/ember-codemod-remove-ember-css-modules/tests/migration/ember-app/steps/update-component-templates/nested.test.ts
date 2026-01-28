@@ -13,12 +13,13 @@ import {
 } from '@codemod-utils/tests';
 
 import { updateComponentTemplates } from '../../../../../src/migration/ember-app/steps/index.js';
+import type { Context } from '../../../../../src/types/index.js';
 import {
   codemodOptions,
   options,
 } from '../../../../helpers/shared-test-setups/ember-app/nested.js';
 
-function getContext(folderName: string) {
+function getContext(folderName: string): Context {
   const entityName = folderName.replace(new RegExp(/\.hbs$/), '');
   const extensions = new Set(['.hbs']);
 

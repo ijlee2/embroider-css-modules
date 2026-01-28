@@ -7,7 +7,10 @@ import type { ClassToStyles, Options, Project } from '../../types/index.js';
 import { normalizedJoin } from '../../utils/files/index.js';
 import { getEntityData } from './get-entity-data.js';
 
-export function analyzeRoutes(classToStyles: ClassToStyles, options: Options) {
+export function analyzeRoutes(
+  classToStyles: ClassToStyles,
+  options: Options,
+): Project['routes'] {
   const { convert, folder, projectRoot } = options;
 
   const routes: Project['routes'] = new Map();

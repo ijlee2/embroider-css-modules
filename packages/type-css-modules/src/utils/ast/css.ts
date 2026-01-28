@@ -17,7 +17,7 @@ type VisitMethods = Partial<{
   [key in VisitMethodName]: EnterFn<key>;
 }>;
 
-function _traverse() {
+function _traverse(): (file: string, visitMethods?: VisitMethods) => CssNode {
   return function (file: string, visitMethods: VisitMethods = {}) {
     const ast = parse(file);
 

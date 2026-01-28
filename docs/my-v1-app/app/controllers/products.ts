@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import type { Product } from 'my-v1-app/data/products';
 import type { Model } from 'my-v1-app/routes/products';
 
 type SupportedKey = 'name';
@@ -10,7 +11,7 @@ export default class ProductsController extends Controller {
 
   @tracked name: string | null = null;
 
-  get filteredProducts() {
+  get filteredProducts(): Product[] {
     const { model: products, name } = this;
 
     if (!name) {
@@ -26,11 +27,11 @@ export default class ProductsController extends Controller {
     });
   }
 
-  get isPartOfNestProductDetailsExperiment() {
+  get isPartOfNestProductDetailsExperiment(): boolean {
     return true;
   }
 
-  @action noOp({ key, value }: { key: string; value: any }) {
+  @action noOp({ key, value }: { key: string; value: any }): void {
     if (value === undefined || value === '') {
       this[key as SupportedKey] = null;
 
