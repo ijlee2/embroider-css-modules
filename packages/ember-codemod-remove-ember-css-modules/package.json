@@ -20,9 +20,6 @@
   "type": "module",
   "main": "dist/src/index.js",
   "bin": "dist/bin/ember-codemod-remove-ember-css-modules.js",
-  "directories": {
-    "test": "tests"
-  },
   "files": [
     "dist"
   ],

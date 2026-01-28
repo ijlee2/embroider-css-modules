@@ -17,9 +17,6 @@
   "type": "module",
   "main": "dist/src/index.js",
   "bin": "dist/bin/type-css-modules.js",
-  "directories": {
-    "test": "tests"
-  },
   "files": [
     "dist"
   ],
