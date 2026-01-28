@@ -11,12 +11,13 @@ import {
 } from '@codemod-utils/tests';
 
 import { updateComponentTemplates } from '../../../../../src/migration/ember-app/steps/index.js';
+import type { Context } from '../../../../../src/types/index.js';
 import {
   codemodOptions,
   options,
 } from '../../../../helpers/shared-test-setups/ember-app/glint.js';
 
-function getContext(fileName: string) {
+function getContext(fileName: string): Context {
   const entityName = fileName.replace(new RegExp(/\.hbs$/), '');
   const extensions = new Set(['.hbs']);
 

@@ -10,7 +10,7 @@ import { getEntityData } from './get-entity-data.js';
 export function analyzeComponents(
   classToStyles: ClassToStyles,
   options: Options,
-) {
+): Project['components'] {
   const { convert, folder, projectRoot } = options;
 
   const components: Project['components'] = new Map();

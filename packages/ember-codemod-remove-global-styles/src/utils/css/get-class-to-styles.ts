@@ -1,3 +1,4 @@
+import type { Plugin } from 'postcss';
 import postcss from 'postcss';
 
 import type { ClassToStyles } from '../../types/index.js';
@@ -60,9 +61,11 @@ export function getClassToStyles(file: string): ClassToStyles {
     });
   }
 
-  const plugins = [
+  const plugins: Plugin[] = [
     {
       postcssPlugin: 'postcss-get-class-to-styles',
+      // @ts-expect-error: Incorrect type
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       prepare() {
         return {
           Rule: processRule,
@@ -71,7 +74,6 @@ export function getClassToStyles(file: string): ClassToStyles {
     },
   ];
 
-  // @ts-expect-error: Incorrect type
   // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   postcss(plugins).process(file).css;
 
