@@ -8,44 +8,44 @@ on:
 
 env:
   NODE_VERSION: 20
-  # PERCY_PARALLEL_NONCE: ${{ github.run_id }}-${{ github.run_number }}
-  # PERCY_PARALLEL_TOTAL: 1
+  PERCY_PARALLEL_NONCE: ${{ github.run_id }}-${{ github.run_number }}
+  PERCY_PARALLEL_TOTAL: 1
 
 jobs:
-  # lint:
-  #   name: Lint
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       package-location:
-  #         - 'docs/my-v1-app'
-  #         - 'docs/my-v2-addon'
-  #         - 'docs/my-v2-app'
-  #         - 'packages/ember-codemod-remove-ember-css-modules'
-  #         - 'packages/ember-codemod-remove-global-styles'
-  #         - 'packages/embroider-css-modules'
-  #         - 'packages/type-css-modules'
-  #         - 'tests/embroider-css-modules'
-  #   timeout-minutes: 5
-  #   steps:
-  #     - name: Check out a copy of the repo
-  #       uses: actions/checkout@v6
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package-location:
+          - 'docs/my-v1-app'
+          - 'docs/my-v2-addon'
+          - 'docs/my-v2-app'
+          - 'packages/ember-codemod-remove-ember-css-modules'
+          - 'packages/ember-codemod-remove-global-styles'
+          - 'packages/embroider-css-modules'
+          - 'packages/type-css-modules'
+          - 'tests/embroider-css-modules'
+    timeout-minutes: 5
+    steps:
+      - name: Check out a copy of the repo
+        uses: actions/checkout@v6
 
-  #     - name: Set up pnpm
-  #       uses: pnpm/action-setup@v4
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
 
-  #     - name: Use Node.js ${{ env.NODE_VERSION }}
-  #       uses: actions/setup-node@v6
-  #       with:
-  #         cache: 'pnpm'
-  #         node-version: ${{ env.NODE_VERSION }}
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v6
+        with:
+          cache: 'pnpm'
+          node-version: ${{ env.NODE_VERSION }}
 
-  #     - name: Install dependencies
-  #       run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-  #     - name: Lint
-  #       run: pnpm lint
-  #       working-directory: ${{ matrix.package-location }}
+      - name: Lint
+        run: pnpm lint
+        working-directory: ${{ matrix.package-location }}
 
 
   test:
@@ -54,17 +54,17 @@ jobs:
     strategy:
       matrix:
         package-location:
-          # - 'docs/my-v1-app'
-          # - 'docs/my-v2-addon'
-          # - 'docs/my-v2-app'
-          # - 'packages/ember-codemod-remove-ember-css-modules'
-          # - 'packages/ember-codemod-remove-global-styles'
-          # - 'packages/embroider-css-modules'
-          # - 'packages/type-css-modules'
+          - 'docs/my-v1-app'
+          - 'docs/my-v2-addon'
+          - 'docs/my-v2-app'
+          - 'packages/ember-codemod-remove-ember-css-modules'
+          - 'packages/ember-codemod-remove-global-styles'
+          - 'packages/embroider-css-modules'
+          - 'packages/type-css-modules'
           - 'tests/embroider-css-modules'
     timeout-minutes: 5
-    # env:
-    #   RUN_PERCY: ${{ matrix.package-location == 'docs/my-v1-app' }}
+    env:
+      RUN_PERCY: ${{ matrix.package-location == 'docs/my-v1-app' }}
     steps:
       - name: Check out a copy of the repo
         uses: actions/checkout@v6
@@ -83,49 +83,49 @@ jobs:
 
       - name: Test
         run: pnpm test
-        # if: ${{ env.RUN_PERCY == 'false' }}
+        if: ${{ env.RUN_PERCY == 'false' }}
         working-directory: ${{ matrix.package-location }}
 
-      # - name: Test (w/ visual regression)
-      #   run: npx percy exec -- pnpm test
-      #   if: ${{ env.RUN_PERCY == 'true' }}
-      #   working-directory: ${{ matrix.package-location }}
-      #   env:
-      #     PERCY_PARALLEL_NONCE: ${{ env.PERCY_PARALLEL_NONCE }}
-      #     PERCY_PARALLEL_TOTAL: ${{ env.PERCY_PARALLEL_TOTAL }}
-      #     PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      - name: Test (w/ visual regression)
+        run: npx percy exec -- pnpm test
+        if: ${{ env.RUN_PERCY == 'true' }}
+        working-directory: ${{ matrix.package-location }}
+        env:
+          PERCY_PARALLEL_NONCE: ${{ env.PERCY_PARALLEL_NONCE }}
+          PERCY_PARALLEL_TOTAL: ${{ env.PERCY_PARALLEL_TOTAL }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
 
-  # test-on-windows:
-  #   name: Test on Windows
-  #   runs-on: windows-latest
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       package-location:
-  #         - 'packages/ember-codemod-remove-ember-css-modules'
-  #         - 'packages/ember-codemod-remove-global-styles'
-  #         - 'packages/type-css-modules'
-  #   timeout-minutes: 5
-  #   steps:
-  #     - name: Check out a copy of the repo
-  #       uses: actions/checkout@v6
+  test-on-windows:
+    name: Test on Windows
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package-location:
+          - 'packages/ember-codemod-remove-ember-css-modules'
+          - 'packages/ember-codemod-remove-global-styles'
+          - 'packages/type-css-modules'
+    timeout-minutes: 5
+    steps:
+      - name: Check out a copy of the repo
+        uses: actions/checkout@v6
 
-  #     - name: Set up pnpm
-  #       uses: pnpm/action-setup@v4
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
 
-  #     - name: Use Node.js ${{ env.NODE_VERSION }}
-  #       uses: actions/setup-node@v6
-  #       with:
-  #         cache: 'pnpm'
-  #         node-version: ${{ env.NODE_VERSION }}
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v6
+        with:
+          cache: 'pnpm'
+          node-version: ${{ env.NODE_VERSION }}
 
-  #     - name: Install dependencies
-  #       run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-  #     - name: Test
-  #       run: pnpm test
-  #       working-directory: ${{ matrix.package-location }}
+      - name: Test
+        run: pnpm test
+        working-directory: ${{ matrix.package-location }}
 
   get-test-matrix:
     name: Get test matrix
