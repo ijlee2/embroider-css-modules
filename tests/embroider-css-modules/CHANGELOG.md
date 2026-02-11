@@ -1,5 +1,16 @@
 # test-app-for-embroider-css-modules
 
+## 2.0.0
+
+### Major Changes
+
+- [#220](https://github.com/ijlee2/embroider-css-modules/pull/220) Migrated to Vite ([@ijlee2](https://github.com/ijlee2))
+- [#220](https://github.com/ijlee2/embroider-css-modules/pull/220) Replaced ember-try with @embroider/try ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#219](https://github.com/ijlee2/embroider-css-modules/pull/219) Standardized code ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.3.13
 
 ### Patch Changes

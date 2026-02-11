@@ -1,5 +1,11 @@
 # my-v1-app
 
+## 1.4.8
+
+### Patch Changes
+
+- [#219](https://github.com/ijlee2/embroider-css-modules/pull/219) Standardized code ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.4.7
 
 ### Patch Changes
