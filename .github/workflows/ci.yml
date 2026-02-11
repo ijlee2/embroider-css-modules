@@ -127,21 +127,11 @@ jobs:
   #       run: pnpm test
   #       working-directory: ${{ matrix.package-location }}
 
-
-  test-compatibility-embroider-css-modules:
-    name: Test compatibility (tests/embroider-css-modules)
+  get-test-matrix:
+    name: Get test matrix
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        scenario:
-          - 'ember-lts-4.12'
-          - 'ember-lts-5.12'
-          - 'ember-lts-6.8'
-          - 'ember-release'
-          - 'ember-beta'
-          - 'ember-canary'
-          - 'embroider-optimized'
+    outputs:
+      matrix: ${{ steps.set-test-matrix.outputs.matrix }}
     timeout-minutes: 5
     steps:
       - name: Check out a copy of the repo
@@ -156,9 +146,40 @@ jobs:
           cache: 'pnpm'
           node-version: ${{ env.NODE_VERSION }}
 
+      - id: set-test-matrix
+        name: Set test matrix
+        run: echo "matrix=$(pnpx -s @embroider/try list)" >> $GITHUB_OUTPUT
+        working-directory: 'tests/embroider-css-modules'
+
+  test-compatibility-embroider-css-modules:
+    name: Test compatibility (tests/embroider-css-modules)
+    needs: [get-test-matrix]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.get-test-matrix.outputs.matrix) }}
+    timeout-minutes: 5
+    steps:
+      - name: Check out a copy of the repo
+        uses: actions/checkout@v6
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v6
+        with:
+          cache: 'pnpm'
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Make file changes
+        run: pnpm dlx @embroider/try apply ${{ matrix.name }}
+        working-directory: 'tests/embroider-css-modules'
+
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-lockfile
 
       - name: Test
-        run: pnpm test:ember-compatibility ${{ matrix.scenario }} --- pnpm test
+        env: ${{ matrix.env }}
+        run: pnpm test
         working-directory: 'tests/embroider-css-modules'
