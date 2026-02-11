@@ -7,8 +7,7 @@ import { local } from 'embroider-css-modules';
 import { module, test } from 'qunit';
 import SomeComponentWithArguments from 'test-app-for-embroider-css-modules/components/some-component-with-arguments';
 import SomeComponentWithSplattributes from 'test-app-for-embroider-css-modules/components/some-component-with-splattributes';
-
-import { setupRenderingTest } from '../../../helpers';
+import { setupRenderingTest } from 'test-app-for-embroider-css-modules/tests/helpers';
 
 interface TestContext extends BaseTestContext {
   arguments?: {

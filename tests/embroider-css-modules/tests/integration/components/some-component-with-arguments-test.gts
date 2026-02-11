@@ -1,8 +1,7 @@
 import { render } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import SomeComponentWithArguments from 'test-app-for-embroider-css-modules/components/some-component-with-arguments';
-
-import { setupRenderingTest } from '../../helpers';
+import { setupRenderingTest } from 'test-app-for-embroider-css-modules/tests/helpers';
 
 module(
   'Integration | Component | some-component-with-arguments',

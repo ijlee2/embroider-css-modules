@@ -1,8 +1,7 @@
 import { render } from '@ember/test-helpers';
 import { local } from 'embroider-css-modules';
 import { module, test } from 'qunit';
-
-import { setupRenderingTest } from '../../../helpers';
+import { setupRenderingTest } from 'test-app-for-embroider-css-modules/tests/helpers';
 
 module('Integration | Helper | local', function (hooks) {
   setupRenderingTest(hooks);
