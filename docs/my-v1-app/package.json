@@ -36,7 +36,7 @@
     "prelint:types": "type-css-modules --src app",
     "lint:types": "ember-tsc --noEmit",
     "start": "ember serve",
-    "test": "ember test --test-port=0"
+    "test": "ember test --test-port 0"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
