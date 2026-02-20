@@ -2,11 +2,7 @@ import type { Plugin } from 'postcss';
 import postcss from 'postcss';
 
 import type { ClassToStyles } from '../../types/index.js';
-import {
-  extractClasses,
-  extractRootClass,
-  extractSelectors,
-} from './get-class-to-styles/index.js';
+import { parseSelector } from './get-class-to-styles/index.js';
 
 type Node = {
   [key: string]: unknown;
@@ -31,11 +27,11 @@ export function getClassToStyles(file: string): ClassToStyles {
   const classToStyles: ClassToStyles = new Map();
 
   function processRule(node: Node): void {
-    const selectors = extractSelectors(node.selector);
+    const data = parseSelector(node.selector);
     const clone = node.clone();
 
-    selectors.forEach((selector) => {
-      const containerClass = extractRootClass(selector);
+    data.forEach(({ classes, selector }) => {
+      const containerClass = classes[0];
 
       if (containerClass === undefined) {
         return;
@@ -44,7 +40,7 @@ export function getClassToStyles(file: string): ClassToStyles {
       clone.selector = selector;
 
       const data = {
-        classes: extractClasses(selector),
+        classes,
         location: {
           end: node.source.end,
           start: node.source.start,

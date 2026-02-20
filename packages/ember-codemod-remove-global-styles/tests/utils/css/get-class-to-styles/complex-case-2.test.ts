@@ -1,5 +1,3 @@
-import { EOL } from 'node:os';
-
 import { assert, normalizeFile } from '@codemod-utils/tests';
 
 import { getClassToStyles } from '../../../../src/utils/css/index.js';
@@ -186,12 +184,11 @@ testOnPosix(
                 start: { column: 1, line: 95, offset: 1564 },
               },
               raw: normalizeFile([
-                `.container[data-container-query-wide]`,
-                `  .body {`,
+                `.container[data-container-query-wide] .body {`,
                 `  margin-top: 0;`,
                 `}`,
               ]),
-              selector: `.container[data-container-query-wide]${EOL}  .body`,
+              selector: '.container[data-container-query-wide] .body',
             },
             {
               classes: ['container', 'link'],
@@ -200,12 +197,11 @@ testOnPosix(
                 start: { column: 1, line: 100, offset: 1632 },
               },
               raw: normalizeFile([
-                `.container[data-container-query-wide]`,
-                `  .link {`,
+                `.container[data-container-query-wide] .link {`,
                 `  margin-top: 1rem;`,
                 `}`,
               ]),
-              selector: `.container[data-container-query-wide]${EOL}  .link`,
+              selector: '.container[data-container-query-wide] .link',
             },
           ],
         ],
