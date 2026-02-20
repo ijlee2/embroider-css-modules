@@ -84,14 +84,12 @@
   width: calc(100% - 0.5rem);
 }
 
-.components-widgets-widget-3-tour-schedule__container[data-cq-small]
-  .components-widgets-widget-3-tour-schedule__concert-date {
+.components-widgets-widget-3-tour-schedule__container[data-cq-small] .components-widgets-widget-3-tour-schedule__concert-date {
   font-size: 1rem;
   font-weight: 400;
 }
 
-.components-widgets-widget-3-tour-schedule__container[data-cq-small]
-  .components-widgets-widget-3-tour-schedule__venue-name {
+.components-widgets-widget-3-tour-schedule__container[data-cq-small] .components-widgets-widget-3-tour-schedule__venue-name {
   font-size: 2.25rem;
   letter-spacing: 0.125rem;
 }

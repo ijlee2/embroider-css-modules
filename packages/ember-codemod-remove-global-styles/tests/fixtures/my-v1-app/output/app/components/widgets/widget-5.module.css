@@ -18,8 +18,7 @@
   margin: 0;
 }
 
-.components-widgets-widget-5__call-to-action
-  .components-widgets-widget-5__highlight {
+.components-widgets-widget-5__call-to-action .components-widgets-widget-5__highlight {
   font-family: monospace;
 }
 
@@ -32,8 +31,7 @@
   width: calc(100% - 2 * (0.5rem + 0.0625rem));
 }
 
-.components-widgets-widget-5__container[data-container-query-tall]
-  .components-widgets-widget-5__call-to-action {
+.components-widgets-widget-5__container[data-container-query-tall] .components-widgets-widget-5__call-to-action {
   font-size: 0.875rem;
   line-height: 1.75;
 }

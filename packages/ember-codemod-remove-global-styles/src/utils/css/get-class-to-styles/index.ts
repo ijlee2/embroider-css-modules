@@ -1,3 +1,1 @@
-export * from './extract-classes.js';
-export * from './extract-root-class.js';
-export * from './extract-selectors.js';
+export * from './parse-selector.js';

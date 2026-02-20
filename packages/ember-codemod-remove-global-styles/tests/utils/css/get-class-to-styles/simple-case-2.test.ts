@@ -72,17 +72,17 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
             selector: '.link',
           },
           {
-            classes: ['link', 'active'],
+            classes: ['link'],
             location: {
               end: { column: 1, line: 16, offset: 238 },
               start: { column: 1, line: 14, offset: 184 },
             },
             raw: normalizeFile([
-              `.link:global(.active) {`,
+              `.link:global(\\.active) {`,
               `  background-color: #15202d;`,
               `}`,
             ]),
-            selector: '.link:global(.active)',
+            selector: '.link:global(\\.active)',
           },
           {
             classes: ['link'],
