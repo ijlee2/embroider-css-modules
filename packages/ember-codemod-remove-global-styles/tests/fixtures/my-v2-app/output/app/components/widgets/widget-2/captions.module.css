@@ -96,34 +96,29 @@
   grid-template-rows: minmax(3rem, 1fr);
 }
 
-.components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat
-  .components-widgets-widget-2-captions__summary.components-widgets-widget-2-captions__horizontal-layout {
+.components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat .components-widgets-widget-2-captions__summary.components-widgets-widget-2-captions__horizontal-layout {
   gap: 0.5rem;
   grid-template-areas: "music-format annual-revenue relevant-years";
   grid-template-columns: 40% 1fr 1fr;
   grid-template-rows: 1fr;
 }
 
-.components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat
-  .components-widgets-widget-2-captions__annual-revenue {
+.components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat .components-widgets-widget-2-captions__annual-revenue {
   display: flex;
   flex-direction: column;
 }
 
-.components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat
-  .components-widgets-widget-2-captions__relevant-years {
+.components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat .components-widgets-widget-2-captions__relevant-years {
   display: flex;
   flex-direction: column;
 }
 
-.components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat
-  .components-widgets-widget-2-captions__previous-button {
+.components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat .components-widgets-widget-2-captions__previous-button {
   background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);
   border: 0;
 }
 
-.components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat
-  .components-widgets-widget-2-captions__next-button {
+.components-widgets-widget-2-captions__container.components-widgets-widget-2-captions__flat .components-widgets-widget-2-captions__next-button {
   background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);
   border: 0;
 }
