@@ -1,5 +1,15 @@
 # ember-codemod-remove-global-styles
 
+## 0.8.0
+
+### Minor Changes
+
+- [#227](https://github.com/ijlee2/embroider-css-modules/pull/227) Provided a more exhaustive list of selectors ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#226](https://github.com/ijlee2/embroider-css-modules/pull/226) Eased test setup ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.7.1
 
 ### Patch Changes
