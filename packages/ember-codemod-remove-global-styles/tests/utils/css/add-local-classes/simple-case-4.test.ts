@@ -1,159 +1,19 @@
 import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
 import { addLocalClasses } from '../../../../src/utils/css/index.js';
+import {
+  classNameToStyles,
+  templateFile,
+} from '../../../helpers/utils/css/simple-case-4.js';
 
 test('utils | css | add-local-classes > simple case (4)', function () {
-  const file = normalizeFile([
-    `<UiFormField`,
-    `  @errorMessage={{this.errorMessage}}`,
-    `  @isInline={{@isInline}}`,
-    `  @isWide={{@isWide}}`,
-    `>`,
-    `  <:label as |l|>`,
-    `    <label data-test-label id={{concat l.inputId "-label"}}>`,
-    `      {{@label}}`,
-    ``,
-    `      {{#if @isRequired}}`,
-    `        <span aria-hidden="true">`,
-    `          *`,
-    `        </span>`,
-    `      {{/if}}`,
-    `    </label>`,
-    `  </:label>`,
-    ``,
-    `  <:field as |f|>`,
-    `    <span`,
-    `      aria-checked={{if this.isChecked "true" "false"}}`,
-    `      aria-disabled={{if @isDisabled "true" "false"}}`,
-    `      aria-labelledby={{concat f.inputId "-label"}}`,
-    `      aria-readonly={{if @isReadOnly "true" "false"}}`,
-    `      aria-required={{if @isRequired "true" "false"}}`,
-    `      class="checkbox`,
-    `        {{if this.isChecked 'is-checked'}}`,
-    `        {{if (or @isDisabled @isReadOnly) 'is-disabled'}}`,
-    `        "`,
-    `      data-test-field={{@label}}`,
-    `      role="checkbox"`,
-    `      tabindex={{unless @isDisabled "0"}}`,
-    `      {{on "click" this.updateValue}}`,
-    `      {{on "keypress" this.updateValueByPressingSpace}}`,
-    `    >`,
-    `      {{#if this.isChecked}}`,
-    `        {{svgJar`,
-    `          "check"`,
-    `          class="checkmark-icon"`,
-    `          desc="A checkmark to indicate that the input field is checked"`,
-    `          role="img"`,
-    `        }}`,
-    `      {{/if}}`,
-    `    </span>`,
-    `  </:field>`,
-    `</UiFormField>`,
-  ]);
-
-  const classNameToStyles = new Map([
-    [
-      'checkbox',
-      [
-        {
-          classNames: ['checkbox'],
-          code: normalizeFile([
-            `.checkbox {`,
-            `  align-items: center;`,
-            `  background-color: white;`,
-            `  border: 0.125rem solid #ffd54f;`,
-            `  cursor: pointer;`,
-            `  display: flex;`,
-            `  height: 1rem;`,
-            `  justify-content: center;`,
-            `  position: relative;`,
-            `  width: 1rem;`,
-            `}`,
-          ]),
-          line: 1,
-          selector: '.checkbox',
-        },
-        {
-          classNames: ['checkbox'],
-          code: normalizeFile([
-            `.checkbox:focus {`,
-            `  background-color: #ffecb3;`,
-            `  outline: 0;`,
-            `}`,
-          ]),
-          line: 13,
-          selector: '.checkbox:focus',
-        },
-        {
-          classNames: ['checkbox'],
-          code: normalizeFile([
-            `.checkbox:not(:focus) {`,
-            `  border-color: transparent;`,
-            `}`,
-          ]),
-          line: 18,
-          selector: '.checkbox:not(:focus)',
-        },
-      ],
-    ],
-    [
-      'checkmark-icon',
-      [
-        {
-          classNames: ['checkmark-icon'],
-          code: normalizeFile([`.checkmark-icon {`, `  color: white;`, `}`]),
-          line: 22,
-          selector: '.checkmark-icon',
-        },
-      ],
-    ],
-    [
-      'is-checked',
-      [
-        {
-          classNames: ['is-checked'],
-          code: normalizeFile([
-            `.is-checked {`,
-            `  background-color: #1976d2;`,
-            `}`,
-          ]),
-          line: 26,
-          selector: '.is-checked',
-        },
-      ],
-    ],
-    [
-      'is-disabled',
-      [
-        {
-          classNames: ['is-disabled'],
-          code: normalizeFile([
-            `.is-disabled {`,
-            `  composes: input-disabled from global;`,
-            `}`,
-          ]),
-          line: 30,
-          selector: '.is-disabled',
-        },
-        {
-          classNames: ['is-disabled', 'checkmark-icon'],
-          code: normalizeFile([
-            `.is-disabled .checkmark-icon {`,
-            `  color: #546e7a;`,
-            `}`,
-          ]),
-          line: 34,
-          selector: '.is-disabled .checkmark-icon',
-        },
-      ],
-    ],
-  ]);
+  let output = addLocalClasses(templateFile, {
+    classNameToStyles,
+    isHbs: false,
+  });
 
   assert.strictEqual(
-    addLocalClasses(file, {
-      classNameToStyles,
-      isHbs: false,
-    }),
+    output,
     normalizeFile([
       `<UiFormField`,
       `  @errorMessage={{this.errorMessage}}`,
@@ -200,11 +60,13 @@ test('utils | css | add-local-classes > simple case (4)', function () {
     ]),
   );
 
+  output = addLocalClasses(templateFile, {
+    classNameToStyles,
+    isHbs: true,
+  });
+
   assert.strictEqual(
-    addLocalClasses(file, {
-      classNameToStyles,
-      isHbs: true,
-    }),
+    output,
     normalizeFile([
       `<UiFormField`,
       `  @errorMessage={{this.errorMessage}}`,

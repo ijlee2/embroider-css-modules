@@ -1,17 +1,12 @@
-import { assert, normalizeFile, test } from '@codemod-utils/tests';
+import { assert, test } from '@codemod-utils/tests';
 
 import { getClassNames } from '../../../../src/utils/css/index.js';
+import { templateFile } from '../../../helpers/utils/css/simple-case-1.js';
 
 test('utils | css | get-class-names > simple case (1)', function () {
-  const file = normalizeFile([
-    `{{#if this.isTestEnvironment}}`,
-    `  <div class="placeholder-image"></div>`,
-    `{{else}}`,
-    `  <img alt="" class="image" src={{@src}} />`,
-    `{{/if}}`,
-  ]);
+  const output = getClassNames(templateFile);
 
-  assert.deepStrictEqual(getClassNames(file), {
+  assert.deepStrictEqual(output, {
     classNames: ['placeholder-image', 'image'],
     errors: [],
   });

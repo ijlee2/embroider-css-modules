@@ -6,5 +6,7 @@ import { printStyles } from '../../../../src/utils/css/index.js';
 test('utils | css | print-styles > base case', function () {
   const styles: Style[] = [];
 
-  assert.strictEqual(printStyles(styles), '');
+  const output = printStyles(styles);
+
+  assert.strictEqual(output, '');
 });

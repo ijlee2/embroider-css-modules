@@ -1,305 +1,19 @@
-import { EOL } from 'node:os';
-
 import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
 import { addLocalClasses } from '../../../../src/utils/css/index.js';
+import {
+  classNameToStyles,
+  templateFile,
+} from '../../../helpers/utils/css/complex-case-2.js';
 
 test('utils | css | add-local-classes > complex case (2)', function () {
-  const file = normalizeFile([
-    `<ContainerQuery`,
-    `  @features={{hash wide=(width min=320)}}`,
-    `  @tagName="article"`,
-    `  class="container"`,
-    `  data-test-product-card`,
-    `>`,
-    `  <header class="header">`,
-    `    <h2 class="name" data-test-field="Name">`,
-    `      {{@product.name}}`,
-    `    </h2>`,
-    `  </header>`,
-    ``,
-    `  <div class="image-container">`,
-    `    <ProductsProductImage @src={{@product.imageUrl}} />`,
-    `  </div>`,
-    ``,
-    `  <div class="body">`,
-    `    <p`,
-    `      class="description"`,
-    `      data-test-field="Short Description"`,
-    `    >`,
-    `      {{@product.shortDescription}}`,
-    `    </p>`,
-    ``,
-    `    <p`,
-    `      class="price"`,
-    `      data-test-field="Price"`,
-    `    >`,
-    `      {{formatPrice @product.price}}`,
-    `    </p>`,
-    `  </div>`,
-    ``,
-    `  <div class="actions">`,
-    `    <LinkTo`,
-    `      @model={{@product.id}}`,
-    `      @route={{@redirectTo}}`,
-    `      class="link"`,
-    `      data-test-link="Learn More"`,
-    `    >`,
-    `      Learn more`,
-    `    </LinkTo>`,
-    `  </div>`,
-    `</ContainerQuery>`,
-  ]);
-
-  const classNameToStyles = new Map([
-    [
-      'container',
-      [
-        {
-          classNames: ['container'],
-          code: normalizeFile([
-            `.container {`,
-            `  display: grid;`,
-            `  grid-template-areas:`,
-            `    "header"`,
-            `    "image-container"`,
-            `    "body"`,
-            `    "actions";`,
-            `  grid-template-columns: 1fr;`,
-            `  grid-template-rows: auto auto 1fr auto;`,
-            `  height: calc(100% - 2rem) !important;`,
-            `  padding: 1rem;`,
-            `  position: relative;`,
-            `  width: calc(100% - 2rem) !important;`,
-            `}`,
-          ]),
-          line: 1,
-          selector: '.container',
-        },
-        {
-          classNames: ['container'],
-          code: normalizeFile([
-            `.container:hover {`,
-            `  background: #26313d;`,
-            `  transform: translateY(-0.25rem);`,
-            `  transition: all 0.25s;`,
-            `}`,
-          ]),
-          line: 16,
-          selector: '.container:hover',
-        },
-        {
-          classNames: ['container'],
-          code: normalizeFile([
-            `.container[data-container-query-wide] {`,
-            `  column-gap: 1.5rem;`,
-            `  grid-template-areas:`,
-            `    "image-container header"`,
-            `    "image-container body"`,
-            `    "image-container actions";`,
-            `  grid-template-columns: auto 1fr;`,
-            `  grid-template-rows: auto 1fr auto;`,
-            `}`,
-          ]),
-          line: 85,
-          selector: '.container[data-container-query-wide]',
-        },
-        {
-          classNames: ['container', 'body'],
-          code: normalizeFile([
-            `.container[data-container-query-wide]`,
-            `  .body {`,
-            `  margin-top: 0;`,
-            `}`,
-          ]),
-          line: 95,
-          selector: `.container[data-container-query-wide]${EOL}  .body`,
-        },
-        {
-          classNames: ['container', 'link'],
-          code: normalizeFile([
-            `.container[data-container-query-wide]`,
-            `  .link {`,
-            `  margin-top: 1rem;`,
-            `}`,
-          ]),
-          line: 100,
-          selector: `.container[data-container-query-wide]${EOL}  .link`,
-        },
-      ],
-    ],
-    [
-      'header',
-      [
-        {
-          classNames: ['header'],
-          code: normalizeFile([`.header {`, `  grid-area: header;`, `}`]),
-          line: 22,
-          selector: '.header',
-        },
-      ],
-    ],
-    [
-      'name',
-      [
-        {
-          classNames: ['name'],
-          code: normalizeFile([
-            `.name {`,
-            `  font-size: 1.25rem;`,
-            `  font-weight: 700;`,
-            `  margin-bottom: 0.75rem;`,
-            `}`,
-          ]),
-          line: 26,
-          selector: '.name',
-        },
-      ],
-    ],
-    [
-      'image-container',
-      [
-        {
-          classNames: ['image-container'],
-          code: normalizeFile([
-            `.image-container {`,
-            `  grid-area: image-container;`,
-            `  max-height: 6rem;`,
-            `  max-width: 8rem;`,
-            `}`,
-          ]),
-          line: 32,
-          selector: '.image-container',
-        },
-      ],
-    ],
-    [
-      'body',
-      [
-        {
-          classNames: ['body'],
-          code: normalizeFile([
-            `.body {`,
-            `  grid-area: body;`,
-            `  margin-top: 1rem;`,
-            `}`,
-          ]),
-          line: 38,
-          selector: '.body',
-        },
-      ],
-    ],
-    [
-      'description',
-      [
-        {
-          classNames: ['description'],
-          code: normalizeFile([
-            `.description {`,
-            `  font-size: 0.875rem;`,
-            `  margin-bottom: 0.375rem;`,
-            `}`,
-          ]),
-          line: 43,
-          selector: '.description',
-        },
-      ],
-    ],
-    [
-      'price',
-      [
-        {
-          classNames: ['price'],
-          code: normalizeFile([
-            `.price {`,
-            `  font-size: 0.875rem;`,
-            `  margin-bottom: 0.375rem;`,
-            `}`,
-          ]),
-          line: 43,
-          selector: '.price',
-        },
-      ],
-    ],
-    [
-      'actions',
-      [
-        {
-          classNames: ['actions'],
-          code: normalizeFile([
-            `.actions {`,
-            `  align-items: center;`,
-            `  display: flex;`,
-            `  grid-area: actions;`,
-            `  justify-content: flex-end;`,
-            `}`,
-          ]),
-          line: 49,
-          selector: '.actions',
-        },
-      ],
-    ],
-    [
-      'link',
-      [
-        {
-          classNames: ['link'],
-          code: normalizeFile([
-            `.link {`,
-            `  background: transparent;`,
-            `  border: 0.0625rem solid rgb(247 252 251 / 50%);`,
-            `  border-radius: 0.15rem;`,
-            `  color: rgb(247 252 251 / 90%);`,
-            `  font-family: Raleway, sans-serif;`,
-            `  font-size: 0.875rem;`,
-            `  margin-top: 0.5rem;`,
-            `  padding: 0.25rem 0.5rem;`,
-            `  text-decoration: none;`,
-            `}`,
-          ]),
-          line: 56,
-          selector: '.link',
-        },
-        {
-          classNames: ['link'],
-          code: normalizeFile([
-            `.link::after {`,
-            `  content: "";`,
-            `  height: 100%;`,
-            `  left: 0;`,
-            `  position: absolute;`,
-            `  top: 0;`,
-            `  width: 100%;`,
-            `}`,
-          ]),
-          line: 68,
-          selector: '.link::after',
-        },
-        {
-          classNames: ['link'],
-          code: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
-          line: 77,
-          selector: '.link:focus',
-        },
-        {
-          classNames: ['link'],
-          code: normalizeFile([
-            `.link:focus::after {`,
-            `  border: 1px solid orange;`,
-            `}`,
-          ]),
-          line: 81,
-          selector: '.link:focus::after',
-        },
-      ],
-    ],
-  ]);
+  let output = addLocalClasses(templateFile, {
+    classNameToStyles,
+    isHbs: false,
+  });
 
   assert.strictEqual(
-    addLocalClasses(file, {
-      classNameToStyles,
-      isHbs: false,
-    }),
+    output,
     normalizeFile([
       `<ContainerQuery`,
       `  @features={{hash wide=(width min=320)}}`,
@@ -347,11 +61,13 @@ test('utils | css | add-local-classes > complex case (2)', function () {
     ]),
   );
 
+  output = addLocalClasses(templateFile, {
+    classNameToStyles,
+    isHbs: true,
+  });
+
   assert.strictEqual(
-    addLocalClasses(file, {
-      classNameToStyles,
-      isHbs: true,
-    }),
+    output,
     normalizeFile([
       `<ContainerQuery`,
       `  @features={{hash wide=(width min=320)}}`,

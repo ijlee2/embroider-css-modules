@@ -1,26 +1,23 @@
 import { assert, test } from '@codemod-utils/tests';
 
-import type { ClassNameToStyles } from '../../../../src/types/index.js';
 import { addLocalClasses } from '../../../../src/utils/css/index.js';
+import {
+  classNameToStyles,
+  templateFile,
+} from '../../../helpers/utils/css/base-case.js';
 
 test('utils | css | add-local-classes > base case', function () {
-  const file = '';
+  let output = addLocalClasses(templateFile, {
+    classNameToStyles,
+    isHbs: false,
+  });
 
-  const classNameToStyles: ClassNameToStyles = new Map();
+  assert.strictEqual(output, '');
 
-  assert.strictEqual(
-    addLocalClasses(file, {
-      classNameToStyles,
-      isHbs: false,
-    }),
-    '',
-  );
+  output = addLocalClasses(templateFile, {
+    classNameToStyles,
+    isHbs: true,
+  });
 
-  assert.strictEqual(
-    addLocalClasses(file, {
-      classNameToStyles,
-      isHbs: true,
-    }),
-    '',
-  );
+  assert.strictEqual(output, '');
 });
