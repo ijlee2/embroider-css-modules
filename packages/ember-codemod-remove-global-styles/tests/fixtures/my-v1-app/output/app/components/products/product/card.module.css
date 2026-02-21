@@ -100,6 +100,14 @@
   margin-top: 0;
 }
 
+.components-products-product-card__body {
+  margin-top: 0;
+}
+
 .components-products-product-card__container[data-container-query-wide] .components-products-product-card__link {
+  margin-top: 1rem;
+}
+
+.components-products-product-card__link {
   margin-top: 1rem;
 }

@@ -22,6 +22,10 @@
   font-family: monospace;
 }
 
+.components-widgets-widget-5__highlight {
+  font-family: monospace;
+}
+
 .components-widgets-widget-5__call-to-action a {
   border: 0.0625rem solid white;
   display: block;
@@ -32,6 +36,11 @@
 }
 
 .components-widgets-widget-5__container[data-container-query-tall] .components-widgets-widget-5__call-to-action {
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.components-widgets-widget-5__call-to-action {
   font-size: 0.875rem;
   line-height: 1.75;
 }

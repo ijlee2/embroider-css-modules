@@ -31,7 +31,7 @@ import { NavigationMenu } from 'my-v2-addon';
     <span class={{styles.templates-application__copyright}}>
       Created by
       <a
-        class="templates-application__link"
+        class={{styles.templates-application__link}}
         href="https://www.linkedin.com/in/ijlee2/"
         rel="noopener noreferrer"
         target="_blank"

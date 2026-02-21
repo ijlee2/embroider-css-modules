@@ -14,6 +14,28 @@
   row-gap: 0.5rem;
 }
 
+.components-ui-form-field__is-wide {
+  column-gap: 0;
+  grid-template-areas:
+    "label"
+    "field"
+    "feedback";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 0.5rem;
+}
+
+.components-ui-form-field__no-feedback {
+  column-gap: 0;
+  grid-template-areas:
+    "label"
+    "field"
+    "feedback";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 0.5rem;
+}
+
 .components-ui-form-field__container:not(.components-ui-form-field__is-wide).components-ui-form-field__no-feedback {
   column-gap: 0;
   grid-template-areas:
@@ -24,7 +46,27 @@
   row-gap: 0.5rem;
 }
 
+.components-ui-form-field__is-wide {
+  column-gap: 0;
+  grid-template-areas:
+    "label"
+    "field";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  row-gap: 0.5rem;
+}
+
 .components-ui-form-field__container.components-ui-form-field__is-wide:not(.components-ui-form-field__no-feedback) {
+  column-gap: 1rem;
+  grid-template-areas:
+    "label field"
+    "label feedback";
+  grid-template-columns: 10rem 1fr;
+  grid-template-rows: 1fr auto;
+  row-gap: 0.5rem;
+}
+
+.components-ui-form-field__no-feedback {
   column-gap: 1rem;
   grid-template-areas:
     "label field"
@@ -77,7 +119,35 @@
   row-gap: 0.5rem;
 }
 
+.components-ui-form-field__is-wide {
+  column-gap: 1rem;
+  grid-template-areas:
+    "field label"
+    "feedback feedback";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+  row-gap: 0.5rem;
+}
+
+.components-ui-form-field__no-feedback {
+  column-gap: 1rem;
+  grid-template-areas:
+    "field label"
+    "feedback feedback";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+  row-gap: 0.5rem;
+}
+
 .components-ui-form-field__container.components-ui-form-field__is-inline:not(.components-ui-form-field__is-wide).components-ui-form-field__no-feedback {
+  column-gap: 1rem;
+  grid-template-areas: "field label";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
+  row-gap: 0;
+}
+
+.components-ui-form-field__is-wide {
   column-gap: 1rem;
   grid-template-areas: "field label";
   grid-template-columns: auto 1fr;

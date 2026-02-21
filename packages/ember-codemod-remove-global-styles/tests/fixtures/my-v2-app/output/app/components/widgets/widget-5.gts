@@ -18,7 +18,7 @@ const WidgetsWidget5 = <template><ContainerQuery
         <p>What will <em>you</em> create with</p>
       {{/if}}
 
-      <p class="components-widgets-widget-5__highlight">
+      <p class={{styles.components-widgets-widget-5__highlight}}>
         <a
           href="https://github.com/ijlee2/embroider-css-modules"
           rel="noopener noreferrer"
