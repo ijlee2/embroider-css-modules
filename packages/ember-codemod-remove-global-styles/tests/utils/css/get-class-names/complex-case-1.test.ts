@@ -1,8 +1,8 @@
 import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
-import { getClasses } from '../../../../src/utils/css/index.js';
+import { getClassNames } from '../../../../src/utils/css/index.js';
 
-test('utils | css | get-classes > complex case (1)', function () {
+test('utils | css | get-class-names > complex case (1)', function () {
   const file = normalizeFile([
     `{{#let (uniqueId) as |inputId|}}`,
     `  <div`,
@@ -38,7 +38,7 @@ test('utils | css | get-classes > complex case (1)', function () {
     `{{/let}}`,
   ]);
 
-  assert.deepStrictEqual(getClasses(file), {
+  assert.deepStrictEqual(getClassNames(file), {
     classNames: [
       'container',
       'is-inline',

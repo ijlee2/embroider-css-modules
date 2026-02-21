@@ -1,7 +1,7 @@
 import { findTemplateTags } from '@codemod-utils/ast-template-tag';
 
 import type { ClassToStyles, EntityData, Style } from '../../types/index.js';
-import { getClasses } from '../../utils/css/index.js';
+import { getClassNames } from '../../utils/css/index.js';
 
 type Data = {
   classToStyles: ClassToStyles;
@@ -34,7 +34,7 @@ export function getEntityData(file: string, data: Data): EntityData {
   const allErrors: string[] = [];
 
   function processFile(file: string): void {
-    const { classNames, errors } = getClasses(file);
+    const { classNames, errors } = getClassNames(file);
 
     allClassNames.push(...classNames);
     allErrors.push(...errors);

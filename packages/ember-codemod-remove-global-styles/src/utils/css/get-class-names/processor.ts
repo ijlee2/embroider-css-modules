@@ -1,6 +1,6 @@
 import type { AST } from '@codemod-utils/ast-template';
 
-function extractClasses(value: string): string[] {
+function extractClassNames(value: string): string[] {
   return value.split(/\s+/).filter(Boolean);
 }
 
@@ -83,7 +83,7 @@ export class Processor {
   }
 
   processStringLiteral(nodeValue: StringLiteral): void {
-    const classNames = extractClasses(nodeValue.original);
+    const classNames = extractClassNames(nodeValue.original);
 
     classNames.forEach((className) => {
       this.classNames.add(className);
@@ -129,7 +129,7 @@ export class Processor {
   }
 
   processTextNode(nodeValue: TextNode): void {
-    const classNames = extractClasses(nodeValue.chars);
+    const classNames = extractClassNames(nodeValue.chars);
 
     classNames.forEach((className) => {
       this.classNames.add(className);

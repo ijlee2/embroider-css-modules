@@ -1,8 +1,8 @@
 import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
-import { getClasses } from '../../../../src/utils/css/index.js';
+import { getClassNames } from '../../../../src/utils/css/index.js';
 
-test('utils | css | get-classes > complex case (2)', function () {
+test('utils | css | get-class-names > complex case (2)', function () {
   const file = normalizeFile([
     `<ContainerQuery`,
     `  @features={{hash wide=(width min=320)}}`,
@@ -49,7 +49,7 @@ test('utils | css | get-classes > complex case (2)', function () {
     `</ContainerQuery>`,
   ]);
 
-  assert.deepStrictEqual(getClasses(file), {
+  assert.deepStrictEqual(getClassNames(file), {
     classNames: [
       'container',
       'header',
