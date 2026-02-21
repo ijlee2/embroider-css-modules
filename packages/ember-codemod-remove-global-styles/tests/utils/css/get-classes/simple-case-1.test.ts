@@ -12,7 +12,7 @@ test('utils | css | get-classes > simple case (1)', function () {
   ]);
 
   assert.deepStrictEqual(getClasses(file), {
-    classes: ['placeholder-image', 'image'],
+    classNames: ['placeholder-image', 'image'],
     errors: [],
   });
 });

@@ -27,27 +27,28 @@ function getLocalStyles(classes: string[], data: Data): Style[] {
 }
 
 export function getEntityData(file: string, data: Data): EntityData {
-  const classes: string[] = [];
-  const errors: string[] = [];
+  const allClassNames: string[] = [];
+  const allErrors: string[] = [];
+
+  function processFile(file: string): void {
+    const { classNames, errors } = getClasses(file);
+
+    allClassNames.push(...classNames);
+    allErrors.push(...errors);
+  }
 
   if (data.isHbs) {
-    const output = getClasses(file);
-
-    classes.push(...output.classes);
-    errors.push(...output.errors);
+    processFile(file);
   } else {
     const templateTags = findTemplateTags(file);
 
     templateTags.forEach(({ contents }) => {
-      const output = getClasses(contents);
-
-      classes.push(...output.classes);
-      errors.push(...output.errors);
+      processFile(contents);
     });
   }
 
   return {
-    errors,
-    localStyles: getLocalStyles(classes, data),
+    errors: allErrors,
+    localStyles: getLocalStyles(allClassNames, data),
   };
 }

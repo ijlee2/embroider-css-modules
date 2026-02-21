@@ -9,7 +9,7 @@ test('utils | css | get-classes > error case (2)', function () {
   ]);
 
   assert.deepStrictEqual(getClasses(file), {
-    classes: ['message-1', 'default-1', 'message-2'],
+    classNames: ['message-1', 'default-1', 'message-2'],
     errors: ['Could not analyze {{or}} in template, line 2.'],
   });
 });

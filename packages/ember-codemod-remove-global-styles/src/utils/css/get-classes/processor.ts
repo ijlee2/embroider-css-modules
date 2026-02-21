@@ -11,19 +11,19 @@ type SubExpression = ReturnType<typeof AST.builders.sexpr>;
 type TextNode = ReturnType<typeof AST.builders.text>;
 
 export type ProcessorReturn = {
-  classes: string[];
+  classNames: string[];
   errors: string[];
 };
 
 export class Processor {
-  private classes = new Set<string>();
+  private classNames = new Set<string>();
   private errors: string[] = [];
 
   print(): ProcessorReturn {
-    const { classes, errors } = this;
+    const { classNames, errors } = this;
 
     return {
-      classes: Array.from(classes),
+      classNames: Array.from(classNames),
       errors,
     };
   }
@@ -86,7 +86,7 @@ export class Processor {
     const classNames = extractClasses(nodeValue.original);
 
     classNames.forEach((className) => {
-      this.classes.add(className);
+      this.classNames.add(className);
     });
   }
 
@@ -132,7 +132,7 @@ export class Processor {
     const classNames = extractClasses(nodeValue.chars);
 
     classNames.forEach((className) => {
-      this.classes.add(className);
+      this.classNames.add(className);
     });
   }
 }

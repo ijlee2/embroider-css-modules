@@ -52,7 +52,7 @@ test('utils | css | get-classes > simple case (4)', function () {
   ]);
 
   assert.deepStrictEqual(getClasses(file), {
-    classes: ['checkbox', 'is-checked', 'is-disabled', 'checkmark-icon'],
+    classNames: ['checkbox', 'is-checked', 'is-disabled', 'checkmark-icon'],
     errors: [],
   });
 });

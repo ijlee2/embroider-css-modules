@@ -16,7 +16,7 @@ test('utils | css | get-classes > error case (4)', function () {
   ]);
 
   assert.deepStrictEqual(getClasses(file), {
-    classes: [],
+    classNames: [],
     errors: [
       'Could not analyze {{item.class}} in template, line 2.',
       'Could not analyze {{item.class}} in template, line 6.',

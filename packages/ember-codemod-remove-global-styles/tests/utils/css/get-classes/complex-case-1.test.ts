@@ -39,7 +39,7 @@ test('utils | css | get-classes > complex case (1)', function () {
   ]);
 
   assert.deepStrictEqual(getClasses(file), {
-    classes: [
+    classNames: [
       'container',
       'is-inline',
       'is-wide',

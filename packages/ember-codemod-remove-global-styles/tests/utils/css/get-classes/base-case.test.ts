@@ -6,7 +6,7 @@ test('utils | css | get-classes > base case', function () {
   const file = '';
 
   assert.deepStrictEqual(getClasses(file), {
-    classes: [],
+    classNames: [],
     errors: [],
   });
 });
