@@ -1,10 +1,10 @@
 import { assert, normalizeFile } from '@codemod-utils/tests';
 
-import { getClassToStyles } from '../../../../src/utils/css/index.js';
+import { getClassNameToStyles } from '../../../../src/utils/css/index.js';
 import { testOnPosix } from '../../../helpers/index.js';
 
 testOnPosix(
-  'utils | css | get-class-to-styles > complex case (2)',
+  'utils | css | get-class-name-to-styles > complex case (2)',
   function () {
     const file = normalizeFile([
       `.container {`,
@@ -114,13 +114,13 @@ testOnPosix(
     ]);
 
     assert.deepStrictEqual(
-      getClassToStyles(file),
+      getClassNameToStyles(file),
       new Map([
         [
           'container',
           [
             {
-              classes: ['container'],
+              classNames: ['container'],
               code: normalizeFile([
                 `.container {`,
                 `  display: grid;`,
@@ -141,7 +141,7 @@ testOnPosix(
               selector: '.container',
             },
             {
-              classes: ['container'],
+              classNames: ['container'],
               code: normalizeFile([
                 `.container:hover {`,
                 `  background: #26313d;`,
@@ -153,7 +153,7 @@ testOnPosix(
               selector: '.container:hover',
             },
             {
-              classes: ['container'],
+              classNames: ['container'],
               code: normalizeFile([
                 `.container[data-container-query-wide] {`,
                 `  column-gap: 1.5rem;`,
@@ -169,7 +169,7 @@ testOnPosix(
               selector: '.container[data-container-query-wide]',
             },
             {
-              classes: ['container', 'body'],
+              classNames: ['container', 'body'],
               code: normalizeFile([
                 `.container[data-container-query-wide] .body {`,
                 `  margin-top: 0;`,
@@ -179,7 +179,7 @@ testOnPosix(
               selector: '.container[data-container-query-wide] .body',
             },
             {
-              classes: ['container', 'link'],
+              classNames: ['container', 'link'],
               code: normalizeFile([
                 `.container[data-container-query-wide] .link {`,
                 `  margin-top: 1rem;`,
@@ -194,7 +194,7 @@ testOnPosix(
           'header',
           [
             {
-              classes: ['header'],
+              classNames: ['header'],
               code: normalizeFile([`.header {`, `  grid-area: header;`, `}`]),
               line: 22,
               selector: '.header',
@@ -205,7 +205,7 @@ testOnPosix(
           'name',
           [
             {
-              classes: ['name'],
+              classNames: ['name'],
               code: normalizeFile([
                 `.name {`,
                 `  font-size: 1.25rem;`,
@@ -222,7 +222,7 @@ testOnPosix(
           'image-container',
           [
             {
-              classes: ['image-container'],
+              classNames: ['image-container'],
               code: normalizeFile([
                 `.image-container {`,
                 `  grid-area: image-container;`,
@@ -239,7 +239,7 @@ testOnPosix(
           'body',
           [
             {
-              classes: ['body'],
+              classNames: ['body'],
               code: normalizeFile([
                 `.body {`,
                 `  grid-area: body;`,
@@ -255,7 +255,7 @@ testOnPosix(
           'description',
           [
             {
-              classes: ['description'],
+              classNames: ['description'],
               code: normalizeFile([
                 `.description {`,
                 `  font-size: 0.875rem;`,
@@ -271,7 +271,7 @@ testOnPosix(
           'price',
           [
             {
-              classes: ['price'],
+              classNames: ['price'],
               code: normalizeFile([
                 `.price {`,
                 `  font-size: 0.875rem;`,
@@ -287,7 +287,7 @@ testOnPosix(
           'actions',
           [
             {
-              classes: ['actions'],
+              classNames: ['actions'],
               code: normalizeFile([
                 `.actions {`,
                 `  align-items: center;`,
@@ -305,7 +305,7 @@ testOnPosix(
           'link',
           [
             {
-              classes: ['link'],
+              classNames: ['link'],
               code: normalizeFile([
                 `.link {`,
                 `  background: transparent;`,
@@ -323,7 +323,7 @@ testOnPosix(
               selector: '.link',
             },
             {
-              classes: ['link'],
+              classNames: ['link'],
               code: normalizeFile([
                 `.link::after {`,
                 `  content: "";`,
@@ -338,13 +338,13 @@ testOnPosix(
               selector: '.link::after',
             },
             {
-              classes: ['link'],
+              classNames: ['link'],
               code: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
               line: 77,
               selector: '.link:focus',
             },
             {
-              classes: ['link'],
+              classNames: ['link'],
               code: normalizeFile([
                 `.link:focus::after {`,
                 `  border: 1px solid orange;`,

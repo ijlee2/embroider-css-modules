@@ -1,8 +1,8 @@
 import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
-import { getClasses } from '../../../../src/utils/css/index.js';
+import { getClassNames } from '../../../../src/utils/css/index.js';
 
-test('utils | css | get-classes > simple case (4)', function () {
+test('utils | css | get-class-names > simple case (4)', function () {
   const file = normalizeFile([
     `<UiFormField`,
     `  @errorMessage={{this.errorMessage}}`,
@@ -51,8 +51,8 @@ test('utils | css | get-classes > simple case (4)', function () {
     `</UiFormField>`,
   ]);
 
-  assert.deepStrictEqual(getClasses(file), {
-    classes: ['checkbox', 'is-checked', 'is-disabled', 'checkmark-icon'],
+  assert.deepStrictEqual(getClassNames(file), {
+    classNames: ['checkbox', 'is-checked', 'is-disabled', 'checkmark-icon'],
     errors: [],
   });
 });

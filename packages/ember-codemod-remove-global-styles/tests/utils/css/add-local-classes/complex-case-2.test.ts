@@ -51,12 +51,12 @@ test('utils | css | add-local-classes > complex case (2)', function () {
     `</ContainerQuery>`,
   ]);
 
-  const classToStyles = new Map([
+  const classNameToStyles = new Map([
     [
       'container',
       [
         {
-          classes: ['container'],
+          classNames: ['container'],
           code: normalizeFile([
             `.container {`,
             `  display: grid;`,
@@ -77,7 +77,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
           selector: '.container',
         },
         {
-          classes: ['container'],
+          classNames: ['container'],
           code: normalizeFile([
             `.container:hover {`,
             `  background: #26313d;`,
@@ -89,7 +89,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
           selector: '.container:hover',
         },
         {
-          classes: ['container'],
+          classNames: ['container'],
           code: normalizeFile([
             `.container[data-container-query-wide] {`,
             `  column-gap: 1.5rem;`,
@@ -105,7 +105,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
           selector: '.container[data-container-query-wide]',
         },
         {
-          classes: ['container', 'body'],
+          classNames: ['container', 'body'],
           code: normalizeFile([
             `.container[data-container-query-wide]`,
             `  .body {`,
@@ -116,7 +116,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
           selector: `.container[data-container-query-wide]${EOL}  .body`,
         },
         {
-          classes: ['container', 'link'],
+          classNames: ['container', 'link'],
           code: normalizeFile([
             `.container[data-container-query-wide]`,
             `  .link {`,
@@ -132,7 +132,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       'header',
       [
         {
-          classes: ['header'],
+          classNames: ['header'],
           code: normalizeFile([`.header {`, `  grid-area: header;`, `}`]),
           line: 22,
           selector: '.header',
@@ -143,7 +143,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       'name',
       [
         {
-          classes: ['name'],
+          classNames: ['name'],
           code: normalizeFile([
             `.name {`,
             `  font-size: 1.25rem;`,
@@ -160,7 +160,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       'image-container',
       [
         {
-          classes: ['image-container'],
+          classNames: ['image-container'],
           code: normalizeFile([
             `.image-container {`,
             `  grid-area: image-container;`,
@@ -177,7 +177,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       'body',
       [
         {
-          classes: ['body'],
+          classNames: ['body'],
           code: normalizeFile([
             `.body {`,
             `  grid-area: body;`,
@@ -193,7 +193,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       'description',
       [
         {
-          classes: ['description'],
+          classNames: ['description'],
           code: normalizeFile([
             `.description {`,
             `  font-size: 0.875rem;`,
@@ -209,7 +209,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       'price',
       [
         {
-          classes: ['price'],
+          classNames: ['price'],
           code: normalizeFile([
             `.price {`,
             `  font-size: 0.875rem;`,
@@ -225,7 +225,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       'actions',
       [
         {
-          classes: ['actions'],
+          classNames: ['actions'],
           code: normalizeFile([
             `.actions {`,
             `  align-items: center;`,
@@ -243,7 +243,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       'link',
       [
         {
-          classes: ['link'],
+          classNames: ['link'],
           code: normalizeFile([
             `.link {`,
             `  background: transparent;`,
@@ -261,7 +261,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
           selector: '.link',
         },
         {
-          classes: ['link'],
+          classNames: ['link'],
           code: normalizeFile([
             `.link::after {`,
             `  content: "";`,
@@ -276,13 +276,13 @@ test('utils | css | add-local-classes > complex case (2)', function () {
           selector: '.link::after',
         },
         {
-          classes: ['link'],
+          classNames: ['link'],
           code: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
           line: 77,
           selector: '.link:focus',
         },
         {
-          classes: ['link'],
+          classNames: ['link'],
           code: normalizeFile([
             `.link:focus::after {`,
             `  border: 1px solid orange;`,
@@ -297,7 +297,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
 
   assert.strictEqual(
     addLocalClasses(file, {
-      classToStyles,
+      classNameToStyles,
       isHbs: false,
     }),
     normalizeFile([
@@ -349,7 +349,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
 
   assert.strictEqual(
     addLocalClasses(file, {
-      classToStyles,
+      classNameToStyles,
       isHbs: true,
     }),
     normalizeFile([

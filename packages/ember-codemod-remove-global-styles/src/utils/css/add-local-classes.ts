@@ -1,10 +1,10 @@
 import { AST } from '@codemod-utils/ast-template';
 
-import type { ClassToStyles } from '../../types/index.js';
+import type { ClassNameToStyles } from '../../types/index.js';
 import { Processor } from './add-local-classes/index.js';
 
 type Data = {
-  classToStyles: ClassToStyles;
+  classNameToStyles: ClassNameToStyles;
   isHbs: boolean;
 };
 

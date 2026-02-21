@@ -1,10 +1,10 @@
 import { assert, normalizeFile } from '@codemod-utils/tests';
 
-import { getClassToStyles } from '../../../../src/utils/css/index.js';
+import { getClassNameToStyles } from '../../../../src/utils/css/index.js';
 import { testOnPosix } from '../../../helpers/index.js';
 
 testOnPosix(
-  'utils | css | get-class-to-styles > complex case (4)',
+  'utils | css | get-class-name-to-styles > complex case (4)',
   function () {
     const file = normalizeFile([
       `.container:not(.is-wide, .no-feedback) {`,
@@ -31,13 +31,13 @@ testOnPosix(
     ]);
 
     assert.deepStrictEqual(
-      getClassToStyles(file),
+      getClassNameToStyles(file),
       new Map([
         [
           'container',
           [
             {
-              classes: ['container', 'is-wide', 'no-feedback'],
+              classNames: ['container', 'is-wide', 'no-feedback'],
               code: normalizeFile([
                 `.container:not(.is-wide, .no-feedback) {`,
                 `  column-gap: 0;`,
@@ -54,7 +54,7 @@ testOnPosix(
               selector: '.container:not(.is-wide, .no-feedback)',
             },
             {
-              classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+              classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
               code: normalizeFile([
                 `.container.is-inline:not(.is-wide, .no-feedback) {`,
                 `  column-gap: 1rem;`,

@@ -5,7 +5,7 @@ import { printStyles } from '../../../../src/utils/css/index.js';
 test('utils | css | print-styles > complex case (1)', function () {
   const styles = [
     {
-      classes: ['container'],
+      classNames: ['container'],
       code: normalizeFile([
         `.container {`,
         `  align-items: start;`,
@@ -16,7 +16,7 @@ test('utils | css | print-styles > complex case (1)', function () {
       selector: '.container',
     },
     {
-      classes: ['container', 'is-wide', 'no-feedback'],
+      classNames: ['container', 'is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container:not(.is-wide):not(.no-feedback) {`,
         `  column-gap: 0;`,
@@ -33,7 +33,7 @@ test('utils | css | print-styles > complex case (1)', function () {
       selector: '.container:not(.is-wide):not(.no-feedback)',
     },
     {
-      classes: ['container', 'is-wide', 'no-feedback'],
+      classNames: ['container', 'is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container:not(.is-wide).no-feedback {`,
         `  column-gap: 0;`,
@@ -49,7 +49,7 @@ test('utils | css | print-styles > complex case (1)', function () {
       selector: '.container:not(.is-wide).no-feedback',
     },
     {
-      classes: ['container', 'is-wide', 'no-feedback'],
+      classNames: ['container', 'is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container.is-wide:not(.no-feedback) {`,
         `  column-gap: 1rem;`,
@@ -65,7 +65,7 @@ test('utils | css | print-styles > complex case (1)', function () {
       selector: '.container.is-wide:not(.no-feedback)',
     },
     {
-      classes: ['container', 'is-wide', 'no-feedback'],
+      classNames: ['container', 'is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container.is-wide.no-feedback {`,
         `  column-gap: 1rem;`,
@@ -79,7 +79,7 @@ test('utils | css | print-styles > complex case (1)', function () {
       selector: '.container.is-wide.no-feedback',
     },
     {
-      classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+      classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container.is-inline:not(.is-wide):not(.no-feedback) {`,
         `  column-gap: 1rem;`,
@@ -95,7 +95,7 @@ test('utils | css | print-styles > complex case (1)', function () {
       selector: '.container.is-inline:not(.is-wide):not(.no-feedback)',
     },
     {
-      classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+      classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container.is-inline:not(.is-wide).no-feedback {`,
         `  column-gap: 1rem;`,

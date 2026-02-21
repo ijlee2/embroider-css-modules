@@ -38,12 +38,12 @@ test('utils | css | add-local-classes > complex case (1)', function () {
     `{{/let}}`,
   ]);
 
-  const classToStyles = new Map([
+  const classNameToStyles = new Map([
     [
       'container',
       [
         {
-          classes: ['container'],
+          classNames: ['container'],
           code: normalizeFile([
             `.container {`,
             `  align-items: start;`,
@@ -54,7 +54,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
           selector: '.container',
         },
         {
-          classes: ['container', 'is-wide', 'no-feedback'],
+          classNames: ['container', 'is-wide', 'no-feedback'],
           code: normalizeFile([
             `.container:not(.is-wide):not(.no-feedback) {`,
             `  column-gap: 0;`,
@@ -71,7 +71,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
           selector: '.container:not(.is-wide):not(.no-feedback)',
         },
         {
-          classes: ['container', 'is-wide', 'no-feedback'],
+          classNames: ['container', 'is-wide', 'no-feedback'],
           code: normalizeFile([
             `.container:not(.is-wide).no-feedback {`,
             `  column-gap: 0;`,
@@ -87,7 +87,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
           selector: '.container:not(.is-wide).no-feedback',
         },
         {
-          classes: ['container', 'is-wide', 'no-feedback'],
+          classNames: ['container', 'is-wide', 'no-feedback'],
           code: normalizeFile([
             `.container.is-wide:not(.no-feedback) {`,
             `  column-gap: 1rem;`,
@@ -103,7 +103,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
           selector: '.container.is-wide:not(.no-feedback)',
         },
         {
-          classes: ['container', 'is-wide', 'no-feedback'],
+          classNames: ['container', 'is-wide', 'no-feedback'],
           code: normalizeFile([
             `.container.is-wide.no-feedback {`,
             `  column-gap: 1rem;`,
@@ -117,7 +117,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
           selector: '.container.is-wide.no-feedback',
         },
         {
-          classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+          classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
           code: normalizeFile([
             `.container.is-inline:not(.is-wide):not(.no-feedback) {`,
             `  column-gap: 1rem;`,
@@ -133,7 +133,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
           selector: '.container.is-inline:not(.is-wide):not(.no-feedback)',
         },
         {
-          classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+          classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
           code: normalizeFile([
             `.container.is-inline:not(.is-wide).no-feedback {`,
             `  column-gap: 1rem;`,
@@ -152,7 +152,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
       'label',
       [
         {
-          classes: ['label'],
+          classNames: ['label'],
           code: normalizeFile([
             `.label {`,
             `  grid-area: label;`,
@@ -169,7 +169,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
       'field',
       [
         {
-          classes: ['field'],
+          classNames: ['field'],
           code: normalizeFile([`.field {`, `  grid-area: field;`, `}`]),
           line: 51,
           selector: '.field',
@@ -180,7 +180,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
       'feedback',
       [
         {
-          classes: ['feedback'],
+          classNames: ['feedback'],
           code: normalizeFile([
             `.feedback {`,
             `  align-items: center;`,
@@ -193,7 +193,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
           selector: '.feedback',
         },
         {
-          classes: ['feedback', 'is-error'],
+          classNames: ['feedback', 'is-error'],
           code: normalizeFile([
             `.feedback.is-error {`,
             `  color: #ff5252;`,
@@ -208,7 +208,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
       'message',
       [
         {
-          classes: ['message'],
+          classNames: ['message'],
           code: normalizeFile([`.message {`, `  margin-left: 0.5rem;`, `}`]),
           line: 66,
           selector: '.message',
@@ -219,7 +219,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
 
   assert.strictEqual(
     addLocalClasses(file, {
-      classToStyles,
+      classNameToStyles,
       isHbs: false,
     }),
     normalizeFile([
@@ -256,7 +256,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
 
   assert.strictEqual(
     addLocalClasses(file, {
-      classToStyles,
+      classNameToStyles,
       isHbs: true,
     }),
     normalizeFile([

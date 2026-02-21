@@ -1,10 +1,10 @@
 import { assert, normalizeFile } from '@codemod-utils/tests';
 
-import { getClassToStyles } from '../../../../src/utils/css/index.js';
+import { getClassNameToStyles } from '../../../../src/utils/css/index.js';
 import { testOnPosix } from '../../../helpers/index.js';
 
 testOnPosix(
-  'utils | css | get-class-to-styles > complex case (3)',
+  'utils | css | get-class-name-to-styles > complex case (3)',
   function () {
     const file = normalizeFile([
       `.container {`,
@@ -125,13 +125,13 @@ testOnPosix(
     ]);
 
     assert.deepStrictEqual(
-      getClassToStyles(file),
+      getClassNameToStyles(file),
       new Map([
         [
           'container',
           [
             {
-              classes: ['container'],
+              classNames: ['container'],
               code: normalizeFile([
                 `.container {`,
                 `  column-gap: 2.5rem;`,
@@ -151,7 +151,7 @@ testOnPosix(
               selector: '.container',
             },
             {
-              classes: ['container', 'flat'],
+              classNames: ['container', 'flat'],
               code: normalizeFile([
                 `.container.flat {`,
                 `  column-gap: 1rem;`,
@@ -164,7 +164,7 @@ testOnPosix(
               selector: '.container.flat',
             },
             {
-              classes: ['container', 'flat', 'summary', 'horizontal-layout'],
+              classNames: ['container', 'flat', 'summary', 'horizontal-layout'],
               code: normalizeFile([
                 `.container.flat .summary.horizontal-layout {`,
                 `  gap: 0.5rem;`,
@@ -177,7 +177,7 @@ testOnPosix(
               selector: '.container.flat .summary.horizontal-layout',
             },
             {
-              classes: ['container', 'flat', 'annual-revenue'],
+              classNames: ['container', 'flat', 'annual-revenue'],
               code: normalizeFile([
                 `.container.flat .annual-revenue {`,
                 `  display: flex;`,
@@ -188,7 +188,7 @@ testOnPosix(
               selector: '.container.flat .annual-revenue',
             },
             {
-              classes: ['container', 'flat', 'relevant-years'],
+              classNames: ['container', 'flat', 'relevant-years'],
               code: normalizeFile([
                 `.container.flat .relevant-years {`,
                 `  display: flex;`,
@@ -199,7 +199,7 @@ testOnPosix(
               selector: '.container.flat .relevant-years',
             },
             {
-              classes: ['container', 'flat', 'previous-button'],
+              classNames: ['container', 'flat', 'previous-button'],
               code: normalizeFile([
                 `.container.flat .previous-button {`,
                 `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,
@@ -210,7 +210,7 @@ testOnPosix(
               selector: '.container.flat .previous-button',
             },
             {
-              classes: ['container', 'flat', 'next-button'],
+              classNames: ['container', 'flat', 'next-button'],
               code: normalizeFile([
                 `.container.flat .next-button {`,
                 `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,
@@ -226,7 +226,7 @@ testOnPosix(
           'summary',
           [
             {
-              classes: ['summary'],
+              classNames: ['summary'],
               code: normalizeFile([
                 `.summary {`,
                 `  color: #455a64;`,
@@ -251,7 +251,7 @@ testOnPosix(
           'music-format',
           [
             {
-              classes: ['music-format'],
+              classNames: ['music-format'],
               code: normalizeFile([
                 `.music-format {`,
                 `  color: rgb(247 252 251 / 90%);`,
@@ -266,7 +266,7 @@ testOnPosix(
               selector: '.music-format',
             },
             {
-              classes: ['music-format', 'small-font-size'],
+              classNames: ['music-format', 'small-font-size'],
               code: normalizeFile([
                 `.music-format.small-font-size {`,
                 `  font-size: 0.875rem;`,
@@ -282,7 +282,7 @@ testOnPosix(
           'marker',
           [
             {
-              classes: ['marker'],
+              classNames: ['marker'],
               code: normalizeFile([
                 `.marker {`,
                 `  align-items: center;`,
@@ -305,7 +305,7 @@ testOnPosix(
           'annual-revenue',
           [
             {
-              classes: ['annual-revenue'],
+              classNames: ['annual-revenue'],
               code: normalizeFile([
                 `.annual-revenue {`,
                 `  font-size: 0.8rem;`,
@@ -321,7 +321,7 @@ testOnPosix(
           'relevant-years',
           [
             {
-              classes: ['relevant-years'],
+              classNames: ['relevant-years'],
               code: normalizeFile([
                 `.relevant-years {`,
                 `  font-size: 0.8rem;`,
@@ -337,7 +337,7 @@ testOnPosix(
           'highlight',
           [
             {
-              classes: ['highlight'],
+              classNames: ['highlight'],
               code: normalizeFile([
                 `.highlight {`,
                 `  color: rgb(247 252 251 / 90%);`,
@@ -352,7 +352,7 @@ testOnPosix(
           'previous-button',
           [
             {
-              classes: ['previous-button'],
+              classNames: ['previous-button'],
               code: normalizeFile([
                 `.previous-button {`,
                 `  align-items: center;`,
@@ -366,7 +366,7 @@ testOnPosix(
               selector: '.previous-button',
             },
             {
-              classes: ['previous-button'],
+              classNames: ['previous-button'],
               code: normalizeFile([
                 `.previous-button {`,
                 `  grid-area: previous-button;`,
@@ -381,7 +381,7 @@ testOnPosix(
           'next-button',
           [
             {
-              classes: ['next-button'],
+              classNames: ['next-button'],
               code: normalizeFile([
                 `.next-button {`,
                 `  align-items: center;`,
@@ -395,7 +395,7 @@ testOnPosix(
               selector: '.next-button',
             },
             {
-              classes: ['next-button'],
+              classNames: ['next-button'],
               code: normalizeFile([
                 `.next-button {`,
                 `  grid-area: next-button;`,
@@ -410,7 +410,7 @@ testOnPosix(
           'icon',
           [
             {
-              classes: ['icon'],
+              classNames: ['icon'],
               code: normalizeFile([
                 `.icon {`,
                 `  color: rgb(247 252 251 / 90%);`,

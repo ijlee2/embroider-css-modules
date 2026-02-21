@@ -1,8 +1,8 @@
 import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
-import { getClasses } from '../../../../src/utils/css/index.js';
+import { getClassNames } from '../../../../src/utils/css/index.js';
 
-test('utils | css | get-classes > error case (4)', function () {
+test('utils | css | get-class-names > error case (4)', function () {
   const file = normalizeFile([
     `{{#each @items as |item|}}`,
     `  <div class={{item.class}}>`,
@@ -15,8 +15,8 @@ test('utils | css | get-classes > error case (4)', function () {
     `{{/each}}`,
   ]);
 
-  assert.deepStrictEqual(getClasses(file), {
-    classes: [],
+  assert.deepStrictEqual(getClassNames(file), {
+    classNames: [],
     errors: [
       'Could not analyze {{item.class}} in template, line 2.',
       'Could not analyze {{item.class}} in template, line 6.',

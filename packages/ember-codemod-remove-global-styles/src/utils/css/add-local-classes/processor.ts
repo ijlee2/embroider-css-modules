@@ -1,6 +1,6 @@
 import { AST } from '@codemod-utils/ast-template';
 
-import type { ClassToStyles } from '../../../types/index.js';
+import type { ClassNameToStyles } from '../../../types/index.js';
 
 type ConcatStatement = ReturnType<typeof AST.builders.concat>;
 type MustacheStatement = ReturnType<typeof AST.builders.mustache>;
@@ -10,13 +10,8 @@ type SubExpression = ReturnType<typeof AST.builders.sexpr>;
 type TextNode = ReturnType<typeof AST.builders.text>;
 
 type ProcessorArgs = {
-  classToStyles: ClassToStyles;
+  classNameToStyles: ClassNameToStyles;
   isHbs: boolean;
-};
-
-export type ProcessorReturn = {
-  classes: string[];
-  errors: string[];
 };
 
 export class Processor {
@@ -35,7 +30,7 @@ export class Processor {
   }
 
   private isLocal(className: string): boolean {
-    return this.args.classToStyles.has(className);
+    return this.args.classNameToStyles.has(className);
   }
 
   processConcatStatement(nodeValue: ConcatStatement): ConcatStatement {
@@ -135,26 +130,26 @@ export class Processor {
     }
 
     const parts: (PathExpression | StringLiteral)[] = [];
-    const globalClasses: string[] = [];
+    const globalClassNames: string[] = [];
 
     classNames.forEach((className) => {
       if (!this.isLocal(className)) {
-        globalClasses.push(className);
+        globalClassNames.push(className);
         return;
       }
 
-      if (globalClasses.length > 0) {
-        parts.push(AST.builders.string(globalClasses.join(' ')));
+      if (globalClassNames.length > 0) {
+        parts.push(AST.builders.string(globalClassNames.join(' ')));
         parts.push(AST.builders.string(' '));
       }
 
       parts.push(AST.builders.path(this.getLocalClass(className)));
       parts.push(AST.builders.string(' '));
-      globalClasses.length = 0;
+      globalClassNames.length = 0;
     });
 
-    if (globalClasses.length > 0) {
-      parts.push(AST.builders.string(globalClasses.join(' ')));
+    if (globalClassNames.length > 0) {
+      parts.push(AST.builders.string(globalClassNames.join(' ')));
       parts.push(AST.builders.string(' '));
     }
 
@@ -234,26 +229,26 @@ export class Processor {
     }
 
     const parts: (PathExpression | StringLiteral)[] = [];
-    const globalClasses: string[] = [];
+    const globalClassNames: string[] = [];
 
     classNames.forEach((className) => {
       if (!this.isLocal(className)) {
-        globalClasses.push(className);
+        globalClassNames.push(className);
         return;
       }
 
-      if (globalClasses.length > 0) {
-        parts.push(AST.builders.string(globalClasses.join(' ')));
+      if (globalClassNames.length > 0) {
+        parts.push(AST.builders.string(globalClassNames.join(' ')));
         parts.push(AST.builders.string(' '));
       }
 
       parts.push(AST.builders.path(this.getLocalClass(className)));
       parts.push(AST.builders.string(' '));
-      globalClasses.length = 0;
+      globalClassNames.length = 0;
     });
 
-    if (globalClasses.length > 0) {
-      parts.push(AST.builders.string(globalClasses.join(' ')));
+    if (globalClassNames.length > 0) {
+      parts.push(AST.builders.string(globalClassNames.join(' ')));
       parts.push(AST.builders.string(' '));
     }
 

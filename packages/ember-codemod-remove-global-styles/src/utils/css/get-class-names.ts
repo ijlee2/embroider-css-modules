@@ -1,8 +1,8 @@
 import { AST } from '@codemod-utils/ast-template';
 
-import { Processor, type ProcessorReturn } from './get-classes/index.js';
+import { Processor, type ProcessorReturn } from './get-class-names/index.js';
 
-export function getClasses(file: string): ProcessorReturn {
+export function getClassNames(file: string): ProcessorReturn {
   const processor = new Processor();
   const traverse = AST.traverse();
 

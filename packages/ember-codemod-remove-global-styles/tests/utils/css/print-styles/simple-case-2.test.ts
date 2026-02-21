@@ -5,7 +5,7 @@ import { printStyles } from '../../../../src/utils/css/index.js';
 test('utils | css | print-styles > simple case (2)', function () {
   const styles = [
     {
-      classes: ['link'],
+      classNames: ['link'],
       code: normalizeFile([
         `.link {`,
         `  display: inline-block;`,
@@ -19,7 +19,7 @@ test('utils | css | print-styles > simple case (2)', function () {
       selector: '.link',
     },
     {
-      classes: ['link'],
+      classNames: ['link'],
       code: normalizeFile([
         `.link:global(\\.active) {`,
         `  background-color: #15202d;`,
@@ -29,7 +29,7 @@ test('utils | css | print-styles > simple case (2)', function () {
       selector: '.link:global(\\.active)',
     },
     {
-      classes: ['link'],
+      classNames: ['link'],
       code: normalizeFile([
         `.link:hover {`,
         `  background-color: #26313d;`,

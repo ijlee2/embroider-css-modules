@@ -5,7 +5,7 @@ import { printStyles } from '../../../../src/utils/css/index.js';
 test('utils | css | print-styles > simple case (4)', function () {
   const styles = [
     {
-      classes: ['checkmark-icon'],
+      classNames: ['checkmark-icon'],
       code: normalizeFile([`.checkmark-icon {`, `  color: white;`, `}`]),
       line: 22,
       selector: '.checkmark-icon',

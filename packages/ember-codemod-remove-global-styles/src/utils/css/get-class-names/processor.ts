@@ -1,6 +1,6 @@
 import type { AST } from '@codemod-utils/ast-template';
 
-function extractClasses(value: string): string[] {
+function extractClassNames(value: string): string[] {
   return value.split(/\s+/).filter(Boolean);
 }
 
@@ -11,19 +11,19 @@ type SubExpression = ReturnType<typeof AST.builders.sexpr>;
 type TextNode = ReturnType<typeof AST.builders.text>;
 
 export type ProcessorReturn = {
-  classes: string[];
+  classNames: string[];
   errors: string[];
 };
 
 export class Processor {
-  private classes = new Set<string>();
+  private classNames = new Set<string>();
   private errors: string[] = [];
 
   print(): ProcessorReturn {
-    const { classes, errors } = this;
+    const { classNames, errors } = this;
 
     return {
-      classes: Array.from(classes),
+      classNames: Array.from(classNames),
       errors,
     };
   }
@@ -83,10 +83,10 @@ export class Processor {
   }
 
   processStringLiteral(nodeValue: StringLiteral): void {
-    const classNames = extractClasses(nodeValue.original);
+    const classNames = extractClassNames(nodeValue.original);
 
     classNames.forEach((className) => {
-      this.classes.add(className);
+      this.classNames.add(className);
     });
   }
 
@@ -129,10 +129,10 @@ export class Processor {
   }
 
   processTextNode(nodeValue: TextNode): void {
-    const classNames = extractClasses(nodeValue.chars);
+    const classNames = extractClassNames(nodeValue.chars);
 
     classNames.forEach((className) => {
-      this.classes.add(className);
+      this.classNames.add(className);
     });
   }
 }

@@ -1,53 +1,61 @@
 import { findTemplateTags } from '@codemod-utils/ast-template-tag';
 
-import type { ClassToStyles, EntityData, Style } from '../../types/index.js';
-import { getClasses } from '../../utils/css/index.js';
+import type {
+  ClassNameToStyles,
+  EntityData,
+  Style,
+} from '../../types/index.js';
+import { getClassNames } from '../../utils/css/index.js';
 
 type Data = {
-  classToStyles: ClassToStyles;
+  classNameToStyles: ClassNameToStyles;
   isHbs: boolean;
 };
 
-function getLocalStyles(classes: string[], data: Data): Style[] {
-  const classesSet = new Set(classes);
+function getLocalStyles(classNames: string[], data: Data): Style[] {
+  const uniqueClassNames = new Set(classNames);
+  const localStyles: Style[] = [];
 
-  const localStyles = classes.reduce((accumulator, className) => {
-    const styles = data.classToStyles.get(className) ?? [];
+  classNames.forEach((className) => {
+    const styles = data.classNameToStyles.get(className);
 
-    const filteredStyles = styles.filter(({ classes }) => {
-      return classes.every((className) => classesSet.has(className));
+    if (styles === undefined) {
+      return;
+    }
+
+    const filteredStyles = styles.filter(({ classNames }) => {
+      return classNames.every((className) => uniqueClassNames.has(className));
     });
 
-    accumulator.push(...filteredStyles);
-
-    return accumulator;
-  }, [] as Style[]);
+    localStyles.push(...filteredStyles);
+  });
 
   return localStyles;
 }
 
 export function getEntityData(file: string, data: Data): EntityData {
-  const classes: string[] = [];
-  const errors: string[] = [];
+  const allClassNames: string[] = [];
+  const allErrors: string[] = [];
+
+  function processFile(file: string): void {
+    const { classNames, errors } = getClassNames(file);
+
+    allClassNames.push(...classNames);
+    allErrors.push(...errors);
+  }
 
   if (data.isHbs) {
-    const output = getClasses(file);
-
-    classes.push(...output.classes);
-    errors.push(...output.errors);
+    processFile(file);
   } else {
     const templateTags = findTemplateTags(file);
 
     templateTags.forEach(({ contents }) => {
-      const output = getClasses(contents);
-
-      classes.push(...output.classes);
-      errors.push(...output.errors);
+      processFile(contents);
     });
   }
 
   return {
-    errors,
-    localStyles: getLocalStyles(classes, data),
+    errors: allErrors,
+    localStyles: getLocalStyles(allClassNames, data),
   };
 }

@@ -5,7 +5,7 @@ import { printStyles } from '../../../../src/utils/css/index.js';
 test('utils | css | print-styles > simple case (3)', function () {
   const styles = [
     {
-      classes: ['input'],
+      classNames: ['input'],
       code: normalizeFile([
         `.input {`,
         `  border: 0.125rem solid #ffd54f;`,
@@ -17,7 +17,7 @@ test('utils | css | print-styles > simple case (3)', function () {
       selector: '.input',
     },
     {
-      classes: ['input'],
+      classNames: ['input'],
       code: normalizeFile([
         `.input:focus {`,
         `  background-color: #ffecb3;`,
@@ -28,7 +28,7 @@ test('utils | css | print-styles > simple case (3)', function () {
       selector: '.input:focus',
     },
     {
-      classes: ['input'],
+      classNames: ['input'],
       code: normalizeFile([
         `.input:not(:focus) {`,
         `  border-color: transparent;`,
@@ -38,7 +38,7 @@ test('utils | css | print-styles > simple case (3)', function () {
       selector: '.input:not(:focus)',
     },
     {
-      classes: ['input'],
+      classNames: ['input'],
       code: normalizeFile([
         `.input::placeholder {`,
         `  font-style: italic;`,
