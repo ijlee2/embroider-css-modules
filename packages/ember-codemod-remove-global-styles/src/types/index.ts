@@ -18,7 +18,6 @@ type Options = {
 type ClassToStyles = Map<string, Style[]>;
 
 type EntityData = {
-  classes: string[];
   errors: string[];
   localStyles: Style[];
 };
