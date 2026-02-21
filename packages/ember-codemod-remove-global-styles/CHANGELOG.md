@@ -1,5 +1,13 @@
 # ember-codemod-remove-global-styles
 
+## 0.7.1
+
+### Patch Changes
+
+- [#225](https://github.com/ijlee2/embroider-css-modules/pull/225) Allowed testing getClassNameToStyles on Windows ([@ijlee2](https://github.com/ijlee2))
+- [#224](https://github.com/ijlee2/embroider-css-modules/pull/224) Renamed classes to classNames ([@ijlee2](https://github.com/ijlee2))
+- [#223](https://github.com/ijlee2/embroider-css-modules/pull/223) Simplified EntityData and Styles ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.7.0
 
 ### Minor Changes
