@@ -14,11 +14,6 @@ type ProcessorArgs = {
   isHbs: boolean;
 };
 
-export type ProcessorReturn = {
-  classes: string[];
-  errors: string[];
-};
-
 export class Processor {
   private args: ProcessorArgs;
 
@@ -135,26 +130,26 @@ export class Processor {
     }
 
     const parts: (PathExpression | StringLiteral)[] = [];
-    const globalClasses: string[] = [];
+    const globalClassNames: string[] = [];
 
     classNames.forEach((className) => {
       if (!this.isLocal(className)) {
-        globalClasses.push(className);
+        globalClassNames.push(className);
         return;
       }
 
-      if (globalClasses.length > 0) {
-        parts.push(AST.builders.string(globalClasses.join(' ')));
+      if (globalClassNames.length > 0) {
+        parts.push(AST.builders.string(globalClassNames.join(' ')));
         parts.push(AST.builders.string(' '));
       }
 
       parts.push(AST.builders.path(this.getLocalClass(className)));
       parts.push(AST.builders.string(' '));
-      globalClasses.length = 0;
+      globalClassNames.length = 0;
     });
 
-    if (globalClasses.length > 0) {
-      parts.push(AST.builders.string(globalClasses.join(' ')));
+    if (globalClassNames.length > 0) {
+      parts.push(AST.builders.string(globalClassNames.join(' ')));
       parts.push(AST.builders.string(' '));
     }
 
@@ -234,26 +229,26 @@ export class Processor {
     }
 
     const parts: (PathExpression | StringLiteral)[] = [];
-    const globalClasses: string[] = [];
+    const globalClassNames: string[] = [];
 
     classNames.forEach((className) => {
       if (!this.isLocal(className)) {
-        globalClasses.push(className);
+        globalClassNames.push(className);
         return;
       }
 
-      if (globalClasses.length > 0) {
-        parts.push(AST.builders.string(globalClasses.join(' ')));
+      if (globalClassNames.length > 0) {
+        parts.push(AST.builders.string(globalClassNames.join(' ')));
         parts.push(AST.builders.string(' '));
       }
 
       parts.push(AST.builders.path(this.getLocalClass(className)));
       parts.push(AST.builders.string(' '));
-      globalClasses.length = 0;
+      globalClassNames.length = 0;
     });
 
-    if (globalClasses.length > 0) {
-      parts.push(AST.builders.string(globalClasses.join(' ')));
+    if (globalClassNames.length > 0) {
+      parts.push(AST.builders.string(globalClassNames.join(' ')));
       parts.push(AST.builders.string(' '));
     }
 
