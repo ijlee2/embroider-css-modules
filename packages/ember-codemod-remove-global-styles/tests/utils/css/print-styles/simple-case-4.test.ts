@@ -6,11 +6,11 @@ test('utils | css | print-styles > simple case (4)', function () {
   const styles = [
     {
       classes: ['checkmark-icon'],
+      code: normalizeFile([`.checkmark-icon {`, `  color: white;`, `}`]),
       location: {
         end: { column: 1, line: 24, offset: 370 },
         start: { column: 1, line: 22, offset: 335 },
       },
-      raw: normalizeFile([`.checkmark-icon {`, `  color: white;`, `}`]),
       selector: '.checkmark-icon',
     },
   ];

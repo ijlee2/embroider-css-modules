@@ -121,11 +121,7 @@ testOnPosix(
           [
             {
               classes: ['container'],
-              location: {
-                end: { column: 1, line: 14, offset: 305 },
-                start: { column: 1, line: 1, offset: 0 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container {`,
                 `  display: grid;`,
                 `  grid-template-areas:`,
@@ -141,30 +137,30 @@ testOnPosix(
                 `  width: calc(100% - 2rem) !important;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 14, offset: 305 },
+                start: { column: 1, line: 1, offset: 0 },
+              },
               selector: '.container',
             },
             {
               classes: ['container'],
-              location: {
-                end: { column: 1, line: 20, offset: 410 },
-                start: { column: 1, line: 16, offset: 307 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container:hover {`,
                 `  background: #26313d;`,
                 `  transform: translateY(-0.25rem);`,
                 `  transition: all 0.25s;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 20, offset: 410 },
+                start: { column: 1, line: 16, offset: 307 },
+              },
               selector: '.container:hover',
             },
             {
               classes: ['container'],
-              location: {
-                end: { column: 1, line: 93, offset: 1562 },
-                start: { column: 1, line: 85, offset: 1317 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container[data-container-query-wide] {`,
                 `  column-gap: 1.5rem;`,
                 `  grid-template-areas:`,
@@ -175,32 +171,36 @@ testOnPosix(
                 `  grid-template-rows: auto 1fr auto;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 93, offset: 1562 },
+                start: { column: 1, line: 85, offset: 1317 },
+              },
               selector: '.container[data-container-query-wide]',
             },
             {
               classes: ['container', 'body'],
-              location: {
-                end: { column: 1, line: 98, offset: 1630 },
-                start: { column: 1, line: 95, offset: 1564 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container[data-container-query-wide] .body {`,
                 `  margin-top: 0;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 98, offset: 1630 },
+                start: { column: 1, line: 95, offset: 1564 },
+              },
               selector: '.container[data-container-query-wide] .body',
             },
             {
               classes: ['container', 'link'],
-              location: {
-                end: { column: 1, line: 103, offset: 1701 },
-                start: { column: 1, line: 100, offset: 1632 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container[data-container-query-wide] .link {`,
                 `  margin-top: 1rem;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 103, offset: 1701 },
+                start: { column: 1, line: 100, offset: 1632 },
+              },
               selector: '.container[data-container-query-wide] .link',
             },
           ],
@@ -210,11 +210,11 @@ testOnPosix(
           [
             {
               classes: ['header'],
+              code: normalizeFile([`.header {`, `  grid-area: header;`, `}`]),
               location: {
                 end: { column: 1, line: 24, offset: 444 },
                 start: { column: 1, line: 22, offset: 412 },
               },
-              raw: normalizeFile([`.header {`, `  grid-area: header;`, `}`]),
               selector: '.header',
             },
           ],
@@ -224,17 +224,17 @@ testOnPosix(
           [
             {
               classes: ['name'],
-              location: {
-                end: { column: 1, line: 30, offset: 523 },
-                start: { column: 1, line: 26, offset: 446 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.name {`,
                 `  font-size: 1.25rem;`,
                 `  font-weight: 700;`,
                 `  margin-bottom: 0.75rem;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 30, offset: 523 },
+                start: { column: 1, line: 26, offset: 446 },
+              },
               selector: '.name',
             },
           ],
@@ -244,17 +244,17 @@ testOnPosix(
           [
             {
               classes: ['image-container'],
-              location: {
-                end: { column: 1, line: 36, offset: 614 },
-                start: { column: 1, line: 32, offset: 525 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.image-container {`,
                 `  grid-area: image-container;`,
                 `  max-height: 6rem;`,
                 `  max-width: 8rem;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 36, offset: 614 },
+                start: { column: 1, line: 32, offset: 525 },
+              },
               selector: '.image-container',
             },
           ],
@@ -264,16 +264,16 @@ testOnPosix(
           [
             {
               classes: ['body'],
-              location: {
-                end: { column: 1, line: 41, offset: 664 },
-                start: { column: 1, line: 38, offset: 616 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.body {`,
                 `  grid-area: body;`,
                 `  margin-top: 1rem;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 41, offset: 664 },
+                start: { column: 1, line: 38, offset: 616 },
+              },
               selector: '.body',
             },
           ],
@@ -283,16 +283,16 @@ testOnPosix(
           [
             {
               classes: ['description'],
-              location: {
-                end: { column: 1, line: 47, offset: 740 },
-                start: { column: 1, line: 43, offset: 666 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.description {`,
                 `  font-size: 0.875rem;`,
                 `  margin-bottom: 0.375rem;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 47, offset: 740 },
+                start: { column: 1, line: 43, offset: 666 },
+              },
               selector: '.description',
             },
           ],
@@ -302,16 +302,16 @@ testOnPosix(
           [
             {
               classes: ['price'],
-              location: {
-                end: { column: 1, line: 47, offset: 740 },
-                start: { column: 1, line: 43, offset: 666 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.price {`,
                 `  font-size: 0.875rem;`,
                 `  margin-bottom: 0.375rem;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 47, offset: 740 },
+                start: { column: 1, line: 43, offset: 666 },
+              },
               selector: '.price',
             },
           ],
@@ -321,11 +321,7 @@ testOnPosix(
           [
             {
               classes: ['actions'],
-              location: {
-                end: { column: 1, line: 54, offset: 845 },
-                start: { column: 1, line: 49, offset: 742 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.actions {`,
                 `  align-items: center;`,
                 `  display: flex;`,
@@ -333,6 +329,10 @@ testOnPosix(
                 `  justify-content: flex-end;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 54, offset: 845 },
+                start: { column: 1, line: 49, offset: 742 },
+              },
               selector: '.actions',
             },
           ],
@@ -342,11 +342,7 @@ testOnPosix(
           [
             {
               classes: ['link'],
-              location: {
-                end: { column: 1, line: 66, offset: 1125 },
-                start: { column: 1, line: 56, offset: 847 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.link {`,
                 `  background: transparent;`,
                 `  border: 0.0625rem solid rgb(247 252 251 / 50%);`,
@@ -359,15 +355,15 @@ testOnPosix(
                 `  text-decoration: none;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 66, offset: 1125 },
+                start: { column: 1, line: 56, offset: 847 },
+              },
               selector: '.link',
             },
             {
               classes: ['link'],
-              location: {
-                end: { column: 1, line: 75, offset: 1232 },
-                start: { column: 1, line: 68, offset: 1127 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.link::after {`,
                 `  content: "";`,
                 `  height: 100%;`,
@@ -377,28 +373,32 @@ testOnPosix(
                 `  width: 100%;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 75, offset: 1232 },
+                start: { column: 1, line: 68, offset: 1127 },
+              },
               selector: '.link::after',
             },
             {
               classes: ['link'],
+              code: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
               location: {
                 end: { column: 1, line: 79, offset: 1263 },
                 start: { column: 1, line: 77, offset: 1234 },
               },
-              raw: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
               selector: '.link:focus',
             },
             {
               classes: ['link'],
-              location: {
-                end: { column: 1, line: 83, offset: 1315 },
-                start: { column: 1, line: 81, offset: 1265 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.link:focus::after {`,
                 `  border: 1px solid orange;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 83, offset: 1315 },
+                start: { column: 1, line: 81, offset: 1265 },
+              },
               selector: '.link:focus::after',
             },
           ],

@@ -29,6 +29,7 @@ type Project = {
 
 type Style = {
   classes: string[];
+  code: string;
   location: {
     end: {
       column: number;
@@ -41,7 +42,6 @@ type Style = {
       offset: number;
     };
   };
-  raw: string;
   selector: string;
 };
 

@@ -6,11 +6,7 @@ test('utils | css | print-styles > simple case (2)', function () {
   const styles = [
     {
       classes: ['link'],
-      location: {
-        end: { column: 1, line: 12, offset: 182 },
-        start: { column: 1, line: 6, offset: 51 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.link {`,
         `  display: inline-block;`,
         `  font-size: 0.875rem;`,
@@ -19,33 +15,37 @@ test('utils | css | print-styles > simple case (2)', function () {
         `  white-space: nowrap;`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 12, offset: 182 },
+        start: { column: 1, line: 6, offset: 51 },
+      },
       selector: '.link',
     },
     {
-      classes: ['link', 'active'],
+      classes: ['link'],
+      code: normalizeFile([
+        `.link:global(\\.active) {`,
+        `  background-color: #15202d;`,
+        `}`,
+      ]),
       location: {
         end: { column: 1, line: 16, offset: 238 },
         start: { column: 1, line: 14, offset: 184 },
       },
-      raw: normalizeFile([
-        `.link:global(.active) {`,
-        `  background-color: #15202d;`,
-        `}`,
-      ]),
-      selector: '.link:global(.active)',
+      selector: '.link:global(\\.active)',
     },
     {
       classes: ['link'],
-      location: {
-        end: { column: 1, line: 21, offset: 322 },
-        start: { column: 1, line: 18, offset: 240 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.link:hover {`,
         `  background-color: #26313d;`,
         `  transition: background-color 0.17s;`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 21, offset: 322 },
+        start: { column: 1, line: 18, offset: 240 },
+      },
       selector: '.link:hover',
     },
   ];
@@ -61,7 +61,7 @@ test('utils | css | print-styles > simple case (2)', function () {
       `  white-space: nowrap;`,
       `}`,
       ``,
-      `.link:global(.active) {`,
+      `.link:global(\\.active) {`,
       `  background-color: #15202d;`,
       `}`,
       ``,

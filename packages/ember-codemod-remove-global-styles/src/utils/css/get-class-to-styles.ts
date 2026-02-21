@@ -41,11 +41,11 @@ export function getClassToStyles(file: string): ClassToStyles {
 
       const data = {
         classes,
+        code: clone.toString(),
         location: {
           end: node.source.end,
           start: node.source.start,
         },
-        raw: clone.toString(),
         selector,
       };
 

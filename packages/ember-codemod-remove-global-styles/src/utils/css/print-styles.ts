@@ -15,6 +15,6 @@ export function printStyles(styles: Style[]): string {
 
       return 0;
     })
-    .map(({ raw }) => raw)
+    .map(({ code }) => code)
     .join(EOL.repeat(2));
 }

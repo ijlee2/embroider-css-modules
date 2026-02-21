@@ -6,11 +6,7 @@ test('utils | css | print-styles > complex case (3)', function () {
   const styles = [
     {
       classes: ['container'],
-      location: {
-        end: { column: 1, line: 13, offset: 267 },
-        start: { column: 1, line: 1, offset: 0 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container {`,
         `  column-gap: 2.5rem;`,
         `  display: grid;`,
@@ -25,15 +21,15 @@ test('utils | css | print-styles > complex case (3)', function () {
         `  width: 100%;`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 13, offset: 267 },
+        start: { column: 1, line: 1, offset: 0 },
+      },
       selector: '.container',
     },
     {
       classes: ['container', 'flat'],
-      location: {
-        end: { column: 1, line: 90, offset: 1582 },
-        start: { column: 1, line: 85, offset: 1396 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container.flat {`,
         `  column-gap: 1rem;`,
         `  grid-template-areas: "previous-button summary next-button";`,
@@ -41,15 +37,15 @@ test('utils | css | print-styles > complex case (3)', function () {
         `  grid-template-rows: minmax(3rem, 1fr);`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 90, offset: 1582 },
+        start: { column: 1, line: 85, offset: 1396 },
+      },
       selector: '.container.flat',
     },
     {
       classes: ['container', 'flat', 'summary', 'horizontal-layout'],
-      location: {
-        end: { column: 1, line: 97, offset: 1779 },
-        start: { column: 1, line: 92, offset: 1584 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container.flat .summary.horizontal-layout {`,
         `  gap: 0.5rem;`,
         `  grid-template-areas: "music-format annual-revenue relevant-years";`,
@@ -57,62 +53,66 @@ test('utils | css | print-styles > complex case (3)', function () {
         `  grid-template-rows: 1fr;`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 97, offset: 1779 },
+        start: { column: 1, line: 92, offset: 1584 },
+      },
       selector: '.container.flat .summary.horizontal-layout',
     },
     {
       classes: ['container', 'flat', 'annual-revenue'],
-      location: {
-        end: { column: 1, line: 103, offset: 1892 },
-        start: { column: 1, line: 99, offset: 1781 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container.flat .annual-revenue {`,
         `  display: flex;`,
         `  flex-direction: column;`,
         `}`,
       ]),
-      selector: '.container.flat .annual-revenue',
-    },
-    {
-      classes: ['container', 'flat', 'relevant-years'],
       location: {
         end: { column: 1, line: 103, offset: 1892 },
         start: { column: 1, line: 99, offset: 1781 },
       },
-      raw: normalizeFile([
+      selector: '.container.flat .annual-revenue',
+    },
+    {
+      classes: ['container', 'flat', 'relevant-years'],
+      code: normalizeFile([
         `.container.flat .relevant-years {`,
         `  display: flex;`,
         `  flex-direction: column;`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 103, offset: 1892 },
+        start: { column: 1, line: 99, offset: 1781 },
+      },
       selector: '.container.flat .relevant-years',
     },
     {
       classes: ['container', 'flat', 'previous-button'],
-      location: {
-        end: { column: 1, line: 109, offset: 2037 },
-        start: { column: 1, line: 105, offset: 1894 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container.flat .previous-button {`,
         `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,
         `  border: 0;`,
         `}`,
       ]),
-      selector: '.container.flat .previous-button',
-    },
-    {
-      classes: ['container', 'flat', 'next-button'],
       location: {
         end: { column: 1, line: 109, offset: 2037 },
         start: { column: 1, line: 105, offset: 1894 },
       },
-      raw: normalizeFile([
+      selector: '.container.flat .previous-button',
+    },
+    {
+      classes: ['container', 'flat', 'next-button'],
+      code: normalizeFile([
         `.container.flat .next-button {`,
         `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,
         `  border: 0;`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 109, offset: 2037 },
+        start: { column: 1, line: 105, offset: 1894 },
+      },
       selector: '.container.flat .next-button',
     },
   ];

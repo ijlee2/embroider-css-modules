@@ -37,16 +37,16 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
         [
           {
             classes: ['list'],
-            location: {
-              end: { column: 1, line: 4, offset: 49 },
-              start: { column: 1, line: 1, offset: 0 },
-            },
-            raw: normalizeFile([
+            code: normalizeFile([
               `.list {`,
               `  align-items: center;`,
               `  display: flex;`,
               `}`,
             ]),
+            location: {
+              end: { column: 1, line: 4, offset: 49 },
+              start: { column: 1, line: 1, offset: 0 },
+            },
             selector: '.list',
           },
         ],
@@ -56,11 +56,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
         [
           {
             classes: ['link'],
-            location: {
-              end: { column: 1, line: 12, offset: 182 },
-              start: { column: 1, line: 6, offset: 51 },
-            },
-            raw: normalizeFile([
+            code: normalizeFile([
               `.link {`,
               `  display: inline-block;`,
               `  font-size: 0.875rem;`,
@@ -69,33 +65,37 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
               `  white-space: nowrap;`,
               `}`,
             ]),
+            location: {
+              end: { column: 1, line: 12, offset: 182 },
+              start: { column: 1, line: 6, offset: 51 },
+            },
             selector: '.link',
           },
           {
             classes: ['link'],
-            location: {
-              end: { column: 1, line: 16, offset: 238 },
-              start: { column: 1, line: 14, offset: 184 },
-            },
-            raw: normalizeFile([
+            code: normalizeFile([
               `.link:global(\\.active) {`,
               `  background-color: #15202d;`,
               `}`,
             ]),
+            location: {
+              end: { column: 1, line: 16, offset: 238 },
+              start: { column: 1, line: 14, offset: 184 },
+            },
             selector: '.link:global(\\.active)',
           },
           {
             classes: ['link'],
-            location: {
-              end: { column: 1, line: 21, offset: 322 },
-              start: { column: 1, line: 18, offset: 240 },
-            },
-            raw: normalizeFile([
+            code: normalizeFile([
               `.link:hover {`,
               `  background-color: #26313d;`,
               `  transition: background-color 0.17s;`,
               `}`,
             ]),
+            location: {
+              end: { column: 1, line: 21, offset: 322 },
+              start: { column: 1, line: 18, offset: 240 },
+            },
             selector: '.link:hover',
           },
         ],

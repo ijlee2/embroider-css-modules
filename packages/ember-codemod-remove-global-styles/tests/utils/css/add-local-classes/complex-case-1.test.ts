@@ -44,25 +44,21 @@ test('utils | css | add-local-classes > complex case (1)', function () {
       [
         {
           classes: ['container'],
-          location: {
-            end: { column: 1, line: 4, offset: 53 },
-            start: { column: 1, line: 1, offset: 0 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container {`,
             `  align-items: start;`,
             `  display: grid;`,
             `}`,
           ]),
+          location: {
+            end: { column: 1, line: 4, offset: 53 },
+            start: { column: 1, line: 1, offset: 0 },
+          },
           selector: '.container',
         },
         {
           classes: ['container', 'is-wide', 'no-feedback'],
-          location: {
-            end: { column: 1, line: 15, offset: 267 },
-            start: { column: 1, line: 6, offset: 55 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container:not(.is-wide):not(.no-feedback) {`,
             `  column-gap: 0;`,
             `  grid-template-areas:`,
@@ -74,15 +70,15 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0.5rem;`,
             `}`,
           ]),
+          location: {
+            end: { column: 1, line: 15, offset: 267 },
+            start: { column: 1, line: 6, offset: 55 },
+          },
           selector: '.container:not(.is-wide):not(.no-feedback)',
         },
         {
           classes: ['container', 'is-wide', 'no-feedback'],
-          location: {
-            end: { column: 1, line: 25, offset: 455 },
-            start: { column: 1, line: 17, offset: 269 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container:not(.is-wide).no-feedback {`,
             `  column-gap: 0;`,
             `  grid-template-areas:`,
@@ -93,15 +89,15 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0.5rem;`,
             `}`,
           ]),
+          location: {
+            end: { column: 1, line: 25, offset: 455 },
+            start: { column: 1, line: 17, offset: 269 },
+          },
           selector: '.container:not(.is-wide).no-feedback',
         },
         {
           classes: ['container', 'is-wide', 'no-feedback'],
-          location: {
-            end: { column: 1, line: 35, offset: 667 },
-            start: { column: 1, line: 27, offset: 457 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container.is-wide:not(.no-feedback) {`,
             `  column-gap: 1rem;`,
             `  grid-template-areas:`,
@@ -112,15 +108,15 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0.5rem;`,
             `}`,
           ]),
+          location: {
+            end: { column: 1, line: 35, offset: 667 },
+            start: { column: 1, line: 27, offset: 457 },
+          },
           selector: '.container.is-wide:not(.no-feedback)',
         },
         {
           classes: ['container', 'is-wide', 'no-feedback'],
-          location: {
-            end: { column: 1, line: 43, offset: 843 },
-            start: { column: 1, line: 37, offset: 669 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container.is-wide.no-feedback {`,
             `  column-gap: 1rem;`,
             `  grid-template-areas: "label field";`,
@@ -129,15 +125,15 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0.5rem;`,
             `}`,
           ]),
+          location: {
+            end: { column: 1, line: 43, offset: 843 },
+            start: { column: 1, line: 37, offset: 669 },
+          },
           selector: '.container.is-wide.no-feedback',
         },
         {
           classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
-          location: {
-            end: { column: 1, line: 79, offset: 1390 },
-            start: { column: 1, line: 71, offset: 1162 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container.is-inline:not(.is-wide):not(.no-feedback) {`,
             `  column-gap: 1rem;`,
             `  grid-template-areas:`,
@@ -148,15 +144,15 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0.5rem;`,
             `}`,
           ]),
+          location: {
+            end: { column: 1, line: 79, offset: 1390 },
+            start: { column: 1, line: 71, offset: 1162 },
+          },
           selector: '.container.is-inline:not(.is-wide):not(.no-feedback)',
         },
         {
           classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
-          location: {
-            end: { column: 1, line: 87, offset: 1576 },
-            start: { column: 1, line: 81, offset: 1392 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container.is-inline:not(.is-wide).no-feedback {`,
             `  column-gap: 1rem;`,
             `  grid-template-areas: "field label";`,
@@ -165,6 +161,10 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0;`,
             `}`,
           ]),
+          location: {
+            end: { column: 1, line: 87, offset: 1576 },
+            start: { column: 1, line: 81, offset: 1392 },
+          },
           selector: '.container.is-inline:not(.is-wide).no-feedback',
         },
       ],
@@ -174,17 +174,17 @@ test('utils | css | add-local-classes > complex case (1)', function () {
       [
         {
           classes: ['label'],
-          location: {
-            end: { column: 1, line: 49, offset: 920 },
-            start: { column: 1, line: 45, offset: 845 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.label {`,
             `  grid-area: label;`,
             `  overflow: hidden;`,
             `  word-break: break-all;`,
             `}`,
           ]),
+          location: {
+            end: { column: 1, line: 49, offset: 920 },
+            start: { column: 1, line: 45, offset: 845 },
+          },
           selector: '.label',
         },
       ],
@@ -194,11 +194,11 @@ test('utils | css | add-local-classes > complex case (1)', function () {
       [
         {
           classes: ['field'],
+          code: normalizeFile([`.field {`, `  grid-area: field;`, `}`]),
           location: {
             end: { column: 1, line: 53, offset: 952 },
             start: { column: 1, line: 51, offset: 922 },
           },
-          raw: normalizeFile([`.field {`, `  grid-area: field;`, `}`]),
           selector: '.field',
         },
       ],
@@ -208,11 +208,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
       [
         {
           classes: ['feedback'],
-          location: {
-            end: { column: 1, line: 60, offset: 1053 },
-            start: { column: 1, line: 55, offset: 954 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.feedback {`,
             `  align-items: center;`,
             `  display: flex;`,
@@ -220,19 +216,23 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  grid-area: feedback;`,
             `}`,
           ]),
+          location: {
+            end: { column: 1, line: 60, offset: 1053 },
+            start: { column: 1, line: 55, offset: 954 },
+          },
           selector: '.feedback',
         },
         {
           classes: ['feedback', 'is-error'],
-          location: {
-            end: { column: 1, line: 64, offset: 1095 },
-            start: { column: 1, line: 62, offset: 1055 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.feedback.is-error {`,
             `  color: #ff5252;`,
             `}`,
           ]),
+          location: {
+            end: { column: 1, line: 64, offset: 1095 },
+            start: { column: 1, line: 62, offset: 1055 },
+          },
           selector: '.feedback.is-error',
         },
       ],
@@ -242,11 +242,11 @@ test('utils | css | add-local-classes > complex case (1)', function () {
       [
         {
           classes: ['message'],
+          code: normalizeFile([`.message {`, `  margin-left: 0.5rem;`, `}`]),
           location: {
             end: { column: 1, line: 68, offset: 1132 },
             start: { column: 1, line: 66, offset: 1097 },
           },
-          raw: normalizeFile([`.message {`, `  margin-left: 0.5rem;`, `}`]),
           selector: '.message',
         },
       ],

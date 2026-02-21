@@ -6,57 +6,57 @@ test('utils | css | print-styles > simple case (3)', function () {
   const styles = [
     {
       classes: ['input'],
-      location: {
-        end: { column: 1, line: 5, offset: 104 },
-        start: { column: 1, line: 1, offset: 0 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.input {`,
         `  border: 0.125rem solid #ffd54f;`,
         `  padding: 0.125rem 0.25rem;`,
         `  width: calc(100% - 0.75rem);`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 5, offset: 104 },
+        start: { column: 1, line: 1, offset: 0 },
+      },
       selector: '.input',
     },
     {
       classes: ['input'],
-      location: {
-        end: { column: 1, line: 10, offset: 165 },
-        start: { column: 1, line: 7, offset: 106 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.input:focus {`,
         `  background-color: #ffecb3;`,
         `  outline: 0;`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 10, offset: 165 },
+        start: { column: 1, line: 7, offset: 106 },
+      },
       selector: '.input:focus',
     },
     {
       classes: ['input'],
-      location: {
-        end: { column: 1, line: 14, offset: 218 },
-        start: { column: 1, line: 12, offset: 167 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.input:not(:focus) {`,
         `  border-color: transparent;`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 14, offset: 218 },
+        start: { column: 1, line: 12, offset: 167 },
+      },
       selector: '.input:not(:focus)',
     },
     {
       classes: ['input'],
-      location: {
-        end: { column: 1, line: 18, offset: 265 },
-        start: { column: 1, line: 16, offset: 220 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.input::placeholder {`,
         `  font-style: italic;`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 18, offset: 265 },
+        start: { column: 1, line: 16, offset: 220 },
+      },
       selector: '.input::placeholder',
     },
   ];

@@ -38,11 +38,7 @@ testOnPosix(
           [
             {
               classes: ['container', 'is-wide', 'no-feedback'],
-              location: {
-                end: { column: 1, line: 10, offset: 208 },
-                start: { column: 1, line: 1, offset: 0 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container:not(.is-wide, .no-feedback) {`,
                 `  column-gap: 0;`,
                 `  grid-template-areas:`,
@@ -54,15 +50,15 @@ testOnPosix(
                 `  row-gap: 0.5rem;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 10, offset: 208 },
+                start: { column: 1, line: 1, offset: 0 },
+              },
               selector: '.container:not(.is-wide, .no-feedback)',
             },
             {
               classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
-              location: {
-                end: { column: 1, line: 20, offset: 434 },
-                start: { column: 1, line: 12, offset: 210 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container.is-inline:not(.is-wide, .no-feedback) {`,
                 `  column-gap: 1rem;`,
                 `  grid-template-areas:`,
@@ -73,6 +69,10 @@ testOnPosix(
                 `  row-gap: 0.5rem;`,
                 `}`,
               ]),
+              location: {
+                end: { column: 1, line: 20, offset: 434 },
+                start: { column: 1, line: 12, offset: 210 },
+              },
               selector: '.container.is-inline:not(.is-wide, .no-feedback)',
             },
           ],

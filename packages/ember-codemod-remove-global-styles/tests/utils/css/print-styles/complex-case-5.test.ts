@@ -2,15 +2,11 @@ import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
 import { printStyles } from '../../../../src/utils/css/index.js';
 
-test('utils | css | print-styles > failed case (2)', function () {
+test('utils | css | print-styles > complex case (5)', function () {
   const styles = [
     {
       classes: ['widgets'],
-      location: {
-        end: { column: 1, line: 12, offset: 229 },
-        start: { column: 1, line: 1, offset: 0 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.widgets {`,
         `  display: grid;`,
         `  gap: 1rem;`,
@@ -24,28 +20,28 @@ test('utils | css | print-styles > failed case (2)', function () {
         `  grid-template-rows: repeat(4, minmax(12rem, 75%)) 5rem;`,
         `}`,
       ]),
+      location: {
+        end: { column: 1, line: 12, offset: 229 },
+        start: { column: 1, line: 1, offset: 0 },
+      },
       selector: '.widgets',
     },
     {
       classes: ['widgets'],
-      location: {
-        end: { column: 5, line: 53, offset: 1005 },
-        start: { column: 5, line: 51, offset: 942 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.widgets {`,
         `      grid-template-rows: repeat(4, 25%) 5rem;`,
         `    }`,
       ]),
+      location: {
+        end: { column: 5, line: 53, offset: 1005 },
+        start: { column: 5, line: 51, offset: 942 },
+      },
       selector: '.widgets',
     },
     {
       classes: ['widgets'],
-      location: {
-        end: { column: 3, line: 67, offset: 1313 },
-        start: { column: 3, line: 58, offset: 1073 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.widgets {`,
         `    grid-template-areas:`,
         `      "widget-1 widget-2"`,
@@ -57,28 +53,28 @@ test('utils | css | print-styles > failed case (2)', function () {
         `    height: 40rem;`,
         `  }`,
       ]),
+      location: {
+        end: { column: 3, line: 67, offset: 1313 },
+        start: { column: 3, line: 58, offset: 1073 },
+      },
       selector: '.widgets',
     },
     {
       classes: ['widgets'],
-      location: {
-        end: { column: 5, line: 72, offset: 1408 },
-        start: { column: 5, line: 70, offset: 1348 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.widgets {`,
         `      grid-template-rows: 3fr 1fr 2fr 5rem;`,
         `    }`,
       ]),
+      location: {
+        end: { column: 5, line: 72, offset: 1408 },
+        start: { column: 5, line: 70, offset: 1348 },
+      },
       selector: '.widgets',
     },
     {
       classes: ['widgets'],
-      location: {
-        end: { column: 3, line: 85, offset: 1728 },
-        start: { column: 3, line: 77, offset: 1455 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.widgets {`,
         `    grid-template-areas:`,
         `      "widget-1 widget-2 widget-4"`,
@@ -89,19 +85,23 @@ test('utils | css | print-styles > failed case (2)', function () {
         `    height: 40rem;`,
         `  }`,
       ]),
+      location: {
+        end: { column: 3, line: 85, offset: 1728 },
+        start: { column: 3, line: 77, offset: 1455 },
+      },
       selector: '.widgets',
     },
     {
       classes: ['widgets'],
-      location: {
-        end: { column: 5, line: 90, offset: 1820 },
-        start: { column: 5, line: 88, offset: 1763 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.widgets {`,
         `      grid-template-rows: 4fr 1fr 10rem;`,
         `    }`,
       ]),
+      location: {
+        end: { column: 5, line: 90, offset: 1820 },
+        start: { column: 5, line: 88, offset: 1763 },
+      },
       selector: '.widgets',
     },
   ];
