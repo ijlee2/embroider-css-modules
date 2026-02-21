@@ -5,7 +5,7 @@ import { printStyles } from '../../../../src/utils/css/index.js';
 test('utils | css | print-styles > complex case (4)', function () {
   const styles = [
     {
-      classes: ['container', 'is-wide', 'no-feedback'],
+      classNames: ['container', 'is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container:not(.is-wide, .no-feedback) {`,
         `  column-gap: 0;`,
@@ -22,7 +22,7 @@ test('utils | css | print-styles > complex case (4)', function () {
       selector: '.container:not(.is-wide, .no-feedback)',
     },
     {
-      classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+      classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container.is-inline:not(.is-wide, .no-feedback) {`,
         `  column-gap: 1rem;`,

@@ -5,7 +5,7 @@ import { printStyles } from '../../../../src/utils/css/index.js';
 test('utils | css | print-styles > simple case (1)', function () {
   const styles = [
     {
-      classes: ['image'],
+      classNames: ['image'],
       code: normalizeFile([
         `.image {`,
         `  aspect-ratio: 4 / 3;`,
@@ -17,7 +17,7 @@ test('utils | css | print-styles > simple case (1)', function () {
       selector: '.image',
     },
     {
-      classes: ['image'],
+      classNames: ['image'],
       code: normalizeFile([`.image {`, `  object-fit: cover;`, `}`]),
       line: 8,
       selector: '.image',

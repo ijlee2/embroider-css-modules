@@ -37,7 +37,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (3)', function () {
         'input',
         [
           {
-            classes: ['input'],
+            classNames: ['input'],
             code: normalizeFile([
               `.input {`,
               `  border: 0.125rem solid #ffd54f;`,
@@ -49,7 +49,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (3)', function () {
             selector: '.input',
           },
           {
-            classes: ['input'],
+            classNames: ['input'],
             code: normalizeFile([
               `.input:focus {`,
               `  background-color: #ffecb3;`,
@@ -60,7 +60,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (3)', function () {
             selector: '.input:focus',
           },
           {
-            classes: ['input'],
+            classNames: ['input'],
             code: normalizeFile([
               `.input:not(:focus) {`,
               `  border-color: transparent;`,
@@ -70,7 +70,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (3)', function () {
             selector: '.input:not(:focus)',
           },
           {
-            classes: ['input'],
+            classNames: ['input'],
             code: normalizeFile([
               `.input::placeholder {`,
               `  font-style: italic;`,
@@ -85,7 +85,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (3)', function () {
         'is-disabled',
         [
           {
-            classes: ['is-disabled'],
+            classNames: ['is-disabled'],
             code: normalizeFile([
               `.is-disabled {`,
               `  composes: input-disabled from global;`,

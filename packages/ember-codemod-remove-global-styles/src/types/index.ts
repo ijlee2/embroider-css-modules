@@ -28,7 +28,7 @@ type Project = {
 };
 
 type Style = {
-  classes: string[];
+  classNames: string[];
   code: string;
   line: number;
   selector: string;

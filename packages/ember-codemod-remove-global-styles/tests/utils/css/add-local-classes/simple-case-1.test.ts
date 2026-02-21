@@ -16,7 +16,7 @@ test('utils | css | add-local-classes > simple case (1)', function () {
       'image',
       [
         {
-          classes: ['image'],
+          classNames: ['image'],
           code: normalizeFile([
             `.image {`,
             `  aspect-ratio: 4 / 3;`,
@@ -28,7 +28,7 @@ test('utils | css | add-local-classes > simple case (1)', function () {
           selector: '.image',
         },
         {
-          classes: ['image'],
+          classNames: ['image'],
           code: normalizeFile([`.image {`, `  object-fit: cover;`, `}`]),
           line: 8,
           selector: '.image',
@@ -39,7 +39,7 @@ test('utils | css | add-local-classes > simple case (1)', function () {
       'placeholder-image',
       [
         {
-          classes: ['placeholder-image'],
+          classNames: ['placeholder-image'],
           code: normalizeFile([
             `.placeholder-image {`,
             `  aspect-ratio: 4 / 3;`,
@@ -51,7 +51,7 @@ test('utils | css | add-local-classes > simple case (1)', function () {
           selector: '.placeholder-image',
         },
         {
-          classes: ['placeholder-image'],
+          classNames: ['placeholder-image'],
           code: normalizeFile([
             `.placeholder-image {`,
             `  background: linear-gradient(`,

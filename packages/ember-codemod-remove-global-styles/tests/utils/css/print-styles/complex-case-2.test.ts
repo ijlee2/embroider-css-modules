@@ -5,7 +5,7 @@ import { printStyles } from '../../../../src/utils/css/index.js';
 test('utils | css | print-styles > complex case (2)', function () {
   const styles = [
     {
-      classes: ['link'],
+      classNames: ['link'],
       code: normalizeFile([
         `.link {`,
         `  background: transparent;`,
@@ -23,7 +23,7 @@ test('utils | css | print-styles > complex case (2)', function () {
       selector: '.link',
     },
     {
-      classes: ['link'],
+      classNames: ['link'],
       code: normalizeFile([
         `.link::after {`,
         `  content: "";`,
@@ -38,13 +38,13 @@ test('utils | css | print-styles > complex case (2)', function () {
       selector: '.link::after',
     },
     {
-      classes: ['link'],
+      classNames: ['link'],
       code: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
       line: 77,
       selector: '.link:focus',
     },
     {
-      classes: ['link'],
+      classNames: ['link'],
       code: normalizeFile([
         `.link:focus::after {`,
         `  border: 1px solid orange;`,

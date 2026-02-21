@@ -56,7 +56,7 @@ test('utils | css | add-local-classes > simple case (4)', function () {
       'checkbox',
       [
         {
-          classes: ['checkbox'],
+          classNames: ['checkbox'],
           code: normalizeFile([
             `.checkbox {`,
             `  align-items: center;`,
@@ -74,7 +74,7 @@ test('utils | css | add-local-classes > simple case (4)', function () {
           selector: '.checkbox',
         },
         {
-          classes: ['checkbox'],
+          classNames: ['checkbox'],
           code: normalizeFile([
             `.checkbox:focus {`,
             `  background-color: #ffecb3;`,
@@ -85,7 +85,7 @@ test('utils | css | add-local-classes > simple case (4)', function () {
           selector: '.checkbox:focus',
         },
         {
-          classes: ['checkbox'],
+          classNames: ['checkbox'],
           code: normalizeFile([
             `.checkbox:not(:focus) {`,
             `  border-color: transparent;`,
@@ -100,7 +100,7 @@ test('utils | css | add-local-classes > simple case (4)', function () {
       'checkmark-icon',
       [
         {
-          classes: ['checkmark-icon'],
+          classNames: ['checkmark-icon'],
           code: normalizeFile([`.checkmark-icon {`, `  color: white;`, `}`]),
           line: 22,
           selector: '.checkmark-icon',
@@ -111,7 +111,7 @@ test('utils | css | add-local-classes > simple case (4)', function () {
       'is-checked',
       [
         {
-          classes: ['is-checked'],
+          classNames: ['is-checked'],
           code: normalizeFile([
             `.is-checked {`,
             `  background-color: #1976d2;`,
@@ -126,7 +126,7 @@ test('utils | css | add-local-classes > simple case (4)', function () {
       'is-disabled',
       [
         {
-          classes: ['is-disabled'],
+          classNames: ['is-disabled'],
           code: normalizeFile([
             `.is-disabled {`,
             `  composes: input-disabled from global;`,
@@ -136,7 +136,7 @@ test('utils | css | add-local-classes > simple case (4)', function () {
           selector: '.is-disabled',
         },
         {
-          classes: ['is-disabled', 'checkmark-icon'],
+          classNames: ['is-disabled', 'checkmark-icon'],
           code: normalizeFile([
             `.is-disabled .checkmark-icon {`,
             `  color: #546e7a;`,

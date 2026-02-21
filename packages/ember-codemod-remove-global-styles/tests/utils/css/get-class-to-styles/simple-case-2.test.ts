@@ -36,7 +36,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
         'list',
         [
           {
-            classes: ['list'],
+            classNames: ['list'],
             code: normalizeFile([
               `.list {`,
               `  align-items: center;`,
@@ -52,7 +52,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
         'link',
         [
           {
-            classes: ['link'],
+            classNames: ['link'],
             code: normalizeFile([
               `.link {`,
               `  display: inline-block;`,
@@ -66,7 +66,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
             selector: '.link',
           },
           {
-            classes: ['link'],
+            classNames: ['link'],
             code: normalizeFile([
               `.link:global(\\.active) {`,
               `  background-color: #15202d;`,
@@ -76,7 +76,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
             selector: '.link:global(\\.active)',
           },
           {
-            classes: ['link'],
+            classNames: ['link'],
             code: normalizeFile([
               `.link:hover {`,
               `  background-color: #26313d;`,

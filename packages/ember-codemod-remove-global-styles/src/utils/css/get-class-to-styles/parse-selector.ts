@@ -6,23 +6,23 @@ const parse = createParser({
 });
 
 export function parseSelector(maybeSelector: string): {
-  classes: string[];
+  classNames: string[];
   selector: string;
 }[] {
   try {
     const { rules } = parse(maybeSelector);
 
     return rules.map((rule) => {
-      const classes: string[] = [];
+      const classNames: string[] = [];
 
       traverse(rule, (node) => {
         if (node.type === 'ClassName') {
-          classes.push(node.name);
+          classNames.push(node.name);
         }
       });
 
       return {
-        classes,
+        classNames,
         selector: render(rule),
       };
     });

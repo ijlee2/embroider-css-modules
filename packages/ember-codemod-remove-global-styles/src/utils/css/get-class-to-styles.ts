@@ -31,8 +31,8 @@ export function getClassToStyles(file: string): ClassToStyles {
     const data = parseSelector(node.selector);
     const line = node.source.start.line;
 
-    data.forEach(({ classes, selector }) => {
-      const containerClass = classes[0];
+    data.forEach(({ classNames, selector }) => {
+      const containerClass = classNames[0];
 
       if (containerClass === undefined) {
         return;
@@ -41,7 +41,7 @@ export function getClassToStyles(file: string): ClassToStyles {
       clone.selector = selector;
 
       const data = {
-        classes,
+        classNames,
         code: clone.toString(),
         line,
         selector,

@@ -5,7 +5,7 @@ import { printStyles } from '../../../../src/utils/css/index.js';
 test('utils | css | print-styles > complex case (5)', function () {
   const styles = [
     {
-      classes: ['widgets'],
+      classNames: ['widgets'],
       code: normalizeFile([
         `.widgets {`,
         `  display: grid;`,
@@ -24,7 +24,7 @@ test('utils | css | print-styles > complex case (5)', function () {
       selector: '.widgets',
     },
     {
-      classes: ['widgets'],
+      classNames: ['widgets'],
       code: normalizeFile([
         `.widgets {`,
         `      grid-template-rows: repeat(4, 25%) 5rem;`,
@@ -34,7 +34,7 @@ test('utils | css | print-styles > complex case (5)', function () {
       selector: '.widgets',
     },
     {
-      classes: ['widgets'],
+      classNames: ['widgets'],
       code: normalizeFile([
         `.widgets {`,
         `    grid-template-areas:`,
@@ -51,7 +51,7 @@ test('utils | css | print-styles > complex case (5)', function () {
       selector: '.widgets',
     },
     {
-      classes: ['widgets'],
+      classNames: ['widgets'],
       code: normalizeFile([
         `.widgets {`,
         `      grid-template-rows: 3fr 1fr 2fr 5rem;`,
@@ -61,7 +61,7 @@ test('utils | css | print-styles > complex case (5)', function () {
       selector: '.widgets',
     },
     {
-      classes: ['widgets'],
+      classNames: ['widgets'],
       code: normalizeFile([
         `.widgets {`,
         `    grid-template-areas:`,
@@ -77,7 +77,7 @@ test('utils | css | print-styles > complex case (5)', function () {
       selector: '.widgets',
     },
     {
-      classes: ['widgets'],
+      classNames: ['widgets'],
       code: normalizeFile([
         `.widgets {`,
         `      grid-template-rows: 4fr 1fr 10rem;`,

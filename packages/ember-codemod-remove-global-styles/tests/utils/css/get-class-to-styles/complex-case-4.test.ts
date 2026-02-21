@@ -37,7 +37,7 @@ testOnPosix(
           'container',
           [
             {
-              classes: ['container', 'is-wide', 'no-feedback'],
+              classNames: ['container', 'is-wide', 'no-feedback'],
               code: normalizeFile([
                 `.container:not(.is-wide, .no-feedback) {`,
                 `  column-gap: 0;`,
@@ -54,7 +54,7 @@ testOnPosix(
               selector: '.container:not(.is-wide, .no-feedback)',
             },
             {
-              classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+              classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
               code: normalizeFile([
                 `.container.is-inline:not(.is-wide, .no-feedback) {`,
                 `  column-gap: 1rem;`,

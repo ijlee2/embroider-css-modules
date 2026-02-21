@@ -109,7 +109,7 @@ testOnPosix(
           'widgets',
           [
             {
-              classes: ['widgets'],
+              classNames: ['widgets'],
               code: normalizeFile([
                 `.widgets {`,
                 `  display: grid;`,
@@ -128,7 +128,7 @@ testOnPosix(
               selector: '.widgets',
             },
             {
-              classes: ['widgets'],
+              classNames: ['widgets'],
               code: normalizeFile([
                 `.widgets {`,
                 `      grid-template-rows: repeat(4, 25%) 5rem;`,
@@ -138,7 +138,7 @@ testOnPosix(
               selector: '.widgets',
             },
             {
-              classes: ['widgets'],
+              classNames: ['widgets'],
               code: normalizeFile([
                 `.widgets {`,
                 `    grid-template-areas:`,
@@ -155,7 +155,7 @@ testOnPosix(
               selector: '.widgets',
             },
             {
-              classes: ['widgets'],
+              classNames: ['widgets'],
               code: normalizeFile([
                 `.widgets {`,
                 `      grid-template-rows: 3fr 1fr 2fr 5rem;`,
@@ -165,7 +165,7 @@ testOnPosix(
               selector: '.widgets',
             },
             {
-              classes: ['widgets'],
+              classNames: ['widgets'],
               code: normalizeFile([
                 `.widgets {`,
                 `    grid-template-areas:`,
@@ -181,7 +181,7 @@ testOnPosix(
               selector: '.widgets',
             },
             {
-              classes: ['widgets'],
+              classNames: ['widgets'],
               code: normalizeFile([
                 `.widgets {`,
                 `      grid-template-rows: 4fr 1fr 10rem;`,
@@ -196,7 +196,7 @@ testOnPosix(
           'widget-1',
           [
             {
-              classes: ['widget-1'],
+              classNames: ['widget-1'],
               code: normalizeFile([
                 `.widget-1 {`,
                 `  border-radius: 0.125rem;`,
@@ -208,7 +208,7 @@ testOnPosix(
               selector: '.widget-1',
             },
             {
-              classes: ['widget-1'],
+              classNames: ['widget-1'],
               code: normalizeFile([
                 `.widget-1 {`,
                 `  background: linear-gradient(126deg, #e91e63 16%, #ff6090 84%);`,
@@ -224,7 +224,7 @@ testOnPosix(
           'widget-2',
           [
             {
-              classes: ['widget-2'],
+              classNames: ['widget-2'],
               code: normalizeFile([
                 `.widget-2 {`,
                 `  border-radius: 0.125rem;`,
@@ -236,7 +236,7 @@ testOnPosix(
               selector: '.widget-2',
             },
             {
-              classes: ['widget-2'],
+              classNames: ['widget-2'],
               code: normalizeFile([
                 `.widget-2 {`,
                 `  background: linear-gradient(126deg, #7cb342 16%, #aee571 84%);`,
@@ -252,7 +252,7 @@ testOnPosix(
           'widget-3',
           [
             {
-              classes: ['widget-3'],
+              classNames: ['widget-3'],
               code: normalizeFile([
                 `.widget-3 {`,
                 `  border-radius: 0.125rem;`,
@@ -264,7 +264,7 @@ testOnPosix(
               selector: '.widget-3',
             },
             {
-              classes: ['widget-3'],
+              classNames: ['widget-3'],
               code: normalizeFile([
                 `.widget-3 {`,
                 `  background: linear-gradient(126deg, #ffa000 16%, #ffd149 84%);`,
@@ -280,7 +280,7 @@ testOnPosix(
           'widget-4',
           [
             {
-              classes: ['widget-4'],
+              classNames: ['widget-4'],
               code: normalizeFile([
                 `.widget-4 {`,
                 `  border-radius: 0.125rem;`,
@@ -292,7 +292,7 @@ testOnPosix(
               selector: '.widget-4',
             },
             {
-              classes: ['widget-4'],
+              classNames: ['widget-4'],
               code: normalizeFile([
                 `.widget-4 {`,
                 `  background: linear-gradient(126deg, #03a9f4 16%, #67daff 84%);`,
@@ -308,7 +308,7 @@ testOnPosix(
           'widget-5',
           [
             {
-              classes: ['widget-5'],
+              classNames: ['widget-5'],
               code: normalizeFile([
                 `.widget-5 {`,
                 `  border-radius: 0.125rem;`,
@@ -320,7 +320,7 @@ testOnPosix(
               selector: '.widget-5',
             },
             {
-              classes: ['widget-5'],
+              classNames: ['widget-5'],
               code: normalizeFile([
                 `.widget-5 {`,
                 `  background: linear-gradient(126deg, #9c27b0 16%, #d05ce3 84%);`,

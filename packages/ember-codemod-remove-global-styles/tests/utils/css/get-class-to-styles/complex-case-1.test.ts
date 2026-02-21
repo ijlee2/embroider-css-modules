@@ -104,7 +104,7 @@ testOnPosix(
           'container',
           [
             {
-              classes: ['container'],
+              classNames: ['container'],
               code: normalizeFile([
                 `.container {`,
                 `  align-items: start;`,
@@ -115,7 +115,7 @@ testOnPosix(
               selector: '.container',
             },
             {
-              classes: ['container', 'is-wide', 'no-feedback'],
+              classNames: ['container', 'is-wide', 'no-feedback'],
               code: normalizeFile([
                 `.container:not(.is-wide):not(.no-feedback) {`,
                 `  column-gap: 0;`,
@@ -132,7 +132,7 @@ testOnPosix(
               selector: '.container:not(.is-wide):not(.no-feedback)',
             },
             {
-              classes: ['container', 'is-wide', 'no-feedback'],
+              classNames: ['container', 'is-wide', 'no-feedback'],
               code: normalizeFile([
                 `.container:not(.is-wide).no-feedback {`,
                 `  column-gap: 0;`,
@@ -148,7 +148,7 @@ testOnPosix(
               selector: '.container:not(.is-wide).no-feedback',
             },
             {
-              classes: ['container', 'is-wide', 'no-feedback'],
+              classNames: ['container', 'is-wide', 'no-feedback'],
               code: normalizeFile([
                 `.container.is-wide:not(.no-feedback) {`,
                 `  column-gap: 1rem;`,
@@ -164,7 +164,7 @@ testOnPosix(
               selector: '.container.is-wide:not(.no-feedback)',
             },
             {
-              classes: ['container', 'is-wide', 'no-feedback'],
+              classNames: ['container', 'is-wide', 'no-feedback'],
               code: normalizeFile([
                 `.container.is-wide.no-feedback {`,
                 `  column-gap: 1rem;`,
@@ -178,7 +178,7 @@ testOnPosix(
               selector: '.container.is-wide.no-feedback',
             },
             {
-              classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+              classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
               code: normalizeFile([
                 `.container.is-inline:not(.is-wide):not(.no-feedback) {`,
                 `  column-gap: 1rem;`,
@@ -194,7 +194,7 @@ testOnPosix(
               selector: '.container.is-inline:not(.is-wide):not(.no-feedback)',
             },
             {
-              classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+              classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
               code: normalizeFile([
                 `.container.is-inline:not(.is-wide).no-feedback {`,
                 `  column-gap: 1rem;`,
@@ -213,7 +213,7 @@ testOnPosix(
           'label',
           [
             {
-              classes: ['label'],
+              classNames: ['label'],
               code: normalizeFile([
                 `.label {`,
                 `  grid-area: label;`,
@@ -230,7 +230,7 @@ testOnPosix(
           'field',
           [
             {
-              classes: ['field'],
+              classNames: ['field'],
               code: normalizeFile([`.field {`, `  grid-area: field;`, `}`]),
               line: 51,
               selector: '.field',
@@ -241,7 +241,7 @@ testOnPosix(
           'feedback',
           [
             {
-              classes: ['feedback'],
+              classNames: ['feedback'],
               code: normalizeFile([
                 `.feedback {`,
                 `  align-items: center;`,
@@ -254,7 +254,7 @@ testOnPosix(
               selector: '.feedback',
             },
             {
-              classes: ['feedback', 'is-error'],
+              classNames: ['feedback', 'is-error'],
               code: normalizeFile([
                 `.feedback.is-error {`,
                 `  color: #ff5252;`,
@@ -269,7 +269,7 @@ testOnPosix(
           'message',
           [
             {
-              classes: ['message'],
+              classNames: ['message'],
               code: normalizeFile([
                 `.message {`,
                 `  margin-left: 0.5rem;`,
