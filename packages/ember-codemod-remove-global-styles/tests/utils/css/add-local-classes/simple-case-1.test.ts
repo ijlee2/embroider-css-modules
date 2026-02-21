@@ -11,7 +11,7 @@ test('utils | css | add-local-classes > simple case (1)', function () {
     `{{/if}}`,
   ]);
 
-  const classToStyles = new Map([
+  const classNameToStyles = new Map([
     [
       'image',
       [
@@ -71,7 +71,7 @@ test('utils | css | add-local-classes > simple case (1)', function () {
 
   assert.strictEqual(
     addLocalClasses(file, {
-      classToStyles,
+      classNameToStyles,
       isHbs: false,
     }),
     normalizeFile([
@@ -85,7 +85,7 @@ test('utils | css | add-local-classes > simple case (1)', function () {
 
   assert.strictEqual(
     addLocalClasses(file, {
-      classToStyles,
+      classNameToStyles,
       isHbs: true,
     }),
     normalizeFile([

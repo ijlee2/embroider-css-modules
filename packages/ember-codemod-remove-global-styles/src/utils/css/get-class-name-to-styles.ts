@@ -1,8 +1,8 @@
 import type { Plugin } from 'postcss';
 import postcss from 'postcss';
 
-import type { ClassToStyles } from '../../types/index.js';
-import { parseSelector } from './get-class-to-styles/index.js';
+import type { ClassNameToStyles } from '../../types/index.js';
+import { parseSelector } from './get-class-name-to-styles/index.js';
 
 type Node = {
   [key: string]: unknown;
@@ -23,8 +23,8 @@ type Node = {
   toString: () => string;
 };
 
-export function getClassToStyles(file: string): ClassToStyles {
-  const classToStyles: ClassToStyles = new Map();
+export function getClassNameToStyles(file: string): ClassNameToStyles {
+  const classNameToStyles: ClassNameToStyles = new Map();
 
   function processRule(node: Node): void {
     const clone = node.clone();
@@ -47,17 +47,17 @@ export function getClassToStyles(file: string): ClassToStyles {
         selector,
       };
 
-      if (classToStyles.has(containerClass)) {
-        classToStyles.get(containerClass)!.push(data);
+      if (classNameToStyles.has(containerClass)) {
+        classNameToStyles.get(containerClass)!.push(data);
       } else {
-        classToStyles.set(containerClass, [data]);
+        classNameToStyles.set(containerClass, [data]);
       }
     });
   }
 
   const plugins: Plugin[] = [
     {
-      postcssPlugin: 'postcss-get-class-to-styles',
+      postcssPlugin: 'postcss-get-class-name-to-styles',
       // @ts-expect-error: Incorrect type
       // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       prepare() {
@@ -71,5 +71,5 @@ export function getClassToStyles(file: string): ClassToStyles {
   // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   postcss(plugins).process(file).css;
 
-  return classToStyles;
+  return classNameToStyles;
 }

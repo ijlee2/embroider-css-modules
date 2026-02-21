@@ -38,7 +38,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
     `{{/let}}`,
   ]);
 
-  const classToStyles = new Map([
+  const classNameToStyles = new Map([
     [
       'container',
       [
@@ -219,7 +219,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
 
   assert.strictEqual(
     addLocalClasses(file, {
-      classToStyles,
+      classNameToStyles,
       isHbs: false,
     }),
     normalizeFile([
@@ -256,7 +256,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
 
   assert.strictEqual(
     addLocalClasses(file, {
-      classToStyles,
+      classNameToStyles,
       isHbs: true,
     }),
     normalizeFile([

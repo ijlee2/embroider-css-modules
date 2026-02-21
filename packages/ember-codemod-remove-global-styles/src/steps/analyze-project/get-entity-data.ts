@@ -1,10 +1,14 @@
 import { findTemplateTags } from '@codemod-utils/ast-template-tag';
 
-import type { ClassToStyles, EntityData, Style } from '../../types/index.js';
+import type {
+  ClassNameToStyles,
+  EntityData,
+  Style,
+} from '../../types/index.js';
 import { getClassNames } from '../../utils/css/index.js';
 
 type Data = {
-  classToStyles: ClassToStyles;
+  classNameToStyles: ClassNameToStyles;
   isHbs: boolean;
 };
 
@@ -13,7 +17,7 @@ function getLocalStyles(classNames: string[], data: Data): Style[] {
   const localStyles: Style[] = [];
 
   classNames.forEach((className) => {
-    const styles = data.classToStyles.get(className);
+    const styles = data.classNameToStyles.get(className);
 
     if (styles === undefined) {
       return;

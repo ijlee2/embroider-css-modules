@@ -51,7 +51,7 @@ test('utils | css | add-local-classes > simple case (4)', function () {
     `</UiFormField>`,
   ]);
 
-  const classToStyles = new Map([
+  const classNameToStyles = new Map([
     [
       'checkbox',
       [
@@ -151,7 +151,7 @@ test('utils | css | add-local-classes > simple case (4)', function () {
 
   assert.strictEqual(
     addLocalClasses(file, {
-      classToStyles,
+      classNameToStyles,
       isHbs: false,
     }),
     normalizeFile([
@@ -202,7 +202,7 @@ test('utils | css | add-local-classes > simple case (4)', function () {
 
   assert.strictEqual(
     addLocalClasses(file, {
-      classToStyles,
+      classNameToStyles,
       isHbs: true,
     }),
     normalizeFile([

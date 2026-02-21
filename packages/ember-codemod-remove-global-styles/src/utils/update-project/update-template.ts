@@ -6,7 +6,7 @@ import { updateTemplates } from '@codemod-utils/ast-template-tag';
 import type { Options } from '../../types/index.js';
 import {
   addLocalClasses,
-  getClassToStyles,
+  getClassNameToStyles,
   getModuleFilePath,
 } from '../css/index.js';
 
@@ -36,7 +36,7 @@ export function updateTemplate(
   );
 
   const data = {
-    classToStyles: getClassToStyles(cssModuleFile),
+    classNameToStyles: getClassNameToStyles(cssModuleFile),
     isHbs: templateFilePath.endsWith('.hbs'),
   };
 

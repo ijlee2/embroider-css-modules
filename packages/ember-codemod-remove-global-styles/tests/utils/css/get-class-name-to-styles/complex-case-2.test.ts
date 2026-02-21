@@ -1,10 +1,10 @@
 import { assert, normalizeFile } from '@codemod-utils/tests';
 
-import { getClassToStyles } from '../../../../src/utils/css/index.js';
+import { getClassNameToStyles } from '../../../../src/utils/css/index.js';
 import { testOnPosix } from '../../../helpers/index.js';
 
 testOnPosix(
-  'utils | css | get-class-to-styles > complex case (2)',
+  'utils | css | get-class-name-to-styles > complex case (2)',
   function () {
     const file = normalizeFile([
       `.container {`,
@@ -114,7 +114,7 @@ testOnPosix(
     ]);
 
     assert.deepStrictEqual(
-      getClassToStyles(file),
+      getClassNameToStyles(file),
       new Map([
         [
           'container',

@@ -1,6 +1,6 @@
 import { AST } from '@codemod-utils/ast-template';
 
-import type { ClassToStyles } from '../../../types/index.js';
+import type { ClassNameToStyles } from '../../../types/index.js';
 
 type ConcatStatement = ReturnType<typeof AST.builders.concat>;
 type MustacheStatement = ReturnType<typeof AST.builders.mustache>;
@@ -10,7 +10,7 @@ type SubExpression = ReturnType<typeof AST.builders.sexpr>;
 type TextNode = ReturnType<typeof AST.builders.text>;
 
 type ProcessorArgs = {
-  classToStyles: ClassToStyles;
+  classNameToStyles: ClassNameToStyles;
   isHbs: boolean;
 };
 
@@ -30,7 +30,7 @@ export class Processor {
   }
 
   private isLocal(className: string): boolean {
-    return this.args.classToStyles.has(className);
+    return this.args.classNameToStyles.has(className);
   }
 
   processConcatStatement(nodeValue: ConcatStatement): ConcatStatement {

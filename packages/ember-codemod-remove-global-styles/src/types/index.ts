@@ -15,7 +15,7 @@ type Options = {
   src: string;
 };
 
-type ClassToStyles = Map<string, Style[]>;
+type ClassNameToStyles = Map<string, Style[]>;
 
 type EntityData = {
   errors: string[];
@@ -35,7 +35,7 @@ type Style = {
 };
 
 export type {
-  ClassToStyles,
+  ClassNameToStyles,
   CodemodOptions,
   EntityData,
   Options,
