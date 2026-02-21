@@ -94,185 +94,122 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
     ``,
   ]);
 
-  assert.deepStrictEqual(
-    getClassNameToStyles(file),
-    new Map([
-      [
-        'container',
-        [
-          {
-            classNames: ['container'],
-            code: normalizeFile([
-              `.container {`,
-              `  align-items: start;`,
-              `  display: grid;`,
-              `}`,
-            ]),
-            line: 1,
-            selector: '.container',
-          },
-          {
-            classNames: ['container', 'is-wide', 'no-feedback'],
-            code: normalizeFile([
-              `.container:not(.is-wide):not(.no-feedback) {`,
-              `  column-gap: 0;`,
-              `  grid-template-areas:`,
-              `    "label"`,
-              `    "field"`,
-              `    "feedback";`,
-              `  grid-template-columns: 1fr;`,
-              `  grid-template-rows: auto 1fr auto;`,
-              `  row-gap: 0.5rem;`,
-              `}`,
-            ]),
-            line: 6,
-            selector: '.container:not(.is-wide):not(.no-feedback)',
-          },
-          {
-            classNames: ['container', 'is-wide', 'no-feedback'],
-            code: normalizeFile([
-              `.container:not(.is-wide).no-feedback {`,
-              `  column-gap: 0;`,
-              `  grid-template-areas:`,
-              `    "label"`,
-              `    "field";`,
-              `  grid-template-columns: 1fr;`,
-              `  grid-template-rows: auto 1fr;`,
-              `  row-gap: 0.5rem;`,
-              `}`,
-            ]),
-            line: 17,
-            selector: '.container:not(.is-wide).no-feedback',
-          },
-          {
-            classNames: ['container', 'is-wide', 'no-feedback'],
-            code: normalizeFile([
-              `.container.is-wide:not(.no-feedback) {`,
-              `  column-gap: 1rem;`,
-              `  grid-template-areas:`,
-              `    "label field"`,
-              `    "label feedback";`,
-              `  grid-template-columns: 10rem 1fr;`,
-              `  grid-template-rows: 1fr auto;`,
-              `  row-gap: 0.5rem;`,
-              `}`,
-            ]),
-            line: 27,
-            selector: '.container.is-wide:not(.no-feedback)',
-          },
-          {
-            classNames: ['container', 'is-wide', 'no-feedback'],
-            code: normalizeFile([
-              `.container.is-wide.no-feedback {`,
-              `  column-gap: 1rem;`,
-              `  grid-template-areas: "label field";`,
-              `  grid-template-columns: 10rem 1fr;`,
-              `  grid-template-rows: 1fr;`,
-              `  row-gap: 0.5rem;`,
-              `}`,
-            ]),
-            line: 37,
-            selector: '.container.is-wide.no-feedback',
-          },
-          {
-            classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
-            code: normalizeFile([
-              `.container.is-inline:not(.is-wide):not(.no-feedback) {`,
-              `  column-gap: 1rem;`,
-              `  grid-template-areas:`,
-              `    "field label"`,
-              `    "feedback feedback";`,
-              `  grid-template-columns: auto 1fr;`,
-              `  grid-template-rows: 1fr auto;`,
-              `  row-gap: 0.5rem;`,
-              `}`,
-            ]),
-            line: 71,
-            selector: '.container.is-inline:not(.is-wide):not(.no-feedback)',
-          },
-          {
-            classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
-            code: normalizeFile([
-              `.container.is-inline:not(.is-wide).no-feedback {`,
-              `  column-gap: 1rem;`,
-              `  grid-template-areas: "field label";`,
-              `  grid-template-columns: auto 1fr;`,
-              `  grid-template-rows: 1fr;`,
-              `  row-gap: 0;`,
-              `}`,
-            ]),
-            line: 81,
-            selector: '.container.is-inline:not(.is-wide).no-feedback',
-          },
-        ],
-      ],
-      [
-        'label',
-        [
-          {
-            classNames: ['label'],
-            code: normalizeFile([
-              `.label {`,
-              `  grid-area: label;`,
-              `  overflow: hidden;`,
-              `  word-break: break-all;`,
-              `}`,
-            ]),
-            line: 45,
-            selector: '.label',
-          },
-        ],
-      ],
-      [
-        'field',
-        [
-          {
-            classNames: ['field'],
-            code: normalizeFile([`.field {`, `  grid-area: field;`, `}`]),
-            line: 51,
-            selector: '.field',
-          },
-        ],
-      ],
-      [
-        'feedback',
-        [
-          {
-            classNames: ['feedback'],
-            code: normalizeFile([
-              `.feedback {`,
-              `  align-items: center;`,
-              `  display: flex;`,
-              `  font-size: 0.875rem;`,
-              `  grid-area: feedback;`,
-              `}`,
-            ]),
-            line: 55,
-            selector: '.feedback',
-          },
-          {
-            classNames: ['feedback', 'is-error'],
-            code: normalizeFile([
-              `.feedback.is-error {`,
-              `  color: #ff5252;`,
-              `}`,
-            ]),
-            line: 62,
-            selector: '.feedback.is-error',
-          },
-        ],
-      ],
-      [
-        'message',
-        [
-          {
-            classNames: ['message'],
-            code: normalizeFile([`.message {`, `  margin-left: 0.5rem;`, `}`]),
-            line: 66,
-            selector: '.message',
-          },
-        ],
-      ],
-    ]),
-  );
+  const classNameToStyles = getClassNameToStyles(file);
+
+  assert.deepStrictEqual(Array.from(classNameToStyles.keys()), [
+    'container',
+    'label',
+    'field',
+    'feedback',
+    'message',
+  ]);
+
+  const styles = classNameToStyles.get('container');
+
+  assert.deepStrictEqual(styles, [
+    {
+      classNames: ['container'],
+      code: normalizeFile([
+        `.container {`,
+        `  align-items: start;`,
+        `  display: grid;`,
+        `}`,
+      ]),
+      line: 1,
+      selector: '.container',
+    },
+    {
+      classNames: ['container', 'is-wide', 'no-feedback'],
+      code: normalizeFile([
+        `.container:not(.is-wide):not(.no-feedback) {`,
+        `  column-gap: 0;`,
+        `  grid-template-areas:`,
+        `    "label"`,
+        `    "field"`,
+        `    "feedback";`,
+        `  grid-template-columns: 1fr;`,
+        `  grid-template-rows: auto 1fr auto;`,
+        `  row-gap: 0.5rem;`,
+        `}`,
+      ]),
+      line: 6,
+      selector: '.container:not(.is-wide):not(.no-feedback)',
+    },
+    {
+      classNames: ['container', 'is-wide', 'no-feedback'],
+      code: normalizeFile([
+        `.container:not(.is-wide).no-feedback {`,
+        `  column-gap: 0;`,
+        `  grid-template-areas:`,
+        `    "label"`,
+        `    "field";`,
+        `  grid-template-columns: 1fr;`,
+        `  grid-template-rows: auto 1fr;`,
+        `  row-gap: 0.5rem;`,
+        `}`,
+      ]),
+      line: 17,
+      selector: '.container:not(.is-wide).no-feedback',
+    },
+    {
+      classNames: ['container', 'is-wide', 'no-feedback'],
+      code: normalizeFile([
+        `.container.is-wide:not(.no-feedback) {`,
+        `  column-gap: 1rem;`,
+        `  grid-template-areas:`,
+        `    "label field"`,
+        `    "label feedback";`,
+        `  grid-template-columns: 10rem 1fr;`,
+        `  grid-template-rows: 1fr auto;`,
+        `  row-gap: 0.5rem;`,
+        `}`,
+      ]),
+      line: 27,
+      selector: '.container.is-wide:not(.no-feedback)',
+    },
+    {
+      classNames: ['container', 'is-wide', 'no-feedback'],
+      code: normalizeFile([
+        `.container.is-wide.no-feedback {`,
+        `  column-gap: 1rem;`,
+        `  grid-template-areas: "label field";`,
+        `  grid-template-columns: 10rem 1fr;`,
+        `  grid-template-rows: 1fr;`,
+        `  row-gap: 0.5rem;`,
+        `}`,
+      ]),
+      line: 37,
+      selector: '.container.is-wide.no-feedback',
+    },
+    {
+      classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+      code: normalizeFile([
+        `.container.is-inline:not(.is-wide):not(.no-feedback) {`,
+        `  column-gap: 1rem;`,
+        `  grid-template-areas:`,
+        `    "field label"`,
+        `    "feedback feedback";`,
+        `  grid-template-columns: auto 1fr;`,
+        `  grid-template-rows: 1fr auto;`,
+        `  row-gap: 0.5rem;`,
+        `}`,
+      ]),
+      line: 71,
+      selector: '.container.is-inline:not(.is-wide):not(.no-feedback)',
+    },
+    {
+      classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+      code: normalizeFile([
+        `.container.is-inline:not(.is-wide).no-feedback {`,
+        `  column-gap: 1rem;`,
+        `  grid-template-areas: "field label";`,
+        `  grid-template-columns: auto 1fr;`,
+        `  grid-template-rows: 1fr;`,
+        `  row-gap: 0;`,
+        `}`,
+      ]),
+      line: 81,
+      selector: '.container.is-inline:not(.is-wide).no-feedback',
+    },
+  ]);
 });

@@ -5,15 +5,69 @@ import { printStyles } from '../../../../src/utils/css/index.js';
 test('utils | css | print-styles > simple case (4)', function () {
   const styles = [
     {
-      classNames: ['checkmark-icon'],
-      code: normalizeFile([`.checkmark-icon {`, `  color: white;`, `}`]),
-      line: 22,
-      selector: '.checkmark-icon',
+      classNames: ['checkbox'],
+      code: normalizeFile([
+        `.checkbox {`,
+        `  align-items: center;`,
+        `  background-color: white;`,
+        `  border: 0.125rem solid #ffd54f;`,
+        `  cursor: pointer;`,
+        `  display: flex;`,
+        `  height: 1rem;`,
+        `  justify-content: center;`,
+        `  position: relative;`,
+        `  width: 1rem;`,
+        `}`,
+      ]),
+      line: 1,
+      selector: '.checkbox',
+    },
+    {
+      classNames: ['checkbox'],
+      code: normalizeFile([
+        `.checkbox:focus {`,
+        `  background-color: #ffecb3;`,
+        `  outline: 0;`,
+        `}`,
+      ]),
+      line: 13,
+      selector: '.checkbox:focus',
+    },
+    {
+      classNames: ['checkbox'],
+      code: normalizeFile([
+        `.checkbox:not(:focus) {`,
+        `  border-color: transparent;`,
+        `}`,
+      ]),
+      line: 18,
+      selector: '.checkbox:not(:focus)',
     },
   ];
 
   assert.strictEqual(
     printStyles(styles),
-    normalizeFile([`.checkmark-icon {`, `  color: white;`, `}`]),
+    normalizeFile([
+      `.checkbox {`,
+      `  align-items: center;`,
+      `  background-color: white;`,
+      `  border: 0.125rem solid #ffd54f;`,
+      `  cursor: pointer;`,
+      `  display: flex;`,
+      `  height: 1rem;`,
+      `  justify-content: center;`,
+      `  position: relative;`,
+      `  width: 1rem;`,
+      `}`,
+      ``,
+      `.checkbox:focus {`,
+      `  background-color: #ffecb3;`,
+      `  outline: 0;`,
+      `}`,
+      ``,
+      `.checkbox:not(:focus) {`,
+      `  border-color: transparent;`,
+      `}`,
+    ]),
   );
 });

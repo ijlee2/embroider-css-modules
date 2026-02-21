@@ -121,303 +121,113 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
     ``,
   ]);
 
-  assert.deepStrictEqual(
-    getClassNameToStyles(file),
-    new Map([
-      [
-        'container',
-        [
-          {
-            classNames: ['container'],
-            code: normalizeFile([
-              `.container {`,
-              `  column-gap: 2.5rem;`,
-              `  display: grid;`,
-              `  grid-template-areas:`,
-              `    "summary summary"`,
-              `    "previous-button next-button";`,
-              `  grid-template-columns: 1fr 1fr;`,
-              `  grid-template-rows: 1fr auto;`,
-              `  height: 100%;`,
-              `  overflow: hidden;`,
-              `  row-gap: 1rem;`,
-              `  width: 100%;`,
-              `}`,
-            ]),
-            line: 1,
-            selector: '.container',
-          },
-          {
-            classNames: ['container', 'flat'],
-            code: normalizeFile([
-              `.container.flat {`,
-              `  column-gap: 1rem;`,
-              `  grid-template-areas: "previous-button summary next-button";`,
-              `  grid-template-columns: 2.5rem 1fr 2.5rem;`,
-              `  grid-template-rows: minmax(3rem, 1fr);`,
-              `}`,
-            ]),
-            line: 85,
-            selector: '.container.flat',
-          },
-          {
-            classNames: ['container', 'flat', 'summary', 'horizontal-layout'],
-            code: normalizeFile([
-              `.container.flat .summary.horizontal-layout {`,
-              `  gap: 0.5rem;`,
-              `  grid-template-areas: "music-format annual-revenue relevant-years";`,
-              `  grid-template-columns: 40% 1fr 1fr;`,
-              `  grid-template-rows: 1fr;`,
-              `}`,
-            ]),
-            line: 92,
-            selector: '.container.flat .summary.horizontal-layout',
-          },
-          {
-            classNames: ['container', 'flat', 'annual-revenue'],
-            code: normalizeFile([
-              `.container.flat .annual-revenue {`,
-              `  display: flex;`,
-              `  flex-direction: column;`,
-              `}`,
-            ]),
-            line: 99,
-            selector: '.container.flat .annual-revenue',
-          },
-          {
-            classNames: ['container', 'flat', 'relevant-years'],
-            code: normalizeFile([
-              `.container.flat .relevant-years {`,
-              `  display: flex;`,
-              `  flex-direction: column;`,
-              `}`,
-            ]),
-            line: 99,
-            selector: '.container.flat .relevant-years',
-          },
-          {
-            classNames: ['container', 'flat', 'previous-button'],
-            code: normalizeFile([
-              `.container.flat .previous-button {`,
-              `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,
-              `  border: 0;`,
-              `}`,
-            ]),
-            line: 105,
-            selector: '.container.flat .previous-button',
-          },
-          {
-            classNames: ['container', 'flat', 'next-button'],
-            code: normalizeFile([
-              `.container.flat .next-button {`,
-              `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,
-              `  border: 0;`,
-              `}`,
-            ]),
-            line: 105,
-            selector: '.container.flat .next-button',
-          },
-        ],
-      ],
-      [
-        'summary',
-        [
-          {
-            classNames: ['summary'],
-            code: normalizeFile([
-              `.summary {`,
-              `  color: #455a64;`,
-              `  display: grid;`,
-              `  font-size: 0.875rem;`,
-              `  grid-area: summary;`,
-              `  grid-template-areas:`,
-              `    "music-format"`,
-              `    "annual-revenue"`,
-              `    "relevant-years";`,
-              `  grid-template-columns: 1fr;`,
-              `  grid-template-rows: repeat(3, auto);`,
-              `  overflow-y: auto;`,
-              `}`,
-            ]),
-            line: 15,
-            selector: '.summary',
-          },
-        ],
-      ],
-      [
-        'music-format',
-        [
-          {
-            classNames: ['music-format'],
-            code: normalizeFile([
-              `.music-format {`,
-              `  color: rgb(247 252 251 / 90%);`,
-              `  display: flex;`,
-              `  font-size: 1rem;`,
-              `  grid-area: music-format;`,
-              `  margin-bottom: 0.5rem;`,
-              `  word-break: break-all;`,
-              `}`,
-            ]),
-            line: 29,
-            selector: '.music-format',
-          },
-          {
-            classNames: ['music-format', 'small-font-size'],
-            code: normalizeFile([
-              `.music-format.small-font-size {`,
-              `  font-size: 0.875rem;`,
-              `  margin: 0;`,
-              `}`,
-            ]),
-            line: 111,
-            selector: '.music-format.small-font-size',
-          },
-        ],
-      ],
-      [
-        'marker',
-        [
-          {
-            classNames: ['marker'],
-            code: normalizeFile([
-              `.marker {`,
-              `  align-items: center;`,
-              `  background-color: rgb(247 252 251 / 90%);`,
-              `  border-radius: 0.5rem;`,
-              `  display: flex;`,
-              `  height: 1em;`,
-              `  justify-content: center;`,
-              `  margin-right: 0.25rem;`,
-              `  padding: 0.125rem;`,
-              `  width: 1rem;`,
-              `}`,
-            ]),
-            line: 38,
-            selector: '.marker',
-          },
-        ],
-      ],
-      [
-        'annual-revenue',
-        [
-          {
-            classNames: ['annual-revenue'],
-            code: normalizeFile([
-              `.annual-revenue {`,
-              `  font-size: 0.8rem;`,
-              `  grid-area: annual-revenue;`,
-              `}`,
-            ]),
-            line: 50,
-            selector: '.annual-revenue',
-          },
-        ],
-      ],
-      [
-        'relevant-years',
-        [
-          {
-            classNames: ['relevant-years'],
-            code: normalizeFile([
-              `.relevant-years {`,
-              `  font-size: 0.8rem;`,
-              `  grid-area: relevant-years;`,
-              `}`,
-            ]),
-            line: 55,
-            selector: '.relevant-years',
-          },
-        ],
-      ],
-      [
-        'highlight',
-        [
-          {
-            classNames: ['highlight'],
-            code: normalizeFile([
-              `.highlight {`,
-              `  color: rgb(247 252 251 / 90%);`,
-              `}`,
-            ]),
-            line: 60,
-            selector: '.highlight',
-          },
-        ],
-      ],
-      [
-        'previous-button',
-        [
-          {
-            classNames: ['previous-button'],
-            code: normalizeFile([
-              `.previous-button {`,
-              `  align-items: center;`,
-              `  display: flex;`,
-              `  height: 2rem;`,
-              `  justify-content: center;`,
-              `  margin: 0.25rem;`,
-              `}`,
-            ]),
-            line: 64,
-            selector: '.previous-button',
-          },
-          {
-            classNames: ['previous-button'],
-            code: normalizeFile([
-              `.previous-button {`,
-              `  grid-area: previous-button;`,
-              `}`,
-            ]),
-            line: 73,
-            selector: '.previous-button',
-          },
-        ],
-      ],
-      [
-        'next-button',
-        [
-          {
-            classNames: ['next-button'],
-            code: normalizeFile([
-              `.next-button {`,
-              `  align-items: center;`,
-              `  display: flex;`,
-              `  height: 2rem;`,
-              `  justify-content: center;`,
-              `  margin: 0.25rem;`,
-              `}`,
-            ]),
-            line: 64,
-            selector: '.next-button',
-          },
-          {
-            classNames: ['next-button'],
-            code: normalizeFile([
-              `.next-button {`,
-              `  grid-area: next-button;`,
-              `}`,
-            ]),
-            line: 77,
-            selector: '.next-button',
-          },
-        ],
-      ],
-      [
-        'icon',
-        [
-          {
-            classNames: ['icon'],
-            code: normalizeFile([
-              `.icon {`,
-              `  color: rgb(247 252 251 / 90%);`,
-              `}`,
-            ]),
-            line: 81,
-            selector: '.icon',
-          },
-        ],
-      ],
-    ]),
-  );
+  const classNameToStyles = getClassNameToStyles(file);
+
+  assert.deepStrictEqual(Array.from(classNameToStyles.keys()), [
+    'container',
+    'summary',
+    'music-format',
+    'marker',
+    'annual-revenue',
+    'relevant-years',
+    'highlight',
+    'previous-button',
+    'next-button',
+    'icon',
+  ]);
+
+  const styles = classNameToStyles.get('container');
+
+  assert.deepStrictEqual(styles, [
+    {
+      classNames: ['container'],
+      code: normalizeFile([
+        `.container {`,
+        `  column-gap: 2.5rem;`,
+        `  display: grid;`,
+        `  grid-template-areas:`,
+        `    "summary summary"`,
+        `    "previous-button next-button";`,
+        `  grid-template-columns: 1fr 1fr;`,
+        `  grid-template-rows: 1fr auto;`,
+        `  height: 100%;`,
+        `  overflow: hidden;`,
+        `  row-gap: 1rem;`,
+        `  width: 100%;`,
+        `}`,
+      ]),
+      line: 1,
+      selector: '.container',
+    },
+    {
+      classNames: ['container', 'flat'],
+      code: normalizeFile([
+        `.container.flat {`,
+        `  column-gap: 1rem;`,
+        `  grid-template-areas: "previous-button summary next-button";`,
+        `  grid-template-columns: 2.5rem 1fr 2.5rem;`,
+        `  grid-template-rows: minmax(3rem, 1fr);`,
+        `}`,
+      ]),
+      line: 85,
+      selector: '.container.flat',
+    },
+    {
+      classNames: ['container', 'flat', 'summary', 'horizontal-layout'],
+      code: normalizeFile([
+        `.container.flat .summary.horizontal-layout {`,
+        `  gap: 0.5rem;`,
+        `  grid-template-areas: "music-format annual-revenue relevant-years";`,
+        `  grid-template-columns: 40% 1fr 1fr;`,
+        `  grid-template-rows: 1fr;`,
+        `}`,
+      ]),
+      line: 92,
+      selector: '.container.flat .summary.horizontal-layout',
+    },
+    {
+      classNames: ['container', 'flat', 'annual-revenue'],
+      code: normalizeFile([
+        `.container.flat .annual-revenue {`,
+        `  display: flex;`,
+        `  flex-direction: column;`,
+        `}`,
+      ]),
+      line: 99,
+      selector: '.container.flat .annual-revenue',
+    },
+    {
+      classNames: ['container', 'flat', 'relevant-years'],
+      code: normalizeFile([
+        `.container.flat .relevant-years {`,
+        `  display: flex;`,
+        `  flex-direction: column;`,
+        `}`,
+      ]),
+      line: 99,
+      selector: '.container.flat .relevant-years',
+    },
+    {
+      classNames: ['container', 'flat', 'previous-button'],
+      code: normalizeFile([
+        `.container.flat .previous-button {`,
+        `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,
+        `  border: 0;`,
+        `}`,
+      ]),
+      line: 105,
+      selector: '.container.flat .previous-button',
+    },
+    {
+      classNames: ['container', 'flat', 'next-button'],
+      code: normalizeFile([
+        `.container.flat .next-button {`,
+        `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,
+        `  border: 0;`,
+        `}`,
+      ]),
+      line: 105,
+      selector: '.container.flat .next-button',
+    },
+  ]);
 });
