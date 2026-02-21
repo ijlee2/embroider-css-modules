@@ -19,7 +19,7 @@ test('utils | css | get-class-name-to-styles > complex case (2)', function () {
 
   assert.deepStrictEqual(styles, [
     {
-      classNames: ['link'],
+      classNames: [],
       code: normalizeFile([
         `.link {`,
         `  background: transparent;`,
@@ -37,7 +37,7 @@ test('utils | css | get-class-name-to-styles > complex case (2)', function () {
       selector: '.link',
     },
     {
-      classNames: ['link'],
+      classNames: [],
       code: normalizeFile([
         `.link::after {`,
         `  content: "";`,
@@ -52,13 +52,13 @@ test('utils | css | get-class-name-to-styles > complex case (2)', function () {
       selector: '.link::after',
     },
     {
-      classNames: ['link'],
+      classNames: [],
       code: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
       line: 77,
       selector: '.link:focus',
     },
     {
-      classNames: ['link'],
+      classNames: [],
       code: normalizeFile([
         `.link:focus::after {`,
         `  border: 1px solid orange;`,
@@ -66,6 +66,12 @@ test('utils | css | get-class-name-to-styles > complex case (2)', function () {
       ]),
       line: 81,
       selector: '.link:focus::after',
+    },
+    {
+      classNames: [],
+      code: normalizeFile([`.link {`, `  margin-top: 1rem;`, `}`]),
+      line: 100,
+      selector: '.link',
     },
   ]);
 });

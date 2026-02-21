@@ -20,7 +20,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
 
   assert.deepStrictEqual(styles, [
     {
-      classNames: ['container'],
+      classNames: [],
       code: normalizeFile([
         `.container {`,
         `  column-gap: 2.5rem;`,
@@ -40,7 +40,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
       selector: '.container',
     },
     {
-      classNames: ['container', 'flat'],
+      classNames: ['flat'],
       code: normalizeFile([
         `.container.flat {`,
         `  column-gap: 1rem;`,
@@ -53,7 +53,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
       selector: '.container.flat',
     },
     {
-      classNames: ['container', 'flat', 'summary', 'horizontal-layout'],
+      classNames: ['flat', 'summary', 'horizontal-layout'],
       code: normalizeFile([
         `.container.flat .summary.horizontal-layout {`,
         `  gap: 0.5rem;`,
@@ -66,7 +66,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
       selector: '.container.flat .summary.horizontal-layout',
     },
     {
-      classNames: ['container', 'flat', 'annual-revenue'],
+      classNames: ['flat', 'annual-revenue'],
       code: normalizeFile([
         `.container.flat .annual-revenue {`,
         `  display: flex;`,
@@ -77,7 +77,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
       selector: '.container.flat .annual-revenue',
     },
     {
-      classNames: ['container', 'flat', 'relevant-years'],
+      classNames: ['flat', 'relevant-years'],
       code: normalizeFile([
         `.container.flat .relevant-years {`,
         `  display: flex;`,
@@ -88,7 +88,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
       selector: '.container.flat .relevant-years',
     },
     {
-      classNames: ['container', 'flat', 'previous-button'],
+      classNames: ['flat', 'previous-button'],
       code: normalizeFile([
         `.container.flat .previous-button {`,
         `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,
@@ -99,7 +99,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
       selector: '.container.flat .previous-button',
     },
     {
-      classNames: ['container', 'flat', 'next-button'],
+      classNames: ['flat', 'next-button'],
       code: normalizeFile([
         `.container.flat .next-button {`,
         `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,

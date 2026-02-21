@@ -3,13 +3,17 @@ import { assert, normalizeFile, test } from '@codemod-utils/tests';
 import { classNameToStyles } from '../../../helpers/utils/css/complex-case-4.js';
 
 test('utils | css | get-class-name-to-styles > complex case (4)', function () {
-  assert.deepStrictEqual(Array.from(classNameToStyles.keys()), ['container']);
+  assert.deepStrictEqual(Array.from(classNameToStyles.keys()), [
+    'container',
+    'is-wide',
+    'no-feedback',
+  ]);
 
   const styles = classNameToStyles.get('container');
 
   assert.deepStrictEqual(styles, [
     {
-      classNames: ['container', 'is-wide', 'no-feedback'],
+      classNames: ['is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container:not(.is-wide, .no-feedback) {`,
         `  column-gap: 0;`,
@@ -26,7 +30,7 @@ test('utils | css | get-class-name-to-styles > complex case (4)', function () {
       selector: '.container:not(.is-wide, .no-feedback)',
     },
     {
-      classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+      classNames: ['is-inline', 'is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container.is-inline:not(.is-wide, .no-feedback) {`,
         `  column-gap: 1rem;`,

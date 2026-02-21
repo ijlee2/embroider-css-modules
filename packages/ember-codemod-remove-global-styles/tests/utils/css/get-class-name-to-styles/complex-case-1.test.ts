@@ -5,6 +5,8 @@ import { classNameToStyles } from '../../../helpers/utils/css/complex-case-1.js'
 test('utils | css | get-class-name-to-styles > complex case (1)', function () {
   assert.deepStrictEqual(Array.from(classNameToStyles.keys()), [
     'container',
+    'is-wide',
+    'no-feedback',
     'label',
     'field',
     'feedback',
@@ -15,7 +17,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
 
   assert.deepStrictEqual(styles, [
     {
-      classNames: ['container'],
+      classNames: [],
       code: normalizeFile([
         `.container {`,
         `  align-items: start;`,
@@ -26,7 +28,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
       selector: '.container',
     },
     {
-      classNames: ['container', 'is-wide', 'no-feedback'],
+      classNames: ['is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container:not(.is-wide):not(.no-feedback) {`,
         `  column-gap: 0;`,
@@ -43,7 +45,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
       selector: '.container:not(.is-wide):not(.no-feedback)',
     },
     {
-      classNames: ['container', 'is-wide', 'no-feedback'],
+      classNames: ['is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container:not(.is-wide).no-feedback {`,
         `  column-gap: 0;`,
@@ -59,7 +61,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
       selector: '.container:not(.is-wide).no-feedback',
     },
     {
-      classNames: ['container', 'is-wide', 'no-feedback'],
+      classNames: ['is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container.is-wide:not(.no-feedback) {`,
         `  column-gap: 1rem;`,
@@ -75,7 +77,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
       selector: '.container.is-wide:not(.no-feedback)',
     },
     {
-      classNames: ['container', 'is-wide', 'no-feedback'],
+      classNames: ['is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container.is-wide.no-feedback {`,
         `  column-gap: 1rem;`,
@@ -89,7 +91,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
       selector: '.container.is-wide.no-feedback',
     },
     {
-      classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+      classNames: ['is-inline', 'is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container.is-inline:not(.is-wide):not(.no-feedback) {`,
         `  column-gap: 1rem;`,
@@ -105,7 +107,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
       selector: '.container.is-inline:not(.is-wide):not(.no-feedback)',
     },
     {
-      classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+      classNames: ['is-inline', 'is-wide', 'no-feedback'],
       code: normalizeFile([
         `.container.is-inline:not(.is-wide).no-feedback {`,
         `  column-gap: 1rem;`,

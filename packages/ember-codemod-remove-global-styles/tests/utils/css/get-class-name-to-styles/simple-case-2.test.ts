@@ -12,7 +12,7 @@ test('utils | css | get-class-name-to-styles > simple case (2)', function () {
 
   assert.deepStrictEqual(styles, [
     {
-      classNames: ['link'],
+      classNames: [],
       code: normalizeFile([
         `.link {`,
         `  display: inline-block;`,
@@ -26,7 +26,7 @@ test('utils | css | get-class-name-to-styles > simple case (2)', function () {
       selector: '.link',
     },
     {
-      classNames: ['link'],
+      classNames: [],
       code: normalizeFile([
         `.link:global(\\.active) {`,
         `  background-color: #15202d;`,
@@ -36,7 +36,7 @@ test('utils | css | get-class-name-to-styles > simple case (2)', function () {
       selector: '.link:global(\\.active)',
     },
     {
-      classNames: ['link'],
+      classNames: [],
       code: normalizeFile([
         `.link:hover {`,
         `  background-color: #26313d;`,
