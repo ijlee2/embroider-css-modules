@@ -1,8 +1,8 @@
+import { createParser, render, traverse } from 'css-selector-parser';
 import type { Plugin } from 'postcss';
 import postcss from 'postcss';
 
 import type { ClassNameToStyles } from '../../types/index.js';
-import { parseSelector } from './get-class-name-to-styles/index.js';
 
 type Node = {
   [key: string]: unknown;
@@ -22,6 +22,37 @@ type Node = {
   };
   toString: () => string;
 };
+
+const parse = createParser({
+  // Allow unknown pseudo-classes
+  syntax: 'progressive',
+});
+
+function parseSelector(maybeSelector: string): {
+  classNames: string[];
+  selector: string;
+}[] {
+  try {
+    const { rules } = parse(maybeSelector);
+
+    return rules.map((rule) => {
+      const classNames: string[] = [];
+
+      traverse(rule, (node) => {
+        if (node.type === 'ClassName') {
+          classNames.push(node.name);
+        }
+      });
+
+      return {
+        classNames,
+        selector: render(rule),
+      };
+    });
+  } catch {
+    return [];
+  }
+}
 
 export function getClassNameToStyles(file: string): ClassNameToStyles {
   const classNameToStyles: ClassNameToStyles = new Map();
