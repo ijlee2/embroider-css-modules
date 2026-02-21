@@ -50,10 +50,7 @@ testOnPosix(
                 `  row-gap: 0.5rem;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 10, offset: 208 },
-                start: { column: 1, line: 1, offset: 0 },
-              },
+              line: 1,
               selector: '.container:not(.is-wide, .no-feedback)',
             },
             {
@@ -69,10 +66,7 @@ testOnPosix(
                 `  row-gap: 0.5rem;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 20, offset: 434 },
-                start: { column: 1, line: 12, offset: 210 },
-              },
+              line: 12,
               selector: '.container.is-inline:not(.is-wide, .no-feedback)',
             },
           ],

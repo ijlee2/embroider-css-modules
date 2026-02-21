@@ -73,10 +73,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  width: calc(100% - 2rem) !important;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 14, offset: 305 },
-            start: { column: 1, line: 1, offset: 0 },
-          },
+          line: 1,
           selector: '.container',
         },
         {
@@ -88,10 +85,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  transition: all 0.25s;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 20, offset: 410 },
-            start: { column: 1, line: 16, offset: 307 },
-          },
+          line: 16,
           selector: '.container:hover',
         },
         {
@@ -107,10 +101,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  grid-template-rows: auto 1fr auto;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 93, offset: 1562 },
-            start: { column: 1, line: 85, offset: 1317 },
-          },
+          line: 85,
           selector: '.container[data-container-query-wide]',
         },
         {
@@ -121,10 +112,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  margin-top: 0;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 98, offset: 1630 },
-            start: { column: 1, line: 95, offset: 1564 },
-          },
+          line: 95,
           selector: `.container[data-container-query-wide]${EOL}  .body`,
         },
         {
@@ -135,10 +123,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  margin-top: 1rem;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 103, offset: 1701 },
-            start: { column: 1, line: 100, offset: 1632 },
-          },
+          line: 100,
           selector: `.container[data-container-query-wide]${EOL}  .link`,
         },
       ],
@@ -149,10 +134,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
         {
           classes: ['header'],
           code: normalizeFile([`.header {`, `  grid-area: header;`, `}`]),
-          location: {
-            end: { column: 1, line: 24, offset: 444 },
-            start: { column: 1, line: 22, offset: 412 },
-          },
+          line: 22,
           selector: '.header',
         },
       ],
@@ -169,10 +151,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  margin-bottom: 0.75rem;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 30, offset: 523 },
-            start: { column: 1, line: 26, offset: 446 },
-          },
+          line: 26,
           selector: '.name',
         },
       ],
@@ -189,10 +168,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  max-width: 8rem;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 36, offset: 614 },
-            start: { column: 1, line: 32, offset: 525 },
-          },
+          line: 32,
           selector: '.image-container',
         },
       ],
@@ -208,10 +184,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  margin-top: 1rem;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 41, offset: 664 },
-            start: { column: 1, line: 38, offset: 616 },
-          },
+          line: 38,
           selector: '.body',
         },
       ],
@@ -227,10 +200,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  margin-bottom: 0.375rem;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 47, offset: 740 },
-            start: { column: 1, line: 43, offset: 666 },
-          },
+          line: 43,
           selector: '.description',
         },
       ],
@@ -246,10 +216,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  margin-bottom: 0.375rem;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 47, offset: 740 },
-            start: { column: 1, line: 43, offset: 666 },
-          },
+          line: 43,
           selector: '.price',
         },
       ],
@@ -267,10 +234,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  justify-content: flex-end;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 54, offset: 845 },
-            start: { column: 1, line: 49, offset: 742 },
-          },
+          line: 49,
           selector: '.actions',
         },
       ],
@@ -293,10 +257,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  text-decoration: none;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 66, offset: 1125 },
-            start: { column: 1, line: 56, offset: 847 },
-          },
+          line: 56,
           selector: '.link',
         },
         {
@@ -311,19 +272,13 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  width: 100%;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 75, offset: 1232 },
-            start: { column: 1, line: 68, offset: 1127 },
-          },
+          line: 68,
           selector: '.link::after',
         },
         {
           classes: ['link'],
           code: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
-          location: {
-            end: { column: 1, line: 79, offset: 1263 },
-            start: { column: 1, line: 77, offset: 1234 },
-          },
+          line: 77,
           selector: '.link:focus',
         },
         {
@@ -333,10 +288,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  border: 1px solid orange;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 83, offset: 1315 },
-            start: { column: 1, line: 81, offset: 1265 },
-          },
+          line: 81,
           selector: '.link:focus::after',
         },
       ],

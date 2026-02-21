@@ -50,10 +50,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  display: grid;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 4, offset: 53 },
-            start: { column: 1, line: 1, offset: 0 },
-          },
+          line: 1,
           selector: '.container',
         },
         {
@@ -70,10 +67,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0.5rem;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 15, offset: 267 },
-            start: { column: 1, line: 6, offset: 55 },
-          },
+          line: 6,
           selector: '.container:not(.is-wide):not(.no-feedback)',
         },
         {
@@ -89,10 +83,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0.5rem;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 25, offset: 455 },
-            start: { column: 1, line: 17, offset: 269 },
-          },
+          line: 17,
           selector: '.container:not(.is-wide).no-feedback',
         },
         {
@@ -108,10 +99,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0.5rem;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 35, offset: 667 },
-            start: { column: 1, line: 27, offset: 457 },
-          },
+          line: 27,
           selector: '.container.is-wide:not(.no-feedback)',
         },
         {
@@ -125,10 +113,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0.5rem;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 43, offset: 843 },
-            start: { column: 1, line: 37, offset: 669 },
-          },
+          line: 37,
           selector: '.container.is-wide.no-feedback',
         },
         {
@@ -144,10 +129,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0.5rem;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 79, offset: 1390 },
-            start: { column: 1, line: 71, offset: 1162 },
-          },
+          line: 71,
           selector: '.container.is-inline:not(.is-wide):not(.no-feedback)',
         },
         {
@@ -161,10 +143,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  row-gap: 0;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 87, offset: 1576 },
-            start: { column: 1, line: 81, offset: 1392 },
-          },
+          line: 81,
           selector: '.container.is-inline:not(.is-wide).no-feedback',
         },
       ],
@@ -181,10 +160,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  word-break: break-all;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 49, offset: 920 },
-            start: { column: 1, line: 45, offset: 845 },
-          },
+          line: 45,
           selector: '.label',
         },
       ],
@@ -195,10 +171,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
         {
           classes: ['field'],
           code: normalizeFile([`.field {`, `  grid-area: field;`, `}`]),
-          location: {
-            end: { column: 1, line: 53, offset: 952 },
-            start: { column: 1, line: 51, offset: 922 },
-          },
+          line: 51,
           selector: '.field',
         },
       ],
@@ -216,10 +189,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  grid-area: feedback;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 60, offset: 1053 },
-            start: { column: 1, line: 55, offset: 954 },
-          },
+          line: 55,
           selector: '.feedback',
         },
         {
@@ -229,10 +199,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
             `  color: #ff5252;`,
             `}`,
           ]),
-          location: {
-            end: { column: 1, line: 64, offset: 1095 },
-            start: { column: 1, line: 62, offset: 1055 },
-          },
+          line: 62,
           selector: '.feedback.is-error',
         },
       ],
@@ -243,10 +210,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
         {
           classes: ['message'],
           code: normalizeFile([`.message {`, `  margin-left: 0.5rem;`, `}`]),
-          location: {
-            end: { column: 1, line: 68, offset: 1132 },
-            start: { column: 1, line: 66, offset: 1097 },
-          },
+          line: 66,
           selector: '.message',
         },
       ],

@@ -147,10 +147,7 @@ testOnPosix(
                 `  width: 100%;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 13, offset: 267 },
-                start: { column: 1, line: 1, offset: 0 },
-              },
+              line: 1,
               selector: '.container',
             },
             {
@@ -163,10 +160,7 @@ testOnPosix(
                 `  grid-template-rows: minmax(3rem, 1fr);`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 90, offset: 1582 },
-                start: { column: 1, line: 85, offset: 1396 },
-              },
+              line: 85,
               selector: '.container.flat',
             },
             {
@@ -179,10 +173,7 @@ testOnPosix(
                 `  grid-template-rows: 1fr;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 97, offset: 1779 },
-                start: { column: 1, line: 92, offset: 1584 },
-              },
+              line: 92,
               selector: '.container.flat .summary.horizontal-layout',
             },
             {
@@ -193,10 +184,7 @@ testOnPosix(
                 `  flex-direction: column;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 103, offset: 1892 },
-                start: { column: 1, line: 99, offset: 1781 },
-              },
+              line: 99,
               selector: '.container.flat .annual-revenue',
             },
             {
@@ -207,10 +195,7 @@ testOnPosix(
                 `  flex-direction: column;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 103, offset: 1892 },
-                start: { column: 1, line: 99, offset: 1781 },
-              },
+              line: 99,
               selector: '.container.flat .relevant-years',
             },
             {
@@ -221,10 +206,7 @@ testOnPosix(
                 `  border: 0;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 109, offset: 2037 },
-                start: { column: 1, line: 105, offset: 1894 },
-              },
+              line: 105,
               selector: '.container.flat .previous-button',
             },
             {
@@ -235,10 +217,7 @@ testOnPosix(
                 `  border: 0;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 109, offset: 2037 },
-                start: { column: 1, line: 105, offset: 1894 },
-              },
+              line: 105,
               selector: '.container.flat .next-button',
             },
           ],
@@ -263,10 +242,7 @@ testOnPosix(
                 `  overflow-y: auto;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 27, offset: 535 },
-                start: { column: 1, line: 15, offset: 269 },
-              },
+              line: 15,
               selector: '.summary',
             },
           ],
@@ -286,10 +262,7 @@ testOnPosix(
                 `  word-break: break-all;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 36, offset: 700 },
-                start: { column: 1, line: 29, offset: 537 },
-              },
+              line: 29,
               selector: '.music-format',
             },
             {
@@ -300,10 +273,7 @@ testOnPosix(
                 `  margin: 0;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 114, offset: 2108 },
-                start: { column: 1, line: 111, offset: 2039 },
-              },
+              line: 111,
               selector: '.music-format.small-font-size',
             },
           ],
@@ -326,10 +296,7 @@ testOnPosix(
                 `  width: 1rem;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 48, offset: 925 },
-                start: { column: 1, line: 38, offset: 702 },
-              },
+              line: 38,
               selector: '.marker',
             },
           ],
@@ -345,10 +312,7 @@ testOnPosix(
                 `  grid-area: annual-revenue;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 53, offset: 996 },
-                start: { column: 1, line: 50, offset: 927 },
-              },
+              line: 50,
               selector: '.annual-revenue',
             },
           ],
@@ -364,10 +328,7 @@ testOnPosix(
                 `  grid-area: relevant-years;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 58, offset: 1067 },
-                start: { column: 1, line: 55, offset: 998 },
-              },
+              line: 55,
               selector: '.relevant-years',
             },
           ],
@@ -382,10 +343,7 @@ testOnPosix(
                 `  color: rgb(247 252 251 / 90%);`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 62, offset: 1116 },
-                start: { column: 1, line: 60, offset: 1069 },
-              },
+              line: 60,
               selector: '.highlight',
             },
           ],
@@ -404,10 +362,7 @@ testOnPosix(
                 `  margin: 0.25rem;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 71, offset: 1254 },
-                start: { column: 1, line: 64, offset: 1118 },
-              },
+              line: 64,
               selector: '.previous-button',
             },
             {
@@ -417,10 +372,7 @@ testOnPosix(
                 `  grid-area: previous-button;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 75, offset: 1306 },
-                start: { column: 1, line: 73, offset: 1256 },
-              },
+              line: 73,
               selector: '.previous-button',
             },
           ],
@@ -439,10 +391,7 @@ testOnPosix(
                 `  margin: 0.25rem;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 71, offset: 1254 },
-                start: { column: 1, line: 64, offset: 1118 },
-              },
+              line: 64,
               selector: '.next-button',
             },
             {
@@ -452,10 +401,7 @@ testOnPosix(
                 `  grid-area: next-button;`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 79, offset: 1350 },
-                start: { column: 1, line: 77, offset: 1308 },
-              },
+              line: 77,
               selector: '.next-button',
             },
           ],
@@ -470,10 +416,7 @@ testOnPosix(
                 `  color: rgb(247 252 251 / 90%);`,
                 `}`,
               ]),
-              location: {
-                end: { column: 1, line: 83, offset: 1394 },
-                start: { column: 1, line: 81, offset: 1352 },
-              },
+              line: 81,
               selector: '.icon',
             },
           ],

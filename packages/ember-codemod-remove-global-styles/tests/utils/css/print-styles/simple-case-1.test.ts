@@ -13,19 +13,13 @@ test('utils | css | print-styles > simple case (1)', function () {
         `  width: 100%;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 6, offset: 94 },
-        start: { column: 1, line: 1, offset: 0 },
-      },
+      line: 1,
       selector: '.image',
     },
     {
       classes: ['image'],
       code: normalizeFile([`.image {`, `  object-fit: cover;`, `}`]),
-      location: {
-        end: { column: 1, line: 10, offset: 127 },
-        start: { column: 1, line: 8, offset: 96 },
-      },
+      line: 8,
       selector: '.image',
     },
   ];

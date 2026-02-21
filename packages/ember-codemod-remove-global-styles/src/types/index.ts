@@ -30,18 +30,7 @@ type Project = {
 type Style = {
   classes: string[];
   code: string;
-  location: {
-    end: {
-      column: number;
-      line: number;
-      offset: number;
-    };
-    start: {
-      column: number;
-      line: number;
-      offset: number;
-    };
-  };
+  line: number;
   selector: string;
 };
 

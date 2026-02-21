@@ -27,8 +27,9 @@ export function getClassToStyles(file: string): ClassToStyles {
   const classToStyles: ClassToStyles = new Map();
 
   function processRule(node: Node): void {
-    const data = parseSelector(node.selector);
     const clone = node.clone();
+    const data = parseSelector(node.selector);
+    const line = node.source.start.line;
 
     data.forEach(({ classes, selector }) => {
       const containerClass = classes[0];
@@ -42,10 +43,7 @@ export function getClassToStyles(file: string): ClassToStyles {
       const data = {
         classes,
         code: clone.toString(),
-        location: {
-          end: node.source.end,
-          start: node.source.start,
-        },
+        line,
         selector,
       };
 

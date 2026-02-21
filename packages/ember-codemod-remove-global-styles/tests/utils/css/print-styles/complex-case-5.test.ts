@@ -20,10 +20,7 @@ test('utils | css | print-styles > complex case (5)', function () {
         `  grid-template-rows: repeat(4, minmax(12rem, 75%)) 5rem;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 12, offset: 229 },
-        start: { column: 1, line: 1, offset: 0 },
-      },
+      line: 1,
       selector: '.widgets',
     },
     {
@@ -33,10 +30,7 @@ test('utils | css | print-styles > complex case (5)', function () {
         `      grid-template-rows: repeat(4, 25%) 5rem;`,
         `    }`,
       ]),
-      location: {
-        end: { column: 5, line: 53, offset: 1005 },
-        start: { column: 5, line: 51, offset: 942 },
-      },
+      line: 51,
       selector: '.widgets',
     },
     {
@@ -53,10 +47,7 @@ test('utils | css | print-styles > complex case (5)', function () {
         `    height: 40rem;`,
         `  }`,
       ]),
-      location: {
-        end: { column: 3, line: 67, offset: 1313 },
-        start: { column: 3, line: 58, offset: 1073 },
-      },
+      line: 58,
       selector: '.widgets',
     },
     {
@@ -66,10 +57,7 @@ test('utils | css | print-styles > complex case (5)', function () {
         `      grid-template-rows: 3fr 1fr 2fr 5rem;`,
         `    }`,
       ]),
-      location: {
-        end: { column: 5, line: 72, offset: 1408 },
-        start: { column: 5, line: 70, offset: 1348 },
-      },
+      line: 70,
       selector: '.widgets',
     },
     {
@@ -85,10 +73,7 @@ test('utils | css | print-styles > complex case (5)', function () {
         `    height: 40rem;`,
         `  }`,
       ]),
-      location: {
-        end: { column: 3, line: 85, offset: 1728 },
-        start: { column: 3, line: 77, offset: 1455 },
-      },
+      line: 77,
       selector: '.widgets',
     },
     {
@@ -98,10 +83,7 @@ test('utils | css | print-styles > complex case (5)', function () {
         `      grid-template-rows: 4fr 1fr 10rem;`,
         `    }`,
       ]),
-      location: {
-        end: { column: 5, line: 90, offset: 1820 },
-        start: { column: 5, line: 88, offset: 1763 },
-      },
+      line: 88,
       selector: '.widgets',
     },
   ];

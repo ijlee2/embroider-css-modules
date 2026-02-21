@@ -65,10 +65,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (4)', function () {
               `  width: 1rem;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 11, offset: 213 },
-              start: { column: 1, line: 1, offset: 0 },
-            },
+            line: 1,
             selector: '.checkbox',
           },
           {
@@ -79,10 +76,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (4)', function () {
               `  outline: 0;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 16, offset: 277 },
-              start: { column: 1, line: 13, offset: 215 },
-            },
+            line: 13,
             selector: '.checkbox:focus',
           },
           {
@@ -92,10 +86,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (4)', function () {
               `  border-color: transparent;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 20, offset: 333 },
-              start: { column: 1, line: 18, offset: 279 },
-            },
+            line: 18,
             selector: '.checkbox:not(:focus)',
           },
         ],
@@ -106,10 +97,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (4)', function () {
           {
             classes: ['checkmark-icon'],
             code: normalizeFile([`.checkmark-icon {`, `  color: white;`, `}`]),
-            location: {
-              end: { column: 1, line: 24, offset: 370 },
-              start: { column: 1, line: 22, offset: 335 },
-            },
+            line: 22,
             selector: '.checkmark-icon',
           },
         ],
@@ -124,10 +112,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (4)', function () {
               `  background-color: #1976d2;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 28, offset: 416 },
-              start: { column: 1, line: 26, offset: 372 },
-            },
+            line: 26,
             selector: '.is-checked',
           },
         ],
@@ -142,10 +127,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (4)', function () {
               `  composes: input-disabled from global;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 32, offset: 474 },
-              start: { column: 1, line: 30, offset: 418 },
-            },
+            line: 30,
             selector: '.is-disabled',
           },
           {
@@ -155,10 +137,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (4)', function () {
               `  color: #546e7a;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 36, offset: 526 },
-              start: { column: 1, line: 34, offset: 476 },
-            },
+            line: 34,
             selector: '.is-disabled .checkmark-icon',
           },
         ],

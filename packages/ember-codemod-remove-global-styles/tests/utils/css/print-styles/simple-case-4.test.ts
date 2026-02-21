@@ -7,10 +7,7 @@ test('utils | css | print-styles > simple case (4)', function () {
     {
       classes: ['checkmark-icon'],
       code: normalizeFile([`.checkmark-icon {`, `  color: white;`, `}`]),
-      location: {
-        end: { column: 1, line: 24, offset: 370 },
-        start: { column: 1, line: 22, offset: 335 },
-      },
+      line: 22,
       selector: '.checkmark-icon',
     },
   ];

@@ -43,10 +43,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
               `  display: flex;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 4, offset: 49 },
-              start: { column: 1, line: 1, offset: 0 },
-            },
+            line: 1,
             selector: '.list',
           },
         ],
@@ -65,10 +62,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
               `  white-space: nowrap;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 12, offset: 182 },
-              start: { column: 1, line: 6, offset: 51 },
-            },
+            line: 6,
             selector: '.link',
           },
           {
@@ -78,10 +72,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
               `  background-color: #15202d;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 16, offset: 238 },
-              start: { column: 1, line: 14, offset: 184 },
-            },
+            line: 14,
             selector: '.link:global(\\.active)',
           },
           {
@@ -92,10 +83,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (2)', function () {
               `  transition: background-color 0.17s;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 21, offset: 322 },
-              start: { column: 1, line: 18, offset: 240 },
-            },
+            line: 18,
             selector: '.link:hover',
           },
         ],

@@ -21,10 +21,7 @@ test('utils | css | print-styles > complex case (3)', function () {
         `  width: 100%;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 13, offset: 267 },
-        start: { column: 1, line: 1, offset: 0 },
-      },
+      line: 1,
       selector: '.container',
     },
     {
@@ -37,10 +34,7 @@ test('utils | css | print-styles > complex case (3)', function () {
         `  grid-template-rows: minmax(3rem, 1fr);`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 90, offset: 1582 },
-        start: { column: 1, line: 85, offset: 1396 },
-      },
+      line: 85,
       selector: '.container.flat',
     },
     {
@@ -53,10 +47,7 @@ test('utils | css | print-styles > complex case (3)', function () {
         `  grid-template-rows: 1fr;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 97, offset: 1779 },
-        start: { column: 1, line: 92, offset: 1584 },
-      },
+      line: 92,
       selector: '.container.flat .summary.horizontal-layout',
     },
     {
@@ -67,10 +58,7 @@ test('utils | css | print-styles > complex case (3)', function () {
         `  flex-direction: column;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 103, offset: 1892 },
-        start: { column: 1, line: 99, offset: 1781 },
-      },
+      line: 99,
       selector: '.container.flat .annual-revenue',
     },
     {
@@ -81,10 +69,7 @@ test('utils | css | print-styles > complex case (3)', function () {
         `  flex-direction: column;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 103, offset: 1892 },
-        start: { column: 1, line: 99, offset: 1781 },
-      },
+      line: 99,
       selector: '.container.flat .relevant-years',
     },
     {
@@ -95,10 +80,7 @@ test('utils | css | print-styles > complex case (3)', function () {
         `  border: 0;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 109, offset: 2037 },
-        start: { column: 1, line: 105, offset: 1894 },
-      },
+      line: 105,
       selector: '.container.flat .previous-button',
     },
     {
@@ -109,10 +91,7 @@ test('utils | css | print-styles > complex case (3)', function () {
         `  border: 0;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 109, offset: 2037 },
-        start: { column: 1, line: 105, offset: 1894 },
-      },
+      line: 105,
       selector: '.container.flat .next-button',
     },
   ];

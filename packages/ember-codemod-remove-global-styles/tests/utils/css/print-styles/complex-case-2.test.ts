@@ -19,10 +19,7 @@ test('utils | css | print-styles > complex case (2)', function () {
         `  text-decoration: none;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 66, offset: 1125 },
-        start: { column: 1, line: 56, offset: 847 },
-      },
+      line: 56,
       selector: '.link',
     },
     {
@@ -37,19 +34,13 @@ test('utils | css | print-styles > complex case (2)', function () {
         `  width: 100%;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 75, offset: 1232 },
-        start: { column: 1, line: 68, offset: 1127 },
-      },
+      line: 68,
       selector: '.link::after',
     },
     {
       classes: ['link'],
       code: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
-      location: {
-        end: { column: 1, line: 79, offset: 1263 },
-        start: { column: 1, line: 77, offset: 1234 },
-      },
+      line: 77,
       selector: '.link:focus',
     },
     {
@@ -59,10 +50,7 @@ test('utils | css | print-styles > complex case (2)', function () {
         `  border: 1px solid orange;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 83, offset: 1315 },
-        start: { column: 1, line: 81, offset: 1265 },
-      },
+      line: 81,
       selector: '.link:focus::after',
     },
   ];

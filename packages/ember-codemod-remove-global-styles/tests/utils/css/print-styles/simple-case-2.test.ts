@@ -15,10 +15,7 @@ test('utils | css | print-styles > simple case (2)', function () {
         `  white-space: nowrap;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 12, offset: 182 },
-        start: { column: 1, line: 6, offset: 51 },
-      },
+      line: 6,
       selector: '.link',
     },
     {
@@ -28,10 +25,7 @@ test('utils | css | print-styles > simple case (2)', function () {
         `  background-color: #15202d;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 16, offset: 238 },
-        start: { column: 1, line: 14, offset: 184 },
-      },
+      line: 14,
       selector: '.link:global(\\.active)',
     },
     {
@@ -42,10 +36,7 @@ test('utils | css | print-styles > simple case (2)', function () {
         `  transition: background-color 0.17s;`,
         `}`,
       ]),
-      location: {
-        end: { column: 1, line: 21, offset: 322 },
-        start: { column: 1, line: 18, offset: 240 },
-      },
+      line: 18,
       selector: '.link:hover',
     },
   ];

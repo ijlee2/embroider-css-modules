@@ -45,10 +45,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (3)', function () {
               `  width: calc(100% - 0.75rem);`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 5, offset: 104 },
-              start: { column: 1, line: 1, offset: 0 },
-            },
+            line: 1,
             selector: '.input',
           },
           {
@@ -59,10 +56,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (3)', function () {
               `  outline: 0;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 10, offset: 165 },
-              start: { column: 1, line: 7, offset: 106 },
-            },
+            line: 7,
             selector: '.input:focus',
           },
           {
@@ -72,10 +66,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (3)', function () {
               `  border-color: transparent;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 14, offset: 218 },
-              start: { column: 1, line: 12, offset: 167 },
-            },
+            line: 12,
             selector: '.input:not(:focus)',
           },
           {
@@ -85,10 +76,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (3)', function () {
               `  font-style: italic;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 18, offset: 265 },
-              start: { column: 1, line: 16, offset: 220 },
-            },
+            line: 16,
             selector: '.input::placeholder',
           },
         ],
@@ -103,10 +91,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (3)', function () {
               `  composes: input-disabled from global;`,
               `}`,
             ]),
-            location: {
-              end: { column: 1, line: 22, offset: 323 },
-              start: { column: 1, line: 20, offset: 267 },
-            },
+            line: 20,
             selector: '.is-disabled',
           },
         ],
