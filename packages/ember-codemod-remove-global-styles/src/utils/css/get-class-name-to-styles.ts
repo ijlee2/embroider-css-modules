@@ -1,4 +1,9 @@
-import { createParser, render, traverse } from 'css-selector-parser';
+import {
+  type AstRule,
+  createParser,
+  render,
+  traverse,
+} from 'css-selector-parser';
 import type { Plugin } from 'postcss';
 import postcss from 'postcss';
 
@@ -23,35 +28,65 @@ type Node = {
   toString: () => string;
 };
 
+type Selector = {
+  childClassNames: string[];
+  parentClassName: string;
+  selector: string;
+};
+
 const parse = createParser({
   // Allow unknown pseudo-classes
   syntax: 'progressive',
 });
 
-function parseSelector(maybeSelector: string): {
-  classNames: string[];
-  selector: string;
-}[] {
+function parseRule(rule: AstRule): Selector | undefined {
+  const childClassNames: string[] = [];
+
+  traverse(rule, (node) => {
+    if (node.type === 'ClassName') {
+      childClassNames.push(node.name);
+    }
+  });
+
+  if (childClassNames.length === 0) {
+    return undefined;
+  }
+
+  const parentClassName = childClassNames.shift()!;
+
+  return {
+    childClassNames,
+    parentClassName,
+    selector: render(rule),
+  };
+}
+
+function parseSelector(maybeSelector: string): Selector[] {
+  const selectors: Selector[] = [];
+
   try {
     const { rules } = parse(maybeSelector);
 
-    return rules.map((rule) => {
-      const classNames: string[] = [];
-
+    rules.forEach((rule) => {
       traverse(rule, (node) => {
-        if (node.type === 'ClassName') {
-          classNames.push(node.name);
+        if (node.type !== 'Rule') {
+          return;
         }
-      });
 
-      return {
-        classNames,
-        selector: render(rule),
-      };
+        const selector = parseRule(node);
+
+        if (selector === undefined) {
+          return;
+        }
+
+        selectors.push(selector);
+      });
     });
   } catch {
-    return [];
+    // Do nothing
   }
+
+  return selectors;
 }
 
 export function getClassNameToStyles(file: string): ClassNameToStyles {
@@ -59,29 +94,24 @@ export function getClassNameToStyles(file: string): ClassNameToStyles {
 
   function processRule(node: Node): void {
     const clone = node.clone();
-    const data = parseSelector(node.selector);
     const line = node.source.start.line;
 
-    data.forEach(({ classNames, selector }) => {
-      const containerClass = classNames[0];
+    const selectors = parseSelector(node.selector);
 
-      if (containerClass === undefined) {
-        return;
-      }
-
+    selectors.forEach(({ childClassNames, parentClassName, selector }) => {
       clone.selector = selector;
 
-      const data = {
-        classNames,
+      const style = {
+        classNames: childClassNames,
         code: clone.toString(),
         line,
         selector,
       };
 
-      if (classNameToStyles.has(containerClass)) {
-        classNameToStyles.get(containerClass)!.push(data);
+      if (classNameToStyles.has(parentClassName)) {
+        classNameToStyles.get(parentClassName)!.push(style);
       } else {
-        classNameToStyles.set(containerClass, [data]);
+        classNameToStyles.set(parentClassName, [style]);
       }
     });
   }

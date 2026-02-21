@@ -57,7 +57,7 @@ export default class WidgetsWidget2 extends Component<WidgetsWidget2Signature> {
   </div>
   {{/unless}}
 
-  <div class="components-widgets-widget-2__captions" data-test-captions>
+  <div class={{styles.components-widgets-widget-2__captions}} data-test-captions>
   <WidgetsWidget2Captions @summaries={{this.summaries}} />
   </div>
   </ContainerQuery></template>

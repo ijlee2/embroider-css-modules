@@ -12,7 +12,7 @@ test('utils | css | get-class-name-to-styles > simple case (1)', function () {
 
   assert.deepStrictEqual(styles, [
     {
-      classNames: ['image'],
+      classNames: [],
       code: normalizeFile([
         `.image {`,
         `  aspect-ratio: 4 / 3;`,
@@ -24,7 +24,7 @@ test('utils | css | get-class-name-to-styles > simple case (1)', function () {
       selector: '.image',
     },
     {
-      classNames: ['image'],
+      classNames: [],
       code: normalizeFile([`.image {`, `  object-fit: cover;`, `}`]),
       line: 8,
       selector: '.image',

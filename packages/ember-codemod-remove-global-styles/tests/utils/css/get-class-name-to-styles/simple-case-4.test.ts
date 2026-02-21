@@ -14,7 +14,7 @@ test('utils | css | get-class-name-to-styles > simple case (4)', function () {
 
   assert.deepStrictEqual(styles, [
     {
-      classNames: ['checkbox'],
+      classNames: [],
       code: normalizeFile([
         `.checkbox {`,
         `  align-items: center;`,
@@ -32,7 +32,7 @@ test('utils | css | get-class-name-to-styles > simple case (4)', function () {
       selector: '.checkbox',
     },
     {
-      classNames: ['checkbox'],
+      classNames: [],
       code: normalizeFile([
         `.checkbox:focus {`,
         `  background-color: #ffecb3;`,
@@ -43,7 +43,7 @@ test('utils | css | get-class-name-to-styles > simple case (4)', function () {
       selector: '.checkbox:focus',
     },
     {
-      classNames: ['checkbox'],
+      classNames: [],
       code: normalizeFile([
         `.checkbox:not(:focus) {`,
         `  border-color: transparent;`,

@@ -16,7 +16,7 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
 
   assert.deepStrictEqual(styles, [
     {
-      classNames: ['widgets'],
+      classNames: [],
       code: normalizeFile([
         `.widgets {`,
         `  display: grid;`,
@@ -35,7 +35,7 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
       selector: '.widgets',
     },
     {
-      classNames: ['widgets'],
+      classNames: [],
       code: normalizeFile([
         `.widgets {`,
         `      grid-template-rows: repeat(4, 25%) 5rem;`,
@@ -45,7 +45,7 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
       selector: '.widgets',
     },
     {
-      classNames: ['widgets'],
+      classNames: [],
       code: normalizeFile([
         `.widgets {`,
         `    grid-template-areas:`,
@@ -62,7 +62,7 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
       selector: '.widgets',
     },
     {
-      classNames: ['widgets'],
+      classNames: [],
       code: normalizeFile([
         `.widgets {`,
         `      grid-template-rows: 3fr 1fr 2fr 5rem;`,
@@ -72,7 +72,7 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
       selector: '.widgets',
     },
     {
-      classNames: ['widgets'],
+      classNames: [],
       code: normalizeFile([
         `.widgets {`,
         `    grid-template-areas:`,
@@ -88,7 +88,7 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
       selector: '.widgets',
     },
     {
-      classNames: ['widgets'],
+      classNames: [],
       code: normalizeFile([
         `.widgets {`,
         `      grid-template-rows: 4fr 1fr 10rem;`,

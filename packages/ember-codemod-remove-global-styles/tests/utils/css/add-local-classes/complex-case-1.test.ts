@@ -17,7 +17,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
     normalizeFile([
       `{{#let (uniqueId) as |inputId|}}`,
       `  <div`,
-      `    class="{{styles.container}} {{if @isInline 'is-inline'}}  {{if @isWide 'is-wide'}}  {{unless @errorMessage 'no-feedback'}}  "`,
+      `    class="{{styles.container}} {{if @isInline 'is-inline'}}  {{if @isWide styles.is-wide}}  {{unless @errorMessage styles.no-feedback}}  "`,
       `    data-test-field-container`,
       `  >`,
       `    <div class={{styles.label}}>`,
@@ -56,7 +56,7 @@ test('utils | css | add-local-classes > complex case (1)', function () {
     normalizeFile([
       `{{#let (uniqueId) as |inputId|}}`,
       `  <div`,
-      `    class="{{this.styles.container}} {{if @isInline 'is-inline'}}  {{if @isWide 'is-wide'}}  {{unless @errorMessage 'no-feedback'}}  "`,
+      `    class="{{this.styles.container}} {{if @isInline 'is-inline'}}  {{if @isWide this.styles.is-wide}}  {{unless @errorMessage this.styles.no-feedback}}  "`,
       `    data-test-field-container`,
       `  >`,
       `    <div class={{this.styles.label}}>`,

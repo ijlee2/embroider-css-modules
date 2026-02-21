@@ -27,7 +27,7 @@ interface UiFormFieldSignature {
 
 const UiFormField: TOC<UiFormFieldSignature> = <template>{{#let (uniqueId) as |inputId|}}
   <div
-    class="{{styles.components-ui-form-field__container}} {{if @isInline 'components-ui-form-field__is-inline'}}  {{if @isWide 'components-ui-form-field__is-wide'}}  {{unless @errorMessage 'components-ui-form-field__no-feedback'}}  "
+    class="{{styles.components-ui-form-field__container}} {{if @isInline 'components-ui-form-field__is-inline'}}  {{if @isWide styles.components-ui-form-field__is-wide}}  {{unless @errorMessage styles.components-ui-form-field__no-feedback}}  "
     data-test-field-container
   >
     <div class={{styles.components-ui-form-field__label}}>

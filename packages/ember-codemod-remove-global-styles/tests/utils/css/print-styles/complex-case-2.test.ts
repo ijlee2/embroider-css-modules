@@ -39,6 +39,10 @@ test('utils | css | print-styles > complex case (2)', function () {
       `.link:focus::after {`,
       `  border: 1px solid orange;`,
       `}`,
+      ``,
+      `.link {`,
+      `  margin-top: 1rem;`,
+      `}`,
     ]),
   );
 });

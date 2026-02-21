@@ -12,7 +12,7 @@ test('utils | css | get-class-name-to-styles > simple case (3)', function () {
 
   assert.deepStrictEqual(styles, [
     {
-      classNames: ['input'],
+      classNames: [],
       code: normalizeFile([
         `.input {`,
         `  border: 0.125rem solid #ffd54f;`,
@@ -24,7 +24,7 @@ test('utils | css | get-class-name-to-styles > simple case (3)', function () {
       selector: '.input',
     },
     {
-      classNames: ['input'],
+      classNames: [],
       code: normalizeFile([
         `.input:focus {`,
         `  background-color: #ffecb3;`,
@@ -35,7 +35,7 @@ test('utils | css | get-class-name-to-styles > simple case (3)', function () {
       selector: '.input:focus',
     },
     {
-      classNames: ['input'],
+      classNames: [],
       code: normalizeFile([
         `.input:not(:focus) {`,
         `  border-color: transparent;`,
@@ -45,7 +45,7 @@ test('utils | css | get-class-name-to-styles > simple case (3)', function () {
       selector: '.input:not(:focus)',
     },
     {
-      classNames: ['input'],
+      classNames: [],
       code: normalizeFile([
         `.input::placeholder {`,
         `  font-style: italic;`,

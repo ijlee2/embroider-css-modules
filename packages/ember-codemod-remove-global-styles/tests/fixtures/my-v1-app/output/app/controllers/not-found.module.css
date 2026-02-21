@@ -50,7 +50,18 @@
   width: 1.25rem;
 }
 
+.templates-not-found__mental-block {
+  animation-name: extend-right-variation-1;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
 .templates-not-found__metaphor.templates-not-found__small-layout .templates-not-found__the-next-idea {
+  height: calc(3.75rem - 2 * (0.2rem + 0.0625rem));
+  padding: 0.2rem 0.3rem;
+}
+
+.templates-not-found__the-next-idea {
   height: calc(3.75rem - 2 * (0.2rem + 0.0625rem));
   padding: 0.2rem 0.3rem;
 }

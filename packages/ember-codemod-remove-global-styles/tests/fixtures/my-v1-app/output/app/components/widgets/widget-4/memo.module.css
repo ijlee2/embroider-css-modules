@@ -38,7 +38,15 @@
   margin-bottom: 0.5rem;
 }
 
+.components-widgets-widget-4-memo__header-container {
+  margin-bottom: 0.5rem;
+}
+
 .components-widgets-widget-4-memo__container[data-container-query-short] .components-widgets-widget-4-memo__body-container {
+  max-height: 9rem;
+}
+
+.components-widgets-widget-4-memo__body-container {
   max-height: 9rem;
 }
 
@@ -49,6 +57,18 @@
 }
 
 .components-widgets-widget-4-memo__container[data-container-query-short] .components-widgets-widget-4-memo__actions-container {
+  height: 1rem;
+  margin-top: 0.25rem;
+  padding: 0 0.25rem;
+}
+
+.components-widgets-widget-4-memo__actions-container {
+  height: 1rem;
+  margin-top: 0.25rem;
+  padding: 0 0.25rem;
+}
+
+.components-widgets-widget-4-memo__actions-container {
   height: 1rem;
   margin-top: 0.25rem;
   padding: 0 0.25rem;
