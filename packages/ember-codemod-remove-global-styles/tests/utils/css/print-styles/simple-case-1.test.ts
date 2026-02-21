@@ -6,26 +6,20 @@ test('utils | css | print-styles > simple case (1)', function () {
   const styles = [
     {
       classes: ['image'],
-      location: {
-        end: { column: 1, line: 6, offset: 94 },
-        start: { column: 1, line: 1, offset: 0 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.image {`,
         `  aspect-ratio: 4 / 3;`,
         `  border-radius: 0.75rem;`,
         `  width: 100%;`,
         `}`,
       ]),
+      line: 1,
       selector: '.image',
     },
     {
       classes: ['image'],
-      location: {
-        end: { column: 1, line: 10, offset: 127 },
-        start: { column: 1, line: 8, offset: 96 },
-      },
-      raw: normalizeFile([`.image {`, `  object-fit: cover;`, `}`]),
+      code: normalizeFile([`.image {`, `  object-fit: cover;`, `}`]),
+      line: 8,
       selector: '.image',
     },
   ];

@@ -18,7 +18,6 @@ type Options = {
 type ClassToStyles = Map<string, Style[]>;
 
 type EntityData = {
-  classes: string[];
   errors: string[];
   localStyles: Style[];
 };
@@ -30,19 +29,8 @@ type Project = {
 
 type Style = {
   classes: string[];
-  location: {
-    end: {
-      column: number;
-      line: number;
-      offset: number;
-    };
-    start: {
-      column: number;
-      line: number;
-      offset: number;
-    };
-  };
-  raw: string;
+  code: string;
+  line: number;
   selector: string;
 };
 

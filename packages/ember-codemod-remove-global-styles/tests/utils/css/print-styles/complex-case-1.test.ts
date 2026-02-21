@@ -6,25 +6,18 @@ test('utils | css | print-styles > complex case (1)', function () {
   const styles = [
     {
       classes: ['container'],
-      location: {
-        end: { column: 1, line: 4, offset: 53 },
-        start: { column: 1, line: 1, offset: 0 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container {`,
         `  align-items: start;`,
         `  display: grid;`,
         `}`,
       ]),
+      line: 1,
       selector: '.container',
     },
     {
       classes: ['container', 'is-wide', 'no-feedback'],
-      location: {
-        end: { column: 1, line: 15, offset: 267 },
-        start: { column: 1, line: 6, offset: 55 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container:not(.is-wide):not(.no-feedback) {`,
         `  column-gap: 0;`,
         `  grid-template-areas:`,
@@ -36,15 +29,12 @@ test('utils | css | print-styles > complex case (1)', function () {
         `  row-gap: 0.5rem;`,
         `}`,
       ]),
+      line: 6,
       selector: '.container:not(.is-wide):not(.no-feedback)',
     },
     {
       classes: ['container', 'is-wide', 'no-feedback'],
-      location: {
-        end: { column: 1, line: 25, offset: 455 },
-        start: { column: 1, line: 17, offset: 269 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container:not(.is-wide).no-feedback {`,
         `  column-gap: 0;`,
         `  grid-template-areas:`,
@@ -55,15 +45,12 @@ test('utils | css | print-styles > complex case (1)', function () {
         `  row-gap: 0.5rem;`,
         `}`,
       ]),
+      line: 17,
       selector: '.container:not(.is-wide).no-feedback',
     },
     {
       classes: ['container', 'is-wide', 'no-feedback'],
-      location: {
-        end: { column: 1, line: 35, offset: 667 },
-        start: { column: 1, line: 27, offset: 457 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container.is-wide:not(.no-feedback) {`,
         `  column-gap: 1rem;`,
         `  grid-template-areas:`,
@@ -74,15 +61,12 @@ test('utils | css | print-styles > complex case (1)', function () {
         `  row-gap: 0.5rem;`,
         `}`,
       ]),
+      line: 27,
       selector: '.container.is-wide:not(.no-feedback)',
     },
     {
       classes: ['container', 'is-wide', 'no-feedback'],
-      location: {
-        end: { column: 1, line: 43, offset: 843 },
-        start: { column: 1, line: 37, offset: 669 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container.is-wide.no-feedback {`,
         `  column-gap: 1rem;`,
         `  grid-template-areas: "label field";`,
@@ -91,15 +75,12 @@ test('utils | css | print-styles > complex case (1)', function () {
         `  row-gap: 0.5rem;`,
         `}`,
       ]),
+      line: 37,
       selector: '.container.is-wide.no-feedback',
     },
     {
       classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
-      location: {
-        end: { column: 1, line: 79, offset: 1390 },
-        start: { column: 1, line: 71, offset: 1162 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container.is-inline:not(.is-wide):not(.no-feedback) {`,
         `  column-gap: 1rem;`,
         `  grid-template-areas:`,
@@ -110,15 +91,12 @@ test('utils | css | print-styles > complex case (1)', function () {
         `  row-gap: 0.5rem;`,
         `}`,
       ]),
+      line: 71,
       selector: '.container.is-inline:not(.is-wide):not(.no-feedback)',
     },
     {
       classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
-      location: {
-        end: { column: 1, line: 87, offset: 1576 },
-        start: { column: 1, line: 81, offset: 1392 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.container.is-inline:not(.is-wide).no-feedback {`,
         `  column-gap: 1rem;`,
         `  grid-template-areas: "field label";`,
@@ -127,6 +105,7 @@ test('utils | css | print-styles > complex case (1)', function () {
         `  row-gap: 0;`,
         `}`,
       ]),
+      line: 81,
       selector: '.container.is-inline:not(.is-wide).no-feedback',
     },
   ];

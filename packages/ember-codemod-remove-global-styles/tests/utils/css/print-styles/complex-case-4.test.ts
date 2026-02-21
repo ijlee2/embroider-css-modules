@@ -2,16 +2,12 @@ import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
 import { printStyles } from '../../../../src/utils/css/index.js';
 
-test('utils | css | print-styles > failed case (1)', function () {
+test('utils | css | print-styles > complex case (4)', function () {
   const styles = [
     {
-      classes: ['container', 'is-wide'],
-      location: {
-        end: { column: 1, line: 10, offset: 208 },
-        start: { column: 1, line: 1, offset: 0 },
-      },
-      raw: normalizeFile([
-        `.container:not(.is-wide {`,
+      classes: ['container', 'is-wide', 'no-feedback'],
+      code: normalizeFile([
+        `.container:not(.is-wide, .no-feedback) {`,
         `  column-gap: 0;`,
         `  grid-template-areas:`,
         `    "label"`,
@@ -22,16 +18,13 @@ test('utils | css | print-styles > failed case (1)', function () {
         `  row-gap: 0.5rem;`,
         `}`,
       ]),
-      selector: '.container:not(.is-wide',
+      line: 1,
+      selector: '.container:not(.is-wide, .no-feedback)',
     },
     {
-      classes: ['container', 'is-inline', 'is-wide'],
-      location: {
-        end: { column: 1, line: 20, offset: 434 },
-        start: { column: 1, line: 12, offset: 210 },
-      },
-      raw: normalizeFile([
-        `.container.is-inline:not(.is-wide {`,
+      classes: ['container', 'is-inline', 'is-wide', 'no-feedback'],
+      code: normalizeFile([
+        `.container.is-inline:not(.is-wide, .no-feedback) {`,
         `  column-gap: 1rem;`,
         `  grid-template-areas:`,
         `    "field label"`,
@@ -41,14 +34,15 @@ test('utils | css | print-styles > failed case (1)', function () {
         `  row-gap: 0.5rem;`,
         `}`,
       ]),
-      selector: '.container.is-inline:not(.is-wide',
+      line: 12,
+      selector: '.container.is-inline:not(.is-wide, .no-feedback)',
     },
   ];
 
   assert.strictEqual(
     printStyles(styles),
     normalizeFile([
-      `.container:not(.is-wide {`,
+      `.container:not(.is-wide, .no-feedback) {`,
       `  column-gap: 0;`,
       `  grid-template-areas:`,
       `    "label"`,
@@ -59,7 +53,7 @@ test('utils | css | print-styles > failed case (1)', function () {
       `  row-gap: 0.5rem;`,
       `}`,
       ``,
-      `.container.is-inline:not(.is-wide {`,
+      `.container.is-inline:not(.is-wide, .no-feedback) {`,
       `  column-gap: 1rem;`,
       `  grid-template-areas:`,
       `    "field label"`,

@@ -57,11 +57,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       [
         {
           classes: ['container'],
-          location: {
-            end: { column: 1, line: 14, offset: 305 },
-            start: { column: 1, line: 1, offset: 0 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container {`,
             `  display: grid;`,
             `  grid-template-areas:`,
@@ -77,30 +73,24 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  width: calc(100% - 2rem) !important;`,
             `}`,
           ]),
+          line: 1,
           selector: '.container',
         },
         {
           classes: ['container'],
-          location: {
-            end: { column: 1, line: 20, offset: 410 },
-            start: { column: 1, line: 16, offset: 307 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container:hover {`,
             `  background: #26313d;`,
             `  transform: translateY(-0.25rem);`,
             `  transition: all 0.25s;`,
             `}`,
           ]),
+          line: 16,
           selector: '.container:hover',
         },
         {
           classes: ['container'],
-          location: {
-            end: { column: 1, line: 93, offset: 1562 },
-            start: { column: 1, line: 85, offset: 1317 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container[data-container-query-wide] {`,
             `  column-gap: 1.5rem;`,
             `  grid-template-areas:`,
@@ -111,34 +101,29 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  grid-template-rows: auto 1fr auto;`,
             `}`,
           ]),
+          line: 85,
           selector: '.container[data-container-query-wide]',
         },
         {
           classes: ['container', 'body'],
-          location: {
-            end: { column: 1, line: 98, offset: 1630 },
-            start: { column: 1, line: 95, offset: 1564 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container[data-container-query-wide]`,
             `  .body {`,
             `  margin-top: 0;`,
             `}`,
           ]),
+          line: 95,
           selector: `.container[data-container-query-wide]${EOL}  .body`,
         },
         {
           classes: ['container', 'link'],
-          location: {
-            end: { column: 1, line: 103, offset: 1701 },
-            start: { column: 1, line: 100, offset: 1632 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.container[data-container-query-wide]`,
             `  .link {`,
             `  margin-top: 1rem;`,
             `}`,
           ]),
+          line: 100,
           selector: `.container[data-container-query-wide]${EOL}  .link`,
         },
       ],
@@ -148,11 +133,8 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       [
         {
           classes: ['header'],
-          location: {
-            end: { column: 1, line: 24, offset: 444 },
-            start: { column: 1, line: 22, offset: 412 },
-          },
-          raw: normalizeFile([`.header {`, `  grid-area: header;`, `}`]),
+          code: normalizeFile([`.header {`, `  grid-area: header;`, `}`]),
+          line: 22,
           selector: '.header',
         },
       ],
@@ -162,17 +144,14 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       [
         {
           classes: ['name'],
-          location: {
-            end: { column: 1, line: 30, offset: 523 },
-            start: { column: 1, line: 26, offset: 446 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.name {`,
             `  font-size: 1.25rem;`,
             `  font-weight: 700;`,
             `  margin-bottom: 0.75rem;`,
             `}`,
           ]),
+          line: 26,
           selector: '.name',
         },
       ],
@@ -182,17 +161,14 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       [
         {
           classes: ['image-container'],
-          location: {
-            end: { column: 1, line: 36, offset: 614 },
-            start: { column: 1, line: 32, offset: 525 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.image-container {`,
             `  grid-area: image-container;`,
             `  max-height: 6rem;`,
             `  max-width: 8rem;`,
             `}`,
           ]),
+          line: 32,
           selector: '.image-container',
         },
       ],
@@ -202,16 +178,13 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       [
         {
           classes: ['body'],
-          location: {
-            end: { column: 1, line: 41, offset: 664 },
-            start: { column: 1, line: 38, offset: 616 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.body {`,
             `  grid-area: body;`,
             `  margin-top: 1rem;`,
             `}`,
           ]),
+          line: 38,
           selector: '.body',
         },
       ],
@@ -221,16 +194,13 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       [
         {
           classes: ['description'],
-          location: {
-            end: { column: 1, line: 47, offset: 740 },
-            start: { column: 1, line: 43, offset: 666 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.description {`,
             `  font-size: 0.875rem;`,
             `  margin-bottom: 0.375rem;`,
             `}`,
           ]),
+          line: 43,
           selector: '.description',
         },
       ],
@@ -240,16 +210,13 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       [
         {
           classes: ['price'],
-          location: {
-            end: { column: 1, line: 47, offset: 740 },
-            start: { column: 1, line: 43, offset: 666 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.price {`,
             `  font-size: 0.875rem;`,
             `  margin-bottom: 0.375rem;`,
             `}`,
           ]),
+          line: 43,
           selector: '.price',
         },
       ],
@@ -259,11 +226,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       [
         {
           classes: ['actions'],
-          location: {
-            end: { column: 1, line: 54, offset: 845 },
-            start: { column: 1, line: 49, offset: 742 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.actions {`,
             `  align-items: center;`,
             `  display: flex;`,
@@ -271,6 +234,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  justify-content: flex-end;`,
             `}`,
           ]),
+          line: 49,
           selector: '.actions',
         },
       ],
@@ -280,11 +244,7 @@ test('utils | css | add-local-classes > complex case (2)', function () {
       [
         {
           classes: ['link'],
-          location: {
-            end: { column: 1, line: 66, offset: 1125 },
-            start: { column: 1, line: 56, offset: 847 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.link {`,
             `  background: transparent;`,
             `  border: 0.0625rem solid rgb(247 252 251 / 50%);`,
@@ -297,15 +257,12 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  text-decoration: none;`,
             `}`,
           ]),
+          line: 56,
           selector: '.link',
         },
         {
           classes: ['link'],
-          location: {
-            end: { column: 1, line: 75, offset: 1232 },
-            start: { column: 1, line: 68, offset: 1127 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.link::after {`,
             `  content: "";`,
             `  height: 100%;`,
@@ -315,28 +272,23 @@ test('utils | css | add-local-classes > complex case (2)', function () {
             `  width: 100%;`,
             `}`,
           ]),
+          line: 68,
           selector: '.link::after',
         },
         {
           classes: ['link'],
-          location: {
-            end: { column: 1, line: 79, offset: 1263 },
-            start: { column: 1, line: 77, offset: 1234 },
-          },
-          raw: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
+          code: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
+          line: 77,
           selector: '.link:focus',
         },
         {
           classes: ['link'],
-          location: {
-            end: { column: 1, line: 83, offset: 1315 },
-            start: { column: 1, line: 81, offset: 1265 },
-          },
-          raw: normalizeFile([
+          code: normalizeFile([
             `.link:focus::after {`,
             `  border: 1px solid orange;`,
             `}`,
           ]),
+          line: 81,
           selector: '.link:focus::after',
         },
       ],

@@ -35,26 +35,20 @@ testOnPosix('utils | css | get-class-to-styles > simple case (1)', function () {
         [
           {
             classes: ['image'],
-            location: {
-              end: { column: 1, line: 6, offset: 94 },
-              start: { column: 1, line: 1, offset: 0 },
-            },
-            raw: normalizeFile([
+            code: normalizeFile([
               `.image {`,
               `  aspect-ratio: 4 / 3;`,
               `  border-radius: 0.75rem;`,
               `  width: 100%;`,
               `}`,
             ]),
+            line: 1,
             selector: '.image',
           },
           {
             classes: ['image'],
-            location: {
-              end: { column: 1, line: 10, offset: 127 },
-              start: { column: 1, line: 8, offset: 96 },
-            },
-            raw: normalizeFile([`.image {`, `  object-fit: cover;`, `}`]),
+            code: normalizeFile([`.image {`, `  object-fit: cover;`, `}`]),
+            line: 8,
             selector: '.image',
           },
         ],
@@ -64,26 +58,19 @@ testOnPosix('utils | css | get-class-to-styles > simple case (1)', function () {
         [
           {
             classes: ['placeholder-image'],
-            location: {
-              end: { column: 1, line: 6, offset: 94 },
-              start: { column: 1, line: 1, offset: 0 },
-            },
-            raw: normalizeFile([
+            code: normalizeFile([
               `.placeholder-image {`,
               `  aspect-ratio: 4 / 3;`,
               `  border-radius: 0.75rem;`,
               `  width: 100%;`,
               `}`,
             ]),
+            line: 1,
             selector: '.placeholder-image',
           },
           {
             classes: ['placeholder-image'],
-            location: {
-              end: { column: 1, line: 19, offset: 280 },
-              start: { column: 1, line: 12, offset: 129 },
-            },
-            raw: normalizeFile([
+            code: normalizeFile([
               `.placeholder-image {`,
               `  background: linear-gradient(`,
               `    36deg,`,
@@ -93,6 +80,7 @@ testOnPosix('utils | css | get-class-to-styles > simple case (1)', function () {
               `  min-width: 8rem;`,
               `}`,
             ]),
+            line: 12,
             selector: '.placeholder-image',
           },
         ],

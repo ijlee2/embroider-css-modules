@@ -132,11 +132,7 @@ testOnPosix(
           [
             {
               classes: ['container'],
-              location: {
-                end: { column: 1, line: 13, offset: 267 },
-                start: { column: 1, line: 1, offset: 0 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container {`,
                 `  column-gap: 2.5rem;`,
                 `  display: grid;`,
@@ -151,15 +147,12 @@ testOnPosix(
                 `  width: 100%;`,
                 `}`,
               ]),
+              line: 1,
               selector: '.container',
             },
             {
               classes: ['container', 'flat'],
-              location: {
-                end: { column: 1, line: 90, offset: 1582 },
-                start: { column: 1, line: 85, offset: 1396 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container.flat {`,
                 `  column-gap: 1rem;`,
                 `  grid-template-areas: "previous-button summary next-button";`,
@@ -167,15 +160,12 @@ testOnPosix(
                 `  grid-template-rows: minmax(3rem, 1fr);`,
                 `}`,
               ]),
+              line: 85,
               selector: '.container.flat',
             },
             {
               classes: ['container', 'flat', 'summary', 'horizontal-layout'],
-              location: {
-                end: { column: 1, line: 97, offset: 1779 },
-                start: { column: 1, line: 92, offset: 1584 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container.flat .summary.horizontal-layout {`,
                 `  gap: 0.5rem;`,
                 `  grid-template-areas: "music-format annual-revenue relevant-years";`,
@@ -183,62 +173,51 @@ testOnPosix(
                 `  grid-template-rows: 1fr;`,
                 `}`,
               ]),
+              line: 92,
               selector: '.container.flat .summary.horizontal-layout',
             },
             {
               classes: ['container', 'flat', 'annual-revenue'],
-              location: {
-                end: { column: 1, line: 103, offset: 1892 },
-                start: { column: 1, line: 99, offset: 1781 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container.flat .annual-revenue {`,
                 `  display: flex;`,
                 `  flex-direction: column;`,
                 `}`,
               ]),
+              line: 99,
               selector: '.container.flat .annual-revenue',
             },
             {
               classes: ['container', 'flat', 'relevant-years'],
-              location: {
-                end: { column: 1, line: 103, offset: 1892 },
-                start: { column: 1, line: 99, offset: 1781 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container.flat .relevant-years {`,
                 `  display: flex;`,
                 `  flex-direction: column;`,
                 `}`,
               ]),
+              line: 99,
               selector: '.container.flat .relevant-years',
             },
             {
               classes: ['container', 'flat', 'previous-button'],
-              location: {
-                end: { column: 1, line: 109, offset: 2037 },
-                start: { column: 1, line: 105, offset: 1894 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container.flat .previous-button {`,
                 `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,
                 `  border: 0;`,
                 `}`,
               ]),
+              line: 105,
               selector: '.container.flat .previous-button',
             },
             {
               classes: ['container', 'flat', 'next-button'],
-              location: {
-                end: { column: 1, line: 109, offset: 2037 },
-                start: { column: 1, line: 105, offset: 1894 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.container.flat .next-button {`,
                 `  background: linear-gradient(36deg, #7cb342 16%, #4b830d 84%);`,
                 `  border: 0;`,
                 `}`,
               ]),
+              line: 105,
               selector: '.container.flat .next-button',
             },
           ],
@@ -248,11 +227,7 @@ testOnPosix(
           [
             {
               classes: ['summary'],
-              location: {
-                end: { column: 1, line: 27, offset: 535 },
-                start: { column: 1, line: 15, offset: 269 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.summary {`,
                 `  color: #455a64;`,
                 `  display: grid;`,
@@ -267,6 +242,7 @@ testOnPosix(
                 `  overflow-y: auto;`,
                 `}`,
               ]),
+              line: 15,
               selector: '.summary',
             },
           ],
@@ -276,11 +252,7 @@ testOnPosix(
           [
             {
               classes: ['music-format'],
-              location: {
-                end: { column: 1, line: 36, offset: 700 },
-                start: { column: 1, line: 29, offset: 537 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.music-format {`,
                 `  color: rgb(247 252 251 / 90%);`,
                 `  display: flex;`,
@@ -290,20 +262,18 @@ testOnPosix(
                 `  word-break: break-all;`,
                 `}`,
               ]),
+              line: 29,
               selector: '.music-format',
             },
             {
               classes: ['music-format', 'small-font-size'],
-              location: {
-                end: { column: 1, line: 114, offset: 2108 },
-                start: { column: 1, line: 111, offset: 2039 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.music-format.small-font-size {`,
                 `  font-size: 0.875rem;`,
                 `  margin: 0;`,
                 `}`,
               ]),
+              line: 111,
               selector: '.music-format.small-font-size',
             },
           ],
@@ -313,11 +283,7 @@ testOnPosix(
           [
             {
               classes: ['marker'],
-              location: {
-                end: { column: 1, line: 48, offset: 925 },
-                start: { column: 1, line: 38, offset: 702 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.marker {`,
                 `  align-items: center;`,
                 `  background-color: rgb(247 252 251 / 90%);`,
@@ -330,6 +296,7 @@ testOnPosix(
                 `  width: 1rem;`,
                 `}`,
               ]),
+              line: 38,
               selector: '.marker',
             },
           ],
@@ -339,16 +306,13 @@ testOnPosix(
           [
             {
               classes: ['annual-revenue'],
-              location: {
-                end: { column: 1, line: 53, offset: 996 },
-                start: { column: 1, line: 50, offset: 927 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.annual-revenue {`,
                 `  font-size: 0.8rem;`,
                 `  grid-area: annual-revenue;`,
                 `}`,
               ]),
+              line: 50,
               selector: '.annual-revenue',
             },
           ],
@@ -358,16 +322,13 @@ testOnPosix(
           [
             {
               classes: ['relevant-years'],
-              location: {
-                end: { column: 1, line: 58, offset: 1067 },
-                start: { column: 1, line: 55, offset: 998 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.relevant-years {`,
                 `  font-size: 0.8rem;`,
                 `  grid-area: relevant-years;`,
                 `}`,
               ]),
+              line: 55,
               selector: '.relevant-years',
             },
           ],
@@ -377,15 +338,12 @@ testOnPosix(
           [
             {
               classes: ['highlight'],
-              location: {
-                end: { column: 1, line: 62, offset: 1116 },
-                start: { column: 1, line: 60, offset: 1069 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.highlight {`,
                 `  color: rgb(247 252 251 / 90%);`,
                 `}`,
               ]),
+              line: 60,
               selector: '.highlight',
             },
           ],
@@ -395,11 +353,7 @@ testOnPosix(
           [
             {
               classes: ['previous-button'],
-              location: {
-                end: { column: 1, line: 71, offset: 1254 },
-                start: { column: 1, line: 64, offset: 1118 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.previous-button {`,
                 `  align-items: center;`,
                 `  display: flex;`,
@@ -408,19 +362,17 @@ testOnPosix(
                 `  margin: 0.25rem;`,
                 `}`,
               ]),
+              line: 64,
               selector: '.previous-button',
             },
             {
               classes: ['previous-button'],
-              location: {
-                end: { column: 1, line: 75, offset: 1306 },
-                start: { column: 1, line: 73, offset: 1256 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.previous-button {`,
                 `  grid-area: previous-button;`,
                 `}`,
               ]),
+              line: 73,
               selector: '.previous-button',
             },
           ],
@@ -430,11 +382,7 @@ testOnPosix(
           [
             {
               classes: ['next-button'],
-              location: {
-                end: { column: 1, line: 71, offset: 1254 },
-                start: { column: 1, line: 64, offset: 1118 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.next-button {`,
                 `  align-items: center;`,
                 `  display: flex;`,
@@ -443,19 +391,17 @@ testOnPosix(
                 `  margin: 0.25rem;`,
                 `}`,
               ]),
+              line: 64,
               selector: '.next-button',
             },
             {
               classes: ['next-button'],
-              location: {
-                end: { column: 1, line: 79, offset: 1350 },
-                start: { column: 1, line: 77, offset: 1308 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.next-button {`,
                 `  grid-area: next-button;`,
                 `}`,
               ]),
+              line: 77,
               selector: '.next-button',
             },
           ],
@@ -465,15 +411,12 @@ testOnPosix(
           [
             {
               classes: ['icon'],
-              location: {
-                end: { column: 1, line: 83, offset: 1394 },
-                start: { column: 1, line: 81, offset: 1352 },
-              },
-              raw: normalizeFile([
+              code: normalizeFile([
                 `.icon {`,
                 `  color: rgb(247 252 251 / 90%);`,
                 `}`,
               ]),
+              line: 81,
               selector: '.icon',
             },
           ],

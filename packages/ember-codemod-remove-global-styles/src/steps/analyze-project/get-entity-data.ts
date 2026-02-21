@@ -47,7 +47,6 @@ export function getEntityData(file: string, data: Data): EntityData {
   }
 
   return {
-    classes,
     errors,
     localStyles: getLocalStyles(classes, data),
   };

@@ -6,11 +6,7 @@ test('utils | css | print-styles > complex case (2)', function () {
   const styles = [
     {
       classes: ['link'],
-      location: {
-        end: { column: 1, line: 66, offset: 1125 },
-        start: { column: 1, line: 56, offset: 847 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.link {`,
         `  background: transparent;`,
         `  border: 0.0625rem solid rgb(247 252 251 / 50%);`,
@@ -23,15 +19,12 @@ test('utils | css | print-styles > complex case (2)', function () {
         `  text-decoration: none;`,
         `}`,
       ]),
+      line: 56,
       selector: '.link',
     },
     {
       classes: ['link'],
-      location: {
-        end: { column: 1, line: 75, offset: 1232 },
-        start: { column: 1, line: 68, offset: 1127 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.link::after {`,
         `  content: "";`,
         `  height: 100%;`,
@@ -41,28 +34,23 @@ test('utils | css | print-styles > complex case (2)', function () {
         `  width: 100%;`,
         `}`,
       ]),
+      line: 68,
       selector: '.link::after',
     },
     {
       classes: ['link'],
-      location: {
-        end: { column: 1, line: 79, offset: 1263 },
-        start: { column: 1, line: 77, offset: 1234 },
-      },
-      raw: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
+      code: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
+      line: 77,
       selector: '.link:focus',
     },
     {
       classes: ['link'],
-      location: {
-        end: { column: 1, line: 83, offset: 1315 },
-        start: { column: 1, line: 81, offset: 1265 },
-      },
-      raw: normalizeFile([
+      code: normalizeFile([
         `.link:focus::after {`,
         `  border: 1px solid orange;`,
         `}`,
       ]),
+      line: 81,
       selector: '.link:focus::after',
     },
   ];
