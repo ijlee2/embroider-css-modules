@@ -1,117 +1,15 @@
 import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
 import { printStyles } from '../../../../src/utils/css/index.js';
+import { classNameToStyles } from '../../../helpers/utils/css/complex-case-1.js';
 
 test('utils | css | print-styles > complex case (1)', function () {
-  const styles = [
-    {
-      classNames: ['container'],
-      code: normalizeFile([
-        `.container {`,
-        `  align-items: start;`,
-        `  display: grid;`,
-        `}`,
-      ]),
-      line: 1,
-      selector: '.container',
-    },
-    {
-      classNames: ['container', 'is-wide', 'no-feedback'],
-      code: normalizeFile([
-        `.container:not(.is-wide):not(.no-feedback) {`,
-        `  column-gap: 0;`,
-        `  grid-template-areas:`,
-        `    "label"`,
-        `    "field"`,
-        `    "feedback";`,
-        `  grid-template-columns: 1fr;`,
-        `  grid-template-rows: auto 1fr auto;`,
-        `  row-gap: 0.5rem;`,
-        `}`,
-      ]),
-      line: 6,
-      selector: '.container:not(.is-wide):not(.no-feedback)',
-    },
-    {
-      classNames: ['container', 'is-wide', 'no-feedback'],
-      code: normalizeFile([
-        `.container:not(.is-wide).no-feedback {`,
-        `  column-gap: 0;`,
-        `  grid-template-areas:`,
-        `    "label"`,
-        `    "field";`,
-        `  grid-template-columns: 1fr;`,
-        `  grid-template-rows: auto 1fr;`,
-        `  row-gap: 0.5rem;`,
-        `}`,
-      ]),
-      line: 17,
-      selector: '.container:not(.is-wide).no-feedback',
-    },
-    {
-      classNames: ['container', 'is-wide', 'no-feedback'],
-      code: normalizeFile([
-        `.container.is-wide:not(.no-feedback) {`,
-        `  column-gap: 1rem;`,
-        `  grid-template-areas:`,
-        `    "label field"`,
-        `    "label feedback";`,
-        `  grid-template-columns: 10rem 1fr;`,
-        `  grid-template-rows: 1fr auto;`,
-        `  row-gap: 0.5rem;`,
-        `}`,
-      ]),
-      line: 27,
-      selector: '.container.is-wide:not(.no-feedback)',
-    },
-    {
-      classNames: ['container', 'is-wide', 'no-feedback'],
-      code: normalizeFile([
-        `.container.is-wide.no-feedback {`,
-        `  column-gap: 1rem;`,
-        `  grid-template-areas: "label field";`,
-        `  grid-template-columns: 10rem 1fr;`,
-        `  grid-template-rows: 1fr;`,
-        `  row-gap: 0.5rem;`,
-        `}`,
-      ]),
-      line: 37,
-      selector: '.container.is-wide.no-feedback',
-    },
-    {
-      classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
-      code: normalizeFile([
-        `.container.is-inline:not(.is-wide):not(.no-feedback) {`,
-        `  column-gap: 1rem;`,
-        `  grid-template-areas:`,
-        `    "field label"`,
-        `    "feedback feedback";`,
-        `  grid-template-columns: auto 1fr;`,
-        `  grid-template-rows: 1fr auto;`,
-        `  row-gap: 0.5rem;`,
-        `}`,
-      ]),
-      line: 71,
-      selector: '.container.is-inline:not(.is-wide):not(.no-feedback)',
-    },
-    {
-      classNames: ['container', 'is-inline', 'is-wide', 'no-feedback'],
-      code: normalizeFile([
-        `.container.is-inline:not(.is-wide).no-feedback {`,
-        `  column-gap: 1rem;`,
-        `  grid-template-areas: "field label";`,
-        `  grid-template-columns: auto 1fr;`,
-        `  grid-template-rows: 1fr;`,
-        `  row-gap: 0;`,
-        `}`,
-      ]),
-      line: 81,
-      selector: '.container.is-inline:not(.is-wide).no-feedback',
-    },
-  ];
+  const styles = classNameToStyles.get('container')!;
+
+  const output = printStyles(styles);
 
   assert.strictEqual(
-    printStyles(styles),
+    output,
     normalizeFile([
       `.container {`,
       `  align-items: start;`,

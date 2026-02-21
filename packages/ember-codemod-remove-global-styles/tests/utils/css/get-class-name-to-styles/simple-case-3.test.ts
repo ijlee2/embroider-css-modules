@@ -1,36 +1,8 @@
 import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
-import { getClassNameToStyles } from '../../../../src/utils/css/index.js';
+import { classNameToStyles } from '../../../helpers/utils/css/simple-case-3.js';
 
 test('utils | css | get-class-name-to-styles > simple case (3)', function () {
-  const file = normalizeFile([
-    `.input {`,
-    `  border: 0.125rem solid #ffd54f;`,
-    `  padding: 0.125rem 0.25rem;`,
-    `  width: calc(100% - 0.75rem);`,
-    `}`,
-    ``,
-    `.input:focus {`,
-    `  background-color: #ffecb3;`,
-    `  outline: 0;`,
-    `}`,
-    ``,
-    `.input:not(:focus) {`,
-    `  border-color: transparent;`,
-    `}`,
-    ``,
-    `.input::placeholder {`,
-    `  font-style: italic;`,
-    `}`,
-    ``,
-    `.is-disabled {`,
-    `  composes: input-disabled from global;`,
-    `}`,
-    ``,
-  ]);
-
-  const classNameToStyles = getClassNameToStyles(file);
-
   assert.deepStrictEqual(Array.from(classNameToStyles.keys()), [
     'input',
     'is-disabled',
