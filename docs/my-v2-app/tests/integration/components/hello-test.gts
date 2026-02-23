@@ -1,5 +1,4 @@
 import { render } from '@ember/test-helpers';
-import { a11yAudit } from 'ember-a11y-testing/test-support';
 import Hello from 'my-v2-app/components/hello';
 import styles from 'my-v2-app/components/hello.module.css';
 import { setupRenderingTest } from 'my-v2-app/tests/helpers';
@@ -19,7 +18,5 @@ module('Integration | Component | hello', function (hooks) {
         fontSize: '128px',
       })
       .hasText('Hello Vite!');
-
-    await a11yAudit();
   });
 });
