@@ -52,6 +52,12 @@ As you will see in the [Guides](#guides) below, we delegate the how to Rollup, W
 For classic v1 apps (i.e. without Webpack) and v1 addons, you will want to use [`ember-css-modules`](https://github.com/salsify/ember-css-modules).
 
 
+## Compatibility
+
+- Ember.js v4.12 or above
+- Node.js v22 or above
+
+
 ## Contributing
 
 See the [Contributing](./CONTRIBUTING.md) guide for details.
