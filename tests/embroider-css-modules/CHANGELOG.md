@@ -1,5 +1,15 @@
 # test-app-for-embroider-css-modules
 
+## 2.1.0
+
+### Minor Changes
+
+- [#228](https://github.com/ijlee2/embroider-css-modules/pull/228) Dropped support for Node 20 ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#229](https://github.com/ijlee2/embroider-css-modules/pull/229) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.1
 
 ### Patch Changes

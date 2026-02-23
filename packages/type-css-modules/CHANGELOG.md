@@ -1,5 +1,11 @@
 # type-css-modules
 
+## 3.0.0
+
+### Major Changes
+
+- [#228](https://github.com/ijlee2/embroider-css-modules/pull/228) Dropped support for Node 20 ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.1.4
 
 ### Patch Changes

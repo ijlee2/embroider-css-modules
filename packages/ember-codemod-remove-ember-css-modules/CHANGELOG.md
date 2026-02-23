@@ -1,5 +1,11 @@
 # ember-codemod-remove-ember-css-modules
 
+## 4.0.0
+
+### Major Changes
+
+- [#228](https://github.com/ijlee2/embroider-css-modules/pull/228) Dropped support for Node 20 ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.1.5
 
 ### Patch Changes

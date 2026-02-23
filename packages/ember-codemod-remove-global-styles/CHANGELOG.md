@@ -1,5 +1,11 @@
 # ember-codemod-remove-global-styles
 
+## 0.9.0
+
+### Minor Changes
+
+- [#228](https://github.com/ijlee2/embroider-css-modules/pull/228) Dropped support for Node 20 ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.8.0
 
 ### Minor Changes

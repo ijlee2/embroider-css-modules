@@ -1,5 +1,15 @@
 # embroider-css-modules
 
+## 4.0.0
+
+### Major Changes
+
+- [#228](https://github.com/ijlee2/embroider-css-modules/pull/228) Dropped support for Node 20 ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#229](https://github.com/ijlee2/embroider-css-modules/pull/229) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.1.7
 
 ### Patch Changes
