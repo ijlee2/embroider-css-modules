@@ -11,7 +11,7 @@
   "type": "module",
   "exports": {
     "./ember": "./ember/index.json",
-    "./node20": "./node20/index.json"
+    "./node": "./node/index.json"
   },
   "scripts": {
     "lint:js": "prettier \"**/*.{json,mjs}\" --cache --check",
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@tsconfig/ember": "^3.0.12",
-    "@tsconfig/node20": "^20.1.9",
+    "@tsconfig/node22": "^22.0.5",
     "@tsconfig/strictest": "^2.0.8"
   },
   "devDependencies": {
@@ -35,6 +35,6 @@
     }
   },
   "engines": {
-    "node": "20.* || >= 22"
+    "node": "22.* || >= 24"
   }
 }
