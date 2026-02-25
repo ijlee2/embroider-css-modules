@@ -1,5 +1,11 @@
 # ember-codemod-remove-global-styles
 
+## 0.10.0
+
+### Minor Changes
+
+- [#230](https://github.com/ijlee2/embroider-css-modules/pull/230) Allowed limiting search by entity ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.9.0
 
 ### Minor Changes
