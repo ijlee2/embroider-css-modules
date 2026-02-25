@@ -47,7 +47,7 @@ pnpx ember-codemod-remove-global-styles --src app/assets/app.css
 
 <details>
 
-<summary>Optional: Limit types of files to consider</summary>
+<summary>Optional: Limit type of files to consider</summary>
 
 By default, the codemod considers components and routes. Pass `--convert` to consider a subset of these.
 
@@ -63,19 +63,16 @@ pnpx ember-codemod-remove-global-styles --convert routes
 
 <details>
 
-<summary>Optional: Limit folders to consider</summary>
+<summary>Optional: Limit entity to consider</summary>
 
-By default, the codemod considers all files and folders for components and routes. Pass `--folder` to limit the search to 1 folder. (You may use glob patterns to specify multiple folders.)
+By default, the codemod considers all files and folders for components, routes, and tests. Pass `--entity` to limit the search to 1 entity and its sub-entities (if any). You may use curly braces to specify multiple entities.
 
 ```sh
-# `ui` folder only (search `app/{components,templates}/ui`)
-pnpx ember-codemod-remove-global-styles --folder ui
+# `ui/form` only
+pnpx ember-codemod-remove-global-styles --entity ui/form
 
-# `ui/form` folder only (search `app/{components,templates}/ui/form`)
-pnpx ember-codemod-remove-global-styles --folder ui/form
-
-# `route1` and `route2` folders only (search `app/templates/{route1,route2}`)
-pnpx ember-codemod-remove-global-styles --convert routes --folder "{route1,route2}"
+# `route1` and `route2` only
+pnpx ember-codemod-remove-global-styles --convert routes --entity "{route1,route2}"
 ```
 
 </details>
