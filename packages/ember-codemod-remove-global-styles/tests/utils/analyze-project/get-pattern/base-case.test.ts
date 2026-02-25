@@ -6,13 +6,13 @@ import {
 } from '../../../../src/utils/analyze-project/index.js';
 
 test('utils | analyze-project | get-pattern > base case (v1 app)', function () {
-  const folder = '';
+  const entity = undefined;
 
-  let output = getPatternForComponents({ folder });
+  let output = getPatternForComponents({ entity });
 
   assert.deepStrictEqual(output, ['app/components/**/*.{gjs,gts,hbs}']);
 
-  output = getPatternForRoutes({ folder });
+  output = getPatternForRoutes({ entity });
 
   assert.deepStrictEqual(output, ['app/templates/**/*.{gjs,gts,hbs}']);
 });

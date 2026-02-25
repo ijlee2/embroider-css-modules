@@ -17,8 +17,8 @@ const argv = yargs(hideBin(process.argv))
     describe: 'Which type of files to consider',
     type: 'array',
   })
-  .option('folder', {
-    describe: 'Which folder to consider',
+  .option('entity', {
+    describe: 'Which entity to consider',
     type: 'string',
   })
   .option('root', {
@@ -36,7 +36,7 @@ const DEFAULT_FOR_CONVERT = ['components', 'routes'] as const;
 
 const codemodOptions: CodemodOptions = {
   convert: new Set(argv['convert'] ?? DEFAULT_FOR_CONVERT),
-  folder: argv['folder'] ?? '',
+  entity: argv['entity'],
   projectRoot: argv['root'] ?? process.cwd(),
   src: argv['src'],
 };
