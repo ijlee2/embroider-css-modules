@@ -1,6 +1,6 @@
 type CodemodOptions = {
   convert: Set<'components' | 'routes'>;
-  folder: string;
+  entity: string | undefined;
   projectRoot: string;
   src: string;
 };
@@ -10,7 +10,7 @@ type Options = {
     components: boolean;
     routes: boolean;
   };
-  folder: string;
+  entity: string | undefined;
   projectRoot: string;
   src: string;
 };

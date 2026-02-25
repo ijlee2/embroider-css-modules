@@ -2,7 +2,7 @@ import type { CodemodOptions, Options } from '../../../src/types/index.js';
 
 const codemodOptions: CodemodOptions = {
   convert: new Set(['components', 'routes']),
-  folder: '',
+  entity: undefined,
   projectRoot: 'tmp/my-v2-app',
   src: 'app/assets/app.css',
 };
@@ -12,7 +12,7 @@ const options: Options = {
     components: true,
     routes: true,
   },
-  folder: '',
+  entity: undefined,
   projectRoot: 'tmp/my-v2-app',
   src: 'app/assets/app.css',
 };
