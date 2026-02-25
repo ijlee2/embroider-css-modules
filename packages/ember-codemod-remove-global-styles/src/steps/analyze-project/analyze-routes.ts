@@ -4,14 +4,14 @@ import { join } from 'node:path';
 import { findFiles } from '@codemod-utils/files';
 
 import type { ClassNameToStyles, Options, Project } from '../../types/index.js';
-import { normalizedJoin } from '../../utils/files/index.js';
+import { getPatternForRoutes } from '../../utils/analyze-project/index.js';
 import { getEntityData } from './get-entity-data.js';
 
 export function analyzeRoutes(
   classNameToStyles: ClassNameToStyles,
   options: Options,
 ): Project['routes'] {
-  const { convert, folder, projectRoot } = options;
+  const { convert, projectRoot } = options;
 
   const routes: Project['routes'] = new Map();
 
@@ -19,12 +19,9 @@ export function analyzeRoutes(
     return routes;
   }
 
-  const filePaths = findFiles(
-    normalizedJoin('app/templates', folder, '**/*.{gjs,gts,hbs}'),
-    {
-      projectRoot,
-    },
-  );
+  const filePaths = findFiles(getPatternForRoutes(options), {
+    projectRoot,
+  });
 
   filePaths.forEach((filePath) => {
     const file = readFileSync(join(projectRoot, filePath), 'utf8');
