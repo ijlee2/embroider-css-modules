@@ -1,8 +1,10 @@
 import { analyzeProject, createOptions, updateProject } from './steps/index.js';
 import type { CodemodOptions } from './types/index.js';
 
-export function runCodemod(codemodOptions: CodemodOptions): void {
+export async function runCodemod(
+  codemodOptions: CodemodOptions,
+): Promise<void> {
   const options = createOptions(codemodOptions);
-  const project = analyzeProject(options);
-  updateProject(project, options);
+  const project = await analyzeProject(options);
+  await updateProject(project, options);
 }

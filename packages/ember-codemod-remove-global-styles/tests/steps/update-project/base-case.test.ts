@@ -6,7 +6,7 @@ import {
   options,
 } from '../../helpers/shared-test-setups/my-v1-app.js';
 
-test('steps | update-project > base case', function () {
+test('steps | update-project > base case', async function () {
   const inputProject = {
     app: {
       assets: {
@@ -25,9 +25,9 @@ test('steps | update-project > base case', function () {
 
   loadFixture(inputProject, codemodOptions);
 
-  const project = analyzeProject(options);
+  const project = await analyzeProject(options);
 
-  updateProject(project, options);
+  await updateProject(project, options);
 
   assertFixture(outputProject, codemodOptions);
 });

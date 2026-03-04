@@ -7,12 +7,12 @@ import {
   options,
 } from '../../helpers/shared-test-setups/my-v1-app.js';
 
-test('steps | update-project > my-v1-app', function () {
+test('steps | update-project > my-v1-app', async function () {
   loadFixture(inputProject, codemodOptions);
 
-  const project = analyzeProject(options);
+  const project = await analyzeProject(options);
 
-  updateProject(project, options);
+  await updateProject(project, options);
 
   assertFixture(outputProject, codemodOptions);
 });

@@ -6,7 +6,7 @@ import {
   options,
 } from '../../helpers/shared-test-setups/my-v1-app.js';
 
-test('steps | analyze-project > base case', function () {
+test('steps | analyze-project > base case', async function () {
   const inputProject = {
     app: {
       assets: {
@@ -17,7 +17,7 @@ test('steps | analyze-project > base case', function () {
 
   loadFixture(inputProject, codemodOptions);
 
-  const project = analyzeProject(options);
+  const project = await analyzeProject(options);
 
   assert.deepStrictEqual(Array.from(project.components.keys()), []);
 

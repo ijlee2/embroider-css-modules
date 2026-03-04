@@ -9,10 +9,10 @@ import {
   options,
 } from '../../helpers/shared-test-setups/my-v2-app.js';
 
-test('steps | analyze-project > my-v2-app', function () {
+test('steps | analyze-project > my-v2-app', async function () {
   loadFixture(inputProject, codemodOptions);
 
-  const project = analyzeProject(options);
+  const project = await analyzeProject(options);
 
   assert.deepStrictEqual(
     Array.from(project.components.keys()),
