@@ -64,8 +64,9 @@ export function updateClass(
       status: 'success',
     };
   } catch (error) {
-    console.log(`WARNING: ${classFilePath} could not be updated.`);
-    console.log((error as Error).message);
+    console.log(
+      `WARNING: ${classFilePath} could not be updated. (${(error as Error).message})`,
+    );
 
     return {
       output: undefined,
