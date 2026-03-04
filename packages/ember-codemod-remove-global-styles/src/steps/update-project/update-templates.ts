@@ -1,30 +1,31 @@
 import { createFiles } from '@codemod-utils/files';
+import { parallelize } from '@codemod-utils/threads';
 
 import type { Options, Project } from '../../types/index.js';
-import { updateTemplate } from '../../utils/update-project/index.js';
+import { task } from './update-templates/task.js';
 
-export function updateTemplates(project: Project, options: Options): void {
-  const fileMap = new Map<string, string>();
+export async function updateTemplates(
+  project: Project,
+  options: Options,
+): Promise<void> {
+  const datasets: Parameters<typeof task>[] = [];
 
   project.components.forEach((_data, templateFilePath) => {
-    const { output, status } = updateTemplate(templateFilePath, options);
-
-    if (status === 'error') {
-      return;
-    }
-
-    fileMap.set(templateFilePath, output.templateFile);
+    datasets.push([templateFilePath, options]);
   });
 
   project.routes.forEach((_data, templateFilePath) => {
-    const { output, status } = updateTemplate(templateFilePath, options);
-
-    if (status === 'error') {
-      return;
-    }
-
-    fileMap.set(templateFilePath, output.templateFile);
+    datasets.push([templateFilePath, options]);
   });
+
+  const entries = await parallelize(task, datasets, {
+    importMetaUrl: import.meta.url,
+    workerFilePath: './update-templates/worker.js',
+  });
+
+  const fileMap = new Map<string, string>(
+    entries.filter((entry) => entry !== undefined),
+  );
 
   createFiles(fileMap, options);
 }
