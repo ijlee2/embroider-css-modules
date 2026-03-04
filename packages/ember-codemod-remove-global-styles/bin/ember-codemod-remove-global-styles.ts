@@ -41,4 +41,4 @@ const codemodOptions: CodemodOptions = {
   src: argv['src'],
 };
 
-runCodemod(codemodOptions);
+void runCodemod(codemodOptions);

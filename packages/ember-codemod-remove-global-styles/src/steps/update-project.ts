@@ -5,8 +5,11 @@ import {
   updateTemplates,
 } from './update-project/index.js';
 
-export function updateProject(project: Project, options: Options): void {
+export async function updateProject(
+  project: Project,
+  options: Options,
+): Promise<void> {
   createStylesheets(project, options);
-  updateClasses(project, options);
-  updateTemplates(project, options);
+  await updateClasses(project, options);
+  await updateTemplates(project, options);
 }
