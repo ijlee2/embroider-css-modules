@@ -1,16 +1,14 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-
 import { findFiles } from '@codemod-utils/files';
+import { parallelize } from '@codemod-utils/threads';
 
 import type { ClassNameToStyles, Options, Project } from '../../types/index.js';
 import { getPatternForRoutes } from '../../utils/analyze-project/index.js';
-import { getEntityData } from './get-entity-data.js';
+import { task } from './analyze-routes/task.js';
 
-export function analyzeRoutes(
+export async function analyzeRoutes(
   classNameToStyles: ClassNameToStyles,
   options: Options,
-): Project['routes'] {
+): Promise<Project['routes']> {
   const { convert, projectRoot } = options;
 
   const routes: Project['routes'] = new Map();
@@ -23,18 +21,16 @@ export function analyzeRoutes(
     projectRoot,
   });
 
+  const datasets: Parameters<typeof task>[] = [];
+
   filePaths.forEach((filePath) => {
-    const file = readFileSync(join(projectRoot, filePath), 'utf8');
-
-    const entityData = getEntityData(file, {
-      classNameToStyles,
-      isHbs: filePath.endsWith('.hbs'),
-    });
-
-    if (entityData.localStyles.length > 0) {
-      routes.set(filePath, entityData);
-    }
+    datasets.push([filePath, classNameToStyles, options]);
   });
 
-  return routes;
+  const entries = await parallelize(task, datasets, {
+    importMetaUrl: import.meta.url,
+    workerFilePath: './analyze-routes/worker.js',
+  });
+
+  return new Map(entries.filter((entry) => entry !== undefined));
 }
