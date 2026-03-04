@@ -22,9 +22,7 @@ function logErrors(cssModuleFilePath: string, errors: string[]): void {
     return;
   }
 
-  console.warn(`WARNING: ${cssModuleFilePath} may be incorrect.`);
-  console.warn(errors.map((error) => `- ${error}`).join(EOL));
-  console.log();
+  console.log(`WARNING: ${cssModuleFilePath} may be incorrect.`);
 }
 
 export function createStylesheets(project: Project, options: Options): void {
