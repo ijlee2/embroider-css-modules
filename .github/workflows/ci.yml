@@ -12,10 +12,35 @@ env:
   PERCY_PARALLEL_TOTAL: 1
 
 jobs:
+  get-test-matrix:
+    name: Get test matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-test-matrix.outputs.matrix }}
+    timeout-minutes: 5
+    steps:
+      - name: Check out a copy of the repo
+        uses: actions/checkout@v6
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v6
+        with:
+          cache: 'pnpm'
+          node-version: ${{ env.NODE_VERSION }}
+
+      - id: set-test-matrix
+        name: Set test matrix
+        run: echo "matrix=$(pnpx @embroider/try list)" >> $GITHUB_OUTPUT
+        working-directory: 'tests/embroider-css-modules'
+
   lint:
     name: Lint
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         package-location:
           - 'docs/my-v1-app'
@@ -52,6 +77,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         package-location:
           - 'docs/my-v1-app'
@@ -127,30 +153,6 @@ jobs:
         run: pnpm test
         working-directory: ${{ matrix.package-location }}
 
-  get-test-matrix:
-    name: Get test matrix
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-test-matrix.outputs.matrix }}
-    timeout-minutes: 5
-    steps:
-      - name: Check out a copy of the repo
-        uses: actions/checkout@v6
-
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v6
-        with:
-          cache: 'pnpm'
-          node-version: ${{ env.NODE_VERSION }}
-
-      - id: set-test-matrix
-        name: Set test matrix
-        run: echo "matrix=$(pnpx -s @embroider/try list)" >> $GITHUB_OUTPUT
-        working-directory: 'tests/embroider-css-modules'
-
   test-compatibility-embroider-css-modules:
     name: Test compatibility (tests/embroider-css-modules)
     needs: [get-test-matrix]
@@ -173,7 +175,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Make file changes
-        run: pnpm dlx @embroider/try apply ${{ matrix.name }}
+        run: pnpx @embroider/try apply ${{ matrix.name }}
         working-directory: 'tests/embroider-css-modules'
 
       - name: Install dependencies
