@@ -34,7 +34,9 @@
   },
   "dependencies": {
     "@codemod-utils/files": "^4.0.0",
+    "css-selector-parser": "^3.3.0",
     "css-tree": "^3.2.1",
+    "postcss": "^8.5.8",
     "yargs": "^18.0.0"
   },
   "devDependencies": {

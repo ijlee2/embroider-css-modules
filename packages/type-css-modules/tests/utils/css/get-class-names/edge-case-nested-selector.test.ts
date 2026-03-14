@@ -32,9 +32,9 @@ test('utils | css | get-class-names > edge case (nested selector)', function () 
 
   assert.deepStrictEqual(getClassNames('app/styles.css', options), [
     'child-selector-1',
-    // 'child-selector-2' is missing
+    'child-selector-2',
     'child-selector-3',
-    // 'child-selector-4' is missing
+    'child-selector-4',
     'parent-selector-3',
     'parent-selector-4',
   ]);
