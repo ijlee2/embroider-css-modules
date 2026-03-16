@@ -1,5 +1,11 @@
 # type-css-modules
 
+## 3.2.0
+
+### Minor Changes
+
+- [#236](https://github.com/ijlee2/embroider-css-modules/pull/236) Improved handling of nested selectors ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.1.0
 
 ### Minor Changes
