@@ -96,7 +96,6 @@ The [Prettier configuration](#use-prettier) (shown above) can remain as is.
 To reduce complexity, `type-css-modules` expects you to follow the conventions of `embroider-css-modules`:
 
 - Give the local scope to the styles that you own<sup>1</sup>
-- Avoid nesting styles<sup>2</sup>
 - Use the default import to import styles
 
 Here are some examples that meet the syntax requirements.
@@ -214,36 +213,6 @@ And some counterexamples (what not to do):
 
 <details>
 
-<summary>Don't nest styles</summary>
-
-```css
-/* app/components/ui/page.css */
-.container {
-  display: grid;
-  grid-template-areas:
-    "header"
-    "body";
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
-  height: calc(100% - 3em);
-  overflow-y: auto;
-  padding: 1.5rem 1rem;
-  scrollbar-gutter: stable;
-
-  .header {
-    grid-area: header;
-  }
-
-  .body {
-    grid-area: body;
-  }
-}
-```
-
-</details>
-
-<details>
-
 <summary>Don't use named imports to import styles</summary>
 
 ```ts
@@ -266,8 +235,6 @@ import { container, header, body } from './page.css';
 </details>
 
 <sup>1. With `webpack`, for example, you can configure [`mode`](https://webpack.js.org/loaders/css-loader/#mode) to be a function that returns `'local'` or `'global'`. In stylesheets, you can use the `:global()` pseudo-class selector to refer to "things from outside."</sup>
-
-<sup>2. [CSS nesting is in spec](https://www.w3.org/TR/css-nesting-1/). To reduce maintenance cost, `type-css-modules` will leave it up to `css-tree` to parse nested styles (see [issue #210](https://github.com/csstree/csstree/issues/210)).
 
 
 ## Compatibility

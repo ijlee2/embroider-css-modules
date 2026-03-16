@@ -34,7 +34,8 @@
   },
   "dependencies": {
     "@codemod-utils/files": "^4.0.0",
-    "css-tree": "^3.2.1",
+    "css-selector-parser": "^3.3.0",
+    "postcss": "^8.5.8",
     "yargs": "^18.0.0"
   },
   "devDependencies": {
@@ -43,7 +44,6 @@
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",
     "@sondr3/minitest": "^0.1.2",
-    "@types/css-tree": "^2.3.11",
     "@types/node": "^22.19.15",
     "@types/yargs": "^17.0.35",
     "concurrently": "^9.2.1",
