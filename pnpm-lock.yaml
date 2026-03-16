@@ -671,8 +671,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       '@codemod-utils/threads':
-        specifier: ^0.3.1
-        version: 0.3.1
+        specifier: ^0.4.0
+        version: 0.4.0
       css-selector-parser:
         specifier: ^3.3.0
         version: 3.3.0
@@ -1671,8 +1671,8 @@ packages:
     peerDependencies:
       '@sondr3/minitest': ^0.1.2
 
-  '@codemod-utils/threads@0.3.1':
-    resolution: {integrity: sha512-sG0UzmSZMSeD9LgLTqhgpATsxeOCvk4MKfqATjPFUTUM4ss/kwxtqK7HybQpuDk/4KnMecEkd9TmqvwKIoq8xQ==}
+  '@codemod-utils/threads@0.4.0':
+    resolution: {integrity: sha512-Ve9mng1+FD2MsdjXPm7OJeIvcjCHnlKJRymzoZwPNKFEg4ICOnjryAZRFAm8IEJlloWhRLGGSJMERdGVZNG4iQ==}
     engines: {node: 22.* || >= 24}
 
   '@csstools/color-helpers@5.1.0':
@@ -9965,7 +9965,7 @@ snapshots:
       fixturify: 3.0.0
       glob: 13.0.6
 
-  '@codemod-utils/threads@0.3.1': {}
+  '@codemod-utils/threads@0.4.0': {}
 
   '@csstools/color-helpers@5.1.0': {}
 
