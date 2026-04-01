@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -94,7 +94,7 @@ function importStylesInClass(file: string, data: Data): string {
     visitImportDeclaration(path) {
       if (!lastImportDeclarationPath) {
         lastImportDeclarationPath = path;
-        // @ts-ignore: Assume that types from external packages are correct
+        // @ts-expect-error: Incorrect type
       } else if (path.node.start > lastImportDeclarationPath.node.start) {
         lastImportDeclarationPath = path;
       }
@@ -104,9 +104,9 @@ function importStylesInClass(file: string, data: Data): string {
   });
 
   // Append the styles import
-  // @ts-ignore: Assume that types from external packages are correct
+  // @ts-expect-error: Incorrect type
   const nodes = ast.program.body;
-  // @ts-ignore: Assume that types from external packages are correct
+  // @ts-expect-error: Incorrect type
   const index = lastImportDeclarationPath?.name ?? -1;
 
   nodes.splice(
@@ -136,7 +136,7 @@ function addStylesAsClassProperty(file: string, data: Data): string {
       ];
 
       if (body.length > 0) {
-        // @ts-ignore: Assume that types from external packages are correct
+        // @ts-expect-error: Incorrect type
         nodesToAdd.push(AST.builders.noop());
       }
 

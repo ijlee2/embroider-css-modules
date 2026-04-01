@@ -35,7 +35,7 @@ interface ProductsSignature {
             @data={{hash name=@controller.name}}
             @key="name"
             @label="Filter by"
-            @onUpdate={{@controller.noOp}}
+            @onUpdate={{@controller.updateQueryParameters}}
             @placeholder="Cake, pasta, etc."
           />
         </div>

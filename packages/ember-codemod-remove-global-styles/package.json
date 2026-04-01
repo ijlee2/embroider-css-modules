@@ -36,17 +36,17 @@
     "test": "sh build.sh --test && mt dist-for-testing --quiet"
   },
   "dependencies": {
-    "@codemod-utils/ast-javascript": "^3.0.0",
-    "@codemod-utils/ast-template": "^3.0.0",
-    "@codemod-utils/ast-template-tag": "^2.0.0",
-    "@codemod-utils/files": "^4.0.0",
-    "@codemod-utils/threads": "^0.4.0",
+    "@codemod-utils/ast-javascript": "^3.0.1",
+    "@codemod-utils/ast-template": "^3.0.1",
+    "@codemod-utils/ast-template-tag": "^2.1.0",
+    "@codemod-utils/files": "^4.0.1",
+    "@codemod-utils/threads": "^1.0.0",
     "css-selector-parser": "^3.3.0",
     "postcss": "^8.5.8",
     "yargs": "^18.0.0"
   },
   "devDependencies": {
-    "@codemod-utils/tests": "^3.0.0",
+    "@codemod-utils/tests": "^3.0.1",
     "@shared-configs/eslint-config-node": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",

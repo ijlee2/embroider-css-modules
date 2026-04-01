@@ -33,13 +33,13 @@
     "test": "sh build.sh --test && mt dist-for-testing --quiet"
   },
   "dependencies": {
-    "@codemod-utils/files": "^4.0.0",
+    "@codemod-utils/files": "^4.0.1",
     "css-selector-parser": "^3.3.0",
     "postcss": "^8.5.8",
     "yargs": "^18.0.0"
   },
   "devDependencies": {
-    "@codemod-utils/tests": "^3.0.0",
+    "@codemod-utils/tests": "^3.0.1",
     "@shared-configs/eslint-config-node": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",

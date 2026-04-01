@@ -4,8 +4,6 @@ import { tracked } from '@glimmer/tracking';
 import type { Product } from 'my-v1-app/data/products';
 import type { Model } from 'my-v1-app/routes/products';
 
-type SupportedKey = 'name';
-
 export default class ProductsController extends Controller {
   declare model: Model;
 
@@ -31,14 +29,23 @@ export default class ProductsController extends Controller {
     return true;
   }
 
-  @action noOp({ key, value }: { key: string; value: any }): void {
+  @action updateQueryParameters({
+    key,
+    value,
+  }: {
+    key: string;
+    value: unknown;
+  }): void {
+    if (key !== 'name') {
+      return;
+    }
+
     if (value === undefined || value === '') {
-      this[key as SupportedKey] = null;
+      this[key] = null;
 
       return;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    this[key as SupportedKey] = value;
+    this[key] = value as string;
   }
 }
