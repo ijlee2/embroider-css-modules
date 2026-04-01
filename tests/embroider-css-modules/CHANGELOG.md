@@ -1,5 +1,12 @@
 # test-app-for-embroider-css-modules
 
+## 2.1.3
+
+### Patch Changes
+
+- [#239](https://github.com/ijlee2/embroider-css-modules/pull/239) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#238](https://github.com/ijlee2/embroider-css-modules/pull/238) Skipped ember-beta and ember-canary to avoid issues with 7.0 pre-release ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.1.2
 
 ### Patch Changes
