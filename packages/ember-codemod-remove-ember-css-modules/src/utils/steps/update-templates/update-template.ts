@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -13,7 +13,7 @@ function sanitizeClassAndLocalClassAttributes(file: string): string {
     attributes: unknown[],
   ): void {
     const attributeIndex = attributes.findIndex(
-      // @ts-ignore: Assume that types from external packages are correct
+      // @ts-expect-error: Incorrect type
       (attribute) => attribute.name === attributeName,
     );
 
@@ -23,18 +23,18 @@ function sanitizeClassAndLocalClassAttributes(file: string): string {
 
     const attribute = attributes[attributeIndex]!;
 
-    // @ts-ignore: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     if (attribute.isValueless) {
       attributes.splice(attributeIndex, 1);
       return;
     }
 
-    // @ts-ignore: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     if (attribute.value.type !== 'TextNode') {
       return;
     }
 
-    // @ts-ignore: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     const attributeValue = attribute.value.chars.trim();
 
     if (attributeValue === '') {
@@ -129,17 +129,17 @@ function removeLocalClassHelpers(file: string): string {
     to be a concatenated string or `undefined`.
   */
   function canRemoveLocalClassHelper(path: unknown) {
-    // @ts-ignore: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     const hasFromArgument = path.hash.pairs.some((pair) => pair.key === 'from');
 
     if (hasFromArgument) {
       throw new RangeError(
-        // @ts-ignore: Assume that types from external packages are correct
+        // @ts-expect-error: Incorrect type
         `Unable to handle the {{local-class}} helper's \`from\` key. See lines ${path.loc.start.line}-${path.loc.end.line}.`,
       );
     }
 
-    // @ts-ignore: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     const param = path.params[0]!;
 
     if (param === undefined) {
@@ -158,7 +158,7 @@ function removeLocalClassHelpers(file: string): string {
   const traverse = AST.traverse();
 
   const ast = traverse(file, {
-    // @ts-ignore: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     AttrNode(node) {
       if (node.name !== 'class') {
         return;
@@ -166,7 +166,7 @@ function removeLocalClassHelpers(file: string): string {
 
       const hasLocalClassHelper =
         node.value.type === 'MustacheStatement' &&
-        // @ts-ignore: Assume that types from external packages are correct
+        // @ts-expect-error: Incorrect type
         node.value.path.original === 'local-class';
 
       if (!hasLocalClassHelper) {
@@ -177,7 +177,7 @@ function removeLocalClassHelpers(file: string): string {
         return null;
       }
 
-      // @ts-ignore: Assume that types from external packages are correct
+      // @ts-expect-error: Incorrect type
       const param = node.value.params[0]!;
 
       if (param.type !== 'StringLiteral') {
@@ -229,7 +229,7 @@ function removeLocalClassHelpers(file: string): string {
     },
 
     SubExpression(node) {
-      // @ts-ignore: Assume that types from external packages are correct
+      // @ts-expect-error: Incorrect type
       const hasLocalClassHelper = node.path.original === 'local-class';
 
       if (!hasLocalClassHelper) {
@@ -264,14 +264,14 @@ function removeLocalClassHelpers(file: string): string {
 
 function removeLocalClassAttributes(file: string): string {
   function transformParam(param: unknown) {
-    // @ts-ignore: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     switch (param.type) {
       case 'StringLiteral': {
-        // @ts-ignore: Assume that types from external packages are correct
+        // @ts-expect-error: Incorrect type
         const localClassNames = param.value.trim().split(/\s+/);
 
         if (localClassNames.length === 1) {
-          // @ts-ignore: Assume that types from external packages are correct
+          // @ts-expect-error: Incorrect type
           param.value = localClassNames[0]!;
         } else {
           param = AST.builders.sexpr(
@@ -284,14 +284,14 @@ function removeLocalClassAttributes(file: string): string {
       }
 
       case 'SubExpression': {
-        // @ts-ignore: Assume that types from external packages are correct
+        // @ts-expect-error: Incorrect type
         switch (param.path.original) {
           case 'if':
           case 'unless': {
-            // @ts-ignore: Assume that types from external packages are correct
+            // @ts-expect-error: Incorrect type
             const subparams = param.params.map(transformParam);
 
-            // @ts-ignore: Assume that types from external packages are correct
+            // @ts-expect-error: Incorrect type
             param = AST.builders.sexpr(param.path.original, subparams);
 
             break;
@@ -305,29 +305,29 @@ function removeLocalClassAttributes(file: string): string {
     return param;
   }
 
-  // @ts-ignore: Assume that types from external packages are correct
+  // @ts-expect-error: Incorrect type
   function transformPart(part: unknown) {
-    // @ts-ignore: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     switch (part.type) {
       case 'MustacheStatement': {
-        // @ts-ignore: Assume that types from external packages are correct
+        // @ts-expect-error: Incorrect type
         switch (part.path.original) {
           case 'concat': {
             function hasPathExpression(params: unknown[]) {
-              // @ts-ignore: Assume that types from external packages are correct
+              // @ts-expect-error: Incorrect type
               return params.some((param) => param.type === 'PathExpression');
             }
 
-            // @ts-ignore: Assume that types from external packages are correct
+            // @ts-expect-error: Incorrect type
             if (hasPathExpression(part.params)) {
               return AST.builders.mustache(AST.builders.path('get'), [
                 AST.builders.path('this.styles'),
-                // @ts-ignore: Assume that types from external packages are correct
+                // @ts-expect-error: Incorrect type
                 AST.builders.sexpr(part.path.original, part.params),
               ]);
             }
 
-            // @ts-ignore: Assume that types from external packages are correct
+            // @ts-expect-error: Incorrect type
             const params = part.params.map(transformParam);
 
             return AST.builders.mustache('local', [
@@ -338,12 +338,12 @@ function removeLocalClassAttributes(file: string): string {
 
           case 'if':
           case 'unless': {
-            // @ts-ignore: Assume that types from external packages are correct
+            // @ts-expect-error: Incorrect type
             const params = part.params.map(transformParam);
 
             return AST.builders.mustache('local', [
               AST.builders.path('this.styles'),
-              // @ts-ignore: Assume that types from external packages are correct
+              // @ts-expect-error: Incorrect type
               AST.builders.sexpr(part.path.original, params),
             ]);
           }
@@ -351,7 +351,7 @@ function removeLocalClassAttributes(file: string): string {
           default: {
             return AST.builders.mustache(AST.builders.path('get'), [
               AST.builders.path('this.styles'),
-              // @ts-ignore: Assume that types from external packages are correct
+              // @ts-expect-error: Incorrect type
               part.path,
             ]);
           }
@@ -359,7 +359,7 @@ function removeLocalClassAttributes(file: string): string {
       }
 
       case 'TextNode': {
-        // @ts-ignore: Assume that types from external packages are correct
+        // @ts-expect-error: Incorrect type
         const value = part.chars.trim();
 
         if (value === '') {
@@ -386,11 +386,11 @@ function removeLocalClassAttributes(file: string): string {
     const numParts = parts.length;
 
     return parts.reduce((accumulator, part, index) => {
-      // @ts-ignore: Assume that types from external packages are correct
+      // @ts-expect-error: Incorrect type
       accumulator.push(transformPart(part));
 
       if (index < numParts - 1) {
-        // @ts-ignore: Assume that types from external packages are correct
+        // @ts-expect-error: Incorrect type
         accumulator.push(AST.builders.text(' '));
       }
 
@@ -419,7 +419,7 @@ function removeLocalClassAttributes(file: string): string {
       switch (localClassAttribute.value.type) {
         case 'ConcatStatement': {
           localClassAttribute.name = 'class';
-          // @ts-ignore: Assume that types from external packages are correct
+          // @ts-expect-error: Incorrect type
           localClassAttribute.value.parts = transformParts(
             localClassAttribute.value.parts,
           );
@@ -429,7 +429,7 @@ function removeLocalClassAttributes(file: string): string {
 
         case 'MustacheStatement': {
           localClassAttribute.name = 'class';
-          // @ts-ignore: Assume that types from external packages are correct
+          // @ts-expect-error: Incorrect type
           localClassAttribute.value = transformPart(localClassAttribute.value);
 
           break;
@@ -437,7 +437,7 @@ function removeLocalClassAttributes(file: string): string {
 
         case 'TextNode': {
           localClassAttribute.name = 'class';
-          // @ts-ignore: Assume that types from external packages are correct
+          // @ts-expect-error: Incorrect type
           localClassAttribute.value = transformPart(localClassAttribute.value);
 
           break;
@@ -454,10 +454,10 @@ function removeLocalClassAttributes(file: string): string {
 
       const newValue = transformParam(node.value);
 
-      // @ts-ignore: Assume that types from external packages are correct
+      // @ts-expect-error: Incorrect type
       if (newValue.type === 'StringLiteral') {
         node.value = AST.builders.path(
-          // @ts-ignore: Assume that types from external packages are correct
+          // @ts-expect-error: Incorrect type
           `this.styles.${newValue.value}`,
         );
 
@@ -466,7 +466,7 @@ function removeLocalClassAttributes(file: string): string {
 
       node.value = AST.builders.sexpr('local', [
         AST.builders.path('this.styles'),
-        // @ts-ignore: Assume that types from external packages are correct
+        // @ts-expect-error: Incorrect type
         newValue,
       ]);
     },
