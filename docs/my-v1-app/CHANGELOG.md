@@ -1,5 +1,12 @@
 # my-v1-app
 
+## 1.5.4
+
+### Patch Changes
+
+- [#240](https://github.com/ijlee2/embroider-css-modules/pull/240) Updated project configurations ([@ijlee2](https://github.com/ijlee2))
+- [#240](https://github.com/ijlee2/embroider-css-modules/pull/240) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.5.3
 
 ### Patch Changes

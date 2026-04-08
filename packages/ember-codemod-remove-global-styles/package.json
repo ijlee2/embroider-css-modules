@@ -1,6 +1,6 @@
 {
   "name": "ember-codemod-remove-global-styles",
-  "version": "0.11.3",
+  "version": "0.11.4",
   "description": "Codemod to localize global styles",
   "keywords": [
     "codemod",
