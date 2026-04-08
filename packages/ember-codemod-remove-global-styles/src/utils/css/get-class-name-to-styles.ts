@@ -80,9 +80,20 @@ export function getClassNameToStyles(file: string): ClassNameToStyles {
       prepare() {
         return {
           Rule(node): void {
-            const clone = node.clone();
             const line = node.source!.start!.line;
+            const mediaQueries: string[] = [];
 
+            let parentNode = node.parent;
+
+            while (parentNode && parentNode.type !== 'root') {
+              if (parentNode.type === 'atrule') {
+                mediaQueries.push(parentNode.params);
+              }
+
+              parentNode = parentNode.parent;
+            }
+
+            const clone = node.clone();
             const selectors = parseSelector(node.selector);
 
             selectors.forEach(
@@ -93,6 +104,7 @@ export function getClassNameToStyles(file: string): ClassNameToStyles {
                   classNames: childClassNames,
                   code: clone.toString(),
                   line,
+                  mediaQueries,
                   selector,
                 };
 
