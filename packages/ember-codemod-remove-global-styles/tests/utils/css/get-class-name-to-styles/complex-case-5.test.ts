@@ -32,6 +32,7 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
         `}`,
       ]),
       line: 1,
+      mediaQueries: [],
       selector: '.widgets',
     },
     {
@@ -42,6 +43,7 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
         `    }`,
       ]),
       line: 51,
+      mediaQueries: ['(height >= 40rem)', 'screen and (width <= 30rem)'],
       selector: '.widgets',
     },
     {
@@ -59,6 +61,7 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
         `  }`,
       ]),
       line: 58,
+      mediaQueries: ['screen and (width >= 30rem) and (width <= 60rem)'],
       selector: '.widgets',
     },
     {
@@ -69,6 +72,10 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
         `    }`,
       ]),
       line: 70,
+      mediaQueries: [
+        '(height >= 40rem)',
+        'screen and (width >= 30rem) and (width <= 60rem)',
+      ],
       selector: '.widgets',
     },
     {
@@ -85,6 +92,7 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
         `  }`,
       ]),
       line: 77,
+      mediaQueries: ['screen and (width >= 60rem)'],
       selector: '.widgets',
     },
     {
@@ -95,6 +103,7 @@ test('utils | css | get-class-name-to-styles > complex case (5)', function () {
         `    }`,
       ]),
       line: 88,
+      mediaQueries: ['(height >= 40rem)', 'screen and (width >= 60rem)'],
       selector: '.widgets',
     },
   ]);

@@ -34,6 +34,7 @@ test('utils | css | get-class-name-to-styles > complex case (2)', function () {
         `}`,
       ]),
       line: 56,
+      mediaQueries: [],
       selector: '.link',
     },
     {
@@ -49,12 +50,14 @@ test('utils | css | get-class-name-to-styles > complex case (2)', function () {
         `}`,
       ]),
       line: 68,
+      mediaQueries: [],
       selector: '.link::after',
     },
     {
       classNames: [],
       code: normalizeFile([`.link:focus {`, `  outline: 0;`, `}`]),
       line: 77,
+      mediaQueries: [],
       selector: '.link:focus',
     },
     {
@@ -65,12 +68,14 @@ test('utils | css | get-class-name-to-styles > complex case (2)', function () {
         `}`,
       ]),
       line: 81,
+      mediaQueries: [],
       selector: '.link:focus::after',
     },
     {
       classNames: [],
       code: normalizeFile([`.link {`, `  margin-top: 1rem;`, `}`]),
       line: 100,
+      mediaQueries: [],
       selector: '.link',
     },
   ]);

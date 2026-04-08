@@ -37,6 +37,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
         `}`,
       ]),
       line: 1,
+      mediaQueries: [],
       selector: '.container',
     },
     {
@@ -50,6 +51,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
         `}`,
       ]),
       line: 85,
+      mediaQueries: [],
       selector: '.container.flat',
     },
     {
@@ -63,6 +65,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
         `}`,
       ]),
       line: 92,
+      mediaQueries: [],
       selector: '.container.flat .summary.horizontal-layout',
     },
     {
@@ -74,6 +77,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
         `}`,
       ]),
       line: 99,
+      mediaQueries: [],
       selector: '.container.flat .annual-revenue',
     },
     {
@@ -85,6 +89,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
         `}`,
       ]),
       line: 99,
+      mediaQueries: [],
       selector: '.container.flat .relevant-years',
     },
     {
@@ -96,6 +101,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
         `}`,
       ]),
       line: 105,
+      mediaQueries: [],
       selector: '.container.flat .previous-button',
     },
     {
@@ -107,6 +113,7 @@ test('utils | css | get-class-name-to-styles > complex case (3)', function () {
         `}`,
       ]),
       line: 105,
+      mediaQueries: [],
       selector: '.container.flat .next-button',
     },
   ]);
