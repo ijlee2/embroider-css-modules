@@ -1,15 +1,27 @@
-const {
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import {
   babelCompatSupport,
   templateCompatSupport,
-} = require('@embroider/compat/babel');
+} from '@embroider/compat/babel';
 
-module.exports = {
+export default {
+  generatorOpts: {
+    compact: false,
+  },
   plugins: [
-    ['@babel/plugin-transform-typescript'],
+    [
+      '@babel/plugin-transform-typescript',
+      {
+        allExtensions: true,
+        allowDeclareFields: true,
+        onlyRemoveTypeImports: true,
+      },
+    ],
     [
       'babel-plugin-ember-template-compilation',
       {
-        compilerPath: 'ember-source/dist/ember-template-compiler.js',
         enableLegacyModules: [
           'ember-cli-htmlbars',
           'ember-cli-htmlbars-inline-precompile',
@@ -22,22 +34,20 @@ module.exports = {
       'module:decorator-transforms',
       {
         runtime: {
-          import: require.resolve('decorator-transforms/runtime-esm'),
+          import: fileURLToPath(
+            import.meta.resolve('decorator-transforms/runtime-esm'),
+          ),
         },
       },
     ],
     [
       '@babel/plugin-transform-runtime',
       {
-        absoluteRuntime: __dirname,
-        useESModules: true,
+        absoluteRuntime: dirname(fileURLToPath(import.meta.url)),
         regenerator: false,
+        useESModules: true,
       },
     ],
     ...babelCompatSupport(),
   ],
-
-  generatorOpts: {
-    compact: false,
-  },
 };
