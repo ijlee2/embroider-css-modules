@@ -21,12 +21,14 @@ test('utils | css | get-class-name-to-styles > simple case (1)', function () {
         `}`,
       ]),
       line: 1,
+      mediaQueries: [],
       selector: '.image',
     },
     {
       classNames: [],
       code: normalizeFile([`.image {`, `  object-fit: cover;`, `}`]),
       line: 8,
+      mediaQueries: [],
       selector: '.image',
     },
   ]);

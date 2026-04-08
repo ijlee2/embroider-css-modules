@@ -25,6 +25,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
         `}`,
       ]),
       line: 1,
+      mediaQueries: [],
       selector: '.container',
     },
     {
@@ -42,6 +43,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
         `}`,
       ]),
       line: 6,
+      mediaQueries: [],
       selector: '.container:not(.is-wide):not(.no-feedback)',
     },
     {
@@ -58,6 +60,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
         `}`,
       ]),
       line: 17,
+      mediaQueries: [],
       selector: '.container:not(.is-wide).no-feedback',
     },
     {
@@ -74,6 +77,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
         `}`,
       ]),
       line: 27,
+      mediaQueries: [],
       selector: '.container.is-wide:not(.no-feedback)',
     },
     {
@@ -88,6 +92,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
         `}`,
       ]),
       line: 37,
+      mediaQueries: [],
       selector: '.container.is-wide.no-feedback',
     },
     {
@@ -104,6 +109,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
         `}`,
       ]),
       line: 71,
+      mediaQueries: [],
       selector: '.container.is-inline:not(.is-wide):not(.no-feedback)',
     },
     {
@@ -118,6 +124,7 @@ test('utils | css | get-class-name-to-styles > complex case (1)', function () {
         `}`,
       ]),
       line: 81,
+      mediaQueries: [],
       selector: '.container.is-inline:not(.is-wide).no-feedback',
     },
   ]);

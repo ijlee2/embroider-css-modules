@@ -27,6 +27,7 @@ test('utils | css | get-class-name-to-styles > complex case (4)', function () {
         `}`,
       ]),
       line: 1,
+      mediaQueries: [],
       selector: '.container:not(.is-wide, .no-feedback)',
     },
     {
@@ -43,6 +44,7 @@ test('utils | css | get-class-name-to-styles > complex case (4)', function () {
         `}`,
       ]),
       line: 12,
+      mediaQueries: [],
       selector: '.container.is-inline:not(.is-wide, .no-feedback)',
     },
   ]);

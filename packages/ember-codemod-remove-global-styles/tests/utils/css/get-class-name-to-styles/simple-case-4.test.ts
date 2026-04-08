@@ -29,6 +29,7 @@ test('utils | css | get-class-name-to-styles > simple case (4)', function () {
         `}`,
       ]),
       line: 1,
+      mediaQueries: [],
       selector: '.checkbox',
     },
     {
@@ -40,6 +41,7 @@ test('utils | css | get-class-name-to-styles > simple case (4)', function () {
         `}`,
       ]),
       line: 13,
+      mediaQueries: [],
       selector: '.checkbox:focus',
     },
     {
@@ -50,6 +52,7 @@ test('utils | css | get-class-name-to-styles > simple case (4)', function () {
         `}`,
       ]),
       line: 18,
+      mediaQueries: [],
       selector: '.checkbox:not(:focus)',
     },
   ]);

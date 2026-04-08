@@ -31,6 +31,7 @@ type Style = {
   classNames: string[];
   code: string;
   line: number;
+  mediaQueries: string[];
   selector: string;
 };
 

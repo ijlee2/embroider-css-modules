@@ -23,6 +23,7 @@ test('utils | css | get-class-name-to-styles > simple case (2)', function () {
         `}`,
       ]),
       line: 6,
+      mediaQueries: [],
       selector: '.link',
     },
     {
@@ -33,6 +34,7 @@ test('utils | css | get-class-name-to-styles > simple case (2)', function () {
         `}`,
       ]),
       line: 14,
+      mediaQueries: [],
       selector: '.link:global(\\.active)',
     },
     {
@@ -44,6 +46,7 @@ test('utils | css | get-class-name-to-styles > simple case (2)', function () {
         `}`,
       ]),
       line: 18,
+      mediaQueries: [],
       selector: '.link:hover',
     },
   ]);

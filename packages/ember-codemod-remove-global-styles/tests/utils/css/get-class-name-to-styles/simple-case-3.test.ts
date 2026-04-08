@@ -21,6 +21,7 @@ test('utils | css | get-class-name-to-styles > simple case (3)', function () {
         `}`,
       ]),
       line: 1,
+      mediaQueries: [],
       selector: '.input',
     },
     {
@@ -32,6 +33,7 @@ test('utils | css | get-class-name-to-styles > simple case (3)', function () {
         `}`,
       ]),
       line: 7,
+      mediaQueries: [],
       selector: '.input:focus',
     },
     {
@@ -42,6 +44,7 @@ test('utils | css | get-class-name-to-styles > simple case (3)', function () {
         `}`,
       ]),
       line: 12,
+      mediaQueries: [],
       selector: '.input:not(:focus)',
     },
     {
@@ -52,6 +55,7 @@ test('utils | css | get-class-name-to-styles > simple case (3)', function () {
         `}`,
       ]),
       line: 16,
+      mediaQueries: [],
       selector: '.input::placeholder',
     },
   ]);
