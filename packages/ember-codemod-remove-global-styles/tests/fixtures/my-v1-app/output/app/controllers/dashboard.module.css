@@ -66,10 +66,15 @@
   grid-area: widget-5;
 }
 
+@media screen and (width <= 30rem) {
+@media (height >= 40rem) {
 .templates-dashboard__widgets {
       grid-template-rows: repeat(4, 25%) 5rem;
     }
+}
+}
 
+@media screen and (width >= 30rem) and (width <= 60rem) {
 .templates-dashboard__widgets {
     grid-template-areas:
       "widget-1 widget-2"
@@ -80,11 +85,17 @@
     grid-template-rows: 3fr 1fr 2fr 1fr;
     height: 40rem;
   }
+}
 
+@media screen and (width >= 30rem) and (width <= 60rem) {
+@media (height >= 40rem) {
 .templates-dashboard__widgets {
       grid-template-rows: 3fr 1fr 2fr 5rem;
     }
+}
+}
 
+@media screen and (width >= 60rem) {
 .templates-dashboard__widgets {
     grid-template-areas:
       "widget-1 widget-2 widget-4"
@@ -94,7 +105,12 @@
     grid-template-rows: 12fr 3fr 5fr;
     height: 40rem;
   }
+}
 
+@media screen and (width >= 60rem) {
+@media (height >= 40rem) {
 .templates-dashboard__widgets {
       grid-template-rows: 4fr 1fr 10rem;
     }
+}
+}

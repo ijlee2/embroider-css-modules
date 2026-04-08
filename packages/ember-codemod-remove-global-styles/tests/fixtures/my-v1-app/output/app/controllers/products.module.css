@@ -53,6 +53,7 @@
   grid-area: product-details;
 }
 
+@media screen and (width >= 40rem) {
 .templates-products__products-with-details {
     grid-template-areas:
       "filters filters"
@@ -60,11 +61,16 @@
     grid-template-columns: 1fr auto;
     grid-template-rows: auto 1fr;
   }
+}
 
+@media screen and (width >= 40rem) {
 .templates-products__products-with-details .templates-products__list {
     height: max-content;
   }
+}
 
+@media screen and (width >= 40rem) {
 .templates-products__list {
     height: max-content;
   }
+}
