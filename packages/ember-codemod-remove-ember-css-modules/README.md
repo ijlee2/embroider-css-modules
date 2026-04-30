@@ -31,7 +31,7 @@ Step 1. Quickly remove `ember-css-modules` syntax.<sup>1</sup>
 
 ```sh
 cd <path/to/your/project>
-npx ember-codemod-remove-ember-css-modules <arguments>
+pnpx ember-codemod-remove-ember-css-modules <arguments>
 ```
 
 Manually remove the remaining instances of `local-class` attributes and `{{local-class}}` helpers.
@@ -51,8 +51,8 @@ Step 2. Update project configurations.<sup>2</sup>
 You must pass `--type` to indicate what type of project you have.
 
 ```sh
-npx ember-codemod-remove-ember-css-modules --type app
-npx ember-codemod-remove-ember-css-modules --type v2-addon
+pnpx ember-codemod-remove-ember-css-modules --type app
+pnpx ember-codemod-remove-ember-css-modules --type v2-addon
 ```
 
 
@@ -63,7 +63,7 @@ npx ember-codemod-remove-ember-css-modules --type v2-addon
 By default, an Embroider project has the flat component structure. Pass `--component-structure` to indicate otherwise.
 
 ```sh
-npx ember-codemod-remove-ember-css-modules --component-structure nested
+pnpx ember-codemod-remove-ember-css-modules --component-structure nested
 ```
 
 </details>
@@ -75,7 +75,7 @@ npx ember-codemod-remove-ember-css-modules --component-structure nested
 Pass `--root` to run the codemod somewhere else (i.e. not in the current directory).
 
 ```sh
-npx ember-codemod-remove-ember-css-modules --root <path/to/your/project>
+pnpx ember-codemod-remove-ember-css-modules --root <path/to/your/project>
 ```
 
 </details>

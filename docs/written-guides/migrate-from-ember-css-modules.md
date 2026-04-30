@@ -7,6 +7,7 @@ Have an Embroider app that depends on `ember-css-modules`? In a few steps, you c
 1. [Enable stricter Embroider settings](#enable-stricter-embroider-settings)
 
 > [!NOTE]
+>
 > If you get lost, you can check [`ember-container-query`](https://github.com/ijlee2/ember-container-query/pull/167) for reference.
 
 
@@ -16,7 +17,7 @@ Run the provided [codemod](../../packages/ember-codemod-remove-ember-css-modules
 
 ```sh
 # From the project root
-npx ember-codemod-remove-ember-css-modules --type app
+pnpx ember-codemod-remove-ember-css-modules --type app
 ```
 
 You may also want to [refactor code](./refactor-code.md).

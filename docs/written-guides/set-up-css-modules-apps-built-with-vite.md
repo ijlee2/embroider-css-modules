@@ -6,15 +6,17 @@ Good news is, [Vite provides CSS modules out of the box](https://vitejs.dev/guid
 
 1. [Install dependencies](#install-dependencies)
 1. [Configure Vite](#configure-vite)
-    - [Set up PostCSS](#set-up-postcss)
 1. [Style your first component](#style-your-first-component)
 1. [Style your first route](#style-your-first-route)
 
-> [!NOTE]
+> [!TIP]
+>
 > If you get lost, you can check how [`my-v2-app`](../my-v2-app) is set up.
 
 
 ## Install dependencies
+
+For CSS modules, you don't need to install additional dependencies.
 
 You can install these packages to improve your developer experience (DX).
 
@@ -24,7 +26,7 @@ You can install these packages to improve your developer experience (DX).
 Here's a one-line command for installation:
 
 ```sh
-pnpm install --dev embroider-css-modules type-css-modules
+pnpm add -D embroider-css-modules type-css-modules
 ```
 
 <sup>1. Needed only if you have a TypeScript project.</sup>
@@ -32,13 +34,10 @@ pnpm install --dev embroider-css-modules type-css-modules
 
 ## Configure Vite
 
-In this step, you will update one file: `vite.config.mjs`. Pass the option [`css.modules`](https://vitejs.dev/config/shared-options.html#css-modules).
-
-<details>
-
-<summary><code>vite.config.mjs</code></summary>
+In this step, you will update one file: `vite.config.{mjs,mts}`. Pass the option [`css.modules`](https://vitejs.dev/config/shared-options.html#css-modules).
 
 ```diff
+/* vite.config.mts */
 import { classicEmberSupport, ember, extensions } from '@embroider/vite';
 import { babel } from '@rollup/plugin-babel';
 import { defineConfig } from 'vite';
@@ -60,15 +59,11 @@ export default defineConfig({
 });
 ```
 
-</details>
-
 > [!NOTE]
+>
 > You have a few options for `generateScopedName`. See [Set up CSS modules (v2 addons) - Configure hashing](./set-up-css-modules-v2-addons.md#configure-hashing).
 
-
-### Set up PostCSS
-
-[Vite supports PostCSS](https://vitejs.dev/guide/features#postcss). To set up PostCSS plugins like `autoprefixer`, see [Set up CSS modules (apps built with Webpack) - Set up PostCSS](./set-up-css-modules-apps-built-with-webpack.md#set-up-postcss).
+If you need to use PostCSS, please see [Vite's documentation](https://vite.dev/config/shared-options#css-postcss).
 
 
 ## Style your first component
@@ -76,6 +71,7 @@ export default defineConfig({
 We can use `embroider-css-modules` in the same way as we would in [an app built with Webpack](./set-up-css-modules-apps-built-with-webpack.md#style-your-first-component), with one exception:
 
 > [!IMPORTANT]
+>
 > Vite requires CSS module files to have the file extension `*.module.css`.
 
 Hence, when we create the component `<Hello>`, we name the stylesheet `hello.module.css` instead:

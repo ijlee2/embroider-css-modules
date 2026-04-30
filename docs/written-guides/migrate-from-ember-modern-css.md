@@ -10,23 +10,21 @@ Already implemented [Ember + Modern CSS](https://github.com/evoactivity/ember-mo
 
 ## Install dependencies
 
-For PostCSS, here is what you likely need at minimum. (`cssnano` is not needed.)
+For CSS modules, you'll want to install these dependencies. (`cssnano` is not needed.)
 
 - `autoprefixer`
 - `postcss`
 - `postcss-loader`
 
-Finally, some packages to improve your developer experience (DX).
+You can install these packages to improve your developer experience (DX).
 
 - [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)
 - [`type-css-modules`](../../packages/type-css-modules/README.md)<sup>1</sup>
 
-All in all, here's a one-line command for installation:
+Here's a one-line command for installation:
 
 ```sh
-pnpm install --dev \
-  autoprefixer postcss postcss-loader \
-  embroider-css-modules type-css-modules
+pnpm add -D autoprefixer postcss postcss-loader embroider-css-modules type-css-modules
 ```
 
 <sup>1. Needed only if you have a TypeScript project.</sup>
@@ -35,6 +33,7 @@ pnpm install --dev \
 ## Configure type-css-modules
 
 > [!NOTE]
+>
 > You can skip this step if you don't have a TypeScript project.
 
 If you have typed `*.css` files, either by installing [`@types/css-modules`](https://www.npmjs.com/package/@types/css-modules) or defining the type to be `Record<string, string>` in `types/global.d.ts`, please undo the change.
@@ -109,6 +108,7 @@ Next, remove all `:local()` pseudo-class selectors. Instead, use the `:global()`
 ## Use the {{local}} helper
 
 > [!NOTE]
+>
 > You can skip this step if you didn't create the `{{styles}}` helper.
 
 Remove the `{{styles}}` helper. To apply multiple styles, use the [`{{local}}` helper](../../packages/embroider-css-modules/README.md#helper-local) instead.
