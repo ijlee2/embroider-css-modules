@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -7,15 +6,21 @@ import { createFiles } from '@codemod-utils/files';
 
 import type { OptionsForUpdateTemplates } from '../../../types/index.js';
 
+type AttrNode = ReturnType<typeof AST.builders.attr>;
+type ConcatStatement = ReturnType<typeof AST.builders.concat>;
+type Expression = MustacheStatement['path'];
+type MustacheStatement = ReturnType<typeof AST.builders.mustache>;
+type SubExpression = ReturnType<typeof AST.builders.sexpr>;
+type TextNode = ReturnType<typeof AST.builders.text>;
+
 function sanitizeClassAndLocalClassAttributes(file: string): string {
   function removeAttributeWithoutValue(
     attributeName: string,
-    attributes: unknown[],
+    attributes: AttrNode[],
   ): void {
-    const attributeIndex = attributes.findIndex(
-      // @ts-expect-error: Incorrect type
-      (attribute) => attribute.name === attributeName,
-    );
+    const attributeIndex = attributes.findIndex((attribute) => {
+      return attribute.name === attributeName;
+    });
 
     if (attributeIndex === -1) {
       return;
@@ -23,18 +28,15 @@ function sanitizeClassAndLocalClassAttributes(file: string): string {
 
     const attribute = attributes[attributeIndex]!;
 
-    // @ts-expect-error: Incorrect type
     if (attribute.isValueless) {
       attributes.splice(attributeIndex, 1);
       return;
     }
 
-    // @ts-expect-error: Incorrect type
     if (attribute.value.type !== 'TextNode') {
       return;
     }
 
-    // @ts-expect-error: Incorrect type
     const attributeValue = attribute.value.chars.trim();
 
     if (attributeValue === '') {
@@ -65,12 +67,13 @@ function mergeClassAndLocalClassAttributes(file: string): string {
       // Check that both class and local-class attributes exist
       const { attributes } = node;
 
-      const localClassAttributeIndex = attributes.findIndex(
-        (attribute) => attribute.name === 'local-class',
-      );
-      const classAttributeIndex = attributes.findIndex(
-        (attribute) => attribute.name === 'class',
-      );
+      const localClassAttributeIndex = attributes.findIndex((attribute) => {
+        return attribute.name === 'local-class';
+      });
+
+      const classAttributeIndex = attributes.findIndex((attribute) => {
+        return attribute.name === 'class';
+      });
 
       if (localClassAttributeIndex === -1 || classAttributeIndex === -1) {
         return;
@@ -128,28 +131,33 @@ function removeLocalClassHelpers(file: string): string {
     1 positional argument. The argument's value is presumed
     to be a concatenated string or `undefined`.
   */
-  function canRemoveLocalClassHelper(path: unknown) {
+  function canRemoveLocalClassHelper(
+    path: ConcatStatement | MustacheStatement | SubExpression | TextNode,
+  ): boolean {
     // @ts-expect-error: Incorrect type
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     const hasFromArgument = path.hash.pairs.some((pair) => pair.key === 'from');
 
     if (hasFromArgument) {
       throw new RangeError(
-        // @ts-expect-error: Incorrect type
         `Unable to handle the {{local-class}} helper's \`from\` key. See lines ${path.loc.start.line}-${path.loc.end.line}.`,
       );
     }
 
     // @ts-expect-error: Incorrect type
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
     const param = path.params[0]!;
 
     if (param === undefined) {
       return true;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (param.type !== 'StringLiteral') {
       return false;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     const value = param.value.trim();
 
     return value === '';
@@ -158,7 +166,6 @@ function removeLocalClassHelpers(file: string): string {
   const traverse = AST.traverse();
 
   const ast = traverse(file, {
-    // @ts-expect-error: Incorrect type
     AttrNode(node) {
       if (node.name !== 'class') {
         return;
@@ -166,7 +173,7 @@ function removeLocalClassHelpers(file: string): string {
 
       const hasLocalClassHelper =
         node.value.type === 'MustacheStatement' &&
-        // @ts-expect-error: Incorrect type
+        node.value.path.type === 'PathExpression' &&
         node.value.path.original === 'local-class';
 
       if (!hasLocalClassHelper) {
@@ -178,16 +185,21 @@ function removeLocalClassHelpers(file: string): string {
       }
 
       // @ts-expect-error: Incorrect type
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
       const param = node.value.params[0]!;
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (param.type !== 'StringLiteral') {
         return;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       const localClassNames = param.value.trim().split(/\s+/);
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (localClassNames.length === 1) {
         node.value = AST.builders.mustache(
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           AST.builders.path(`this.styles.${localClassNames[0]!}`),
         );
 
@@ -196,15 +208,19 @@ function removeLocalClassHelpers(file: string): string {
 
       node.value = AST.builders.mustache(AST.builders.path('local'), [
         AST.builders.path('this.styles'),
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         ...localClassNames.map(AST.builders.string),
       ]);
+
+      return;
     },
 
     MustacheStatement(node) {
-      if (
-        node.path.type !== 'PathExpression' ||
-        node.path.original !== 'local-class'
-      ) {
+      const hasLocalClassHelper =
+        node.path.type === 'PathExpression' &&
+        node.path.original === 'local-class';
+
+      if (!hasLocalClassHelper) {
         return;
       }
 
@@ -229,8 +245,9 @@ function removeLocalClassHelpers(file: string): string {
     },
 
     SubExpression(node) {
-      // @ts-expect-error: Incorrect type
-      const hasLocalClassHelper = node.path.original === 'local-class';
+      const hasLocalClassHelper =
+        node.path.type === 'PathExpression' &&
+        node.path.original === 'local-class';
 
       if (!hasLocalClassHelper) {
         return;
@@ -263,18 +280,15 @@ function removeLocalClassHelpers(file: string): string {
 }
 
 function removeLocalClassAttributes(file: string): string {
-  function transformParam(param: unknown) {
-    // @ts-expect-error: Incorrect type
-    switch (param.type) {
+  function transformExpression(expression: Expression): Expression {
+    switch (expression.type) {
       case 'StringLiteral': {
-        // @ts-expect-error: Incorrect type
-        const localClassNames = param.value.trim().split(/\s+/);
+        const localClassNames = expression.value.trim().split(/\s+/);
 
         if (localClassNames.length === 1) {
-          // @ts-expect-error: Incorrect type
-          param.value = localClassNames[0]!;
+          expression.value = localClassNames[0]!;
         } else {
-          param = AST.builders.sexpr(
+          expression = AST.builders.sexpr(
             'array',
             localClassNames.map(AST.builders.string),
           );
@@ -284,15 +298,19 @@ function removeLocalClassAttributes(file: string): string {
       }
 
       case 'SubExpression': {
-        // @ts-expect-error: Incorrect type
-        switch (param.path.original) {
+        if (expression.path.type !== 'PathExpression') {
+          break;
+        }
+
+        switch (expression.path.original) {
           case 'if':
           case 'unless': {
-            // @ts-expect-error: Incorrect type
-            const subparams = param.params.map(transformParam);
+            const subparams = expression.params.map(transformExpression);
 
-            // @ts-expect-error: Incorrect type
-            param = AST.builders.sexpr(param.path.original, subparams);
+            expression = AST.builders.sexpr(
+              expression.path.original,
+              subparams,
+            );
 
             break;
           }
@@ -302,33 +320,35 @@ function removeLocalClassAttributes(file: string): string {
       }
     }
 
-    return param;
+    return expression;
   }
 
-  // @ts-expect-error: Incorrect type
-  function transformPart(part: unknown) {
-    // @ts-expect-error: Incorrect type
+  function transformPart(
+    part: MustacheStatement | TextNode,
+  ): MustacheStatement | TextNode {
     switch (part.type) {
       case 'MustacheStatement': {
-        // @ts-expect-error: Incorrect type
+        if (part.path.type === 'SubExpression') {
+          return AST.builders.mustache(AST.builders.path('get'), [
+            AST.builders.path('this.styles'),
+            part.path,
+          ]);
+        }
+
         switch (part.path.original) {
           case 'concat': {
-            function hasPathExpression(params: unknown[]) {
-              // @ts-expect-error: Incorrect type
+            function hasPathExpression(params: Expression[]): boolean {
               return params.some((param) => param.type === 'PathExpression');
             }
 
-            // @ts-expect-error: Incorrect type
             if (hasPathExpression(part.params)) {
               return AST.builders.mustache(AST.builders.path('get'), [
                 AST.builders.path('this.styles'),
-                // @ts-expect-error: Incorrect type
                 AST.builders.sexpr(part.path.original, part.params),
               ]);
             }
 
-            // @ts-expect-error: Incorrect type
-            const params = part.params.map(transformParam);
+            const params = part.params.map(transformExpression);
 
             return AST.builders.mustache('local', [
               AST.builders.path('this.styles'),
@@ -338,12 +358,10 @@ function removeLocalClassAttributes(file: string): string {
 
           case 'if':
           case 'unless': {
-            // @ts-expect-error: Incorrect type
-            const params = part.params.map(transformParam);
+            const params = part.params.map(transformExpression);
 
             return AST.builders.mustache('local', [
               AST.builders.path('this.styles'),
-              // @ts-expect-error: Incorrect type
               AST.builders.sexpr(part.path.original, params),
             ]);
           }
@@ -351,7 +369,6 @@ function removeLocalClassAttributes(file: string): string {
           default: {
             return AST.builders.mustache(AST.builders.path('get'), [
               AST.builders.path('this.styles'),
-              // @ts-expect-error: Incorrect type
               part.path,
             ]);
           }
@@ -359,7 +376,6 @@ function removeLocalClassAttributes(file: string): string {
       }
 
       case 'TextNode': {
-        // @ts-expect-error: Incorrect type
         const value = part.chars.trim();
 
         if (value === '') {
@@ -382,20 +398,23 @@ function removeLocalClassAttributes(file: string): string {
     }
   }
 
-  function transformParts(parts: unknown[]) {
+  function transformParts(
+    parts: (MustacheStatement | TextNode)[],
+  ): (MustacheStatement | TextNode)[] {
     const numParts = parts.length;
 
-    return parts.reduce((accumulator, part, index) => {
-      // @ts-expect-error: Incorrect type
-      accumulator.push(transformPart(part));
+    return parts.reduce(
+      (accumulator, part, index) => {
+        accumulator.push(transformPart(part));
 
-      if (index < numParts - 1) {
-        // @ts-expect-error: Incorrect type
-        accumulator.push(AST.builders.text(' '));
-      }
+        if (index < numParts - 1) {
+          accumulator.push(AST.builders.text(' '));
+        }
 
-      return accumulator;
-    }, [] as unknown[]);
+        return accumulator;
+      },
+      [] as (MustacheStatement | TextNode)[],
+    );
   }
 
   const traverse = AST.traverse();
@@ -429,7 +448,6 @@ function removeLocalClassAttributes(file: string): string {
 
         case 'MustacheStatement': {
           localClassAttribute.name = 'class';
-          // @ts-expect-error: Incorrect type
           localClassAttribute.value = transformPart(localClassAttribute.value);
 
           break;
@@ -437,7 +455,6 @@ function removeLocalClassAttributes(file: string): string {
 
         case 'TextNode': {
           localClassAttribute.name = 'class';
-          // @ts-expect-error: Incorrect type
           localClassAttribute.value = transformPart(localClassAttribute.value);
 
           break;
@@ -452,21 +469,16 @@ function removeLocalClassAttributes(file: string): string {
 
       node.key = 'class';
 
-      const newValue = transformParam(node.value);
+      const newValue = transformExpression(node.value);
 
-      // @ts-expect-error: Incorrect type
       if (newValue.type === 'StringLiteral') {
-        node.value = AST.builders.path(
-          // @ts-expect-error: Incorrect type
-          `this.styles.${newValue.value}`,
-        );
+        node.value = AST.builders.path(`this.styles.${newValue.value}`);
 
         return;
       }
 
       node.value = AST.builders.sexpr('local', [
         AST.builders.path('this.styles'),
-        // @ts-expect-error: Incorrect type
         newValue,
       ]);
     },
