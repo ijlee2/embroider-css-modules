@@ -38,14 +38,14 @@
   "dependencies": {
     "@codemod-utils/ast-javascript": "^3.0.1",
     "@codemod-utils/ast-template": "^3.0.1",
-    "@codemod-utils/blueprints": "^3.0.2",
+    "@codemod-utils/blueprints": "^3.1.0",
     "@codemod-utils/ember": "^4.1.1",
     "@codemod-utils/files": "^4.0.1",
-    "@codemod-utils/package-json": "^4.0.1",
+    "@codemod-utils/package-json": "^4.0.2",
     "yargs": "^18.0.0"
   },
   "devDependencies": {
-    "@codemod-utils/tests": "^3.0.1",
+    "@codemod-utils/tests": "^3.0.2",
     "@shared-configs/eslint-config-node": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
     "@shared-configs/typescript": "workspace:*",
@@ -54,7 +54,7 @@
     "@types/yargs": "^17.0.35",
     "concurrently": "^9.2.1",
     "eslint": "^9.39.4",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.3",
     "typescript": "^5.9.3"
   },
   "engines": {
