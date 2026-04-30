@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -30,11 +29,13 @@ function sanitizeClassAndLocalClassAttributes(file: string): string {
     }
 
     // @ts-expect-error: Incorrect type
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (attribute.value.type !== 'TextNode') {
       return;
     }
 
     // @ts-expect-error: Incorrect type
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     const attributeValue = attribute.value.chars.trim();
 
     if (attributeValue === '') {
@@ -128,28 +129,34 @@ function removeLocalClassHelpers(file: string): string {
     1 positional argument. The argument's value is presumed
     to be a concatenated string or `undefined`.
   */
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   function canRemoveLocalClassHelper(path: unknown) {
     // @ts-expect-error: Incorrect type
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     const hasFromArgument = path.hash.pairs.some((pair) => pair.key === 'from');
 
     if (hasFromArgument) {
       throw new RangeError(
         // @ts-expect-error: Incorrect type
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         `Unable to handle the {{local-class}} helper's \`from\` key. See lines ${path.loc.start.line}-${path.loc.end.line}.`,
       );
     }
 
     // @ts-expect-error: Incorrect type
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
     const param = path.params[0]!;
 
     if (param === undefined) {
       return true;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (param.type !== 'StringLiteral') {
       return false;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     const value = param.value.trim();
 
     return value === '';
@@ -178,16 +185,21 @@ function removeLocalClassHelpers(file: string): string {
       }
 
       // @ts-expect-error: Incorrect type
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
       const param = node.value.params[0]!;
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (param.type !== 'StringLiteral') {
         return;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       const localClassNames = param.value.trim().split(/\s+/);
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (localClassNames.length === 1) {
         node.value = AST.builders.mustache(
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           AST.builders.path(`this.styles.${localClassNames[0]!}`),
         );
 
@@ -196,6 +208,7 @@ function removeLocalClassHelpers(file: string): string {
 
       node.value = AST.builders.mustache(AST.builders.path('local'), [
         AST.builders.path('this.styles'),
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         ...localClassNames.map(AST.builders.string),
       ]);
     },
@@ -263,19 +276,24 @@ function removeLocalClassHelpers(file: string): string {
 }
 
 function removeLocalClassAttributes(file: string): string {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   function transformParam(param: unknown) {
     // @ts-expect-error: Incorrect type
     switch (param.type) {
       case 'StringLiteral': {
         // @ts-expect-error: Incorrect type
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         const localClassNames = param.value.trim().split(/\s+/);
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         if (localClassNames.length === 1) {
           // @ts-expect-error: Incorrect type
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
           param.value = localClassNames[0]!;
         } else {
           param = AST.builders.sexpr(
             'array',
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
             localClassNames.map(AST.builders.string),
           );
         }
@@ -285,13 +303,16 @@ function removeLocalClassAttributes(file: string): string {
 
       case 'SubExpression': {
         // @ts-expect-error: Incorrect type
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         switch (param.path.original) {
           case 'if':
           case 'unless': {
             // @ts-expect-error: Incorrect type
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
             const subparams = param.params.map(transformParam);
 
             // @ts-expect-error: Incorrect type
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
             param = AST.builders.sexpr(param.path.original, subparams);
 
             break;
@@ -306,32 +327,39 @@ function removeLocalClassAttributes(file: string): string {
   }
 
   // @ts-expect-error: Incorrect type
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   function transformPart(part: unknown) {
     // @ts-expect-error: Incorrect type
     switch (part.type) {
       case 'MustacheStatement': {
         // @ts-expect-error: Incorrect type
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         switch (part.path.original) {
           case 'concat': {
+            // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
             function hasPathExpression(params: unknown[]) {
               // @ts-expect-error: Incorrect type
               return params.some((param) => param.type === 'PathExpression');
             }
 
             // @ts-expect-error: Incorrect type
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
             if (hasPathExpression(part.params)) {
               return AST.builders.mustache(AST.builders.path('get'), [
                 AST.builders.path('this.styles'),
                 // @ts-expect-error: Incorrect type
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
                 AST.builders.sexpr(part.path.original, part.params),
               ]);
             }
 
             // @ts-expect-error: Incorrect type
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
             const params = part.params.map(transformParam);
 
             return AST.builders.mustache('local', [
               AST.builders.path('this.styles'),
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
               ...params,
             ]);
           }
@@ -339,11 +367,13 @@ function removeLocalClassAttributes(file: string): string {
           case 'if':
           case 'unless': {
             // @ts-expect-error: Incorrect type
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
             const params = part.params.map(transformParam);
 
             return AST.builders.mustache('local', [
               AST.builders.path('this.styles'),
               // @ts-expect-error: Incorrect type
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
               AST.builders.sexpr(part.path.original, params),
             ]);
           }
@@ -360,37 +390,45 @@ function removeLocalClassAttributes(file: string): string {
 
       case 'TextNode': {
         // @ts-expect-error: Incorrect type
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         const value = part.chars.trim();
 
         if (value === '') {
           return part;
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         const localClassNames = value.split(/\s+/);
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         if (localClassNames.length === 1) {
           return AST.builders.mustache(
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             AST.builders.path(`this.styles.${localClassNames[0]!}`),
           );
         }
 
         return AST.builders.mustache(AST.builders.path('local'), [
           AST.builders.path('this.styles'),
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
           ...localClassNames.map(AST.builders.string),
         ]);
       }
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   function transformParts(parts: unknown[]) {
     const numParts = parts.length;
 
     return parts.reduce((accumulator, part, index) => {
       // @ts-expect-error: Incorrect type
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       accumulator.push(transformPart(part));
 
       if (index < numParts - 1) {
         // @ts-expect-error: Incorrect type
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         accumulator.push(AST.builders.text(' '));
       }
 

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -34,6 +33,7 @@ function removeTemplateOnlyComponentMethod(file: string, data: Data): string {
 
   const ast = traverse(file, {
     visitCallExpression(path) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (path.value.callee.name !== 'templateOnlyComponent') {
         return false;
       }
@@ -41,6 +41,7 @@ function removeTemplateOnlyComponentMethod(file: string, data: Data): string {
       const superClass = AST.builders.identifier('Component');
 
       if (data.isTypeScript) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
         superClass.typeAnnotation = path.value.typeParameters;
       }
 
@@ -57,15 +58,18 @@ function removeTemplateOnlyComponentMethod(file: string, data: Data): string {
     },
 
     visitImportDeclaration(path) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (path.value.source.value !== '@ember/component/template-only') {
         return false;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       const defaultImport = path.value.specifiers.find(
         (specifier: { type: string }) =>
           specifier.type === 'ImportDefaultSpecifier',
       );
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (defaultImport?.local?.name !== 'templateOnlyComponent') {
         return false;
       }
@@ -95,6 +99,7 @@ function importStylesInClass(file: string, data: Data): string {
       if (!lastImportDeclarationPath) {
         lastImportDeclarationPath = path;
         // @ts-expect-error: Incorrect type
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       } else if (path.node.start > lastImportDeclarationPath.node.start) {
         lastImportDeclarationPath = path;
       }
@@ -105,10 +110,13 @@ function importStylesInClass(file: string, data: Data): string {
 
   // Append the styles import
   // @ts-expect-error: Incorrect type
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
   const nodes = ast.program.body;
   // @ts-expect-error: Incorrect type
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const index = lastImportDeclarationPath?.name ?? -1;
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
   nodes.splice(
     index + 1,
     0,
