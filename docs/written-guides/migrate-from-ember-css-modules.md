@@ -16,7 +16,7 @@ Run the provided [codemod](../../packages/ember-codemod-remove-ember-css-modules
 
 ```sh
 # From the project root
-npx ember-codemod-remove-ember-css-modules --type app
+pnpx ember-codemod-remove-ember-css-modules --type app
 ```
 
 You may also want to [refactor code](./refactor-code.md).
