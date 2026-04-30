@@ -33,16 +33,17 @@ function removeTemplateOnlyComponentMethod(file: string, data: Data): string {
 
   const ast = traverse(file, {
     visitCallExpression(path) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      if (path.value.callee.name !== 'templateOnlyComponent') {
+      // @ts-expect-error: Incorrect type
+      if (path.node.callee.name !== 'templateOnlyComponent') {
         return false;
       }
 
       const superClass = AST.builders.identifier('Component');
 
       if (data.isTypeScript) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-        superClass.typeAnnotation = path.value.typeParameters;
+        // @ts-expect-error: Incorrect type
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        superClass.typeAnnotation = path.node.typeParameters;
       }
 
       return AST.builders.classExpression(
@@ -58,18 +59,15 @@ function removeTemplateOnlyComponentMethod(file: string, data: Data): string {
     },
 
     visitImportDeclaration(path) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      if (path.value.source.value !== '@ember/component/template-only') {
+      if (path.node.source.value !== '@ember/component/template-only') {
         return false;
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-      const defaultImport = path.value.specifiers.find(
+      const defaultImport = path.node.specifiers?.find(
         (specifier: { type: string }) =>
           specifier.type === 'ImportDefaultSpecifier',
       );
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (defaultImport?.local?.name !== 'templateOnlyComponent') {
         return false;
       }
