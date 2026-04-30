@@ -1,5 +1,11 @@
 # type-css-modules
 
+## 3.2.4
+
+### Patch Changes
+
+- [#245](https://github.com/ijlee2/embroider-css-modules/pull/245) Simplified fixtures ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.2.3
 
 ### Patch Changes
