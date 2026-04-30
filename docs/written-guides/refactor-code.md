@@ -520,6 +520,7 @@ By using [`var()`](https://developer.mozilla.org/docs/Web/CSS/var) (i.e. native 
 ```
 
 > [!NOTE]
+>
 > `var()` can't be used in media and container queries.
 
 If you have many files with `@value`, consider [running a codemod](https://github.com/ijlee2/codemod-utils). The following code covers the usual cases.

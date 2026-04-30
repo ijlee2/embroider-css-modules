@@ -1,6 +1,6 @@
 # Set up CSS modules (apps built with Webpack)
 
-We will use Webpack and PostCSS to implement CSS modules.
+In an app built with Webpack, we use PostCSS to implement CSS modules.
 
 1. [Install dependencies](#install-dependencies)
 1. [Configure Webpack](#configure-webpack)
@@ -18,37 +18,28 @@ We will use Webpack and PostCSS to implement CSS modules.
     - [&lt;template&gt; tag](#template-tag-1)
     - [Do the file location and name matter?](#do-the-file-location-and-name-matter-1)
 
-> [!NOTE]
+> [!TIP]
+>
 > If you get lost, you can check how [`my-v1-app`](../my-v1-app) is set up.
 
 
 ## Install dependencies
 
-You will need these dependencies to build an Embroider app with Webpack.
-
-- `@embroider/compat`
-- `@embroider/core`
-- `@embroider/webpack`
-- `webpack`
-
-For PostCSS, here is what you likely need at minimum.
+For CSS modules, you'll want to install these dependencies.
 
 - `autoprefixer`
 - `postcss`
 - `postcss-loader`
 
-Finally, some packages to improve your developer experience (DX).
+You can install these packages to improve your developer experience (DX).
 
 - [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)
 - [`type-css-modules`](../../packages/type-css-modules/README.md)<sup>1</sup>
 
-All in all, here's a one-line command for installation:
+Here's a one-line command for installation:
 
 ```sh
-pnpm install --dev \
-  @embroider/compat @embroider/core @embroider/webpack webpack \
-  autoprefixer postcss postcss-loader \
-  embroider-css-modules type-css-modules
+pnpm add -D autoprefixer postcss postcss-loader embroider-css-modules type-css-modules
 ```
 
 <sup>1. Needed only if you have a TypeScript project.</sup>
@@ -99,6 +90,7 @@ module.exports = function (defaults) {
 </details>
 
 > [!NOTE]
+>
 > Even if you already have an Embroider app, please do compare your `ember-cli-build.js` to the starter code so that we are on the same page.
 
 
@@ -177,6 +169,7 @@ function mode(resourcePath) {
 ```
 
 > [!IMPORTANT]
+>
 > If your app lives in a monorepo, please include the relative path from the workspace root to the app. This way, Webpack can distinguish CSS files from your app (local) from those from an addon in the monorepo (global).
 >
 > ```js
@@ -245,6 +238,7 @@ cp app/styles/app.css app/assets/app.css
 ```
 
 > [!IMPORTANT]
+>
 > Ember expects `app/styles/app.css` to exist. Instead of deleting the file, leave it empty. You can copy-paste this default code from Ember CLI:
 >
 > ```css
@@ -361,6 +355,7 @@ Finally, render the component. Et voilà! ✨
 </details>
 
 > [!NOTE]
+>
 > Use the [`{{local}}` helper](../../packages/embroider-css-modules/README.md#helper-local) to apply multiple styles.
 
 
@@ -470,6 +465,7 @@ Yes! You can use `*.module.css` to indicate the stylesheets that are for CSS mod
 ```
 
 > [!NOTE]
+>
 > The files `app/assets/app.css` and `app/styles/app.css` keep the extension `*.css`.
 
 

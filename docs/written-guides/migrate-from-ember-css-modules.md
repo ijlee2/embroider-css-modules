@@ -7,6 +7,7 @@ Have an Embroider app that depends on `ember-css-modules`? In a few steps, you c
 1. [Enable stricter Embroider settings](#enable-stricter-embroider-settings)
 
 > [!NOTE]
+>
 > If you get lost, you can check [`ember-container-query`](https://github.com/ijlee2/ember-container-query/pull/167) for reference.
 
 

@@ -1,6 +1,6 @@
 # Set up CSS modules (v2 addons)
 
-We will use Rollup and PostCSS to implement CSS modules.
+In a v2 addon built with Rollup, we use PostCSS to implement CSS modules.
 
 1. [Install dependencies](#install-dependencies)
 1. [Configure Rollup](#configure-rollup)
@@ -14,18 +14,16 @@ We will use Rollup and PostCSS to implement CSS modules.
     - [Can I use the file extension \*.module.css?](#can-i-use-the-file-extension-modulecss)
     - [Write tests](#write-tests)
 
-> [!NOTE]
+> [!TIP]
+>
 > If you get lost, you can check how [`my-v2-addon`](../my-v2-addon) is set up.
 
 
 ## Install dependencies
 
-A "standard" v2 addon, created with [`@embroider/addon-blueprint`](https://github.com/embroider-build/addon-blueprint) or migrated to with [`ember-codemod-v1-to-v2`](https://github.com/ijlee2/ember-codemod-v1-to-v2/), will have these dependencies already.
+A "standard" v2 addon, created with [`@ember/addon-blueprint`](https://github.com/ember-cli/ember-addon-blueprint) or migrated to with [`ember-codemod-v1-to-v2`](https://github.com/ijlee2/ember-codemod-v1-to-v2/), are built with Rollup.
 
-- `rollup`
-- `@rollup/plugin-babel`
-
-For PostCSS, here is what you likely need at minimum.
+For CSS modules, you'll want to install these dependencies.
 
 - `postcss`
 - `rollup-plugin-postcss`
@@ -35,11 +33,11 @@ Finally, some packages to improve your developer experience (DX).
 - [`embroider-css-modules`](../../packages/embroider-css-modules/README.md)<sup>1</sup>
 - [`type-css-modules`](../../packages/type-css-modules/README.md)<sup>2</sup>
 
-All in all, here are the commands for installation:
+Here are the commands for installation:
 
 ```sh
-pnpm install --dev postcss rollup-plugin-postcss type-css-modules
-pnpm install embroider-css-modules
+pnpm add embroider-css-modules
+pnpm add -D postcss rollup-plugin-postcss type-css-modules
 ```
 
 <sup>1. Add to `dependencies`, not `devDependencies`.</sup>
@@ -60,7 +58,6 @@ For simplicity, comments have been hidden.
 ```js
 import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
-import copy from 'rollup-plugin-copy';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -91,18 +88,14 @@ export default {
 
     addon.gjs(),
 
-    addon.declarations('declarations'),
+    addon.declarations(
+      'declarations',
+      'pnpm ember-tsc --declaration --project tsconfig.json',
+    ),
 
     addon.keepAssets(['**/*.css']),
 
     addon.clean(),
-
-    copy({
-      targets: [
-        { src: '../README.md', dest: '.' },
-        { src: '../LICENSE.md', dest: '.' },
-      ],
-    }),
   ],
 };
 ```
@@ -121,7 +114,6 @@ Add `rollup-plugin-postcss` before `babel()` (order matters). Then, remove the g
 ```diff
 import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
-import copy from 'rollup-plugin-copy';
 + import postcss from 'rollup-plugin-postcss';
 
 const addon = new Addon({
@@ -160,19 +152,15 @@ export default {
 
     addon.gjs(),
 
-    addon.declarations('declarations'),
+    addon.declarations(
+      'declarations',
+      'pnpm ember-tsc --declaration --project tsconfig.json',
+    ),
 
 -     addon.keepAssets(['**/*.css']),
 +     addon.keepAssets([]),
 
     addon.clean(),
-
-    copy({
-      targets: [
-        { src: '../README.md', dest: '.' },
-        { src: '../LICENSE.md', dest: '.' },
-      ],
-    }),
   ],
 };
 ```
@@ -235,6 +223,7 @@ const styles = {
 ```
 
 > [!NOTE]
+>
 > I recommend the first option: Set `generateScopedName` to `<package-name>__[sha512:hash:base64:5]`.
 
 
@@ -362,6 +351,7 @@ Finally, style the links. ✨
 </details>
 
 > [!NOTE]
+>
 > Use the [`{{local}}` helper](../../packages/embroider-css-modules/README.md#helper-local) to apply multiple styles.
 
 
@@ -568,6 +558,7 @@ module('Integration | Component | navigation-menu', function (hooks) {
 </details>
 
 > [!NOTE]
+>
 > In `rollup.config.mjs`, don't forget to add `test-support.ts` to `addon.publicEntrypoints()`.
 >
 > ```js
