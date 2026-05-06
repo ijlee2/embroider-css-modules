@@ -1,5 +1,11 @@
 # test-app-for-embroider-css-modules
 
+## 2.1.7
+
+### Patch Changes
+
+- [#247](https://github.com/ijlee2/embroider-css-modules/pull/247) Began testing ember-lts-6.12, ember-beta, and ember-canary scenarios ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.1.6
 
 ### Patch Changes
