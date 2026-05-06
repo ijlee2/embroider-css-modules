@@ -120,11 +120,6 @@ class Processor {
 
         break;
       }
-
-      case 'StringLiteral': {
-        this.processStringLiteral(nodeValue.path);
-        break;
-      }
     }
   }
 
