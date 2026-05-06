@@ -28,11 +28,6 @@ function sanitizeClassAndLocalClassAttributes(file: string): string {
 
     const attribute = attributes[attributeIndex]!;
 
-    if (attribute.isValueless) {
-      attributes.splice(attributeIndex, 1);
-      return;
-    }
-
     if (attribute.value.type !== 'TextNode') {
       return;
     }
@@ -166,6 +161,7 @@ function removeLocalClassHelpers(file: string): string {
   const traverse = AST.traverse();
 
   const ast = traverse(file, {
+    // @ts-expect-error: Incorrect type
     AttrNode(node) {
       if (node.name !== 'class') {
         return;

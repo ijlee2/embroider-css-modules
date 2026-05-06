@@ -36,13 +36,13 @@
     "test": "sh build.sh --test && mt dist-for-testing --quiet"
   },
   "dependencies": {
-    "@codemod-utils/ast-javascript": "^3.0.1",
-    "@codemod-utils/ast-template": "^3.0.1",
-    "@codemod-utils/ast-template-tag": "^2.1.0",
+    "@codemod-utils/ast-javascript": "^3.0.2",
+    "@codemod-utils/ast-template": "^3.1.0",
+    "@codemod-utils/ast-template-tag": "^2.3.0",
     "@codemod-utils/files": "^4.0.1",
     "@codemod-utils/threads": "^1.0.0",
     "css-selector-parser": "^3.3.0",
-    "postcss": "^8.5.12",
+    "postcss": "^8.5.14",
     "yargs": "^18.0.0"
   },
   "devDependencies": {

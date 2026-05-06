@@ -185,12 +185,6 @@ class Processor {
 
         break;
       }
-
-      case 'StringLiteral': {
-        // @ts-expect-error: Incorrect type
-        nodeValue.path = this.processStringLiteral(nodeValue.path);
-        break;
-      }
     }
 
     return nodeValue;
