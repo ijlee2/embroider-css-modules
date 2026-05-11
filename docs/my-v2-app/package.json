@@ -91,7 +91,7 @@
     "stylelint": "^17.11.0",
     "type-css-modules": "workspace:*",
     "typescript": "^5.9.3",
-    "vite": "^8.0.10"
+    "vite": "^8.0.12"
   },
   "engines": {
     "node": "22.* || >= 24"
