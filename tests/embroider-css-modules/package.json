@@ -88,7 +88,7 @@
     "qunit-dom": "^3.5.1",
     "stylelint": "^17.11.0",
     "typescript": "^5.9.3",
-    "vite": "^8.0.10"
+    "vite": "^8.0.12"
   },
   "engines": {
     "node": "22.* || >= 24"
