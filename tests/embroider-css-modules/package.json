@@ -51,9 +51,9 @@
     "@embroider/vite": "^1.7.2",
     "@glimmer/component": "^2.1.1",
     "@glimmer/tracking": "^1.1.2",
-    "@glint/ember-tsc": "^1.5.0",
+    "@glint/ember-tsc": "^1.7.4",
     "@glint/template": "^1.7.7",
-    "@glint/tsserver-plugin": "^2.4.0",
+    "@glint/tsserver-plugin": "^2.5.4",
     "@rollup/plugin-babel": "^7.0.0",
     "@shared-configs/ember-template-lint": "workspace:*",
     "@shared-configs/eslint-config-ember": "workspace:*",
@@ -61,7 +61,7 @@
     "@shared-configs/stylelint": "workspace:*",
     "@shared-configs/testem": "workspace:*",
     "@shared-configs/typescript": "workspace:*",
-    "@types/qunit": "^2.19.13",
+    "@types/qunit": "^2.19.14",
     "babel-plugin-ember-template-compilation": "^4.0.0",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^9.2.1",
@@ -86,9 +86,9 @@
     "prettier": "^3.8.3",
     "qunit": "^2.25.0",
     "qunit-dom": "^3.5.1",
-    "stylelint": "^17.11.0",
+    "stylelint": "^17.11.1",
     "typescript": "^5.9.3",
-    "vite": "^8.0.12"
+    "vite": "^8.0.13"
   },
   "engines": {
     "node": "22.* || >= 24"
