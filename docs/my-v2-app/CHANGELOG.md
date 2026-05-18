@@ -1,5 +1,11 @@
 # my-v2-app
 
+## 1.1.8
+
+### Patch Changes
+
+- [#249](https://github.com/ijlee2/embroider-css-modules/pull/249) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.1.7
 
 ### Patch Changes
