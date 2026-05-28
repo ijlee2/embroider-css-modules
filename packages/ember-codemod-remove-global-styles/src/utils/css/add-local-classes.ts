@@ -260,9 +260,8 @@ type Data = {
 
 export function addLocalClasses(file: string, data: Data): string {
   const processor = new Processor(data);
-  const traverse = AST.traverse();
 
-  const ast = traverse(file, {
+  const ast = AST.traverse(file, {
     AttrNode(node) {
       if (node.name !== 'class') {
         return;

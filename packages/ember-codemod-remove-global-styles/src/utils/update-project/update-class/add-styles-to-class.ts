@@ -2,7 +2,6 @@ import { AST } from '@codemod-utils/ast-javascript';
 
 type Data = {
   isTemplateTag: boolean;
-  isTypeScript: boolean;
 };
 
 export function addStylesToClass(file: string, data: Data): string {
@@ -10,9 +9,7 @@ export function addStylesToClass(file: string, data: Data): string {
     return file;
   }
 
-  const traverse = AST.traverse(data.isTypeScript);
-
-  const ast = traverse(file, {
+  const ast = AST.traverse(file, {
     visitClassDeclaration(path) {
       const { body } = path.node.body;
 

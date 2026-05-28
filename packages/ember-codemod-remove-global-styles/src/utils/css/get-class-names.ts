@@ -134,9 +134,8 @@ class Processor {
 
 export function getClassNames(file: string): ProcessorPrint {
   const processor = new Processor();
-  const traverse = AST.traverse();
 
-  traverse(file, {
+  AST.traverse(file, {
     AttrNode(node) {
       if (node.name !== 'class') {
         return;

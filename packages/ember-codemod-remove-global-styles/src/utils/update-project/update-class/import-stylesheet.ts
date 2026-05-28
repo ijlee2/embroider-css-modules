@@ -4,14 +4,12 @@ import { AST } from '@codemod-utils/ast-javascript';
 
 type Data = {
   fileName: string;
-  isTypeScript: boolean;
 };
 
 export function importStylesheet(file: string, data: Data): string {
-  const traverse = AST.traverse(data.isTypeScript);
   let canSkip = false;
 
-  traverse(file, {
+  AST.traverse(file, {
     visitImportDeclaration(path) {
       const importPath = path.node.source.value;
 

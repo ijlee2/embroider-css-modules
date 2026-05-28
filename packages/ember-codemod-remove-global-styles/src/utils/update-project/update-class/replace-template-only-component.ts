@@ -10,9 +10,7 @@ export function replaceTemplateOnlyComponent(file: string, data: Data): string {
     return file;
   }
 
-  const traverse = AST.traverse(data.isTypeScript);
-
-  const ast = traverse(file, {
+  const ast = AST.traverse(file, {
     visitCallExpression(path) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (path.value.callee.name !== 'templateOnlyComponent') {
