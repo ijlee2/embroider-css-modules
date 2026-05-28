@@ -12,10 +12,9 @@ type Data = {
 };
 
 function canSkip(file: string, data: Data): boolean {
-  const traverse = AST.traverse(data.isTypeScript);
   let canSkip = false;
 
-  traverse(file, {
+  AST.traverse(file, {
     visitImportDeclaration(path) {
       if (path.node.source.value === `./${data.fileName}.css`) {
         canSkip = true;
@@ -29,9 +28,7 @@ function canSkip(file: string, data: Data): boolean {
 }
 
 function removeTemplateOnlyComponentMethod(file: string, data: Data): string {
-  const traverse = AST.traverse(data.isTypeScript);
-
-  const ast = traverse(file, {
+  const ast = AST.traverse(file, {
     visitCallExpression(path) {
       // @ts-expect-error: Incorrect type
       if (path.node.callee.name !== 'templateOnlyComponent') {
@@ -87,12 +84,10 @@ function removeTemplateOnlyComponentMethod(file: string, data: Data): string {
 }
 
 function importStylesInClass(file: string, data: Data): string {
-  const traverse = AST.traverse(data.isTypeScript);
-
   // Find the last import statement
   let lastImportDeclarationPath: unknown;
 
-  const ast = traverse(file, {
+  const ast = AST.traverse(file, {
     visitImportDeclaration(path) {
       if (!lastImportDeclarationPath) {
         lastImportDeclarationPath = path;
@@ -127,10 +122,8 @@ function importStylesInClass(file: string, data: Data): string {
   return AST.print(ast);
 }
 
-function addStylesAsClassProperty(file: string, data: Data): string {
-  const traverse = AST.traverse(data.isTypeScript);
-
-  const ast = traverse(file, {
+function addStylesAsClassProperty(file: string): string {
+  const ast = AST.traverse(file, {
     visitClassDeclaration(path) {
       const { body } = path.node.body;
 
@@ -179,7 +172,7 @@ export function updateClass(
 
     file = removeTemplateOnlyComponentMethod(file, data);
     file = importStylesInClass(file, data);
-    file = addStylesAsClassProperty(file, data);
+    file = addStylesAsClassProperty(file);
 
     const fileMap = new Map([[filePath, file]]);
 
