@@ -1,5 +1,20 @@
 # docs-app-for-embroider-css-modules
 
+## 2.0.0
+
+### Major Changes
+
+- [#252](https://github.com/ijlee2/embroider-css-modules/pull/252) Migrated to Vite ([@ijlee2](https://github.com/ijlee2))
+
+### Minor Changes
+
+- [#253](https://github.com/ijlee2/embroider-css-modules/pull/253) Updated ember-source to 7.0.0 ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#252](https://github.com/ijlee2/embroider-css-modules/pull/252) Renamed app to docs-app-for-embroider-css-modules ([@ijlee2](https://github.com/ijlee2))
+- [#251](https://github.com/ijlee2/embroider-css-modules/pull/251) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.5.9
 
 ### Patch Changes

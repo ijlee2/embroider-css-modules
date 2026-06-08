@@ -1,5 +1,15 @@
 # my-v2-app
 
+## 1.2.0
+
+### Minor Changes
+
+- [#253](https://github.com/ijlee2/embroider-css-modules/pull/253) Updated ember-source to 7.0.0 ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#251](https://github.com/ijlee2/embroider-css-modules/pull/251) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.1.9
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # embroider-css-modules
 
+## 4.0.8
+
+### Patch Changes
+
+- [#253](https://github.com/ijlee2/embroider-css-modules/pull/253) Updated ember-source to 7.0.0 ([@ijlee2](https://github.com/ijlee2))
+- [#251](https://github.com/ijlee2/embroider-css-modules/pull/251) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 4.0.7
 
 ### Patch Changes
