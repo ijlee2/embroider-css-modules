@@ -11,10 +11,6 @@
 
 `my-v1-app` is an Embroider app built with Webpack. We use it to test `embroider-css-modules`.
 
-In addition, the component and route templates, the application tests (visual regression tests), and the rendering tests serve as a living documentation.
-
-Lastly, end-developers can check the [deployed app](https://embroider-css-modules.netlify.app/) (do a "test drive") before they decide to introduce CSS modules to their projects.
-
 
 ## Local development
 
@@ -26,8 +22,6 @@ Lastly, end-developers can check the [deployed app](https://embroider-css-module
 > # From the workspace root
 > pnpm prepare
 > ```
-
-Some useful commands:
 
 ```sh
 # Run the app

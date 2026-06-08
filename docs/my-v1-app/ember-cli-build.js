@@ -75,7 +75,7 @@ module.exports = function (defaults) {
         package: 'qunit',
       },
     ],
-    splitAtRoutes: ['dashboard', 'form', 'products'],
+    splitAtRoutes: [],
     staticAddonTestSupportTrees: true,
     staticAddonTrees: true,
     staticEmberSource: true,

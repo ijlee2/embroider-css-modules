@@ -1,0 +1,51 @@
+{
+  "extends": "@shared-configs/typescript/ember-app",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "docs-app-for-embroider-css-modules/tests/*": ["tests/*"],
+      "docs-app-for-embroider-css-modules/*": ["app/*"],
+      "*": ["types/*"]
+    },
+    "plugins": [
+      {
+        "name": "@glint/tsserver-plugin"
+      }
+    ],
+    "types": [
+      "@embroider/core/virtual",
+      "@glint/ember-tsc/types",
+      "ember-source/types",
+      "vite/client"
+    ]
+  },
+  "include": ["app/**/*", "tests/**/*", "types/**/*", "vite.config.mts"],
+  "glint": {
+    "additionalSpecialForms": {
+      "imports": {
+        "ember-truth-helpers": {
+          "and": "&&",
+          "eq": "===",
+          "not": "!",
+          "not-eq": "!==",
+          "or": "||"
+        },
+        "ember-truth-helpers/helpers/and": {
+          "default": "&&"
+        },
+        "ember-truth-helpers/helpers/eq": {
+          "default": "==="
+        },
+        "ember-truth-helpers/helpers/not": {
+          "default": "!"
+        },
+        "ember-truth-helpers/helpers/not-eq": {
+          "default": "!=="
+        },
+        "ember-truth-helpers/helpers/or": {
+          "default": "||"
+        }
+      }
+    }
+  }
+}

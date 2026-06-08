@@ -9,7 +9,7 @@
 
 ## What is it?
 
-`my-v1-app` is an Embroider app built with Vite. We use it to test `embroider-css-modules`.
+`my-v2-app` is an Embroider app built with Vite. We use it to test `embroider-css-modules`.
 
 
 ## Local development

@@ -1,4 +1,3 @@
-import { a11yAudit } from 'ember-a11y-testing/test-support';
 import {
   setupApplicationTest as upstreamSetupApplicationTest,
   setupRenderingTest as upstreamSetupRenderingTest,
@@ -47,7 +46,4 @@ function setupTest(hooks: NestedHooks, options?: SetupTestOptions): void {
   // Additional setup for unit tests can be done here.
 }
 
-export { a11yAudit, setupApplicationTest, setupRenderingTest, setupTest };
-
-export { UiForm } from './components/ui/form';
-export { takeSnapshot } from './percy';
+export { setupApplicationTest, setupRenderingTest, setupTest };

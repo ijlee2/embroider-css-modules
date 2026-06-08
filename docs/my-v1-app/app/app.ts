@@ -1,4 +1,3 @@
-import 'ember-a11y-refocus/styles/navigation-narrator.css';
 import './assets/app.css';
 
 import Application from '@ember/application';

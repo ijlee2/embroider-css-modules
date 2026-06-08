@@ -36,7 +36,7 @@ Here are some guidelines to help you and everyone else.
 
 <summary>Run the demo app</summary>
 
-1. Once dependencies have been installed, you can run the [demo app](./docs/my-v1-app).
+1. Once dependencies have been installed, you can run the [demo app](./docs/embroider-css-modules).
 
     ```sh
     # From the workspace root

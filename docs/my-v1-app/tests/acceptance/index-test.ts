@@ -1,22 +1,14 @@
 import { visit } from '@ember/test-helpers';
-import {
-  a11yAudit,
-  setupApplicationTest,
-  takeSnapshot,
-} from 'my-v1-app/tests/helpers';
+import styles from 'my-v1-app/templates/application.module.css';
+import { setupApplicationTest } from 'my-v1-app/tests/helpers';
 import { module, test } from 'qunit';
 
 module('Acceptance | index', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('We can visit the page', async function (assert) {
+  test('We can visit index', async function (assert) {
     await visit('/');
 
-    assert
-      .dom('[data-test-link="embroider-css-modules"]')
-      .hasClass('templates-index-module__code');
-
-    await a11yAudit();
-    await takeSnapshot(assert);
+    assert.dom('[data-test-hello-container]').hasClass(styles.container);
   });
 });
