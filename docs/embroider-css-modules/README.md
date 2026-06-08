@@ -1,7 +1,7 @@
 [![This project uses GitHub Actions for continuous integration.](https://github.com/ijlee2/embroider-css-modules/actions/workflows/ci.yml/badge.svg)](https://github.com/ijlee2/embroider-css-modules/actions/workflows/ci.yml)
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Isaac/embroider-css-modules)
 
-# my-v2-app
+# docs-app-for-embroider-css-modules
 
 1. [What is it?](#what-is-it)
 1. [Local development](#local-development)
@@ -9,7 +9,7 @@
 
 ## What is it?
 
-`my-v2-app` is an Embroider app built with Vite. We use it to test `embroider-css-modules`.
+`docs-app-for-embroider-css-modules` provides the documentation site for `embroider-css-modules`. The app is deployed on https://embroider-css-modules.netlify.app/.
 
 
 ## Local development

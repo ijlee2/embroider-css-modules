@@ -43,7 +43,7 @@ jobs:
       fail-fast: false
       matrix:
         package-location:
-          - 'docs/my-v1-app'
+          - 'docs/embroider-css-modules'
           - 'docs/my-v2-addon'
           - 'docs/my-v2-app'
           - 'packages/ember-codemod-remove-ember-css-modules'
@@ -80,7 +80,7 @@ jobs:
       fail-fast: false
       matrix:
         package-location:
-          - 'docs/my-v1-app'
+          - 'docs/embroider-css-modules'
           - 'docs/my-v2-addon'
           - 'docs/my-v2-app'
           - 'packages/ember-codemod-remove-ember-css-modules'
@@ -90,7 +90,7 @@ jobs:
           - 'tests/embroider-css-modules'
     timeout-minutes: 5
     env:
-      RUN_PERCY: ${{ matrix.package-location == 'docs/my-v1-app' }}
+      RUN_PERCY: ${{ matrix.package-location == 'docs/embroider-css-modules' }}
     steps:
       - name: Check out a copy of the repo
         uses: actions/checkout@v6

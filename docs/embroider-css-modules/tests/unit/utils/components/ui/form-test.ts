@@ -1,0 +1,166 @@
+import { generateErrorMessage } from 'docs-app-for-embroider-css-modules/utils/components/ui/form';
+import { module, test } from 'qunit';
+
+module('Unit | Utility | components/ui/form', function () {
+  module('generateErrorMessage', function () {
+    module('When isRequired is false', function () {
+      test('When the value type is boolean', function (assert) {
+        let errorMessage = generateErrorMessage({
+          isRequired: false,
+          value: undefined,
+          valueType: 'boolean',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+
+        errorMessage = generateErrorMessage({
+          isRequired: false,
+          value: false,
+          valueType: 'boolean',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+
+        errorMessage = generateErrorMessage({
+          isRequired: false,
+          value: true,
+          valueType: 'boolean',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+      });
+
+      test('When the value type is number', function (assert) {
+        let errorMessage = generateErrorMessage({
+          isRequired: false,
+          value: undefined,
+          valueType: 'number',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+
+        errorMessage = generateErrorMessage({
+          isRequired: false,
+          value: '',
+          valueType: 'number',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+
+        errorMessage = generateErrorMessage({
+          isRequired: false,
+          value: '0',
+          valueType: 'number',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+      });
+
+      test('When the value type is string', function (assert) {
+        let errorMessage = generateErrorMessage({
+          isRequired: false,
+          value: undefined,
+          valueType: 'string',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+
+        errorMessage = generateErrorMessage({
+          isRequired: false,
+          value: '',
+          valueType: 'string',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+
+        errorMessage = generateErrorMessage({
+          isRequired: false,
+          value: 'Zoey',
+          valueType: 'string',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+      });
+    });
+
+    module('When isRequired is true', function () {
+      test('When the value type is boolean', function (assert) {
+        let errorMessage = generateErrorMessage({
+          isRequired: true,
+          value: undefined,
+          valueType: 'boolean',
+        });
+
+        assert.strictEqual(errorMessage, 'Please select the checkbox.');
+
+        errorMessage = generateErrorMessage({
+          isRequired: true,
+          value: false,
+          valueType: 'boolean',
+        });
+
+        assert.strictEqual(errorMessage, 'Please select the checkbox.');
+
+        errorMessage = generateErrorMessage({
+          isRequired: true,
+          value: true,
+          valueType: 'boolean',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+      });
+
+      test('When the value type is number', function (assert) {
+        let errorMessage = generateErrorMessage({
+          isRequired: true,
+          value: undefined,
+          valueType: 'number',
+        });
+
+        assert.strictEqual(errorMessage, 'Please provide a value.');
+
+        errorMessage = generateErrorMessage({
+          isRequired: true,
+          value: '',
+          valueType: 'number',
+        });
+
+        assert.strictEqual(errorMessage, 'Please provide a value.');
+
+        errorMessage = generateErrorMessage({
+          isRequired: true,
+          value: '0',
+          valueType: 'number',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+      });
+
+      test('When the value type is string', function (assert) {
+        let errorMessage = generateErrorMessage({
+          isRequired: true,
+          value: undefined,
+          valueType: 'string',
+        });
+
+        assert.strictEqual(errorMessage, 'Please provide a value.');
+
+        errorMessage = generateErrorMessage({
+          isRequired: true,
+          value: '',
+          valueType: 'string',
+        });
+
+        assert.strictEqual(errorMessage, 'Please provide a value.');
+
+        errorMessage = generateErrorMessage({
+          isRequired: true,
+          value: 'Zoey',
+          valueType: 'string',
+        });
+
+        assert.strictEqual(errorMessage, undefined);
+      });
+    });
+  });
+});

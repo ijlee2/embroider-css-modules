@@ -6,7 +6,7 @@
       <p>
         This is the test app for
         <code>embroider-css-modules</code>. Did you want to run the app in
-        <code>docs/my-v1-app</code>
+        <code>docs/embroider-css-modules</code>
         instead?
       </p>
     </div>
