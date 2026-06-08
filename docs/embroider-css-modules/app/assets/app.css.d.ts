@@ -1,3 +1,5 @@
-declare const styles: Record<string, never>;
+declare const styles: {
+  readonly 'input-disabled': string;
+};
 
 export default styles;
