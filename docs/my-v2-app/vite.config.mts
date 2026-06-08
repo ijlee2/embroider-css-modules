@@ -9,7 +9,7 @@ export default defineConfig({
   css: {
     lightningcss: {
       cssModules: {
-        pattern: 'my-v2-app__[hash]-[local]',
+        pattern: '[hash]-[local]',
       },
     },
     transformer: 'lightningcss',

@@ -9,7 +9,7 @@ export default defineConfig({
   css: {
     lightningcss: {
       cssModules: {
-        pattern: 'test-app-for-embroider-css-modules__[hash]-[local]',
+        pattern: '[hash]-[local]',
       },
     },
     transformer: 'lightningcss',
