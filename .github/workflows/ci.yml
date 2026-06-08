@@ -44,6 +44,7 @@ jobs:
       matrix:
         package-location:
           - 'docs/embroider-css-modules'
+          - 'docs/my-v1-app'
           - 'docs/my-v2-addon'
           - 'docs/my-v2-app'
           - 'packages/ember-codemod-remove-ember-css-modules'
@@ -81,6 +82,7 @@ jobs:
       matrix:
         package-location:
           - 'docs/embroider-css-modules'
+          - 'docs/my-v1-app'
           - 'docs/my-v2-addon'
           - 'docs/my-v2-app'
           - 'packages/ember-codemod-remove-ember-css-modules'

@@ -1,0 +1,14 @@
+# unconventional js
+/blueprints/*/files/
+
+# compiled output
+/dist/
+
+# misc
+!.*
+.*/
+*.html
+README.md
+
+# specific to this package
+*.css.d.ts

@@ -1,0 +1,13 @@
+.message {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.emphasize {
+  color: white;
+  font-size: 8rem;
+  font-style: italic;
+  letter-spacing: 0.01rem;
+}
