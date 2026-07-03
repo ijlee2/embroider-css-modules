@@ -1,5 +1,12 @@
 # embroider-css-modules
 
+## 4.0.10
+
+### Patch Changes
+
+- [#255](https://github.com/ijlee2/embroider-css-modules/pull/255) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#255](https://github.com/ijlee2/embroider-css-modules/pull/255) Removed ember-template-lint ([@ijlee2](https://github.com/ijlee2))
+
 ## 4.0.9
 
 ### Patch Changes
