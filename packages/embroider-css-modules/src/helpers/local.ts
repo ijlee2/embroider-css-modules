@@ -10,10 +10,7 @@ type Styles<T extends IndexSignatureParameter> = Record<
 >;
 
 type MaybeLocalClassName<T extends IndexSignatureParameter> =
-  | LocalClassName<T>[]
-  | LocalClassName<T>
-  | undefined
-  | null;
+  LocalClassName<T>[] | LocalClassName<T> | undefined | null;
 
 export default function local<T extends IndexSignatureParameter>(
   styles: Styles<T>,

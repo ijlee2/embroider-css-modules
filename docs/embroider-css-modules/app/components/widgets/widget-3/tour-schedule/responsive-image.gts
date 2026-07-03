@@ -28,7 +28,6 @@ export default class WidgetsWidget3TourScheduleResponsiveImage extends Component
       {{containerQuery debounce=300 onQuery=this.setImageSource}}
     >
       {{#if this.imageSource}}
-        {{! template-lint-disable no-redundant-role }}
         <img
           alt=""
           class={{styles.image}}
@@ -36,7 +35,6 @@ export default class WidgetsWidget3TourScheduleResponsiveImage extends Component
           role="presentation"
           src={{this.imageSource}}
         />
-        {{! template-lint-enable no-redundant-role }}
       {{/if}}
     </div>
   </template>
