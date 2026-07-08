@@ -2,7 +2,6 @@ import { on } from '@ember/modifier';
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 import { generateErrorMessage } from 'docs-app-for-embroider-css-modules/utils/components/ui/form';
-import { or } from 'ember-truth-helpers';
 import { local } from 'embroider-css-modules';
 
 import UiFormField from './field';

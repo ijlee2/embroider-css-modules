@@ -88,7 +88,6 @@
     "ember-source": "~7.1.0",
     "ember-svg-jar": "^2.7.1",
     "ember-template-imports": "^4.4.0",
-    "ember-truth-helpers": "^5.0.0",
     "embroider-css-modules": "workspace:*",
     "eslint": "^10.6.0",
     "lightningcss": "^1.32.0",
