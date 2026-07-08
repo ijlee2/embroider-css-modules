@@ -1,7 +1,6 @@
 import type { TOC } from '@ember/component/template-only';
 import type { QueryResults } from 'ember-container-query';
 import svgJar from 'ember-svg-jar/helpers/svg-jar';
-import { or } from 'ember-truth-helpers';
 import { local } from 'embroider-css-modules';
 
 import styles from './actions.module.css';
