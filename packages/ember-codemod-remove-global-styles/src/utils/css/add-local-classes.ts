@@ -25,7 +25,7 @@ class Processor {
     return `${this.getStyles()}.${className}`;
   }
 
-  private getStyles(): 'this.styles' | 'styles' {
+  private getStyles(): 'styles' | 'this.styles' {
     return this.args.isHbs ? 'this.styles' : 'styles';
   }
 
