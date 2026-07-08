@@ -1,17 +1,17 @@
 {
   "extends": "@shared-configs/typescript/ember-app",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      "test-app-for-embroider-css-modules/tests/*": ["tests/*"],
-      "test-app-for-embroider-css-modules/*": ["app/*"],
-      "*": ["types/*"]
+      "test-app-for-embroider-css-modules/tests/*": ["./tests/*"],
+      "test-app-for-embroider-css-modules/*": ["./app/*"],
+      "*": ["./types/*"]
     },
     "plugins": [
       {
         "name": "@glint/tsserver-plugin"
       }
     ],
+    "rootDir": ".",
     "types": [
       "ember-source/types",
       "@embroider/core/virtual",
