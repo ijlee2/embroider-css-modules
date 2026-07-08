@@ -1,5 +1,15 @@
 # docs-app-for-embroider-css-modules
 
+## 2.2.0
+
+### Minor Changes
+
+- [#256](https://github.com/ijlee2/embroider-css-modules/pull/256) Updated dependencies (babel@v8, eslint@v10, typescript@v6) ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#257](https://github.com/ijlee2/embroider-css-modules/pull/257) Replaced ember-truth-helpers with native helpers ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.1.0
 
 ### Minor Changes

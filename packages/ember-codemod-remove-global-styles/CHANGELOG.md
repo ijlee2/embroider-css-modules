@@ -1,5 +1,11 @@
 # ember-codemod-remove-global-styles
 
+## 0.13.3
+
+### Patch Changes
+
+- [#256](https://github.com/ijlee2/embroider-css-modules/pull/256) Updated dependencies (babel@v8, eslint@v10, typescript@v6) ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.13.2
 
 ### Patch Changes

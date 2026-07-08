@@ -1,5 +1,11 @@
 # test-app-for-embroider-css-modules
 
+## 2.4.0
+
+### Minor Changes
+
+- [#256](https://github.com/ijlee2/embroider-css-modules/pull/256) Updated dependencies (babel@v8, eslint@v10, typescript@v6) ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.3.0
 
 ### Minor Changes

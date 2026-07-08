@@ -1,5 +1,11 @@
 # my-v1-app
 
+## 1.2.0
+
+### Minor Changes
+
+- [#256](https://github.com/ijlee2/embroider-css-modules/pull/256) Updated dependencies (eslint@v10, typescript@v6) ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.1.0
 
 ### Minor Changes
