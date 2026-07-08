@@ -1,6 +1,6 @@
 import { assert } from '@ember/debug';
 
-type IndexSignatureParameter = string | number | symbol;
+type IndexSignatureParameter = number | string | symbol;
 
 type LocalClassName<T extends IndexSignatureParameter> = T;
 
@@ -10,7 +10,7 @@ type Styles<T extends IndexSignatureParameter> = Record<
 >;
 
 type MaybeLocalClassName<T extends IndexSignatureParameter> =
-  LocalClassName<T>[] | LocalClassName<T> | undefined | null;
+  LocalClassName<T> | LocalClassName<T>[] | null | undefined;
 
 export default function local<T extends IndexSignatureParameter>(
   styles: Styles<T>,
