@@ -1,5 +1,11 @@
 # docs-app-for-embroider-css-modules
 
+## 2.2.1
+
+### Patch Changes
+
+- [#259](https://github.com/ijlee2/embroider-css-modules/pull/259) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.2.0
 
 ### Minor Changes
