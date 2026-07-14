@@ -1,8 +1,34 @@
+allowBuilds:
+  "@percy/core": true
+  core-js: false
+  protobufjs: false
+  unrs-resolver: false
+
+autoInstallPeers: false
+
+minimumReleaseAgeExclude:
+  - "@codemod-utils/*"
+  - "@ijlee2-frontend-configs/*"
+  - "@typescript-eslint/*"
+  - typescript-eslint
+
+overrides:
+  ember-cli-htmlbars: ^7.0.1
+
 packages:
-  - configs/**
-  - docs/**
-  - packages/ember-codemod-remove-ember-css-modules
-  - packages/ember-codemod-remove-global-styles
-  - packages/embroider-css-modules
-  - packages/type-css-modules
-  - tests/**
+  - "configs/**"
+  - "docs/**"
+  - "packages/ember-codemod-remove-ember-css-modules"
+  - "packages/ember-codemod-remove-global-styles"
+  - "packages/embroider-css-modules"
+  - "packages/type-css-modules"
+  - "tests/**"
+
+publicHoistPattern:
+  - "*eslint*"
+  - "*prettier*"
+  - "*stylelint*"
+
+resolvePeersFromWorkspaceRoot: false
+
+verifyDepsBeforeRun: "warn"
