@@ -35,7 +35,7 @@
   "dependencies": {
     "@codemod-utils/files": "^4.1.0",
     "css-selector-parser": "^3.3.0",
-    "postcss": "^8.5.25",
+    "postcss": "^8.5.26",
     "yargs": "^18.1.0"
   },
   "devDependencies": {
@@ -47,7 +47,7 @@
     "@types/node": "^22.20.1",
     "@types/yargs": "^17.0.35",
     "concurrently": "^10.0.4",
-    "eslint": "^10.8.0",
+    "eslint": "^10.8.1",
     "prettier": "^3.9.6",
     "typescript": "^6.0.3"
   },

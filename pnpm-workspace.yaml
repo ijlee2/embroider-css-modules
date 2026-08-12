@@ -6,6 +6,8 @@ allowBuilds:
 
 autoInstallPeers: false
 
+minimumReleaseAge: 720
+
 minimumReleaseAgeExclude:
   - "@codemod-utils/*"
   - "@ijlee2-frontend-configs/*"
