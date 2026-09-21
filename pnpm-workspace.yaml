@@ -13,6 +13,7 @@ minimumReleaseAgeExclude:
   - "@ijlee2-frontend-configs/*"
 
 overrides:
+  # Due to ember-svg-jar
   ember-cli-htmlbars: ^7.0.1
 
 packages:
