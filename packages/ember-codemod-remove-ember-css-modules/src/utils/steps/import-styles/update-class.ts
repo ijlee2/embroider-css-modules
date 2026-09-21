@@ -39,7 +39,6 @@ function removeTemplateOnlyComponentMethod(file: string, data: Data): string {
 
       if (data.isTypeScript) {
         // @ts-expect-error: Incorrect type
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         superClass.typeAnnotation = path.node.typeParameters;
       }
 
