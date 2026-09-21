@@ -66,7 +66,6 @@
     "decorator-transforms": "^2.4.0",
     "ember-cli": "~7.2.0",
     "ember-cli-app-version": "^7.0.0",
-    "ember-cli-babel": "^8.3.2",
     "ember-load-initializers": "^3.0.1",
     "ember-modifier": "^4.3.0",
     "ember-page-title": "^9.0.3",
