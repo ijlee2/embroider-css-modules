@@ -12,7 +12,7 @@
       }
     ],
     "rootDir": ".",
-    "types": ["ember-source/types", "@glint/ember-tsc/types"]
+    "types": ["@glint/ember-tsc/types", "@types/qunit", "ember-source/types"]
   },
   "include": ["app/**/*", "tests/**/*", "types/**/*"]
 }
