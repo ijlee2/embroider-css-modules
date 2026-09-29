@@ -22,7 +22,8 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build --environment=production",
+    "build": "ember build --environment production",
+    "build:test": "ember build --environment test",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
     "lint:css": "stylelint \"app/**/*.css\" --cache",
@@ -34,7 +35,8 @@
     "prelint:types": "type-css-modules --src app",
     "lint:types": "ember-tsc --noEmit",
     "start": "ember serve",
-    "test": "ember test --test-port 0"
+    "test": "pnpm build:test && ember-test --port 0",
+    "test:watch": "concurrently \"pnpm build:test --watch\" && \"pnpm ember-test --server\" --names build,test"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",
@@ -76,6 +78,7 @@
     "ember-resolver": "^13.2.0",
     "ember-source": "~6.12.0",
     "ember-template-imports": "^4.4.0",
+    "ember-testem": "^0.3.0",
     "embroider-css-modules": "workspace:*",
     "eslint": "^10.11.0",
     "loader.js": "^4.7.0",
