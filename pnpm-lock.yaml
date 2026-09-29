@@ -442,6 +442,9 @@ importers:
       ember-svg-jar:
         specifier: ^3.0.0
         version: 3.0.0(@glint/template@1.9.0)(ember-source@7.3.0(@glimmer/component@2.1.1(supports-color@10.2.2))(supports-color@10.2.2))(supports-color@10.2.2)
+      ember-testem:
+        specifier: ^0.3.0
+        version: 0.3.0(@babel/core@8.0.6)(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)
       embroider-css-modules:
         specifier: workspace:*
         version: link:../../packages/embroider-css-modules
@@ -601,6 +604,9 @@ importers:
       ember-template-imports:
         specifier: ^4.4.0
         version: 4.4.0(supports-color@10.2.2)
+      ember-testem:
+        specifier: ^0.3.0
+        version: 0.3.0(@babel/core@7.29.7(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)
       embroider-css-modules:
         specifier: workspace:*
         version: link:../../packages/embroider-css-modules
@@ -833,6 +839,9 @@ importers:
       ember-source:
         specifier: ~7.3.0
         version: 7.3.0(@glimmer/component@2.1.1(supports-color@10.2.2))(supports-color@10.2.2)
+      ember-testem:
+        specifier: ^0.3.0
+        version: 0.3.0(@babel/core@8.0.6)(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)
       embroider-css-modules:
         specifier: workspace:*
         version: link:../../packages/embroider-css-modules
@@ -1194,6 +1203,9 @@ importers:
       ember-source:
         specifier: ~7.3.0
         version: 7.3.0(@glimmer/component@2.1.1(supports-color@10.2.2))(supports-color@10.2.2)
+      ember-testem:
+        specifier: ^0.3.0
+        version: 0.3.0(@babel/core@8.0.6)(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)
       embroider-css-modules:
         specifier: workspace:*
         version: link:../../packages/embroider-css-modules
@@ -5238,6 +5250,11 @@ packages:
   ember-template-imports@4.4.0:
     resolution: {integrity: sha512-HNOHabTEMbRluci1uScvh3ljMDo9E46dHHNcJAIf5yjOhIQ/zN4Y0DVDWrRfcbihlHvt4v/iF69G+8tffC1YkA==}
     engines: {node: 16.* || >= 18}
+
+  ember-testem@0.3.0:
+    resolution: {integrity: sha512-rm3KUeE3wIHuYXA5sQ7qmJdkqxVZNadDwCE0PXDF1a6D/Ow63Qr/Q1BHu9T4oRoWC8TqgLVIXjILUHdDYeSBXQ==}
+    engines: {node: 22.* || >= 24}
+    hasBin: true
 
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
@@ -16114,6 +16131,118 @@ snapshots:
       ember-cli-version-checker: 5.1.2(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
+
+  ember-testem@0.3.0(@babel/core@7.29.7(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8):
+    dependencies:
+      chokidar: 5.0.0
+      testem: 3.21.0(@babel/core@7.29.7(supports-color@10.2.2))(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)
+      yargs: 18.2.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - arc-templates
+      - atpl
+      - bracket-template
+      - bufferutil
+      - coffee-script
+      - dot
+      - dust
+      - dustjs-helpers
+      - dustjs-linkedin
+      - eco
+      - ect
+      - ejs
+      - haml-coffee
+      - hamlet
+      - hamljs
+      - handlebars
+      - hogan.js
+      - htmling
+      - jazz
+      - jqtpl
+      - just
+      - liquid-node
+      - liquor
+      - mote
+      - nunjucks
+      - plates
+      - pug
+      - qejs
+      - ractive
+      - react
+      - react-dom
+      - slm
+      - supports-color
+      - swig
+      - swig-templates
+      - teacup
+      - templayed
+      - then-pug
+      - tinyliquid
+      - toffee
+      - twig
+      - twing
+      - underscore
+      - utf-8-validate
+      - vash
+      - velocityjs
+      - walrus
+      - whiskers
+
+  ember-testem@0.3.0(@babel/core@8.0.6)(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8):
+    dependencies:
+      chokidar: 5.0.0
+      testem: 3.21.0(@babel/core@8.0.6)(ejs@3.1.10)(handlebars@4.7.9)(supports-color@10.2.2)(underscore@1.13.8)
+      yargs: 18.2.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - arc-templates
+      - atpl
+      - bracket-template
+      - bufferutil
+      - coffee-script
+      - dot
+      - dust
+      - dustjs-helpers
+      - dustjs-linkedin
+      - eco
+      - ect
+      - ejs
+      - haml-coffee
+      - hamlet
+      - hamljs
+      - handlebars
+      - hogan.js
+      - htmling
+      - jazz
+      - jqtpl
+      - just
+      - liquid-node
+      - liquor
+      - mote
+      - nunjucks
+      - plates
+      - pug
+      - qejs
+      - ractive
+      - react
+      - react-dom
+      - slm
+      - supports-color
+      - swig
+      - swig-templates
+      - teacup
+      - templayed
+      - then-pug
+      - tinyliquid
+      - toffee
+      - twig
+      - twing
+      - underscore
+      - utf-8-validate
+      - vash
+      - velocityjs
+      - walrus
+      - whiskers
 
   emoji-regex@10.6.0: {}
 
