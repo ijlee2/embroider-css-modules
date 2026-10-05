@@ -353,8 +353,8 @@ importers:
         specifier: ^1.32.11
         version: 1.32.11(supports-color@10.2.2)(typescript@6.0.3)
       '@percy/ember':
-        specifier: ^5.0.2
-        version: 5.0.2(@babel/core@8.0.6)(@glint/template@1.9.0)(supports-color@10.2.2)
+        specifier: github:ijlee2/percy-ember#convert-to-v2-addon
+        version: https://codeload.github.com/ijlee2/percy-ember/tar.gz/c42f9793a99386edca27496194e94b8e07a17e73(@ember/test-helpers@5.5.1(@babel/core@8.0.6)(supports-color@10.2.2))(supports-color@10.2.2)
       '@rollup/plugin-babel':
         specifier: ^7.1.0
         version: 7.1.0(@babel/core@8.0.6)(rollup@4.63.5)(supports-color@10.2.2)
@@ -2890,9 +2890,12 @@ packages:
   '@percy/dom@1.32.11':
     resolution: {integrity: sha512-COyiNn9K+VMVgnYe18Mr2ap05GhaMnYYLMW7aQc30h+8QzxhnLfejlvp8Wt3bG2j06/ZCoVFQLtrlXeEZvodPw==}
 
-  '@percy/ember@5.0.2':
-    resolution: {integrity: sha512-KVszb1zj5cG9SAYORyt4/MLjaxvTZl1EKHWHNeEGIG43Kq6Z3ZWGxNXA2KZjYBhytG3ZiHyZfCZN+BXcH8R5OQ==}
+  '@percy/ember@https://codeload.github.com/ijlee2/percy-ember/tar.gz/c42f9793a99386edca27496194e94b8e07a17e73':
+    resolution: {gitHosted: true, integrity: sha512-ITKS2yn+zvYtW7HAkMpfE/Dd3rxvPTzGJ0lWIrlNx4wddaY+hf/nTZKf084O/900loWfP9f36YgCIyyXR9i4HQ==, tarball: https://codeload.github.com/ijlee2/percy-ember/tar.gz/c42f9793a99386edca27496194e94b8e07a17e73}
+    version: 5.0.2
     engines: {node: '>= 16'}
+    peerDependencies:
+      '@ember/test-helpers': ^5.0.0
 
   '@percy/env@1.32.11':
     resolution: {integrity: sha512-BNoClU5dbKboxiXDyLCDSD24RpQiHjnP6N5L6kbC3xb/PYI7NB/CXO7wsG4V5+xRvXxNVm1GZV8E28+Q1cDfOg==}
@@ -12871,16 +12874,13 @@ snapshots:
 
   '@percy/dom@1.32.11': {}
 
-  '@percy/ember@5.0.2(@babel/core@8.0.6)(@glint/template@1.9.0)(supports-color@10.2.2)':
+  '@percy/ember@https://codeload.github.com/ijlee2/percy-ember/tar.gz/c42f9793a99386edca27496194e94b8e07a17e73(@ember/test-helpers@5.5.1(@babel/core@8.0.6)(supports-color@10.2.2))(supports-color@10.2.2)':
     dependencies:
+      '@ember/test-helpers': 5.5.1(@babel/core@8.0.6)(supports-color@10.2.2)
+      '@embroider/addon-shim': 1.10.3(supports-color@10.2.2)
       '@percy/sdk-utils': 1.32.11(supports-color@10.2.2)
-      ember-auto-import: 2.13.1(@glint/template@1.9.0)(supports-color@10.2.2)(webpack@5.111.1(clean-css@5.3.3)(cssnano@5.1.15(postcss@8.5.28))(csso@5.0.5)(lightningcss@1.33.0)(postcss@8.5.28)(svgo@4.1.0)(uglify-js@3.19.3))
-      ember-cli-babel: 8.3.2(@babel/core@8.0.6)(supports-color@10.2.2)
     transitivePeerDependencies:
-      - '@babel/core'
-      - '@glint/template'
       - supports-color
-      - webpack
 
   '@percy/env@1.32.11':
     dependencies:
