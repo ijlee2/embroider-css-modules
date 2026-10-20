@@ -12,7 +12,7 @@ export function replaceTemplateOnlyComponent(file: string, data: Data): string {
 
   const ast = AST.traverse(file, {
     visitCallExpression(path) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line typescript/no-unsafe-member-access
       if (path.value.callee.name !== 'templateOnlyComponent') {
         return false;
       }
@@ -20,7 +20,7 @@ export function replaceTemplateOnlyComponent(file: string, data: Data): string {
       const superClass = AST.builders.identifier('Component');
 
       if (data.isTypeScript) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+        // oxlint-disable-next-line typescript/no-unsafe-assignment, typescript/no-unsafe-member-access
         superClass.typeAnnotation = path.value.typeParameters;
       }
 
@@ -37,18 +37,18 @@ export function replaceTemplateOnlyComponent(file: string, data: Data): string {
     },
 
     visitImportDeclaration(path) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line typescript/no-unsafe-member-access
       if (path.value.source.value !== '@ember/component/template-only') {
         return false;
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line typescript/no-unsafe-assignment, typescript/no-unsafe-call, typescript/no-unsafe-member-access
       const defaultImport = path.value.specifiers.find(
         (specifier: { type: string }) =>
           specifier.type === 'ImportDefaultSpecifier',
       );
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line typescript/no-unsafe-member-access
       if (defaultImport?.local?.name !== 'templateOnlyComponent') {
         return false;
       }

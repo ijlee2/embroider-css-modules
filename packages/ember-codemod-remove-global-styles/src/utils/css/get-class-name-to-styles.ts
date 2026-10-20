@@ -76,7 +76,7 @@ export function getClassNameToStyles(file: string): ClassNameToStyles {
   const plugins: Plugin[] = [
     {
       postcssPlugin: 'postcss-get-class-name-to-styles',
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+      // oxlint-disable-next-line typescript/explicit-function-return-type
       prepare() {
         return {
           Rule(node): void {
@@ -121,7 +121,7 @@ export function getClassNameToStyles(file: string): ClassNameToStyles {
     },
   ];
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+  // oxlint-disable-next-line typescript/no-unused-expressions
   postcss(plugins).process(file).css;
 
   return classNameToStyles;

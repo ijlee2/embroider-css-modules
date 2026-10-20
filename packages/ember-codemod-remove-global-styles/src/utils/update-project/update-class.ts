@@ -26,7 +26,7 @@ export function updateClass(
   templateFilePath: string,
   options: Options,
 ): Output {
-  // eslint-disable-next-line prefer-const
+  // oxlint-disable-next-line eslint/prefer-const
   let { classFile, classFilePath } = getClassFile(templateFilePath, options);
 
   const { ext, name } = parseFilePath(classFilePath);

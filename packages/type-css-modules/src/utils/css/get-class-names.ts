@@ -53,7 +53,7 @@ export function getClassNames(filePath: string, options: Options): string[] {
   const plugins: Plugin[] = [
     {
       postcssPlugin: 'postcss-get-class-names',
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+      // oxlint-disable-next-line typescript/explicit-function-return-type
       prepare() {
         return {
           Rule(node): void {
@@ -64,7 +64,7 @@ export function getClassNames(filePath: string, options: Options): string[] {
     },
   ];
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+  // oxlint-disable-next-line typescript/no-unused-expressions
   postcss(plugins).process(file).css;
 
   return Array.from(new Set(classNames)).sort();

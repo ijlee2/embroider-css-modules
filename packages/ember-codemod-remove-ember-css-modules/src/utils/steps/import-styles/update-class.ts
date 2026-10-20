@@ -91,7 +91,7 @@ function importStylesInClass(file: string, data: Data): string {
       if (!lastImportDeclarationPath) {
         lastImportDeclarationPath = path;
         // @ts-expect-error: Incorrect type
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        // oxlint-disable-next-line typescript/no-unsafe-member-access
       } else if (path.node.start > lastImportDeclarationPath.node.start) {
         lastImportDeclarationPath = path;
       }
@@ -102,13 +102,13 @@ function importStylesInClass(file: string, data: Data): string {
 
   // Append the styles import
   // @ts-expect-error: Incorrect type
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+  // oxlint-disable-next-line typescript/no-unsafe-assignment, typescript/no-unsafe-member-access
   const nodes = ast.program.body;
   // @ts-expect-error: Incorrect type
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  // oxlint-disable-next-line typescript/no-unsafe-assignment
   const index = lastImportDeclarationPath?.name ?? -1;
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+  // oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
   nodes.splice(
     index + 1,
     0,
