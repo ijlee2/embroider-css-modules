@@ -1,5 +1,13 @@
 # ember-codemod-remove-ember-css-modules
 
+## 4.1.7
+
+### Patch Changes
+
+- [#269](https://github.com/ijlee2/embroider-css-modules/pull/269) Replaced eslint with oxlint ([@ijlee2](https://github.com/ijlee2))
+- [#268](https://github.com/ijlee2/embroider-css-modules/pull/268) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#267](https://github.com/ijlee2/embroider-css-modules/pull/267) Introduced trusted publishing ([@ijlee2](https://github.com/ijlee2))
+
 ## 4.1.6
 
 ### Patch Changes

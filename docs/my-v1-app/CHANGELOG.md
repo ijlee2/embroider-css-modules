@@ -1,5 +1,16 @@
 # my-v1-app
 
+## 1.3.0
+
+### Minor Changes
+
+- [#265](https://github.com/ijlee2/embroider-css-modules/pull/265) Installed ember-testem ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#268](https://github.com/ijlee2/embroider-css-modules/pull/268) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#264](https://github.com/ijlee2/embroider-css-modules/pull/264) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.2.4
 
 ### Patch Changes

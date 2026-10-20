@@ -1,5 +1,13 @@
 # ember-codemod-remove-global-styles
 
+## 0.13.8
+
+### Patch Changes
+
+- [#269](https://github.com/ijlee2/embroider-css-modules/pull/269) Replaced eslint with oxlint ([@ijlee2](https://github.com/ijlee2))
+- [#268](https://github.com/ijlee2/embroider-css-modules/pull/268) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#267](https://github.com/ijlee2/embroider-css-modules/pull/267) Introduced trusted publishing ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.13.7
 
 ### Patch Changes

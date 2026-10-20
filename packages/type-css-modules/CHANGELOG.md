@@ -1,5 +1,13 @@
 # type-css-modules
 
+## 3.2.13
+
+### Patch Changes
+
+- [#269](https://github.com/ijlee2/embroider-css-modules/pull/269) Replaced eslint with oxlint ([@ijlee2](https://github.com/ijlee2))
+- [#268](https://github.com/ijlee2/embroider-css-modules/pull/268) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#267](https://github.com/ijlee2/embroider-css-modules/pull/267) Introduced trusted publishing ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.2.12
 
 ### Patch Changes
