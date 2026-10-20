@@ -126,7 +126,7 @@ function removeLocalClassHelpers(file: string): string {
     path: ConcatStatement | MustacheStatement | SubExpression | TextNode,
   ): boolean {
     // @ts-expect-error: Incorrect type
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    // oxlint-disable-next-line typescript/no-unsafe-assignment, typescript/no-unsafe-call, typescript/no-unsafe-member-access
     const hasFromArgument = path.hash.pairs.some((pair) => pair.key === 'from');
 
     if (hasFromArgument) {
@@ -136,19 +136,19 @@ function removeLocalClassHelpers(file: string): string {
     }
 
     // @ts-expect-error: Incorrect type
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+    // oxlint-disable-next-line typescript/no-unsafe-assignment, typescript/no-unsafe-member-access
     const param = path.params[0]!;
 
     if (param === undefined) {
       return true;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    // oxlint-disable-next-line typescript/no-unsafe-member-access
     if (param.type !== 'StringLiteral') {
       return false;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    // oxlint-disable-next-line typescript/no-unsafe-assignment, typescript/no-unsafe-call, typescript/no-unsafe-member-access
     const value = param.value.trim();
 
     return value === '';
@@ -175,21 +175,21 @@ function removeLocalClassHelpers(file: string): string {
       }
 
       // @ts-expect-error: Incorrect type
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line typescript/no-unsafe-assignment, typescript/no-unsafe-member-access
       const param = node.value.params[0]!;
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line typescript/no-unsafe-member-access
       if (param.type !== 'StringLiteral') {
         return;
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line typescript/no-unsafe-assignment, typescript/no-unsafe-call, typescript/no-unsafe-member-access
       const localClassNames = param.value.trim().split(/\s+/);
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line typescript/no-unsafe-member-access
       if (localClassNames.length === 1) {
         node.value = AST.builders.mustache(
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          // oxlint-disable-next-line typescript/no-unsafe-member-access
           AST.builders.path(`this.styles.${localClassNames[0]!}`),
         );
 
@@ -198,7 +198,7 @@ function removeLocalClassHelpers(file: string): string {
 
       node.value = AST.builders.mustache(AST.builders.path('local'), [
         AST.builders.path('this.styles'),
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+        // oxlint-disable-next-line typescript/no-unsafe-assignment, typescript/no-unsafe-call, typescript/no-unsafe-member-access
         ...localClassNames.map(AST.builders.string),
       ]);
 

@@ -1,1 +1,1 @@
-export { default } from '@shared-configs/eslint-config-node/javascript';
+export { default } from '@ijlee2-frontend-configs/eslint-config-node/typescript';
