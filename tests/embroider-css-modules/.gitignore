@@ -1,5 +1,4 @@
 # compiled output
-/declarations/
 /dist/
 /tmp/
 
@@ -10,7 +9,6 @@
 /.env*
 /.pnp*
 /.eslintcache
-/.pnpm-debug.log
 /.stylelintcache
 /testem.log
 
