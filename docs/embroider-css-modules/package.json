@@ -52,12 +52,12 @@
     "@embroider/macros": "^1.21.3",
     "@embroider/router": "^3.0.6",
     "@embroider/vite": "^1.7.15",
-    "@glimmer/component": "^2.1.1",
+    "@glimmer/component": "^2.2.0",
     "@glimmer/tracking": "^1.1.2",
-    "@glint/ember-tsc": "^1.13.1",
+    "@glint/ember-tsc": "^1.14.1",
     "@glint/template": "^1.11.0",
-    "@glint/tsserver-plugin": "^2.7.12",
-    "@percy/cli": "^1.32.11",
+    "@glint/tsserver-plugin": "^2.7.14",
+    "@percy/cli": "^1.32.12",
     "@percy/ember": "github:ijlee2/percy-ember#convert-to-v2-addon",
     "@rollup/plugin-babel": "^7.1.0",
     "@shared-configs/eslint-config-ember": "workspace:*",
@@ -79,7 +79,7 @@
     "ember-a11y-testing": "^8.0.1",
     "ember-cli": "~7.3.0",
     "ember-cli-htmlbars": "^7.0.1",
-    "ember-container-query": "^7.1.5",
+    "ember-container-query": "^7.1.6",
     "ember-load-initializers": "^3.0.1",
     "ember-modifier": "^4.3.0",
     "ember-page-title": "^9.0.3",
@@ -101,7 +101,7 @@
     "stylelint": "^17.16.0",
     "type-css-modules": "workspace:*",
     "typescript": "^6.0.3",
-    "vite": "^8.3.4"
+    "vite": "^8.3.5"
   },
   "engines": {
     "node": "22.* || >= 24"

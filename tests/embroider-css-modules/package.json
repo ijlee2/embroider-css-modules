@@ -49,11 +49,11 @@
     "@embroider/core": "^4.6.9",
     "@embroider/router": "^3.0.6",
     "@embroider/vite": "^1.7.15",
-    "@glimmer/component": "^2.1.1",
+    "@glimmer/component": "^2.2.0",
     "@glimmer/tracking": "^1.1.2",
-    "@glint/ember-tsc": "^1.13.1",
+    "@glint/ember-tsc": "^1.14.1",
     "@glint/template": "^1.11.0",
-    "@glint/tsserver-plugin": "^2.7.12",
+    "@glint/tsserver-plugin": "^2.7.14",
     "@rollup/plugin-babel": "^7.1.0",
     "@shared-configs/eslint-config-ember": "workspace:*",
     "@shared-configs/prettier": "workspace:*",
@@ -82,7 +82,7 @@
     "strip-test-selectors": "^0.1.0",
     "stylelint": "^17.16.0",
     "typescript": "^6.0.3",
-    "vite": "^8.3.4"
+    "vite": "^8.3.5"
   },
   "engines": {
     "node": "22.* || >= 24"
