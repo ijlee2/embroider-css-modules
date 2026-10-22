@@ -1,5 +1,11 @@
 # ember-codemod-remove-ember-css-modules
 
+## 4.1.8
+
+### Patch Changes
+
+- [#270](https://github.com/ijlee2/embroider-css-modules/pull/270) Updated @codemod-utils/ast-template to 4.1.3 (@glimmer/syntax to 0.97.0) ([@ijlee2](https://github.com/ijlee2))
+
 ## 4.1.7
 
 ### Patch Changes
