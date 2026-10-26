@@ -1,5 +1,11 @@
 # embroider-css-modules
 
+## 4.1.6
+
+### Patch Changes
+
+- [#271](https://github.com/ijlee2/embroider-css-modules/pull/271) Updated @embroider/addon-shim to 1.11.0 ([@ijlee2](https://github.com/ijlee2))
+
 ## 4.1.5
 
 ### Patch Changes
