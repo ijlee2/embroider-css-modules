@@ -32,6 +32,7 @@ packages:
   - "tests/**"
 
 publicHoistPattern:
+  - "@tsconfig/*"
   - "*eslint*"
   - "*prettier*"
   - "*stylelint*"
