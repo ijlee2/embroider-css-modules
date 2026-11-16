@@ -1,5 +1,12 @@
 # type-css-modules
 
+## 3.2.14
+
+### Patch Changes
+
+- [#273](https://github.com/ijlee2/embroider-css-modules/pull/273) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#272](https://github.com/ijlee2/embroider-css-modules/pull/272) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.2.13
 
 ### Patch Changes
