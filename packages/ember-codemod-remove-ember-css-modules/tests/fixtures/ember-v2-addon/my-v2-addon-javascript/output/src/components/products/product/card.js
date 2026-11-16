@@ -7,5 +7,6 @@ export default class ProductsProductCardComponent extends Component.extend({
   // ...
 
 }) {
+  // ...
   styles = styles;
 }

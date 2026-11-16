@@ -12,5 +12,6 @@ interface ProductsProductCardSignature {
 }
 
 export default class ProductsProductCardComponent extends Component<ProductsProductCardSignature> {
+  // ...
   styles = styles;
 }
